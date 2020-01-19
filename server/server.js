@@ -7,12 +7,12 @@ const bodyParser = require("body-parser");
 const path = require("path");
 
 const app = express();
-app.use(express.static(path.join(__dirname, "build")));
+app.use(express.static(path.join(__dirname, "../build")));
 
 app.options("*", cors());
 app.use(
   cors({
-    origin: "http://localhost:3000"
+    origin: "http://localhost"
   })
 );
 
@@ -33,11 +33,9 @@ app.post("/api/rpc", async (req, res) => {
 });
 
 app.get("/", function(_req, res) {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
+  res.sendFile(path.join(__dirname, "../build", "index.html"));
 });
 
-app.listen(process.env.SERVER_PORT || 8080);
+app.listen(process.env.SERVER_PORT);
 
-console.log(
-  `Server started on http://localhost:${process.env.SERVER_PORT || 8080}`
-);
+console.log(`Server started on http://localhost:${process.env.SERVER_PORT}`);

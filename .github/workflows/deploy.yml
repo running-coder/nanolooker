@@ -28,4 +28,4 @@ jobs:
         USERNAME: ${{ secrets.DO_USERNAME }}
         PORT: ${{ secrets.DO_PORT }}
         KEY: ${{ secrets.DO_SSHKEY }}
-        script: cat /var/www/www.nanolooker.com/README.md
+        script: cd /var/www/www.nanolooker.com/ && yarn && yarn build && yarn start:server

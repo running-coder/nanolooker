@@ -1,14 +1,10 @@
-// import dotenv from "dotenv";
-
-// dotenv.config();
-
 // @TODO complete the RPC types...
 export const rpc = async (action: string, params?: any) => {
   let res;
   let json;
 
   try {
-    res = await fetch(`http://localhost:8080/api/rpc`, {
+    res = await fetch(`/api/rpc`, {
       method: "POST",
       headers: {
         Accept: "application/json",
