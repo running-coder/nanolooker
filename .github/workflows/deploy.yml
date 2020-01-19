@@ -1,0 +1,31 @@
+name: Deploy
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Copy file via scp
+      uses: appleboy/scp-action@master
+      env:
+        HOST: ${{ secrets.DO_HOST }}
+        USERNAME: ${{ secrets.DO_USERNAME }}
+        PORT: ${{ secrets.DO_PORT }}
+        KEY: ${{ secrets.DO_SSHKEY }}
+      with:
+        source: "."
+        target: "/var/www/www.nanolooker.com"
+
+    - name: Executing serve
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.DO_HOST }}
+        USERNAME: ${{ secrets.DO_USERNAME }}
+        PORT: ${{ secrets.DO_PORT }}
+        KEY: ${{ secrets.DO_SSHKEY }}
+        script: cat /var/www/www.nanolooker.com/README.md
