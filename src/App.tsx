@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, Typography, Row, Col } from "antd";
+import { Layout, Typography, Row, Col, Icon } from "antd";
 import BlockCount from "components/BlockCount";
 import ActiveDifficulty from "components/ActiveDifficulty";
 import Stats from "components/Stats";
@@ -32,7 +32,14 @@ const App: React.FC = () => {
         </Row>
       </Content>
       <Footer style={{ textAlign: "center" }}>
-        Nano Looker ©2020 Created by RunningCoder
+        <a
+          href="https://github.com/running-coder/nanolooker"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <Icon type="github" /> Nano Looker
+        </a>{" "}
+        ©2020 Created by RunningCoder
       </Footer>
     </Layout>
   );

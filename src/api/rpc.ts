@@ -4,7 +4,7 @@ export const rpc = async (action: string, params?: any) => {
   let json;
 
   try {
-    res = await fetch(`/api/rpc`, {
+    res = await fetch(`${process.env.REACT_APP_RPC_PROXY || ""}/api/rpc`, {
       method: "POST",
       headers: {
         Accept: "application/json",

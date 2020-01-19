@@ -1,7 +1,5 @@
 const fetch = require("node-fetch");
 
-const serverAddress = `http://${process.env.NANO_RPC_IP}:${process.env.NANO_RPC_PORT}`;
-
 const allowedRpcMethods = [
   "block_count",
   "active_difficulty",
@@ -17,7 +15,7 @@ const rpc = async (action, params) => {
   let json;
 
   try {
-    res = await fetch(serverAddress, {
+    res = await fetch(process.env.RPC_DOMAIN, {
       method: "POST",
       body: JSON.stringify({
         jsonrpc: "2.0",
