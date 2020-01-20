@@ -8,12 +8,11 @@ const path = require("path");
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, "../build")));
+app.use(express.static(path.join(__dirname, "../dist")));
 
-app.options("*", cors());
 app.use(
   cors({
-    origin: process.env.RPC_ALLOWED_DOMAIN
+    origin: true
   })
 );
 
@@ -33,8 +32,8 @@ app.post("/api/rpc", async (req, res) => {
   return res.send(result);
 });
 
-app.get("/", function(_req, res) {
-  res.sendFile(path.join(__dirname, "../build", "index.html"));
+app.get("*", (_req, res) => {
+  res.sendFile(path.join(__dirname, "../dist", "index.html"));
 });
 
 app.listen(process.env.SERVER_PORT);

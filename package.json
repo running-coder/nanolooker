@@ -24,10 +24,11 @@
   "scripts": {
     "start": "react-scripts start",
     "start:server": "nodemon server/server.js",
-    "build": "react-scripts build",
+    "build": "react-scripts build && rm -rf dist && mv build dist",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:3010",
   "eslintConfig": {
     "extends": "react-app"
   },
