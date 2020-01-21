@@ -1,0 +1,14 @@
+.tooltip-sm .ant-tooltip-inner {
+  font-size: 12px;
+  min-height: 24px;
+  padding: 3px 8px;
+  background-color: #464a51;
+}
+
+.tooltip-sm .ant-tooltip-arrow::before {
+  background-color: #464a51;
+}
+
+.ant-menu-horizontal {
+  line-height: 64px !important;
+}

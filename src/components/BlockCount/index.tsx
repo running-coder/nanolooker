@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card, Statistic, Skeleton } from "antd";
+import { Button, Card, Statistic, Skeleton, Tooltip } from "antd";
 import useBlockCount, { UseBlockCountReturn } from "./hooks/use-block-count";
 import { refreshActionDelay } from "components/utils";
 
@@ -35,15 +35,18 @@ const BlockCount: React.FunctionComponent = () => {
 
   return (
     <Card
+      size="small"
       title="Block Count"
       extra={
-        <Button
-          type="primary"
-          icon="reload"
-          size="small"
-          onClick={refreshBlockCount}
-          loading={isLoading}
-        />
+        <Tooltip title="Reload" overlayClassName="tooltip-sm">
+          <Button
+            type="primary"
+            icon="reload"
+            size="small"
+            onClick={refreshBlockCount}
+            loading={isLoading}
+          />
+        </Tooltip>
       }
     >
       <Skeleton active loading={!count}>

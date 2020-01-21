@@ -7,7 +7,8 @@ const allowedRpcMethods = [
   "peers",
   "version",
   "available_supply",
-  "frontier_count"
+  "frontier_count",
+  "confirmation_quorum"
 ];
 
 const rpc = async (action, params) => {

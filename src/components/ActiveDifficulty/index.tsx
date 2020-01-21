@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card, Statistic, Skeleton } from "antd";
+import { Button, Card, Statistic, Skeleton, Tooltip } from "antd";
 
 import useActiveDifficulty, {
   UseActiveDifficultyReturn
@@ -24,15 +24,18 @@ const ActiveDifficulty: React.FunctionComponent = () => {
 
   return (
     <Card
+      size="small"
       title="Active Difficulty"
       extra={
-        <Button
-          type="primary"
-          icon="reload"
-          size="small"
-          onClick={refreshActiveDifficulty}
-          loading={isLoading}
-        />
+        <Tooltip title="Reload" overlayClassName="tooltip-sm">
+          <Button
+            type="primary"
+            icon="reload"
+            size="small"
+            onClick={refreshActiveDifficulty}
+            loading={isLoading}
+          />
+        </Tooltip>
       }
     >
       <Skeleton active loading={!network_current}>
