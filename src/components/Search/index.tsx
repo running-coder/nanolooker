@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { Dropdown, Icon, Input, Menu } from "antd";
 import { rpc } from "api/rpc";
 import { isValidPublicAddress } from "components/utils";
@@ -10,18 +11,22 @@ const { Search: SearchAnt } = Input;
 
 const Search = () => {
   const [searchHistory, setSearchHistory] = React.useState([
-    "1fnx59bqpx11s1yn7i5hba3ot5no4ypy971zbkp5wtium3yyafpwhhwkq8fc",
-    "15o9qondgphdtygg17trpsrp5q8a1fcui573s33xsgysidwqxzgxkoj34sf4",
+    "nano_1fnx59bqpx11s1yn7i5hba3ot5no4ypy971zbkp5wtium3yyafpwhhwkq8fc",
+    "nano_15o9qondgphdtygg17trpsrp5q8a1fcui573s33xsgysidwqxzgxkoj34sf4",
     "214421D1FC77C3D0BA6BB2B9AD6773415F31877592C39E0A614838ACD44A2903",
-    "1wywzjphxagfb417ukdkteaqpsyad357n4zifti9eie8f1n14cwtm8s7ghuo"
+    "nano_1wywzjphxagfb417ukdkteaqpsyad357n4zifti9eie8f1n14cwtm8s7ghuo"
   ]);
   const [isLoading, setIsLoading] = React.useState(false);
   const [isExpanded, setIsExpanded] = React.useState(false);
   const [isError, setIsError] = React.useState(false);
   const { searchValue, setSearchValue, setSearchType } = useSearch();
 
+  let history = useHistory();
+
   const searchPublicAddress = async (value: string) => {
     setIsLoading(true);
+
+    history.push(`/account/${value}`);
     const json =
       (await rpc("account_history", {
         account: value,
@@ -33,24 +38,21 @@ const Search = () => {
     console.log("~~~~json", json);
   };
 
-  const onHandleChange = (e: any) => {
-    const { value } = e.target;
+  const validateSearch = React.useCallback((value: any) => {
+    const isValidAccount = value && isValidPublicAddress(value);
 
-    setSearchValue(value);
-    onHandleSearch(value);
-  };
-
-  const onHandleSearch = (value: string) => {
-    const isValidAddressSearch = isValidPublicAddress(value);
-
-    if (isValidAddressSearch) {
-      setSearchValue(value);
+    if (isValidAccount) {
       setSearchType(SearchType.ACCOUNT);
       searchPublicAddress(value);
     }
 
-    setIsError(!!value && !isValidAddressSearch);
-  };
+    setIsError(!!value && !isValidAccount);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  React.useEffect(() => {
+    validateSearch(searchValue);
+  }, [searchValue, validateSearch]);
 
   return (
     <SearchAnt
@@ -67,6 +69,7 @@ const Search = () => {
       value={searchValue}
       suffix={
         <Dropdown
+          key="search-history-dropdown"
           overlay={
             <Menu>
               {!searchHistory.length ? (
@@ -87,9 +90,9 @@ const Search = () => {
                       <DeleteHistory
                         onClick={(e: Event) => {
                           e.stopPropagation();
-                          setSearchHistory(
-                            searchHistory.filter(h => h !== history)
-                          );
+                          // setSearchHistory(
+                          //   searchHistory.filter(h => h !== history)
+                          // );
                         }}
                       />
                     </div>
@@ -109,8 +112,11 @@ const Search = () => {
       placeholder="Search by Address / Txhash / Block"
       onFocus={() => setIsExpanded(true)}
       onBlur={() => setIsExpanded(false)}
-      onChange={onHandleChange}
-      onSearch={onHandleSearch}
+      onChange={(e: any) => {
+        const { value } = e.target;
+        setSearchValue(value);
+      }}
+      onSearch={value => setSearchValue(value)}
     />
   );
 };

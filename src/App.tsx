@@ -5,6 +5,7 @@ import { Col, Icon, Layout, Menu, Row } from "antd";
 
 import HomePage from "pages/Home";
 import ExplorePage from "pages/Explore";
+import AccountPage from "pages/Account";
 import NewsPage from "pages/News";
 import StatisticsPage from "pages/Statistics";
 import StatusPage from "pages/Status";
@@ -80,8 +81,9 @@ const App: React.FC = props => {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/explore" component={ExplorePage} />
+          <Route path="/account/:account?" component={AccountPage} />
           <Route path="/news" component={NewsPage} />
-          <Route path="/statistics" component={StatisticsPage} />
+          <Route path="/statistics/" component={StatisticsPage} />
           <Route path="/status" component={StatusPage} />
         </Switch>
       </Content>
