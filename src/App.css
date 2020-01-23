@@ -12,3 +12,15 @@
 .ant-menu-horizontal {
   line-height: 64px !important;
 }
+
+.ant-input-search {
+  transition: all 0.25s ease-in-out !important;
+}
+
+.ant-input-search input {
+  padding-right: 82px !important;
+}
+
+/* .ant-menu-item {
+  padding: 0 10px !important;
+} */

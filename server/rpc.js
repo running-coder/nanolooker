@@ -8,7 +8,8 @@ const allowedRpcMethods = [
   "version",
   "available_supply",
   "frontier_count",
-  "confirmation_quorum"
+  // "confirmation_quorum", // @NOTE experiment w/
+  "account_history"
 ];
 
 const rpc = async (action, params) => {
@@ -16,13 +17,15 @@ const rpc = async (action, params) => {
   let json;
 
   try {
+    const body = JSON.stringify({
+      jsonrpc: "2.0",
+      action,
+      ...params
+    });
+
     res = await fetch(process.env.RPC_DOMAIN, {
       method: "POST",
-      body: JSON.stringify({
-        jsonrpc: "2.0",
-        action,
-        ...params
-      })
+      body
     });
 
     json = await res.json();

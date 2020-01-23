@@ -1,67 +1,86 @@
 import React from "react";
-import { useParams, useLocation, useRouteMatch } from "react-router";
+// import { useParams, useLocation, useRouteMatch } from "react-router";
 import { Route, Switch, Link } from "react-router-dom";
-import { Icon, Input, Layout, Menu, Typography } from "antd";
+import { Col, Icon, Layout, Menu, Row } from "antd";
 
 import HomePage from "pages/Home";
+import ExplorePage from "pages/Explore";
+import NewsPage from "pages/News";
 import StatisticsPage from "pages/Statistics";
 import StatusPage from "pages/Status";
+
+import Search from "components/Search";
 
 import "./App.css";
 import "antd/dist/antd.css";
 
-const { Title } = Typography;
 const { Header, Content, Footer } = Layout;
-const { Search } = Input;
+
 //
 const App: React.FC = props => {
   // const { match, location, history } = useRouter();
 
-  console.log(useParams());
-  console.log(useLocation());
-  console.log(useRouteMatch());
+  // console.log(useParams());
+  // console.log(useLocation());
+  // console.log(useRouteMatch());
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Header
         style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          backgroundColor: "white"
+          position: "relative",
+          backgroundColor: "white",
+          padding: "0 20px",
+          width: "100%",
+          height: "auto"
         }}
       >
-        <Link to="/">
-          <Title level={2} style={{ margin: 0 }}>
-            Nano Looker
-          </Title>
-        </Link>
+        <Row gutter={[16, 0]} type="flex" style={{ width: "100%" }}>
+          <Col xs={{ span: 6 }} md={{ span: 4 }} order={1}>
+            <Link to="/" style={{ whiteSpace: "nowrap", marginRight: "10px" }}>
+              Nano Looker
+            </Link>
+          </Col>
 
-        <Menu onClick={() => {}} selectedKeys={[]} mode="horizontal">
-          <Menu.Item key="statistics">
-            <Icon type="line-chart" />
-            Statistics
-            <Link to="/statistics" />
-          </Menu.Item>
+          <Col xs={{ span: 24, order: 3 }} md={{ span: 12, order: 2 }}>
+            <Menu onClick={() => {}} selectedKeys={[]} mode="horizontal">
+              <Menu.Item key="explore">
+                <Icon type="apartment" />
+                Explore
+                <Link to="/explore" />
+              </Menu.Item>
+              <Menu.Item key="news">
+                <Icon type="calendar" />
+                News
+                <Link to="/news" />
+              </Menu.Item>
+              <Menu.Item key="statistics">
+                <Icon type="line-chart" />
+                Statistics
+                <Link to="/statistics" />
+              </Menu.Item>
+              <Menu.Item key="status">
+                <Icon type="database" />
+                Node Status
+                <Link to="/status" />
+              </Menu.Item>
+            </Menu>
+          </Col>
 
-          <Menu.Item key="status">
-            <Icon type="database" />
-            Node Status
-            <Link to="/status" />
-          </Menu.Item>
-        </Menu>
-
-        <Search
-          style={{ maxWidth: "400px" }}
-          size="large"
-          placeholder="Search by Address / Txhash / Block"
-          onSearch={value => console.log(value)}
-          enterButton
-        />
+          <Col
+            xs={{ span: 18, order: 2 }}
+            md={{ span: 8, order: 3 }}
+            style={{ textAlign: "right" }}
+          >
+            <Search />
+          </Col>
+        </Row>
       </Header>
       <Content style={{ padding: "20px" }}>
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route path="/explore" component={ExplorePage} />
+          <Route path="/news" component={NewsPage} />
           <Route path="/statistics" component={StatisticsPage} />
           <Route path="/status" component={StatusPage} />
         </Switch>

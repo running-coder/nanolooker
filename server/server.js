@@ -19,7 +19,7 @@ app.use(
 app.use(bodyParser.json());
 
 app.post("/api/rpc", async (req, res) => {
-  const { action } = req.body || {};
+  const { action, ...params } = req.body || {};
 
   if (!action) {
     return res.status(422).send("Missing action");
@@ -27,7 +27,7 @@ app.post("/api/rpc", async (req, res) => {
     return res.status(422).send("RPC action not allowed");
   }
 
-  const result = await rpc(action);
+  const result = await rpc(action, params);
 
   return res.send(result);
 });

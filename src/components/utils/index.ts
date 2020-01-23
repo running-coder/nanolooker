@@ -41,3 +41,12 @@ export const secondsToTime = (value: string | number) => {
     days ? `${days}d ` : ""
   }${hours}h ${minutes}m`;
 };
+
+export const formatPublicAddress = (address: string): string => {
+  const [, formattedAddress] = address.split("_");
+
+  return formattedAddress;
+};
+
+export const isValidPublicAddress = (address: string): boolean =>
+  /^((nano|xrb)_)?[0-9a-z]{60}$/.test(address);
