@@ -48,5 +48,8 @@ export const formatPublicAddress = (address: string): string => {
   return formattedAddress;
 };
 
-export const isValidPublicAddress = (address: string): boolean =>
+export const isValidAccountAddress = (address: string): boolean =>
   /^((nano|xrb)_)?[0-9a-z]{60}$/.test(address);
+
+export const isValidBlockHash = (address: string): boolean =>
+  /^[0-9A-F]{64}$/.test(address);

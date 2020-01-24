@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { Dropdown, Icon, Input, Menu } from "antd";
 import { rpc } from "api/rpc";
-import { isValidPublicAddress } from "components/utils";
+import { isValidAccountAddress, isValidBlockHash } from "components/utils";
 import DeleteHistory from "./DeleteHistory";
 
 import useSearch, { SearchType } from "./hooks/use-search";
@@ -24,8 +24,6 @@ const Search = () => {
   let history = useHistory();
 
   const searchPublicAddress = async (value: string) => {
-    setIsLoading(true);
-
     history.push(`/account/${value}`);
     const json =
       (await rpc("account_history", {
@@ -33,20 +31,44 @@ const Search = () => {
         count: "10"
       })) || {};
 
-    setIsLoading(false);
+    console.log("~~~~json", json);
+  };
+
+  const searchBlockHash = async (value: string) => {
+    history.push(`/block/${value}`);
+    const json =
+      (await rpc("block_info", {
+        json_block: "true",
+        hash: value
+      })) || {};
 
     console.log("~~~~json", json);
   };
 
-  const validateSearch = React.useCallback((value: any) => {
-    const isValidAccount = value && isValidPublicAddress(value);
+  const validateSearch = React.useCallback(async (value: any) => {
+    if (!value) {
+      setIsError(false);
+    } else {
+      const isValidAccount = isValidAccountAddress(value);
+      const isValidBlock = isValidBlockHash(value);
 
-    if (isValidAccount) {
-      setSearchType(SearchType.ACCOUNT);
-      searchPublicAddress(value);
+      console.log("~~~isValidBlock", isValidBlock, value);
+
+      setIsError(!isValidAccount && !isValidBlock);
+
+      if (isValidAccount || isValidBlock) {
+        setIsLoading(true);
+
+        if (isValidAccount) {
+          await searchPublicAddress(value);
+        } else if (isValidBlock) {
+          await searchBlockHash(value);
+        }
+
+        setIsLoading(false);
+      }
     }
 
-    setIsError(!!value && !isValidAccount);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -83,16 +105,16 @@ const Search = () => {
                     <div style={{ display: "flex", alignItems: "center" }}>
                       <Icon
                         type={
-                          isValidPublicAddress(history) ? "wallet" : "block"
+                          isValidAccountAddress(history) ? "wallet" : "block"
                         }
                       />
                       <div style={{ margin: "0 6px" }}>{history}</div>
                       <DeleteHistory
                         onClick={(e: Event) => {
                           e.stopPropagation();
-                          // setSearchHistory(
-                          //   searchHistory.filter(h => h !== history)
-                          // );
+                          setSearchHistory(
+                            searchHistory.filter(h => h !== history)
+                          );
                         }}
                       />
                     </div>
@@ -116,7 +138,10 @@ const Search = () => {
         const { value } = e.target;
         setSearchValue(value);
       }}
-      onSearch={value => setSearchValue(value)}
+      onSearch={value => {
+        // @TODO force search... if not on result page
+        setSearchValue(value);
+      }}
     />
   );
 };
