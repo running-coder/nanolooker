@@ -9,6 +9,7 @@ const allowedRpcMethods = [
   "available_supply",
   "frontier_count",
   // "confirmation_quorum", // @NOTE experiment w/
+  "account_info",
   "account_history",
   "block_info"
 ];

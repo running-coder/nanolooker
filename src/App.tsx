@@ -12,6 +12,7 @@ import StatisticsPage from "pages/Statistics";
 import StatusPage from "pages/Status";
 
 import Search from "components/Search";
+import Price from "components/Price";
 
 import "./App.css";
 import "antd/dist/antd.css";
@@ -38,10 +39,23 @@ const App: React.FC = props => {
         }}
       >
         <Row gutter={[16, 0]} type="flex" style={{ width: "100%" }}>
-          <Col xs={{ span: 6 }} md={{ span: 4 }} order={1}>
+          <Col
+            xs={{ span: 6 }}
+            md={{ span: 4 }}
+            order={1}
+            style={{
+              paddingTop: "6px",
+              paddingBottom: "6px",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between"
+            }}
+          >
             <Link to="/" style={{ whiteSpace: "nowrap", marginRight: "10px" }}>
               Nano Looker
             </Link>
+
+            <Price />
           </Col>
 
           <Col xs={{ span: 24, order: 3 }} md={{ span: 12, order: 2 }}>

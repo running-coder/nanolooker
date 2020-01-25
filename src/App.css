@@ -21,6 +21,6 @@
   padding-right: 82px !important;
 }
 
-/* .ant-menu-item {
-  padding: 0 10px !important;
-} */
+.ant-layout-header {
+  line-height: inherit !important;
+}

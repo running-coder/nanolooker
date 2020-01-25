@@ -1,80 +1,53 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { Dropdown, Icon, Input, Menu } from "antd";
-import { rpc } from "api/rpc";
 import { isValidAccountAddress, isValidBlockHash } from "components/utils";
 import DeleteHistory from "./DeleteHistory";
 
-import useSearch, { SearchType } from "./hooks/use-search";
+import useSearch from "./hooks/use-search";
+import useSearchHistory from "./hooks/use-search-history";
 
 const { Search: SearchAnt } = Input;
 
 const Search = () => {
-  const [searchHistory, setSearchHistory] = React.useState([
-    "nano_1fnx59bqpx11s1yn7i5hba3ot5no4ypy971zbkp5wtium3yyafpwhhwkq8fc",
-    "nano_15o9qondgphdtygg17trpsrp5q8a1fcui573s33xsgysidwqxzgxkoj34sf4",
-    "214421D1FC77C3D0BA6BB2B9AD6773415F31877592C39E0A614838ACD44A2903",
-    "nano_1wywzjphxagfb417ukdkteaqpsyad357n4zifti9eie8f1n14cwtm8s7ghuo"
-  ]);
-  const [isLoading, setIsLoading] = React.useState(false);
   const [isExpanded, setIsExpanded] = React.useState(false);
   const [isError, setIsError] = React.useState(false);
-  const { searchValue, setSearchValue, setSearchType } = useSearch();
+  const { searchValue, setSearchValue } = useSearch();
+  const {
+    searchHistory,
+    addSearchHistory,
+    removeSearchHistory
+  } = useSearchHistory();
 
   let history = useHistory();
 
-  const searchPublicAddress = async (value: string) => {
-    history.push(`/account/${value}`);
-    const json =
-      (await rpc("account_history", {
-        account: value,
-        count: "10"
-      })) || {};
+  const validateSearch = React.useCallback(
+    async (value: any) => {
+      if (!value) {
+        setIsError(false);
+      } else {
+        const isValidAccount = isValidAccountAddress(value);
+        const isValidBlock = isValidBlockHash(value);
 
-    console.log("~~~~json", json);
-  };
-
-  const searchBlockHash = async (value: string) => {
-    history.push(`/block/${value}`);
-    const json =
-      (await rpc("block_info", {
-        json_block: "true",
-        hash: value
-      })) || {};
-
-    console.log("~~~~json", json);
-  };
-
-  const validateSearch = React.useCallback(async (value: any) => {
-    if (!value) {
-      setIsError(false);
-    } else {
-      const isValidAccount = isValidAccountAddress(value);
-      const isValidBlock = isValidBlockHash(value);
-
-      console.log("~~~isValidBlock", isValidBlock, value);
-
-      setIsError(!isValidAccount && !isValidBlock);
-
-      if (isValidAccount || isValidBlock) {
-        setIsLoading(true);
+        setIsError(!isValidAccount && !isValidBlock);
 
         if (isValidAccount) {
-          await searchPublicAddress(value);
+          addSearchHistory(value);
+          history.push(`/account/${value}`);
         } else if (isValidBlock) {
-          await searchBlockHash(value);
+          addSearchHistory(value);
+          history.push(`/block/${value}`);
         }
-
-        setIsLoading(false);
       }
-    }
-
+    },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    [addSearchHistory]
+  );
 
   React.useEffect(() => {
     validateSearch(searchValue);
-  }, [searchValue, validateSearch]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchValue]);
 
   return (
     <SearchAnt
@@ -112,9 +85,7 @@ const Search = () => {
                       <DeleteHistory
                         onClick={(e: Event) => {
                           e.stopPropagation();
-                          setSearchHistory(
-                            searchHistory.filter(h => h !== history)
-                          );
+                          removeSearchHistory(history);
                         }}
                       />
                     </div>
@@ -130,7 +101,6 @@ const Search = () => {
       }
       className={isError ? "has-error" : ""}
       size="large"
-      loading={isLoading}
       placeholder="Search by Address / Txhash / Block"
       onFocus={() => setIsExpanded(true)}
       onBlur={() => setIsExpanded(false)}
@@ -139,8 +109,7 @@ const Search = () => {
         setSearchValue(value);
       }}
       onSearch={value => {
-        // @TODO force search... if not on result page
-        setSearchValue(value);
+        value !== searchValue ? setSearchValue(value) : validateSearch(value);
       }}
     />
   );
