@@ -1,8 +1,10 @@
 import React from "react";
-import { Icon } from "antd";
+import { Button, Icon, Tooltip } from "antd";
 import { useParams } from "react-router-dom";
+import CopyToClipboard from "react-copy-to-clipboard";
 import { rpc } from "api/rpc";
 import { rawToRai, colorizeAccountAddress } from "components/utils";
+import QRCodeModal from "components/QRCodeModal";
 import usePrice from "components/Price/hooks/use-price";
 
 interface AccountInfo {
@@ -16,11 +18,14 @@ interface AccountInfo {
   account_version: string;
 }
 
+let copiedTimeout: number | undefined;
+
 const AccountPage = () => {
   let { account } = useParams();
   const { usd } = usePrice();
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
   const [accountInfo, setAccountInfo] = React.useState<AccountInfo>();
+  const [isCopied, setIsCopied] = React.useState<boolean>(false);
 
   React.useEffect(() => {
     const getAccount = async () => {
@@ -43,13 +48,11 @@ const AccountPage = () => {
   return (
     <>
       {account ? (
-        // <div>
         <p
           style={{
             fontSize: "16px",
             marginRight: "6px",
             wordWrap: "break-word",
-            // paddingLeft: "30px",
             position: "relative"
           }}
         >
@@ -57,10 +60,51 @@ const AccountPage = () => {
             type="wallet"
             style={{ fontSize: "18px", marginRight: "6px", float: "left" }}
           />
-          {colorizeAccountAddress(account)}
+          <span style={{ marginRight: "6px" }}>
+            {colorizeAccountAddress(account)}
+          </span>
+          <Tooltip
+            title={isCopied ? "Copied!" : "Copy"}
+            overlayClassName="tooltip-sm"
+          >
+            <CopyToClipboard
+              text={account}
+              onCopy={() => {
+                setIsCopied(true);
+                clearTimeout(copiedTimeout);
+                copiedTimeout = window.setTimeout(() => {
+                  setIsCopied(false);
+                }, 2000);
+              }}
+            >
+              <Button
+                shape="circle"
+                size="small"
+                disabled={isCopied}
+                style={{ marginRight: "6px" }}
+              >
+                {isCopied ? (
+                  <Icon type="check" style={{ color: "#52c41a" }} />
+                ) : (
+                  <Icon type="copy" />
+                )}
+              </Button>
+            </CopyToClipboard>
+          </Tooltip>
+          <Tooltip title="QR code" overlayClassName="tooltip-sm">
+            <QRCodeModal
+              Component={
+                <Button
+                  shape="circle"
+                  icon="qrcode"
+                  size="small"
+                  style={{ marginRight: "6px" }}
+                />
+              }
+            />
+          </Tooltip>
         </p>
       ) : (
-        // </div>
         "Missing account"
       )}
 

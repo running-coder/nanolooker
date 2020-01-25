@@ -61,6 +61,6 @@ export const colorizeAccountAddress = (account: string = "") => (
       {account.substr(account.length * -1, account.length - 60 + 7)}
     </span>
     <span>{account.substr(-53, 46)}</span>
-    <span style={{ color: "#4CADE9" }}>{account.substr(-7)}</span>
+    <span style={{ color: "#1890ff" }}>{account.substr(-7)}</span>
   </>
 );
