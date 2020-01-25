@@ -1,7 +1,8 @@
 import React from "react";
+import { Icon } from "antd";
 import { useParams } from "react-router-dom";
 import { rpc } from "api/rpc";
-import { rawToRai } from "components/utils";
+import { rawToRai, colorizeAccountAddress } from "components/utils";
 import usePrice from "components/Price/hooks/use-price";
 
 interface AccountInfo {
@@ -41,7 +42,28 @@ const AccountPage = () => {
 
   return (
     <>
-      <div>Account page - {account || "Missing"}</div>
+      {account ? (
+        // <div>
+        <p
+          style={{
+            fontSize: "16px",
+            marginRight: "6px",
+            wordWrap: "break-word",
+            // paddingLeft: "30px",
+            position: "relative"
+          }}
+        >
+          <Icon
+            type="wallet"
+            style={{ fontSize: "18px", marginRight: "6px", float: "left" }}
+          />
+          {colorizeAccountAddress(account)}
+        </p>
+      ) : (
+        // </div>
+        "Missing account"
+      )}
+
       {accountInfo ? (
         <>
           <div>balance - {rawToRai(accountInfo.balance)}</div>

@@ -1,3 +1,4 @@
+import React from "react";
 import BigNumber from "bignumber.js";
 
 const MIN_ACTION_TIME = 150;
@@ -53,3 +54,13 @@ export const isValidAccountAddress = (address: string): boolean =>
 
 export const isValidBlockHash = (address: string): boolean =>
   /^[0-9A-F]{64}$/.test(address);
+
+export const colorizeAccountAddress = (account: string = "") => (
+  <>
+    <span style={{ color: "#1890ff" }}>
+      {account.substr(account.length * -1, account.length - 60 + 7)}
+    </span>
+    <span>{account.substr(-53, 46)}</span>
+    <span style={{ color: "#4CADE9" }}>{account.substr(-7)}</span>
+  </>
+);
