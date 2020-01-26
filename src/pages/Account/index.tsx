@@ -101,6 +101,7 @@ const AccountPage = () => {
                   style={{ marginRight: "6px" }}
                 />
               }
+              text={account}
             />
           </Tooltip>
         </p>
