@@ -23,7 +23,6 @@ export interface UsePeersReturn {
 
 const useAccountInfo = (account?: string): UsePeersReturn => {
   const [accountInfo, setAccountInfo] = React.useState({} as AccountInfo);
-
   const [isError, setIsError] = React.useState(false);
 
   const getAccountInfo = async (account: string) => {
@@ -34,7 +33,7 @@ const useAccountInfo = (account?: string): UsePeersReturn => {
       pending: "true"
     });
 
-    json.error ? setIsError(true) : setAccountInfo(json);
+    !json || json.error ? setIsError(true) : setAccountInfo(json);
   };
 
   React.useEffect(() => {

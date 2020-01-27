@@ -7,16 +7,19 @@ export interface UptimeResponse {
 
 export interface UseUptimeReturn {
   uptime: UptimeResponse;
+  isError: boolean;
 }
 
 const ONE_MINUTE = 1000 * 60;
 
 const useUptime = (): UseUptimeReturn => {
   const [uptime, setUptime] = React.useState({} as UptimeResponse);
+  const [isError, setIsError] = React.useState(false);
 
   const getUptime = async () => {
-    const json = (await rpc("uptime")) || {};
-    setUptime(json);
+    const json = await rpc("uptime");
+
+    !json || json.error ? setIsError(true) : setUptime(json);
   };
 
   React.useEffect(() => {
@@ -33,7 +36,7 @@ const useUptime = (): UseUptimeReturn => {
     getUptime();
   }, []);
 
-  return { uptime };
+  return { uptime, isError };
 };
 
 export default useUptime;

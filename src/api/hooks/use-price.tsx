@@ -5,6 +5,7 @@ export interface UsePriceReturn {
   usd24hChange?: number;
   btc?: number;
   btc24hChange?: number;
+  isError?: boolean;
 }
 
 interface CoinGeckoResponse {
@@ -20,6 +21,7 @@ const GET_PRICE_TIMEOUT = 180 * 1000;
 
 const usePrice = (): UsePriceReturn => {
   const [price, setPrice] = React.useState<UsePriceReturn>({});
+  const [isError, setIsError] = React.useState(false);
 
   const getPrice = async () => {
     try {
@@ -44,7 +46,9 @@ const usePrice = (): UsePriceReturn => {
       });
 
       setTimeout(() => getPrice(), GET_PRICE_TIMEOUT);
-    } catch (e) {}
+    } catch (e) {
+      setIsError(true);
+    }
   };
 
   React.useEffect(() => {
@@ -53,7 +57,7 @@ const usePrice = (): UsePriceReturn => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return price;
+  return { ...price, isError };
 };
 
 export default usePrice;

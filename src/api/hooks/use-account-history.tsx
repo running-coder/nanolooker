@@ -29,6 +29,7 @@ interface AccountHistoryParams {
 
 export interface UsePeersReturn {
   accountHistory: AccountHistory;
+  isError: boolean;
 }
 
 const useAccountHistory = (
@@ -38,6 +39,7 @@ const useAccountHistory = (
   const [accountHistory, setAccountHistory] = React.useState(
     {} as AccountHistory
   );
+  const [isError, setIsError] = React.useState(false);
 
   const getAccountHistory = async (
     account: string,
@@ -48,7 +50,7 @@ const useAccountHistory = (
       ...params
     });
 
-    setAccountHistory(json);
+    !json || json.error ? setIsError(true) : setAccountHistory(json);
   };
 
   React.useEffect(() => {
@@ -58,7 +60,7 @@ const useAccountHistory = (
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [account, params.offset]);
 
-  return { accountHistory };
+  return { accountHistory, isError };
 };
 
 export default useAccountHistory;

@@ -10,17 +10,19 @@ export interface ActiveDifficultyResponse {
 export interface UseActiveDifficultyReturn {
   activeDifficulty: ActiveDifficultyResponse;
   getActiveDifficulty(): any;
+  isError: boolean;
 }
 
 const useActiveDifficulty = (): UseActiveDifficultyReturn => {
   const [activeDifficulty, setActiveDifficulty] = React.useState(
     {} as ActiveDifficultyResponse
   );
+  const [isError, setIsError] = React.useState(false);
 
   const getActiveDifficulty = async () => {
-    const response = (await rpc("active_difficulty")) || {};
+    const json = await rpc("active_difficulty");
 
-    setActiveDifficulty(response);
+    !json || json.error ? setIsError(true) : setActiveDifficulty(json);
   };
 
   React.useEffect(() => {
@@ -28,7 +30,7 @@ const useActiveDifficulty = (): UseActiveDifficultyReturn => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return { activeDifficulty, getActiveDifficulty };
+  return { activeDifficulty, getActiveDifficulty, isError };
 };
 
 export default useActiveDifficulty;
