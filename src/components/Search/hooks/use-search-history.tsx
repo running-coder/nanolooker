@@ -46,9 +46,7 @@ const useSearchHistory = (): UseSearchHistoryReturn => {
 
   const removeSearchHistory = React.useCallback(
     (value: string) => {
-      console.log("~~~searchHistory", searchHistory);
       const newSearchHistory = searchHistory.filter(h => h !== value);
-      console.log("~~~newSearchHistory", newSearchHistory);
       localStorage.setItem(
         SEARCH_HISTORY_KEY,
         JSON.stringify(newSearchHistory)

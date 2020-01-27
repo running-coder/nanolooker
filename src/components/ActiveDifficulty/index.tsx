@@ -3,7 +3,7 @@ import { Button, Card, Statistic, Skeleton, Tooltip } from "antd";
 
 import useActiveDifficulty, {
   UseActiveDifficultyReturn
-} from "./hooks/use-active-difficulty";
+} from "api/hooks/use-active-difficulty";
 
 import { refreshActionDelay } from "components/utils";
 

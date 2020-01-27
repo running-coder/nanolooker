@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Card, Statistic, Skeleton, Tooltip } from "antd";
-import useBlockCount, { UseBlockCountReturn } from "./hooks/use-block-count";
+import useBlockCount, { UseBlockCountReturn } from "api/hooks/use-block-count";
 import { refreshActionDelay } from "components/utils";
 
 const POLL_INTERVAL = 1000 * 30;

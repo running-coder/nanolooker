@@ -19,13 +19,8 @@ import "antd/dist/antd.css";
 
 const { Header, Content, Footer } = Layout;
 
-//
 const App: React.FC = props => {
   // const { match, location, history } = useRouter();
-
-  // console.log(useParams());
-  // console.log(useLocation());
-  // console.log(useRouteMatch());
 
   return (
     <Layout style={{ minHeight: "100vh" }}>

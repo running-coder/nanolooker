@@ -1,124 +1,33 @@
 import React from "react";
-import { Button, Icon, Tooltip } from "antd";
 import { useParams } from "react-router-dom";
-import CopyToClipboard from "react-copy-to-clipboard";
-import { rpc } from "api/rpc";
-import { rawToRai, colorizeAccountAddress } from "components/utils";
-import QRCodeModal from "components/QRCodeModal";
-import usePrice from "components/Price/hooks/use-price";
-
-interface AccountInfo {
-  frontier: string;
-  open_block: string;
-  representative_block: string;
-  balance: string;
-  modified_timestamp: string;
-  block_count: string;
-  confirmation_height: string;
-  account_version: string;
-}
-
-let copiedTimeout: number | undefined;
+import useAccountInfo from "api/hooks/use-account-info";
+import { isValidAccountAddress } from "components/utils";
+import AccountHeader from "./Header";
+import AccountDetails from "./Details";
+import AccountHistory from "./History";
 
 const AccountPage = () => {
-  let { account } = useParams();
-  const { usd } = usePrice();
-  const [isLoading, setIsLoading] = React.useState<boolean>(true);
-  const [accountInfo, setAccountInfo] = React.useState<AccountInfo>();
-  const [isCopied, setIsCopied] = React.useState<boolean>(false);
+  const { account = "" } = useParams();
+  const { isError: isAccountInfoError } = useAccountInfo(account);
 
-  React.useEffect(() => {
-    const getAccount = async () => {
-      try {
-        const json = await rpc("account_info", {
-          account
-        });
-
-        console.log("~~~~json", json);
-
-        setAccountInfo(json);
-        setIsLoading(true);
-      } catch (e) {}
-    };
-
-    getAccount();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [account]);
-
+  const isValid = isValidAccountAddress(account);
   return (
     <>
-      {account ? (
-        <p
-          style={{
-            fontSize: "16px",
-            marginRight: "6px",
-            wordWrap: "break-word",
-            position: "relative"
-          }}
-        >
-          <Icon
-            type="wallet"
-            style={{ fontSize: "18px", marginRight: "6px", float: "left" }}
-          />
-          <span style={{ marginRight: "6px" }}>
-            {colorizeAccountAddress(account)}
-          </span>
-          <Tooltip
-            title={isCopied ? "Copied!" : "Copy"}
-            overlayClassName="tooltip-sm"
-          >
-            <CopyToClipboard
-              text={account}
-              onCopy={() => {
-                setIsCopied(true);
-                clearTimeout(copiedTimeout);
-                copiedTimeout = window.setTimeout(() => {
-                  setIsCopied(false);
-                }, 2000);
-              }}
-            >
-              <Button
-                shape="circle"
-                size="small"
-                disabled={isCopied}
-                style={{ marginRight: "6px" }}
-              >
-                {isCopied ? (
-                  <Icon type="check" style={{ color: "#52c41a" }} />
-                ) : (
-                  <Icon type="copy" />
-                )}
-              </Button>
-            </CopyToClipboard>
-          </Tooltip>
-          <Tooltip title="QR code" overlayClassName="tooltip-sm">
-            <QRCodeModal
-              Component={
-                <Button
-                  shape="circle"
-                  icon="qrcode"
-                  size="small"
-                  style={{ marginRight: "6px" }}
-                />
-              }
-              text={account}
-            />
-          </Tooltip>
-        </p>
-      ) : (
-        "Missing account"
-      )}
-
-      {accountInfo ? (
+      {isValid && !isAccountInfoError ? (
         <>
-          <div>balance - {rawToRai(accountInfo.balance)}</div>
-          {usd ? <div>usd - ${rawToRai(accountInfo.balance) * usd}</div> : null}
-          <div>Total transactions - {accountInfo.block_count}</div>
-          <div>Last transaction - {accountInfo.modified_timestamp}</div>
+          <AccountHeader />
+          <AccountDetails />
+          <AccountHistory />
         </>
       ) : null}
+      {!account ? "Missing account" : null}
+      {!isValid ? "This account hasn't been opened yet" : null}
     </>
   );
 };
+
+// This account hasn't been opened yet
+// While the account address is valid, no blocks have been published to its chain yet.
+// If NANO has been sent to this account, it still needs to publish a corresponding block to pocket the funds.
 
 export default AccountPage;

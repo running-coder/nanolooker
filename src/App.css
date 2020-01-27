@@ -24,3 +24,25 @@
 .ant-layout-header {
   line-height: inherit !important;
 }
+
+.ant-table-tbody
+  > tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)
+  > td {
+  background: #fafafa !important;
+}
+
+.ant-table-pagination {
+  padding-right: 16px !important;
+}
+
+.link-normal {
+  color: inherit !important;
+}
+
+.link-muted {
+  color: gray !important;
+}
+
+a:hover {
+  text-decoration: underline !important;
+}

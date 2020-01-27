@@ -1,6 +1,6 @@
 import React from "react";
 import { Icon } from "antd";
-import usePrice from "./hooks/use-price";
+import usePrice from "api/hooks/use-price";
 
 enum Color {
   POSITIVE = "#52c41a",

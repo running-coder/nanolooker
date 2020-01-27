@@ -1,12 +1,11 @@
 import React from "react";
 import { Card, Skeleton, Statistic } from "antd";
 import { rawToRai, secondsToTime } from "components/utils";
-
-import useUptime from "./hooks/use-uptime";
-import usePeers from "./hooks/use-peers";
-import useVersion from "./hooks/use-version";
-import useAvailableSupply from "./hooks/use-available-supply";
-import useFrontierCount from "./hooks/use-frontier-count";
+import useUptime from "api/hooks/use-uptime";
+import usePeers from "api/hooks/use-peers";
+import useVersion from "api/hooks/use-version";
+import useAvailableSupply from "api/hooks/use-available-supply";
+import useFrontierCount from "api/hooks/use-frontier-count";
 
 const Stats: React.FunctionComponent = () => {
   const {

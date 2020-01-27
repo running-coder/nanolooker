@@ -11,7 +11,8 @@ const allowedRpcMethods = [
   // "confirmation_quorum", // @NOTE experiment w/
   "account_info",
   "account_history",
-  "block_info"
+  "block_info",
+  "representatives_online"
 ];
 
 const rpc = async (action, params) => {
