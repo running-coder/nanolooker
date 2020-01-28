@@ -4,30 +4,44 @@ import useAccountInfo from "api/hooks/use-account-info";
 import { isValidAccountAddress } from "components/utils";
 import AccountHeader from "./Header";
 import AccountDetails from "./Details";
+import AccountDetailsUnopened from "./Details/Unopened";
 import AccountHistory from "./History";
+import AccountHistoryEmpty from "./History/Empty";
 
 const AccountPage = () => {
   const { account = "" } = useParams();
-  const { isError: isAccountInfoError } = useAccountInfo(account);
-
+  const {
+    isError: isAccountInfoError,
+    isLoading: isAccountInfoLoading
+  } = useAccountInfo(account);
   const isValid = isValidAccountAddress(account);
+
   return (
     <>
-      {isValid && !isAccountInfoError ? (
+      {isValid ? <AccountHeader /> : null}
+      {isValid && !isAccountInfoError && !isAccountInfoLoading ? (
         <>
-          <AccountHeader />
           <AccountDetails />
+          {/* @TODO Add account pending transactions */}
           <AccountHistory />
         </>
       ) : null}
-      {!account ? "Missing account" : null}
-      {!isValid ? "This account hasn't been opened yet" : null}
+      {isValid && isAccountInfoError && !isAccountInfoLoading ? (
+        <>
+          <AccountDetailsUnopened />
+          <AccountHistoryEmpty />
+        </>
+      ) : null}
+      {isValid && isAccountInfoLoading ? (
+        <>
+          {/* @TODO Add skeletons */}
+          <AccountDetailsUnopened />
+          <AccountHistoryEmpty />
+        </>
+      ) : null}
+      {!isValid || !account ? "Missing account" : null}
     </>
   );
 };
-
-// This account hasn't been opened yet
-// While the account address is valid, no blocks have been published to its chain yet.
-// If NANO has been sent to this account, it still needs to publish a corresponding block to pocket the funds.
 
 export default AccountPage;

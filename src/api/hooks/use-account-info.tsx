@@ -19,14 +19,17 @@ export interface AccountInfo {
 export interface UsePeersReturn {
   accountInfo: AccountInfo;
   isError: boolean;
+  isLoading: boolean;
 }
 
 const useAccountInfo = (account?: string): UsePeersReturn => {
   const [accountInfo, setAccountInfo] = React.useState({} as AccountInfo);
+  const [isLoading, setIsLoading] = React.useState(false);
   const [isError, setIsError] = React.useState(false);
 
   const getAccountInfo = async (account: string) => {
     setIsError(false);
+    setIsLoading(true);
     const json = await rpc("account_info", {
       account,
       representative: "true",
@@ -34,6 +37,7 @@ const useAccountInfo = (account?: string): UsePeersReturn => {
     });
 
     !json || json.error ? setIsError(true) : setAccountInfo(json);
+    setIsLoading(false);
   };
 
   React.useEffect(() => {
@@ -42,7 +46,7 @@ const useAccountInfo = (account?: string): UsePeersReturn => {
     getAccountInfo(account);
   }, [account]);
 
-  return { accountInfo, isError };
+  return { accountInfo, isLoading, isError };
 };
 
 export default useAccountInfo;

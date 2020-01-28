@@ -17,7 +17,6 @@ export const rpc = async (action: string, params?: any) => {
     });
 
     json = await res.json();
-    console.log("~~~~json", action, json);
   } catch (e) {
     // throw e;
     // @TODO Set global error

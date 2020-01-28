@@ -2,15 +2,21 @@ import React from "react";
 import { Icon } from "antd";
 import usePrice from "api/hooks/use-price";
 
-enum Color {
+export enum Color {
+  NEUTRAL = "#1890ff",
   POSITIVE = "#52c41a",
   NEGATIVE = "#eb2f96"
 }
 
 const Price = () => {
-  const { usd, usd24hChange } = usePrice();
+  const { usd, usd24hChange = 0 } = usePrice();
 
-  const color = (usd24hChange || 0) < 0 ? Color.NEGATIVE : Color.POSITIVE;
+  const color =
+    usd24hChange === 0
+      ? Color.NEUTRAL
+      : usd24hChange < 0
+      ? Color.NEGATIVE
+      : Color.POSITIVE;
 
   return (
     <div style={{ display: "flex", alignItems: "center" }}>
@@ -21,28 +27,26 @@ const Price = () => {
         style={{ marginRight: "3px" }}
       />
       <span style={{ marginRight: "6px" }}>${usd}</span>
-
-      {usd24hChange ? (
-        <>
-          <span
+      <span
+        style={{
+          marginRight: "3px",
+          marginTop: "2px",
+          fontSize: "12px",
+          color
+        }}
+        title="Change 24h"
+      >
+        {usd24hChange}%
+      </span>
+      {usd24hChange !== 0 ? (
+        <span>
+          <Icon
+            type={usd24hChange < 0 ? "fall" : "rise"}
             style={{
-              marginRight: "3px",
-              marginTop: "2px",
-              fontSize: "12px",
               color
             }}
-          >
-            {usd24hChange}%
-          </span>
-          <span>
-            <Icon
-              type={usd24hChange < 0 ? "fall" : "rise"}
-              style={{
-                color
-              }}
-            />
-          </span>
-        </>
+          />
+        </span>
       ) : null}
     </div>
   );

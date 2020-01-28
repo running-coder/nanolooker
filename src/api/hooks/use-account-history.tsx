@@ -3,8 +3,9 @@ import { rpc } from "api/rpc";
 import { isValidAccountAddress } from "components/utils";
 
 interface History {
-  type: "state" | "pending" | "send" | "receive";
-  subtype?: "pending" | "send" | "receive";
+  type: "state" | "change" | "pending" | "send" | "receive";
+  subtype?: "change" | "pending" | "send" | "receive";
+  representative: string;
   account: string;
   amount: string;
   local_timestamp: string;
@@ -29,6 +30,7 @@ interface AccountHistoryParams {
 
 export interface UsePeersReturn {
   accountHistory: AccountHistory;
+  isLoading: boolean;
   isError: boolean;
 }
 
@@ -39,18 +41,23 @@ const useAccountHistory = (
   const [accountHistory, setAccountHistory] = React.useState(
     {} as AccountHistory
   );
+  const [isLoading, setIsLoading] = React.useState(false);
   const [isError, setIsError] = React.useState(false);
 
   const getAccountHistory = async (
     account: string,
     params: AccountHistoryParams
   ) => {
+    setIsError(false);
+    setIsLoading(true);
+
     const json = await rpc("account_history", {
       account,
       ...params
     });
 
     !json || json.error ? setIsError(true) : setAccountHistory(json);
+    setIsLoading(false);
   };
 
   React.useEffect(() => {
@@ -58,9 +65,9 @@ const useAccountHistory = (
 
     getAccountHistory(account, params);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [account, params.offset]);
+  }, [account, params.offset, params.head]);
 
-  return { accountHistory, isError };
+  return { accountHistory, isLoading, isError };
 };
 
 export default useAccountHistory;
