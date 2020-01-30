@@ -2,7 +2,7 @@ import React from "react";
 import { rpc } from "api/rpc";
 import { isValidAccountAddress } from "components/utils";
 
-export interface AccountInfo {
+export interface AccountInfoRPCResponse {
   frontier: string;
   open_block: string;
   representative_block: string;
@@ -16,14 +16,27 @@ export interface AccountInfo {
   account_version: string;
 }
 
-export interface UsePeersReturn {
-  accountInfo: AccountInfo;
-  isError: boolean;
+export interface AccountInfoReturn {
+  account: string;
+  setAccount: Function;
+  accountInfo: AccountInfoRPCResponse;
   isLoading: boolean;
+  isError: boolean;
 }
 
-const useAccountInfo = (account?: string): UsePeersReturn => {
-  const [accountInfo, setAccountInfo] = React.useState({} as AccountInfo);
+export const AccountInfoContext = React.createContext<AccountInfoReturn>({
+  account: "",
+  setAccount: () => {},
+  accountInfo: {} as AccountInfoRPCResponse,
+  isLoading: false,
+  isError: false
+});
+
+const Provider: React.FunctionComponent = ({ children }) => {
+  const [account, setAccount] = React.useState();
+  const [accountInfo, setAccountInfo] = React.useState(
+    {} as AccountInfoRPCResponse
+  );
   const [isLoading, setIsLoading] = React.useState(false);
   const [isError, setIsError] = React.useState(false);
 
@@ -41,12 +54,18 @@ const useAccountInfo = (account?: string): UsePeersReturn => {
   };
 
   React.useEffect(() => {
-    if (!account || !isValidAccountAddress(account)) return;
-    console.log("~~~~~~ACCOUNT!?!?!?!? -----", account);
-    getAccountInfo(account);
+    if (account && isValidAccountAddress(account)) {
+      getAccountInfo(account);
+    }
   }, [account]);
 
-  return { accountInfo, isLoading, isError };
+  return (
+    <AccountInfoContext.Provider
+      value={{ account, setAccount, accountInfo, isLoading, isError }}
+    >
+      {children}
+    </AccountInfoContext.Provider>
+  );
 };
 
-export default useAccountInfo;
+export default Provider;

@@ -1,6 +1,6 @@
 import React from "react";
 
-export interface UsePriceReturn {
+export interface ContextProps {
   usd?: number;
   usd24hChange?: number;
   btc?: number;
@@ -19,8 +19,10 @@ interface CoinGeckoResponse {
 
 const GET_PRICE_TIMEOUT = 180 * 1000;
 
-const usePrice = (): UsePriceReturn => {
-  const [price, setPrice] = React.useState<UsePriceReturn>({});
+export const PriceContext = React.createContext<ContextProps>({});
+
+const Provider: React.FunctionComponent = ({ children }) => {
+  const [price, setPrice] = React.useState<ContextProps>({});
   const [isError, setIsError] = React.useState(false);
 
   const getPrice = async () => {
@@ -57,7 +59,11 @@ const usePrice = (): UsePriceReturn => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return { ...price, isError };
+  return (
+    <PriceContext.Provider value={{ ...price, isError }}>
+      {children}
+    </PriceContext.Provider>
+  );
 };
 
-export default usePrice;
+export default Provider;

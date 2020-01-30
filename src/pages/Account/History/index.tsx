@@ -1,9 +1,9 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button, Card, Col, Row, Table, Tag, Typography } from "antd";
 import { format } from "timeago.js";
 import useAccountHistory from "api/hooks/use-account-history";
-import useAccountInfo from "api/hooks/use-account-info";
+import { AccountInfoContext } from "api/contexts/AccountInfo";
 import { rawToRai } from "components/utils";
 import { Color } from "components/Price";
 
@@ -27,8 +27,7 @@ export const AccountHistoryLayout: React.FunctionComponent = ({ children }) => (
 const TRANSACTIONS_PER_PAGE = 10;
 const { Text } = Typography;
 const AccountHistory = () => {
-  const { account = "" } = useParams();
-  const { accountInfo } = useAccountInfo(account);
+  const { account, accountInfo } = React.useContext(AccountInfoContext);
   const isPaginated = Number(accountInfo?.block_count) <= 100;
   const [currentPage, setCurrentPage] = React.useState<number>(1);
   const [currentHead, setCurrentHead] = React.useState<string | undefined>();

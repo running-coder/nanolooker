@@ -1,6 +1,6 @@
 import React from "react";
 import { Icon } from "antd";
-import usePrice from "api/hooks/use-price";
+import { PriceContext } from "api/contexts/Price";
 
 export enum Color {
   NEUTRAL = "#1890ff",
@@ -9,7 +9,7 @@ export enum Color {
 }
 
 const Price = () => {
-  const { usd, usd24hChange = 0 } = usePrice();
+  const { usd, usd24hChange = 0 } = React.useContext(PriceContext);
 
   const color =
     usd24hChange === 0
