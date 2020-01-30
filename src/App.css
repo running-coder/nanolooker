@@ -65,5 +65,9 @@ a:hover {
 }
 
 .ant-descriptions-item-content .ant-skeleton-title {
-  margin-top: 8px !important;
+  margin: 0 !important;
+}
+
+.ant-descriptions-item-content .ant-skeleton + .ant-skeleton {
+  margin-top: 10px !important;
 }

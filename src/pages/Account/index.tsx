@@ -33,6 +33,8 @@ const AccountPage = () => {
           <AccountDetailsUnopened />
         </>
       ) : null}
+
+      {/* @TODO Limit RPC call to single */}
       <AccountHistory />
       {!isValid || !account ? "Missing account" : null}
     </>

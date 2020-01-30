@@ -17,9 +17,10 @@ export const rpc = async (action: string, params?: any) => {
     });
 
     json = await res.json();
+
+    console.log("~~action", action, json);
   } catch (e) {
-    // throw e;
-    // @TODO Set global error
+    // silence error
   }
 
   return json;

@@ -8,11 +8,12 @@ const allowedRpcMethods = [
   "version",
   "available_supply",
   "frontier_count",
-  // "confirmation_quorum", // @NOTE experiment w/
   "account_info",
   "account_history",
   "block_info",
-  "representatives_online"
+  "representatives",
+  "representatives_online",
+  "confirmation_quorum"
 ];
 
 const rpc = async (action, params) => {

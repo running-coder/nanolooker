@@ -24,7 +24,7 @@ export const AccountHistoryLayout: React.FunctionComponent = ({ children }) => (
   </Row>
 );
 
-const TRANSACTIONS_PER_PAGE = 10;
+const TRANSACTIONS_PER_PAGE = 25;
 const { Text } = Typography;
 const AccountHistory = () => {
   const { account, accountInfo } = React.useContext(AccountInfoContext);
@@ -63,6 +63,7 @@ const AccountHistory = () => {
             ? () => (
                 <Button
                   onClick={() => {
+                    // @TODO Scroll to top of transaction table
                     setCurrentHead(previous);
                   }}
                 >
