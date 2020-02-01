@@ -108,18 +108,18 @@ const AccountHistory = () => {
           {
             title: "Amount",
             dataIndex: "amount",
-            render: (text: string, { subtype }) => {
+            render: (text: string, { subtype = "" }) => {
               let color = undefined;
               if (!text) {
                 color = subtype === "change" ? "#722ed1" : undefined;
               } else {
-                color = subtype === "receive" ? Color.POSITIVE : Color.POSITIVE;
+                color = subtype === "send" ? Color.NEGATIVE : Color.POSITIVE;
               }
 
               return (
                 <Text style={{ color }}>
                   {!text ? "N/A" : ""}
-                  {subtype === "receive" ? "+" : ""}
+                  {["receive", "open"].includes(subtype) ? "+" : ""}
                   {subtype === "send" ? "-" : ""}
                   {text ? `${rawToRai(text)} NANO` : ""}
                 </Text>

@@ -5,7 +5,7 @@ import { PriceContext } from "api/contexts/Price";
 export enum Color {
   NEUTRAL = "#1890ff",
   POSITIVE = "#52c41a",
-  NEGATIVE = "#eb2f96"
+  NEGATIVE = "#f5222d"
 }
 
 const Price = () => {

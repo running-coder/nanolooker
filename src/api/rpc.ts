@@ -18,7 +18,7 @@ export const rpc = async (action: string, params?: any) => {
 
     json = await res.json();
 
-    console.log("~~action", action, json);
+    // console.log("~~action", action, json);
   } catch (e) {
     // silence error
   }

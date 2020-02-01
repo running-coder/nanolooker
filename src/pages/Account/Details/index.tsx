@@ -44,9 +44,11 @@ const AccountDetails = () => {
     accountInfo,
     isLoading: isAccountInfoLoading
   } = React.useContext(AccountInfoContext);
-  const { principalRepresentatives } = React.useContext(RepresentativesContext);
+  const { representatives } = React.useContext(RepresentativesContext);
   const { confirmationQuorum } = React.useContext(ConfirmationQuorumContext);
-  const { representatives } = React.useContext(RepresentativesOnlineContext);
+  const { representatives: representativesOnline } = React.useContext(
+    RepresentativesOnlineContext
+  );
   const balance = new BigNumber(rawToRai(accountInfo?.balance || 0)).toNumber();
   const balancePending = new BigNumber(
     rawToRai(accountInfo?.pending || 0)
@@ -75,7 +77,7 @@ const AccountDetails = () => {
   return (
     <AccountDetailsLayout bordered={false}>
       <Descriptions bordered column={1} size="small">
-        {principalRepresentatives[account] ? (
+        {representatives?.[account] ? (
           <Descriptions.Item
             label={
               <>
@@ -90,7 +92,7 @@ const AccountDetails = () => {
               </>
             }
           >
-            {rawToRai(principalRepresentatives[account])}
+            {representatives[account]} Nano
           </Descriptions.Item>
         ) : null}
         <Descriptions.Item label="Balance">
@@ -108,7 +110,9 @@ const AccountDetails = () => {
               <>
                 <Badge
                   status={
-                    representatives.includes(accountInfo?.representative || "")
+                    representativesOnline.includes(
+                      accountInfo?.representative || ""
+                    )
                       ? "success"
                       : "error"
                   }

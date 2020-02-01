@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import CopyToClipboard from "react-copy-to-clipboard";
 import QRCodeModal from "components/QRCodeModal";
 import { RepresentativesContext } from "api/contexts/Representatives";
+import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
 
 const { Title } = Typography;
 let copiedTimeout: number | undefined;
@@ -11,13 +12,19 @@ let copiedTimeout: number | undefined;
 const AccountHeader = () => {
   const { account = "" } = useParams();
   const [isCopied, setIsCopied] = React.useState<boolean>(false);
-  const { principalRepresentatives } = React.useContext(RepresentativesContext);
+  const { representatives } = React.useContext(RepresentativesContext);
+  const {
+    confirmationQuorum: { principal_representative_min_weight: minWeight }
+  } = React.useContext(ConfirmationQuorumContext);
 
   return (
     <>
-      {principalRepresentatives[account] ? (
+      {representatives?.[account] && minWeight ? (
         <>
-          <Title level={3}>Principal Representative</Title>
+          <Title level={3}>
+            {representatives[account] >= minWeight ? "Principal " : ""}
+            Representative
+          </Title>
         </>
       ) : null}
       <p

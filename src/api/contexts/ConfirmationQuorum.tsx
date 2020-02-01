@@ -8,6 +8,7 @@ export interface ConfirmationQuorumRPCResponse {
   online_stake_total: string;
   peers_stake_total: string;
   peers_stake_required: string;
+  principal_representative_min_weight?: number;
 }
 
 export interface ConfirmationQuorumReturn {

@@ -3,8 +3,8 @@ import { rpc } from "api/rpc";
 import { isValidAccountAddress } from "components/utils";
 
 interface History {
-  type: "state" | "change" | "pending" | "send" | "receive";
-  subtype?: "change" | "pending" | "send" | "receive";
+  type: "state" | "change" | "pending" | "send" | "receive" | "open";
+  subtype?: "change" | "pending" | "send" | "receive" | "open";
   representative: string;
   account: string;
   amount: string;

@@ -1,7 +1,18 @@
 const fetch = require("node-fetch");
 const NodeCache = require("node-cache");
+const {
+  transformer: confirmation_quorum
+} = require("./transformers/confirmationQuorum");
+const {
+  transformer: representatives
+} = require("./transformers/representatives");
 
 const rpcCache = new NodeCache();
+
+const transformers = {
+  confirmation_quorum,
+  representatives
+};
 
 const allowedRpcMethods = [
   "block_count",
@@ -30,7 +41,7 @@ const cacheSettings = {
   account_info: 5,
   account_history: 5,
   block_info: undefined,
-  representatives: undefined,
+  representatives: 120,
   representatives_online: undefined,
   confirmation_quorum: 60
 };
@@ -61,6 +72,10 @@ const rpc = async (action, params) => {
       });
 
       json = await res.json();
+
+      if (transformers[action]) {
+        json = transformers[action](json);
+      }
 
       if (cacheKey) {
         rpcCache.set(cacheKey, json, cacheSettings[action]);
