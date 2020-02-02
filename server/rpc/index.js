@@ -9,6 +9,8 @@ const {
 
 const rpcCache = new NodeCache();
 
+console.log("rpcCache", rpcCache);
+
 const transformers = {
   confirmation_quorum,
   representatives
@@ -60,6 +62,7 @@ const rpc = async (action, params) => {
     json = cacheKey && rpcCache.get(cacheKey);
 
     if (!json) {
+      console.log(`No cache found for: ${cacheKey}`);
       const body = JSON.stringify({
         jsonrpc: "2.0",
         action,
