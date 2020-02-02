@@ -4,28 +4,26 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+      - uses: actions/checkout@v1
 
-    - name: Copy file via scp
-      uses: appleboy/scp-action@master
-      env:
-        HOST: ${{ secrets.DO_HOST }}
-        USERNAME: ${{ secrets.DO_USERNAME }}
-        PORT: ${{ secrets.DO_PORT }}
-        KEY: ${{ secrets.DO_SSHKEY }}
-      with:
-        source: "."
-        target: "/var/www/www.nanolooker.com"
+      - name: Rsync deployment
+        uses: burnett01/rsync-deployments@4.0
+        with:
+          switches: -avzr --delete --exclude=".env"
+          path: "."
+          remote_path: /var/www/www.nanolooker.com
+          remote_host: ${{ secrets.DO_HOST }}
+          remote_user: ${{ secrets.DO_USERNAME }}
+          remote_key: ${{ secrets.DO_SSHKEY }}
 
-    - name: Executing serve
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.DO_HOST }}
-        USERNAME: ${{ secrets.DO_USERNAME }}
-        PORT: ${{ secrets.DO_PORT }}
-        KEY: ${{ secrets.DO_SSHKEY }}
-        script: cd /var/www/www.nanolooker.com/ && yarn && yarn build
+      - name: Building
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DO_HOST }}
+          USERNAME: ${{ secrets.DO_USERNAME }}
+          PORT: ${{ secrets.DO_PORT }}
+          KEY: ${{ secrets.DO_SSHKEY }}
+          script: cd /var/www/www.nanolooker.com/ && yarn && yarn build
