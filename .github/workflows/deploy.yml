@@ -9,6 +9,22 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
+      - name: Get yarn cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Build static assets
+        run: |
+          yarn
+          yarn build
+
       - name: Rsync deployment
         uses: burnett01/rsync-deployments@4.0
         with:
@@ -18,12 +34,3 @@ jobs:
           remote_host: ${{ secrets.DO_HOST }}
           remote_user: ${{ secrets.DO_USERNAME }}
           remote_key: ${{ secrets.DO_SSHKEY }}
-
-      - name: Building
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.DO_HOST }}
-          USERNAME: ${{ secrets.DO_USERNAME }}
-          PORT: ${{ secrets.DO_PORT }}
-          KEY: ${{ secrets.DO_SSHKEY }}
-          script: cd /var/www/www.nanolooker.com/ && yarn && yarn build
