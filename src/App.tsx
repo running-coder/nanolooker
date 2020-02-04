@@ -18,6 +18,7 @@ import "./App.css";
 import "antd/dist/antd.css";
 
 const { Header, Content, Footer } = Layout;
+const { SubMenu } = Menu;
 
 const App: React.FC = props => {
   // const { match, location, history } = useRouter();
@@ -55,26 +56,38 @@ const App: React.FC = props => {
 
           <Col xs={{ span: 24, order: 3 }} md={{ span: 12, order: 2 }}>
             <Menu onClick={() => {}} selectedKeys={[]} mode="horizontal">
-              <Menu.Item key="explore">
-                <Icon type="apartment" />
-                Explore
-                <Link to="/explore" />
-              </Menu.Item>
+              <SubMenu
+                title={
+                  <Link to="/explore">
+                    <Icon type="apartment" />
+                    Explore
+                  </Link>
+                }
+              >
+                <Menu.Item key="representatives">
+                  Principal Representatives
+                  <Link to="/representatives" />
+                </Menu.Item>
+              </SubMenu>
               <Menu.Item key="news">
                 <Icon type="calendar" />
                 News
                 <Link to="/news" />
               </Menu.Item>
-              <Menu.Item key="statistics">
-                <Icon type="line-chart" />
-                Statistics
-                <Link to="/statistics" />
-              </Menu.Item>
-              <Menu.Item key="status">
-                <Icon type="database" />
-                Node Status
-                <Link to="/status" />
-              </Menu.Item>
+              <SubMenu
+                title={
+                  <Link to="/statistics">
+                    <Icon type="line-chart" />
+                    Statistics
+                  </Link>
+                }
+              >
+                <Menu.Item key="representatives">
+                  <Icon type="database" />
+                  Node Status
+                  <Link to="/status" />
+                </Menu.Item>
+              </SubMenu>
             </Menu>
           </Col>
 
@@ -94,7 +107,7 @@ const App: React.FC = props => {
           <Route path="/account/:account?" component={AccountPage} />
           <Route path="/block/:block?" component={BlockPage} />
           <Route path="/news" component={NewsPage} />
-          <Route path="/statistics/" component={StatisticsPage} />
+          <Route path="/statistics" component={StatisticsPage} />
           <Route path="/status" component={StatusPage} />
         </Switch>
       </Content>

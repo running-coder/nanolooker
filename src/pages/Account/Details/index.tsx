@@ -109,6 +109,7 @@ const AccountDetails = () => {
             {accountInfo?.representative ? (
               <>
                 <Badge
+                  style={{ float: "left" }}
                   status={
                     representativesOnline.includes(
                       accountInfo?.representative || ""
@@ -118,14 +119,24 @@ const AccountDetails = () => {
                   }
                 />
                 <Link to={`/account/${accountInfo.representative}`}>
-                  <span>
-                    {accountInfo.representative.substr(
-                      accountInfo.representative.length * -1,
-                      accountInfo.representative.length - 60 + 10
-                    )}
-                  </span>
-                  <span>...</span>
-                  <span>{accountInfo.representative.substr(-10)}</span>
+                  <div style={{ wordWrap: "break-word" }}>
+                    {accountInfo.representative}
+                  </div>
+                  {/* <div className="container">
+                    <div className="part1">
+                      {accountInfo.representative.substr(
+                        0,
+                        Math.floor(accountInfo.representative.length / 2)
+                      )}
+                    </div>
+                    <div className="mid"></div>
+                    <div className="part2">
+                      {accountInfo.representative.substr(
+                        Math.ceil(accountInfo.representative.length / 2) * -1
+                      )}
+                    </div>
+                    <div className="end"></div>
+                  </div> */}
                 </Link>
               </>
             ) : (

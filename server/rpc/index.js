@@ -24,6 +24,7 @@ const allowedRpcMethods = [
   "frontier_count",
   "account_info",
   "account_history",
+  "accounts_pending",
   "block_info",
   "representatives",
   "representatives_online",
@@ -39,10 +40,11 @@ const cacheSettings = {
   available_supply: 604800,
   frontier_count: undefined,
   account_info: 5,
-  account_history: 5,
+  account_history: undefined,
+  accounts_pending: undefined,
   block_info: undefined,
   representatives: 120,
-  representatives_online: undefined,
+  representatives_online: 120,
   confirmation_quorum: 60
 };
 

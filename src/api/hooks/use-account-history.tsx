@@ -28,7 +28,7 @@ interface AccountHistoryParams {
   account_filter?: string[];
 }
 
-export interface UsePeersReturn {
+export interface UseAccountHistoryReturn {
   accountHistory: AccountHistory;
   isLoading: boolean;
   isError: boolean;
@@ -37,7 +37,7 @@ export interface UsePeersReturn {
 const useAccountHistory = (
   account: string,
   params: AccountHistoryParams
-): UsePeersReturn => {
+): UseAccountHistoryReturn => {
   const [accountHistory, setAccountHistory] = React.useState(
     {} as AccountHistory
   );
@@ -61,7 +61,11 @@ const useAccountHistory = (
   };
 
   React.useEffect(() => {
-    if (!isValidAccountAddress(account)) return;
+    if (
+      !isValidAccountAddress(account) ||
+      (typeof params.offset !== "number" && !params.head)
+    )
+      return;
 
     getAccountHistory(account, params);
     // eslint-disable-next-line react-hooks/exhaustive-deps

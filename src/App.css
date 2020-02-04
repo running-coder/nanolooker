@@ -61,7 +61,7 @@ a:hover {
 }
 
 .ant-descriptions-item-content {
-  width: 100%;
+  width: 90%;
 }
 
 .ant-descriptions-item-content .ant-skeleton-title {
@@ -71,3 +71,41 @@ a:hover {
 .ant-descriptions-item-content .ant-skeleton + .ant-skeleton {
   margin-top: 10px !important;
 }
+
+.container {
+  display: flex;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.part1,
+.part2 {
+  overflow: hidden;
+  display: inline-block;
+  text-overflow: ellipsis;
+  flex-shrink: 1;
+}
+
+.part2 {
+  direction: rtl;
+  margin-left: -30px;
+}
+
+.end {
+  flex-grow: 1;
+}
+
+.mid {
+  width: 30px;
+  flex-shrink: 10;
+}
+
+.ant-table-tbody > tr:last-child > td {
+  border-bottom: none !important;
+}
+
+/* .ant-descriptions table {
+  table-layout: fixed;
+  width: 100%;
+  white-space: nowrap;
+} */

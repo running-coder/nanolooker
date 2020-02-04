@@ -8,7 +8,7 @@ import TransactionsTable from "pages/Account/Transactions";
 const TRANSACTIONS_PER_PAGE = 25;
 const { Title } = Typography;
 
-const AccountHistory = () => {
+const AccountPendingHistory = () => {
   const { account, accountInfo } = React.useContext(AccountInfoContext);
   const isPaginated = Number(accountInfo?.block_count) <= 100;
   const showPaginate = Number(accountInfo?.block_count) > TRANSACTIONS_PER_PAGE;
@@ -47,4 +47,4 @@ const AccountHistory = () => {
   );
 };
 
-export default AccountHistory;
+export default AccountPendingHistory;
