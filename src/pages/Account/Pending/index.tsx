@@ -1,50 +1,71 @@
 import React from "react";
 import { Typography } from "antd";
 import BigNumber from "bignumber.js";
-import useAccountHistory from "api/hooks/use-account-history";
+import usePending, { PendingBlock } from "api/hooks/use-pending";
 import { AccountInfoContext } from "api/contexts/AccountInfo";
 import TransactionsTable from "pages/Account/Transactions";
+import { raiToRaw } from "components/utils";
 
-const TRANSACTIONS_PER_PAGE = 25;
+const MAX_PENDING_TRANSACTIONS = 25;
+const TRANSACTIONS_PER_PAGE = 5;
 const { Title } = Typography;
+
+interface PendingHistoryBlock extends PendingBlock {
+  hash: string;
+  account: string;
+  subtype: string;
+}
 
 const AccountPendingHistory = () => {
   const { account, accountInfo } = React.useContext(AccountInfoContext);
   const isPaginated = Number(accountInfo?.block_count) <= 100;
   const showPaginate = Number(accountInfo?.block_count) > TRANSACTIONS_PER_PAGE;
   const [currentPage, setCurrentPage] = React.useState<number>(1);
-  const [currentHead, setCurrentHead] = React.useState<string | undefined>();
+
   const {
-    accountHistory: { history, previous: previousHead },
+    pending: { blocks = {} } = {},
     isLoading: isAccountHistoryLoading
-  } = useAccountHistory(account, {
-    count: String(TRANSACTIONS_PER_PAGE),
-    raw: true,
-    offset: isPaginated ? (currentPage - 1) * TRANSACTIONS_PER_PAGE : undefined,
-    head: !isPaginated ? currentHead || accountInfo?.frontier : undefined
+  } = usePending(account, {
+    count: String(MAX_PENDING_TRANSACTIONS),
+    sorting: true,
+    source: true,
+    threshold: new BigNumber(raiToRaw(0.000001)).toFixed()
   });
 
-  return (
+  let pendingHistory = undefined;
+  if (Object.values(blocks)[0]) {
+    pendingHistory = Object.entries(blocks).map(
+      // @ts-ignore
+      ([block, { amount, source }]): PendingHistoryBlock => ({
+        hash: block,
+        amount,
+        account: source,
+        subtype: "pending"
+      })
+    );
+  }
+
+  //@TODO check why it doesnt paginate on nano_1111111111111111111111111111111111111111111111111111hifc8npp
+  // console.log("`~~TRANSACTIONS_PER_PAGE", TRANSACTIONS_PER_PAGE);
+
+  return pendingHistory ? (
     <>
       <Title level={3} style={{ marginTop: "0.5em" }}>
-        {new BigNumber(accountInfo?.block_count).toFormat()} Total Transactions
+        {pendingHistory.length} Pending Transactions
       </Title>
 
       <TransactionsTable
-        data={history}
+        data={pendingHistory}
         isLoading={isAccountHistoryLoading}
         isPaginated={isPaginated}
         showPaginate={showPaginate}
         pageSize={TRANSACTIONS_PER_PAGE}
         currentPage={currentPage}
-        totalPages={Number(accountInfo?.block_count) || 0}
+        totalPages={pendingHistory.length || 0}
         setCurrentPage={setCurrentPage}
-        setCurrentHead={
-          previousHead ? () => setCurrentHead(previousHead) : null
-        }
       />
     </>
-  );
+  ) : null;
 };
 
 export default AccountPendingHistory;

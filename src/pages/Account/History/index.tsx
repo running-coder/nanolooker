@@ -27,7 +27,7 @@ const AccountHistory = () => {
   return (
     <>
       <Title level={3} style={{ marginTop: "0.5em" }}>
-        {new BigNumber(accountInfo?.block_count).toFormat()} Total Transactions
+        {new BigNumber(accountInfo?.block_count || 0).toFormat()} Total Transactions
       </Title>
 
       <TransactionsTable

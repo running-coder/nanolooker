@@ -92,19 +92,19 @@ const AccountDetails = () => {
               </>
             }
           >
-            {representatives[account]} Nano
+            {new BigNumber(representatives[account]).toFormat()} NANO
           </Descriptions.Item>
         ) : null}
         <Descriptions.Item label="Balance">
           <Skeleton {...skeletonProps}>
-            {balance} NANO
+            {new BigNumber(balance).toFormat()} NANO
             <br />
           </Skeleton>
           <Skeleton {...skeletonProps}>
             {`$${usdBalance} / ${btcBalance} BTC`}
           </Skeleton>
         </Descriptions.Item>
-        <Descriptions.Item label="Representative">
+        <Descriptions.Item label="Representative" className="truncate">
           <Skeleton {...skeletonProps}>
             {accountInfo?.representative ? (
               <>
@@ -119,24 +119,7 @@ const AccountDetails = () => {
                   }
                 />
                 <Link to={`/account/${accountInfo.representative}`}>
-                  <div style={{ wordWrap: "break-word" }}>
-                    {accountInfo.representative}
-                  </div>
-                  {/* <div className="container">
-                    <div className="part1">
-                      {accountInfo.representative.substr(
-                        0,
-                        Math.floor(accountInfo.representative.length / 2)
-                      )}
-                    </div>
-                    <div className="mid"></div>
-                    <div className="part2">
-                      {accountInfo.representative.substr(
-                        Math.ceil(accountInfo.representative.length / 2) * -1
-                      )}
-                    </div>
-                    <div className="end"></div>
-                  </div> */}
+                  {accountInfo.representative}
                 </Link>
               </>
             ) : (
@@ -163,16 +146,11 @@ const AccountDetails = () => {
           <Skeleton {...skeletonProps}>{balancePending} NANO</Skeleton>
         </Descriptions.Item>
 
-        <Descriptions.Item label="Transactions">
-          <Skeleton {...skeletonProps}>
-            Total {new BigNumber(accountInfo.block_count).toFormat()}
-            <br />
-          </Skeleton>
+        <Descriptions.Item label="Last transaction">
           <Skeleton {...skeletonProps}>
             {modifiedTimestamp ? (
               <>
-                Last transaction {format(modifiedTimestamp)} (
-                {modifiedDate.getFullYear()}/
+                {format(modifiedTimestamp)} ({modifiedDate.getFullYear()}/
                 {String(modifiedDate.getMonth() + 1).padStart(2, "0")}/
                 {String(modifiedDate.getDate()).padStart(2, "0")})
               </>

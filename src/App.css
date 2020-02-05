@@ -100,12 +100,10 @@ a:hover {
   flex-shrink: 10;
 }
 
-.ant-table-tbody > tr:last-child > td {
-  border-bottom: none !important;
-}
-
-/* .ant-descriptions table {
-  table-layout: fixed;
-  width: 100%;
+.truncate {
   white-space: nowrap;
-} */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%; /* Extend the cell as much as possible */
+  max-width: 0; /* Avoid resizing beyond table width */
+}

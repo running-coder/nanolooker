@@ -21,6 +21,11 @@ export const rawToRai = (raw: string | number) => {
   return value.shiftedBy(30 * -1).toNumber();
 };
 
+export const raiToRaw = (rai: string | number) => {
+  const value = new BigNumber(rai.toString());
+  return value.shiftedBy(30).toNumber();
+};
+
 export const secondsToTime = (value: string | number) => {
   const bigSeconds = new BigNumber(value.toString());
 

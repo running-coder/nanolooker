@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button, Card, Col, Row, Table, Tag, Typography } from "antd";
 import { format } from "timeago.js";
-
+import BigNumber from "bignumber.js";
 import { rawToRai } from "components/utils";
 import { Color } from "components/Price";
 
@@ -34,7 +34,7 @@ interface TransactionsTableProps {
   currentPage: number;
   totalPages: number;
   setCurrentPage: Function;
-  setCurrentHead: Function | null;
+  setCurrentHead?: Function | null;
 }
 
 const TransactionsTable = ({
@@ -79,19 +79,20 @@ const TransactionsTable = ({
         {
           title: "Type",
           dataIndex: "subtype",
-          render: (text: string) => (
+          render: (text: string, { type }) => (
             <Tag
               // @ts-ignore
-              color={TypeColors[text.toUpperCase()]}
+              color={TypeColors[(text || type).toUpperCase()]}
               style={{ textTransform: "capitalize" }}
             >
-              {text}
+              {text || type}
             </Tag>
           )
         },
         {
           title: "Account / Block",
           dataIndex: "account",
+          className: "truncate",
           render: (text: string, { representative, hash }) => (
             <>
               <Link
@@ -110,8 +111,9 @@ const TransactionsTable = ({
         {
           title: "Amount",
           dataIndex: "amount",
-          render: (text: string, { subtype = "" }) => {
+          render: (text: string, { subtype: recordSubtype, type }) => {
             let color = undefined;
+            const subtype = recordSubtype || type;
             if (!text) {
               color = subtype === "change" ? "#722ed1" : undefined;
             } else {
@@ -123,7 +125,7 @@ const TransactionsTable = ({
                 {!text ? "N/A" : ""}
                 {["receive", "open"].includes(subtype) ? "+" : ""}
                 {subtype === "send" ? "-" : ""}
-                {text ? `${rawToRai(text)} NANO` : ""}
+                {text ? `${new BigNumber(rawToRai(text)).toFormat()} NANO` : ""}
               </Text>
             );
           }
@@ -150,18 +152,7 @@ const TransactionsTable = ({
           }
         }
       ]}
-      dataSource={
-        data?.length
-          ? // @TODO History transformer
-            data.map((newData: any) => {
-              if (!newData.subtype) {
-                // @ts-ignore
-                newData.subtype = newData.type;
-              }
-              return newData;
-            })
-          : undefined
-      }
+      dataSource={data || undefined}
     />
   </TransactionsLayout>
 );

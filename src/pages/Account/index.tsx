@@ -4,6 +4,7 @@ import { isValidAccountAddress } from "components/utils";
 import AccountHeader from "./Header";
 import AccountDetails from "./Details";
 import AccountDetailsUnopened from "./Details/Unopened";
+import AccountPendingHistory from "./Pending";
 import AccountHistory from "./History";
 import { AccountInfoContext } from "api/contexts/AccountInfo";
 
@@ -35,6 +36,7 @@ const AccountPage = () => {
       ) : null}
 
       {/* @TODO Limit RPC call to single */}
+      <AccountPendingHistory />
       <AccountHistory />
       {!isValid || !account ? "Missing account" : null}
     </>
