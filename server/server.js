@@ -32,8 +32,12 @@ app.post("/api/rpc", async (req, res) => {
   return res.send(result);
 });
 
-app.get("*", (_req, res) => {
-  res.sendFile(path.join(__dirname, "../dist", "index.html"));
+app.get("*", (req, res, next) => {
+  if (/^\/ws/.test(req.url)) {
+    next();
+  } else {
+    res.sendFile(path.join(__dirname, "../dist", "index.html"));
+  }
 });
 
 app.listen(process.env.SERVER_PORT);

@@ -1,57 +1,94 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Skeleton, Tag, Timeline, Typography } from "antd";
+import {
+  Card,
+  Icon,
+  List,
+  Popover,
+  Skeleton,
+  Switch,
+  Tag,
+  Timeline,
+  Typography
+} from "antd";
 import BigNumber from "bignumber.js";
 import useSockets from "api/hooks/use-socket";
 import { TypeColors } from "pages/Account/Transactions";
 import { Color } from "components/Price";
 import { rawToRai } from "components/utils";
 
-const { Text, Title } = Typography;
+const { Text } = Typography;
 
 const HomePage = () => {
-  const { recentTransactions, isConnected } = useSockets();
-
-  console.log("~~~loading", !isConnected);
-  console.log("~~~recentTransactions", recentTransactions);
-
-  // account: "nano_1smntg4beob1jp6muzityz9rjr68xns88r8i84jto8emtdtc16ksbno9pbse"
-  // amount: "1000000000000000000000000000000"
-  // hash: "C7BDAF74FB613DCC497D060E4A47D30EE752CD7281C84D6F7234015A4D61B296"
-  // confirmation_type: "active_quorum"
-  // block:
-  // type: "state"
-  // account: "nano_1smntg4beob1jp6muzityz9rjr68xns88r8i84jto8emtdtc16ksbno9pbse"
-  // previous: "1113FB76A1F8A1202203BE6609A9BB04FB4BC6C51CFF3A4D9FB43F75DCDDAE0C"
-  // representative: "nano_1natrium1o3z5519ifou7xii8crpxpk8y65qmkih8e8bpsjri651oza8imdd"
-  // balance: "7030000000000000000000000000000"
-  // link: "D6DEB4E0A70993929450674EC4B57E8F368CE845B84C93375431EDB41479790D"
-  // link_as_account: "nano_3opypmicg4emkcc71stgrktqx5spjmn6dg4ekeuoaehfpic9kyaffnanhifr"
-  // signature: "9796176BD77DF55201999DF2F1EF7DD0D6D7BB941148BF08F03AE230854764D0A9F75D42E566F17C75595448197D55861DFD20AA8C44EC062889A7F1BA438C02"
-  // work: "387fc3d99dc66611"
-  // subtype: "send"
+  const {
+    recentTransactions,
+    isConnected,
+    setIsMinAmount,
+    isDisabled,
+    setIsDisabled
+  } = useSockets();
 
   return (
-    <>
-      <Title level={3}>Recent Transactions</Title>
+    <Card
+      size="small"
+      title="Recent Transactions"
+      extra={
+        <Popover
+          placement="left"
+          content={
+            <List size="small">
+              <List.Item>
+                <Text style={{ marginRight: "16px" }}>Enable Live updates</Text>
+                <Switch
+                  checkedChildren={<Icon type="check" />}
+                  unCheckedChildren={<Icon type="close" />}
+                  onChange={(checked: boolean) => {
+                    setIsDisabled(!checked);
+                  }}
+                  defaultChecked
+                />
+              </List.Item>
+              <List.Item>
+                <Text style={{ marginRight: "16px" }}>
+                  Include amounts under 1 NANO
+                </Text>
+                <Switch
+                  checkedChildren={<Icon type="check" />}
+                  unCheckedChildren={<Icon type="close" />}
+                  onChange={(checked: boolean) => {
+                    setIsMinAmount(!checked);
+                  }}
+                  defaultChecked
+                />
+              </List.Item>
+            </List>
+          }
+          trigger="click"
+        >
+          <Icon type="setting" />
+        </Popover>
+      }
+    >
       <Skeleton active={true} loading={!isConnected}>
         {recentTransactions.length ? (
-          <Timeline>
+          <Timeline mode="alternate">
             {recentTransactions.map(
               ({ account, amount, hash, block: { subtype } }) => {
                 let color = undefined;
-                // const subtype = recordSubtype || type;
                 if (!account) {
                   color = subtype === "change" ? "#722ed1" : undefined;
                 } else {
                   color = subtype === "send" ? Color.NEGATIVE : Color.POSITIVE;
                 }
 
-                const position = subtype === "send" ? "left" : "right";
-                console.log("~position", position);
+                const position = subtype === "send" ? "right" : "left";
 
                 return (
-                  <Timeline.Item color={color} key={hash} position={position}>
+                  <Timeline.Item
+                    color={color}
+                    key={hash}
+                    className={`fadein ${position}`}
+                  >
                     <Tag
                       // @ts-ignore
                       color={TypeColors[subtype.toUpperCase()]}
@@ -78,10 +115,28 @@ const HomePage = () => {
             )}
           </Timeline>
         ) : (
-          <p>Waiting for transactions...</p>
+          <p style={{ marginTop: "1em", textAlign: "center" }}>
+            {isDisabled ? (
+              <>
+                <Icon
+                  type="close-circle"
+                  theme="twoTone"
+                  twoToneColor={Color.NEGATIVE}
+                />
+                <Text style={{ marginLeft: "8px" }}>Live updates disabled</Text>
+              </>
+            ) : (
+              <>
+                <Icon type="sync" spin />
+                <Text style={{ marginLeft: "8px" }}>
+                  Waiting for transactions ...
+                </Text>
+              </>
+            )}
+          </p>
         )}
       </Skeleton>
-    </>
+    </Card>
   );
 };
 

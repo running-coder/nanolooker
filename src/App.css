@@ -107,3 +107,38 @@ a:hover {
   width: 100%; /* Extend the cell as much as possible */
   max-width: 0; /* Avoid resizing beyond table width */
 }
+
+.ant-timeline .right .ant-timeline-item-content {
+  left: inherit !important;
+  width: calc(50% - 12px) !important;
+  margin: 0 !important;
+  text-align: right !important;
+}
+
+.ant-timeline .left .ant-timeline-item-content {
+  left: calc(50% - 4px) !important;
+  width: calc(50% - 14px) !important;
+  margin: 0 0 0 18px !important;
+  text-align: left !important;
+}
+
+.ant-timeline {
+  padding: 10px 0;
+}
+
+.ant-timeline-item-last {
+  padding-bottom: 0 !important;
+}
+
+.fadein {
+  animation: fadein 0.25s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
