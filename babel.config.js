@@ -6,7 +6,8 @@ module.exports = {
       {
         root: ["./"],
         alias: {
-          components: "./src/components"
+          components: "./src/components",
+          types: "./src/types"
         }
       }
     ],

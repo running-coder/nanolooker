@@ -5,6 +5,7 @@ import usePending, { PendingBlock } from "api/hooks/use-pending";
 import { AccountInfoContext } from "api/contexts/AccountInfo";
 import TransactionsTable from "pages/Account/Transactions";
 import { raiToRaw } from "components/utils";
+import { Subtype } from "types/Transaction";
 
 const MAX_PENDING_TRANSACTIONS = 25;
 const TRANSACTIONS_PER_PAGE = 5;
@@ -13,7 +14,7 @@ const { Title } = Typography;
 interface PendingHistoryBlock extends PendingBlock {
   hash: string;
   account: string;
-  subtype: string;
+  subtype: Subtype;
 }
 
 const AccountPendingHistory = () => {

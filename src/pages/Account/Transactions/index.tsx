@@ -6,7 +6,7 @@ import BigNumber from "bignumber.js";
 import { rawToRai } from "components/utils";
 import { Color } from "components/Price";
 
-enum TypeColors {
+export enum TypeColors {
   CHANGE = "purple",
   PENDING = "blue",
   SEND = "red",

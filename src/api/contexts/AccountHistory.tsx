@@ -1,10 +1,11 @@
 import React from "react";
 import { rpc } from "api/rpc";
 import { isValidAccountAddress } from "components/utils";
+import { Type, Subtype } from "types/Transaction";
 
 interface History {
-  type: "state" | "change" | "pending" | "send" | "receive" | "open";
-  subtype?: "change" | "pending" | "send" | "receive" | "open";
+  type: Type;
+  subtype?: Subtype;
   representative: string;
   account: string;
   amount: string;
