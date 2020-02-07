@@ -1,22 +1,17 @@
 import React from "react";
 import { Icon } from "antd";
 import { PriceContext } from "api/contexts/Price";
-
-export enum Color {
-  NEUTRAL = "#1890ff",
-  POSITIVE = "#52c41a",
-  NEGATIVE = "#f5222d"
-}
+import { Colors } from "components/utils";
 
 const Price = () => {
   const { usd, usd24hChange = 0 } = React.useContext(PriceContext);
 
   const color =
     usd24hChange === 0
-      ? Color.NEUTRAL
+      ? Colors.PENDING
       : usd24hChange < 0
-      ? Color.NEGATIVE
-      : Color.POSITIVE;
+      ? Colors.SEND
+      : Colors.RECEIVE;
 
   return (
     <div style={{ display: "flex", alignItems: "center" }}>

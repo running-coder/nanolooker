@@ -5,6 +5,7 @@ import CopyToClipboard from "react-copy-to-clipboard";
 import QRCodeModal from "components/QRCodeModal";
 import { RepresentativesContext } from "api/contexts/Representatives";
 import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
+import { Colors } from "components/utils";
 
 const { Title } = Typography;
 let copiedTimeout: number | undefined;
@@ -73,11 +74,11 @@ const AccountHeader = () => {
               disabled={isCopied}
               style={{
                 marginRight: "6px",
-                borderColor: isCopied ? "#52c41a" : undefined
+                borderColor: isCopied ? Colors.SEND : undefined
               }}
             >
               {isCopied ? (
-                <Icon type="check" style={{ color: "#52c41a" }} />
+                <Icon type="check" style={{ color: Colors.SEND }} />
               ) : (
                 <Icon type="copy" />
               )}

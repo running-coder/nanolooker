@@ -2,6 +2,22 @@ import BigNumber from "bignumber.js";
 
 const MIN_ACTION_TIME = 150;
 
+export enum Colors {
+  CHANGE = "#722ed1",
+  PENDING = "#1890ff",
+  RECEIVE = "#52c41a",
+  SEND = "#f5222d"
+}
+
+export enum TwoToneColors {
+  CHANGE = "purple",
+  PENDING = "blue",
+  SEND = "red",
+  RECEIVE = "green"
+}
+
+// @TODO: map subtype to color?
+
 function sleep(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }

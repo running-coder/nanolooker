@@ -15,8 +15,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import BigNumber from "bignumber.js";
 import TimeAgo from "timeago-react";
 import useSockets from "api/hooks/use-socket";
-import { TypeColors } from "pages/Account/Transactions";
-import { Color } from "components/Price";
+import { Colors, TwoToneColors } from "components/utils";
 import { rawToRai } from "components/utils";
 
 const { Text } = Typography;
@@ -80,7 +79,7 @@ const HomePage = () => {
               <Icon
                 type="close-circle"
                 theme="twoTone"
-                twoToneColor={Color.NEGATIVE}
+                twoToneColor={TwoToneColors.SEND}
               />
               <Text style={{ marginLeft: "8px" }}>Live updates disabled</Text>
             </div>
@@ -93,6 +92,14 @@ const HomePage = () => {
               </Text>
             </div>
           ) : null}
+          {!isConnected ? (
+            <div style={{ textAlign: "center" }}>
+              <Icon type="sync" spin />
+              <Text style={{ marginLeft: "8px" }}>
+                Connecting to the NANO blockchain ...
+              </Text>
+            </div>
+          ) : null}
           {recentTransactions.length ? (
             <Timeline
               mode={isMediumAndLower ? "left" : "alternate"}
@@ -100,13 +107,8 @@ const HomePage = () => {
             >
               {recentTransactions.map(
                 ({ account, amount, hash, timestamp, block: { subtype } }) => {
-                  let color = undefined;
-                  if (!account) {
-                    color = subtype === "change" ? "#722ed1" : undefined;
-                  } else {
-                    color =
-                      subtype === "send" ? Color.NEGATIVE : Color.POSITIVE;
-                  }
+                  // @ts-ignore
+                  const color = Colors[subtype.toUpperCase()];
 
                   return (
                     <Timeline.Item
@@ -119,22 +121,27 @@ const HomePage = () => {
                       <div className="first-row">
                         <Tag
                           // @ts-ignore
-                          color={TypeColors[subtype.toUpperCase()]}
+                          color={TwoToneColors[subtype.toUpperCase()]}
                           className="timeline-tag"
                         >
                           {subtype}
                         </Tag>
-                        <Text style={{ color }} className="timeline-amount">
-                          {amount
-                            ? `${new BigNumber(
-                                rawToRai(amount)
-                              ).toFormat()} NANO`
-                            : "N/A"}
-                        </Text>
+                        {subtype !== "change" ? (
+                          <Text style={{ color }} className="timeline-amount">
+                            {amount
+                              ? `${new BigNumber(
+                                  rawToRai(amount)
+                                ).toFormat()} NANO`
+                              : "N/A"}
+                          </Text>
+                        ) : null}
                         <TimeAgo
                           datetime={timestamp}
                           live={true}
                           className="timeline-timeago color-muted"
+                          style={{
+                            marginLeft: subtype === "change" ? "6px" : 0
+                          }}
                         />
                       </div>
                       <Link to={`/account/${account}`} className="color-normal">

@@ -4,14 +4,7 @@ import { Button, Card, Col, Row, Table, Tag, Typography } from "antd";
 import TimeAgo from "timeago-react";
 import BigNumber from "bignumber.js";
 import { rawToRai } from "components/utils";
-import { Color } from "components/Price";
-
-export enum TypeColors {
-  CHANGE = "purple",
-  PENDING = "blue",
-  SEND = "red",
-  RECEIVE = "green"
-}
+import { Colors, TwoToneColors } from "components/utils";
 
 const { Text } = Typography;
 
@@ -82,7 +75,7 @@ const TransactionsTable = ({
           render: (text: string, { type }) => (
             <Tag
               // @ts-ignore
-              color={TypeColors[(text || type).toUpperCase()]}
+              color={TwoToneColors[(text || type).toUpperCase()]}
               style={{ textTransform: "capitalize" }}
             >
               {text || type}
@@ -112,13 +105,9 @@ const TransactionsTable = ({
           title: "Amount",
           dataIndex: "amount",
           render: (text: string, { subtype: recordSubtype, type }) => {
-            let color = undefined;
             const subtype = recordSubtype || type;
-            if (!text) {
-              color = subtype === "change" ? "#722ed1" : undefined;
-            } else {
-              color = subtype === "send" ? Color.NEGATIVE : Color.POSITIVE;
-            }
+            // @ts-ignore
+            const color = Colors[subtype.toUpperCase()];
 
             return (
               <Text style={{ color }}>

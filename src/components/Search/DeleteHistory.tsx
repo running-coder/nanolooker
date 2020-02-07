@@ -1,5 +1,6 @@
 import React from "react";
 import { Icon } from "antd";
+import { TwoToneColors } from "components/utils";
 
 const DeleteHistory = (props: any) => {
   const [isHovered, setIsHovered] = React.useState(false);
@@ -15,7 +16,7 @@ const DeleteHistory = (props: any) => {
         type="minus-circle"
         className="delete-history-button"
         theme={isHovered ? "twoTone" : "outlined"}
-        twoToneColor="#eb2f96"
+        twoToneColor={TwoToneColors.SEND}
       />
     </div>
   );

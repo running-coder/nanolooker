@@ -77,6 +77,7 @@ const useSocket = () => {
             return;
           }
           json.message.timestamp = new Date().getTime();
+
           setRecentTransactions(prevRecentTransactions =>
             [
               json.message as RecentTransaction,
