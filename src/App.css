@@ -35,11 +35,11 @@
   padding-right: 16px !important;
 }
 
-.link-normal {
+.color-normal {
   color: inherit !important;
 }
 
-.link-muted {
+.color-muted {
   color: gray !important;
 }
 
@@ -108,18 +108,67 @@ a:hover {
   max-width: 0; /* Avoid resizing beyond table width */
 }
 
-.ant-timeline .right .ant-timeline-item-content {
-  left: inherit !important;
-  width: calc(50% - 12px) !important;
-  margin: 0 !important;
-  text-align: right !important;
+@media (min-width: 768px) {
+  .ant-timeline .right .ant-timeline-item-content {
+    left: inherit !important;
+    width: calc(50% - 12px) !important;
+    margin: 0 !important;
+    text-align: right !important;
+  }
+
+  .ant-timeline .left .ant-timeline-item-content {
+    left: calc(50% - 4px) !important;
+    width: calc(50% - 14px) !important;
+    margin: 0 0 0 18px !important;
+    text-align: left !important;
+  }
+
+  .ant-timeline .first-row {
+    display: flex;
+    align-items: center;
+  }
+
+  .ant-timeline .left .first-row {
+    justify-content: flex-start;
+  }
+
+  .ant-timeline .right .first-row {
+    justify-content: flex-end;
+  }
+
+  .ant-timeline .left .timeline-tag {
+    order: 1;
+  }
+
+  .ant-timeline .right .timeline-tag {
+    order: 3;
+  }
+
+  .ant-timeline .left .timeline-timeago {
+    order: 3;
+  }
+
+  .ant-timeline .right .timeline-timeago {
+    order: 1;
+  }
+
+  .ant-timeline .timeline-amount {
+    order: 2;
+  }
 }
 
-.ant-timeline .left .ant-timeline-item-content {
-  left: calc(50% - 4px) !important;
-  width: calc(50% - 14px) !important;
-  margin: 0 0 0 18px !important;
-  text-align: left !important;
+.ant-timeline .timeline-tag {
+  text-transform: capitalize;
+  margin: 0 !important;
+}
+
+.ant-timeline .timeline-amount {
+  margin: 0 6px;
+}
+
+.ant-timeline .timeline-timeago {
+  font-size: 12px;
+  line-height: 21px;
 }
 
 .ant-timeline {
@@ -141,4 +190,15 @@ a:hover {
   to {
     opacity: 1;
   }
+}
+
+/* @TODO remove this for flex */
+.clearfix {
+  overflow: auto;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
 }

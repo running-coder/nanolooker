@@ -26,6 +26,7 @@ interface RecentTransaction {
   hash: string;
   confirmation_type: string;
   block: Block;
+  timestamp: number;
 }
 
 const MAX_RECENT_TRANSACTIONS: number = 25;
@@ -75,6 +76,7 @@ const useSocket = () => {
           ) {
             return;
           }
+          json.message.timestamp = new Date().getTime();
           setRecentTransactions(prevRecentTransactions =>
             [
               json.message as RecentTransaction,

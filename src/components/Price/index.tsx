@@ -26,7 +26,7 @@ const Price = () => {
         alt="Nano currency logo"
         style={{ marginRight: "3px" }}
       />
-      <span style={{ marginRight: "6px" }}>${usd}</span>
+      <span style={{ marginRight: "6px" }}>${usd?.toFixed(2)}</span>
       <span
         style={{
           marginRight: "3px",

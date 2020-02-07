@@ -11,7 +11,7 @@ import {
   Tooltip
 } from "antd";
 import BigNumber from "bignumber.js";
-import { format } from "timeago.js";
+import TimeAgo from "timeago-react";
 import { PriceContext } from "api/contexts/Price";
 import { AccountInfoContext } from "api/contexts/AccountInfo";
 import { RepresentativesOnlineContext } from "api/contexts/RepresentativesOnline";
@@ -107,7 +107,7 @@ const AccountDetails = () => {
         <Descriptions.Item label="Representative" className="truncate">
           <Skeleton {...skeletonProps}>
             {accountInfo?.representative ? (
-              <>
+              <div className="clearfix">
                 <Badge
                   style={{ float: "left" }}
                   status={
@@ -121,7 +121,7 @@ const AccountDetails = () => {
                 <Link to={`/account/${accountInfo.representative}`}>
                   {accountInfo.representative}
                 </Link>
-              </>
+              </div>
             ) : (
               "No Representative"
             )}
@@ -150,7 +150,8 @@ const AccountDetails = () => {
           <Skeleton {...skeletonProps}>
             {modifiedTimestamp ? (
               <>
-                {format(modifiedTimestamp)} ({modifiedDate.getFullYear()}/
+                <TimeAgo datetime={modifiedTimestamp} live={false} /> (
+                {modifiedDate.getFullYear()}/
                 {String(modifiedDate.getMonth() + 1).padStart(2, "0")}/
                 {String(modifiedDate.getDate()).padStart(2, "0")})
               </>

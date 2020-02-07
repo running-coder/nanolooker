@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button, Card, Col, Row, Table, Tag, Typography } from "antd";
-import { format } from "timeago.js";
+import TimeAgo from "timeago-react";
 import BigNumber from "bignumber.js";
 import { rawToRai } from "components/utils";
 import { Color } from "components/Price";
@@ -97,12 +97,12 @@ const TransactionsTable = ({
             <>
               <Link
                 to={`/account/${text || representative}`}
-                className="link-normal"
+                className="color-normal"
               >
                 {text || representative}
               </Link>
               <br />
-              <Link to={`/block/${hash}`} className="link-muted">
+              <Link to={`/block/${hash}`} className="color-muted">
                 {hash}
               </Link>
             </>
@@ -144,7 +144,7 @@ const TransactionsTable = ({
                 {String(modifiedDate.getMonth() + 1).padStart(2, "0")}/
                 {String(modifiedDate.getDate()).padStart(2, "0")}
                 <br />
-                {format(modifiedTimestamp)}
+                <TimeAgo datetime={modifiedTimestamp} live={false} />
               </>
             ) : (
               "Unknown"

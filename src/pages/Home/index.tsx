@@ -11,7 +11,9 @@ import {
   Timeline,
   Typography
 } from "antd";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import BigNumber from "bignumber.js";
+import TimeAgo from "timeago-react";
 import useSockets from "api/hooks/use-socket";
 import { TypeColors } from "pages/Account/Transactions";
 import { Color } from "components/Price";
@@ -27,6 +29,8 @@ const HomePage = () => {
     isDisabled,
     setIsDisabled
   } = useSockets();
+
+  const isMediumAndLower = !useMediaQuery("(min-width: 768px)");
 
   return (
     <Card
@@ -70,71 +74,83 @@ const HomePage = () => {
       }
     >
       <Skeleton active={true} loading={!isConnected}>
-        {recentTransactions.length ? (
-          <Timeline mode="alternate">
-            {recentTransactions.map(
-              ({ account, amount, hash, block: { subtype } }) => {
-                let color = undefined;
-                if (!account) {
-                  color = subtype === "change" ? "#722ed1" : undefined;
-                } else {
-                  color = subtype === "send" ? Color.NEGATIVE : Color.POSITIVE;
-                }
+        <div style={{ margin: "1em 0" }}>
+          {isDisabled ? (
+            <div style={{ textAlign: "center" }}>
+              <Icon
+                type="close-circle"
+                theme="twoTone"
+                twoToneColor={Color.NEGATIVE}
+              />
+              <Text style={{ marginLeft: "8px" }}>Live updates disabled</Text>
+            </div>
+          ) : null}
+          {!isDisabled && !recentTransactions.length ? (
+            <div style={{ textAlign: "center" }}>
+              <Icon type="sync" spin />
+              <Text style={{ marginLeft: "8px" }}>
+                Waiting for transactions ...
+              </Text>
+            </div>
+          ) : null}
+          {recentTransactions.length ? (
+            <Timeline
+              mode={isMediumAndLower ? "left" : "alternate"}
+              style={{ marginTop: isDisabled ? "24px" : 0 }}
+            >
+              {recentTransactions.map(
+                ({ account, amount, hash, timestamp, block: { subtype } }) => {
+                  let color = undefined;
+                  if (!account) {
+                    color = subtype === "change" ? "#722ed1" : undefined;
+                  } else {
+                    color =
+                      subtype === "send" ? Color.NEGATIVE : Color.POSITIVE;
+                  }
 
-                const position = subtype === "send" ? "right" : "left";
-
-                return (
-                  <Timeline.Item
-                    color={color}
-                    key={hash}
-                    className={`fadein ${position}`}
-                  >
-                    <Tag
-                      // @ts-ignore
-                      color={TypeColors[subtype.toUpperCase()]}
-                      style={{ textTransform: "capitalize" }}
+                  return (
+                    <Timeline.Item
+                      color={color}
+                      key={hash}
+                      className={`fadein ${
+                        subtype === "send" ? "right" : "left"
+                      }`}
                     >
-                      {subtype}
-                    </Tag>
-                    <Text style={{ color }}>
-                      {amount
-                        ? `${new BigNumber(rawToRai(amount)).toFormat()} NANO`
-                        : "N/A"}
-                    </Text>
-                    <br />
-                    <Link to={`/account/${account}`} className="link-normal">
-                      {account}
-                    </Link>
-                    <br />
-                    <Link to={`/block/${hash}`} className="link-muted">
-                      {hash}
-                    </Link>
-                  </Timeline.Item>
-                );
-              }
-            )}
-          </Timeline>
-        ) : (
-          <p style={{ marginTop: "1em", textAlign: "center" }}>
-            {isDisabled ? (
-              <>
-                <Icon
-                  type="close-circle"
-                  theme="twoTone"
-                  twoToneColor={Color.NEGATIVE}
-                />
-                <Text style={{ marginLeft: "8px" }}>Live updates disabled</Text>
-              </>
-            ) : (
-              <>
-                <Icon type="sync" spin />
-                <Text style={{ marginLeft: "8px" }}>
-                  Waiting for transactions ...
-                </Text>
-              </>
-            )}
-          </p>
-        )}
+                      <div className="first-row">
+                        <Tag
+                          // @ts-ignore
+                          color={TypeColors[subtype.toUpperCase()]}
+                          className="timeline-tag"
+                        >
+                          {subtype}
+                        </Tag>
+                        <Text style={{ color }} className="timeline-amount">
+                          {amount
+                            ? `${new BigNumber(
+                                rawToRai(amount)
+                              ).toFormat()} NANO`
+                            : "N/A"}
+                        </Text>
+                        <TimeAgo
+                          datetime={timestamp}
+                          live={true}
+                          className="timeline-timeago color-muted"
+                        />
+                      </div>
+                      <Link to={`/account/${account}`} className="color-normal">
+                        {account}
+                      </Link>
+                      <br />
+                      <Link to={`/block/${hash}`} className="color-muted">
+                        {hash}
+                      </Link>
+                    </Timeline.Item>
+                  );
+                }
+              )}
+            </Timeline>
+          ) : null}
+        </div>
       </Skeleton>
     </Card>
   );

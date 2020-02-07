@@ -34,6 +34,7 @@ const AccountHeader = () => {
           wordWrap: "break-word",
           position: "relative"
         }}
+        className="clearfix"
       >
         <Icon
           type="wallet"
