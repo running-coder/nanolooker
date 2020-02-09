@@ -32,6 +32,7 @@ interface RecentTransaction {
 const MAX_RECENT_TRANSACTIONS: number = 25;
 
 let ws: any;
+let isForcedClosed = false;
 
 const useSocket = () => {
   const [isDisabled, setIsDisabled] = React.useState<boolean>(false);
@@ -41,7 +42,9 @@ const useSocket = () => {
     RecentTransaction[]
   >([]);
 
-  React.useEffect(() => {
+  const connect = () => {
+    isForcedClosed = false;
+    setIsConnected(false);
     ws = new WebSocket("wss://www.nanolooker.com/ws");
 
     ws.onopen = () => {
@@ -53,16 +56,40 @@ const useSocket = () => {
       ws.send(JSON.stringify(confirmation_subscription));
     };
 
-    ws.onmessage = onMessage;
+    ws.onclose = function() {
+      if (isForcedClosed) return;
+      setTimeout(() => {
+        connect();
+      }, 1000);
+    };
 
-    return () => ws.close();
+    ws.onmessage = onMessage;
+  };
+
+  React.useEffect(() => {
+    // connect();
+
+    return () => {
+      isForcedClosed = true;
+      ws.close();
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   React.useEffect(() => {
+    if (isDisabled) {
+      isForcedClosed = true;
+      ws.close();
+    } else {
+      connect();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isDisabled]);
+
+  React.useEffect(() => {
     ws.onmessage = onMessage;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isMinAmount, isDisabled]);
+  }, [isMinAmount]);
 
   const onMessage = React.useCallback(
     (msg: any) => {
@@ -70,9 +97,8 @@ const useSocket = () => {
         const json = JSON.parse(msg.data);
         if (json.topic === Topic.CONFIRMATION) {
           if (
-            isDisabled ||
-            (isMinAmount &&
-              new BigNumber(rawToRai(json.message.amount)).toNumber() < 1)
+            isMinAmount &&
+            new BigNumber(rawToRai(json.message.amount)).toNumber() < 1
           ) {
             return;
           }
@@ -89,7 +115,7 @@ const useSocket = () => {
         // silence error
       }
     },
-    [isMinAmount, isDisabled]
+    [isMinAmount]
   );
 
   return {

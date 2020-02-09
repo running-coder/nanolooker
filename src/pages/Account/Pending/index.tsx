@@ -7,7 +7,7 @@ import TransactionsTable from "pages/Account/Transactions";
 import { raiToRaw } from "components/utils";
 import { Subtype } from "types/Transaction";
 
-const MAX_PENDING_TRANSACTIONS = 25;
+const MAX_PENDING_TRANSACTIONS = 15;
 const TRANSACTIONS_PER_PAGE = 5;
 const { Title } = Typography;
 

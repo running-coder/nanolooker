@@ -8,7 +8,6 @@ import ExplorePage from "pages/Explore";
 import AccountPage from "pages/Account";
 import BlockPage from "pages/Block";
 import NewsPage from "pages/News";
-import StatisticsPage from "pages/Statistics";
 import StatusPage from "pages/Status";
 
 import Search from "components/Search";
@@ -20,7 +19,7 @@ import "antd/dist/antd.css";
 const { Header, Content, Footer } = Layout;
 const { SubMenu } = Menu;
 
-const App: React.FC = props => {
+const App: React.FunctionComponent = props => {
   // const { match, location, history } = useRouter();
 
   return (
@@ -68,26 +67,21 @@ const App: React.FC = props => {
                   Principal Representatives
                   <Link to="/representatives" />
                 </Menu.Item>
+                <Menu.Item key="distribution">
+                  Distribution
+                  <Link to="/distribution" />
+                </Menu.Item>
               </SubMenu>
               <Menu.Item key="news">
                 <Icon type="calendar" />
                 News
                 <Link to="/news" />
               </Menu.Item>
-              <SubMenu
-                title={
-                  <Link to="/statistics">
-                    <Icon type="line-chart" />
-                    Statistics
-                  </Link>
-                }
-              >
-                <Menu.Item key="representatives">
-                  <Icon type="database" />
-                  Node Status
-                  <Link to="/status" />
-                </Menu.Item>
-              </SubMenu>
+              <Menu.Item key="representatives">
+                <Icon type="database" />
+                Node Status
+                <Link to="/status" />
+              </Menu.Item>
             </Menu>
           </Col>
 
@@ -107,7 +101,6 @@ const App: React.FC = props => {
           <Route path="/account/:account?" component={AccountPage} />
           <Route path="/block/:block?" component={BlockPage} />
           <Route path="/news" component={NewsPage} />
-          <Route path="/statistics" component={StatisticsPage} />
           <Route path="/status" component={StatusPage} />
         </Switch>
       </Content>

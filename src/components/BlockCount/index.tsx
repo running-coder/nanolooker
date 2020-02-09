@@ -1,16 +1,15 @@
 import React from "react";
 import { Button, Card, Statistic, Skeleton, Tooltip } from "antd";
-import useBlockCount, { UseBlockCountReturn } from "api/hooks/use-block-count";
 import { refreshActionDelay } from "components/utils";
+import { BlockCountContext } from "api/contexts/BlockCount";
 
 const POLL_INTERVAL = 1000 * 30;
 
 const BlockCount: React.FunctionComponent = () => {
   const [isLoading, setIsLoading] = React.useState(false);
-  const {
-    blockCount: { count, unchecked, cemented },
-    getBlockCount
-  }: UseBlockCountReturn = useBlockCount();
+  const { count, unchecked, cemented, getBlockCount } = React.useContext(
+    BlockCountContext
+  );
 
   const refreshBlockCount = async () => {
     setIsLoading(true);

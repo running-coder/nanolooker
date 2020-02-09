@@ -1,10 +1,12 @@
 import React from "react";
 import { Icon } from "antd";
-import { PriceContext } from "api/contexts/Price";
+import { CoingeckoContext } from "api/contexts/Coingecko";
 import { Colors } from "components/utils";
 
 const Price = () => {
-  const { usd, usd24hChange = 0 } = React.useContext(PriceContext);
+  const { usdCurrentPrice, usd24hChange = 0 } = React.useContext(
+    CoingeckoContext
+  );
 
   const color =
     usd24hChange === 0
@@ -21,7 +23,7 @@ const Price = () => {
         alt="Nano currency logo"
         style={{ marginRight: "3px" }}
       />
-      <span style={{ marginRight: "6px" }}>${usd?.toFixed(2)}</span>
+      <span style={{ marginRight: "6px" }}>${usdCurrentPrice?.toFixed(2)}</span>
       <span
         style={{
           marginRight: "3px",
@@ -31,7 +33,7 @@ const Price = () => {
         }}
         title="Change 24h"
       >
-        {usd24hChange}%
+        {usd24hChange.toFixed(2)}%
       </span>
       {usd24hChange !== 0 ? (
         <span>
