@@ -28,7 +28,8 @@ const allowedRpcMethods = [
   "block_info",
   "representatives",
   "representatives_online",
-  "confirmation_quorum"
+  "confirmation_quorum",
+  "confirmation_history"
 ];
 
 const cacheSettings = {
@@ -45,7 +46,8 @@ const cacheSettings = {
   block_info: undefined,
   representatives: 120,
   representatives_online: 120,
-  confirmation_quorum: 60
+  confirmation_quorum: 60,
+  confirmation_history: undefined
 };
 
 const getCacheKey = (action, params) =>

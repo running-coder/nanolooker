@@ -6,6 +6,7 @@ import RepresentativesOnlineProvider from "./RepresentativesOnline";
 import ConfirmationQuorumProvider from "./ConfirmationQuorum";
 import BlockCountProvider from "./BlockCount";
 import CoingeckoProvider from "./Coingecko";
+import ConfirmationHistoryProvider from "./ConfirmationHistory";
 
 const IndexProvider: React.FunctionComponent = ({ children }) => {
   return (
@@ -15,7 +16,9 @@ const IndexProvider: React.FunctionComponent = ({ children }) => {
           <RepresentativesProvider>
             <RepresentativesOnlineProvider>
               <BlockCountProvider>
-                <CoingeckoProvider>{children}</CoingeckoProvider>
+                <ConfirmationHistoryProvider>
+                  <CoingeckoProvider>{children}</CoingeckoProvider>
+                </ConfirmationHistoryProvider>
               </BlockCountProvider>
             </RepresentativesOnlineProvider>
           </RepresentativesProvider>

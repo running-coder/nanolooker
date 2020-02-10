@@ -19,6 +19,7 @@ import BigNumber from "bignumber.js";
 import TimeAgo from "timeago-react";
 import { BlockCountContext } from "api/contexts/BlockCount";
 import { CoingeckoContext } from "api/contexts/Coingecko";
+import { ConfirmationHistoryContext } from "api/contexts/ConfirmationHistory";
 import { RepresentativesOnlineContext } from "api/contexts/RepresentativesOnline";
 import useSockets from "api/hooks/use-socket";
 import { Colors, TwoToneColors } from "components/utils";
@@ -41,7 +42,15 @@ const HomePage = () => {
     circulatingSupply
   } = React.useContext(CoingeckoContext);
   const { count } = React.useContext(BlockCountContext);
+  const {
+    // @TODO why define default here?
+    confirmation_stats: { average = "0" } = {}
+    // confirmations
+  } = React.useContext(ConfirmationHistoryContext);
   const { representatives } = React.useContext(RepresentativesOnlineContext);
+
+  // console.log("confirmation_stats", confirmation_stats);
+  // console.log("confirmations", confirmations);
 
   const isMediumAndLower = !useMediaQuery("(min-width: 768px)");
 
@@ -65,19 +74,12 @@ const HomePage = () => {
                     value={`$${new BigNumber(usdMarketCap).toFormat()}`}
                   />
                   <Statistic
-                    title="Exchange volume (USD 24h)"
-                    value={`$${new BigNumber(usd24hVolume).toFormat()}`}
+                    title="Circulating Supply"
+                    value={new BigNumber(circulatingSupply).toFormat()}
                   />
-                  <Statistic title="Onchain volume (24h)" value={`TBD`} />
                 </Col>
                 <Col xs={24} sm={12}>
-                  <Statistic
-                    title="Circulating Supply"
-                    value={`${new BigNumber(
-                      circulatingSupply
-                    ).toFormat()} NANO`}
-                  />
-                  <Statistic title="Blockchain size" value="" />
+                  <Statistic title="Blockchain size" value="TBD" />
                   <Statistic title="Latest block" value={count} />
                   <Statistic
                     title="Principal Representatives Online"
@@ -94,16 +96,22 @@ const HomePage = () => {
               <Row gutter={6}>
                 <Col xs={24} sm={12}>
                   <Statistic
+                    title="Avg. confirmation time (seconds)"
+                    value={new BigNumber(average).dividedBy(1000).toFormat()}
+                  />
+                  <Statistic
                     title="Confirmation per second (CPS)"
                     value="TBD"
                   />
                   <Statistic title="Transactions" value="TBD" />
-                  <Statistic title="Avg. transaction time" value="TBD" />
                 </Col>
                 <Col xs={24} sm={12}>
                   <Statistic title="Total fees" value="Always 0" />
-                  <Statistic title="Volume" value="TBD" />
-                  <Statistic title="Voting weight" value="TBD" />
+                  <Statistic
+                    title="Exchange volume (USD 24h)"
+                    value={`$${new BigNumber(usd24hVolume).toFormat()}`}
+                  />
+                  <Statistic title="Onchain volume (24h)" value={`TBD`} />
                 </Col>
               </Row>
             </Skeleton>
