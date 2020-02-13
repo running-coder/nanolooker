@@ -1,4 +1,11 @@
 require("dotenv").config();
+const {
+  wsCache,
+  TOTAL_CONFIRMATION_KEY_24H,
+  TOTAL_NANO_VOLUME_KEY_24H,
+  TOTAL_CONFIRMATION_KEY_48H,
+  TOTAL_NANO_VOLUME_KEY_48H
+} = require("./ws");
 
 const express = require("express");
 const cors = require("cors");
@@ -7,8 +14,6 @@ const bodyParser = require("body-parser");
 const path = require("path");
 
 const app = express();
-
-app.use(express.static(path.join(__dirname, "../dist")));
 
 app.use(
   cors({
@@ -32,8 +37,24 @@ app.post("/api/rpc", async (req, res) => {
   return res.send(result);
 });
 
+app.get("/api/statistics", (req, res) => {
+  const cachedConfirmations24h = wsCache.get(TOTAL_CONFIRMATION_KEY_24H);
+  const cachedVolume24h = wsCache.get(TOTAL_NANO_VOLUME_KEY_24H);
+  const cachedConfirmations48h = wsCache.get(TOTAL_CONFIRMATION_KEY_48H);
+  const cachedVolume48h = wsCache.get(TOTAL_NANO_VOLUME_KEY_48H);
+
+  return res.send({
+    [TOTAL_CONFIRMATION_KEY_24H]: cachedConfirmations24h,
+    [TOTAL_NANO_VOLUME_KEY_24H]: cachedVolume24h,
+    [TOTAL_CONFIRMATION_KEY_48H]: cachedConfirmations48h,
+    [TOTAL_NANO_VOLUME_KEY_48H]: cachedVolume48h
+  });
+});
+
+app.use(express.static(path.join(__dirname, "../dist")));
+
 app.get("*", (req, res, next) => {
-  if (/^\/ws/.test(req.url)) {
+  if (/^\/ws/.test(req.url) || /^\/api\//.test(req.url)) {
     next();
   } else {
     res.sendFile(path.join(__dirname, "../dist", "index.html"));

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "start": "react-scripts start",
-    "start:server": "nodemon server/server.js",
+    "start:server": "nodemon --signal SIGHUP server/server.js",
     "build": "react-scripts build && rm -rf dist && mv build dist",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -40,7 +40,9 @@
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
-    "timeago-react": "^3.0.0"
+    "reconnecting-websocket": "^4.4.0",
+    "timeago-react": "^3.0.0",
+    "ws": "^7.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.3",

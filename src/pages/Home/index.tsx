@@ -21,9 +21,11 @@ import { BlockCountContext } from "api/contexts/BlockCount";
 import { CoingeckoContext } from "api/contexts/Coingecko";
 import { ConfirmationHistoryContext } from "api/contexts/ConfirmationHistory";
 import { RepresentativesOnlineContext } from "api/contexts/RepresentativesOnline";
+import { Confirmation24hContext, TOTAL_CONFIRMATION_KEY_24H, TOTAL_NANO_VOLUME_KEY_24H } from "api/contexts/Confirmation24h";
 import useSockets from "api/hooks/use-socket";
 import { Colors, TwoToneColors } from "components/utils";
 import { rawToRai } from "components/utils";
+
 
 const { Text } = Typography;
 
@@ -48,9 +50,7 @@ const HomePage = () => {
     // confirmations
   } = React.useContext(ConfirmationHistoryContext);
   const { representatives } = React.useContext(RepresentativesOnlineContext);
-
-  // console.log("confirmation_stats", confirmation_stats);
-  // console.log("confirmations", confirmations);
+  const confirmation24h = React.useContext(Confirmation24hContext);
 
   const isMediumAndLower = !useMediaQuery("(min-width: 768px)");
 
@@ -79,12 +79,12 @@ const HomePage = () => {
                   />
                 </Col>
                 <Col xs={24} sm={12}>
-                  <Statistic title="Blockchain size" value="TBD" />
                   <Statistic title="Latest block" value={count} />
                   <Statistic
                     title="Principal Representatives Online"
                     value={representatives.length}
                   />
+                  <Statistic title="Blockchain size" value="TBD" />
                 </Col>
               </Row>
             </Skeleton>
@@ -103,7 +103,7 @@ const HomePage = () => {
                     title="Confirmation per second (CPS)"
                     value="TBD"
                   />
-                  <Statistic title="Transactions" value="TBD" />
+                  <Statistic title="Transactions" value={confirmation24h[TOTAL_CONFIRMATION_KEY_24H]} />
                 </Col>
                 <Col xs={24} sm={12}>
                   <Statistic title="Total fees" value="Always 0" />
@@ -111,7 +111,7 @@ const HomePage = () => {
                     title="Exchange volume (USD 24h)"
                     value={`$${new BigNumber(usd24hVolume).toFormat()}`}
                   />
-                  <Statistic title="Onchain volume (24h)" value={`TBD`} />
+                  <Statistic title="Onchain NANO volume (24h)" value={rawToRai(new BigNumber(confirmation24h[TOTAL_NANO_VOLUME_KEY_24H]).toNumber())} />
                 </Col>
               </Row>
             </Skeleton>
@@ -203,7 +203,7 @@ const HomePage = () => {
                       key={hash}
                       className={`fadein ${
                         subtype === "send" ? "right" : "left"
-                      }`}
+                        }`}
                     >
                       <div className="first-row">
                         <Tag
@@ -217,8 +217,8 @@ const HomePage = () => {
                           <Text style={{ color }} className="timeline-amount">
                             {amount
                               ? `${new BigNumber(
-                                  rawToRai(amount)
-                                ).toFormat()} NANO`
+                                rawToRai(amount)
+                              ).toFormat()} NANO`
                               : "N/A"}
                           </Text>
                         ) : null}
