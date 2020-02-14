@@ -8,6 +8,7 @@ export interface ContextProps {
   usd24hChange: number;
   totalSupply: number;
   circulatingSupply: number;
+  usdBtcCurrentPrice: number;
   isError?: boolean;
 }
 
@@ -23,6 +24,16 @@ const Provider: React.FunctionComponent = ({ children }) => {
 
   const getCoingeckoData = async () => {
     try {
+      const resBtcPrice = await fetch(
+        'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd'
+      );
+
+      const {
+        bitcoin: {
+          usd: usdBtcCurrentPrice
+        }
+      } = await resBtcPrice.json();
+
       const res = await fetch(
         "https://api.coingecko.com/api/v3/coins/nano?localization=false&tickers=false&market_data=true&community_data=true&developer_data=true&sparkline=true"
       );
@@ -47,7 +58,8 @@ const Provider: React.FunctionComponent = ({ children }) => {
         usdCurrentPrice,
         usd24hChange,
         totalSupply,
-        circulatingSupply
+        circulatingSupply,
+        usdBtcCurrentPrice
       };
 
       setData(data);

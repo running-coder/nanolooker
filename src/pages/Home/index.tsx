@@ -21,11 +21,10 @@ import { BlockCountContext } from "api/contexts/BlockCount";
 import { CoingeckoContext } from "api/contexts/Coingecko";
 import { ConfirmationHistoryContext } from "api/contexts/ConfirmationHistory";
 import { RepresentativesOnlineContext } from "api/contexts/RepresentativesOnline";
-import { Confirmation24hContext, TOTAL_CONFIRMATION_KEY_24H, TOTAL_NANO_VOLUME_KEY_24H } from "api/contexts/Confirmation24h";
+import { Statistics24hContext, TOTAL_CONFIRMATION_KEY_24H, TOTAL_NANO_VOLUME_KEY_24H, TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H } from "api/contexts/Statistics24h";
 import useSockets from "api/hooks/use-socket";
 import { Colors, TwoToneColors } from "components/utils";
 import { rawToRai } from "components/utils";
-
 
 const { Text } = Typography;
 
@@ -50,9 +49,13 @@ const HomePage = () => {
     // confirmations
   } = React.useContext(ConfirmationHistoryContext);
   const { representatives } = React.useContext(RepresentativesOnlineContext);
-  const confirmation24h = React.useContext(Confirmation24hContext);
+  const statistics24h = React.useContext(Statistics24hContext);
+  const { usdBtcCurrentPrice = 0 } = React.useContext(
+    CoingeckoContext
+  );
 
   const isMediumAndLower = !useMediaQuery("(min-width: 768px)");
+  const btcTransactionFees = new BigNumber(statistics24h[TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H]).times(usdBtcCurrentPrice).toFormat(2)
 
   return (
     <>
@@ -99,19 +102,16 @@ const HomePage = () => {
                     title="Avg. confirmation time (seconds)"
                     value={new BigNumber(average).dividedBy(1000).toFormat()}
                   />
-                  <Statistic
-                    title="Confirmation per second (CPS)"
-                    value="TBD"
-                  />
-                  <Statistic title="Transactions" value={confirmation24h[TOTAL_CONFIRMATION_KEY_24H]} />
+                  <Statistic title="Confirmed transactions" value={statistics24h[TOTAL_CONFIRMATION_KEY_24H]} />
+                  <Statistic title="NANO transaction fees" value="Always 0" />
                 </Col>
                 <Col xs={24} sm={12}>
-                  <Statistic title="Total fees" value="Always 0" />
                   <Statistic
-                    title="Exchange volume (USD 24h)"
+                    title="Exchange volume (USD)"
                     value={`$${new BigNumber(usd24hVolume).toFormat()}`}
                   />
-                  <Statistic title="Onchain NANO volume (24h)" value={rawToRai(new BigNumber(confirmation24h[TOTAL_NANO_VOLUME_KEY_24H]).toNumber())} />
+                  <Statistic title="On-chain NANO volume" value={rawToRai(new BigNumber(statistics24h[TOTAL_NANO_VOLUME_KEY_24H]).toNumber())} />
+                  <Statistic title="Bitcoin transaction fees paid to miners" value={`$${btcTransactionFees}`} />
                 </Col>
               </Row>
             </Skeleton>
