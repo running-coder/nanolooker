@@ -13,14 +13,6 @@
   line-height: 64px !important;
 }
 
-.ant-input-search {
-  transition: all 0.25s ease-in-out !important;
-}
-
-.ant-input-search input {
-  padding-right: 82px !important;
-}
-
 .ant-layout-header {
   line-height: inherit !important;
 }
@@ -30,6 +22,14 @@
   > td {
   background: #fafafa !important;
 }
+
+/* .ant-descriptions-row th {
+  min-width: 200px;
+}
+
+.break-word {
+  word-wrap: break-word;
+} */
 
 .ant-table-pagination {
   padding-right: 16px !important;

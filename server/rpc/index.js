@@ -15,6 +15,7 @@ const transformers = {
 };
 
 const allowedRpcMethods = [
+  "stats",
   "block_count",
   "active_difficulty",
   "uptime",
@@ -33,6 +34,7 @@ const allowedRpcMethods = [
 ];
 
 const cacheSettings = {
+  stats: 5,
   block_count: 5,
   active_difficulty: 10,
   uptime: 120,
@@ -43,7 +45,7 @@ const cacheSettings = {
   account_info: 5,
   account_history: undefined,
   pending: undefined,
-  block_info: undefined,
+  block_info: 120,
   representatives: 120,
   representatives_online: 120,
   confirmation_quorum: 60,

@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { Dropdown, Icon, Input, Menu } from "antd";
+import { Dropdown, Input, Menu } from "antd";
+import { WalletOutlined, BlockOutlined, HistoryOutlined } from '@ant-design/icons'
 import { isValidAccountAddress, isValidBlockHash } from "components/utils";
 import DeleteHistory from "./DeleteHistory";
 
@@ -56,10 +57,10 @@ const Search = () => {
         maxWidth: "calc(100vw - 40px)",
         width: isExpanded ? "650px" : "100%",
         marginLeft: "auto",
-        display: "inline-block",
         position: "absolute",
         right: "-8px",
-        top: "12px"
+        top: "15px",
+        transitionDelay: `${isExpanded ? 0 : 0.2}s`
       }}
       value={searchValue}
       suffix={
@@ -70,37 +71,36 @@ const Search = () => {
               {!searchHistory.length ? (
                 <Menu.Item disabled>No search history</Menu.Item>
               ) : (
-                searchHistory.map(history => (
-                  <Menu.Item
-                    onClick={() => setSearchValue(history)}
-                    key={history}
-                  >
-                    <div style={{ display: "flex", alignItems: "center" }}>
-                      <Icon
-                        type={
-                          isValidAccountAddress(history) ? "wallet" : "block"
+                  searchHistory.map(history => (
+                    <Menu.Item
+                      onClick={() => setSearchValue(history)}
+                      key={history}
+                    >
+                      <div style={{ display: "flex", alignItems: "center" }}>
+                        {isValidAccountAddress(history) ?
+                          <WalletOutlined /> :
+                          <BlockOutlined />
                         }
-                      />
-                      <div style={{ margin: "0 6px" }}>{history}</div>
-                      <DeleteHistory
-                        onClick={(e: Event) => {
-                          e.stopPropagation();
-                          removeSearchHistory(history);
-                        }}
-                      />
-                    </div>
-                  </Menu.Item>
-                ))
-              )}
+
+                        <div style={{ margin: "0 6px" }}>{history}</div>
+                        <DeleteHistory
+                          onClick={(e: Event) => {
+                            e.stopPropagation();
+                            removeSearchHistory(history);
+                          }}
+                        />
+                      </div>
+                    </Menu.Item>
+                  ))
+                )}
             </Menu>
           }
           placement="bottomRight"
         >
-          <Icon type="history" style={{ padding: "6px", marginRight: "6px" }} />
+          <HistoryOutlined style={{ padding: "6px", marginRight: "6px" }} />
         </Dropdown>
       }
       className={isError ? "has-error" : ""}
-      size="large"
       placeholder="Search by Address / Txhash / Block"
       onFocus={() => setIsExpanded(true)}
       onBlur={() => setIsExpanded(false)}

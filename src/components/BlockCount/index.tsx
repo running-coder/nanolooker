@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Card, Statistic, Skeleton, Tooltip } from "antd";
+import { ReloadOutlined } from '@ant-design/icons'
 import { refreshActionDelay } from "components/utils";
 import { BlockCountContext } from "api/contexts/BlockCount";
 
@@ -40,7 +41,7 @@ const BlockCount: React.FunctionComponent = () => {
         <Tooltip title="Reload" overlayClassName="tooltip-sm">
           <Button
             type="primary"
-            icon="reload"
+            icon={<ReloadOutlined />}
             size="small"
             onClick={refreshBlockCount}
             loading={isLoading}

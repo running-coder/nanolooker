@@ -32,17 +32,17 @@ export const refreshActionDelay = async (action: Function) => {
   await sleep(actionTime > MIN_ACTION_TIME ? 0 : MIN_ACTION_TIME - actionTime);
 };
 
-export const rawToRai = (raw: string | number) => {
+export const rawToRai = (raw: string | number): number => {
   const value = new BigNumber(raw.toString());
   return value.shiftedBy(30 * -1).toNumber();
 };
 
-export const raiToRaw = (rai: string | number) => {
+export const raiToRaw = (rai: string | number): number => {
   const value = new BigNumber(rai.toString());
   return value.shiftedBy(30).toNumber();
 };
 
-export const secondsToTime = (value: string | number) => {
+export const secondsToTime = (value: string | number): string => {
   const bigSeconds = new BigNumber(value.toString());
 
   const bigBinutes = bigSeconds.dividedBy(60);
@@ -72,5 +72,18 @@ export const formatPublicAddress = (address: string): string => {
 export const isValidAccountAddress = (address: string): boolean =>
   /^((nano|xrb)_)?[0-9a-z]{60}$/.test(address);
 
-export const isValidBlockHash = (address: string): boolean =>
-  /^[0-9A-F]{64}$/.test(address);
+export const isValidBlockHash = (hash: string): boolean =>
+  /^[0-9A-F]{64}$/.test(hash);
+
+export const timestampToDate = (timestamp: string | number) => {
+  const date = new Date(timestamp);
+
+  return `${date.getFullYear()}/${String(date.getMonth() + 1).padStart(
+    2,
+    "0"
+  )}/${String(date.getDate()).padStart(2, "0")} ${String(
+    date.getHours()
+  ).padStart(2, "0")}:${String(date.getMinutes()).padStart(2, "0")}:${String(
+    date.getSeconds()
+  ).padStart(2, "0")}`;
+};

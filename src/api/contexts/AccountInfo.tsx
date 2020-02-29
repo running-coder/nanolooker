@@ -26,14 +26,14 @@ export interface AccountInfoReturn {
 
 export const AccountInfoContext = React.createContext<AccountInfoReturn>({
   account: "",
-  setAccount: () => {},
+  setAccount: () => { },
   accountInfo: {} as AccountInfoRPCResponse,
   isLoading: false,
   isError: false
 });
 
 const Provider: React.FunctionComponent = ({ children }) => {
-  const [account, setAccount] = React.useState();
+  const [account, setAccount] = React.useState<string>('');
   const [accountInfo, setAccountInfo] = React.useState(
     {} as AccountInfoRPCResponse
   );

@@ -1,7 +1,8 @@
 import React from "react";
 // import { useParams, useLocation, useRouteMatch } from "react-router";
 import { Route, Switch, Link } from "react-router-dom";
-import { Col, Icon, Layout, Menu, Row } from "antd";
+import { Col, Layout, Menu, Row } from "antd";
+import { ApartmentOutlined, CalendarOutlined, DatabaseOutlined, GithubOutlined } from '@ant-design/icons';
 
 import HomePage from "pages/Home";
 import ExplorePage from "pages/Explore";
@@ -33,7 +34,7 @@ const App: React.FunctionComponent = props => {
           height: "auto"
         }}
       >
-        <Row gutter={[16, 0]} type="flex" style={{ width: "100%" }}>
+        <Row gutter={[16, 0]} style={{ width: "100%" }}>
           <Col
             xs={{ span: 6 }}
             md={{ span: 4 }}
@@ -54,11 +55,11 @@ const App: React.FunctionComponent = props => {
           </Col>
 
           <Col xs={{ span: 24, order: 3 }} md={{ span: 12, order: 2 }}>
-            <Menu onClick={() => {}} selectedKeys={[]} mode="horizontal">
+            <Menu onClick={() => { }} selectedKeys={[]} mode="horizontal">
               <SubMenu
                 title={
                   <Link to="/explore">
-                    <Icon type="apartment" />
+                    <ApartmentOutlined />
                     Explore
                   </Link>
                 }
@@ -73,12 +74,12 @@ const App: React.FunctionComponent = props => {
                 </Menu.Item>
               </SubMenu>
               <Menu.Item key="news">
-                <Icon type="calendar" />
+                <CalendarOutlined />
                 News
                 <Link to="/news" />
               </Menu.Item>
               <Menu.Item key="representatives">
-                <Icon type="database" />
+                <DatabaseOutlined />
                 Node Status
                 <Link to="/status" />
               </Menu.Item>
@@ -110,7 +111,7 @@ const App: React.FunctionComponent = props => {
           rel="noopener noreferrer"
           target="_blank"
         >
-          <Icon type="github" /> Nano Looker
+          <GithubOutlined /> Nano Looker
         </a>{" "}
         ©2020 Created by RunningCoder
       </Footer>

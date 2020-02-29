@@ -25,7 +25,7 @@ export interface Return {
 }
 
 const usePending = (account: string, params: Params): Return => {
-  const [pending, setPending] = React.useState();
+  const [pending, setPending] = React.useState({} as any);
   const [isLoading, setIsLoading] = React.useState(false);
   const [isError, setIsError] = React.useState(false);
 

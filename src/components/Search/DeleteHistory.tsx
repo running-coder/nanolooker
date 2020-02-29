@@ -1,5 +1,5 @@
 import React from "react";
-import { Icon } from "antd";
+import { MinusCircleOutlined, MinusCircleTwoTone } from '@ant-design/icons';
 import { TwoToneColors } from "components/utils";
 
 const DeleteHistory = (props: any) => {
@@ -12,12 +12,7 @@ const DeleteHistory = (props: any) => {
       onMouseLeave={() => setIsHovered(false)}
       style={{ marginLeft: "auto" }}
     >
-      <Icon
-        type="minus-circle"
-        className="delete-history-button"
-        theme={isHovered ? "twoTone" : "outlined"}
-        twoToneColor={TwoToneColors.SEND}
-      />
+      {isHovered ? <MinusCircleTwoTone twoToneColor={TwoToneColors.SEND} className="delete-history-button" /> : <MinusCircleOutlined className="delete-history-button" />}
     </div>
   );
 };
