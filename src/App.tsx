@@ -5,7 +5,8 @@ import { Col, Layout, Menu, Row } from "antd";
 import { ApartmentOutlined, CalendarOutlined, DatabaseOutlined, GithubOutlined } from '@ant-design/icons';
 
 import HomePage from "pages/Home";
-import ExplorePage from "pages/Explore";
+// import ExplorePage from "pages/Explore";
+import DevelopmentFund from "pages/DevelopmentFund";
 import AccountPage from "pages/Account";
 import BlockPage from "pages/Block";
 import NewsPage from "pages/News";
@@ -58,15 +59,18 @@ const App: React.FunctionComponent = props => {
             <Menu onClick={() => { }} selectedKeys={[]} mode="horizontal">
               <SubMenu
                 title={
-                  <Link to="/explore">
-                    <ApartmentOutlined />
-                    Explore
-                  </Link>
+                  // <Link to="/explore">
+                  'Explore'
+                  // </Link>
                 }
               >
                 <Menu.Item key="representatives">
                   Principal Representatives
                   <Link to="/representatives" />
+                </Menu.Item>
+                <Menu.Item key="development-fund">
+                  Development Fund
+                  <Link to="/development-fund" />
                 </Menu.Item>
                 <Menu.Item key="distribution">
                   Distribution
@@ -98,7 +102,8 @@ const App: React.FunctionComponent = props => {
       <Content style={{ padding: "20px" }}>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/explore" component={ExplorePage} />
+          {/* <Route path="/explore" component={ExplorePage} /> */}
+          <Route path="/development-fund" component={DevelopmentFund} />
           <Route path="/account/:account?" component={AccountPage} />
           <Route path="/block/:block?" component={BlockPage} />
           <Route path="/news" component={NewsPage} />
