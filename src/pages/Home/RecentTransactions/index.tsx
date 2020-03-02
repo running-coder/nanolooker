@@ -1,15 +1,13 @@
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
+import { Card, List, Popover, Switch, Tag, Timeline, Typography } from "antd";
 import {
-  Card,
-  List,
-  Popover,
-  Switch,
-  Tag,
-  Timeline,
-  Typography,
-} from "antd";
-import { CheckOutlined, CloseOutlined, SettingOutlined, CloseCircleTwoTone, SyncOutlined } from '@ant-design/icons';
+  CheckOutlined,
+  CloseOutlined,
+  SettingOutlined,
+  CloseCircleTwoTone,
+  SyncOutlined
+} from "@ant-design/icons";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import TimeAgo from "timeago-react";
 import BigNumber from "bignumber.js";
@@ -40,9 +38,7 @@ const RecentTransactions = () => {
           content={
             <List size="small">
               <List.Item>
-                <Text style={{ marginRight: "16px" }}>
-                  Enable Live updates
-                  </Text>
+                <Text style={{ marginRight: "16px" }}>Enable Live updates</Text>
                 <Switch
                   checkedChildren={<CheckOutlined />}
                   unCheckedChildren={<CloseOutlined />}
@@ -55,7 +51,7 @@ const RecentTransactions = () => {
               <List.Item>
                 <Text style={{ marginRight: "16px" }}>
                   Include amounts under 1 NANO
-                  </Text>
+                </Text>
                 <Switch
                   checkedChildren={<CheckOutlined />}
                   unCheckedChildren={<CloseOutlined />}
@@ -76,9 +72,7 @@ const RecentTransactions = () => {
       <div style={{ margin: "1em 0" }}>
         {isDisabled ? (
           <div style={{ textAlign: "center" }}>
-            <CloseCircleTwoTone
-              twoToneColor={TwoToneColors.SEND}
-            />
+            <CloseCircleTwoTone twoToneColor={TwoToneColors.SEND} />
             <Text style={{ marginLeft: "8px" }}>Live updates disabled</Text>
           </div>
         ) : null}
@@ -87,7 +81,7 @@ const RecentTransactions = () => {
             <SyncOutlined spin />
             <Text style={{ marginLeft: "8px" }}>
               Waiting for transactions ...
-              </Text>
+            </Text>
           </div>
         ) : null}
         {!isConnected ? (
@@ -95,7 +89,7 @@ const RecentTransactions = () => {
             <SyncOutlined spin />
             <Text style={{ marginLeft: "8px" }}>
               Connecting to the NANO blockchain ...
-              </Text>
+            </Text>
           </div>
         ) : null}
         {recentTransactions.length ? (
@@ -114,7 +108,7 @@ const RecentTransactions = () => {
                     key={hash}
                     className={`fadein ${
                       subtype === "send" ? "right" : "left"
-                      }`}
+                    }`}
                   >
                     <div className="first-row">
                       <Tag
@@ -128,8 +122,8 @@ const RecentTransactions = () => {
                         <Text style={{ color }} className="timeline-amount">
                           {amount
                             ? `${new BigNumber(
-                              rawToRai(amount)
-                            ).toFormat()} NANO`
+                                rawToRai(amount)
+                              ).toFormat()} NANO`
                             : "N/A"}
                         </Text>
                       ) : null}
@@ -157,8 +151,7 @@ const RecentTransactions = () => {
         ) : null}
       </div>
     </Card>
-  )
-
-}
+  );
+};
 
 export default RecentTransactions;

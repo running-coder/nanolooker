@@ -1,5 +1,5 @@
 import React from "react";
-import { FallOutlined, RiseOutlined } from '@ant-design/icons';
+import { FallOutlined, RiseOutlined } from "@ant-design/icons";
 import { CoingeckoContext } from "api/contexts/Coingecko";
 import { Colors } from "components/utils";
 
@@ -12,8 +12,8 @@ const Price = () => {
     usd24hChange === 0
       ? Colors.PENDING
       : usd24hChange < 0
-        ? Colors.SEND
-        : Colors.RECEIVE;
+      ? Colors.SEND
+      : Colors.RECEIVE;
 
   return (
     <div style={{ display: "flex", alignItems: "center" }}>
@@ -37,13 +37,19 @@ const Price = () => {
       </span>
       {usd24hChange !== 0 ? (
         <span>
-          {usd24hChange < 0 ?
-            <FallOutlined style={{
-              color
-            }} />
-            : <RiseOutlined style={{
-              color
-            }} />}
+          {usd24hChange < 0 ? (
+            <FallOutlined
+              style={{
+                color
+              }}
+            />
+          ) : (
+            <RiseOutlined
+              style={{
+                color
+              }}
+            />
+          )}
         </span>
       ) : null}
     </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Card, Statistic, Skeleton, Tooltip } from "antd";
-import { ReloadOutlined } from '@ant-design/icons'
+import { ReloadOutlined } from "@ant-design/icons";
 import useActiveDifficulty, {
   UseActiveDifficultyReturn
 } from "api/hooks/use-active-difficulty";

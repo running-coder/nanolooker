@@ -1,7 +1,11 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { Dropdown, Input, Menu } from "antd";
-import { WalletOutlined, BlockOutlined, HistoryOutlined } from '@ant-design/icons'
+import {
+  WalletOutlined,
+  BlockOutlined,
+  HistoryOutlined
+} from "@ant-design/icons";
 import { isValidAccountAddress, isValidBlockHash } from "components/utils";
 import DeleteHistory from "./DeleteHistory";
 
@@ -71,28 +75,29 @@ const Search = () => {
               {!searchHistory.length ? (
                 <Menu.Item disabled>No search history</Menu.Item>
               ) : (
-                  searchHistory.map(history => (
-                    <Menu.Item
-                      onClick={() => setSearchValue(history)}
-                      key={history}
-                    >
-                      <div style={{ display: "flex", alignItems: "center" }}>
-                        {isValidAccountAddress(history) ?
-                          <WalletOutlined /> :
-                          <BlockOutlined />
-                        }
+                searchHistory.map(history => (
+                  <Menu.Item
+                    onClick={() => setSearchValue(history)}
+                    key={history}
+                  >
+                    <div style={{ display: "flex", alignItems: "center" }}>
+                      {isValidAccountAddress(history) ? (
+                        <WalletOutlined />
+                      ) : (
+                        <BlockOutlined />
+                      )}
 
-                        <div style={{ margin: "0 6px" }}>{history}</div>
-                        <DeleteHistory
-                          onClick={(e: Event) => {
-                            e.stopPropagation();
-                            removeSearchHistory(history);
-                          }}
-                        />
-                      </div>
-                    </Menu.Item>
-                  ))
-                )}
+                      <div style={{ margin: "0 6px" }}>{history}</div>
+                      <DeleteHistory
+                        onClick={(e: Event) => {
+                          e.stopPropagation();
+                          removeSearchHistory(history);
+                        }}
+                      />
+                    </div>
+                  </Menu.Item>
+                ))
+              )}
             </Menu>
           }
           placement="bottomRight"

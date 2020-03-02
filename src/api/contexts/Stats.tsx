@@ -7,9 +7,7 @@ export interface Return {
   isError: boolean;
 }
 
-export const StatsContext = React.createContext<
-  Return
->({
+export const StatsContext = React.createContext<Return>({
   stats: {},
   isLoading: false,
   isError: false
@@ -26,11 +24,9 @@ const Provider: React.FunctionComponent = ({ children }) => {
     setIsError(false);
     setIsLoading(true);
 
-    const json = await rpc("stats", { type: 'counters' });
+    const json = await rpc("stats", { type: "counters" });
 
-    !json || json.error
-      ? setIsError(true)
-      : setStats(json);
+    !json || json.error ? setIsError(true) : setStats(json);
     setIsLoading(false);
   };
 

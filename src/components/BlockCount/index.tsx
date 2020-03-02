@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Card, Statistic, Skeleton, Tooltip } from "antd";
-import { ReloadOutlined } from '@ant-design/icons'
+import { ReloadOutlined } from "@ant-design/icons";
 import { refreshActionDelay } from "components/utils";
 import { BlockCountContext } from "api/contexts/BlockCount";
 

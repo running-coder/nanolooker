@@ -20,8 +20,8 @@ export interface Response {
     link_as_account: string;
     signature: string;
     work: string;
-  }
-  subtype: Subtype
+  };
+  subtype: Subtype;
 }
 
 export interface Return {
@@ -33,15 +33,15 @@ export interface Return {
 }
 
 export const BlockInfoContext = React.createContext<Return>({
-  block: '',
-  setBlock: () => { },
+  block: "",
+  setBlock: () => {},
   blockInfo: {} as Response,
   isLoading: false,
   isError: false
 });
 
 const Provider: React.FunctionComponent = ({ children }) => {
-  const [block, setBlock] = React.useState<string>('');
+  const [block, setBlock] = React.useState<string>("");
   const [blockInfo, setBlockInfo] = React.useState({} as Response);
   const [isLoading, setIsLoading] = React.useState(false);
   const [isError, setIsError] = React.useState(false);
@@ -51,7 +51,7 @@ const Provider: React.FunctionComponent = ({ children }) => {
     setIsLoading(true);
     const json = await rpc("block_info", {
       hash: block,
-      json_block: 'true'
+      json_block: "true"
     });
 
     !json || json.error ? setIsError(true) : setBlockInfo(json);

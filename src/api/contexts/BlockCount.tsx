@@ -17,7 +17,7 @@ export const BlockCountContext = React.createContext<Return & Response>({
   count: "0",
   unchecked: "0",
   cemented: "0",
-  getBlockCount: () => { },
+  getBlockCount: () => {},
   isLoading: false,
   isError: false
 });
