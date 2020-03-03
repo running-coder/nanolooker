@@ -1,28 +1,35 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Card, Descriptions, Skeleton, Typography } from "antd";
 import BigNumber from "bignumber.js";
 import { PriceContext } from "api/contexts/Price";
-import { BlockInfoContext } from "api/contexts/BlockInfo";
+import { BlocksInfoContext } from "api/contexts/BlocksInfo";
+import { AccountDetailsLayout } from "pages/Account/Details";
 import { rawToRai, timestampToDate } from "components/utils";
 
 const { Title } = Typography;
 
 const BlockDetails = () => {
   const { usd = 0, btc = 0 } = React.useContext(PriceContext);
-  const { blockInfo, isLoading: isBlockInfoLoading } = React.useContext(
-    BlockInfoContext
-  );
+  const {
+    blocks,
+    blocksInfo,
+    isLoading: isBlocksInfoLoading
+  } = React.useContext(BlocksInfoContext);
 
   const skeletonProps = {
     active: true,
     paragraph: false,
-    loading: isBlockInfoLoading
+    loading: isBlocksInfoLoading
   };
+
+  const blockInfo = blocksInfo?.blocks?.[blocks[0]];
 
   const {
     subtype,
     block_account,
     contents: {
+      type = "",
       representative = "",
       link_as_account = "",
       previous = "",
@@ -48,48 +55,67 @@ const BlockDetails = () => {
     linkAccountLabel = "Sender";
   }
 
+  // @TODO COMPLETE FOR BLOCK
+  // FAC080FA957BEA21C6059C4D47E479D8B6AB8A11C781416FBE8A41CF4CBD67B2
+
+  /// prevous == None (this block opened the account)
+
+  // missing "source_account": "nano_1ipx847tk8o46pwxt5qjdbncjqcbwcc1rrmqnkztrfjy5k7z4imsrata9est",
+
   return (
     <>
-      <Descriptions bordered column={1} size="small">
-        <Descriptions.Item label="Block subtype">{subtype}</Descriptions.Item>
-        <Descriptions.Item label="Account">{block_account}</Descriptions.Item>
-        <Descriptions.Item label="Amount">
-          <Skeleton {...skeletonProps}>
-            {new BigNumber(amount).toFormat()} NANO
-            <br />
-          </Skeleton>
-          <Skeleton {...skeletonProps}>
-            {`$${usdAmount} / ${btcAmount} BTC`}
-          </Skeleton>
-        </Descriptions.Item>
-        <Descriptions.Item label="Balance">
-          <Skeleton {...skeletonProps}>
-            {new BigNumber(balance).toFormat()} NANO
-            <br />
-          </Skeleton>
-          <Skeleton {...skeletonProps}>
-            {`$${usdBalance} / ${btcBalance} BTC`}
-          </Skeleton>
-        </Descriptions.Item>
-        <Descriptions.Item label="Representative">
-          {representative}
-        </Descriptions.Item>
-        {linkAccountLabel ? (
-          <Descriptions.Item label={linkAccountLabel}>
-            {link_as_account}
+      <AccountDetailsLayout bordered={false}>
+        <Descriptions bordered column={1} size="small">
+          <Descriptions.Item label="Block subtype">
+            {subtype || type}
           </Descriptions.Item>
-        ) : null}
-        <Descriptions.Item label="Date">
-          {timestampToDate(modifiedTimestamp)}
-        </Descriptions.Item>
-        <Descriptions.Item label="Previous block">
-          <p className="break-word">{previous}</p>
-        </Descriptions.Item>
-        <Descriptions.Item label="Signature">
-          <p className="break-word">{signature}</p>
-        </Descriptions.Item>
-        <Descriptions.Item label="Work">{work}</Descriptions.Item>
-      </Descriptions>
+          <Descriptions.Item label="Account">
+            <Link to={`/account/${block_account}`} className="break-word">
+              {block_account}
+            </Link>
+          </Descriptions.Item>
+          <Descriptions.Item label="Amount">
+            <Skeleton {...skeletonProps}>
+              {new BigNumber(amount).toFormat()} NANO
+              <br />
+            </Skeleton>
+            <Skeleton {...skeletonProps}>
+              {`$${usdAmount} / ${btcAmount} BTC`}
+            </Skeleton>
+          </Descriptions.Item>
+          <Descriptions.Item label="Balance">
+            <Skeleton {...skeletonProps}>
+              {new BigNumber(balance).toFormat()} NANO
+              <br />
+            </Skeleton>
+            <Skeleton {...skeletonProps}>
+              {`$${usdBalance} / ${btcBalance} BTC`}
+            </Skeleton>
+          </Descriptions.Item>
+          <Descriptions.Item label="Representative">
+            <Link to={`/account/${representative}`} className="break-word">
+              {representative}
+            </Link>
+          </Descriptions.Item>
+          {linkAccountLabel ? (
+            <Descriptions.Item label={linkAccountLabel}>
+              <Link to={`/account/${link_as_account}`} className="break-word">
+                {link_as_account}
+              </Link>
+            </Descriptions.Item>
+          ) : null}
+          <Descriptions.Item label="Date">
+            {timestampToDate(modifiedTimestamp)}
+          </Descriptions.Item>
+          <Descriptions.Item label="Previous block">
+            <span className="break-word">{previous}</span>
+          </Descriptions.Item>
+          <Descriptions.Item label="Signature">
+            <span className="break-word">{signature}</span>
+          </Descriptions.Item>
+          <Descriptions.Item label="Work">{work}</Descriptions.Item>
+        </Descriptions>
+      </AccountDetailsLayout>
 
       <Title level={3}>Original Block Content</Title>
       <Card>

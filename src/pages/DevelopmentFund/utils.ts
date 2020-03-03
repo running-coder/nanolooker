@@ -1,4 +1,10 @@
-export const getDevelopmentFundAccounts = () => [
+export const ORIGINAL_DEVELOPMENT_FUND_ACCOUNT: string =
+  "nano_1ipx847tk8o46pwxt5qjdbncjqcbwcc1rrmqnkztrfjy5k7z4imsrata9est";
+
+export const ORIGINAL_DEVELOPMENT_FUND_BLOCK: string =
+  "8F02D66117CAC96AD0C66DB2DD583F8452D1CCE979FAEA5C72E4937F33F4ADA4";
+
+export const DEVELOPMENT_FUND_ACCOUNTS: string[] = [
   "nano_3hsss3n1idbotapj678rx36xsc6fxsi1furuzi39p9d34gdjfy1o9fhmummp",
   "nano_35a485rf6mxigjbcibzcuwmcsbganftgyamskkusu7zt9ftdse9unzfynfqb",
   "nano_15c5s1nuan3frrxmdfha79b1rdckueiu3k9p4hz5cd1n4h93zt7m1ywsm7db",

@@ -3,7 +3,7 @@ import { rpc } from "api/rpc";
 import { Subtype, Type } from "types/Transaction";
 import { isValidBlockHash } from "components/utils";
 
-export interface Response {
+export interface BlockInfo {
   block_account: string;
   amount: string;
   balance: string;
@@ -27,7 +27,7 @@ export interface Response {
 export interface Return {
   block: string;
   setBlock: Function;
-  blockInfo: Response;
+  blockInfo: BlockInfo;
   isLoading: boolean;
   isError: boolean;
 }
@@ -35,14 +35,14 @@ export interface Return {
 export const BlockInfoContext = React.createContext<Return>({
   block: "",
   setBlock: () => {},
-  blockInfo: {} as Response,
+  blockInfo: {} as BlockInfo,
   isLoading: false,
   isError: false
 });
 
 const Provider: React.FunctionComponent = ({ children }) => {
   const [block, setBlock] = React.useState<string>("");
-  const [blockInfo, setBlockInfo] = React.useState({} as Response);
+  const [blockInfo, setBlockInfo] = React.useState({} as BlockInfo);
   const [isLoading, setIsLoading] = React.useState(false);
   const [isError, setIsError] = React.useState(false);
 

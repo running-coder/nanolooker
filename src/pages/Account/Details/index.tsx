@@ -1,15 +1,7 @@
 import React, { ReactElement } from "react";
 import { Link } from "react-router-dom";
-import {
-  Badge,
-  Card,
-  Col,
-  Descriptions,
-  Row,
-  Skeleton,
-  Tooltip
-} from "antd";
-import { QuestionCircleTwoTone } from '@ant-design/icons'
+import { Badge, Card, Col, Descriptions, Row, Skeleton, Tooltip } from "antd";
+import { QuestionCircleTwoTone } from "@ant-design/icons";
 import BigNumber from "bignumber.js";
 import TimeAgo from "timeago-react";
 import { PriceContext } from "api/contexts/Price";
@@ -28,14 +20,14 @@ export const AccountDetailsLayout = ({
   bordered,
   children
 }: AccountDetailsLayoutProps) => (
-    <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]}>
-      <Col xs={24} sm={24} md={12} lg={12} xl={12}>
-        <Card size="small" bodyStyle={{ padding: 0 }} bordered={bordered}>
-          {children}
-        </Card>
-      </Col>
-    </Row>
-  );
+  <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]}>
+    <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+      <Card size="small" bodyStyle={{ padding: 0 }} bordered={bordered}>
+        {children}
+      </Card>
+    </Col>
+  </Row>
+);
 
 const AccountDetails = () => {
   const { usd = 0, btc = 0 } = React.useContext(PriceContext);
@@ -65,12 +57,12 @@ const AccountDetails = () => {
 
   const minWeight = confirmationQuorum?.online_stake_total
     ? new BigNumber(
-      rawToRai(
-        new BigNumber(confirmationQuorum.online_stake_total)
-          .times(0.001)
-          .toString()
-      )
-    ).toFormat(0)
+        rawToRai(
+          new BigNumber(confirmationQuorum.online_stake_total)
+            .times(0.001)
+            .toString()
+        )
+      ).toFormat(0)
     : "100000";
 
   return (
@@ -103,7 +95,7 @@ const AccountDetails = () => {
             {`$${usdBalance} / ${btcBalance} BTC`}
           </Skeleton>
         </Descriptions.Item>
-        <Descriptions.Item label="Representative" className="truncate">
+        <Descriptions.Item label="Representative">
           <Skeleton {...skeletonProps}>
             {accountInfo?.representative ? (
               <div className="clearfix">
@@ -117,13 +109,16 @@ const AccountDetails = () => {
                       : "error"
                   }
                 />
-                <Link to={`/account/${accountInfo.representative}`}>
+                <Link
+                  to={`/account/${accountInfo.representative}`}
+                  className="break-word"
+                >
                   {accountInfo.representative}
                 </Link>
               </div>
             ) : (
-                "No Representative"
-              )}
+              "No Representative"
+            )}
           </Skeleton>
         </Descriptions.Item>
         <Descriptions.Item

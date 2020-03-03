@@ -34,6 +34,8 @@ export const Statistics24hContext = React.createContext<Return & Response>({
   isError: false
 });
 
+let pollStatistics24hIntervallet: number | undefined;
+
 const Provider: React.FunctionComponent = ({ children }) => {
   const [statistics24h, setStatistics24h] = React.useState({} as Response);
   const [isError, setIsError] = React.useState(false);
@@ -43,13 +45,15 @@ const Provider: React.FunctionComponent = ({ children }) => {
     const json = await res.json();
 
     !json ? setIsError(true) : setStatistics24h(json);
+
+    pollStatistics24hIntervallet = window.setTimeout(getStatistics24h, 5000);
   };
 
   React.useEffect(() => {
     getStatistics24h();
-    const getStatistics24hInterval = setInterval(getStatistics24h, 5000);
 
-    return () => clearInterval(getStatistics24hInterval);
+    return () => clearTimeout(pollStatistics24hIntervallet);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

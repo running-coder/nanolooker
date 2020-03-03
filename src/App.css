@@ -104,8 +104,17 @@ a:hover {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 100%; /* Extend the cell as much as possible */
-  max-width: 0; /* Avoid resizing beyond table width */
+  /* width: 100%;
+  max-width: 0; */
+}
+
+.block-truncated {
+  position: absolute;
+  width: 90%;
+}
+
+.break-word {
+  word-break: break-word;
 }
 
 @media (min-width: 768px) {

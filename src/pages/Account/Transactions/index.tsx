@@ -43,6 +43,7 @@ const TransactionsTable = ({
 }: TransactionsTableProps) => (
   <TransactionsLayout>
     <Table
+      size="small"
       loading={isLoading}
       pagination={
         showPaginate && isPaginated
@@ -85,20 +86,20 @@ const TransactionsTable = ({
         {
           title: "Account / Block",
           dataIndex: "account",
-          className: "truncate",
+          className: "break-word",
           render: (text: string, { representative, hash }) => (
-            <>
+            <div style={{ paddingBottom: "20px" }}>
               <Link
                 to={`/account/${text || representative}`}
-                className="color-normal"
+                className="color-normal "
               >
                 {text || representative}
               </Link>
               <br />
-              <Link to={`/block/${hash}`} className="color-muted">
+              <Link to={`/block/${hash}`} className="color-muted truncate block-truncated">
                 {hash}
               </Link>
-            </>
+            </div>
           )
         },
         {
