@@ -10,7 +10,7 @@ import {
 
 import HomePage from "pages/Home";
 import Representatives from "pages/Representatives";
-import DevelopmentFund from "pages/DevelopmentFund";
+import DeveloperFund from "pages/DeveloperFund";
 import Distribution from "pages/Distribution";
 import AccountPage from "pages/Account";
 import BlockPage from "pages/Block";
@@ -71,9 +71,9 @@ const App: React.FunctionComponent = props => (
                 Principal Representatives
                 <Link to="/representatives" />
               </Menu.Item>
-              <Menu.Item key="development-fund">
-                Development Fund
-                <Link to="/development-fund" />
+              <Menu.Item key="developer-fund">
+                DeveloperFund
+                <Link to="/developer-fund" />
               </Menu.Item>
               <Menu.Item key="distribution">
                 Distribution
@@ -106,7 +106,7 @@ const App: React.FunctionComponent = props => (
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/representatives" component={Representatives} />
-        <Route path="/development-fund" component={DevelopmentFund} />
+        <Route path="/developer-fund" component={DeveloperFund} />
         <Route path="/distribution" component={Distribution} />
         <Route path="/account/:account?" component={AccountPage} />
         <Route path="/block/:block?" component={BlockPage} />

@@ -58,7 +58,7 @@ const useAccountHistory = (
     });
 
     !json || json.error ? setIsError(true) : setAccountHistory(json);
-    // setIsLoading(false);
+    setIsLoading(false);
   };
 
   React.useEffect(() => {

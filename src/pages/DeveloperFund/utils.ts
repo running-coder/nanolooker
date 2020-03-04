@@ -1,10 +1,16 @@
-export const ORIGINAL_DEVELOPMENT_FUND_ACCOUNT: string =
+export const GENESIS_ACCOUNT: string =
+  "nano_3t6k35gi95xu6tergt6p69ck76ogmitsa8mnijtpxm9fkcm736xtoncuohr3";
+
+export const BURN_ACCOUNT: string =
+  "nano_1111111111111111111111111111111111111111111111111111hifc8npp";
+
+export const ORIGINAL_DEVELOPER_FUND_ACCOUNT: string =
   "nano_1ipx847tk8o46pwxt5qjdbncjqcbwcc1rrmqnkztrfjy5k7z4imsrata9est";
 
-export const ORIGINAL_DEVELOPMENT_FUND_BLOCK: string =
+export const ORIGINAL_DEVELOPER_FUND_BLOCK: string =
   "8F02D66117CAC96AD0C66DB2DD583F8452D1CCE979FAEA5C72E4937F33F4ADA4";
 
-export const DEVELOPMENT_FUND_ACCOUNTS: string[] = [
+export const DEVELOPER_FUND_ACCOUNTS: string[] = [
   "nano_3hsss3n1idbotapj678rx36xsc6fxsi1furuzi39p9d34gdjfy1o9fhmummp",
   "nano_35a485rf6mxigjbcibzcuwmcsbganftgyamskkusu7zt9ftdse9unzfynfqb",
   "nano_15c5s1nuan3frrxmdfha79b1rdckueiu3k9p4hz5cd1n4h93zt7m1ywsm7db",
@@ -54,3 +60,9 @@ export const DEVELOPMENT_FUND_ACCOUNTS: string[] = [
   "nano_3p95yh5p1t5o9asepy1xnejb9qfwtquo6bzsrj14obhbh474btzsp6ch978w",
   "nano_3jrwstf4qqaxps36py6ripnhqpjbjrfu14apdedk37uj51oic4g94qcabf1i"
 ];
+
+export const DEVELOPER_FUND_CHANGE_LINK =
+  "https://medium.com/nanocurrency/announcement-changes-to-nano-foundation-development-fund-account-43f8f340a841";
+
+export const DEVELOPER_FUND_ORIGINAL_LINK =
+  "https://docs.nano.org/protocol-design/distribution-and-units/#distribution";
