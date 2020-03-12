@@ -36,7 +36,7 @@ export const Statistics24hContext = React.createContext<Return & Response>({
 
 let pollStatistics24hIntervallet: number | undefined;
 
-const Provider: React.FunctionComponent = ({ children }) => {
+const useStatistics24h = (): Return & Response => {
   const [statistics24h, setStatistics24h] = React.useState({} as Response);
   const [isError, setIsError] = React.useState(false);
 
@@ -56,13 +56,7 @@ const Provider: React.FunctionComponent = ({ children }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return (
-    <Statistics24hContext.Provider
-      value={{ ...statistics24h, getStatistics24h, isError }}
-    >
-      {children}
-    </Statistics24hContext.Provider>
-  );
+  return { ...statistics24h, getStatistics24h, isError };
 };
 
-export default Provider;
+export default useStatistics24h;

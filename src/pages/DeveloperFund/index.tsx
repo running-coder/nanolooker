@@ -13,11 +13,12 @@ import BigNumber from "bignumber.js";
 import { PriceContext } from "api/contexts/Price";
 import useAccountsBalances from "api/hooks/use-accounts-balances";
 import useAvailableSupply from "api/hooks/use-available-supply";
+import useAccountHistory from "api/hooks/use-account-history";
 import {
   GENESIS_ACCOUNT,
-  BURN_ACCOUNT,
   DEVELOPER_FUND_ACCOUNTS,
   ORIGINAL_DEVELOPER_FUND_BLOCK,
+  ORIGINAL_DEVELOPER_FUND_BURN_BLOCK,
   ORIGINAL_DEVELOPER_FUND_ACCOUNT,
   DEVELOPER_FUND_CHANGE_LINK,
   DEVELOPER_FUND_ORIGINAL_LINK
@@ -67,6 +68,15 @@ const DeveloperFund = () => {
     loading: isAccountsBalancesLoading
   };
 
+  const {
+    accountHistory
+  } = useAccountHistory(
+    "nano_3hsss3n1idbotapj678rx36xsc6fxsi1furuzi39p9d34gdjfy1o9fhmummp",
+    { count: "1" }
+  );
+
+  console.log("~~~accountHistory", accountHistory);
+
   return (
     <>
       <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]}>
@@ -97,6 +107,11 @@ const DeveloperFund = () => {
                   {`$${usdBalance} / ${btcBalance} BTC`}
                 </Skeleton>
               </Descriptions.Item>
+              <Descriptions.Item label="Last Transaction">
+                Date
+                <br />
+                Block
+              </Descriptions.Item>
             </Descriptions>
           </Card>
         </Col>
@@ -109,7 +124,9 @@ const DeveloperFund = () => {
               in October 2017. Distribution stopped after ~39% of the{" "}
               <Link to={`/account/${GENESIS_ACCOUNT}`}>Genesis</Link> amount was
               distributed and the rest of the supply was{" "}
-              <Link to={`/account/${BURN_ACCOUNT}`}>burnt.</Link>
+              <Link to={`/block/${ORIGINAL_DEVELOPER_FUND_BURN_BLOCK}`}>
+                burnt.
+              </Link>
               <br />
               <a
                 style={{ display: "inline-block", marginTop: "10px" }}

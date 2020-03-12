@@ -100,6 +100,15 @@ a:hover {
   flex-shrink: 10;
 }
 
+.isloading-skeleton-width {
+  width: 50% !important;
+}
+
+.ant-skeleton-title {
+  margin-top: 11px !important;
+  margin-bottom: 10px;
+}
+
 .truncate {
   white-space: nowrap;
   overflow: hidden;

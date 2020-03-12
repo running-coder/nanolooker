@@ -17,7 +17,7 @@ const AccountHistory = () => {
   const {
     accountHistory: { history, previous: previousHead },
     isLoading: isAccountHistoryLoading
-  } = useAccountHistory(account, {
+  } = useAccountHistory(Object.keys(accountInfo).length ? account : "", {
     count: String(TRANSACTIONS_PER_PAGE),
     raw: true,
     offset: isPaginated ? (currentPage - 1) * TRANSACTIONS_PER_PAGE : undefined,
@@ -27,7 +27,8 @@ const AccountHistory = () => {
   return (
     <>
       <Title level={3} style={{ marginTop: "0.5em" }}>
-        {new BigNumber(accountInfo?.block_count || 0).toFormat()} Total Transactions
+        {new BigNumber(accountInfo?.block_count || 0).toFormat()} Total
+        Transactions
       </Title>
 
       <TransactionsTable

@@ -128,7 +128,7 @@ const AccountDetails = () => {
               <Tooltip
                 placement="right"
                 title={
-                  "A transaction state where a block sending funds was published and confirmed by the network, but a matching block receiving those funds has not yet been confirmed."
+                  "A transaction state where a block sending funds was published and confirmed by the network, but a matching block receiving those funds has not yet been sent or confirmed."
                 }
                 overlayClassName="tooltip-sm"
               >

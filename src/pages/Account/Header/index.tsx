@@ -1,6 +1,11 @@
 import React from "react";
 import { Button, Tooltip, Typography } from "antd";
-import { WalletOutlined, CheckOutlined, CopyOutlined, QrcodeOutlined } from '@ant-design/icons';
+import {
+  WalletOutlined,
+  CheckOutlined,
+  CopyOutlined,
+  QrcodeOutlined
+} from "@ant-design/icons";
 import { useParams } from "react-router-dom";
 import CopyToClipboard from "react-copy-to-clipboard";
 import QRCodeModal from "components/QRCodeModal";
@@ -80,24 +85,21 @@ const AccountHeader = () => {
               {isCopied ? (
                 <CheckOutlined style={{ color: Colors.RECEIVE }} />
               ) : (
-                  <CopyOutlined />
-                )}
+                <CopyOutlined />
+              )}
             </Button>
           </CopyToClipboard>
         </Tooltip>
-        <Tooltip title="QR code" overlayClassName="tooltip-sm">
-          <QRCodeModal
-            Component={
-              <Button
-                shape="circle"
-                icon={<QrcodeOutlined />}
-                size="small"
-                style={{ marginRight: "6px" }}
-              />
-            }
-            text={account}
+        {/* <Tooltip title="QR code" overlayClassName="tooltip-sm"> */}
+        <QRCodeModal text={account}>
+          <Button
+            shape="circle"
+            icon={<QrcodeOutlined />}
+            size="small"
+            style={{ marginRight: "6px" }}
           />
-        </Tooltip>
+        </QRCodeModal>
+        {/* </Tooltip> */}
       </p>
     </>
   );

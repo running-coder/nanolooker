@@ -1,4 +1,5 @@
 import React from "react";
+import useDeepCompareEffect from "use-deep-compare-effect";
 import { rpc } from "api/rpc";
 import { isValidAccountAddress } from "components/utils";
 import { Type, Subtype } from "types/Transaction";
@@ -61,16 +62,12 @@ const useAccountHistory = (
     setIsLoading(false);
   };
 
-  React.useEffect(() => {
-    if (
-      !isValidAccountAddress(account) ||
-      (typeof params.offset !== "number" && !params.head)
-    )
-      return;
+  useDeepCompareEffect(() => {
+    if (!isValidAccountAddress(account)) return;
 
     getAccountHistory(account, params);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [account, params.offset, params.head]);
+  }, [account, params]);
 
   return { accountHistory, isLoading, isError };
 };

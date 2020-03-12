@@ -72,8 +72,11 @@ export const formatPublicAddress = (address: string): string => {
 export const isValidAccountAddress = (address: string): boolean =>
   /^((nano|xrb)_)?[0-9a-z]{60}$/.test(address);
 
+export const isOpenAccountBlockHash = (hash: string): boolean =>
+  /^[0]{64}$/.test(hash);
+
 export const isValidBlockHash = (hash: string): boolean =>
-  /^[0-9A-F]{64}$/.test(hash);
+  /^[0-9A-F]{64}$/.test(hash) && !isOpenAccountBlockHash(hash);
 
 export const timestampToDate = (timestamp: string | number) => {
   const date = new Date(timestamp);

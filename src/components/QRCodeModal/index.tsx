@@ -3,19 +3,13 @@ import { Button, Modal } from "antd";
 import QRCode from "qrcode";
 
 interface QRCodeModalProps {
-  Component: any;
+  children: any;
   text: string;
 }
 
-const QRCodeModal = ({ Component, text }: QRCodeModalProps) => {
+const QRCodeModal = ({ text, children }: QRCodeModalProps) => {
   const [isVisible, setIsVisible] = React.useState(false);
   const [base64Image, setBase64Image] = React.useState<string>("");
-
-  const EnhancedComponent = React.cloneElement(Component, {
-    onClick: () => {
-      setIsVisible(true);
-    }
-  });
 
   const generateQR = async (text: string) => {
     try {
@@ -35,7 +29,11 @@ const QRCodeModal = ({ Component, text }: QRCodeModalProps) => {
 
   return (
     <>
-      {EnhancedComponent}
+      {React.cloneElement(children, {
+        onClick: () => {
+          setIsVisible(true);
+        }
+      })}
       <Modal
         width="300px"
         visible={isVisible}
@@ -51,7 +49,7 @@ const QRCodeModal = ({ Component, text }: QRCodeModalProps) => {
         ]}
       >
         <div style={{ textAlign: "center" }}>
-          <img src={base64Image} alt="QR code" />
+          {base64Image ? <img src={base64Image} alt="QR code" /> : null}
         </div>
         <p>{text}</p>
       </Modal>
