@@ -1,4 +1,5 @@
 require("dotenv").config();
+
 const {
   wsCache,
   TOTAL_CONFIRMATION_KEY_24H,
@@ -11,6 +12,10 @@ const {
   TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H,
   TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H
 } = require("./api/btcTransactionFees");
+const {
+  DEVELOPER_FUND_TRANSACTIONS,
+  getDeveloperFundTransactions
+} = require("./api/developerFundTransactions");
 
 const express = require("express");
 const cors = require("cors");
@@ -40,6 +45,12 @@ app.post("/api/rpc", async (req, res) => {
   const result = await rpc(action, params);
 
   return res.send(result);
+});
+
+app.get("/api/developer-fund/transactions", async (req, res) => {
+  const { developerFundTransactions } = await getDeveloperFundTransactions();
+
+  return res.send(developerFundTransactions);
 });
 
 app.get("/api/statistics", async (req, res) => {

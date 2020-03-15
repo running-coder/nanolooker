@@ -7,23 +7,30 @@ import {
   Row,
   Skeleton,
   Table,
+  Tooltip,
   Typography
 } from "antd";
+import { QuestionCircleTwoTone } from "@ant-design/icons";
+import TimeAgo from "timeago-react";
 import BigNumber from "bignumber.js";
 import { PriceContext } from "api/contexts/Price";
 import useAccountsBalances from "api/hooks/use-accounts-balances";
 import useAvailableSupply from "api/hooks/use-available-supply";
-import useAccountHistory from "api/hooks/use-account-history";
+// import useAccountHistory from "api/hooks/use-account-history";
+import useDeveloperAccountFund from "api/hooks/use-developer-fund-transactions";
+import { rawToRai, timestampToDate } from "components/utils";
 import {
   GENESIS_ACCOUNT,
   DEVELOPER_FUND_ACCOUNTS,
   ORIGINAL_DEVELOPER_FUND_BLOCK,
   ORIGINAL_DEVELOPER_FUND_BURN_BLOCK,
-  ORIGINAL_DEVELOPER_FUND_ACCOUNT,
-  DEVELOPER_FUND_CHANGE_LINK,
-  DEVELOPER_FUND_ORIGINAL_LINK
-} from "./utils";
-import { rawToRai } from "components/utils";
+  ORIGINAL_DEVELOPER_FUND_ACCOUNT
+} from "./developerFundAccounts.json";
+
+const DEVELOPER_FUND_CHANGE_LINK =
+  "https://medium.com/nanocurrency/announcement-changes-to-nano-foundation-development-fund-account-43f8f340a841";
+const DEVELOPER_FUND_ORIGINAL_LINK =
+  "https://docs.nano.org/protocol-design/distribution-and-units/#distribution";
 
 const { Title } = Typography;
 
@@ -37,6 +44,9 @@ const DeveloperFund = () => {
   const {
     availableSupply: { available = 0 }
   } = useAvailableSupply();
+  const { developerFundTransactions } = useDeveloperAccountFund();
+
+  // console.log("developerFundTransactions", developerFundTransactions);
 
   const data = Object.entries(accountsBalances?.balances || []).reduce(
     // @ts-ignore
@@ -68,14 +78,10 @@ const DeveloperFund = () => {
     loading: isAccountsBalancesLoading
   };
 
-  const {
-    accountHistory
-  } = useAccountHistory(
-    "nano_3hsss3n1idbotapj678rx36xsc6fxsi1furuzi39p9d34gdjfy1o9fhmummp",
-    { count: "1" }
-  );
-
-  console.log("~~~accountHistory", accountHistory);
+  const { amount, local_timestamp = 0, hash: lastTransactionHash } =
+    developerFundTransactions?.[0] || {};
+  const modifiedTimestamp = Number(local_timestamp) * 1000;
+  const lastTransactionAmount = new BigNumber(rawToRai(amount || 0)).toNumber();
 
   return (
     <>
@@ -107,10 +113,49 @@ const DeveloperFund = () => {
                   {`$${usdBalance} / ${btcBalance} BTC`}
                 </Skeleton>
               </Descriptions.Item>
-              <Descriptions.Item label="Last Transaction">
-                Date
-                <br />
-                Block
+              <Descriptions.Item
+                label={
+                  <>
+                    <span style={{ marginRight: "6px" }}>Last Transaction</span>
+                    <Tooltip
+                      placement="right"
+                      title={`Last send transaction from any of the 48 accounts.`}
+                      overlayClassName="tooltip-sm"
+                    >
+                      <QuestionCircleTwoTone />
+                    </Tooltip>
+                  </>
+                }
+              >
+                <Skeleton active loading={!modifiedTimestamp} paragraph={false}>
+                  <TimeAgo datetime={modifiedTimestamp} live={false} /> (
+                  {timestampToDate(modifiedTimestamp)})
+                  <br />
+                </Skeleton>
+                <Skeleton
+                  active
+                  loading={!lastTransactionAmount}
+                  paragraph={false}
+                >
+                  {lastTransactionAmount} NANO
+                  <br />
+                </Skeleton>
+                <Skeleton
+                  active
+                  loading={!lastTransactionHash}
+                  paragraph={false}
+                >
+                  <Link
+                    to={`/block/${lastTransactionHash}`}
+                    className="break-word"
+                  >
+                    {lastTransactionHash}
+                  </Link>
+                  <br />
+                </Skeleton>
+                <Link to={`/developer-fund/transactions`}>
+                  View all send transactions
+                </Link>
               </Descriptions.Item>
             </Descriptions>
           </Card>
@@ -190,7 +235,10 @@ const DeveloperFund = () => {
             dataIndex: "account",
             render: (text: string) => (
               <>
-                <Link to={`/account/${text}`} className="color-normal">
+                <Link
+                  to={`/account/${text}`}
+                  className="color-normal break-word"
+                >
                   {text}
                 </Link>
               </>

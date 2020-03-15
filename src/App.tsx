@@ -11,6 +11,7 @@ import {
 import HomePage from "pages/Home";
 import Representatives from "pages/Representatives";
 import DeveloperFund from "pages/DeveloperFund";
+import DeveloperFundTransactions from "pages/DeveloperFund/Transactions";
 import Distribution from "pages/Distribution";
 import AccountPage from "pages/Account";
 import BlockPage from "pages/Block";
@@ -106,7 +107,11 @@ const App: React.FunctionComponent = props => (
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/representatives" component={Representatives} />
-        <Route path="/developer-fund" component={DeveloperFund} />
+        <Route exact path="/developer-fund" component={DeveloperFund} />
+        <Route
+          path="/developer-fund/transactions"
+          component={DeveloperFundTransactions}
+        />
         <Route path="/distribution" component={Distribution} />
         <Route path="/account/:account?" component={AccountPage} />
         <Route path="/block/:block?" component={BlockPage} />

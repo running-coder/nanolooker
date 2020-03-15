@@ -21,12 +21,12 @@ export const TransactionsLayout: React.FunctionComponent = ({ children }) => (
 interface TransactionsTableProps {
   data: any;
   isLoading: boolean;
-  showPaginate: boolean;
-  isPaginated: boolean;
-  pageSize: number;
-  currentPage: number;
-  totalPages: number;
-  setCurrentPage: Function;
+  showPaginate?: boolean;
+  isPaginated?: boolean;
+  pageSize?: number;
+  currentPage?: number;
+  totalPages?: number;
+  setCurrentPage?: Function;
   setCurrentHead?: Function | null;
 }
 
@@ -53,7 +53,7 @@ const TransactionsTable = ({
               current: currentPage,
               disabled: false,
               onChange: (page: number) => {
-                setCurrentPage(page);
+                setCurrentPage?.(page);
               }
             }
           : false
@@ -96,7 +96,10 @@ const TransactionsTable = ({
                 {text || representative}
               </Link>
               <br />
-              <Link to={`/block/${hash}`} className="color-muted truncate block-truncated">
+              <Link
+                to={`/block/${hash}`}
+                className="color-muted truncate block-truncated"
+              >
                 {hash}
               </Link>
             </div>
