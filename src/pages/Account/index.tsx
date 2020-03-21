@@ -9,7 +9,6 @@ import AccountHistory from "./History";
 import { AccountInfoContext } from "api/contexts/AccountInfo";
 
 const AccountPage = () => {
-  console.log("render????");
   const { account = "" } = useParams();
   const { setAccount, isError: isAccountInfoError } = React.useContext(
     AccountInfoContext

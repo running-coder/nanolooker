@@ -2,6 +2,7 @@ import React, { ReactElement } from "react";
 import { Link } from "react-router-dom";
 import { Badge, Card, Col, Descriptions, Row, Skeleton, Tooltip } from "antd";
 import { QuestionCircleTwoTone } from "@ant-design/icons";
+import find from "lodash/find";
 import BigNumber from "bignumber.js";
 import TimeAgo from "timeago-react";
 import { PriceContext } from "api/contexts/Price";
@@ -30,13 +31,19 @@ export const AccountDetailsLayout = ({
 );
 
 const AccountDetails = () => {
+  const [representativeAccount, setRepresentativeAccount] = React.useState(
+    {} as any
+  );
   const { usd = 0, btc = 0 } = React.useContext(PriceContext);
   const {
     account,
     accountInfo,
     isLoading: isAccountInfoLoading
   } = React.useContext(AccountInfoContext);
-  const { representatives } = React.useContext(RepresentativesContext);
+  const {
+    representatives,
+    isLoading: isRepresentativesLoading
+  } = React.useContext(RepresentativesContext);
   const { confirmationQuorum } = React.useContext(ConfirmationQuorumContext);
   const { representatives: representativesOnline } = React.useContext(
     RepresentativesOnlineContext
@@ -55,6 +62,14 @@ const AccountDetails = () => {
     loading: isAccountInfoLoading
   };
 
+  React.useEffect(() => {
+    if (!account || isRepresentativesLoading || !representatives.length) return;
+
+    setRepresentativeAccount(find(representatives, ["account", account]) || {});
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [account, isRepresentativesLoading, representatives.length]);
+
   const minWeight = confirmationQuorum?.online_stake_total
     ? new BigNumber(
         rawToRai(
@@ -68,22 +83,23 @@ const AccountDetails = () => {
   return (
     <AccountDetailsLayout bordered={false}>
       <Descriptions bordered column={1} size="small">
-        {representatives?.[account] ? (
+        {representativeAccount?.account ? (
           <Descriptions.Item
             label={
               <>
-                <span style={{ marginRight: "6px" }}>Voting weight</span>
+                Voting weight
                 <Tooltip
                   placement="right"
                   title={`An account with a minimum of ${minWeight} NANO or >= 0.1% of the online voting weight delegated to it is required to get the Principal Representative status. When configured on a node which is voting, the votes it produces will be rebroadcasted by other nodes to who receive them, helping the network reach consensus more quickly.`}
                   overlayClassName="tooltip-sm"
+                  style={{ marginLeft: "6px" }}
                 >
                   <QuestionCircleTwoTone />
                 </Tooltip>
               </>
             }
           >
-            {new BigNumber(representatives[account]).toFormat()} NANO
+            {new BigNumber(representativeAccount.weight).toFormat()} NANO
           </Descriptions.Item>
         ) : null}
         <Descriptions.Item label="Balance">

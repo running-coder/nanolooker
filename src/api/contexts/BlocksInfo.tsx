@@ -34,8 +34,8 @@ export const BlocksInfoContext = React.createContext<Return>({
 const Provider: React.FunctionComponent = ({ children }) => {
   const [blocks, setBlocks] = React.useState<string[]>([]);
   const [blocksInfo, setBlocksInfo] = React.useState({} as Response);
-  const [isLoading, setIsLoading] = React.useState(false);
-  const [isError, setIsError] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const [isError, setIsError] = React.useState<boolean>(false);
 
   const getBlocksInfo = async (blocks: string[]) => {
     setIsError(false);

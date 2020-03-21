@@ -1,17 +1,25 @@
+const sortBy = require("lodash/sortBy");
+const reverse = require("lodash/reverse");
 const { rawToRai } = require("../../utils");
 
 const representativesTransformer = json => {
-  json.representatives = Object.entries(json.representatives).reduce(
-    (acc = {}, [address, weight]) => {
-      const formattedWeight = rawToRai(weight);
-
-      // Filter accounts with less than 1 nano weight
-      if (formattedWeight > 1) {
-        acc[address] = formattedWeight;
-      }
-      return acc;
-    },
-    {}
+  json.representatives = reverse(
+    sortBy(
+      Object.entries(json.representatives).reduce(
+        (acc = {}, [account, weight]) => {
+          const weightAsNumber = Number(weight) && rawToRai(weight);
+          if (weightAsNumber > 1000) {
+            acc.push({
+              account,
+              weight: weightAsNumber
+            });
+          }
+          return acc;
+        },
+        []
+      ),
+      ["weight"]
+    )
   );
 
   return json;

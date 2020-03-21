@@ -3,6 +3,7 @@ import { rpc } from "api/rpc";
 
 export interface RepresentativesOnlineReturn {
   representatives: string[];
+  isLoading: boolean;
   isError: boolean;
 }
 
@@ -10,19 +11,25 @@ export const RepresentativesOnlineContext = React.createContext<
   RepresentativesOnlineReturn
 >({
   representatives: [],
+  isLoading: false,
   isError: false
 });
 
 const Provider: React.FunctionComponent = ({ children }) => {
   const [representatives, setRepresentatives] = React.useState<string[]>([]);
-  const [isError, setIsError] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const [isError, setIsError] = React.useState<boolean>(false);
 
   const getRepresentativesOnline = async () => {
+    setIsError(false);
+    setIsLoading(true);
     const json = await rpc("representatives_online");
 
     !json || json.error
       ? setIsError(true)
       : setRepresentatives(json.representatives);
+
+    setIsLoading(false);
   };
 
   React.useEffect(() => {
@@ -30,7 +37,9 @@ const Provider: React.FunctionComponent = ({ children }) => {
   }, []);
 
   return (
-    <RepresentativesOnlineContext.Provider value={{ representatives, isError }}>
+    <RepresentativesOnlineContext.Provider
+      value={{ representatives, isLoading, isError }}
+    >
       {children}
     </RepresentativesOnlineContext.Provider>
   );

@@ -69,7 +69,7 @@ const App: React.FunctionComponent = props => (
               }
             >
               <Menu.Item key="representatives">
-                Principal Representatives
+                Representatives
                 <Link to="/representatives" />
               </Menu.Item>
               <Menu.Item key="developer-fund">

@@ -6,6 +6,7 @@ import {
   CopyOutlined,
   QrcodeOutlined
 } from "@ant-design/icons";
+import find from "lodash/find";
 import { useParams } from "react-router-dom";
 import CopyToClipboard from "react-copy-to-clipboard";
 import QRCodeModal from "components/QRCodeModal";
@@ -19,17 +20,32 @@ let copiedTimeout: number | undefined;
 const AccountHeader = () => {
   const { account = "" } = useParams();
   const [isCopied, setIsCopied] = React.useState<boolean>(false);
-  const { representatives } = React.useContext(RepresentativesContext);
+  const [representativeAccount, setRepresentativeAccount] = React.useState(
+    {} as any
+  );
+  // const { representatives } = React.useContext(RepresentativesContext);
+  const {
+    representatives,
+    isLoading: isRepresentativesLoading
+  } = React.useContext(RepresentativesContext);
   const {
     confirmationQuorum: { principal_representative_min_weight: minWeight }
   } = React.useContext(ConfirmationQuorumContext);
 
+  React.useEffect(() => {
+    if (!account || isRepresentativesLoading || !representatives.length) return;
+
+    setRepresentativeAccount(find(representatives, ["account", account]) || {});
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [account, isRepresentativesLoading, representatives.length]);
+
   return (
     <>
-      {representatives?.[account] && minWeight ? (
+      {representativeAccount?.account && minWeight ? (
         <>
           <Title level={3}>
-            {representatives[account] >= minWeight ? "Principal " : ""}
+            {representativeAccount.weight >= minWeight ? "Principal " : ""}
             Representative
           </Title>
         </>
