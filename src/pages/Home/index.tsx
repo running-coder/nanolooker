@@ -61,37 +61,32 @@ const HomePage = () => {
                   <LoadingStatistic
                     isLoading={isCoingeckoDataLoading}
                     title="Market cap rank"
-                  >
-                    <Statistic prefix="#" value={`${marketCapRank}`} />
-                  </LoadingStatistic>
+                    prefix="#"
+                    value={`${marketCapRank}`}
+                  />
                   <LoadingStatistic
                     isLoading={isCoingeckoDataLoading}
                     title="Market cap (USD)"
-                  >
-                    <Statistic
-                      prefix="$"
-                      value={`${new BigNumber(usdMarketCap).toNumber()}`}
-                    />
-                  </LoadingStatistic>
+                    prefix="$"
+                    value={`${new BigNumber(usdMarketCap).toNumber()}`}
+                  />
                   <LoadingStatistic
                     isLoading={isCoingeckoDataLoading}
                     title="Circulating Supply"
-                  >
-                    <Statistic
-                      value={new BigNumber(circulatingSupply).toNumber()}
-                    />
-                  </LoadingStatistic>
+                    value={new BigNumber(circulatingSupply).toNumber()}
+                  />
                 </Col>
                 <Col xs={24} sm={12}>
-                  <LoadingStatistic isLoading={!count} title="Latest block">
-                    <Statistic value={count} />
-                  </LoadingStatistic>
+                  <LoadingStatistic
+                    isLoading={!count}
+                    title="Latest block"
+                    value={count}
+                  />
                   <LoadingStatistic
                     isLoading={false}
                     title="Principal Representatives Online"
-                  >
-                    <Statistic value={representatives.length} />
-                  </LoadingStatistic>
+                    value={representatives.length}
+                  />
                   <Statistic title="Blockchain size" value="TBD" />
                 </Col>
               </Row>
@@ -106,49 +101,36 @@ const HomePage = () => {
                   <LoadingStatistic
                     isLoading={!average}
                     title="Avg. confirmation time (seconds)"
-                  >
-                    <Statistic
-                      value={new BigNumber(average).dividedBy(1000).toNumber()}
-                    />
-                  </LoadingStatistic>
+                    value={new BigNumber(average).dividedBy(1000).toNumber()}
+                  />
                   <LoadingStatistic
                     isLoading={!statistics24h[TOTAL_CONFIRMATION_KEY_24H]}
                     title="Confirmed transactions"
-                  >
-                    <Statistic
-                      value={statistics24h[TOTAL_CONFIRMATION_KEY_24H]}
-                    />
-                  </LoadingStatistic>
+                    value={statistics24h[TOTAL_CONFIRMATION_KEY_24H]}
+                  />
                   <Statistic title="NANO transaction fees" value="Always 0" />
                 </Col>
                 <Col xs={24} sm={12}>
                   <LoadingStatistic
                     isLoading={isCoingeckoDataLoading}
                     title="Exchange volume (USD)"
-                  >
-                    <Statistic
-                      prefix="$"
-                      value={`${new BigNumber(usd24hVolume).toNumber()}`}
-                    />
-                  </LoadingStatistic>
+                    prefix="$"
+                    value={`${new BigNumber(usd24hVolume).toNumber()}`}
+                  />
                   <LoadingStatistic
                     isLoading={!statistics24h[TOTAL_NANO_VOLUME_KEY_24H]}
                     title="On-chain NANO volume"
-                  >
-                    <Statistic
-                      value={rawToRai(
-                        new BigNumber(
-                          statistics24h[TOTAL_NANO_VOLUME_KEY_24H]
-                        ).toNumber()
-                      )}
-                    />
-                  </LoadingStatistic>
+                    value={rawToRai(
+                      new BigNumber(
+                        statistics24h[TOTAL_NANO_VOLUME_KEY_24H]
+                      ).toNumber()
+                    )}
+                  />
                   <LoadingStatistic
                     isLoading={!btcTransactionFees}
                     title="Bitcoin transaction fees paid to miners"
-                  >
-                    <Statistic value={`$${btcTransactionFees}`} />
-                  </LoadingStatistic>
+                    value={`$${btcTransactionFees}`}
+                  />
                 </Col>
               </Row>
             </Skeleton>

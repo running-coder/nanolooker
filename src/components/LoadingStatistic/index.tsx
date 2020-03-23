@@ -1,16 +1,18 @@
 import React from "react";
-import { Skeleton } from "antd";
+import { Skeleton, Statistic } from "antd";
 
 interface LoadingStatisticProps {
   isLoading: boolean;
   title: string;
-  children: any;
+  value: any;
+  prefix?: string;
+  valueStyle?: any;
 }
 
 const LoadingStatistic = ({
   isLoading,
   title,
-  children
+  ...rest
 }: LoadingStatisticProps) => (
   <>
     {isLoading ? <div className="ant-statistic-title">{title}</div> : null}
@@ -20,7 +22,7 @@ const LoadingStatistic = ({
       paragraph={false}
       className="isloading-skeleton-width"
     >
-      {React.cloneElement(children, { title })}
+      <Statistic title={title} {...rest}></Statistic>
     </Skeleton>
   </>
 );

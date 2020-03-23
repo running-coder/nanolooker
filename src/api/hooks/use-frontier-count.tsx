@@ -7,6 +7,8 @@ export interface FrontierCountResponse {
 
 export interface UsefrontierCountReturn {
   frontierCount: FrontierCountResponse;
+  getFrontierCount: Function;
+  isLoading: boolean;
   isError: boolean;
 }
 
@@ -14,19 +16,23 @@ const useFrontierCount = (): UsefrontierCountReturn => {
   const [frontierCount, setFrontierCount] = React.useState(
     {} as FrontierCountResponse
   );
-  const [isError, setIsError] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const [isError, setIsError] = React.useState<boolean>(false);
 
   const getFrontierCount = async () => {
+    setIsError(false);
+    setIsLoading(true);
     const json = await rpc("frontier_count");
 
     !json || json.error ? setIsError(true) : setFrontierCount(json);
+    setIsLoading(false);
   };
 
   React.useEffect(() => {
     getFrontierCount();
   }, []);
 
-  return { frontierCount, isError };
+  return { frontierCount, getFrontierCount, isLoading, isError };
 };
 
 export default useFrontierCount;

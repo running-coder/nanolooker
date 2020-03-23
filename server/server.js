@@ -1,5 +1,11 @@
 require("dotenv").config();
 
+const express = require("express");
+const cors = require("cors");
+const { rpc, allowedRpcMethods } = require("./rpc");
+const bodyParser = require("body-parser");
+const path = require("path");
+
 const {
   wsCache,
   TOTAL_CONFIRMATION_KEY_24H,
@@ -16,12 +22,7 @@ const {
   DEVELOPER_FUND_TRANSACTIONS,
   getDeveloperFundTransactions
 } = require("./api/developerFundTransactions");
-
-const express = require("express");
-const cors = require("cors");
-const { rpc, allowedRpcMethods } = require("./rpc");
-const bodyParser = require("body-parser");
-const path = require("path");
+const { NODE_STATUS, getNodeStatus } = require("./api/nodeStatus");
 
 const app = express();
 
@@ -71,6 +72,12 @@ app.get("/api/statistics", async (req, res) => {
     [TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H]: btcTransactionFees24h,
     [TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H]: btcTransactionFees48h
   });
+});
+
+app.get("/api/node-status", async (req, res) => {
+  const { nodeStatus } = await getNodeStatus();
+
+  return res.send(nodeStatus);
 });
 
 app.use(express.static(path.join(__dirname, "../dist")));
