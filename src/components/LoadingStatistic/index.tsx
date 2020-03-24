@@ -6,6 +6,7 @@ interface LoadingStatisticProps {
   title: string;
   value: any;
   prefix?: string;
+  suffix?: string;
   valueStyle?: any;
 }
 

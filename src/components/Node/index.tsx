@@ -2,9 +2,11 @@ import React from "react";
 import { Button, Card, Tooltip } from "antd";
 import { ReloadOutlined } from "@ant-design/icons";
 import { secondsToTime, refreshActionDelay } from "components/utils";
+import { NodeStatusContext } from "api/contexts/NodeStatus";
 import useUptime from "api/hooks/use-uptime";
 import useVersion from "api/hooks/use-version";
 import LoadingStatistic from "components/LoadingStatistic";
+import BigNumber from "bignumber.js";
 
 const Node: React.FunctionComponent = () => {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
@@ -14,6 +16,13 @@ const Node: React.FunctionComponent = () => {
   const {
     version: { node_vendor }
   } = useVersion();
+  const {
+    nodeStatus: {
+      memory: { total = 0 } = {},
+      nodeStats: { cpu = 0, memory = 0 } = {}
+    },
+    isLoading: isNodeStatusLoading
+  } = React.useContext(NodeStatusContext);
 
   const refreshNode = async () => {
     setIsLoading(true);
@@ -26,7 +35,7 @@ const Node: React.FunctionComponent = () => {
   return (
     <Card
       size="small"
-      title="Ledger"
+      title="Node"
       extra={
         <Tooltip title="Reload" overlayClassName="tooltip-sm">
           <Button
@@ -53,14 +62,20 @@ const Node: React.FunctionComponent = () => {
       />
       <LoadingStatistic
         title="CPU Usage"
-        value="TBD"
-        isLoading={false}
+        value={cpu}
+        suffix="%"
+        isLoading={isNodeStatusLoading}
         valueStyle={{ opacity }}
       />
       <LoadingStatistic
         title="Memory"
-        value="TBD"
-        isLoading={false}
+        value={`${new BigNumber(memory)
+          .dividedBy(1000e6)
+          .toFormat(2)} / ${new BigNumber(total)
+          .dividedBy(1000e6)
+          .toFormat(2)}`}
+        suffix="GB"
+        isLoading={isNodeStatusLoading}
         valueStyle={{ opacity }}
       />
     </Card>

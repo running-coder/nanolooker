@@ -5,7 +5,7 @@ import { BlockCountContext } from "api/contexts/BlockCount";
 import { CoingeckoContext } from "api/contexts/Coingecko";
 import { ConfirmationHistoryContext } from "api/contexts/ConfirmationHistory";
 import { RepresentativesOnlineContext } from "api/contexts/RepresentativesOnline";
-// import { StatsContext } from "api/contexts/Stats";
+import { NodeStatusContext } from "api/contexts/NodeStatus";
 import {
   TOTAL_CONFIRMATION_KEY_24H,
   TOTAL_NANO_VOLUME_KEY_24H,
@@ -29,7 +29,10 @@ const HomePage = () => {
     confirmation_stats: { average = 0 } = {}
   } = React.useContext(ConfirmationHistoryContext);
   const { representatives } = React.useContext(RepresentativesOnlineContext);
-  // const statistics24h = React.useContext(Statistics24hContext);
+  const {
+    nodeStatus: { ledgerSize },
+    isLoading: isNodeStatusLoading
+  } = React.useContext(NodeStatusContext);
   const statistics24h = useStatistics24h();
   const { usdBtcCurrentPrice = 0 } = React.useContext(CoingeckoContext);
   // @TODO get stats from another way
@@ -87,7 +90,15 @@ const HomePage = () => {
                     title="Principal Representatives Online"
                     value={representatives.length}
                   />
-                  <Statistic title="Blockchain size" value="TBD" />
+
+                  <LoadingStatistic
+                    isLoading={isNodeStatusLoading}
+                    title="Blockchain size"
+                    suffix="GB"
+                    value={new BigNumber(ledgerSize)
+                      .dividedBy(1000e6)
+                      .toFormat(2)}
+                  />
                 </Col>
               </Row>
             </Skeleton>

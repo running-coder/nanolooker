@@ -1,8 +1,10 @@
 import React from "react";
 import { Button, Card, Skeleton, Statistic, Tooltip } from "antd";
 import { ReloadOutlined } from "@ant-design/icons";
+import BigNumber from "bignumber.js";
 import useAvailableSupply from "api/hooks/use-available-supply";
 import useFrontierCount from "api/hooks/use-frontier-count";
+import { NodeStatusContext } from "api/contexts/NodeStatus";
 import LoadingStatistic from "components/LoadingStatistic";
 import { rawToRai, refreshActionDelay } from "components/utils";
 
@@ -16,6 +18,10 @@ const Ledger: React.FunctionComponent = () => {
     getFrontierCount
     // isLoading: isFrontierCountLoading
   } = useFrontierCount();
+  const {
+    nodeStatus: { ledgerSize },
+    isLoading: isNodeStatusLoading
+  } = React.useContext(NodeStatusContext);
 
   const refreshLedger = async () => {
     setIsLoading(true);
@@ -57,8 +63,9 @@ const Ledger: React.FunctionComponent = () => {
 
       <LoadingStatistic
         title="Ledger size"
-        value={"TBD"}
-        isLoading={!frontierCount}
+        value={new BigNumber(ledgerSize).dividedBy(1000e6).toFormat(2)}
+        suffix="GB"
+        isLoading={isNodeStatusLoading}
         valueStyle={{ opacity }}
       />
     </Card>

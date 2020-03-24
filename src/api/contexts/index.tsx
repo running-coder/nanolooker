@@ -1,6 +1,6 @@
 import React from "react";
 import PriceProvider from "./Price";
-import StatsProvider from "./Stats";
+import NodeStatusProvider from "./NodeStatus";
 import AccountInfoProvider from "./AccountInfo";
 import BlockInfoProvider from "./BlockInfo";
 import BlocksInfoProvider from "./BlocksInfo";
@@ -14,7 +14,7 @@ import ConfirmationHistoryProvider from "./ConfirmationHistory";
 const IndexProvider: React.FunctionComponent = ({ children }) => {
   return (
     <PriceProvider>
-      <StatsProvider>
+      <NodeStatusProvider>
         <AccountInfoProvider>
           <BlockInfoProvider>
             <BlocksInfoProvider>
@@ -32,7 +32,7 @@ const IndexProvider: React.FunctionComponent = ({ children }) => {
             </BlocksInfoProvider>
           </BlockInfoProvider>
         </AccountInfoProvider>
-      </StatsProvider>
+      </NodeStatusProvider>
     </PriceProvider>
   );
 };

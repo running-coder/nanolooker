@@ -45,13 +45,17 @@ const getDeveloperFundTransactions = async () => {
       accountsHistoryPromises.push(promise);
     });
 
-    Promise.all(accountsHistoryPromises).then(() => {
-      developerFundTransactions = reverse(
-        sortBy(accountsHistory, ["local_timestamp"])
-      );
+    developerFundTransactions = await Promise.all(accountsHistoryPromises).then(
+      () => {
+        developerFundTransactions = reverse(
+          sortBy(accountsHistory, ["local_timestamp"])
+        );
 
-      apiCache.set(DEVELOPER_FUND_TRANSACTIONS, developerFundTransactions);
-    });
+        apiCache.set(DEVELOPER_FUND_TRANSACTIONS, developerFundTransactions);
+
+        return developerFundTransactions;
+      }
+    );
   }
 
   return { developerFundTransactions };
