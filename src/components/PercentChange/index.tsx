@@ -16,7 +16,7 @@ const PercentChange: React.FC<PercentChangeProps> = ({ percent }) => {
     fontSize: "12px"
   };
 
-  return !isNaN(percent) && percent !== 0 ? (
+  return !isNaN(percent) && percent !== Infinity && percent !== 0 ? (
     <>
       <span
         style={{

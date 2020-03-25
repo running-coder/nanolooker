@@ -20,10 +20,14 @@ const wsCache = new NodeCache({
 
 try {
   let wsKeys = JSON.parse(fs.readFileSync(CACHE_FILE_NAME) || []);
+
   wsKeys.forEach(({ key, value, ttl }) => wsCache.set(key, value, ttl));
 
   fs.unlinkSync(CACHE_FILE_NAME);
-} catch (e) {}
+  console.log(`${wsKeys.length} keys written from ${CACHE_FILE_NAME}`);
+} catch (err) {
+  console.log(`Unable to get keys from ${CACHE_FILE_NAME}`, err);
+}
 
 if (!wsCache.has(TOTAL_CONFIRMATION_KEY_24H)) {
   wsCache.set(TOTAL_CONFIRMATION_KEY_24H, 0);
@@ -176,14 +180,6 @@ ws.onmessage = msg => {
   }
 };
 
-process.once("SIGINT", () => {
-  saveWsCacheToFile();
-});
-
-process.once("SIGHUP", () => {
-  saveWsCacheToFile();
-});
-
 const saveWsCacheToFile = () => {
   const now = new Date().getTime();
 
@@ -194,7 +190,44 @@ const saveWsCacheToFile = () => {
   }));
 
   fs.writeFileSync(CACHE_FILE_NAME, JSON.stringify(wsKeys, null, 2));
+
+  console.log(`${wsKeys.length} keys written in ${CACHE_FILE_NAME}`);
 };
+
+// App is closing
+process.once("exit", () => {
+  saveWsCacheToFile();
+  console.log("process.kill: exit");
+  process.kill(process.pid, "exit");
+});
+
+// Catches ctrl+c event
+process.once("SIGINT", () => {
+  saveWsCacheToFile();
+  console.log("process.kill: SIGINT");
+  process.kill(process.pid, "SIGINT");
+});
+
+// Catches "kill pid"ss
+process.once("SIGUSR1", () => {
+  saveWsCacheToFile();
+  console.log("process.kill: SIGISIGUSR1NT");
+  process.kill(process.pid, "SIGUSR1");
+});
+
+// Used by Nodemon to restart
+process.once("SIGUSR2", () => {
+  saveWsCacheToFile();
+  console.log("process.kill: SIGUSR2");
+  process.kill(process.pid, "SIGUSR2");
+});
+
+// Catches uncaught exceptions
+process.once("uncaughtException", () => {
+  saveWsCacheToFile();
+  console.log("process.kill: uncaughtException");
+  process.kill(process.pid, "uncaughtException");
+});
 
 module.exports = {
   wsCache,

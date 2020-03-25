@@ -1,9 +1,11 @@
 {
   "name": "nanolooker",
   "version": "0.1.0",
+  "main": "server/server.js",
   "scripts": {
     "start": "react-scripts start",
-    "start:server": "nodemon --signal SIGHUP server/server.js",
+    "start:server": "nodemon server/server.js",
+    "restart": "",
     "build": "react-scripts build && rm -rf dist && mv build dist",
     "lint": "eslint --ext js,ts,tsx src",
     "test": "react-scripts test",
