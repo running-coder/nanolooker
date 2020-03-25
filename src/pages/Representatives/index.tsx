@@ -66,8 +66,6 @@ const Representatives = () => {
     loading: isRepresentativesOnlineLoading
   };
 
-  console.log("representativesOnline", representativesOnline);
-
   return (
     <>
       <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]}>

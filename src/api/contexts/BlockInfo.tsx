@@ -40,7 +40,7 @@ export const BlockInfoContext = React.createContext<Return>({
   isError: false
 });
 
-const Provider: React.FunctionComponent = ({ children }) => {
+const Provider: React.FC = ({ children }) => {
   const [block, setBlock] = React.useState<string>("");
   const [blockInfo, setBlockInfo] = React.useState({} as BlockInfo);
   const [isLoading, setIsLoading] = React.useState(false);

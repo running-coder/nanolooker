@@ -15,24 +15,26 @@ interface NodeStatus {
 
 export interface Return {
   nodeStatus: NodeStatus;
+  getNodeStatus: Function;
   isLoading: boolean;
   isError: boolean;
 }
 
 export const NodeStatusContext = React.createContext<Return>({
   nodeStatus: {} as NodeStatus,
+  getNodeStatus: () => {},
   isLoading: false,
   isError: false
 });
 
-const Provider: React.FunctionComponent = ({ children }) => {
+const Provider: React.FC = ({ children }) => {
   const [nodeStatus, setNodeStatus] = React.useState<NodeStatus>(
     {} as NodeStatus
   );
   const [isLoading, setIsLoading] = React.useState(false);
   const [isError, setIsError] = React.useState(false);
 
-  const getStats = async () => {
+  const getNodeStatus = async () => {
     setIsError(false);
     setIsLoading(true);
 
@@ -44,11 +46,13 @@ const Provider: React.FunctionComponent = ({ children }) => {
   };
 
   React.useEffect(() => {
-    getStats();
+    getNodeStatus();
   }, []);
 
   return (
-    <NodeStatusContext.Provider value={{ nodeStatus, isLoading, isError }}>
+    <NodeStatusContext.Provider
+      value={{ nodeStatus, getNodeStatus, isLoading, isError }}
+    >
       {children}
     </NodeStatusContext.Provider>
   );

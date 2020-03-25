@@ -45,5 +45,6 @@ const getBtcTransactionFees = async () => {
 
 module.exports = {
   getBtcTransactionFees,
-  TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H
+  TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H,
+  TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H
 };

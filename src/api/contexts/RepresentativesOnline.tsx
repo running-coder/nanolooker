@@ -15,7 +15,7 @@ export const RepresentativesOnlineContext = React.createContext<
   isError: false
 });
 
-const Provider: React.FunctionComponent = ({ children }) => {
+const Provider: React.FC = ({ children }) => {
   const [representatives, setRepresentatives] = React.useState<string[]>([]);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [isError, setIsError] = React.useState<boolean>(false);

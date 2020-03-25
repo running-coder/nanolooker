@@ -8,7 +8,7 @@ import { Colors, TwoToneColors } from "components/utils";
 
 const { Text } = Typography;
 
-export const TransactionsLayout: React.FunctionComponent = ({ children }) => (
+export const TransactionsLayout: React.FC = ({ children }) => (
   <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]}>
     <Col span={24}>
       <Card size="small" bodyStyle={{ padding: 0 }}>

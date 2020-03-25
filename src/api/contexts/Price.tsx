@@ -21,7 +21,7 @@ const GET_PRICE_TIMEOUT = 180 * 1000;
 
 export const PriceContext = React.createContext<ContextProps>({});
 
-const Provider: React.FunctionComponent = ({ children }) => {
+const Provider: React.FC = ({ children }) => {
   const [price, setPrice] = React.useState<ContextProps>({});
   const [isError, setIsError] = React.useState(false);
 

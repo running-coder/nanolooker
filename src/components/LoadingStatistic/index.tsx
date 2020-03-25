@@ -5,8 +5,8 @@ interface LoadingStatisticProps {
   isLoading: boolean;
   title: string;
   value: any;
-  prefix?: string;
-  suffix?: string;
+  prefix?: string | React.ReactNode;
+  suffix?: string | React.ReactNode;
   valueStyle?: any;
 }
 

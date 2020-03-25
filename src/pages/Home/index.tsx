@@ -8,11 +8,15 @@ import { RepresentativesOnlineContext } from "api/contexts/RepresentativesOnline
 import { NodeStatusContext } from "api/contexts/NodeStatus";
 import {
   TOTAL_CONFIRMATION_KEY_24H,
+  TOTAL_CONFIRMATION_KEY_48H,
   TOTAL_NANO_VOLUME_KEY_24H,
-  TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H
+  TOTAL_NANO_VOLUME_KEY_48H,
+  TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H,
+  TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H
 } from "api/hooks/use-statistics-24h";
 import useStatistics24h from "api/hooks/use-statistics-24h";
 import LoadingStatistic from "components/LoadingStatistic";
+import PercentChange from "components/PercentChange";
 import { rawToRai } from "components/utils";
 import RecentTransactions from "./RecentTransactions";
 
@@ -20,14 +24,15 @@ const HomePage = () => {
   const {
     marketCapRank,
     usdMarketCap,
+    marketCapChangePercentage24h,
     usd24hVolume,
-    circulatingSupply
+    circulatingSupply,
+    isInitialLoading: isCoingeckoDataInitialLoading
   } = React.useContext(CoingeckoContext);
   const { count } = React.useContext(BlockCountContext);
-  const {
-    // @TODO why define default here?
-    confirmation_stats: { average = 0 } = {}
-  } = React.useContext(ConfirmationHistoryContext);
+  const { confirmation_stats: { average = 0 } = {} } = React.useContext(
+    ConfirmationHistoryContext
+  );
   const { representatives } = React.useContext(RepresentativesOnlineContext);
   const {
     nodeStatus: { ledgerSize },
@@ -35,20 +40,37 @@ const HomePage = () => {
   } = React.useContext(NodeStatusContext);
   const statistics24h = useStatistics24h();
   const { usdBtcCurrentPrice = 0 } = React.useContext(CoingeckoContext);
-  // @TODO get stats from another way
-  // const { stats } = React.useContext(
-  //   StatsContext
-  // );
 
-  const btcTransactionFees =
+  const btcTransactionFees24h =
     statistics24h[TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H] && usdBtcCurrentPrice
       ? new BigNumber(statistics24h[TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H])
           .times(usdBtcCurrentPrice)
           .toFormat(2)
       : 0;
 
-  const isCoingeckoDataLoading: boolean =
-    !marketCapRank || !usdMarketCap || !usd24hVolume || !circulatingSupply;
+  const btcTransactionFeesChange24h = btcTransactionFees24h
+    ? new BigNumber(statistics24h[TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H])
+        .minus(statistics24h[TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H])
+        .dividedBy(statistics24h[TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H])
+        .times(100)
+        .toNumber()
+    : 0;
+
+  const onChainVolumeChange24h = statistics24h[TOTAL_NANO_VOLUME_KEY_24H]
+    ? new BigNumber(statistics24h[TOTAL_NANO_VOLUME_KEY_24H])
+        .minus(statistics24h[TOTAL_NANO_VOLUME_KEY_48H])
+        .dividedBy(statistics24h[TOTAL_NANO_VOLUME_KEY_48H])
+        .times(100)
+        .toNumber()
+    : 0;
+
+  const confirmationChange24h = statistics24h[TOTAL_CONFIRMATION_KEY_24H]
+    ? new BigNumber(statistics24h[TOTAL_CONFIRMATION_KEY_24H])
+        .minus(statistics24h[TOTAL_CONFIRMATION_KEY_48H])
+        .dividedBy(statistics24h[TOTAL_CONFIRMATION_KEY_48H])
+        .times(100)
+        .toNumber()
+    : 0;
 
   return (
     <>
@@ -62,19 +84,22 @@ const HomePage = () => {
               <Row gutter={6}>
                 <Col xs={24} sm={12}>
                   <LoadingStatistic
-                    isLoading={isCoingeckoDataLoading}
+                    isLoading={isCoingeckoDataInitialLoading}
                     title="Market cap rank"
                     prefix="#"
                     value={`${marketCapRank}`}
                   />
                   <LoadingStatistic
-                    isLoading={isCoingeckoDataLoading}
+                    isLoading={isCoingeckoDataInitialLoading}
                     title="Market cap (USD)"
                     prefix="$"
+                    suffix={
+                      <PercentChange percent={marketCapChangePercentage24h} />
+                    }
                     value={`${new BigNumber(usdMarketCap).toNumber()}`}
                   />
                   <LoadingStatistic
-                    isLoading={isCoingeckoDataLoading}
+                    isLoading={isCoingeckoDataInitialLoading}
                     title="Circulating Supply"
                     value={new BigNumber(circulatingSupply).toNumber()}
                   />
@@ -86,7 +111,7 @@ const HomePage = () => {
                     value={count}
                   />
                   <LoadingStatistic
-                    isLoading={false}
+                    isLoading={!representatives.length}
                     title="Principal Representatives Online"
                     value={representatives.length}
                   />
@@ -117,13 +142,14 @@ const HomePage = () => {
                   <LoadingStatistic
                     isLoading={!statistics24h[TOTAL_CONFIRMATION_KEY_24H]}
                     title="Confirmed transactions"
+                    suffix={<PercentChange percent={confirmationChange24h} />}
                     value={statistics24h[TOTAL_CONFIRMATION_KEY_24H]}
                   />
                   <Statistic title="NANO transaction fees" value="Always 0" />
                 </Col>
                 <Col xs={24} sm={12}>
                   <LoadingStatistic
-                    isLoading={isCoingeckoDataLoading}
+                    isLoading={isCoingeckoDataInitialLoading}
                     title="Exchange volume (USD)"
                     prefix="$"
                     value={`${new BigNumber(usd24hVolume).toNumber()}`}
@@ -131,6 +157,7 @@ const HomePage = () => {
                   <LoadingStatistic
                     isLoading={!statistics24h[TOTAL_NANO_VOLUME_KEY_24H]}
                     title="On-chain NANO volume"
+                    suffix={<PercentChange percent={onChainVolumeChange24h} />}
                     value={rawToRai(
                       new BigNumber(
                         statistics24h[TOTAL_NANO_VOLUME_KEY_24H]
@@ -138,9 +165,12 @@ const HomePage = () => {
                     )}
                   />
                   <LoadingStatistic
-                    isLoading={!btcTransactionFees}
+                    isLoading={!btcTransactionFees24h}
                     title="Bitcoin transaction fees paid to miners"
-                    value={`$${btcTransactionFees}`}
+                    value={`$${btcTransactionFees24h}`}
+                    suffix={
+                      <PercentChange percent={btcTransactionFeesChange24h} />
+                    }
                   />
                 </Col>
               </Row>

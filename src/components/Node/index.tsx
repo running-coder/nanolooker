@@ -8,7 +8,7 @@ import useVersion from "api/hooks/use-version";
 import LoadingStatistic from "components/LoadingStatistic";
 import BigNumber from "bignumber.js";
 
-const Node: React.FunctionComponent = () => {
+const Node: React.FC = () => {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const {
     uptime: { seconds }
@@ -21,12 +21,13 @@ const Node: React.FunctionComponent = () => {
       memory: { total = 0 } = {},
       nodeStats: { cpu = 0, memory = 0 } = {}
     },
+    getNodeStatus,
     isLoading: isNodeStatusLoading
   } = React.useContext(NodeStatusContext);
 
   const refreshNode = async () => {
     setIsLoading(true);
-    await refreshActionDelay(() => {});
+    await refreshActionDelay(getNodeStatus);
     setIsLoading(false);
   };
 

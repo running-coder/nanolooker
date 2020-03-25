@@ -15,7 +15,7 @@ export const StatsContext = React.createContext<Return>({
 
 // type Types = 'counters' | 'samples' | 'objects';
 
-const Provider: React.FunctionComponent = ({ children }) => {
+const Provider: React.FC = ({ children }) => {
   const [stats, setStats] = React.useState<string[]>([]);
   const [isLoading, setIsLoading] = React.useState(false);
   const [isError, setIsError] = React.useState(false);

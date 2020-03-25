@@ -46,8 +46,6 @@ const DeveloperFund = () => {
   } = useAvailableSupply();
   const { developerFundTransactions } = useDeveloperAccountFund();
 
-  // console.log("developerFundTransactions", developerFundTransactions);
-
   const data = Object.entries(accountsBalances?.balances || []).reduce(
     // @ts-ignore
     (accounts, [account, { balance, pending }]) => {

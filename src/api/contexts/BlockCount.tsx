@@ -22,7 +22,7 @@ export const BlockCountContext = React.createContext<Return & Response>({
   isError: false
 });
 
-const Provider: React.FunctionComponent = ({ children }) => {
+const Provider: React.FC = ({ children }) => {
   const [blockCount, setBlockCount] = React.useState({} as Response);
   const [isLoading, setIsLoading] = React.useState(false);
   const [isError, setIsError] = React.useState(false);

@@ -20,7 +20,7 @@ export const RepresentativesContext = React.createContext<
   isError: false
 });
 
-const Provider: React.FunctionComponent = ({ children }) => {
+const Provider: React.FC = ({ children }) => {
   const [representatives, setRepresentatives] = React.useState<
     Representative[]
   >([]);

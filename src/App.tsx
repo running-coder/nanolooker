@@ -27,7 +27,7 @@ import "antd/dist/antd.css";
 const { Header, Content, Footer } = Layout;
 const { SubMenu } = Menu;
 
-const App: React.FunctionComponent = props => (
+const App: React.FC = props => (
   <Layout style={{ minHeight: "100vh" }}>
     <Header
       style={{

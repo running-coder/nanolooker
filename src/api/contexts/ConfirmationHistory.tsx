@@ -26,7 +26,7 @@ export const ConfirmationHistoryContext = React.createContext<
   isError: false
 });
 
-const Provider: React.FunctionComponent = ({ children }) => {
+const Provider: React.FC = ({ children }) => {
   const [confirmationHistory, setConfirmationHistory] = React.useState(
     {} as Response
   );

@@ -32,7 +32,7 @@ export const AccountInfoContext = React.createContext<AccountInfoReturn>({
   isError: false
 });
 
-const Provider: React.FunctionComponent = ({ children }) => {
+const Provider: React.FC = ({ children }) => {
   const [account, setAccount] = React.useState<string>("");
   const [accountInfo, setAccountInfo] = React.useState(
     {} as AccountInfoRPCResponse

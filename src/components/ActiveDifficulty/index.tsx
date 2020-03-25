@@ -7,7 +7,7 @@ import useActiveDifficulty, {
 
 import { refreshActionDelay } from "components/utils";
 
-const ActiveDifficulty: React.FunctionComponent = () => {
+const ActiveDifficulty: React.FC = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   const {
     activeDifficulty: { network_minimum, network_current, multiplier },

@@ -25,7 +25,7 @@ export const ConfirmationQuorumContext = React.createContext<
   isError: false
 });
 
-const Provider: React.FunctionComponent = ({ children }) => {
+const Provider: React.FC = ({ children }) => {
   const [confirmationQuorum, setConfirmationQuorum] = React.useState(
     {} as ConfirmationQuorumRPCResponse
   );

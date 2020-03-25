@@ -11,7 +11,7 @@ import BlockCountProvider from "./BlockCount";
 import CoingeckoProvider from "./Coingecko";
 import ConfirmationHistoryProvider from "./ConfirmationHistory";
 
-const IndexProvider: React.FunctionComponent = ({ children }) => {
+const IndexProvider: React.FC = ({ children }) => {
   return (
     <PriceProvider>
       <NodeStatusProvider>
