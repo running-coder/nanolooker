@@ -1,11 +1,11 @@
 import React from "react";
-import { CoingeckoContext } from "api/contexts/Coingecko";
+import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 import PercentChange from "components/PercentChange";
 
 const Price = () => {
-  const { usdCurrentPrice, usd24hChange = 0 } = React.useContext(
-    CoingeckoContext
-  );
+  const {
+    marketStatistics: { usdCurrentPrice, usd24hChange = 0 }
+  } = React.useContext(MarketStatisticsContext);
 
   return (
     <div style={{ display: "flex", alignItems: "center" }}>

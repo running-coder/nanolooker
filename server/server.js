@@ -1,4 +1,5 @@
 require("dotenv").config();
+require("./cron/marketCap24h");
 
 const express = require("express");
 const cors = require("cors");
@@ -18,11 +19,12 @@ const {
   TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H,
   TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H
 } = require("./api/btcTransactionFees");
+
+const { getCoingeckoStats } = require("./api/coingeckoStats");
 const {
-  DEVELOPER_FUND_TRANSACTIONS,
   getDeveloperFundTransactions
 } = require("./api/developerFundTransactions");
-const { NODE_STATUS, getNodeStatus } = require("./api/nodeStatus");
+const { getNodeStatus } = require("./api/nodeStatus");
 
 const app = express();
 
@@ -54,7 +56,7 @@ app.get("/api/developer-fund/transactions", async (req, res) => {
   return res.send(developerFundTransactions);
 });
 
-app.get("/api/statistics", async (req, res) => {
+app.get("/api/market-statistics", async (req, res) => {
   const cachedConfirmations24h = wsCache.get(TOTAL_CONFIRMATION_KEY_24H);
   const cachedVolume24h = wsCache.get(TOTAL_NANO_VOLUME_KEY_24H);
   const cachedConfirmations48h = wsCache.get(TOTAL_CONFIRMATION_KEY_48H);
@@ -63,6 +65,7 @@ app.get("/api/statistics", async (req, res) => {
     btcTransactionFees24h,
     btcTransactionFees48h
   } = await getBtcTransactionFees();
+  const { coingeckoStats } = await getCoingeckoStats();
 
   return res.send({
     [TOTAL_CONFIRMATION_KEY_24H]: cachedConfirmations24h,
@@ -70,7 +73,8 @@ app.get("/api/statistics", async (req, res) => {
     [TOTAL_CONFIRMATION_KEY_48H]: cachedConfirmations48h,
     [TOTAL_NANO_VOLUME_KEY_48H]: cachedVolume48h,
     [TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H]: btcTransactionFees24h,
-    [TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H]: btcTransactionFees48h
+    [TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H]: btcTransactionFees48h,
+    ...coingeckoStats
   });
 });
 

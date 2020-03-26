@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Card, Descriptions, Skeleton, Tag, Typography } from "antd";
 import BigNumber from "bignumber.js";
-import { PriceContext } from "api/contexts/Price";
+import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 import { BlocksInfoContext } from "api/contexts/BlocksInfo";
 import {
   TwoToneColors,
@@ -16,7 +16,10 @@ import {
 const { Title } = Typography;
 
 const BlockDetails = () => {
-  const { usd = 0, btc = 0 } = React.useContext(PriceContext);
+  const {
+    marketStatistics: { usdCurrentPrice, usdBtcCurrentPrice },
+    isLoading: isMarketStatisticsLoading
+  } = React.useContext(MarketStatisticsContext);
   const {
     blocks,
     blocksInfo,
@@ -26,7 +29,7 @@ const BlockDetails = () => {
   const skeletonProps = {
     active: true,
     paragraph: false,
-    loading: isBlocksInfoLoading
+    loading: isBlocksInfoLoading || isMarketStatisticsLoading
   };
 
   const blockInfo = blocksInfo?.blocks?.[blocks[0]];
@@ -48,12 +51,16 @@ const BlockDetails = () => {
   const modifiedTimestamp = Number(blockInfo?.local_timestamp) * 1000;
 
   const amount = new BigNumber(rawToRai(blockInfo?.amount || 0)).toNumber();
-  const usdAmount = new BigNumber(amount).times(usd).toFormat(2);
-  const btcAmount = new BigNumber(amount).times(btc).toFormat(12);
+  const usdAmount = new BigNumber(amount).times(usdCurrentPrice).toFormat(2);
+  const btcAmount = new BigNumber(amount)
+    .times(usdBtcCurrentPrice)
+    .toFormat(12);
 
   const balance = new BigNumber(rawToRai(blockInfo?.balance || 0)).toNumber();
-  const usdBalance = new BigNumber(balance).times(usd).toFormat(2);
-  const btcBalance = new BigNumber(balance).times(btc).toFormat(12);
+  const usdBalance = new BigNumber(balance).times(usdCurrentPrice).toFormat(2);
+  const btcBalance = new BigNumber(balance)
+    .times(usdBtcCurrentPrice)
+    .toFormat(12);
 
   let linkAccountLabel = "";
   if (subtype === "send") {

@@ -38,6 +38,7 @@
     "find-process": "^1.4.3",
     "lodash": "^4.17.15",
     "node-cache": "^5.1.0",
+    "node-cron": "^2.0.3",
     "node-fetch": "^2.6.0",
     "pidusage": "^2.0.18",
     "qrcode": "^1.4.4",

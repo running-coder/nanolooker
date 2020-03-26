@@ -5,7 +5,7 @@ import { QuestionCircleTwoTone } from "@ant-design/icons";
 import find from "lodash/find";
 import BigNumber from "bignumber.js";
 import TimeAgo from "timeago-react";
-import { PriceContext } from "api/contexts/Price";
+import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 import { AccountInfoContext } from "api/contexts/AccountInfo";
 import { RepresentativesOnlineContext } from "api/contexts/RepresentativesOnline";
 import { rawToRai, timestampToDate } from "components/utils";
@@ -34,7 +34,10 @@ const AccountDetails = () => {
   const [representativeAccount, setRepresentativeAccount] = React.useState(
     {} as any
   );
-  const { usd = 0, btc = 0 } = React.useContext(PriceContext);
+  const {
+    marketStatistics: { usdCurrentPrice, usdBtcCurrentPrice },
+    isLoading: isMarketStatisticsLoading
+  } = React.useContext(MarketStatisticsContext);
   const {
     account,
     accountInfo,
@@ -52,14 +55,16 @@ const AccountDetails = () => {
   const balancePending = new BigNumber(
     rawToRai(accountInfo?.pending || 0)
   ).toFormat(8);
-  const usdBalance = new BigNumber(balance).times(usd).toFormat(2);
-  const btcBalance = new BigNumber(balance).times(btc).toFormat(12);
+  const usdBalance = new BigNumber(balance).times(usdCurrentPrice).toFormat(2);
+  const btcBalance = new BigNumber(balance)
+    .times(usdBtcCurrentPrice)
+    .toFormat(12);
   const modifiedTimestamp = Number(accountInfo?.modified_timestamp) * 1000;
 
   const skeletonProps = {
     active: true,
     paragraph: false,
-    loading: isAccountInfoLoading
+    loading: isAccountInfoLoading || isMarketStatisticsLoading
   };
 
   React.useEffect(() => {

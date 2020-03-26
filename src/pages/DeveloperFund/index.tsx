@@ -13,10 +13,9 @@ import {
 import { QuestionCircleTwoTone } from "@ant-design/icons";
 import TimeAgo from "timeago-react";
 import BigNumber from "bignumber.js";
-import { PriceContext } from "api/contexts/Price";
+import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 import useAccountsBalances from "api/hooks/use-accounts-balances";
 import useAvailableSupply from "api/hooks/use-available-supply";
-// import useAccountHistory from "api/hooks/use-account-history";
 import useDeveloperAccountFund from "api/hooks/use-developer-fund-transactions";
 import { rawToRai, timestampToDate } from "components/utils";
 import {
@@ -36,7 +35,10 @@ const { Title } = Typography;
 
 const DeveloperFund = () => {
   let totalBalance: number = 0;
-  const { usd = 0, btc = 0 } = React.useContext(PriceContext);
+  const {
+    marketStatistics: { usdCurrentPrice, usdBtcCurrentPrice },
+    isLoading: isMarketStatisticsLoading
+  } = React.useContext(MarketStatisticsContext);
   const {
     accountsBalances,
     isLoading: isAccountsBalancesLoading
@@ -67,13 +69,17 @@ const DeveloperFund = () => {
     [] as any
   );
 
-  const usdBalance = new BigNumber(totalBalance).times(usd).toFormat(2);
-  const btcBalance = new BigNumber(totalBalance).times(btc).toFormat(12);
+  const usdBalance = new BigNumber(totalBalance)
+    .times(usdCurrentPrice)
+    .toFormat(2);
+  const btcBalance = new BigNumber(totalBalance)
+    .times(usdBtcCurrentPrice)
+    .toFormat(12);
 
   const skeletonProps = {
     active: true,
     paragraph: false,
-    loading: isAccountsBalancesLoading
+    loading: isAccountsBalancesLoading || isMarketStatisticsLoading
   };
 
   const { amount, local_timestamp = 0, hash: lastTransactionHash } =

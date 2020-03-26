@@ -1,5 +1,5 @@
 import React from "react";
-import PriceProvider from "./Price";
+import MarketStatisticsProvider from "./MarketStatistics";
 import NodeStatusProvider from "./NodeStatus";
 import AccountInfoProvider from "./AccountInfo";
 import BlockInfoProvider from "./BlockInfo";
@@ -8,12 +8,11 @@ import RepresentativesProvider from "./Representatives";
 import RepresentativesOnlineProvider from "./RepresentativesOnline";
 import ConfirmationQuorumProvider from "./ConfirmationQuorum";
 import BlockCountProvider from "./BlockCount";
-import CoingeckoProvider from "./Coingecko";
 import ConfirmationHistoryProvider from "./ConfirmationHistory";
 
 const IndexProvider: React.FC = ({ children }) => {
   return (
-    <PriceProvider>
+    <MarketStatisticsProvider>
       <NodeStatusProvider>
         <AccountInfoProvider>
           <BlockInfoProvider>
@@ -23,7 +22,7 @@ const IndexProvider: React.FC = ({ children }) => {
                   <RepresentativesOnlineProvider>
                     <BlockCountProvider>
                       <ConfirmationHistoryProvider>
-                        <CoingeckoProvider>{children}</CoingeckoProvider>
+                        {children}
                       </ConfirmationHistoryProvider>
                     </BlockCountProvider>
                   </RepresentativesOnlineProvider>
@@ -33,7 +32,7 @@ const IndexProvider: React.FC = ({ children }) => {
           </BlockInfoProvider>
         </AccountInfoProvider>
       </NodeStatusProvider>
-    </PriceProvider>
+    </MarketStatisticsProvider>
   );
 };
 
