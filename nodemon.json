@@ -1,4 +1,4 @@
 {
-  "ignore": ["cache.json"],
+  "ignore": ["*-cache.json"],
   "delay": "3000"
 }

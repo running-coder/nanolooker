@@ -4,7 +4,7 @@ const WS = require("ws");
 const BigNumber = require("bignumber.js");
 const ReconnectingWebSocket = require("reconnecting-websocket");
 
-const CACHE_FILE_NAME = "cache.json";
+const WS_CACHE_FILE_NAME = "ws-cache.json";
 const EXPIRE_CACHE_24H = 86400;
 const UPDATE_CACHE_INTERVAL = 5000;
 const TOTAL_CONFIRMATION_KEY_24H = "total_confirmations_24h";
@@ -19,14 +19,14 @@ const wsCache = new NodeCache({
 });
 
 try {
-  let wsKeys = JSON.parse(fs.readFileSync(CACHE_FILE_NAME) || []);
+  let wsKeys = JSON.parse(fs.readFileSync(WS_CACHE_FILE_NAME) || []);
 
   wsKeys.forEach(({ key, value, ttl }) => wsCache.set(key, value, ttl));
 
-  fs.unlinkSync(CACHE_FILE_NAME);
-  console.log(`${wsKeys.length} keys written from ${CACHE_FILE_NAME}`);
+  fs.unlinkSync(WS_CACHE_FILE_NAME);
+  console.log(`${wsKeys.length} keys written from ${WS_CACHE_FILE_NAME}`);
 } catch (err) {
-  console.log(`Unable to get keys from ${CACHE_FILE_NAME}`, err);
+  console.log(`Unable to get keys from ${WS_CACHE_FILE_NAME}`, err);
 }
 
 if (!wsCache.has(TOTAL_CONFIRMATION_KEY_24H)) {
@@ -189,9 +189,9 @@ const saveWsCacheToFile = () => {
     ttl: Math.floor(((wsCache.getTtl(key) || now) - now) / 1000)
   }));
 
-  fs.writeFileSync(CACHE_FILE_NAME, JSON.stringify(wsKeys, null, 2));
+  fs.writeFileSync(WS_CACHE_FILE_NAME, JSON.stringify(wsKeys, null, 2));
 
-  console.log(`${wsKeys.length} keys written in ${CACHE_FILE_NAME}`);
+  console.log(`${wsKeys.length} keys written in ${WS_CACHE_FILE_NAME}`);
 };
 
 // App is closing

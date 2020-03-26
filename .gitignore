@@ -1,6 +1,6 @@
 .DS_Store
 .env
-cache.json
+*-cache.json
 /node_modules
 /coverage
 /build

@@ -15,7 +15,7 @@ import {
   TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H
 } from "api/contexts/MarketStatistics";
 import LoadingStatistic from "components/LoadingStatistic";
-import PercentChange from "components/PercentChange";
+import StatisticsChange from "components/StatisticsChange";
 import { rawToRai } from "components/utils";
 import RecentTransactions from "./RecentTransactions";
 
@@ -49,7 +49,7 @@ const HomePage = () => {
     usdBtcCurrentPrice
       ? new BigNumber(marketStatistics[TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H])
           .times(usdBtcCurrentPrice)
-          .toFormat(2)
+          .toFixed(2)
       : 0;
 
   const btcTransactionFeesChange24h = btcTransactionFees24h
@@ -91,6 +91,12 @@ const HomePage = () => {
                     isLoading={isMarketStatisticsInitialLoading}
                     title="Market cap rank"
                     prefix="#"
+                    suffix={
+                      <StatisticsChange
+                        value={marketCapRank24h - marketCapRank}
+                        isNumber
+                      />
+                    }
                     value={`${marketCapRank}`}
                   />
                   <LoadingStatistic
@@ -98,7 +104,10 @@ const HomePage = () => {
                     title="Market cap (USD)"
                     prefix="$"
                     suffix={
-                      <PercentChange percent={marketCapChangePercentage24h} />
+                      <StatisticsChange
+                        value={marketCapChangePercentage24h}
+                        isPercent
+                      />
                     }
                     value={`${new BigNumber(usdMarketCap).toNumber()}`}
                   />
@@ -146,7 +155,12 @@ const HomePage = () => {
                   <LoadingStatistic
                     isLoading={isMarketStatisticsInitialLoading}
                     title="Confirmed transactions"
-                    suffix={<PercentChange percent={confirmationChange24h} />}
+                    suffix={
+                      <StatisticsChange
+                        value={confirmationChange24h}
+                        isPercent
+                      />
+                    }
                     value={marketStatistics[TOTAL_CONFIRMATION_KEY_24H]}
                   />
                   <Statistic title="NANO transaction fees" value="Always 0" />
@@ -161,7 +175,12 @@ const HomePage = () => {
                   <LoadingStatistic
                     isLoading={isMarketStatisticsInitialLoading}
                     title="On-chain NANO volume"
-                    suffix={<PercentChange percent={onChainVolumeChange24h} />}
+                    suffix={
+                      <StatisticsChange
+                        value={onChainVolumeChange24h}
+                        isPercent
+                      />
+                    }
                     value={rawToRai(
                       new BigNumber(
                         marketStatistics[TOTAL_NANO_VOLUME_KEY_24H]
@@ -171,9 +190,13 @@ const HomePage = () => {
                   <LoadingStatistic
                     isLoading={isMarketStatisticsInitialLoading}
                     title="Bitcoin transaction fees paid to miners"
-                    value={`$${btcTransactionFees24h}`}
+                    prefix="$"
+                    value={btcTransactionFees24h}
                     suffix={
-                      <PercentChange percent={btcTransactionFeesChange24h} />
+                      <StatisticsChange
+                        value={btcTransactionFeesChange24h}
+                        isPercent
+                      />
                     }
                   />
                 </Col>

@@ -1,6 +1,6 @@
 import React from "react";
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
-import PercentChange from "components/PercentChange";
+import StatisticsChange from "components/StatisticsChange";
 
 const Price = () => {
   const {
@@ -16,7 +16,7 @@ const Price = () => {
         style={{ marginRight: "3px" }}
       />
       <span style={{ marginRight: "6px" }}>${usdCurrentPrice?.toFixed(2)}</span>
-      <PercentChange percent={usd24hChange} />
+      <StatisticsChange value={usd24hChange} isPercent />
     </div>
   );
 };

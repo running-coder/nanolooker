@@ -3,20 +3,26 @@ import BigNumber from "bignumber.js";
 import { FallOutlined, RiseOutlined } from "@ant-design/icons";
 import { Colors } from "components/utils";
 
-interface PercentChangeProps {
-  percent: number;
+interface StatisticsChangeProps {
+  value: number;
+  isPercent?: boolean;
+  isNumber?: boolean;
 }
 
-const PercentChange: React.FC<PercentChangeProps> = ({ percent }) => {
+const StatisticsChange: React.FC<StatisticsChangeProps> = ({
+  value,
+  isPercent,
+  isNumber
+}) => {
   const color =
-    percent === 0 ? Colors.PENDING : percent < 0 ? Colors.SEND : Colors.RECEIVE;
+    value === 0 ? Colors.PENDING : value < 0 ? Colors.SEND : Colors.RECEIVE;
 
   const styles = {
     color,
     fontSize: "12px"
   };
 
-  return !isNaN(percent) && percent !== Infinity && percent !== 0 ? (
+  return !isNaN(value) && value !== Infinity && value !== 0 ? (
     <>
       <span
         style={{
@@ -24,10 +30,11 @@ const PercentChange: React.FC<PercentChangeProps> = ({ percent }) => {
           ...styles
         }}
       >
-        {new BigNumber(percent).toFormat(2)}%
+        {isPercent ? `${new BigNumber(value).toFormat(2)}%` : null}
+        {isNumber ? value : null}
       </span>
 
-      {percent < 0 ? (
+      {value < 0 ? (
         <FallOutlined style={styles} />
       ) : (
         <RiseOutlined style={styles} />
@@ -36,4 +43,4 @@ const PercentChange: React.FC<PercentChangeProps> = ({ percent }) => {
   ) : null;
 };
 
-export default PercentChange;
+export default StatisticsChange;
