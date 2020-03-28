@@ -9,10 +9,11 @@ import {
 } from "@ant-design/icons";
 
 import HomePage from "pages/Home";
-import Representatives from "pages/Representatives";
-import DeveloperFund from "pages/DeveloperFund";
-import DeveloperFundTransactions from "pages/DeveloperFund/Transactions";
-import Distribution from "pages/Distribution";
+import RepresentativesPage from "pages/Representatives";
+import DeveloperFundPage from "pages/DeveloperFund";
+import DeveloperFundTransactionsPage from "pages/DeveloperFund/Transactions";
+import DistributionPage from "pages/Distribution";
+import KnownAccountsPage from "pages/KnownAccounts";
 import AccountPage from "pages/Account";
 import BlockPage from "pages/Block";
 import NewsPage from "pages/News";
@@ -76,6 +77,10 @@ const App: React.FC = props => (
                 DeveloperFund
                 <Link to="/developer-fund" />
               </Menu.Item>
+              <Menu.Item key="known-accounts">
+                Known Accounts
+                <Link to="/known-accounts" />
+              </Menu.Item>
               <Menu.Item key="distribution">
                 Distribution
                 <Link to="/distribution" />
@@ -86,7 +91,7 @@ const App: React.FC = props => (
               News
               <Link to="/news" />
             </Menu.Item>
-            <Menu.Item key="representatives">
+            <Menu.Item key="node-status">
               <DatabaseOutlined />
               Node Status
               <Link to="/status" />
@@ -106,13 +111,14 @@ const App: React.FC = props => (
     <Content style={{ padding: "20px" }}>
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/representatives" component={Representatives} />
-        <Route exact path="/developer-fund" component={DeveloperFund} />
+        <Route path="/representatives" component={RepresentativesPage} />
+        <Route exact path="/developer-fund" component={DeveloperFundPage} />
         <Route
           path="/developer-fund/transactions"
-          component={DeveloperFundTransactions}
+          component={DeveloperFundTransactionsPage}
         />
-        <Route path="/distribution" component={Distribution} />
+        <Route path="/known-accounts" component={KnownAccountsPage} />
+        <Route path="/distribution" component={DistributionPage} />
         <Route path="/account/:account?" component={AccountPage} />
         <Route path="/block/:block?" component={BlockPage} />
         <Route path="/news" component={NewsPage} />

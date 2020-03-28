@@ -68,13 +68,6 @@ const saveCronCacheToFile = () => {
   console.log(`${wsKeys.length} keys written in ${CRON_CACHE_FILE_NAME}`);
 };
 
-// App is closing
-process.once("exit", () => {
-  saveCronCacheToFile();
-  console.log("process.kill: exit");
-  process.kill(process.pid, "exit");
-});
-
 // Catches ctrl+c event
 process.once("SIGINT", () => {
   saveCronCacheToFile();
@@ -94,13 +87,6 @@ process.once("SIGUSR2", () => {
   saveCronCacheToFile();
   console.log("process.kill: SIGUSR2");
   process.kill(process.pid, "SIGUSR2");
-});
-
-// Catches uncaught exceptions
-process.once("uncaughtException", () => {
-  saveCronCacheToFile();
-  console.log("process.kill: uncaughtException");
-  process.kill(process.pid, "uncaughtException");
 });
 
 module.exports = {

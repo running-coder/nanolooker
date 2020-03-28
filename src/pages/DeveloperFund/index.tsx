@@ -37,7 +37,7 @@ const DeveloperFund = () => {
   let totalBalance: number = 0;
   const {
     marketStatistics: { usdCurrentPrice, usdBtcCurrentPrice },
-    isLoading: isMarketStatisticsLoading
+    isInitialLoading: isMarketStatisticsInitialLoading
   } = React.useContext(MarketStatisticsContext);
   const {
     accountsBalances,
@@ -79,7 +79,7 @@ const DeveloperFund = () => {
   const skeletonProps = {
     active: true,
     paragraph: false,
-    loading: isAccountsBalancesLoading || isMarketStatisticsLoading
+    loading: isAccountsBalancesLoading || isMarketStatisticsInitialLoading
   };
 
   const { amount, local_timestamp = 0, hash: lastTransactionHash } =
@@ -223,6 +223,7 @@ const DeveloperFund = () => {
       </Title>
       <Table
         pagination={false}
+        loading={isAccountsBalancesLoading}
         columns={[
           {
             title: "Balance",

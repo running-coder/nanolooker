@@ -14,6 +14,7 @@ import BigNumber from "bignumber.js";
 import { Colors, TwoToneColors } from "components/utils";
 import useSockets from "api/hooks/use-socket";
 import { rawToRai } from "components/utils";
+import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 
 const { Text } = Typography;
 
@@ -25,7 +26,7 @@ const RecentTransactions = () => {
     isDisabled,
     setIsDisabled
   } = useSockets();
-
+  const { knownAccounts } = React.useContext(KnownAccountsContext);
   const isMediumAndLower = !useMediaQuery("(min-width: 768px)");
 
   return (
@@ -101,6 +102,11 @@ const RecentTransactions = () => {
               ({ account, amount, hash, timestamp, block: { subtype } }) => {
                 // @ts-ignore
                 const color = Colors[subtype.toUpperCase()];
+                const alias = knownAccounts.find(
+                  ({ account: knownAccount }) => knownAccount === account
+                )?.alias;
+
+                console.log("knownAccounts", knownAccounts);
 
                 return (
                   <Timeline.Item
@@ -136,6 +142,9 @@ const RecentTransactions = () => {
                         }}
                       />
                     </div>
+                    {alias ? (
+                      <div style={{ fontWeight: "bold" }}>{alias}</div>
+                    ) : null}
                     <Link to={`/account/${account}`} className="color-normal">
                       {account}
                     </Link>

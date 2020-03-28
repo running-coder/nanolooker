@@ -18,7 +18,7 @@ const { Title } = Typography;
 const BlockDetails = () => {
   const {
     marketStatistics: { usdCurrentPrice, usdBtcCurrentPrice },
-    isLoading: isMarketStatisticsLoading
+    isInitialLoading: isMarketStatisticsInitialLoading
   } = React.useContext(MarketStatisticsContext);
   const {
     blocks,
@@ -29,7 +29,7 @@ const BlockDetails = () => {
   const skeletonProps = {
     active: true,
     paragraph: false,
-    loading: isBlocksInfoLoading || isMarketStatisticsLoading
+    loading: isBlocksInfoLoading || isMarketStatisticsInitialLoading
   };
 
   const blockInfo = blocksInfo?.blocks?.[blocks[0]];

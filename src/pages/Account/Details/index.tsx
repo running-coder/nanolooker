@@ -36,7 +36,7 @@ const AccountDetails = () => {
   );
   const {
     marketStatistics: { usdCurrentPrice, usdBtcCurrentPrice },
-    isLoading: isMarketStatisticsLoading
+    isInitialLoading: isMarketStatisticsInitialLoading
   } = React.useContext(MarketStatisticsContext);
   const {
     account,
@@ -64,7 +64,7 @@ const AccountDetails = () => {
   const skeletonProps = {
     active: true,
     paragraph: false,
-    loading: isAccountInfoLoading || isMarketStatisticsLoading
+    loading: isAccountInfoLoading || isMarketStatisticsInitialLoading
   };
 
   React.useEffect(() => {

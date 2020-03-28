@@ -12,6 +12,7 @@ import CopyToClipboard from "react-copy-to-clipboard";
 import QRCodeModal from "components/QRCodeModal";
 import { RepresentativesContext } from "api/contexts/Representatives";
 import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
+import { KnownAccountsContext, KnownAccount } from "api/contexts/KnownAccounts";
 import { Colors } from "components/utils";
 
 const { Title } = Typography;
@@ -20,10 +21,10 @@ let copiedTimeout: number | undefined;
 const AccountHeader = () => {
   const { account = "" } = useParams();
   const [isCopied, setIsCopied] = React.useState<boolean>(false);
+  const [knownAccount, setKnownAccount] = React.useState<KnownAccount>();
   const [representativeAccount, setRepresentativeAccount] = React.useState(
     {} as any
   );
-  // const { representatives } = React.useContext(RepresentativesContext);
   const {
     representatives,
     isLoading: isRepresentativesLoading
@@ -31,6 +32,7 @@ const AccountHeader = () => {
   const {
     confirmationQuorum: { principal_representative_min_weight: minWeight }
   } = React.useContext(ConfirmationQuorumContext);
+  const { knownAccounts } = React.useContext(KnownAccountsContext);
 
   React.useEffect(() => {
     if (!account || isRepresentativesLoading || !representatives.length) return;
@@ -39,6 +41,18 @@ const AccountHeader = () => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [account, isRepresentativesLoading, representatives.length]);
+
+  React.useEffect(() => {
+    if (!account || !knownAccounts.length) return;
+
+    setKnownAccount(
+      knownAccounts.find(
+        ({ account: knownAccount }) => knownAccount === account
+      )
+    );
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [account, knownAccounts.length]);
 
   return (
     <>
@@ -49,6 +63,11 @@ const AccountHeader = () => {
             Representative
           </Title>
         </>
+      ) : null}
+      {knownAccount ? (
+        <Title level={4} style={{ marginTop: 0 }}>
+          {knownAccount.alias}
+        </Title>
       ) : null}
       <p
         style={{

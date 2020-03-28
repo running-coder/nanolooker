@@ -25,6 +25,7 @@ const {
   getDeveloperFundTransactions
 } = require("./api/developerFundTransactions");
 const { getNodeStatus } = require("./api/nodeStatus");
+const { getKnownAccounts } = require("./api/knownAccounts");
 
 const app = express();
 
@@ -76,6 +77,12 @@ app.get("/api/market-statistics", async (req, res) => {
     [TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H]: btcTransactionFees48h,
     ...coingeckoStats
   });
+});
+
+app.get("/api/known-accounts", async (req, res) => {
+  const { knownAccounts } = await getKnownAccounts();
+
+  return res.send(knownAccounts);
 });
 
 app.get("/api/node-status", async (req, res) => {

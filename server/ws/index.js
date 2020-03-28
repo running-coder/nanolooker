@@ -194,13 +194,6 @@ const saveWsCacheToFile = () => {
   console.log(`${wsKeys.length} keys written in ${WS_CACHE_FILE_NAME}`);
 };
 
-// App is closing
-process.once("exit", () => {
-  saveWsCacheToFile();
-  console.log("process.kill: exit");
-  process.kill(process.pid, "exit");
-});
-
 // Catches ctrl+c event
 process.once("SIGINT", () => {
   saveWsCacheToFile();
@@ -220,13 +213,6 @@ process.once("SIGUSR2", () => {
   saveWsCacheToFile();
   console.log("process.kill: SIGUSR2");
   process.kill(process.pid, "SIGUSR2");
-});
-
-// Catches uncaught exceptions
-process.once("uncaughtException", () => {
-  saveWsCacheToFile();
-  console.log("process.kill: uncaughtException");
-  process.kill(process.pid, "uncaughtException");
 });
 
 module.exports = {

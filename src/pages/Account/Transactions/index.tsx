@@ -5,6 +5,7 @@ import TimeAgo from "timeago-react";
 import BigNumber from "bignumber.js";
 import { rawToRai } from "components/utils";
 import { Colors, TwoToneColors } from "components/utils";
+import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 
 const { Text } = Typography;
 
@@ -40,114 +41,130 @@ const TransactionsTable = ({
   totalPages,
   setCurrentPage,
   setCurrentHead
-}: TransactionsTableProps) => (
-  <TransactionsLayout>
-    <Table
-      size="small"
-      loading={isLoading}
-      pagination={
-        showPaginate && isPaginated
-          ? {
-              total: totalPages,
-              pageSize,
-              current: currentPage,
-              disabled: false,
-              onChange: (page: number) => {
-                setCurrentPage?.(page);
+}: TransactionsTableProps) => {
+  const { knownAccounts } = React.useContext(KnownAccountsContext);
+
+  return (
+    <TransactionsLayout>
+      <Table
+        size="small"
+        loading={isLoading}
+        pagination={
+          showPaginate && isPaginated
+            ? {
+                total: totalPages,
+                pageSize,
+                current: currentPage,
+                disabled: false,
+                onChange: (page: number) => {
+                  setCurrentPage?.(page);
+                }
               }
-            }
-          : false
-      }
-      footer={
-        showPaginate && !isPaginated && setCurrentHead
-          ? () => (
-              // @ts-ignore
-              <Button onClick={setCurrentHead}>Load more transactions</Button>
-            )
-          : undefined
-      }
-      // @ts-ignore
-      rowKey={record => record.hash}
-      // @ts-ignore
-      columns={[
-        {
-          title: "Type",
-          dataIndex: "subtype",
-          render: (text: string, { type }) => (
-            <Tag
-              // @ts-ignore
-              color={TwoToneColors[(text || type).toUpperCase()]}
-              style={{ textTransform: "capitalize" }}
-            >
-              {text || type}
-            </Tag>
-          )
-        },
-        {
-          title: "Account / Block",
-          dataIndex: "account",
-          className: "break-word",
-          render: (text: string, { representative, hash }) => (
-            <div style={{ paddingBottom: "20px" }}>
-              <Link
-                to={`/account/${text || representative}`}
-                className="color-normal "
-              >
-                {text || representative}
-              </Link>
-              <br />
-              <Link
-                to={`/block/${hash}`}
-                className="color-muted truncate block-truncated"
-              >
-                {hash}
-              </Link>
-            </div>
-          )
-        },
-        {
-          title: "Amount",
-          dataIndex: "amount",
-          render: (text: string, { subtype: recordSubtype, type }) => {
-            const subtype = recordSubtype || type;
-            // @ts-ignore
-            const color = Colors[subtype.toUpperCase()];
-
-            return (
-              <Text style={{ color }}>
-                {!text ? "N/A" : ""}
-                {["receive", "open"].includes(subtype) ? "+" : ""}
-                {subtype === "send" ? "-" : ""}
-                {text ? `${new BigNumber(rawToRai(text)).toFormat()} NANO` : ""}
-              </Text>
-            );
-          }
-        },
-        {
-          title: "Date",
-          align: "right",
-          dataIndex: "local_timestamp",
-          render: (text: string) => {
-            const modifiedTimestamp = Number(text) * 1000;
-            const modifiedDate = new Date(modifiedTimestamp);
-
-            return Number(text) ? (
-              <>
-                {modifiedDate.getFullYear()}/
-                {String(modifiedDate.getMonth() + 1).padStart(2, "0")}/
-                {String(modifiedDate.getDate()).padStart(2, "0")}
-                <br />
-                <TimeAgo datetime={modifiedTimestamp} live={false} />
-              </>
-            ) : (
-              "Unknown"
-            );
-          }
+            : false
         }
-      ]}
-      dataSource={data || undefined}
-    />
-  </TransactionsLayout>
-);
+        footer={
+          showPaginate && !isPaginated && setCurrentHead
+            ? () => (
+                // @ts-ignore
+                <Button onClick={setCurrentHead}>Load more transactions</Button>
+              )
+            : undefined
+        }
+        // @ts-ignore
+        rowKey={record => record.hash}
+        // @ts-ignore
+        columns={[
+          {
+            title: "Type",
+            dataIndex: "subtype",
+            render: (text: string, { type }) => (
+              <Tag
+                // @ts-ignore
+                color={TwoToneColors[(text || type).toUpperCase()]}
+                style={{ textTransform: "capitalize" }}
+              >
+                {text || type}
+              </Tag>
+            )
+          },
+          {
+            title: "Account / Block",
+            dataIndex: "account",
+            className: "break-word",
+            render: (text: string, { representative, hash }) => {
+              const knownAccount =
+                text && knownAccounts.find(({ account }) => account === text);
+
+              return (
+                <div style={{ paddingBottom: "20px" }}>
+                  {knownAccount ? (
+                    <div style={{ fontWeight: "bold" }}>
+                      {knownAccount.alias}
+                    </div>
+                  ) : null}
+                  <Link
+                    to={`/account/${text || representative}`}
+                    className="color-normal "
+                  >
+                    {text || representative}
+                  </Link>
+                  <br />
+                  <Link
+                    to={`/block/${hash}`}
+                    className="color-muted truncate block-truncated"
+                  >
+                    {hash}
+                  </Link>
+                </div>
+              );
+            }
+          },
+          {
+            title: "Amount",
+            dataIndex: "amount",
+            render: (text: string, { subtype: recordSubtype, type }) => {
+              const subtype = recordSubtype || type;
+              // @ts-ignore
+              const color = Colors[subtype.toUpperCase()];
+
+              return (
+                <Text style={{ color }}>
+                  {!text ? "N/A" : ""}
+                  {["receive", "open"].includes(subtype) ? "+" : ""}
+                  {subtype === "send" ? "-" : ""}
+                  {text
+                    ? `${new BigNumber(rawToRai(text)).toFormat()} NANO`
+                    : ""}
+                </Text>
+              );
+            }
+          },
+          {
+            title: "Date",
+            align: "right",
+            dataIndex: "local_timestamp",
+            render: (text: string) => {
+              const modifiedTimestamp = Number(text) * 1000;
+              const modifiedDate = new Date(modifiedTimestamp);
+
+              return Number(text) ? (
+                <>
+                  {modifiedDate.getFullYear()}/
+                  {String(modifiedDate.getMonth() + 1).padStart(2, "0")}/
+                  {String(modifiedDate.getDate()).padStart(2, "0")}
+                  <br />
+                  <TimeAgo datetime={modifiedTimestamp} live={false} />
+                </>
+              ) : (
+                "Unknown"
+              );
+            }
+          }
+        ]}
+        dataSource={data || undefined}
+      />
+    </TransactionsLayout>
+  );
+};
 
 export default TransactionsTable;

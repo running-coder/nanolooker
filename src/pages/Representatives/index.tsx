@@ -17,6 +17,7 @@ import { RepresentativesContext } from "api/contexts/Representatives";
 import { RepresentativesOnlineContext } from "api/contexts/RepresentativesOnline";
 import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
 import { rawToRai } from "components/utils";
+import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 
 const { Title } = Typography;
 
@@ -41,6 +42,8 @@ const Representatives = () => {
     },
     isLoading: isConfirmationQuorumLoading
   } = React.useContext(ConfirmationQuorumContext);
+
+  const { knownAccounts } = React.useContext(KnownAccountsContext);
 
   const principalRepresentatives = principalRepresentativeMinWeight
     ? representatives?.filter(
@@ -190,22 +193,30 @@ const Representatives = () => {
           {
             title: "Account",
             dataIndex: "account",
-            render: (text: string) => (
-              <>
-                <Badge
-                  style={{ float: "left" }}
-                  status={
-                    representativesOnline.includes(text) ? "success" : "error"
-                  }
-                />
-                <Link
-                  to={`/account/${text}`}
-                  className="color-normal break-word"
-                >
-                  {text}
-                </Link>
-              </>
-            )
+            render: (text: string) => {
+              const alias = knownAccounts.find(
+                ({ account: knownAccount }) => knownAccount === text
+              )?.alias;
+              return (
+                <>
+                  <Badge
+                    style={{ float: "left" }}
+                    status={
+                      representativesOnline.includes(text) ? "success" : "error"
+                    }
+                  />
+                  {alias ? (
+                    <strong style={{ marginRight: "6px" }}>{alias}</strong>
+                  ) : null}
+                  <Link
+                    to={`/account/${text}`}
+                    className="color-normal break-word"
+                  >
+                    {text}
+                  </Link>
+                </>
+              );
+            }
           }
         ]}
         dataSource={principalRepresentatives}
