@@ -12,6 +12,7 @@ import {
   isValidBlockHash,
   isOpenAccountBlockHash
 } from "components/utils";
+import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 
 const { Title } = Typography;
 
@@ -25,6 +26,7 @@ const BlockDetails = () => {
     blocksInfo,
     isLoading: isBlocksInfoLoading
   } = React.useContext(BlocksInfoContext);
+  const { knownAccounts } = React.useContext(KnownAccountsContext);
 
   const skeletonProps = {
     active: true,
@@ -53,13 +55,15 @@ const BlockDetails = () => {
   const amount = new BigNumber(rawToRai(blockInfo?.amount || 0)).toNumber();
   const usdAmount = new BigNumber(amount).times(usdCurrentPrice).toFormat(2);
   const btcAmount = new BigNumber(amount)
-    .times(usdBtcCurrentPrice)
+    .times(usdCurrentPrice)
+    .dividedBy(usdBtcCurrentPrice)
     .toFormat(12);
 
   const balance = new BigNumber(rawToRai(blockInfo?.balance || 0)).toNumber();
   const usdBalance = new BigNumber(balance).times(usdCurrentPrice).toFormat(2);
   const btcBalance = new BigNumber(balance)
-    .times(usdBtcCurrentPrice)
+    .times(usdCurrentPrice)
+    .dividedBy(usdBtcCurrentPrice)
     .toFormat(12);
 
   let linkAccountLabel = "";
@@ -72,6 +76,16 @@ const BlockDetails = () => {
   const secondAccount = isValidAccountAddress(sourceAccount || "")
     ? sourceAccount
     : linkAsAccount;
+
+  const blockAccountAlias = knownAccounts.find(
+    ({ account: knownAccount }) => knownAccount === blockAccount
+  )?.alias;
+  const secondAccountAlias = knownAccounts.find(
+    ({ account: knownAccount }) => knownAccount === secondAccount
+  )?.alias;
+  const representativeAlias = knownAccounts.find(
+    ({ account: knownAccount }) => knownAccount === representative
+  )?.alias;
 
   // @TODO COMPLETE FOR BLOCK
   // FAC080FA957BEA21C6059C4D47E479D8B6AB8A11C781416FBE8A41CF4CBD67B2
@@ -98,11 +112,15 @@ const BlockDetails = () => {
             </Tag>
           </Descriptions.Item>
           <Descriptions.Item label="Account">
+            {blockAccountAlias ? (
+              <strong style={{ marginRight: "6px" }}>
+                {blockAccountAlias}
+              </strong>
+            ) : null}
             <Link to={`/account/${blockAccount}`} className="break-word">
               {blockAccount}
             </Link>
           </Descriptions.Item>
-
           <Descriptions.Item label="Amount">
             <Skeleton {...skeletonProps}>
               {new BigNumber(amount).toFormat()} NANO
@@ -123,6 +141,11 @@ const BlockDetails = () => {
           </Descriptions.Item>
           {linkAccountLabel ? (
             <Descriptions.Item label={linkAccountLabel}>
+              {secondAccountAlias ? (
+                <strong style={{ marginRight: "6px" }}>
+                  {secondAccountAlias}
+                </strong>
+              ) : null}
               <Link to={`/account/${secondAccount}`} className="break-word">
                 {secondAccount}
               </Link>
@@ -130,6 +153,11 @@ const BlockDetails = () => {
           ) : null}
           {representative ? (
             <Descriptions.Item label="Representative">
+              {representativeAlias ? (
+                <strong style={{ marginRight: "6px" }}>
+                  {representativeAlias}
+                </strong>
+              ) : null}
               <Link to={`/account/${representative}`} className="break-word">
                 {representative}
               </Link>

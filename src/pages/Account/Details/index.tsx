@@ -57,7 +57,8 @@ const AccountDetails = () => {
   ).toFormat(8);
   const usdBalance = new BigNumber(balance).times(usdCurrentPrice).toFormat(2);
   const btcBalance = new BigNumber(balance)
-    .times(usdBtcCurrentPrice)
+    .times(usdCurrentPrice)
+    .dividedBy(usdBtcCurrentPrice)
     .toFormat(12);
   const modifiedTimestamp = Number(accountInfo?.modified_timestamp) * 1000;
 

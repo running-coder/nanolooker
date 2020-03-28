@@ -73,7 +73,8 @@ const DeveloperFund = () => {
     .times(usdCurrentPrice)
     .toFormat(2);
   const btcBalance = new BigNumber(totalBalance)
-    .times(usdBtcCurrentPrice)
+    .times(usdCurrentPrice)
+    .dividedBy(usdBtcCurrentPrice)
     .toFormat(12);
 
   const skeletonProps = {
