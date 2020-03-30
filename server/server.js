@@ -1,5 +1,7 @@
 require("dotenv").config();
+require("./cron/ws");
 require("./cron/marketCap24h");
+require("./ws");
 
 const express = require("express");
 const cors = require("cors");
@@ -8,12 +10,12 @@ const bodyParser = require("body-parser");
 const path = require("path");
 
 const {
-  wsCache,
-  TOTAL_CONFIRMATION_KEY_24H,
+  TOTAL_CONFIRMATIONS_KEY_24H,
   TOTAL_NANO_VOLUME_KEY_24H,
-  TOTAL_CONFIRMATION_KEY_48H,
+  TOTAL_CONFIRMATIONS_KEY_48H,
   TOTAL_NANO_VOLUME_KEY_48H
-} = require("./ws");
+} = require("./constants");
+const { wsCache } = require("./ws/cache");
 const {
   getBtcTransactionFees,
   TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H,
@@ -58,10 +60,11 @@ app.get("/api/developer-fund/transactions", async (req, res) => {
 });
 
 app.get("/api/market-statistics", async (req, res) => {
-  const cachedConfirmations24h = wsCache.get(TOTAL_CONFIRMATION_KEY_24H);
+  const cachedConfirmations24h = wsCache.get(TOTAL_CONFIRMATIONS_KEY_24H);
   const cachedVolume24h = wsCache.get(TOTAL_NANO_VOLUME_KEY_24H);
-  const cachedConfirmations48h = wsCache.get(TOTAL_CONFIRMATION_KEY_48H);
+  const cachedConfirmations48h = wsCache.get(TOTAL_CONFIRMATIONS_KEY_48H);
   const cachedVolume48h = wsCache.get(TOTAL_NANO_VOLUME_KEY_48H);
+
   const {
     btcTransactionFees24h,
     btcTransactionFees48h
@@ -69,9 +72,9 @@ app.get("/api/market-statistics", async (req, res) => {
   const { coingeckoStats } = await getCoingeckoStats();
 
   return res.send({
-    [TOTAL_CONFIRMATION_KEY_24H]: cachedConfirmations24h,
+    [TOTAL_CONFIRMATIONS_KEY_24H]: cachedConfirmations24h,
     [TOTAL_NANO_VOLUME_KEY_24H]: cachedVolume24h,
-    [TOTAL_CONFIRMATION_KEY_48H]: cachedConfirmations48h,
+    [TOTAL_CONFIRMATIONS_KEY_48H]: cachedConfirmations48h,
     [TOTAL_NANO_VOLUME_KEY_48H]: cachedVolume48h,
     [TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H]: btcTransactionFees24h,
     [TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H]: btcTransactionFees48h,

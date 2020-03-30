@@ -1,18 +1,18 @@
 import React from "react";
 
-export const TOTAL_CONFIRMATION_KEY_24H = "total_confirmations_24h";
-export const TOTAL_NANO_VOLUME_KEY_24H = "total_nano_volume_24h";
-export const TOTAL_CONFIRMATION_KEY_48H = "total_confirmations_48h";
-export const TOTAL_NANO_VOLUME_KEY_48H = "total_nano_volume_48h";
+export const TOTAL_CONFIRMATIONS_KEY_24H = "TOTAL_CONFIRMATIONS_24H";
+export const TOTAL_NANO_VOLUME_KEY_24H = "TOTAL_NANO_VOLUME_24H";
+export const TOTAL_CONFIRMATIONS_KEY_48H = "TOTAL_CONFIRMATIONS_48H";
+export const TOTAL_NANO_VOLUME_KEY_48H = "TOTAL_NANO_VOLUME_48H";
 export const TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H =
-  "total_bitcoin_transaction_fees_24h";
+  "TOTAL_BITCOIN_TRANSACTION_FEES_24H";
 export const TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H =
-  "total_bitcoin_transaction_fees_48h";
+  "TOTAL_BITCOIN_TRANSACTION_FEES_48H";
 
 export interface Response {
-  [TOTAL_CONFIRMATION_KEY_24H]: number;
+  [TOTAL_CONFIRMATIONS_KEY_24H]: number;
   [TOTAL_NANO_VOLUME_KEY_24H]: number;
-  [TOTAL_CONFIRMATION_KEY_48H]: number;
+  [TOTAL_CONFIRMATIONS_KEY_48H]: number;
   [TOTAL_NANO_VOLUME_KEY_48H]: number;
   [TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H]: number;
   [TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H]: number;
@@ -26,6 +26,9 @@ export interface Response {
   totalSupply: number;
   circulatingSupply: number;
   usdBtcCurrentPrice: number;
+  usdBtc24hChange: number;
+  usdEthCurrentPrice: number;
+  usdEth24hChange: number;
 }
 
 export interface Context {
@@ -40,9 +43,9 @@ let pollMarketStatisticsInterval: number | undefined;
 
 export const MarketStatisticsContext = React.createContext<Context>({
   marketStatistics: {
-    [TOTAL_CONFIRMATION_KEY_24H]: 0,
+    [TOTAL_CONFIRMATIONS_KEY_24H]: 0,
     [TOTAL_NANO_VOLUME_KEY_24H]: 0,
-    [TOTAL_CONFIRMATION_KEY_48H]: 0,
+    [TOTAL_CONFIRMATIONS_KEY_48H]: 0,
     [TOTAL_NANO_VOLUME_KEY_48H]: 0,
     [TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H]: 0,
     [TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H]: 0,
@@ -55,7 +58,10 @@ export const MarketStatisticsContext = React.createContext<Context>({
     usd24hChange: 0,
     totalSupply: 0,
     circulatingSupply: 0,
-    usdBtcCurrentPrice: 0
+    usdBtcCurrentPrice: 0,
+    usdBtc24hChange: 0,
+    usdEthCurrentPrice: 0,
+    usdEth24hChange: 0
   },
   getMarketStatistics: () => {},
   isInitialLoading: false,

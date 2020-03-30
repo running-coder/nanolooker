@@ -17,6 +17,7 @@ const KnownAccountsPage = () => {
       <Table
         pagination={false}
         loading={isLoading}
+        rowKey={record => record.account}
         columns={[
           {
             title: "Balance",

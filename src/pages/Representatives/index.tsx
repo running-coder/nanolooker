@@ -179,6 +179,7 @@ const Representatives = () => {
           isConfirmationQuorumLoading
         }
         pagination={false}
+        rowKey={record => record.account}
         columns={[
           {
             title: "Weight",

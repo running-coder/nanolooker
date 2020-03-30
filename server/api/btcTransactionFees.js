@@ -7,9 +7,9 @@ const apiCache = new NodeCache({
 });
 
 const TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H =
-  "total_bitcoin_transaction_fees_24h";
+  "TOTAL_BITCOIN_TRANSACTION_FEES_24H";
 const TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H =
-  "total_bitcoin_transaction_fees_48h";
+  "TOTAL_BITCOIN_TRANSACTION_FEES_48H";
 
 const getBtcTransactionFees = async () => {
   let btcTransactionFees24h = apiCache.get(

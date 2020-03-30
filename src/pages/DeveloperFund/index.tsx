@@ -225,6 +225,7 @@ const DeveloperFund = () => {
       <Table
         pagination={false}
         loading={isAccountsBalancesLoading}
+        rowKey={record => record.account}
         columns={[
           {
             title: "Balance",

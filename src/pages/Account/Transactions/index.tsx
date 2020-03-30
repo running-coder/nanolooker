@@ -70,9 +70,7 @@ const TransactionsTable = ({
               )
             : undefined
         }
-        // @ts-ignore
         rowKey={record => record.hash}
-        // @ts-ignore
         columns={[
           {
             title: "Type",

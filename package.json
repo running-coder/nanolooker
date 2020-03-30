@@ -37,6 +37,7 @@
     "express": "^4.17.1",
     "find-process": "^1.4.3",
     "lodash": "^4.17.15",
+    "mongodb": "^3.5.5",
     "node-cache": "^5.1.0",
     "node-cron": "^2.0.3",
     "node-fetch": "^2.6.0",

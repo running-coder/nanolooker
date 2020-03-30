@@ -7,8 +7,8 @@ import { RepresentativesOnlineContext } from "api/contexts/RepresentativesOnline
 import { NodeStatusContext } from "api/contexts/NodeStatus";
 import {
   MarketStatisticsContext,
-  TOTAL_CONFIRMATION_KEY_24H,
-  TOTAL_CONFIRMATION_KEY_48H,
+  TOTAL_CONFIRMATIONS_KEY_24H,
+  TOTAL_CONFIRMATIONS_KEY_48H,
   TOTAL_NANO_VOLUME_KEY_24H,
   TOTAL_NANO_VOLUME_KEY_48H,
   TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H,
@@ -68,10 +68,10 @@ const HomePage = () => {
         .toNumber()
     : 0;
 
-  const confirmationChange24h = marketStatistics[TOTAL_CONFIRMATION_KEY_24H]
-    ? new BigNumber(marketStatistics[TOTAL_CONFIRMATION_KEY_24H])
-        .minus(marketStatistics[TOTAL_CONFIRMATION_KEY_48H])
-        .dividedBy(marketStatistics[TOTAL_CONFIRMATION_KEY_48H])
+  const confirmationChange24h = marketStatistics[TOTAL_CONFIRMATIONS_KEY_24H]
+    ? new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_KEY_24H])
+        .minus(marketStatistics[TOTAL_CONFIRMATIONS_KEY_48H])
+        .dividedBy(marketStatistics[TOTAL_CONFIRMATIONS_KEY_48H])
         .times(100)
         .toNumber()
     : 0;
@@ -161,7 +161,7 @@ const HomePage = () => {
                         isPercent
                       />
                     }
-                    value={marketStatistics[TOTAL_CONFIRMATION_KEY_24H]}
+                    value={marketStatistics[TOTAL_CONFIRMATIONS_KEY_24H]}
                   />
                   <Statistic title="NANO transaction fees" value="Always 0" />
                 </Col>
@@ -181,11 +181,9 @@ const HomePage = () => {
                         isPercent
                       />
                     }
-                    value={rawToRai(
-                      new BigNumber(
-                        marketStatistics[TOTAL_NANO_VOLUME_KEY_24H]
-                      ).toNumber()
-                    )}
+                    value={new BigNumber(
+                      marketStatistics[TOTAL_NANO_VOLUME_KEY_24H]
+                    ).toNumber()}
                   />
                   <LoadingStatistic
                     isLoading={isMarketStatisticsInitialLoading}

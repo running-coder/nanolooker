@@ -106,8 +106,6 @@ const RecentTransactions = () => {
                   ({ account: knownAccount }) => knownAccount === account
                 )?.alias;
 
-                console.log("knownAccounts", knownAccounts);
-
                 return (
                   <Timeline.Item
                     color={color}
