@@ -20,9 +20,6 @@ let db;
 MongoClient.connect(MONGO_URL, (_err, client) => {
   db = client.db(MONGO_DB);
 
-  db.collection(TOTAL_CONFIRMATIONS_COLLECTION).drop();
-  db.collection(TOTAL_NANO_VOLUME_COLLECTION).drop();
-
   db.collection(TOTAL_CONFIRMATIONS_COLLECTION).createIndex(
     { createdAt: 1 },
     { expireAfterSeconds: EXPIRE_48H }
