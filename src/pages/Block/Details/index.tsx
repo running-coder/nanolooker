@@ -186,8 +186,10 @@ const BlockDetails = () => {
       </Card>
 
       <Title level={3}>Original Block Content</Title>
-      <Card>
-        <pre>{JSON.stringify(blockInfo, null, 2)}</pre>
+      <Card size="small">
+        <pre style={{ fontSize: "12px", marginBottom: 0 }}>
+          {JSON.stringify(blockInfo, null, 2)}
+        </pre>
       </Card>
     </>
   );
