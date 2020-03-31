@@ -173,6 +173,7 @@ const Representatives = () => {
 
       <Title level={3}>Principal Representatives</Title>
       <Table
+        size="small"
         loading={
           isRepresentativesLoading ||
           isRepresentativesOnlineLoading ||

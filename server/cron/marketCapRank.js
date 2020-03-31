@@ -33,8 +33,6 @@ cron.schedule("*/20 * * * *", async () => {
   const { market_cap_rank: marketCapRank } = await res.json();
   const hour = getNextHour();
 
-  console.log("~marketCapRank", marketCapRank);
-
   db.collection(MARKET_CAP_RANK_COLLECTION).updateOne(
     {
       hour

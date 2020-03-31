@@ -223,6 +223,7 @@ const DeveloperFund = () => {
         {data.length} Total Accounts
       </Title>
       <Table
+        size="small"
         pagination={false}
         loading={isAccountsBalancesLoading}
         rowKey={record => record.account}

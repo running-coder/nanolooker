@@ -11,7 +11,7 @@
 
 .ant-menu-horizontal {
   line-height: 64px !important;
-  border: none;
+  border: none !important;
 }
 
 .ant-layout-header {
@@ -24,13 +24,9 @@
   background: #fafafa !important;
 }
 
-/* .ant-descriptions-row th {
-  min-width: 200px;
+.ant-table-filter-column-title {
+  padding: 8px !important;
 }
-
-.break-word {
-  word-wrap: break-word;
-} */
 
 .ant-table-pagination {
   padding-right: 16px !important;
