@@ -7,7 +7,7 @@ const {
 } = require("../../src/pages/DeveloperFund/developerFundAccounts");
 
 const apiCache = new NodeCache({
-  ttl: 3600,
+  stdTTL: 3600,
   deleteOnExpire: true
 });
 

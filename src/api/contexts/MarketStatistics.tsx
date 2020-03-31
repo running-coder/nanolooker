@@ -80,10 +80,14 @@ const Provider: React.FC = ({ children }) => {
   const getMarketStatistics = async () => {
     setIsError(false);
     setIsLoading(true);
-    const res = await fetch("/api/market-statistics");
-    const json = await res.json();
+    try {
+      const res = await fetch("/api/market-statistics");
+      const json = await res.json();
 
-    !json || json.error ? setIsError(true) : setMarketStatistics(json);
+      !json || json.error ? setIsError(true) : setMarketStatistics(json);
+    } catch (e) {
+      setIsError(true);
+    }
     setIsInitialLoading(false);
     setIsLoading(false);
 

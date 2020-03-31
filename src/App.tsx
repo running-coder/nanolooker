@@ -45,18 +45,12 @@ const App: React.FC = props => (
           md={{ span: 4 }}
           order={1}
           style={{
-            paddingTop: "6px",
-            paddingBottom: "6px",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between"
+            alignSelf: "center"
           }}
         >
           <Link to="/" style={{ whiteSpace: "nowrap", marginRight: "10px" }}>
             Nano Looker
           </Link>
-
-          <Price />
         </Col>
 
         <Col xs={{ span: 24, order: 3 }} md={{ span: 12, order: 2 }}>
@@ -107,6 +101,7 @@ const App: React.FC = props => (
           <Search />
         </Col>
       </Row>
+      <Price />
     </Header>
     <Content style={{ padding: "20px" }}>
       <Switch>

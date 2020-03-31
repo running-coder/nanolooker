@@ -1,6 +1,6 @@
 require("dotenv").config();
 require("./cron/ws");
-require("./cron/marketCap24h");
+require("./cron/marketCapRank");
 require("./ws");
 
 const express = require("express");

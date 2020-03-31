@@ -1,21 +1,48 @@
 const fetch = require("node-fetch");
 const NodeCache = require("node-cache");
+const MongoClient = require("mongodb").MongoClient;
 const {
-  cronCache,
-  getNextHour,
-  MARKET_CAP_RANK_24H
-} = require("../cron/marketCap24h");
+  EXPIRE_1h,
+  EXPIRE_24H,
+  MONGO_URL,
+  MONGO_OPTIONS,
+  MONGO_DB,
+  COINGECKO_STATS,
+  MARKET_CAP_RANK_24H,
+  MARKET_CAP_RANK_COLLECTION
+} = require("../constants");
 
 const apiCache = new NodeCache({
-  ttl: 30,
+  stdTTL: 15,
   deleteOnExpire: true
 });
 
-const COINGECKO_STATS = "coingecko_stats";
-
 const getCoingeckoStats = async () => {
   let coingeckoStats = apiCache.get(COINGECKO_STATS);
-  let marketCapRank24h = cronCache.get(`${MARKET_CAP_RANK_24H}-${getNextHour}`);
+  let marketCapRank24h = apiCache.get(MARKET_CAP_RANK_24H);
+
+  if (!marketCapRank24h) {
+    let db;
+    MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (_err, client) => {
+      if (_err) {
+        throw _err;
+      }
+      db = client.db(MONGO_DB);
+
+      db.collection(MARKET_CAP_RANK_COLLECTION)
+        .find({
+          $query: {
+            createdAt: {
+              $lte: new Date(Date.now() - EXPIRE_24H * 1000)
+            }
+          },
+          $orderby: { createdAt: 1 }
+        })
+        .toArray((_err, [{ value } = {}] = []) => {
+          apiCache.set(MARKET_CAP_RANK_24H, value, EXPIRE_1h);
+        });
+    });
+  }
 
   if (!coingeckoStats) {
     try {
@@ -69,7 +96,6 @@ const getCoingeckoStats = async () => {
 };
 
 module.exports = {
-  getCoingeckoStats,
-  COINGECKO_STATS,
-  MARKET_CAP_RANK_24H
+  apiCache,
+  getCoingeckoStats
 };

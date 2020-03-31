@@ -16,7 +16,6 @@ import {
 } from "api/contexts/MarketStatistics";
 import LoadingStatistic from "components/LoadingStatistic";
 import StatisticsChange from "components/StatisticsChange";
-import { rawToRai } from "components/utils";
 import RecentTransactions from "./RecentTransactions";
 
 const HomePage = () => {
@@ -92,10 +91,13 @@ const HomePage = () => {
                     title="Market cap rank"
                     prefix="#"
                     suffix={
-                      <StatisticsChange
-                        value={marketCapRank24h - marketCapRank}
-                        isNumber
-                      />
+                      marketCapRank24h ? (
+                        <StatisticsChange
+                          value={marketCapRank24h - marketCapRank}
+                          isNumber
+                          isArrow
+                        />
+                      ) : null
                     }
                     value={`${marketCapRank}`}
                   />
@@ -183,7 +185,9 @@ const HomePage = () => {
                     }
                     value={new BigNumber(
                       marketStatistics[TOTAL_NANO_VOLUME_KEY_24H]
-                    ).toNumber()}
+                    )
+                      .decimalPlaces(5)
+                      .toNumber()}
                   />
                   <LoadingStatistic
                     isLoading={isMarketStatisticsInitialLoading}

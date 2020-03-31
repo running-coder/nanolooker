@@ -5,7 +5,7 @@ const { rawToRai } = require("../utils");
 const { rpc } = require("../rpc");
 
 const apiCache = new NodeCache({
-  ttl: 120,
+  stdTTL: 120,
   deleteOnExpire: true
 });
 

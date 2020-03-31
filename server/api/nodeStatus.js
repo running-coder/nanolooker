@@ -5,7 +5,7 @@ const pidusage = require("pidusage");
 const NodeCache = require("node-cache");
 
 const apiCache = new NodeCache({
-  ttl: 30,
+  stdTTL: 30,
   deleteOnExpire: true
 });
 

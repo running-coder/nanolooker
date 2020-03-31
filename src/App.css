@@ -11,6 +11,7 @@
 
 .ant-menu-horizontal {
   line-height: 64px !important;
+  border: none;
 }
 
 .ant-layout-header {

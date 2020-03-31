@@ -4,6 +4,7 @@ const ReconnectingWebSocket = require("reconnecting-websocket");
 const {
   MONGO_URL,
   MONGO_DB,
+  MONGO_OPTIONS,
   TOTAL_CONFIRMATIONS_COLLECTION,
   TOTAL_NANO_VOLUME_COLLECTION
 } = require("../constants");
@@ -15,7 +16,7 @@ let updateDbInterval = null;
 const { MongoClient } = require("mongodb");
 
 let db;
-MongoClient.connect(MONGO_URL, (_err, client) => {
+MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (_err, client) => {
   db = client.db(MONGO_DB);
 });
 

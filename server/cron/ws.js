@@ -3,6 +3,9 @@ const cron = require("node-cron");
 const { wsCache } = require("../ws/cache");
 
 const {
+  MONGO_URL,
+  MONGO_DB,
+  MONGO_OPTIONS,
   EXPIRE_24H,
   EXPIRE_48H,
   TOTAL_CONFIRMATIONS_COLLECTION,
@@ -10,14 +13,16 @@ const {
   TOTAL_CONFIRMATIONS_KEY_48H,
   TOTAL_NANO_VOLUME_COLLECTION,
   TOTAL_NANO_VOLUME_KEY_24H,
-  TOTAL_NANO_VOLUME_KEY_48H,
-  MONGO_URL,
-  MONGO_DB
+  TOTAL_NANO_VOLUME_KEY_48H
 } = require("../constants");
 const { rawToRai } = require("../utils");
 
 let db;
-MongoClient.connect(MONGO_URL, (_err, client) => {
+MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (_err, client) => {
+  if (_err) {
+    throw _err;
+  }
+
   db = client.db(MONGO_DB);
 
   db.collection(TOTAL_CONFIRMATIONS_COLLECTION).createIndex(

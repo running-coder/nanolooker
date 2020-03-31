@@ -18,20 +18,27 @@ const Price = () => {
 
   // const skeletonProps = {
   //   isActive: true,
-  //   isLoading: true, // isInitialLoading,
+  //   isLoading: isInitialLoading,
   //   paragraph: false
-  //   style: {
-  //     width: "40px"
-  //   }
   // };
 
+  // console.log("~skeletonProps", skeletonProps);
+
   return (
-    <>
+    <div
+      style={{
+        display: "flex",
+        margin: "0 -20px",
+        padding: "3px 20px",
+        borderTop: "solid 1px #f0f0f0"
+      }}
+    >
+      {/* <Skeleton {...skeletonProps}> */}
       <div
         style={{
           display: "flex",
           alignItems: "center",
-          marginRight: "6px",
+          marginRight: "12px",
           minWidth: "50px"
         }}
       >
@@ -41,15 +48,14 @@ const Price = () => {
           alt="Nano crypto currency price change 24h"
           style={{ marginRight: "3px" }}
         />
-        {/* <Skeleton {...skeletonProps}> */}
+
         <span style={{ marginRight: "6px" }}>
           ${usdCurrentPrice?.toFixed(2)}
         </span>
         <StatisticsChange value={usd24hChange} isPercent />
-        {/* </Skeleton> */}
       </div>
       <div
-        style={{ display: "flex", alignItems: "center", marginRight: "6px" }}
+        style={{ display: "flex", alignItems: "center", marginRight: "12px" }}
       >
         <img
           src="/bitcoin.png"
@@ -62,9 +68,7 @@ const Price = () => {
         </span>
         <StatisticsChange value={usdBtc24hChange} isPercent />
       </div>
-      <div
-        style={{ display: "flex", alignItems: "center", marginRight: "6px" }}
-      >
+      <div style={{ display: "flex", alignItems: "center" }}>
         <img
           src="/ethereum.png"
           width="16px"
@@ -76,7 +80,8 @@ const Price = () => {
         </span>
         <StatisticsChange value={usdEth24hChange} isPercent />
       </div>
-    </>
+      {/* </Skeleton> */}
+    </div>
   );
 };
 

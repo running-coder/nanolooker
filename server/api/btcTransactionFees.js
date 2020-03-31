@@ -2,7 +2,7 @@ const fetch = require("node-fetch");
 const NodeCache = require("node-cache");
 
 const apiCache = new NodeCache({
-  ttl: 86400,
+  stdTTL: 3600,
   deleteOnExpire: true
 });
 
