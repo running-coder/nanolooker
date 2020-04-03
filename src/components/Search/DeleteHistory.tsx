@@ -10,7 +10,7 @@ const DeleteHistory = (props: any) => {
       {...props}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      style={{ marginLeft: "auto" }}
+      style={{ marginLeft: "auto", cursor: "pointer" }}
     >
       {isHovered ? (
         <MinusCircleTwoTone

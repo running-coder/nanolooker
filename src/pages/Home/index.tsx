@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Col, Row, Skeleton, Statistic } from "antd";
 import BigNumber from "bignumber.js";
+import { PreferencesContext } from "api/contexts/Preferences";
 import { BlockCountContext } from "api/contexts/BlockCount";
 import { ConfirmationHistoryContext } from "api/contexts/ConfirmationHistory";
 import { RepresentativesOnlineContext } from "api/contexts/RepresentativesOnline";
@@ -19,6 +20,7 @@ import StatisticsChange from "components/StatisticsChange";
 import RecentTransactions from "./RecentTransactions";
 
 const HomePage = () => {
+  const { fiat } = React.useContext(PreferencesContext);
   const {
     marketStatistics,
     isInitialLoading: isMarketStatisticsInitialLoading
@@ -30,7 +32,9 @@ const HomePage = () => {
     marketCapChangePercentage24h,
     usd24hVolume,
     circulatingSupply,
-    usdBtcCurrentPrice
+    priceStats: { bitcoin: { [fiat]: btcCurrentPrice = 0 } } = {
+      bitcoin: { [fiat]: 0 }
+    }
   } = marketStatistics;
 
   const { count } = React.useContext(BlockCountContext);
@@ -44,10 +48,9 @@ const HomePage = () => {
   } = React.useContext(NodeStatusContext);
 
   const btcTransactionFees24h =
-    marketStatistics[TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H] &&
-    usdBtcCurrentPrice
+    marketStatistics[TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H] && btcCurrentPrice
       ? new BigNumber(marketStatistics[TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H])
-          .times(usdBtcCurrentPrice)
+          .times(btcCurrentPrice)
           .toFixed(2)
       : 0;
 
@@ -59,21 +62,45 @@ const HomePage = () => {
         .toNumber()
     : 0;
 
-  const onChainVolumeChange24h = marketStatistics[TOTAL_NANO_VOLUME_KEY_24H]
-    ? new BigNumber(marketStatistics[TOTAL_NANO_VOLUME_KEY_24H])
-        .minus(marketStatistics[TOTAL_NANO_VOLUME_KEY_48H])
-        .dividedBy(marketStatistics[TOTAL_NANO_VOLUME_KEY_48H])
-        .times(100)
-        .toNumber()
-    : 0;
+  let onChainVolume48hAgo = 0;
+  let onChainVolumeChange24h = 0;
+  if (
+    marketStatistics[TOTAL_NANO_VOLUME_KEY_24H] &&
+    marketStatistics[TOTAL_NANO_VOLUME_KEY_48H]
+  ) {
+    onChainVolume48hAgo = new BigNumber(
+      marketStatistics[TOTAL_NANO_VOLUME_KEY_48H]
+    )
+      .minus(marketStatistics[TOTAL_NANO_VOLUME_KEY_24H])
+      .toNumber();
+    onChainVolumeChange24h = new BigNumber(
+      marketStatistics[TOTAL_NANO_VOLUME_KEY_24H]
+    )
+      .minus(onChainVolume48hAgo)
+      .dividedBy(onChainVolume48hAgo)
+      .times(100)
+      .toNumber();
+  }
 
-  const confirmationChange24h = marketStatistics[TOTAL_CONFIRMATIONS_KEY_24H]
-    ? new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_KEY_24H])
-        .minus(marketStatistics[TOTAL_CONFIRMATIONS_KEY_48H])
-        .dividedBy(marketStatistics[TOTAL_CONFIRMATIONS_KEY_48H])
-        .times(100)
-        .toNumber()
-    : 0;
+  let totalConfirmations48hAgo = 0;
+  let confirmationChange24h = 0;
+  if (
+    marketStatistics[TOTAL_CONFIRMATIONS_KEY_24H] &&
+    marketStatistics[TOTAL_CONFIRMATIONS_KEY_48H]
+  ) {
+    totalConfirmations48hAgo = new BigNumber(
+      marketStatistics[TOTAL_CONFIRMATIONS_KEY_48H]
+    )
+      .minus(marketStatistics[TOTAL_CONFIRMATIONS_KEY_24H])
+      .toNumber();
+    confirmationChange24h = new BigNumber(
+      marketStatistics[TOTAL_CONFIRMATIONS_KEY_24H]
+    )
+      .minus(totalConfirmations48hAgo)
+      .dividedBy(totalConfirmations48hAgo)
+      .times(100)
+      .toNumber();
+  }
 
   return (
     <>

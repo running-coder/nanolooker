@@ -1,13 +1,8 @@
 import React from "react";
-import { Route, Switch, Link } from "react-router-dom";
-import { Col, Layout, Menu, Row } from "antd";
-import {
-  ApartmentOutlined,
-  CalendarOutlined,
-  DatabaseOutlined,
-  GithubOutlined
-} from "@ant-design/icons";
-
+import { Route, Switch } from "react-router-dom";
+import { Layout } from "antd";
+import { GithubOutlined } from "@ant-design/icons";
+import AppHeader from "components/AppHeader";
 import HomePage from "pages/Home";
 import RepresentativesPage from "pages/Representatives";
 import DeveloperFundPage from "pages/DeveloperFund";
@@ -19,90 +14,14 @@ import BlockPage from "pages/Block";
 import NewsPage from "pages/News";
 import StatusPage from "pages/Status";
 
-import Search from "components/Search";
-import Price from "components/Price";
-
 import "./App.css";
 import "antd/dist/antd.css";
 
-const { Header, Content, Footer } = Layout;
-const { SubMenu } = Menu;
+const { Content, Footer } = Layout;
 
 const App: React.FC = props => (
   <Layout style={{ minHeight: "100vh" }}>
-    <Header
-      style={{
-        position: "relative",
-        backgroundColor: "white",
-        padding: "0 20px",
-        width: "100%",
-        height: "auto"
-      }}
-    >
-      <Row gutter={[16, 0]} style={{ width: "100%" }}>
-        <Col
-          xs={{ span: 6 }}
-          md={{ span: 4 }}
-          order={1}
-          style={{
-            alignSelf: "center"
-          }}
-        >
-          <Link to="/" style={{ whiteSpace: "nowrap", marginRight: "10px" }}>
-            Nano Looker
-          </Link>
-        </Col>
-
-        <Col xs={{ span: 24, order: 3 }} md={{ span: 12, order: 2 }}>
-          <Menu onClick={() => {}} selectedKeys={[]} mode="horizontal">
-            <SubMenu
-              title={
-                <Link to="/">
-                  <ApartmentOutlined />
-                  Explore
-                </Link>
-              }
-            >
-              <Menu.Item key="representatives">
-                Representatives
-                <Link to="/representatives" />
-              </Menu.Item>
-              <Menu.Item key="developer-fund">
-                DeveloperFund
-                <Link to="/developer-fund" />
-              </Menu.Item>
-              <Menu.Item key="known-accounts">
-                Known Accounts
-                <Link to="/known-accounts" />
-              </Menu.Item>
-              <Menu.Item key="distribution">
-                Distribution
-                <Link to="/distribution" />
-              </Menu.Item>
-            </SubMenu>
-            <Menu.Item key="news">
-              <CalendarOutlined />
-              News
-              <Link to="/news" />
-            </Menu.Item>
-            <Menu.Item key="node-status">
-              <DatabaseOutlined />
-              Node Status
-              <Link to="/status" />
-            </Menu.Item>
-          </Menu>
-        </Col>
-
-        <Col
-          xs={{ span: 18, order: 2 }}
-          md={{ span: 8, order: 3 }}
-          style={{ textAlign: "right" }}
-        >
-          <Search />
-        </Col>
-      </Row>
-      <Price />
-    </Header>
+    <AppHeader />
     <Content style={{ padding: "20px" }}>
       <Switch>
         <Route exact path="/" component={HomePage} />

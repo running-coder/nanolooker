@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Card, Descriptions, Skeleton, Tag, Typography } from "antd";
 import BigNumber from "bignumber.js";
+import { PreferencesContext } from "api/contexts/Preferences";
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 import { BlocksInfoContext } from "api/contexts/BlocksInfo";
 import {
@@ -17,8 +18,14 @@ import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 const { Title } = Typography;
 
 const BlockDetails = () => {
+  const { fiat } = React.useContext(PreferencesContext);
   const {
-    marketStatistics: { usdCurrentPrice, usdBtcCurrentPrice },
+    marketStatistics: {
+      usdCurrentPrice,
+      priceStats: { bitcoin: { [fiat]: btcCurrentPrice = 0 } } = {
+        bitcoin: { [fiat]: 0 }
+      }
+    },
     isInitialLoading: isMarketStatisticsInitialLoading
   } = React.useContext(MarketStatisticsContext);
   const {
@@ -56,14 +63,14 @@ const BlockDetails = () => {
   const usdAmount = new BigNumber(amount).times(usdCurrentPrice).toFormat(2);
   const btcAmount = new BigNumber(amount)
     .times(usdCurrentPrice)
-    .dividedBy(usdBtcCurrentPrice)
+    .dividedBy(btcCurrentPrice)
     .toFormat(12);
 
   const balance = new BigNumber(rawToRai(blockInfo?.balance || 0)).toNumber();
   const usdBalance = new BigNumber(balance).times(usdCurrentPrice).toFormat(2);
   const btcBalance = new BigNumber(balance)
     .times(usdCurrentPrice)
-    .dividedBy(usdBtcCurrentPrice)
+    .dividedBy(btcCurrentPrice)
     .toFormat(12);
 
   let linkAccountLabel = "";

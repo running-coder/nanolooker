@@ -1,4 +1,5 @@
 import React from "react";
+import PreferencesProvider from "./Preferences";
 import MarketStatisticsProvider from "./MarketStatistics";
 import NodeStatusProvider from "./NodeStatus";
 import KnownAccountsProvider from "./KnownAccounts";
@@ -13,29 +14,31 @@ import ConfirmationHistoryProvider from "./ConfirmationHistory";
 
 const IndexProvider: React.FC = ({ children }) => {
   return (
-    <MarketStatisticsProvider>
-      <NodeStatusProvider>
-        <KnownAccountsProvider>
-          <AccountInfoProvider>
-            <BlockInfoProvider>
-              <BlocksInfoProvider>
-                <ConfirmationQuorumProvider>
-                  <RepresentativesProvider>
-                    <RepresentativesOnlineProvider>
-                      <BlockCountProvider>
-                        <ConfirmationHistoryProvider>
-                          {children}
-                        </ConfirmationHistoryProvider>
-                      </BlockCountProvider>
-                    </RepresentativesOnlineProvider>
-                  </RepresentativesProvider>
-                </ConfirmationQuorumProvider>
-              </BlocksInfoProvider>
-            </BlockInfoProvider>
-          </AccountInfoProvider>
-        </KnownAccountsProvider>
-      </NodeStatusProvider>
-    </MarketStatisticsProvider>
+    <PreferencesProvider>
+      <MarketStatisticsProvider>
+        <NodeStatusProvider>
+          <KnownAccountsProvider>
+            <AccountInfoProvider>
+              <BlockInfoProvider>
+                <BlocksInfoProvider>
+                  <ConfirmationQuorumProvider>
+                    <RepresentativesProvider>
+                      <RepresentativesOnlineProvider>
+                        <BlockCountProvider>
+                          <ConfirmationHistoryProvider>
+                            {children}
+                          </ConfirmationHistoryProvider>
+                        </BlockCountProvider>
+                      </RepresentativesOnlineProvider>
+                    </RepresentativesProvider>
+                  </ConfirmationQuorumProvider>
+                </BlocksInfoProvider>
+              </BlockInfoProvider>
+            </AccountInfoProvider>
+          </KnownAccountsProvider>
+        </NodeStatusProvider>
+      </MarketStatisticsProvider>
+    </PreferencesProvider>
   );
 };
 

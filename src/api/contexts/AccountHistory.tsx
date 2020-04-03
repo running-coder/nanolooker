@@ -35,7 +35,7 @@ export interface UsePeersReturn {
   isError: boolean;
 }
 
-const useAccountHistory = (
+const Provider = (
   account: string,
   params: AccountHistoryParams
 ): UsePeersReturn => {
@@ -71,4 +71,4 @@ const useAccountHistory = (
   return { accountHistory, isLoading, isError };
 };
 
-export default useAccountHistory;
+export default Provider;

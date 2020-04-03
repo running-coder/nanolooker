@@ -1,4 +1,5 @@
 import React from "react";
+import { PreferencesContext } from "./Preferences";
 
 export const TOTAL_CONFIRMATIONS_KEY_24H = "TOTAL_CONFIRMATIONS_24H";
 export const TOTAL_NANO_VOLUME_KEY_24H = "TOTAL_NANO_VOLUME_24H";
@@ -25,16 +26,14 @@ export interface Response {
   usd24hChange: number;
   totalSupply: number;
   circulatingSupply: number;
-  usdBtcCurrentPrice: number;
-  usdBtc24hChange: number;
-  usdEthCurrentPrice: number;
-  usdEth24hChange: number;
+  priceStats: any;
 }
 
 export interface Context {
   marketStatistics: Response;
   getMarketStatistics: Function;
   isInitialLoading: boolean;
+  setIsInitialLoading: Function;
   isLoading: boolean;
   isError: boolean;
 }
@@ -58,12 +57,10 @@ export const MarketStatisticsContext = React.createContext<Context>({
     usd24hChange: 0,
     totalSupply: 0,
     circulatingSupply: 0,
-    usdBtcCurrentPrice: 0,
-    usdBtc24hChange: 0,
-    usdEthCurrentPrice: 0,
-    usdEth24hChange: 0
+    priceStats: {}
   },
   getMarketStatistics: () => {},
+  setIsInitialLoading: () => {},
   isInitialLoading: false,
   isLoading: false,
   isError: false
@@ -76,12 +73,15 @@ const Provider: React.FC = ({ children }) => {
   const [isInitialLoading, setIsInitialLoading] = React.useState<boolean>(true);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [isError, setIsError] = React.useState<boolean>(false);
+  const { fiat } = React.useContext(PreferencesContext);
 
-  const getMarketStatistics = async () => {
+  const getMarketStatistics = async (fiat: string) => {
+    clearTimeout(pollMarketStatisticsInterval);
+
     setIsError(false);
     setIsLoading(true);
     try {
-      const res = await fetch("/api/market-statistics");
+      const res = await fetch(`/api/market-statistics?fiat=${fiat}`);
       const json = await res.json();
 
       !json || json.error ? setIsError(true) : setMarketStatistics(json);
@@ -91,11 +91,13 @@ const Provider: React.FC = ({ children }) => {
     setIsInitialLoading(false);
     setIsLoading(false);
 
-    pollMarketStatisticsInterval = window.setTimeout(getMarketStatistics, 5000);
+    pollMarketStatisticsInterval = window.setTimeout(() => {
+      getMarketStatistics(fiat);
+    }, 7500);
   };
 
   React.useEffect(() => {
-    getMarketStatistics();
+    getMarketStatistics(fiat);
 
     return () => clearInterval(pollMarketStatisticsInterval);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -107,6 +109,7 @@ const Provider: React.FC = ({ children }) => {
         marketStatistics,
         getMarketStatistics,
         isInitialLoading,
+        setIsInitialLoading,
         isLoading,
         isError
       }}

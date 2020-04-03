@@ -39,7 +39,7 @@ const RecentTransactions = () => {
           content={
             <List size="small">
               <List.Item>
-                <Text style={{ marginRight: "16px" }}>Enable Live updates</Text>
+                <Text style={{ marginRight: "16px" }}>Enable live updates</Text>
                 <Switch
                   checkedChildren={<CheckOutlined />}
                   unCheckedChildren={<CloseOutlined />}

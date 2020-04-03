@@ -69,7 +69,9 @@ app.get("/api/market-statistics", async (req, res) => {
     btcTransactionFees24h,
     btcTransactionFees48h
   } = await getBtcTransactionFees();
-  const { coingeckoStats } = await getCoingeckoStats();
+  const { marketStats, priceStats } = await getCoingeckoStats({
+    fiat: req.query.fiat
+  });
 
   return res.send({
     [TOTAL_CONFIRMATIONS_KEY_24H]: cachedConfirmations24h,
@@ -78,7 +80,8 @@ app.get("/api/market-statistics", async (req, res) => {
     [TOTAL_NANO_VOLUME_KEY_48H]: cachedVolume48h,
     [TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H]: btcTransactionFees24h,
     [TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H]: btcTransactionFees48h,
-    ...coingeckoStats
+    ...marketStats,
+    priceStats
   });
 });
 

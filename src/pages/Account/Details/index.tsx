@@ -5,6 +5,7 @@ import { QuestionCircleTwoTone } from "@ant-design/icons";
 import find from "lodash/find";
 import BigNumber from "bignumber.js";
 import TimeAgo from "timeago-react";
+import { PreferencesContext } from "api/contexts/Preferences";
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 import { AccountInfoContext } from "api/contexts/AccountInfo";
 import { RepresentativesOnlineContext } from "api/contexts/RepresentativesOnline";
@@ -31,11 +32,17 @@ export const AccountDetailsLayout = ({
 );
 
 const AccountDetails = () => {
+  const { fiat } = React.useContext(PreferencesContext);
   const [representativeAccount, setRepresentativeAccount] = React.useState(
     {} as any
   );
   const {
-    marketStatistics: { usdCurrentPrice, usdBtcCurrentPrice },
+    marketStatistics: {
+      usdCurrentPrice,
+      priceStats: { bitcoin: { [fiat]: btcCurrentPrice = 0 } } = {
+        bitcoin: { [fiat]: 0 }
+      }
+    },
     isInitialLoading: isMarketStatisticsInitialLoading
   } = React.useContext(MarketStatisticsContext);
   const {
@@ -58,7 +65,7 @@ const AccountDetails = () => {
   const usdBalance = new BigNumber(balance).times(usdCurrentPrice).toFormat(2);
   const btcBalance = new BigNumber(balance)
     .times(usdCurrentPrice)
-    .dividedBy(usdBtcCurrentPrice)
+    .dividedBy(btcCurrentPrice)
     .toFormat(12);
   const modifiedTimestamp = Number(accountInfo?.modified_timestamp) * 1000;
 

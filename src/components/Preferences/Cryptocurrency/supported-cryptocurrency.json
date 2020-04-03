@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Nano",
+    "id": "nano",
+    "symbol": "nano"
+  },
+  {
+    "name": "Bitcoin",
+    "id": "bitcoin",
+    "symbol": "btc"
+  },
+  {
+    "name": "Ethereum",
+    "id": "ethereum",
+    "symbol": "eth"
+  },
+  {
+    "name": "Ripple",
+    "id": "ripple",
+    "symbol": "xrp"
+  },
+  {
+    "name": "Tether",
+    "id": "tether",
+    "symbol": "usdt"
+  },
+  {
+    "name": "Bitcoin Cash",
+    "id": "bitcoin-cash",
+    "symbol": "bch"
+  },
+  {
+    "name": "Litecoin",
+    "id": "litecoin",
+    "symbol": "ltc"
+  },
+  {
+    "name": "Bitcoin SV",
+    "id": "bitcoin-cash-sv",
+    "symbol": "bsv"
+  },
+  {
+    "name": "Eos",
+    "id": "eos",
+    "symbol": "eos"
+  },
+  {
+    "name": "Binance Coin",
+    "id": "binancecoin",
+    "symbol": "bnb"
+  },
+  {
+    "name": "Tezos",
+    "id": "tezos",
+    "symbol": "xtz"
+  },
+  {
+    "name": "Monero",
+    "id": "monero",
+    "symbol": "xmr"
+  },
+  {
+    "name": "Stellar",
+    "id": "stellar",
+    "symbol": "xlm"
+  },
+  {
+    "name": "Cardano",
+    "id": "cardano",
+    "symbol": "ada"
+  },
+  {
+    "name": "Chainlink",
+    "id": "chainlink",
+    "symbol": "link"
+  },
+  {
+    "name": "Tron",
+    "id": "tron",
+    "symbol": "trx"
+  },
+  {
+    "name": "Huobi Token",
+    "id": "huobi-token",
+    "symbol": "ht"
+  },
+  {
+    "name": "Crypto.com Coin",
+    "id": "crypto-com-chain",
+    "symbol": "cro"
+  }
+]

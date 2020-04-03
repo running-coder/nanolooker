@@ -7,9 +7,11 @@ const {
   MONGO_URL,
   MONGO_OPTIONS,
   MONGO_DB,
-  COINGECKO_STATS,
+  COINGECKO_MARKET_STATS,
+  COINGECKO_PRICE_STATS,
   MARKET_CAP_RANK_24H,
-  MARKET_CAP_RANK_COLLECTION
+  MARKET_CAP_RANK_COLLECTION,
+  SUPPORTED_CRYPTOCURRENCY
 } = require("../constants");
 
 const apiCache = new NodeCache({
@@ -17,8 +19,15 @@ const apiCache = new NodeCache({
   deleteOnExpire: true
 });
 
-const getCoingeckoStats = async () => {
-  let coingeckoStats = apiCache.get(COINGECKO_STATS);
+const DEFAULT_FIAT = "usd";
+
+const allowedFiats = ["usd", "cad", "eur"];
+
+const getCoingeckoStats = async ({ fiat }) => {
+  const vsCurrencies = allowedFiats.includes(fiat) ? fiat : DEFAULT_FIAT;
+
+  let marketStats = apiCache.get(COINGECKO_MARKET_STATS);
+  let priceStats = apiCache.get(`${COINGECKO_PRICE_STATS}-${vsCurrencies}`);
   let marketCapRank24h = apiCache.get(MARKET_CAP_RANK_24H);
 
   if (!marketCapRank24h) {
@@ -39,22 +48,14 @@ const getCoingeckoStats = async () => {
           $orderby: { createdAt: 1 }
         })
         .toArray((_err, [{ value } = {}] = []) => {
+          marketCapRank24h = value;
           apiCache.set(MARKET_CAP_RANK_24H, value, EXPIRE_1h);
         });
     });
   }
 
-  if (!coingeckoStats) {
+  if (!marketStats) {
     try {
-      const resBtcPrice = await fetch(
-        "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum&vs_currencies=usd&include_24hr_change=true"
-      );
-
-      const {
-        bitcoin: { usd: usdBtcCurrentPrice, usd_24h_change: usdBtc24hChange },
-        ethereum: { usd: usdEthCurrentPrice, usd_24h_change: usdEth24hChange }
-      } = await resBtcPrice.json();
-
       const res = await fetch(
         "https://api.coingecko.com/api/v3/coins/nano?localization=false&tickers=false&market_data=true&community_data=true&developer_data=true&sparkline=true"
       );
@@ -72,7 +73,7 @@ const getCoingeckoStats = async () => {
         }
       } = await res.json();
 
-      coingeckoStats = {
+      marketStats = {
         marketCapRank,
         marketCapRank24h,
         usdMarketCap,
@@ -81,18 +82,27 @@ const getCoingeckoStats = async () => {
         totalSupply,
         circulatingSupply,
         usdCurrentPrice,
-        usd24hChange,
-        usdBtcCurrentPrice,
-        usdBtc24hChange,
-        usdEthCurrentPrice,
-        usdEth24hChange
+        usd24hChange
       };
 
-      apiCache.set(COINGECKO_STATS, coingeckoStats);
+      apiCache.set(COINGECKO_MARKET_STATS, marketStats);
     } catch (e) {}
   }
 
-  return { coingeckoStats };
+  if (!priceStats) {
+    try {
+      const ids = SUPPORTED_CRYPTOCURRENCY.map(({ id }) => id).join(",");
+
+      const resPrices = await fetch(
+        `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=${vsCurrencies}&include_24hr_change=true`
+      );
+      priceStats = await resPrices.json();
+
+      apiCache.set(`${COINGECKO_PRICE_STATS}-${vsCurrencies}`, priceStats);
+    } catch (e) {}
+  }
+
+  return { marketCapRank24h, marketStats, priceStats };
 };
 
 module.exports = {

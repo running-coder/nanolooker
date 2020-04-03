@@ -13,6 +13,7 @@ import {
 import { QuestionCircleTwoTone } from "@ant-design/icons";
 import TimeAgo from "timeago-react";
 import BigNumber from "bignumber.js";
+import { PreferencesContext } from "api/contexts/Preferences";
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 import useAccountsBalances from "api/hooks/use-accounts-balances";
 import useAvailableSupply from "api/hooks/use-available-supply";
@@ -35,8 +36,14 @@ const { Title } = Typography;
 
 const DeveloperFund = () => {
   let totalBalance: number = 0;
+  const { fiat } = React.useContext(PreferencesContext);
   const {
-    marketStatistics: { usdCurrentPrice, usdBtcCurrentPrice },
+    marketStatistics: {
+      usdCurrentPrice,
+      priceStats: { bitcoin: { [fiat]: btcCurrentPrice = 0 } } = {
+        bitcoin: { [fiat]: 0 }
+      }
+    },
     isInitialLoading: isMarketStatisticsInitialLoading
   } = React.useContext(MarketStatisticsContext);
   const {
@@ -74,7 +81,7 @@ const DeveloperFund = () => {
     .toFormat(2);
   const btcBalance = new BigNumber(totalBalance)
     .times(usdCurrentPrice)
-    .dividedBy(usdBtcCurrentPrice)
+    .dividedBy(btcCurrentPrice)
     .toFormat(12);
 
   const skeletonProps = {

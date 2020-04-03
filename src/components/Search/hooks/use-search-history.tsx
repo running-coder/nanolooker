@@ -9,7 +9,7 @@ interface UseSearchHistoryReturn {
   removeSearchHistory: Function;
 }
 
-const getSearchHistory = (): Array<string> => {
+const getSearchHistory = (): string[] => {
   let searchHistory;
   try {
     searchHistory = JSON.parse(
@@ -21,7 +21,7 @@ const getSearchHistory = (): Array<string> => {
 };
 
 const useSearchHistory = (): UseSearchHistoryReturn => {
-  const [searchHistory, setSearchHistory] = React.useState<Array<string>>(
+  const [searchHistory, setSearchHistory] = React.useState<string[]>(
     getSearchHistory()
   );
 
