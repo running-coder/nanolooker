@@ -16,7 +16,7 @@ const FiatPreferences: React.FC = () => {
 
   return (
     <>
-      <Text style={{ marginRight: "16px" }}>Fiat prices</Text>
+      <Text style={{ marginRight: "12px" }}>Change fiat currency</Text>
       <Select
         defaultValue={fiat}
         // style={{ minWidth: 100 }}

@@ -5,7 +5,7 @@ import { QuestionCircleTwoTone } from "@ant-design/icons";
 import find from "lodash/find";
 import BigNumber from "bignumber.js";
 import TimeAgo from "timeago-react";
-import { PreferencesContext } from "api/contexts/Preferences";
+import { PreferencesContext, CurrencySymbol } from "api/contexts/Preferences";
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 import { AccountInfoContext } from "api/contexts/AccountInfo";
 import { RepresentativesOnlineContext } from "api/contexts/RepresentativesOnline";
@@ -38,7 +38,7 @@ const AccountDetails = () => {
   );
   const {
     marketStatistics: {
-      usdCurrentPrice,
+      currentPrice,
       priceStats: { bitcoin: { [fiat]: btcCurrentPrice = 0 } } = {
         bitcoin: { [fiat]: 0 }
       }
@@ -62,9 +62,9 @@ const AccountDetails = () => {
   const balancePending = new BigNumber(
     rawToRai(accountInfo?.pending || 0)
   ).toFormat(8);
-  const usdBalance = new BigNumber(balance).times(usdCurrentPrice).toFormat(2);
+  const fiatBalance = new BigNumber(balance).times(currentPrice).toFormat(2);
   const btcBalance = new BigNumber(balance)
-    .times(usdCurrentPrice)
+    .times(currentPrice)
     .dividedBy(btcCurrentPrice)
     .toFormat(12);
   const modifiedTimestamp = Number(accountInfo?.modified_timestamp) * 1000;
@@ -121,7 +121,7 @@ const AccountDetails = () => {
             <br />
           </Skeleton>
           <Skeleton {...skeletonProps}>
-            {`$${usdBalance} / ${btcBalance} BTC`}
+            {`${CurrencySymbol?.[fiat]}${fiatBalance} / ${btcBalance} BTC`}
           </Skeleton>
         </Descriptions.Item>
         <Descriptions.Item label="Representative">

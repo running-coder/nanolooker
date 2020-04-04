@@ -13,7 +13,7 @@ import {
 import { QuestionCircleTwoTone } from "@ant-design/icons";
 import TimeAgo from "timeago-react";
 import BigNumber from "bignumber.js";
-import { PreferencesContext } from "api/contexts/Preferences";
+import { PreferencesContext, CurrencySymbol } from "api/contexts/Preferences";
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 import useAccountsBalances from "api/hooks/use-accounts-balances";
 import useAvailableSupply from "api/hooks/use-available-supply";
@@ -39,7 +39,7 @@ const DeveloperFund = () => {
   const { fiat } = React.useContext(PreferencesContext);
   const {
     marketStatistics: {
-      usdCurrentPrice,
+      currentPrice,
       priceStats: { bitcoin: { [fiat]: btcCurrentPrice = 0 } } = {
         bitcoin: { [fiat]: 0 }
       }
@@ -76,11 +76,11 @@ const DeveloperFund = () => {
     [] as any
   );
 
-  const usdBalance = new BigNumber(totalBalance)
-    .times(usdCurrentPrice)
+  const fiatBalance = new BigNumber(totalBalance)
+    .times(currentPrice)
     .toFormat(2);
   const btcBalance = new BigNumber(totalBalance)
-    .times(usdCurrentPrice)
+    .times(currentPrice)
     .dividedBy(btcCurrentPrice)
     .toFormat(12);
 
@@ -122,7 +122,7 @@ const DeveloperFund = () => {
                   <br />
                 </Skeleton>
                 <Skeleton {...skeletonProps}>
-                  {`$${usdBalance} / ${btcBalance} BTC`}
+                  {`${CurrencySymbol?.[fiat]}${fiatBalance} / ${btcBalance} BTC`}
                 </Skeleton>
               </Descriptions.Item>
               <Descriptions.Item

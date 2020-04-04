@@ -1,8 +1,8 @@
 import React from "react";
-import { MinusCircleOutlined, MinusCircleTwoTone } from "@ant-design/icons";
+import { CloseCircleTwoTone, CloseCircleOutlined } from "@ant-design/icons";
 import { TwoToneColors } from "components/utils";
 
-const DeleteHistory = (props: any) => {
+const DeleteButton = (props: any) => {
   const [isHovered, setIsHovered] = React.useState(false);
 
   return (
@@ -13,15 +13,12 @@ const DeleteHistory = (props: any) => {
       style={{ marginLeft: "auto", cursor: "pointer" }}
     >
       {isHovered ? (
-        <MinusCircleTwoTone
-          twoToneColor={TwoToneColors.SEND}
-          className="delete-history-button"
-        />
+        <CloseCircleTwoTone twoToneColor={TwoToneColors.SEND} />
       ) : (
-        <MinusCircleOutlined className="delete-history-button" />
+        <CloseCircleOutlined style={{ color: "rgba(0, 0, 0, 0.45)" }} />
       )}
     </div>
   );
 };
 
-export default DeleteHistory;
+export default DeleteButton;

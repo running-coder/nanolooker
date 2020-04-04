@@ -30,7 +30,9 @@ const AppHeader: React.FC = () => (
           md={{ span: 4 }}
           order={1}
           style={{
-            alignSelf: "center"
+            display: "flex",
+            alignItems: "center",
+            minHeight: "50px"
           }}
         >
           <Link to="/" style={{ whiteSpace: "nowrap", marginRight: "10px" }}>
@@ -100,6 +102,7 @@ const AppHeader: React.FC = () => (
         className="price-list"
         style={{
           display: "flex",
+          flexWrap: "wrap",
           alignItems: "center",
           width: "100%",
           marginRight: "12px"

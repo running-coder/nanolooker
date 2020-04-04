@@ -1,5 +1,6 @@
 import React from "react";
-import { PreferencesContext } from "./Preferences";
+import qs from "qs";
+import { PreferencesContext, Fiat } from "./Preferences";
 
 export const TOTAL_CONFIRMATIONS_KEY_24H = "TOTAL_CONFIRMATIONS_24H";
 export const TOTAL_NANO_VOLUME_KEY_24H = "TOTAL_NANO_VOLUME_24H";
@@ -19,11 +20,11 @@ export interface Response {
   [TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H]: number;
   marketCapRank: number;
   marketCapRank24h: number;
-  usdMarketCap: number;
+  marketCap: number;
   marketCapChangePercentage24h: number;
-  usd24hVolume: number;
-  usdCurrentPrice: number;
-  usd24hChange: number;
+  volume24h: number;
+  currentPrice: number;
+  change24h: number;
   totalSupply: number;
   circulatingSupply: number;
   priceStats: any;
@@ -50,11 +51,11 @@ export const MarketStatisticsContext = React.createContext<Context>({
     [TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H]: 0,
     marketCapRank: 0,
     marketCapRank24h: 0,
-    usdMarketCap: 0,
+    marketCap: 0,
     marketCapChangePercentage24h: 0,
-    usd24hVolume: 0,
-    usdCurrentPrice: 0,
-    usd24hChange: 0,
+    volume24h: 0,
+    currentPrice: 0,
+    change24h: 0,
     totalSupply: 0,
     circulatingSupply: 0,
     priceStats: {}
@@ -81,7 +82,13 @@ const Provider: React.FC = ({ children }) => {
     setIsError(false);
     setIsLoading(true);
     try {
-      const res = await fetch(`/api/market-statistics?fiat=${fiat}`);
+      const query = qs.stringify(
+        { ...(fiat !== Fiat.USD ? { fiat } : null) },
+        {
+          addQueryPrefix: true
+        }
+      );
+      const res = await fetch(`/api/market-statistics${query}`);
       const json = await res.json();
 
       !json || json.error ? setIsError(true) : setMarketStatistics(json);

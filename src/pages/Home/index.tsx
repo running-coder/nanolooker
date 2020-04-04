@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Col, Row, Skeleton, Statistic } from "antd";
 import BigNumber from "bignumber.js";
-import { PreferencesContext } from "api/contexts/Preferences";
+import { PreferencesContext, CurrencySymbol } from "api/contexts/Preferences";
 import { BlockCountContext } from "api/contexts/BlockCount";
 import { ConfirmationHistoryContext } from "api/contexts/ConfirmationHistory";
 import { RepresentativesOnlineContext } from "api/contexts/RepresentativesOnline";
@@ -28,9 +28,9 @@ const HomePage = () => {
   const {
     marketCapRank,
     marketCapRank24h,
-    usdMarketCap,
+    marketCap,
     marketCapChangePercentage24h,
-    usd24hVolume,
+    volume24h,
     circulatingSupply,
     priceStats: { bitcoin: { [fiat]: btcCurrentPrice = 0 } } = {
       bitcoin: { [fiat]: 0 }
@@ -108,7 +108,7 @@ const HomePage = () => {
         gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]}
         style={{ marginBottom: "12px" }}
       >
-        <Col sm={24} md={12}>
+        <Col sm={24} md={12} style={{ width: "100%" }}>
           <Card size="small" title="Statistics">
             <Skeleton active loading={false}>
               <Row gutter={6}>
@@ -130,15 +130,15 @@ const HomePage = () => {
                   />
                   <LoadingStatistic
                     isLoading={isMarketStatisticsInitialLoading}
-                    title="Market cap (USD)"
-                    prefix="$"
+                    title={`Market cap (${fiat.toUpperCase()})`}
+                    prefix={CurrencySymbol?.[fiat]}
                     suffix={
                       <StatisticsChange
                         value={marketCapChangePercentage24h}
                         isPercent
                       />
                     }
-                    value={`${new BigNumber(usdMarketCap).toNumber()}`}
+                    value={`${new BigNumber(marketCap).toNumber()}`}
                   />
                   <LoadingStatistic
                     isLoading={isMarketStatisticsInitialLoading}
@@ -171,7 +171,7 @@ const HomePage = () => {
             </Skeleton>
           </Card>
         </Col>
-        <Col sm={24} md={12}>
+        <Col sm={24} md={12} style={{ width: "100%" }}>
           <Card size="small" title="Last 24 hours">
             <Skeleton active loading={false}>
               <Row gutter={6}>
@@ -197,9 +197,9 @@ const HomePage = () => {
                 <Col xs={24} sm={12}>
                   <LoadingStatistic
                     isLoading={isMarketStatisticsInitialLoading}
-                    title="Exchange volume (USD)"
-                    prefix="$"
-                    value={`${new BigNumber(usd24hVolume).toNumber()}`}
+                    title={`Exchange volume (${fiat.toUpperCase()})`}
+                    prefix={CurrencySymbol?.[fiat]}
+                    value={`${new BigNumber(volume24h).toNumber()}`}
                   />
                   <LoadingStatistic
                     isLoading={isMarketStatisticsInitialLoading}
@@ -218,7 +218,7 @@ const HomePage = () => {
                   />
                   <LoadingStatistic
                     isLoading={isMarketStatisticsInitialLoading}
-                    title="Bitcoin transaction fees paid to miners"
+                    title="Bitcoin transaction fees paid to miners (USD)"
                     prefix="$"
                     value={btcTransactionFees24h}
                     suffix={

@@ -63,7 +63,7 @@ const Node: React.FC = () => {
       />
       <LoadingStatistic
         title="CPU Usage"
-        value={cpu}
+        value={new BigNumber(cpu).decimalPlaces(2).toNumber()}
         suffix="%"
         isLoading={isNodeStatusLoading}
         valueStyle={{ opacity }}

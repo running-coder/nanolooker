@@ -9,6 +9,7 @@ import {
 import ThemePreferences from "./Theme";
 import CryptocurrencyPreferences from "./Cryptocurrency";
 import FiatPreferences from "./Fiat";
+import LanguagePreferences from "./Language";
 
 const Preferences: React.FC = () => {
   return (
@@ -19,6 +20,9 @@ const Preferences: React.FC = () => {
           <List size="small">
             <List.Item>
               <ThemePreferences />
+            </List.Item>
+            <List.Item>
+              <LanguagePreferences />
             </List.Item>
             <List.Item>
               <CryptocurrencyPreferences />

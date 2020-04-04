@@ -1,6 +1,6 @@
 import React from "react";
 import { Skeleton } from "antd";
-import { PreferencesContext } from "api/contexts/Preferences";
+import { PreferencesContext, CurrencySymbol } from "api/contexts/Preferences";
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 import StatisticsChange from "components/StatisticsChange";
 import SupportedCryptocurrency from "components/Preferences/Cryptocurrency/supported-cryptocurrency.json";
@@ -32,12 +32,13 @@ const Price = () => {
           <img
             src="/nano.png"
             width="16px"
-            alt="Nano crypto currency price change 24h"
+            title="Nano"
+            alt="Nano cryptocurrency price change 24h"
             style={{ marginRight: "3px" }}
           />
 
           <span style={{ marginRight: "6px" }}>
-            ${priceStats?.nano?.[fiat]?.toFixed(2)}
+            {CurrencySymbol?.[fiat]}{priceStats?.nano?.[fiat]?.toFixed(2)}
           </span>
           <StatisticsChange
             value={priceStats?.nano?.[`${fiat}_24h_change`]}
@@ -61,11 +62,12 @@ const Price = () => {
               <img
                 src={`/cryptocurrencies/logo/${crypto.symbol}.png`}
                 width="16px"
+                title={crypto.name}
                 alt={`${crypto.name} cryptocurrency price change 24h`}
                 style={{ marginRight: "3px" }}
               />
               <span style={{ marginRight: "6px" }}>
-                ${priceStats?.[crypto.id]?.[fiat]?.toFixed(2)}
+              {CurrencySymbol?.[fiat]}{priceStats?.[crypto.id]?.[fiat]?.toFixed(2)}
               </span>
               <StatisticsChange
                 value={priceStats?.[crypto.id]?.[`${fiat}_24h_change`]}

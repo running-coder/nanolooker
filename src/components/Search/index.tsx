@@ -7,7 +7,7 @@ import {
   HistoryOutlined
 } from "@ant-design/icons";
 import { isValidAccountAddress, isValidBlockHash } from "components/utils";
-import DeleteHistory from "./DeleteHistory";
+import DeleteButton from "components/DeleteButton";
 
 import useSearch from "./hooks/use-search";
 import useSearchHistory from "./hooks/use-search-history";
@@ -88,7 +88,7 @@ const Search = () => {
                       )}
 
                       <div style={{ margin: "0 6px" }}>{history}</div>
-                      <DeleteHistory
+                      <DeleteButton
                         onClick={(e: Event) => {
                           e.stopPropagation();
                           removeSearchHistory(history);

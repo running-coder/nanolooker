@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Typography } from "antd";
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
-import { PreferencesContext, Themes } from "api/contexts/Preferences";
+import { PreferencesContext, Theme } from "api/contexts/Preferences";
 
 const { Text } = Typography;
 
@@ -16,9 +16,9 @@ const ThemePreference: React.FC = () => {
         checkedChildren={<CheckOutlined />}
         unCheckedChildren={<CloseOutlined />}
         onChange={(checked: boolean) => {
-          setTheme(checked ? Themes.DARK : Themes.LIGHT);
+          setTheme(checked ? Theme.DARK : Theme.LIGHT);
         }}
-        defaultChecked={theme === Themes.DARK}
+        defaultChecked={theme === Theme.DARK}
       />
     </>
   );

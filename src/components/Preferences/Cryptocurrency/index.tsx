@@ -1,7 +1,8 @@
 import React from "react";
-import { AutoComplete, List, Typography } from "antd";
+import { AutoComplete, Typography } from "antd";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { PreferencesContext } from "api/contexts/Preferences";
-import DeleteHistory from "components/Search/DeleteHistory";
+import DeleteButton from "components/DeleteButton";
 import dataSource from "./supported-cryptocurrency.json";
 
 const { Option } = AutoComplete;
@@ -11,7 +12,8 @@ const CryptocurrencyPreferences: React.FC = () => {
   const {
     cryptocurrency,
     addCryptocurrency,
-    removeCryptocurrency
+    removeCryptocurrency,
+    reorderCryptocurrency
   } = React.useContext(PreferencesContext);
   const [search, setSearch] = React.useState<string>("");
 
@@ -31,7 +33,7 @@ const CryptocurrencyPreferences: React.FC = () => {
       key={name}
       value={name}
       symbol={symbol}
-      disabled={cryptocurrency.includes(symbol) || symbol === 'nano'}
+      disabled={cryptocurrency.includes(symbol) || symbol === "nano"}
     >
       <img
         src={`/cryptocurrencies/logo/${symbol}.png`}
@@ -44,10 +46,29 @@ const CryptocurrencyPreferences: React.FC = () => {
     </Option>
   ));
 
+  const reorder = (list: string[], startIndex: number, endIndex: number) => {
+    const result = Array.from(list);
+    const [removed] = result.splice(startIndex, 1);
+    result.splice(endIndex, 0, removed);
+
+    return result;
+  };
+
+  const onDragEnd = (result: any) => {
+    const items = reorder(
+      cryptocurrency,
+      result.source.index,
+      result.destination.index
+    );
+    reorderCryptocurrency(items);
+
+    console.log("items", items);
+  };
+
   return (
     <div>
       <Text style={{ marginBottom: "6px", display: "block" }}>
-        Cryptocurrency price watchers
+        Watch other cryptocurrencies
       </Text>
 
       <AutoComplete
@@ -63,51 +84,84 @@ const CryptocurrencyPreferences: React.FC = () => {
         }}
         onSearch={onSearch}
         onSelect={onSelect}
-        placeholder="Search crypto currencies"
+        placeholder="Search"
       >
         {options}
       </AutoComplete>
 
       {cryptocurrency.length ? (
-        <ul style={{ margin: 0, padding: 0 }}>
-          <List size="small">
-            {cryptocurrency.map(symbol => {
-              const { name = "" } =
-                dataSource.find(
-                  ({ symbol: sourceSymbol }) => sourceSymbol === symbol
-                ) || {};
-              return (
-                <List.Item key={name}>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      width: "100%"
-                    }}
-                  >
-                    <span>
-                      <img
-                        src={`/cryptocurrencies/logo/${symbol}.png`}
-                        alt={name}
-                        width="16px"
-                        height="16px"
-                        style={{ marginRight: "3px" }}
-                      />
-                      {name}
-                    </span>
-                    <DeleteHistory
-                      onClick={(e: Event) => {
-                        e.stopPropagation();
-                        removeCryptocurrency(symbol);
-                      }}
-                    />
-                  </div>
-                </List.Item>
-              );
-            })}
-          </List>
-        </ul>
+        <DragDropContext onDragEnd={onDragEnd}>
+          <Droppable droppableId="hello">
+            {(provided, snapshot) => (
+              <ul
+                style={{
+                  margin: 0,
+                  padding: "6px",
+                  marginTop: "6px",
+                  // border: 'solid 1px #d9d9d9', #1890ff
+                  backgroundColor: snapshot.isDraggingOver
+                    ? "#1890ff24"
+                    : "#f6f6f6",
+                  listStyle: "none"
+                }}
+                ref={provided.innerRef}
+                {...provided.droppableProps}
+              >
+                {cryptocurrency.map((symbol, index) => {
+                  const { name = "" } =
+                    dataSource.find(
+                      ({ symbol: sourceSymbol }) => sourceSymbol === symbol
+                    ) || {};
+                  return (
+                    <Draggable draggableId={name} index={index} key={name}>
+                      {provided => (
+                        <li
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                          ref={provided.innerRef}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                              alignItems: "center",
+                              width: "100%",
+                              padding: "6px",
+                              marginTop: "-1px",
+                              // border: "solid 1px #d9d9d9",
+                              backgroundColor: "#fff",
+                              ...(index !== cryptocurrency.length - 1
+                                ? { marginBottom: "6px" }
+                                : { marginBottom: "-1px" })
+                            }}
+                          >
+                            <span>
+                              <img
+                                src={`/cryptocurrencies/logo/${symbol}.png`}
+                                alt={name}
+                                width="16px"
+                                height="16px"
+                                style={{ marginRight: "3px" }}
+                              />
+                              {name}
+                            </span>
+                            <DeleteButton
+                              onClick={(e: Event) => {
+                                e.stopPropagation();
+                                removeCryptocurrency(symbol);
+                              }}
+                            />
+                          </div>
+                        </li>
+                      )}
+                    </Draggable>
+                  );
+                })}
+                {provided.placeholder}
+              </ul>
+            )}
+          </Droppable>
+        </DragDropContext>
       ) : null}
     </div>
   );

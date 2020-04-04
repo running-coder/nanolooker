@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Card, Descriptions, Skeleton, Tag, Typography } from "antd";
 import BigNumber from "bignumber.js";
-import { PreferencesContext } from "api/contexts/Preferences";
+import { PreferencesContext, CurrencySymbol } from "api/contexts/Preferences";
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 import { BlocksInfoContext } from "api/contexts/BlocksInfo";
 import {
@@ -21,7 +21,7 @@ const BlockDetails = () => {
   const { fiat } = React.useContext(PreferencesContext);
   const {
     marketStatistics: {
-      usdCurrentPrice,
+      currentPrice,
       priceStats: { bitcoin: { [fiat]: btcCurrentPrice = 0 } } = {
         bitcoin: { [fiat]: 0 }
       }
@@ -60,16 +60,16 @@ const BlockDetails = () => {
   const modifiedTimestamp = Number(blockInfo?.local_timestamp) * 1000;
 
   const amount = new BigNumber(rawToRai(blockInfo?.amount || 0)).toNumber();
-  const usdAmount = new BigNumber(amount).times(usdCurrentPrice).toFormat(2);
+  const fiatAmount = new BigNumber(amount).times(currentPrice).toFormat(2);
   const btcAmount = new BigNumber(amount)
-    .times(usdCurrentPrice)
+    .times(currentPrice)
     .dividedBy(btcCurrentPrice)
     .toFormat(12);
 
   const balance = new BigNumber(rawToRai(blockInfo?.balance || 0)).toNumber();
-  const usdBalance = new BigNumber(balance).times(usdCurrentPrice).toFormat(2);
+  const fiatBalance = new BigNumber(balance).times(currentPrice).toFormat(2);
   const btcBalance = new BigNumber(balance)
-    .times(usdCurrentPrice)
+    .times(currentPrice)
     .dividedBy(btcCurrentPrice)
     .toFormat(12);
 
@@ -134,7 +134,7 @@ const BlockDetails = () => {
               <br />
             </Skeleton>
             <Skeleton {...skeletonProps}>
-              {`$${usdAmount} / ${btcAmount} BTC`}
+              {`${CurrencySymbol?.[fiat]}${fiatAmount} / ${btcAmount} BTC`}
             </Skeleton>
           </Descriptions.Item>
           <Descriptions.Item label="Balance">
@@ -143,7 +143,7 @@ const BlockDetails = () => {
               <br />
             </Skeleton>
             <Skeleton {...skeletonProps}>
-              {`$${usdBalance} / ${btcBalance} BTC`}
+              {`${CurrencySymbol?.[fiat]}${fiatBalance} / ${btcBalance} BTC`}
             </Skeleton>
           </Descriptions.Item>
           {linkAccountLabel ? (
