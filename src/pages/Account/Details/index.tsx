@@ -5,7 +5,11 @@ import { QuestionCircleTwoTone } from "@ant-design/icons";
 import find from "lodash/find";
 import BigNumber from "bignumber.js";
 import TimeAgo from "timeago-react";
-import { PreferencesContext, CurrencySymbol } from "api/contexts/Preferences";
+import {
+  PreferencesContext,
+  CurrencySymbol,
+  CurrencyDecimal
+} from "api/contexts/Preferences";
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 import { AccountInfoContext } from "api/contexts/AccountInfo";
 import { RepresentativesOnlineContext } from "api/contexts/RepresentativesOnline";
@@ -62,7 +66,9 @@ const AccountDetails = () => {
   const balancePending = new BigNumber(
     rawToRai(accountInfo?.pending || 0)
   ).toFormat(8);
-  const fiatBalance = new BigNumber(balance).times(currentPrice).toFormat(2);
+  const fiatBalance = new BigNumber(balance)
+    .times(currentPrice)
+    .toFormat(CurrencyDecimal?.[fiat]);
   const btcBalance = new BigNumber(balance)
     .times(currentPrice)
     .dividedBy(btcCurrentPrice)

@@ -13,7 +13,11 @@ import {
 import { QuestionCircleTwoTone } from "@ant-design/icons";
 import TimeAgo from "timeago-react";
 import BigNumber from "bignumber.js";
-import { PreferencesContext, CurrencySymbol } from "api/contexts/Preferences";
+import {
+  PreferencesContext,
+  CurrencySymbol,
+  CurrencyDecimal
+} from "api/contexts/Preferences";
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 import useAccountsBalances from "api/hooks/use-accounts-balances";
 import useAvailableSupply from "api/hooks/use-available-supply";
@@ -78,7 +82,7 @@ const DeveloperFund = () => {
 
   const fiatBalance = new BigNumber(totalBalance)
     .times(currentPrice)
-    .toFormat(2);
+    .toFormat(CurrencyDecimal?.[fiat]);
   const btcBalance = new BigNumber(totalBalance)
     .times(currentPrice)
     .dividedBy(btcCurrentPrice)

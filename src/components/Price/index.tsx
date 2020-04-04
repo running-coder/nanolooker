@@ -1,6 +1,11 @@
 import React from "react";
 import { Skeleton } from "antd";
-import { PreferencesContext, CurrencySymbol } from "api/contexts/Preferences";
+import BigNumber from "bignumber.js";
+import {
+  PreferencesContext,
+  CurrencySymbol,
+  CurrencyDecimal
+} from "api/contexts/Preferences";
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 import StatisticsChange from "components/StatisticsChange";
 import SupportedCryptocurrency from "components/Preferences/Cryptocurrency/supported-cryptocurrency.json";
@@ -38,7 +43,10 @@ const Price = () => {
           />
 
           <span style={{ marginRight: "6px" }}>
-            {CurrencySymbol?.[fiat]}{priceStats?.nano?.[fiat]?.toFixed(2)}
+            {CurrencySymbol?.[fiat]}
+            {new BigNumber(priceStats?.nano?.[fiat]).toFormat(
+              CurrencyDecimal?.[fiat]
+            )}
           </span>
           <StatisticsChange
             value={priceStats?.nano?.[`${fiat}_24h_change`]}
@@ -67,7 +75,10 @@ const Price = () => {
                 style={{ marginRight: "3px" }}
               />
               <span style={{ marginRight: "6px" }}>
-              {CurrencySymbol?.[fiat]}{priceStats?.[crypto.id]?.[fiat]?.toFixed(2)}
+                {CurrencySymbol?.[fiat]}
+                {new BigNumber(priceStats?.[crypto.id]?.[fiat]).toFormat(
+                  CurrencyDecimal?.[fiat]
+                )}
               </span>
               <StatisticsChange
                 value={priceStats?.[crypto.id]?.[`${fiat}_24h_change`]}

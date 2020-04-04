@@ -1,7 +1,11 @@
 import React from "react";
 import { Card, Col, Row, Skeleton, Statistic } from "antd";
 import BigNumber from "bignumber.js";
-import { PreferencesContext, CurrencySymbol } from "api/contexts/Preferences";
+import {
+  PreferencesContext,
+  CurrencySymbol,
+  CurrencyDecimal
+} from "api/contexts/Preferences";
 import { BlockCountContext } from "api/contexts/BlockCount";
 import { ConfirmationHistoryContext } from "api/contexts/ConfirmationHistory";
 import { RepresentativesOnlineContext } from "api/contexts/RepresentativesOnline";
@@ -51,7 +55,7 @@ const HomePage = () => {
     marketStatistics[TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H] && btcCurrentPrice
       ? new BigNumber(marketStatistics[TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H])
           .times(btcCurrentPrice)
-          .toFixed(2)
+          .toFixed(CurrencyDecimal?.[fiat])
       : 0;
 
   const btcTransactionFeesChange24h = btcTransactionFees24h
@@ -218,8 +222,8 @@ const HomePage = () => {
                   />
                   <LoadingStatistic
                     isLoading={isMarketStatisticsInitialLoading}
-                    title="Bitcoin transaction fees paid to miners (USD)"
-                    prefix="$"
+                    title={`Bitcoin transaction fees paid to miners (${fiat.toUpperCase()})`}
+                    prefix={CurrencySymbol?.[fiat]}
                     value={btcTransactionFees24h}
                     suffix={
                       <StatisticsChange

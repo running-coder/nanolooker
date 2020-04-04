@@ -14,6 +14,16 @@ export enum CurrencySymbol {
   jpy = "¥"
 }
 
+// https://en.wikipedia.org/wiki/ISO_4217
+export enum CurrencyDecimal {
+  usd = 2,
+  cad = 2,
+  eur = 2,
+  gbp = 2,
+  cny = 2,
+  jpy = 0
+}
+
 export enum Fiat {
   USD = "usd",
   CAD = "cad",

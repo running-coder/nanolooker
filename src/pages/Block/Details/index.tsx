@@ -2,7 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Card, Descriptions, Skeleton, Tag, Typography } from "antd";
 import BigNumber from "bignumber.js";
-import { PreferencesContext, CurrencySymbol } from "api/contexts/Preferences";
+import {
+  PreferencesContext,
+  CurrencySymbol,
+  CurrencyDecimal
+} from "api/contexts/Preferences";
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 import { BlocksInfoContext } from "api/contexts/BlocksInfo";
 import {
@@ -60,14 +64,18 @@ const BlockDetails = () => {
   const modifiedTimestamp = Number(blockInfo?.local_timestamp) * 1000;
 
   const amount = new BigNumber(rawToRai(blockInfo?.amount || 0)).toNumber();
-  const fiatAmount = new BigNumber(amount).times(currentPrice).toFormat(2);
+  const fiatAmount = new BigNumber(amount)
+    .times(currentPrice)
+    .toFormat(CurrencyDecimal?.[fiat]);
   const btcAmount = new BigNumber(amount)
     .times(currentPrice)
     .dividedBy(btcCurrentPrice)
     .toFormat(12);
 
   const balance = new BigNumber(rawToRai(blockInfo?.balance || 0)).toNumber();
-  const fiatBalance = new BigNumber(balance).times(currentPrice).toFormat(2);
+  const fiatBalance = new BigNumber(balance)
+    .times(currentPrice)
+    .toFormat(CurrencyDecimal?.[fiat]);
   const btcBalance = new BigNumber(balance)
     .times(currentPrice)
     .dividedBy(btcCurrentPrice)
