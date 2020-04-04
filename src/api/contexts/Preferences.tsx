@@ -8,13 +8,19 @@ export enum Theme {
 export enum CurrencySymbol {
   usd = "$",
   cad = "$",
-  eur = "€"
+  eur = "€",
+  gbp = "£",
+  cny = "¥",
+  jpy = "¥"
 }
 
 export enum Fiat {
   USD = "usd",
   CAD = "cad",
-  EUR = "eur"
+  EUR = "eur",
+  GBP = "gbp",
+  CNY = "cny",
+  JPY = "jpy"
 }
 
 export enum Language {

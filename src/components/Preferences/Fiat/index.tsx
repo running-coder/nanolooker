@@ -1,6 +1,6 @@
 import React from "react";
 import { Select, Typography } from "antd";
-import { PreferencesContext } from "api/contexts/Preferences";
+import { PreferencesContext, Fiat } from "api/contexts/Preferences";
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 
 // @TODO share "Allowed fiats"
@@ -19,16 +19,15 @@ const FiatPreferences: React.FC = () => {
       <Text style={{ marginRight: "12px" }}>Change fiat currency</Text>
       <Select
         defaultValue={fiat}
-        // style={{ minWidth: 100 }}
         onChange={value => {
           setFiat(value);
           setIsInitialLoading(true);
           getMarketStatistics(value);
         }}
       >
-        <Option value="usd">USD</Option>
-        <Option value="cad">CAD</Option>
-        <Option value="eur">EUR</Option>
+        {Object.entries(Fiat).map(([key, value]) => (
+          <Option value={value}>{key}</Option>
+        ))}
       </Select>
     </>
   );

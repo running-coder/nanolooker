@@ -61,8 +61,6 @@ const CryptocurrencyPreferences: React.FC = () => {
       result.destination.index
     );
     reorderCryptocurrency(items);
-
-    console.log("items", items);
   };
 
   return (
@@ -98,7 +96,6 @@ const CryptocurrencyPreferences: React.FC = () => {
                   margin: 0,
                   padding: "6px",
                   marginTop: "6px",
-                  // border: 'solid 1px #d9d9d9', #1890ff
                   backgroundColor: snapshot.isDraggingOver
                     ? "#1890ff24"
                     : "#f6f6f6",
@@ -128,7 +125,6 @@ const CryptocurrencyPreferences: React.FC = () => {
                               width: "100%",
                               padding: "6px",
                               marginTop: "-1px",
-                              // border: "solid 1px #d9d9d9",
                               backgroundColor: "#fff",
                               ...(index !== cryptocurrency.length - 1
                                 ? { marginBottom: "6px" }

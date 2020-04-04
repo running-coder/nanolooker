@@ -21,7 +21,7 @@ const apiCache = new NodeCache({
 
 const DEFAULT_FIAT = "usd";
 
-const allowedFiats = ["usd", "cad", "eur"];
+const allowedFiats = ["usd", "cad", "eur", "gbp", "cny", "jpy"];
 
 const getCoingeckoStats = async ({ fiat }) => {
   fiat = allowedFiats.includes(fiat) ? fiat : DEFAULT_FIAT;
