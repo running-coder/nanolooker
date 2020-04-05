@@ -11,11 +11,8 @@ import StatisticsChange from "components/StatisticsChange";
 import SupportedCryptocurrency from "components/Preferences/Cryptocurrency/supported-cryptocurrency.json";
 
 const Price = () => {
-  const { cryptocurrency, fiat } = React.useContext(PreferencesContext);
-  const {
-    marketStatistics: { priceStats },
-    isInitialLoading
-  } = React.useContext(MarketStatisticsContext);
+  const { cryptocurrency } = React.useContext(PreferencesContext);
+  const { isInitialLoading } = React.useContext(MarketStatisticsContext);
 
   const skeletonProps = {
     active: true,
@@ -26,69 +23,78 @@ const Price = () => {
   return (
     <>
       <Skeleton {...skeletonProps}>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            marginRight: "12px"
-            // minWidth: "50px"
-          }}
-        >
-          <img
-            src="/nano.png"
-            width="16px"
-            title="Nano"
-            alt="Nano cryptocurrency price change 24h"
-            style={{ marginRight: "3px" }}
-          />
+        <CryptocurrencyPrice
+          {...(SupportedCryptocurrency.find(
+            ({ symbol }) => symbol === "nano"
+          ) as CryptocurrencyPriceProps)}
+        />
 
-          <span style={{ marginRight: "6px" }}>
-            {CurrencySymbol?.[fiat]}
-            {new BigNumber(priceStats?.nano?.[fiat]).toFormat(
-              CurrencyDecimal?.[fiat]
-            )}
-          </span>
-          <StatisticsChange
-            value={priceStats?.nano?.[`${fiat}_24h_change`]}
-            isPercent
-          />
-        </div>
         {cryptocurrency.map(symbol => {
           const crypto = SupportedCryptocurrency.find(
             ({ symbol: supportedSymbol }) => supportedSymbol === symbol
           );
 
           return crypto ? (
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                marginRight: "12px"
-              }}
-              key={crypto.id}
-            >
-              <img
-                src={`/cryptocurrencies/logo/${crypto.symbol}.png`}
-                width="16px"
-                title={crypto.name}
-                alt={`${crypto.name} cryptocurrency price change 24h`}
-                style={{ marginRight: "3px" }}
-              />
-              <span style={{ marginRight: "6px" }}>
-                {CurrencySymbol?.[fiat]}
-                {new BigNumber(priceStats?.[crypto.id]?.[fiat]).toFormat(
-                  CurrencyDecimal?.[fiat]
-                )}
-              </span>
-              <StatisticsChange
-                value={priceStats?.[crypto.id]?.[`${fiat}_24h_change`]}
-                isPercent
-              />
-            </div>
+            <CryptocurrencyPrice {...crypto} key={symbol} />
           ) : null;
         })}
       </Skeleton>
     </>
+  );
+};
+
+interface CryptocurrencyPriceProps {
+  id: string;
+  symbol: string;
+  name: string;
+}
+
+const CryptocurrencyPrice = ({
+  id,
+  symbol,
+  name
+}: CryptocurrencyPriceProps) => {
+  const { fiat } = React.useContext(PreferencesContext);
+  const {
+    marketStatistics: { priceStats }
+  } = React.useContext(MarketStatisticsContext);
+
+  const originalPrice = new BigNumber(priceStats?.[id]?.[fiat]).toNumber();
+  const decimals: number = CurrencyDecimal?.[fiat];
+  const flooredPrice =
+    Math.floor(originalPrice * Math.pow(10, decimals)) / Math.pow(10, decimals);
+  const zerosAfterInt = -Math.floor(Math.log(originalPrice) / Math.log(10) + 1);
+  const [, decimalString] = String(originalPrice).split(".");
+  const trailingDecimals = decimalString.substr(2, zerosAfterInt);
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        marginRight: "12px"
+      }}
+      key={symbol}
+    >
+      <img
+        src={`/cryptocurrencies/logo/${symbol}.png`}
+        width="16px"
+        title={name}
+        alt={`${name} cryptocurrency price change 24h`}
+        style={{ marginRight: "3px" }}
+      />
+      <span style={{ marginRight: "6px" }}>
+        {CurrencySymbol?.[fiat]}
+        {new BigNumber(flooredPrice).toFormat(CurrencyDecimal?.[fiat])}
+        {trailingDecimals ? (
+          <span style={{ fontSize: "10px" }}>{trailingDecimals}</span>
+        ) : null}
+      </span>
+      <StatisticsChange
+        value={priceStats?.[id]?.[`${fiat}_24h_change`]}
+        isPercent
+      />
+    </div>
   );
 };
 

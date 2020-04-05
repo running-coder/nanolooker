@@ -40,7 +40,7 @@ const CryptocurrencyPreferences: React.FC = () => {
         alt={name}
         width="16px"
         height="16px"
-        style={{ marginRight: "3px" }}
+        style={{ marginRight: "6px" }}
       />
       {name}
     </Option>
@@ -137,7 +137,7 @@ const CryptocurrencyPreferences: React.FC = () => {
                                 alt={name}
                                 width="16px"
                                 height="16px"
-                                style={{ marginRight: "3px" }}
+                                style={{ marginRight: "6px" }}
                               />
                               {name}
                             </span>

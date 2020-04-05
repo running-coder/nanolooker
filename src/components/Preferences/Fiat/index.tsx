@@ -26,7 +26,9 @@ const FiatPreferences: React.FC = () => {
         }}
       >
         {Object.entries(Fiat).map(([key, value]) => (
-          <Option value={value}>{key}</Option>
+          <Option value={value} key={key}>
+            {key}
+          </Option>
         ))}
       </Select>
     </>
