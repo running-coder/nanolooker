@@ -59,13 +59,18 @@ const CryptocurrencyPrice = ({
     marketStatistics: { priceStats }
   } = React.useContext(MarketStatisticsContext);
 
+  const fiatPrice = priceStats?.[id]?.[fiat];
+  if (!fiatPrice) return null;
+
   const originalPrice = new BigNumber(priceStats?.[id]?.[fiat]).toNumber();
   const decimals: number = CurrencyDecimal?.[fiat];
   const flooredPrice =
     Math.floor(originalPrice * Math.pow(10, decimals)) / Math.pow(10, decimals);
   const zerosAfterInt = -Math.floor(Math.log(originalPrice) / Math.log(10) + 1);
   const [, decimalString] = String(originalPrice).split(".");
-  const trailingDecimals = decimalString.substr(2, zerosAfterInt);
+  const trailingDecimals = zerosAfterInt
+    ? decimalString.substr(2, zerosAfterInt)
+    : null;
 
   return (
     <div
