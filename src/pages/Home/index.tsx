@@ -124,7 +124,7 @@ const HomePage = () => {
                     suffix={
                       marketCapRank24h ? (
                         <StatisticsChange
-                          value={marketCapRank24h - marketCapRank}
+                          value={marketCapRank - marketCapRank24h}
                           isNumber
                           isArrow
                         />

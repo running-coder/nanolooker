@@ -4,6 +4,7 @@ const MongoClient = require("mongodb").MongoClient;
 const {
   EXPIRE_1h,
   EXPIRE_24H,
+  EXPIRE_48H,
   MONGO_URL,
   MONGO_OPTIONS,
   MONGO_DB,
@@ -44,10 +45,11 @@ const getCoingeckoStats = async ({ fiat }) => {
           .find({
             $query: {
               createdAt: {
-                $lte: new Date(Date.now() - EXPIRE_24H * 1000)
+                $lte: new Date(Date.now() - EXPIRE_24H * 1000),
+                $gte: new Date(Date.now() - EXPIRE_48H * 1000)
               }
             },
-            $orderby: { createdAt: 1 }
+            $orderby: { value: 1 }
           })
           .toArray((_err, [{ value } = {}] = []) => {
             apiCache.set(MARKET_CAP_RANK_24H, value, EXPIRE_1h);
@@ -79,7 +81,6 @@ const getCoingeckoStats = async ({ fiat }) => {
 
         marketStats = {
           marketCapRank,
-          marketCapRank24h,
           marketCap,
           marketCapChangePercentage24h,
           volume24h,
@@ -117,7 +118,10 @@ const getCoingeckoStats = async ({ fiat }) => {
     getPriceStats
   ]);
 
-  return { marketCapRank24h, marketStats, priceStats };
+  return {
+    marketStats: Object.assign(marketStats, { marketCapRank24h }),
+    priceStats
+  };
 };
 
 module.exports = {
