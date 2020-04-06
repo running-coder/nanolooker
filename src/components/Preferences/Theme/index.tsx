@@ -12,7 +12,6 @@ const ThemePreference: React.FC = () => {
     <>
       <Text style={{ marginRight: "16px" }}>Enable dark mode</Text>
       <Switch
-        disabled
         checkedChildren={<CheckOutlined />}
         unCheckedChildren={<CloseOutlined />}
         onChange={(checked: boolean) => {

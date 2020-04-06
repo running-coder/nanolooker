@@ -5,15 +5,21 @@ const MIN_ACTION_TIME = 150;
 export enum Colors {
   CHANGE = "#722ed1",
   PENDING = "#1890ff",
+  SEND = "#e04576",
+  SEND_DARK = "#e04576",
   RECEIVE = "#52c41a",
-  SEND = "#f5222d"
+  RECEIVE_DARK = "#26e8a7"
 }
 
 export enum TwoToneColors {
   CHANGE = "purple",
+  CHANGE_DARK = "#722ed1",
   PENDING = "blue",
+  PENDING_DARK = "#1890ff",
   SEND = "red",
-  RECEIVE = "green"
+  SEND_DARK = "#e04576",
+  RECEIVE = "green",
+  RECEIVE_DARK = "#26e8a7"
 }
 
 // @TODO: map subtype to color?

@@ -20,7 +20,7 @@ const BlockHeader = () => {
           wordWrap: "break-word",
           position: "relative"
         }}
-        className="clearfix"
+        className="color-normal clearfix"
       >
         <BlockOutlined
           style={{
@@ -56,11 +56,11 @@ const BlockHeader = () => {
               disabled={isCopied}
               style={{
                 marginRight: "6px",
-                borderColor: isCopied ? Colors.RECEIVE : undefined
+                borderColor: isCopied ? (Colors.RECEIVE as string) : undefined
               }}
             >
               {isCopied ? (
-                <CheckOutlined style={{ color: Colors.RECEIVE }} />
+                <CheckOutlined style={{ color: Colors.RECEIVE as string }} />
               ) : (
                 <CopyOutlined />
               )}

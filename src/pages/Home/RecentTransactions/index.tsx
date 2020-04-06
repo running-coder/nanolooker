@@ -15,10 +15,12 @@ import { Colors, TwoToneColors } from "components/utils";
 import useSockets from "api/hooks/use-socket";
 import { rawToRai } from "components/utils";
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
+import { Theme, PreferencesContext } from "api/contexts/Preferences";
 
 const { Text } = Typography;
 
 const RecentTransactions = () => {
+  const { theme } = React.useContext(PreferencesContext);
   const {
     recentTransactions,
     isConnected,
@@ -73,7 +75,13 @@ const RecentTransactions = () => {
       <div style={{ margin: "1em 0" }}>
         {isDisabled ? (
           <div style={{ textAlign: "center" }}>
-            <CloseCircleTwoTone twoToneColor={TwoToneColors.SEND} />
+            <CloseCircleTwoTone
+              twoToneColor={
+                theme === Theme.DARK
+                  ? TwoToneColors.SEND_DARK
+                  : TwoToneColors.SEND
+              }
+            />
             <Text style={{ marginLeft: "8px" }}>Live updates disabled</Text>
           </div>
         ) : null}

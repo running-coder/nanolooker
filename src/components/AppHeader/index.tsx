@@ -18,7 +18,6 @@ const AppHeader: React.FC = () => (
     <Header
       style={{
         position: "relative",
-        backgroundColor: "white",
         padding: "0 20px",
         width: "100%",
         height: "auto"
@@ -90,12 +89,11 @@ const AppHeader: React.FC = () => (
       </Row>
     </Header>
     <div
+      className="sub-header"
       style={{
         display: "flex",
         justifyContent: "space-between",
-        background: "#fff",
-        padding: "3px 20px",
-        borderTop: "solid 1px #f0f0f0"
+        padding: "3px 20px"
       }}
     >
       <div
@@ -112,17 +110,7 @@ const AppHeader: React.FC = () => (
       </div>
       <div>
         <Preferences />
-        {/* <Switch
-            checkedChildren={<BulbOutlined />}
-            unCheckedChildren={<CloseOutlined />}
-            onChange={(checked: boolean) => {
-              setIsDarkTheme(!checked);
-            }}
-            defaultChecked
-          /> */}
       </div>
-      {/* // */}
-      {/* <BulbOutlined />  */}
     </div>
   </>
 );

@@ -7,6 +7,7 @@ import {
   RiseOutlined
 } from "@ant-design/icons";
 import { Colors } from "components/utils";
+import { Theme, PreferencesContext } from "api/contexts/Preferences";
 
 interface StatisticsChangeProps {
   value: number;
@@ -21,8 +22,16 @@ const StatisticsChange: React.FC<StatisticsChangeProps> = ({
   isNumber,
   isArrow
 }) => {
-  const color =
-    value === 0 ? Colors.PENDING : value < 0 ? Colors.SEND : Colors.RECEIVE;
+  const { theme } = React.useContext(PreferencesContext);
+  const color = (value === 0
+    ? Colors.PENDING
+    : value < 0
+    ? theme === Theme.DARK
+      ? Colors.SEND_DARK
+      : Colors.SEND
+    : theme === Theme.DARK
+    ? Colors.RECEIVE_DARK
+    : Colors.RECEIVE) as string;
 
   const styles = {
     color,

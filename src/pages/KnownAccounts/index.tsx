@@ -13,9 +13,7 @@ const KnownAccountsPage = () => {
 
   return (
     <>
-      <Title level={3} style={{ marginTop: "0.5em" }}>
-        {knownAccounts.length} Total Known Accounts
-      </Title>
+      <Title level={3}>{knownAccounts.length} Total Known Accounts</Title>
       <Table
         size="small"
         pagination={false}

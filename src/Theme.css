@@ -1,0 +1,126 @@
+.theme-light *,
+.theme-dark * {
+  transition: background-color 0s !important;
+}
+
+.theme-light .ant-layout-header {
+  background: #fff;
+}
+
+.theme-light .sub-header {
+  background: #fff;
+  border-top: solid 1px #f0f0f0;
+}
+
+.theme-dark .sub-header {
+  color: #e1e1e1;
+  background: #1e1e1e;
+  border-color: #1e1e1e;
+}
+
+.theme-dark .ant-typography {
+  color: #e1e1e1;
+}
+
+.ant-menu {
+  background: transparent !important;
+}
+
+.ant-menu-light {
+  background: #fff;
+}
+
+.theme-dark .ant-layout-header {
+  background: #121212;
+}
+
+.theme-dark .ant-menu {
+  color: #e1e1e1;
+  background: #1e1e1e;
+}
+
+.theme-dark .ant-input {
+  background-color: transparent !important;
+}
+
+.theme-dark .ant-input-suffix svg {
+  color: #e1e1e1;
+}
+
+.theme-dark .ant-input-search {
+  background-color: #1e1e1e;
+  border-color: #1e1e1e;
+}
+
+.theme-dark.ant-layout {
+  background-color: #121212;
+}
+
+.theme-dark .ant-card {
+  background: #1e1e1e;
+}
+
+.theme-dark .ant-card-head {
+  color: #e1e1e1;
+  border-color: #1e1e1e;
+}
+
+.theme-dark .ant-card-extra {
+  color: #e1e1e1;
+}
+
+.theme-dark .ant-card.ant-card-bordered {
+  border-color: #1e1e1e;
+}
+
+.theme-dark .ant-statistic-title {
+  color: #a5a5a5;
+}
+
+.theme-dark .ant-statistic-content {
+  color: #e1e1e1;
+}
+
+.theme-dark .color-normal {
+  color: #e1e1e1 !important;
+}
+
+.theme-dark .ant-layout-footer {
+  background: #121212;
+  color: #e1e1e1;
+}
+
+.theme-dark .ant-timeline-item-tail {
+  border-color: gray !important;
+}
+
+.theme-dark .ant-card-body {
+  color: #e1e1e1 !important;
+}
+
+.theme-dark .ant-skeleton.ant-skeleton-active {
+  opacity: 0.25;
+}
+
+.theme-dark .ant-descriptions {
+  color: #e1e1e1;
+}
+
+.theme-dark .ant-descriptions-bordered .ant-descriptions-item-label {
+  color: #e1e1e1;
+  background: #1e1e1e;
+  border-color: #1e1e1e;
+}
+
+.theme-dark .ant-descriptions-item-content {
+  color: #e1e1e1;
+}
+
+.theme-dark .ant-descriptions-bordered .ant-descriptions-view {
+  border-color: #1e1e1e;
+}
+
+.theme-dark .ant-descriptions-bordered .ant-descriptions-row {
+  border-color: #1e1e1e;
+}
+/* .theme-dark .ant-descriptions-bordered .ant-descriptions-row  */

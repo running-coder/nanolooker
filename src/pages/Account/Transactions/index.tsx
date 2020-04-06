@@ -6,6 +6,7 @@ import BigNumber from "bignumber.js";
 import { rawToRai } from "components/utils";
 import { Colors, TwoToneColors } from "components/utils";
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
+import { Theme, PreferencesContext } from "api/contexts/Preferences";
 
 const { Text } = Typography;
 
@@ -42,6 +43,7 @@ const TransactionsTable = ({
   setCurrentPage,
   setCurrentHead
 }: TransactionsTableProps) => {
+  const { theme } = React.useContext(PreferencesContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
 
   return (
@@ -77,8 +79,14 @@ const TransactionsTable = ({
             dataIndex: "subtype",
             render: (text: string, { type }) => (
               <Tag
-                // @ts-ignore
-                color={TwoToneColors[(text || type).toUpperCase()]}
+                color={
+                  // @ts-ignore
+                  TwoToneColors[
+                    `${(text || type).toUpperCase()}${
+                      theme === Theme.DARK ? "_DARK" : ""
+                    }`
+                  ]
+                }
                 style={{ textTransform: "capitalize" }}
               >
                 {text || type}

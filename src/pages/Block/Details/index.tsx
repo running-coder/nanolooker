@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Card, Descriptions, Skeleton, Tag, Typography } from "antd";
 import BigNumber from "bignumber.js";
 import {
+  Theme,
   PreferencesContext,
   CurrencySymbol,
   CurrencyDecimal
@@ -22,7 +23,7 @@ import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 const { Title } = Typography;
 
 const BlockDetails = () => {
-  const { fiat } = React.useContext(PreferencesContext);
+  const { theme, fiat } = React.useContext(PreferencesContext);
   const {
     marketStatistics: {
       currentPrice,
@@ -119,8 +120,14 @@ const BlockDetails = () => {
         <Descriptions bordered column={1} size="small">
           <Descriptions.Item label="Block subtype">
             <Tag
-              // @ts-ignore
-              color={TwoToneColors[(subtype || type).toUpperCase()]}
+              color={
+                // @ts-ignore
+                TwoToneColors[
+                  `${(subtype || type).toUpperCase()}${
+                    theme === Theme.DARK ? "_DARK" : ""
+                  }`
+                ]
+              }
               className="timeline-tag"
             >
               {subtype || type}
