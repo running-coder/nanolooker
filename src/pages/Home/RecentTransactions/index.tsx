@@ -5,9 +5,11 @@ import {
   CheckOutlined,
   CloseOutlined,
   SettingOutlined,
+  CloseCircleFilled,
   CloseCircleTwoTone,
-  SyncOutlined
+  SyncOutlined,
 } from "@ant-design/icons";
+
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import TimeAgo from "timeago-react";
 import BigNumber from "bignumber.js";
@@ -26,7 +28,7 @@ const RecentTransactions = () => {
     isConnected,
     setIsMinAmount,
     isDisabled,
-    setIsDisabled
+    setIsDisabled,
   } = useSockets();
   const { knownAccounts } = React.useContext(KnownAccountsContext);
   const isMediumAndLower = !useMediaQuery("(min-width: 768px)");
@@ -75,13 +77,11 @@ const RecentTransactions = () => {
       <div style={{ margin: "1em 0" }}>
         {isDisabled ? (
           <div style={{ textAlign: "center" }}>
-            <CloseCircleTwoTone
-              twoToneColor={
-                theme === Theme.DARK
-                  ? TwoToneColors.SEND_DARK
-                  : TwoToneColors.SEND
-              }
-            />
+            {theme === Theme.DARK ? (
+              <CloseCircleFilled style={{ color: TwoToneColors.SEND_DARK }} />
+            ) : (
+              <CloseCircleTwoTone twoToneColor={TwoToneColors.SEND} />
+            )}
             <Text style={{ marginLeft: "8px" }}>Live updates disabled</Text>
           </div>
         ) : null}
@@ -108,8 +108,13 @@ const RecentTransactions = () => {
           >
             {recentTransactions.map(
               ({ account, amount, hash, timestamp, block: { subtype } }) => {
-                // @ts-ignore
-                const color = Colors[subtype.toUpperCase()];
+                const color =
+                  // @ts-ignore
+                  Colors[
+                    `${subtype.toUpperCase()}${
+                      theme === Theme.DARK ? "_DARK" : ""
+                    }`
+                  ];
                 const alias = knownAccounts.find(
                   ({ account: knownAccount }) => knownAccount === account
                 )?.alias;
@@ -124,8 +129,14 @@ const RecentTransactions = () => {
                   >
                     <div className="first-row">
                       <Tag
-                        // @ts-ignore
-                        color={TwoToneColors[subtype.toUpperCase()]}
+                        color={
+                          // @ts-ignore
+                          TwoToneColors[
+                            `${subtype.toUpperCase()}${
+                              theme === Theme.DARK ? "_DARK" : ""
+                            }`
+                          ]
+                        }
                         className="timeline-tag"
                       >
                         {subtype}
@@ -144,12 +155,12 @@ const RecentTransactions = () => {
                         live={true}
                         className="timeline-timeago color-muted"
                         style={{
-                          marginLeft: subtype === "change" ? "6px" : 0
+                          marginLeft: subtype === "change" ? "6px" : 0,
                         }}
                       />
                     </div>
                     {alias ? (
-                      <div style={{ fontWeight: "bold" }}>{alias}</div>
+                      <div className="color-important">{alias}</div>
                     ) : null}
                     <Link to={`/account/${account}`} className="color-normal">
                       {account}

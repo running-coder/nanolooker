@@ -9,7 +9,7 @@ import {
   Skeleton,
   Table,
   Tooltip,
-  Typography
+  Typography,
 } from "antd";
 import { QuestionCircleTwoTone } from "@ant-design/icons";
 import BigNumber from "bignumber.js";
@@ -24,11 +24,11 @@ const { Title } = Typography;
 const Representatives = () => {
   const {
     representatives,
-    isLoading: isRepresentativesLoading
+    isLoading: isRepresentativesLoading,
   } = React.useContext(RepresentativesContext);
   const {
     representatives: representativesOnline,
-    isLoading: isRepresentativesOnlineLoading
+    isLoading: isRepresentativesOnlineLoading,
   } = React.useContext(RepresentativesOnlineContext);
 
   const {
@@ -38,9 +38,9 @@ const Representatives = () => {
       online_stake_total: onlineStakeTotal = 0,
       peers_stake_total: peersStakeTotal = 0,
       // peers_stake_required: peersStakeRequired,
-      principal_representative_min_weight: principalRepresentativeMinWeight = 0
+      principal_representative_min_weight: principalRepresentativeMinWeight = 0,
     },
-    isLoading: isConfirmationQuorumLoading
+    isLoading: isConfirmationQuorumLoading,
   } = React.useContext(ConfirmationQuorumContext);
 
   const { knownAccounts } = React.useContext(KnownAccountsContext);
@@ -54,19 +54,19 @@ const Representatives = () => {
   const confirmationQuorumSkeletonProps = {
     active: true,
     paragraph: false,
-    loading: isConfirmationQuorumLoading
+    loading: isConfirmationQuorumLoading,
   };
 
   const representativesSkeletonProps = {
     active: true,
     paragraph: false,
-    loading: isRepresentativesLoading
+    loading: isRepresentativesLoading,
   };
 
   const representativesOnlineSkeletonProps = {
     active: true,
     paragraph: false,
-    loading: isRepresentativesOnlineLoading
+    loading: isRepresentativesOnlineLoading,
   };
 
   return (
@@ -180,7 +180,7 @@ const Representatives = () => {
           isConfirmationQuorumLoading
         }
         pagination={false}
-        rowKey={record => record.account}
+        rowKey={(record) => record.account}
         columns={[
           {
             title: "Weight",
@@ -188,9 +188,11 @@ const Representatives = () => {
             defaultSortOrder: "descend",
             sorter: {
               compare: (a, b) => a.weight - b.weight,
-              multiple: 3
+              multiple: 3,
             },
-            render: (text: string) => <>{new BigNumber(text).toFormat()} NANO</>
+            render: (text: string) => (
+              <>{new BigNumber(text).toFormat()} NANO</>
+            ),
           },
           {
             title: "Account",
@@ -208,7 +210,12 @@ const Representatives = () => {
                     }
                   />
                   {alias ? (
-                    <strong style={{ marginRight: "6px" }}>{alias}</strong>
+                    <span
+                      className="color-important"
+                      style={{ marginRight: "6px" }}
+                    >
+                      {alias}
+                    </span>
                   ) : null}
                   <Link
                     to={`/account/${text}`}
@@ -218,8 +225,8 @@ const Representatives = () => {
                   </Link>
                 </>
               );
-            }
-          }
+            },
+          },
         ]}
         dataSource={principalRepresentatives}
       />

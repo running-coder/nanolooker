@@ -4,7 +4,7 @@ import BigNumber from "bignumber.js";
 import {
   PreferencesContext,
   CurrencySymbol,
-  CurrencyDecimal
+  CurrencyDecimal,
 } from "api/contexts/Preferences";
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 import StatisticsChange from "components/StatisticsChange";
@@ -17,7 +17,7 @@ const Price = () => {
   const skeletonProps = {
     active: true,
     paragraph: false,
-    loading: isInitialLoading
+    loading: isInitialLoading,
   };
 
   return (
@@ -29,7 +29,7 @@ const Price = () => {
           ) as CryptocurrencyPriceProps)}
         />
 
-        {cryptocurrency.map(symbol => {
+        {cryptocurrency.map((symbol) => {
           const crypto = SupportedCryptocurrency.find(
             ({ symbol: supportedSymbol }) => supportedSymbol === symbol
           );
@@ -52,11 +52,11 @@ interface CryptocurrencyPriceProps {
 const CryptocurrencyPrice = ({
   id,
   symbol,
-  name
+  name,
 }: CryptocurrencyPriceProps) => {
   const { fiat } = React.useContext(PreferencesContext);
   const {
-    marketStatistics: { priceStats }
+    marketStatistics: { priceStats },
   } = React.useContext(MarketStatisticsContext);
 
   const fiatPrice = priceStats?.[id]?.[fiat];
@@ -67,7 +67,7 @@ const CryptocurrencyPrice = ({
   const flooredPrice =
     Math.floor(originalPrice * Math.pow(10, decimals)) / Math.pow(10, decimals);
   const zerosAfterInt = -Math.floor(Math.log(originalPrice) / Math.log(10) + 1);
-  const [, decimalString] = String(originalPrice).split(".");
+  const [, decimalString = ""] = String(originalPrice).split(".");
   const trailingDecimals = zerosAfterInt
     ? decimalString.substr(2, zerosAfterInt)
     : null;
@@ -77,7 +77,7 @@ const CryptocurrencyPrice = ({
       style={{
         display: "flex",
         alignItems: "center",
-        marginRight: "12px"
+        marginRight: "12px",
       }}
       key={symbol}
     >

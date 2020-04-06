@@ -3,6 +3,10 @@
   transition: background-color 0s !important;
 }
 
+.theme-dark .color-important {
+  color: #fff !important;
+}
+
 .theme-light .ant-layout-header {
   background: #fff;
 }

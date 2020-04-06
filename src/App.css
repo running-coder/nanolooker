@@ -32,6 +32,10 @@
   padding-right: 16px !important;
 }
 
+.color-important {
+  font-weight: bold;
+}
+
 .color-normal {
   color: inherit !important;
 }
@@ -171,6 +175,10 @@ a:hover {
   .ant-timeline .timeline-amount {
     order: 2;
   }
+}
+
+.ant-timeline-item-head {
+  background-color: transparent !important;
 }
 
 .ant-timeline .timeline-tag {

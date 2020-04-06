@@ -41,7 +41,7 @@ const TransactionsTable = ({
   currentPage,
   totalPages,
   setCurrentPage,
-  setCurrentHead
+  setCurrentHead,
 }: TransactionsTableProps) => {
   const { theme } = React.useContext(PreferencesContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
@@ -60,7 +60,7 @@ const TransactionsTable = ({
                 disabled: false,
                 onChange: (page: number) => {
                   setCurrentPage?.(page);
-                }
+                },
               }
             : false
         }
@@ -72,7 +72,7 @@ const TransactionsTable = ({
               )
             : undefined
         }
-        rowKey={record => record.hash}
+        rowKey={(record) => record.hash}
         columns={[
           {
             title: "Type",
@@ -91,7 +91,7 @@ const TransactionsTable = ({
               >
                 {text || type}
               </Tag>
-            )
+            ),
           },
           {
             title: "Account / Block",
@@ -104,9 +104,7 @@ const TransactionsTable = ({
               return (
                 <div style={{ paddingBottom: "20px" }}>
                   {knownAccount ? (
-                    <div style={{ fontWeight: "bold" }}>
-                      {knownAccount.alias}
-                    </div>
+                    <div className="color-important">{knownAccount.alias}</div>
                   ) : null}
                   <Link
                     to={`/account/${text || representative}`}
@@ -123,7 +121,7 @@ const TransactionsTable = ({
                   </Link>
                 </div>
               );
-            }
+            },
           },
           {
             title: "Amount",
@@ -143,7 +141,7 @@ const TransactionsTable = ({
                     : ""}
                 </Text>
               );
-            }
+            },
           },
           {
             title: "Date",
@@ -164,8 +162,8 @@ const TransactionsTable = ({
               ) : (
                 "Unknown"
               );
-            }
-          }
+            },
+          },
         ]}
         dataSource={data || undefined}
       />
