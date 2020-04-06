@@ -1,36 +1,28 @@
 import React from "react";
-import { Button, Tooltip, Typography } from "antd";
-import {
-  WalletOutlined,
-  CheckOutlined,
-  CopyOutlined,
-  QrcodeOutlined
-} from "@ant-design/icons";
+import { Button, Typography } from "antd";
+import { WalletOutlined, QrcodeOutlined } from "@ant-design/icons";
 import find from "lodash/find";
 import { useParams } from "react-router-dom";
-import CopyToClipboard from "react-copy-to-clipboard";
+import Copy from "components/Copy";
 import QRCodeModal from "components/QRCodeModal";
 import { RepresentativesContext } from "api/contexts/Representatives";
 import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
 import { KnownAccountsContext, KnownAccount } from "api/contexts/KnownAccounts";
-import { Colors } from "components/utils";
 
 const { Title } = Typography;
-let copiedTimeout: number | undefined;
 
 const AccountHeader = () => {
   const { account = "" } = useParams();
-  const [isCopied, setIsCopied] = React.useState<boolean>(false);
   const [knownAccount, setKnownAccount] = React.useState<KnownAccount>();
   const [representativeAccount, setRepresentativeAccount] = React.useState(
     {} as any
   );
   const {
     representatives,
-    isLoading: isRepresentativesLoading
+    isLoading: isRepresentativesLoading,
   } = React.useContext(RepresentativesContext);
   const {
-    confirmationQuorum: { principal_representative_min_weight: minWeight }
+    confirmationQuorum: { principal_representative_min_weight: minWeight },
   } = React.useContext(ConfirmationQuorumContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
 
@@ -69,21 +61,22 @@ const AccountHeader = () => {
           {knownAccount.alias}
         </Title>
       ) : null}
-      <p
+      <div
         style={{
+          display: "flex",
+          alignItems: "center",
           fontSize: "16px",
           marginRight: "6px",
           wordWrap: "break-word",
-          position: "relative"
+          position: "relative",
+          marginBottom: "12px",
         }}
-        className="color-normal clearfix"
+        className="color-normal"
       >
         <WalletOutlined
           style={{
             fontSize: "18px",
-            marginTop: "4px",
             marginRight: "6px",
-            float: "left"
           }}
         />
         <span style={{ marginRight: "6px" }}>
@@ -94,38 +87,7 @@ const AccountHeader = () => {
           <span>{account.substr(-53, 46)}</span>
           <span style={{ color: "#1890ff" }}>{account.substr(-7)}</span>
         </span>
-        <Tooltip
-          title={isCopied ? "Copied!" : "Copy"}
-          overlayClassName="tooltip-sm"
-        >
-          <CopyToClipboard
-            text={account}
-            onCopy={() => {
-              setIsCopied(true);
-              clearTimeout(copiedTimeout);
-              copiedTimeout = window.setTimeout(() => {
-                setIsCopied(false);
-              }, 2000);
-            }}
-          >
-            <Button
-              shape="circle"
-              size="small"
-              disabled={isCopied}
-              style={{
-                marginRight: "6px",
-                borderColor: isCopied ? (Colors.RECEIVE as string) : undefined
-              }}
-            >
-              {isCopied ? (
-                <CheckOutlined style={{ color: Colors.RECEIVE as string }} />
-              ) : (
-                <CopyOutlined />
-              )}
-            </Button>
-          </CopyToClipboard>
-        </Tooltip>
-        {/* <Tooltip title="QR code" overlayClassName="tooltip-sm"> */}
+        <Copy text={account} />
         <QRCodeModal text={account}>
           <Button
             shape="circle"
@@ -134,8 +96,7 @@ const AccountHeader = () => {
             style={{ marginRight: "6px" }}
           />
         </QRCodeModal>
-        {/* </Tooltip> */}
-      </p>
+      </div>
     </>
   );
 };

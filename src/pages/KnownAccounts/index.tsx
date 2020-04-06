@@ -18,7 +18,7 @@ const KnownAccountsPage = () => {
         size="small"
         pagination={false}
         loading={isLoading}
-        rowKey={record => record.account}
+        rowKey={(record) => record.account}
         columns={[
           {
             title: "Balance",
@@ -27,9 +27,11 @@ const KnownAccountsPage = () => {
             defaultSortOrder: "descend",
             // @ts-ignore
             sorter: {
-              compare: (a, b) => a.balance - b.balance
+              compare: (a, b) => a.balance - b.balance,
             },
-            render: (text: string) => <>{new BigNumber(text).toFormat()} NANO</>
+            render: (text: string) => (
+              <>{new BigNumber(text).toFormat()} NANO</>
+            ),
           },
           {
             title: "Alias",
@@ -38,7 +40,7 @@ const KnownAccountsPage = () => {
               setSelectedKeys,
               selectedKeys,
               confirm,
-              clearFilters
+              clearFilters,
             }) => (
               <div style={{ padding: 8 }}>
                 <Input
@@ -74,7 +76,7 @@ const KnownAccountsPage = () => {
                 </Button>
               </div>
             ),
-            filterIcon: filtered => (
+            filterIcon: (filtered) => (
               <SearchOutlined
                 style={{ color: filtered ? "#1890ff" : undefined }}
               />
@@ -84,7 +86,7 @@ const KnownAccountsPage = () => {
                 .toString()
                 .toLowerCase()
                 .includes(value.toLowerCase()),
-            onFilterDropdownVisibleChange: visible => {
+            onFilterDropdownVisibleChange: (visible) => {
               if (visible) {
                 setTimeout(() => inputRef?.current?.select());
               }
@@ -102,9 +104,11 @@ const KnownAccountsPage = () => {
                   return 1;
                 }
                 return 0;
-              }
+              },
             },
-            render: (text: string) => <span className="break-word">{text}</span>
+            render: (text: string) => (
+              <span className="color-important break-word">{text}</span>
+            ),
           },
           {
             title: "Account",
@@ -118,8 +122,8 @@ const KnownAccountsPage = () => {
                   {text}
                 </Link>
               </>
-            )
-          }
+            ),
+          },
         ]}
         dataSource={knownAccounts}
       />

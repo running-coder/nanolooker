@@ -11,17 +11,19 @@ import {
   Tooltip,
   Typography,
 } from "antd";
-import { QuestionCircleTwoTone } from "@ant-design/icons";
 import BigNumber from "bignumber.js";
+import { Theme, PreferencesContext } from "api/contexts/Preferences";
 import { RepresentativesContext } from "api/contexts/Representatives";
 import { RepresentativesOnlineContext } from "api/contexts/RepresentativesOnline";
 import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
-import { rawToRai } from "components/utils";
+import QuestionCircle from "components/QuestionCircle";
+import { rawToRai, Colors } from "components/utils";
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 
 const { Title } = Typography;
 
 const Representatives = () => {
+  const { theme } = React.useContext(PreferencesContext);
   const {
     representatives,
     isLoading: isRepresentativesLoading,
@@ -79,13 +81,15 @@ const Representatives = () => {
               <Descriptions.Item
                 label={
                   <>
-                    Total Representatives
+                    <span style={{ marginRight: "6px" }}>
+                      Total Representatives
+                    </span>
                     <Tooltip
                       placement="right"
                       title={`To optimize performances, only accounts with voting weight >= 1000 NANO are considered but normally any account with > 0 voting weight, but < 0.1% of the online voting weight.`}
                       overlayClassName="tooltip-sm"
                     >
-                      <QuestionCircleTwoTone style={{ marginLeft: "6px" }} />
+                      <QuestionCircle />
                     </Tooltip>
                   </>
                 }
@@ -98,13 +102,15 @@ const Representatives = () => {
               <Descriptions.Item
                 label={
                   <>
-                    Total Principal Representatives
+                    <span style={{ marginRight: "6px" }}>
+                      Total Principal Representatives
+                    </span>
                     <Tooltip
                       placement="right"
                       title={`An account with a minimum of ${principalRepresentativeMinWeight} NANO or >= 0.1% of the online voting weight delegated to it is required to get the Principal Representative status. When configured on a node which is voting, the votes it produces will be rebroadcasted by other nodes to who receive them, helping the network reach consensus more quickly.`}
                       overlayClassName="tooltip-sm"
                     >
-                      <QuestionCircleTwoTone style={{ marginLeft: "6px" }} />
+                      <QuestionCircle />
                     </Tooltip>
                   </>
                 }
@@ -116,13 +122,15 @@ const Representatives = () => {
               <Descriptions.Item
                 label={
                   <>
-                    Online Representatives
+                    <span style={{ marginRight: "6px" }}>
+                      Online Representatives
+                    </span>
                     <Tooltip
                       placement="right"
                       title={`Online representative accounts that have voted recently.`}
                       overlayClassName="tooltip-sm"
                     >
-                      <QuestionCircleTwoTone style={{ marginLeft: "6px" }} />
+                      <QuestionCircle />
                     </Tooltip>
                   </>
                 }
@@ -202,11 +210,16 @@ const Representatives = () => {
                 ({ account: knownAccount }) => knownAccount === text
               )?.alias;
               return (
-                <>
+                <div style={{ display: "flex" }}>
                   <Badge
-                    style={{ float: "left" }}
-                    status={
-                      representativesOnline.includes(text) ? "success" : "error"
+                    color={
+                      representativesOnline.includes(text)
+                        ? theme === Theme.DARK
+                          ? Colors.RECEIVE_DARK
+                          : Colors.RECEIVE
+                        : theme === Theme.DARK
+                        ? Colors.SEND_DARK
+                        : Colors.SEND
                     }
                   />
                   {alias ? (
@@ -223,7 +236,7 @@ const Representatives = () => {
                   >
                     {text}
                   </Link>
-                </>
+                </div>
               );
             },
           },

@@ -67,8 +67,13 @@ const TransactionsTable = ({
         footer={
           showPaginate && !isPaginated && setCurrentHead
             ? () => (
-                // @ts-ignore
-                <Button onClick={setCurrentHead}>Load more transactions</Button>
+                <Button
+                  // @ts-ignore
+                  onClick={setCurrentHead}
+                  type={theme === Theme.DARK ? "primary" : "default"}
+                >
+                  Load more transactions
+                </Button>
               )
             : undefined
         }
@@ -128,8 +133,14 @@ const TransactionsTable = ({
             dataIndex: "amount",
             render: (text: string, { subtype: recordSubtype, type }) => {
               const subtype = recordSubtype || type;
-              // @ts-ignore
-              const color = Colors[subtype.toUpperCase()];
+
+              const color =
+                // @ts-ignore
+                Colors[
+                  `${subtype.toUpperCase()}${
+                    theme === Theme.DARK ? "_DARK" : ""
+                  }`
+                ];
 
               return (
                 <Text style={{ color }}>

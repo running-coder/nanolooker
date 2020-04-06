@@ -1,21 +1,22 @@
 import React, { ReactElement } from "react";
 import { Link } from "react-router-dom";
 import { Badge, Card, Col, Descriptions, Row, Skeleton, Tooltip } from "antd";
-import { QuestionCircleTwoTone } from "@ant-design/icons";
 import find from "lodash/find";
 import BigNumber from "bignumber.js";
 import TimeAgo from "timeago-react";
 import {
+  Theme,
   PreferencesContext,
   CurrencySymbol,
-  CurrencyDecimal
+  CurrencyDecimal,
 } from "api/contexts/Preferences";
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 import { AccountInfoContext } from "api/contexts/AccountInfo";
 import { RepresentativesOnlineContext } from "api/contexts/RepresentativesOnline";
-import { rawToRai, timestampToDate } from "components/utils";
 import { RepresentativesContext } from "api/contexts/Representatives";
 import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
+import QuestionCircle from "components/QuestionCircle";
+import { rawToRai, timestampToDate, Colors } from "components/utils";
 
 interface AccountDetailsLayoutProps {
   bordered?: boolean;
@@ -24,7 +25,7 @@ interface AccountDetailsLayoutProps {
 
 export const AccountDetailsLayout = ({
   bordered,
-  children
+  children,
 }: AccountDetailsLayoutProps) => (
   <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]}>
     <Col xs={24} sm={24} md={12} lg={12} xl={12}>
@@ -36,7 +37,7 @@ export const AccountDetailsLayout = ({
 );
 
 const AccountDetails = () => {
-  const { fiat } = React.useContext(PreferencesContext);
+  const { theme, fiat } = React.useContext(PreferencesContext);
   const [representativeAccount, setRepresentativeAccount] = React.useState(
     {} as any
   );
@@ -44,19 +45,19 @@ const AccountDetails = () => {
     marketStatistics: {
       currentPrice,
       priceStats: { bitcoin: { [fiat]: btcCurrentPrice = 0 } } = {
-        bitcoin: { [fiat]: 0 }
-      }
+        bitcoin: { [fiat]: 0 },
+      },
     },
-    isInitialLoading: isMarketStatisticsInitialLoading
+    isInitialLoading: isMarketStatisticsInitialLoading,
   } = React.useContext(MarketStatisticsContext);
   const {
     account,
     accountInfo,
-    isLoading: isAccountInfoLoading
+    isLoading: isAccountInfoLoading,
   } = React.useContext(AccountInfoContext);
   const {
     representatives,
-    isLoading: isRepresentativesLoading
+    isLoading: isRepresentativesLoading,
   } = React.useContext(RepresentativesContext);
   const { confirmationQuorum } = React.useContext(ConfirmationQuorumContext);
   const { representatives: representativesOnline } = React.useContext(
@@ -78,7 +79,7 @@ const AccountDetails = () => {
   const skeletonProps = {
     active: true,
     paragraph: false,
-    loading: isAccountInfoLoading || isMarketStatisticsInitialLoading
+    loading: isAccountInfoLoading || isMarketStatisticsInitialLoading,
   };
 
   React.useEffect(() => {
@@ -106,14 +107,14 @@ const AccountDetails = () => {
           <Descriptions.Item
             label={
               <>
-                Voting weight
+                <span style={{ marginRight: "6px" }}>Voting weight</span>
                 <Tooltip
                   placement="right"
                   title={`An account with a minimum of ${minWeight} NANO or >= 0.1% of the online voting weight delegated to it is required to get the Principal Representative status. When configured on a node which is voting, the votes it produces will be rebroadcasted by other nodes to who receive them, helping the network reach consensus more quickly.`}
                   overlayClassName="tooltip-sm"
                   style={{ marginLeft: "6px" }}
                 >
-                  <QuestionCircleTwoTone />
+                  <QuestionCircle />
                 </Tooltip>
               </>
             }
@@ -133,15 +134,18 @@ const AccountDetails = () => {
         <Descriptions.Item label="Representative">
           <Skeleton {...skeletonProps}>
             {accountInfo?.representative ? (
-              <div className="clearfix">
+              <div style={{ display: "flex" }}>
                 <Badge
-                  style={{ float: "left" }}
-                  status={
+                  color={
                     representativesOnline.includes(
                       accountInfo?.representative || ""
                     )
-                      ? "success"
-                      : "error"
+                      ? theme === Theme.DARK
+                        ? Colors.RECEIVE_DARK
+                        : Colors.RECEIVE
+                      : theme === Theme.DARK
+                      ? Colors.SEND_DARK
+                      : Colors.SEND
                   }
                 />
                 <Link
@@ -167,7 +171,7 @@ const AccountDetails = () => {
                 }
                 overlayClassName="tooltip-sm"
               >
-                <QuestionCircleTwoTone />
+                <QuestionCircle />
               </Tooltip>
             </>
           }

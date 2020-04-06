@@ -8,27 +8,27 @@ import {
   Skeleton,
   Table,
   Tooltip,
-  Typography
+  Typography,
 } from "antd";
-import { QuestionCircleTwoTone } from "@ant-design/icons";
 import TimeAgo from "timeago-react";
 import BigNumber from "bignumber.js";
 import {
   PreferencesContext,
   CurrencySymbol,
-  CurrencyDecimal
+  CurrencyDecimal,
 } from "api/contexts/Preferences";
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 import useAccountsBalances from "api/hooks/use-accounts-balances";
 import useAvailableSupply from "api/hooks/use-available-supply";
 import useDeveloperAccountFund from "api/hooks/use-developer-fund-transactions";
+import QuestionCircle from "components/QuestionCircle";
 import { rawToRai, timestampToDate } from "components/utils";
 import {
   GENESIS_ACCOUNT,
   DEVELOPER_FUND_ACCOUNTS,
   ORIGINAL_DEVELOPER_FUND_BLOCK,
   ORIGINAL_DEVELOPER_FUND_BURN_BLOCK,
-  ORIGINAL_DEVELOPER_FUND_ACCOUNT
+  ORIGINAL_DEVELOPER_FUND_ACCOUNT,
 } from "./developerFundAccounts.json";
 
 const DEVELOPER_FUND_CHANGE_LINK =
@@ -45,17 +45,17 @@ const DeveloperFund = () => {
     marketStatistics: {
       currentPrice,
       priceStats: { bitcoin: { [fiat]: btcCurrentPrice = 0 } } = {
-        bitcoin: { [fiat]: 0 }
-      }
+        bitcoin: { [fiat]: 0 },
+      },
     },
-    isInitialLoading: isMarketStatisticsInitialLoading
+    isInitialLoading: isMarketStatisticsInitialLoading,
   } = React.useContext(MarketStatisticsContext);
   const {
     accountsBalances,
-    isLoading: isAccountsBalancesLoading
+    isLoading: isAccountsBalancesLoading,
   } = useAccountsBalances(DEVELOPER_FUND_ACCOUNTS);
   const {
-    availableSupply: { available = 0 }
+    availableSupply: { available = 0 },
   } = useAvailableSupply();
   const { developerFundTransactions } = useDeveloperAccountFund();
 
@@ -72,7 +72,7 @@ const DeveloperFund = () => {
 
       accounts.push({
         account,
-        balance: calculatedBalance
+        balance: calculatedBalance,
       });
 
       return accounts;
@@ -91,7 +91,7 @@ const DeveloperFund = () => {
   const skeletonProps = {
     active: true,
     paragraph: false,
-    loading: isAccountsBalancesLoading || isMarketStatisticsInitialLoading
+    loading: isAccountsBalancesLoading || isMarketStatisticsInitialLoading,
   };
 
   const { amount, local_timestamp = 0, hash: lastTransactionHash } =
@@ -138,7 +138,7 @@ const DeveloperFund = () => {
                       title={`Last send transaction from any of the 48 accounts.`}
                       overlayClassName="tooltip-sm"
                     >
-                      <QuestionCircleTwoTone />
+                      <QuestionCircle />
                     </Tooltip>
                   </>
                 }
@@ -237,7 +237,7 @@ const DeveloperFund = () => {
         size="small"
         pagination={false}
         loading={isAccountsBalancesLoading}
-        rowKey={record => record.account}
+        rowKey={(record) => record.account}
         columns={[
           {
             title: "Balance",
@@ -245,9 +245,11 @@ const DeveloperFund = () => {
             defaultSortOrder: "descend",
             sorter: {
               compare: (a, b) => a.balance - b.balance,
-              multiple: 3
+              multiple: 3,
             },
-            render: (text: string) => <>{new BigNumber(text).toFormat()} NANO</>
+            render: (text: string) => (
+              <>{new BigNumber(text).toFormat()} NANO</>
+            ),
           },
           {
             title: "Account",
@@ -261,8 +263,8 @@ const DeveloperFund = () => {
                   {text}
                 </Link>
               </>
-            )
-          }
+            ),
+          },
         ]}
         dataSource={data}
       />

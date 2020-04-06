@@ -127,4 +127,26 @@
 .theme-dark .ant-descriptions-bordered .ant-descriptions-row {
   border-color: #1e1e1e;
 }
-/* .theme-dark .ant-descriptions-bordered .ant-descriptions-row  */
+
+.theme-dark .ant-table thead > tr > th {
+  color: #e1e1e1;
+  background: #1e1e1e !important;
+  border-color: #1e1e1e;
+}
+
+.theme-dark .ant-table .ant-table-cell {
+  color: #e1e1e1;
+  background: #1e1e1e !important;
+  border-color: #1e1e1e;
+}
+
+.theme-dark
+  .ant-table-tbody
+  > tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)
+  > td {
+  background: #1e1e1e !important;
+}
+
+.theme-dark .ant-table-footer {
+  background: #1e1e1e !important;
+}
