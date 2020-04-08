@@ -18,6 +18,10 @@
   line-height: inherit !important;
 }
 
+.ant-list-item {
+  padding: 8px 0 !important;
+}
+
 .ant-table-tbody
   > tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)
   > td {
@@ -126,6 +130,10 @@ a:hover {
 
 .break-word {
   word-break: break-word;
+}
+
+.ant-descriptions-item-label {
+  white-space: nowrap;
 }
 
 @media (min-width: 768px) {

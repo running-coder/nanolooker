@@ -4,24 +4,26 @@ import { Dropdown, Input, Menu } from "antd";
 import {
   WalletOutlined,
   BlockOutlined,
-  HistoryOutlined
+  HistoryOutlined,
 } from "@ant-design/icons";
 import { isValidAccountAddress, isValidBlockHash } from "components/utils";
 import DeleteButton from "components/DeleteButton";
 
 import useSearch from "./hooks/use-search";
 import useSearchHistory from "./hooks/use-search-history";
+import { Theme, PreferencesContext } from "api/contexts/Preferences";
 
 const { Search: SearchAnt } = Input;
 
 const Search = () => {
+  const { theme } = React.useContext(PreferencesContext);
   const [isExpanded, setIsExpanded] = React.useState(false);
   const [isError, setIsError] = React.useState(false);
   const { searchValue, setSearchValue } = useSearch();
   const {
     searchHistory,
     addSearchHistory,
-    removeSearchHistory
+    removeSearchHistory,
   } = useSearchHistory();
 
   let history = useHistory();
@@ -64,23 +66,27 @@ const Search = () => {
         position: "absolute",
         right: "-8px",
         top: "15px",
-        transitionDelay: `${isExpanded ? 0 : 0.2}s`
+        transitionDelay: `${isExpanded ? 0 : 0.2}s`,
       }}
       value={searchValue}
       suffix={
         <Dropdown
           key="search-history-dropdown"
+          overlayClassName={theme === Theme.DARK ? "theme-dark" : ""}
           overlay={
             <Menu>
               {!searchHistory.length ? (
                 <Menu.Item disabled>No search history</Menu.Item>
               ) : (
-                searchHistory.map(history => (
+                searchHistory.map((history) => (
                   <Menu.Item
                     onClick={() => setSearchValue(history)}
                     key={history}
                   >
-                    <div style={{ display: "flex", alignItems: "center" }}>
+                    <div
+                      className="color-normal"
+                      style={{ display: "flex", alignItems: "center" }}
+                    >
                       {isValidAccountAddress(history) ? (
                         <WalletOutlined />
                       ) : (
@@ -113,7 +119,7 @@ const Search = () => {
         const { value } = e.target;
         setSearchValue(value);
       }}
-      onSearch={value => {
+      onSearch={(value) => {
         value !== searchValue ? setSearchValue(value) : validateSearch(value);
       }}
     />

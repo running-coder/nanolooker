@@ -87,7 +87,9 @@ const AccountHeader = () => {
           <span>{account.substr(-53, 46)}</span>
           <span style={{ color: "#1890ff" }}>{account.substr(-7)}</span>
         </span>
-        <Copy text={account} />
+        <span style={{ display: "flex", marginRight: "6px" }}>
+          <Copy text={account} />
+        </span>
         <QRCodeModal text={account}>
           <Button
             shape="circle"

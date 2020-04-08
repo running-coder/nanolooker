@@ -56,6 +56,15 @@
   border-color: #1e1e1e;
 }
 
+/* @TODO continue this
+.theme-dark .ant-dropdown-menu {
+  background-color: #1f1f1f;
+} */
+
+.theme-dark .ant-input {
+  color: #e1e1e1;
+}
+
 .theme-dark.ant-layout {
   background-color: #121212;
 }
@@ -140,6 +149,11 @@
   border-color: #1e1e1e;
 }
 
+/* Wait until className works on popover and dropdown */
+.theme-dark .ant-popover-inner {
+  background-color: #1f1f1f;
+}
+
 .theme-dark
   .ant-table-tbody
   > tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)
@@ -149,4 +163,42 @@
 
 .theme-dark .ant-table-footer {
   background: #1e1e1e !important;
+}
+
+.theme-dark .ant-empty-description {
+  color: gray;
+}
+
+.theme-dark .ant-empty-img-default-ellipse {
+  fill-opacity: 0.08;
+  fill: #fff;
+}
+.theme-dark .ant-empty-img-default-path-1 {
+  fill: #262626;
+}
+.theme-dark .ant-empty-img-default-path-2 {
+  fill: url(#linearGradient-1);
+}
+.theme-dark .ant-empty-img-default-path-3 {
+  fill: #595959;
+}
+.theme-dark .ant-empty-img-default-path-4 {
+  fill: #434343;
+}
+.theme-dark .ant-empty-img-default-path-5 {
+  fill: #595959;
+}
+.theme-dark .ant-empty-img-default-g {
+  fill: #434343;
+}
+.theme-dark .ant-empty-img-simple-ellipse {
+  fill: #fff;
+  fill-opacity: 0.08;
+}
+.theme-dark .ant-empty-img-simple-g {
+  stroke: #434343;
+}
+.theme-dark .ant-empty-img-simple-path {
+  fill: #262626;
+  stroke: #434343;
 }

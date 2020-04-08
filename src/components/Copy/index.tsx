@@ -42,7 +42,6 @@ const Copy = ({ text }: { text: string }) => {
             size="small"
             disabled={isCopied}
             style={{
-              marginRight: "6px",
               borderColor: isCopied ? (Colors.RECEIVE as string) : undefined,
             }}
           >

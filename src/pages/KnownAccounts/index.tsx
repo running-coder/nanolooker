@@ -85,7 +85,7 @@ const KnownAccountsPage = () => {
               record["alias"]
                 .toString()
                 .toLowerCase()
-                .includes(value.toLowerCase()),
+                .includes(String(value).toLowerCase()),
             onFilterDropdownVisibleChange: (visible) => {
               if (visible) {
                 setTimeout(() => inputRef?.current?.select());

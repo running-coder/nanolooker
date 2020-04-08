@@ -29,7 +29,8 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.9.1",
-    "antd": "^4.0.2",
+    "@umijs/plugin-antd": "^0.4.2",
+    "antd": "^4.1.1",
     "bignumber.js": "^9.0.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",

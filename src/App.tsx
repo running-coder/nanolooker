@@ -18,6 +18,7 @@ import StatusPage from "pages/Status";
 import "./App.css";
 import "./Theme.css";
 import "antd/dist/antd.css";
+// import 'antd/dist/antd.dark.css';
 
 const { Content, Footer } = Layout;
 

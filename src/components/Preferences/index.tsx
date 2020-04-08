@@ -2,19 +2,23 @@ import React from "react";
 import { List, Popover } from "antd";
 
 import {
-  // SettingOutlined
-  ControlOutlined
+  SettingOutlined,
+  // ControlOutlined
 } from "@ant-design/icons";
-
+import { Theme, PreferencesContext } from "api/contexts/Preferences";
 import ThemePreferences from "./Theme";
 import CryptocurrencyPreferences from "./Cryptocurrency";
 import FiatPreferences from "./Fiat";
 import LanguagePreferences from "./Language";
 
 const Preferences: React.FC = () => {
+  const { theme } = React.useContext(PreferencesContext);
+  console.log("allo", theme === Theme.DARK ? "theme-dark" : "");
   return (
     <>
       <Popover
+        style={{ color: "red" }}
+        className={theme === Theme.DARK ? "theme-dark" : ""}
         placement="bottomRight"
         content={
           <List size="small">
@@ -34,7 +38,7 @@ const Preferences: React.FC = () => {
         }
         trigger="click"
       >
-        <ControlOutlined style={{ fontSize: "16px" }} />
+        <SettingOutlined />
       </Popover>
     </>
   );
