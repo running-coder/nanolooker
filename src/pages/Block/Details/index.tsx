@@ -128,7 +128,7 @@ const BlockDetails = () => {
                   }`
                 ]
               }
-              className="timeline-tag"
+              className={`tag-${subtype || type}`}
             >
               {subtype || type}
             </Tag>

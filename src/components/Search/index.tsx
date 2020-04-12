@@ -4,7 +4,7 @@ import { Dropdown, Input, Menu } from "antd";
 import {
   WalletOutlined,
   BlockOutlined,
-  HistoryOutlined,
+  HistoryOutlined
 } from "@ant-design/icons";
 import { isValidAccountAddress, isValidBlockHash } from "components/utils";
 import DeleteButton from "components/DeleteButton";
@@ -23,7 +23,7 @@ const Search = () => {
   const {
     searchHistory,
     addSearchHistory,
-    removeSearchHistory,
+    removeSearchHistory
   } = useSearchHistory();
 
   let history = useHistory();
@@ -66,7 +66,7 @@ const Search = () => {
         position: "absolute",
         right: "-8px",
         top: "15px",
-        transitionDelay: `${isExpanded ? 0 : 0.2}s`,
+        transitionDelay: `${isExpanded ? 0 : 0.2}s`
       }}
       value={searchValue}
       suffix={
@@ -78,7 +78,7 @@ const Search = () => {
               {!searchHistory.length ? (
                 <Menu.Item disabled>No search history</Menu.Item>
               ) : (
-                searchHistory.map((history) => (
+                searchHistory.map(history => (
                   <Menu.Item
                     onClick={() => setSearchValue(history)}
                     key={history}
@@ -93,7 +93,12 @@ const Search = () => {
                         <BlockOutlined />
                       )}
 
-                      <div style={{ margin: "0 6px" }}>{history}</div>
+                      <div
+                        className="break-word"
+                        style={{ margin: "0 6px", whiteSpace: "normal" }}
+                      >
+                        {history}
+                      </div>
                       <DeleteButton
                         onClick={(e: Event) => {
                           e.stopPropagation();
@@ -119,7 +124,7 @@ const Search = () => {
         const { value } = e.target;
         setSearchValue(value);
       }}
-      onSearch={(value) => {
+      onSearch={value => {
         value !== searchValue ? setSearchValue(value) : validateSearch(value);
       }}
     />

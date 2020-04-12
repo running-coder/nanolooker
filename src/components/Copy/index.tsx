@@ -42,7 +42,7 @@ const Copy = ({ text }: { text: string }) => {
             size="small"
             disabled={isCopied}
             style={{
-              borderColor: isCopied ? (Colors.RECEIVE as string) : undefined,
+              borderColor: isCopied ? (Colors.RECEIVE as string) : undefined
             }}
           >
             {theme === Theme.DARK ? <CopyFilled /> : <CopyOutlined />}

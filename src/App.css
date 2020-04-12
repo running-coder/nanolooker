@@ -15,30 +15,29 @@
 }
 
 .ant-layout-header {
-  line-height: inherit !important;
+  line-height: inherit;
 }
 
 .ant-list-item {
-  padding: 8px 0 !important;
+  padding: 8px 0;
 }
 
 .ant-col {
-  flex-basis: 0;
   flex-grow: 1;
 }
 
 .ant-table-tbody
   > tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)
   > td {
-  background: #fafafa !important;
+  background: #fafafa;
 }
 
 .ant-table-filter-column-title {
-  padding: 8px !important;
+  padding: 8px;
 }
 
 .ant-table-pagination {
-  padding-right: 16px !important;
+  padding-right: 16px;
 }
 
 .color-important {
@@ -46,28 +45,28 @@
 }
 
 .color-normal {
-  color: inherit !important;
+  color: inherit;
 }
 
 .color-muted {
-  color: gray !important;
+  color: gray;
 }
 
 a:hover {
-  text-decoration: underline !important;
+  text-decoration: underline;
 }
 
 .ant-table-footer {
-  background: #fff !important;
+  background: #fff;
   text-align: center;
 }
 
 .ant-table-placeholder {
-  border: none !important;
+  border: none;
 }
 
 .ant-empty-normal {
-  margin: 0 !important;
+  margin: 0;
 }
 
 .ant-descriptions-item-content {
@@ -76,11 +75,11 @@ a:hover {
 
 .ant-descriptions-item-content .ant-skeleton-title,
 .price-list .ant-skeleton-title {
-  margin: 0 !important;
+  margin: 0;
 }
 
 .ant-descriptions-item-content .ant-skeleton + .ant-skeleton {
-  margin-top: 10px !important;
+  margin-top: 10px;
 }
 
 .container {
@@ -112,11 +111,11 @@ a:hover {
 }
 
 .isloading-skeleton-width {
-  width: 50% !important;
+  width: 50%;
 }
 
 .ant-skeleton-title {
-  margin-top: 11px !important;
+  margin-top: 11px;
   margin-bottom: 10px;
 }
 
@@ -137,17 +136,17 @@ a:hover {
 
 @media (min-width: 768px) {
   .ant-timeline .right .ant-timeline-item-content {
-    left: inherit !important;
-    width: calc(50% - 12px) !important;
-    margin: 0 !important;
-    text-align: right !important;
+    left: inherit;
+    width: calc(50% - 12px);
+    margin: 0;
+    text-align: right;
   }
 
   .ant-timeline .left .ant-timeline-item-content {
-    left: calc(50% - 4px) !important;
-    width: calc(50% - 14px) !important;
-    margin: 0 0 0 18px !important;
-    text-align: left !important;
+    left: calc(50% - 4px);
+    width: calc(50% - 14px);
+    margin: 0 0 0 18px;
+    text-align: left;
   }
 
   .ant-timeline .first-row {
@@ -185,12 +184,12 @@ a:hover {
 }
 
 .ant-timeline-item-head {
-  background-color: transparent !important;
+  background-color: transparent;
 }
 
 .ant-timeline .timeline-tag {
   text-transform: capitalize;
-  margin: 0 !important;
+  margin: 0;
 }
 
 .ant-timeline .timeline-amount {
@@ -207,7 +206,7 @@ a:hover {
 }
 
 .ant-timeline-item-last {
-  padding-bottom: 0 !important;
+  padding-bottom: 0;
 }
 
 .fadein {
@@ -260,6 +259,12 @@ a:hover {
   padding-top: 6px;
 }
 
-.ant-tag-magenta {
-  color: #df4567 !important;
+.ant-tag.tag-send {
+  color: #e04576;
+  border-color: #ffa2bf;
+  background-color: #fff0f2 !important;
+}
+
+.ant-popover-inner-content {
+  padding: 12px 0;
 }

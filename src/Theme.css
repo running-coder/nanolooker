@@ -247,3 +247,9 @@ body .theme-dark {
 .theme-dark .transaction-card .ant-row:not(:last-child) {
   border-color: #2f2f2f;
 }
+
+.theme-dark .ant-tag.tag-send {
+  color: #fff;
+  border-color: #e04576;
+  background-color: #e04576 !important;
+}

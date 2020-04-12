@@ -7,7 +7,7 @@ import {
   SettingOutlined,
   CloseCircleFilled,
   CloseCircleTwoTone,
-  SyncOutlined,
+  SyncOutlined
 } from "@ant-design/icons";
 
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -28,7 +28,7 @@ const RecentTransactions = () => {
     isConnected,
     setIsMinAmount,
     isDisabled,
-    setIsDisabled,
+    setIsDisabled
   } = useSockets();
   const { knownAccounts } = React.useContext(KnownAccountsContext);
   const isMediumAndLower = !useMediaQuery("(min-width: 768px)");
@@ -137,7 +137,7 @@ const RecentTransactions = () => {
                             }`
                           ]
                         }
-                        className="timeline-tag"
+                        className={`tag-${subtype} timeline-tag`}
                       >
                         {subtype}
                       </Tag>
@@ -155,7 +155,7 @@ const RecentTransactions = () => {
                         live={true}
                         className="timeline-timeago color-muted"
                         style={{
-                          marginLeft: subtype === "change" ? "6px" : 0,
+                          marginLeft: subtype === "change" ? "6px" : 0
                         }}
                       />
                     </div>

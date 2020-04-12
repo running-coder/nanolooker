@@ -133,6 +133,7 @@ const TransactionsTable = ({
                       // @ts-ignore
                       color={TwoToneColors[themeColor]}
                       style={{ textTransform: "capitalize" }}
+                      className={`tag-${subtype || type}`}
                     >
                       {transactionType}
                     </Tag>
@@ -157,7 +158,7 @@ const TransactionsTable = ({
                       {hash}
                     </Link>
                   </Col>
-                  <Col xs={12} lg={5}>
+                  <Col xs={12} md={12} lg={5}>
                     <Text
                       // @ts-ignore
                       style={{ color: Colors[themeColor] }}
@@ -171,7 +172,7 @@ const TransactionsTable = ({
                         : ""}
                     </Text>
                   </Col>
-                  <Col xs={12} lg={3} style={{ textAlign: "right" }}>
+                  <Col xs={12} md={12} lg={3} style={{ textAlign: "right" }}>
                     {Number(localTimestamp) ? (
                       <>
                         {modifiedDate.getFullYear()}/

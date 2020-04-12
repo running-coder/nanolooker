@@ -76,8 +76,7 @@ const AccountHeader = () => {
         <WalletOutlined
           style={{
             fontSize: "18px",
-            marginRight: "6px",
-            alignSelf: "flex-start"
+            marginRight: "6px"
           }}
         />
         <span className="break-word" style={{ marginRight: "6px" }}>

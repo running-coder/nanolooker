@@ -30,7 +30,7 @@ const KnownAccountsPage = () => {
               compare: (a, b) => a.balance - b.balance,
             },
             render: (text: string) => (
-              <>{new BigNumber(text).toFormat()} NANO</>
+              <span className="break-word">{new BigNumber(text).toFormat()} NANO</span>
             ),
           },
           {
