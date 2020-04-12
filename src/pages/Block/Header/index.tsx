@@ -16,7 +16,7 @@ const BlockHeader = () => {
           marginRight: "6px",
           wordWrap: "break-word",
           position: "relative",
-          marginBottom: "12px",
+          marginBottom: "12px"
         }}
         className="color-normal"
       >
@@ -24,15 +24,18 @@ const BlockHeader = () => {
           style={{
             fontSize: "18px",
             marginRight: "6px",
+            alignSelf: "flex-start"
           }}
         />
-        <span style={{ marginRight: "6px" }}>
+        <span className="break-word" style={{ marginRight: "6px" }}>
           <span>{block.substr(block.length * -1, block.length - 64)}</span>
           <span style={{ color: "#1890ff" }}>{block.substr(-64, 7)}</span>
           <span>{block.substr(-57, 50)}</span>
           <span style={{ color: "#1890ff" }}>{block.substr(-7)}</span>
         </span>
-        <Copy text={block} />
+        <span style={{ alignSelf: "flex-start" }}>
+          <Copy text={block} />
+        </span>
       </div>
     </>
   );

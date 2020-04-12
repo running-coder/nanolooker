@@ -7,10 +7,10 @@ export enum Colors {
   CHANGE_DARK = "#722ed1",
   PENDING = "#1890ff",
   PENDING_DARK = "#1890ff",
-  SEND = "#e04576",
+  SEND = "#df4567",
   SEND_DARK = "#e04576",
   RECEIVE = "#52c41a",
-  RECEIVE_DARK = "#26e8a7",
+  RECEIVE_DARK = "#26e8a7"
 }
 
 export enum TwoToneColors {
@@ -18,16 +18,16 @@ export enum TwoToneColors {
   CHANGE_DARK = "#722ed1",
   PENDING = "blue",
   PENDING_DARK = "#1890ff",
-  SEND = "red",
+  SEND = "magenta",
   SEND_DARK = "#e04576",
   RECEIVE = "green",
-  RECEIVE_DARK = "#26e8a7",
+  RECEIVE_DARK = "#26e8a7"
 }
 
 // @TODO: map subtype to color?
 
 function sleep(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 export const refreshActionDelay = async (action: Function) => {

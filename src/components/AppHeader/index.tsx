@@ -4,7 +4,7 @@ import { Col, Layout, Menu, Row } from "antd";
 import {
   ApartmentOutlined,
   CalendarOutlined,
-  DatabaseOutlined,
+  DatabaseOutlined
 } from "@ant-design/icons";
 import { useHistory, useLocation } from "react-router-dom";
 import Search from "components/Search";
@@ -31,7 +31,7 @@ const AppHeader: React.FC = () => {
           position: "relative",
           padding: "0 20px",
           width: "100%",
-          height: "auto",
+          height: "auto"
         }}
       >
         <Row gutter={[16, 0]} style={{ width: "100%" }}>
@@ -42,7 +42,7 @@ const AppHeader: React.FC = () => {
             style={{
               display: "flex",
               alignItems: "center",
-              minHeight: "50px",
+              minHeight: "50px"
             }}
           >
             <Link to="/" style={{ whiteSpace: "nowrap", marginRight: "10px" }}>
@@ -108,7 +108,7 @@ const AppHeader: React.FC = () => {
         style={{
           display: "flex",
           justifyContent: "space-between",
-          padding: "3px 20px",
+          padding: "3px 20px"
         }}
       >
         <div
@@ -118,7 +118,7 @@ const AppHeader: React.FC = () => {
             flexWrap: "wrap",
             alignItems: "center",
             width: "100%",
-            marginRight: "12px",
+            marginRight: "12px"
           }}
         >
           <Price />

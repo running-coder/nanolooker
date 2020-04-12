@@ -1,6 +1,10 @@
 import React from "react";
-import { CloseCircleTwoTone, CloseCircleOutlined } from "@ant-design/icons";
-import { TwoToneColors } from "components/utils";
+import {
+  CloseCircleTwoTone,
+  CloseCircleFilled,
+  CloseCircleOutlined
+} from "@ant-design/icons";
+import { Colors, TwoToneColors } from "components/utils";
 import { Theme, PreferencesContext } from "api/contexts/Preferences";
 
 const DeleteButton = (props: any) => {
@@ -15,11 +19,13 @@ const DeleteButton = (props: any) => {
       style={{ marginLeft: "auto", cursor: "pointer" }}
     >
       {isHovered ? (
-        <CloseCircleTwoTone
-          twoToneColor={
-            theme === Theme.DARK ? TwoToneColors.SEND_DARK : TwoToneColors.SEND
-          }
-        />
+        theme === Theme.DARK ? (
+          <CloseCircleFilled style={{ color: Colors.SEND_DARK }} />
+        ) : (
+          <CloseCircleTwoTone twoToneColor={TwoToneColors.SEND} />
+        )
+      ) : theme === Theme.DARK ? (
+        <CloseCircleFilled style={{ color: "gray" }} />
       ) : (
         <CloseCircleOutlined style={{ color: "rgba(0, 0, 0, 0.45)" }} />
       )}

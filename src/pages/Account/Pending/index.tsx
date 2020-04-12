@@ -17,12 +17,10 @@ interface PendingHistoryBlock extends PendingBlock {
   subtype: Subtype;
 }
 
+const PENDING_MIN_THRESHHOLD = new BigNumber(raiToRaw(0.000001)).toFixed();
+
 const AccountPendingHistory = () => {
   const { account, accountInfo } = React.useContext(AccountInfoContext);
-  const isPaginated = Number(accountInfo?.block_count) <= 100;
-  const showPaginate = Number(accountInfo?.block_count) > TRANSACTIONS_PER_PAGE;
-  const [currentPage, setCurrentPage] = React.useState<number>(1);
-
   const {
     pending: { blocks = {} } = {},
     isLoading: isAccountHistoryLoading
@@ -30,11 +28,15 @@ const AccountPendingHistory = () => {
     count: String(MAX_PENDING_TRANSACTIONS),
     sorting: true,
     source: true,
-    threshold: new BigNumber(raiToRaw(0.000001)).toFixed()
+    threshold: PENDING_MIN_THRESHHOLD
   });
+  const totalPending = Object.keys(blocks).length;
+  const isPaginated = true;
+  const showPaginate = totalPending > TRANSACTIONS_PER_PAGE;
+  const [currentPage, setCurrentPage] = React.useState<number>(1);
 
-  let pendingHistory = undefined;
-  if (Object.values(blocks)[0]) {
+  let pendingHistory: PendingHistoryBlock[] | undefined = undefined;
+  if (totalPending) {
     pendingHistory = Object.entries(blocks).map(
       // @ts-ignore
       ([block, { amount, source }]): PendingHistoryBlock => ({
@@ -46,23 +48,27 @@ const AccountPendingHistory = () => {
     );
   }
 
-  //@TODO check why it doesnt paginate on nano_1111111111111111111111111111111111111111111111111111hifc8npp
-  // console.log("`~~TRANSACTIONS_PER_PAGE", TRANSACTIONS_PER_PAGE);
+  const start = 0 + (currentPage - 1) * TRANSACTIONS_PER_PAGE;
+  const data = pendingHistory?.slice(start, start + TRANSACTIONS_PER_PAGE);
 
-  return pendingHistory ? (
+  console.log("~~~~isPaginated", isPaginated);
+  console.log("~~~~showPaginate", showPaginate);
+
+  return Number(accountInfo?.pending) > Number(PENDING_MIN_THRESHHOLD) ? (
     <>
       <Title level={3} style={{ marginTop: "0.5em" }}>
-        {pendingHistory.length} Pending Transactions
+        {isAccountHistoryLoading ? "" : pendingHistory?.length} Pending
+        Transactions
       </Title>
 
       <TransactionsTable
-        data={pendingHistory}
+        data={data}
         isLoading={isAccountHistoryLoading}
         isPaginated={isPaginated}
         showPaginate={showPaginate}
         pageSize={TRANSACTIONS_PER_PAGE}
         currentPage={currentPage}
-        totalPages={pendingHistory.length || 0}
+        totalPages={pendingHistory?.length || 0}
         setCurrentPage={setCurrentPage}
       />
     </>

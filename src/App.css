@@ -22,6 +22,11 @@
   padding: 8px 0 !important;
 }
 
+.ant-col {
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
 .ant-table-tbody
   > tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)
   > td {
@@ -116,16 +121,10 @@ a:hover {
 }
 
 .truncate {
+  display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  /* width: 100%;
-  max-width: 0; */
-}
-
-.block-truncated {
-  position: absolute;
-  width: 90%;
 }
 
 .break-word {
@@ -242,4 +241,25 @@ a:hover {
   width: 100%;
   padding: 6px 0;
   margin-top: -1px;
+}
+
+.transaction-card .ant-spin-nested-loading {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.transaction-card .ant-row:not(:last-child) {
+  border-bottom: solid 1px #f0f0f0;
+}
+
+.transaction-card .row-pagination {
+  padding-top: 6px;
+}
+
+.ant-tag-magenta {
+  color: #df4567 !important;
 }

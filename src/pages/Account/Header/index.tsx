@@ -19,10 +19,10 @@ const AccountHeader = () => {
   );
   const {
     representatives,
-    isLoading: isRepresentativesLoading,
+    isLoading: isRepresentativesLoading
   } = React.useContext(RepresentativesContext);
   const {
-    confirmationQuorum: { principal_representative_min_weight: minWeight },
+    confirmationQuorum: { principal_representative_min_weight: minWeight }
   } = React.useContext(ConfirmationQuorumContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
 
@@ -69,7 +69,7 @@ const AccountHeader = () => {
           marginRight: "6px",
           wordWrap: "break-word",
           position: "relative",
-          marginBottom: "12px",
+          marginBottom: "12px"
         }}
         className="color-normal"
       >
@@ -77,9 +77,10 @@ const AccountHeader = () => {
           style={{
             fontSize: "18px",
             marginRight: "6px",
+            alignSelf: "flex-start"
           }}
         />
-        <span style={{ marginRight: "6px" }}>
+        <span className="break-word" style={{ marginRight: "6px" }}>
           <span>
             {account.substr(account.length * -1, account.length - 60)}
           </span>
@@ -87,17 +88,19 @@ const AccountHeader = () => {
           <span>{account.substr(-53, 46)}</span>
           <span style={{ color: "#1890ff" }}>{account.substr(-7)}</span>
         </span>
-        <span style={{ display: "flex", marginRight: "6px" }}>
-          <Copy text={account} />
+        <span style={{ alignSelf: "flex-start" }}>
+          <span style={{ marginRight: "6px" }}>
+            <Copy text={account} />
+          </span>
+          <QRCodeModal text={account}>
+            <Button
+              shape="circle"
+              icon={<QrcodeOutlined />}
+              size="small"
+              style={{ marginRight: "6px" }}
+            />
+          </QRCodeModal>
         </span>
-        <QRCodeModal text={account}>
-          <Button
-            shape="circle"
-            icon={<QrcodeOutlined />}
-            size="small"
-            style={{ marginRight: "6px" }}
-          />
-        </QRCodeModal>
       </div>
     </>
   );
