@@ -16,7 +16,8 @@ const MONGO_URL = "mongodb://localhost:27017";
 const MONGO_DB = "nanolooker";
 const MONGO_OPTIONS = {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  numberOfRetries: 100
 };
 
 // https://api.coingecko.com/api/v3/simple/supported_vs_currencies

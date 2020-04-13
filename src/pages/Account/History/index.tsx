@@ -11,10 +11,6 @@ const { Title } = Typography;
 const AccountHistory = () => {
   const { account, accountInfo } = React.useContext(AccountInfoContext);
   const isPaginated = Number(accountInfo?.block_count) <= 100;
-  console.log(
-    "~~~~Number(accountInfo?.block_count)",
-    Number(accountInfo?.block_count)
-  );
   const showPaginate = Number(accountInfo?.block_count) > TRANSACTIONS_PER_PAGE;
   const [currentPage, setCurrentPage] = React.useState<number>(1);
   const [currentHead, setCurrentHead] = React.useState<string | undefined>();

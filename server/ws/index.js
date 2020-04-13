@@ -9,7 +9,7 @@ const {
   TOTAL_NANO_VOLUME_COLLECTION
 } = require("../constants");
 
-const UPDATE_CACHE_INTERVAL = 5000;
+const UPDATE_CACHE_INTERVAL = 10000;
 
 let updateDbInterval = null;
 

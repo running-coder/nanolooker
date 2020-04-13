@@ -126,6 +126,7 @@ const CryptocurrencyPreferences: React.FC = () => {
                               padding: "6px",
                               marginTop: "-1px",
                               backgroundColor: "#fff",
+                              border: "1px solid #d9d9d9",
                               ...(index !== cryptocurrency.length - 1
                                 ? { marginBottom: "6px" }
                                 : { marginBottom: "-1px" })

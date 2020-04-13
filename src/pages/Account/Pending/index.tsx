@@ -51,9 +51,6 @@ const AccountPendingHistory = () => {
   const start = 0 + (currentPage - 1) * TRANSACTIONS_PER_PAGE;
   const data = pendingHistory?.slice(start, start + TRANSACTIONS_PER_PAGE);
 
-  console.log("~~~~isPaginated", isPaginated);
-  console.log("~~~~showPaginate", showPaginate);
-
   return Number(accountInfo?.pending) > Number(PENDING_MIN_THRESHHOLD) ? (
     <>
       <Title level={3} style={{ marginTop: "0.5em" }}>

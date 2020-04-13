@@ -18,7 +18,10 @@ const getNextHour = () => {
 
 cron.schedule("*/20 * * * *", async () => {
   let db;
+  let mongoClient;
+
   MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (_err, client) => {
+    mongoClient = client;
     db = client.db(MONGO_DB);
 
     db.collection(MARKET_CAP_RANK_COLLECTION).createIndex(
@@ -33,16 +36,20 @@ cron.schedule("*/20 * * * *", async () => {
   const { market_cap_rank: marketCapRank } = await res.json();
   const hour = getNextHour();
 
-  db.collection(MARKET_CAP_RANK_COLLECTION).updateOne(
-    {
-      hour
-    },
-    {
-      $set: {
-        value: marketCapRank
+  db.collection(MARKET_CAP_RANK_COLLECTION)
+    .updateOne(
+      {
+        hour
       },
-      $setOnInsert: { hour, createdAt: new Date() }
-    },
-    { upsert: true }
-  );
+      {
+        $set: {
+          value: marketCapRank
+        },
+        $setOnInsert: { hour, createdAt: new Date() }
+      },
+      { upsert: true }
+    )
+    .then(() => {
+      mongoClient.close();
+    });
 });

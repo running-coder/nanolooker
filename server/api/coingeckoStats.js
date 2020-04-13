@@ -53,6 +53,7 @@ const getCoingeckoStats = async ({ fiat }) => {
           })
           .toArray((_err, [{ value } = {}] = []) => {
             apiCache.set(MARKET_CAP_RANK_24H, value, EXPIRE_1h);
+            client.close();
             resolve(value);
           });
       });
