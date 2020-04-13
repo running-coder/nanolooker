@@ -64,7 +64,7 @@ const AccountHeader = () => {
       <div
         style={{
           display: "flex",
-          alignItems: "center",
+          alignItems: "flex-start",
           fontSize: "16px",
           marginRight: "6px",
           wordWrap: "break-word",
@@ -73,12 +73,14 @@ const AccountHeader = () => {
         }}
         className="color-normal"
       >
-        <WalletOutlined
-          style={{
-            fontSize: "18px",
-            marginRight: "6px"
-          }}
-        />
+        <div>
+          <WalletOutlined
+            style={{
+              fontSize: "18px",
+              marginRight: "6px"
+            }}
+          />
+        </div>
         <span className="break-word" style={{ marginRight: "6px" }}>
           <span>
             {account.substr(account.length * -1, account.length - 60)}
@@ -87,7 +89,7 @@ const AccountHeader = () => {
           <span>{account.substr(-53, 46)}</span>
           <span style={{ color: "#1890ff" }}>{account.substr(-7)}</span>
         </span>
-        <span style={{ alignSelf: "flex-start" }}>
+        <div style={{ whiteSpace: "nowrap", display: "inline-flex" }}>
           <span style={{ marginRight: "6px" }}>
             <Copy text={account} />
           </span>
@@ -99,7 +101,7 @@ const AccountHeader = () => {
               style={{ marginRight: "6px" }}
             />
           </QRCodeModal>
-        </span>
+        </div>
       </div>
     </>
   );

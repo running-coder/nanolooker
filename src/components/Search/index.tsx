@@ -85,14 +85,15 @@ const Search = () => {
                   >
                     <div
                       className="color-normal"
-                      style={{ display: "flex", alignItems: "center" }}
+                      style={{ display: "flex", alignItems: "flex-start" }}
                     >
-                      {isValidAccountAddress(history) ? (
-                        <WalletOutlined />
-                      ) : (
-                        <BlockOutlined />
-                      )}
-
+                      <div>
+                        {isValidAccountAddress(history) ? (
+                          <WalletOutlined />
+                        ) : (
+                          <BlockOutlined />
+                        )}
+                      </div>
                       <div
                         className="break-word"
                         style={{ margin: "0 6px", whiteSpace: "normal" }}

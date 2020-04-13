@@ -45,11 +45,11 @@
 }
 
 .color-normal {
-  color: inherit;
+  color: inherit !important;
 }
 
 .color-muted {
-  color: gray;
+  color: gray !important;
 }
 
 a:hover {
@@ -136,17 +136,17 @@ a:hover {
 
 @media (min-width: 768px) {
   .ant-timeline .right .ant-timeline-item-content {
-    left: inherit;
-    width: calc(50% - 12px);
-    margin: 0;
-    text-align: right;
+    left: inherit !important;
+    width: calc(50% - 12px) !important;
+    margin: 0 !important;
+    text-align: right !important;
   }
 
   .ant-timeline .left .ant-timeline-item-content {
-    left: calc(50% - 4px);
-    width: calc(50% - 14px);
-    margin: 0 0 0 18px;
-    text-align: left;
+    left: calc(50% - 4px) !important;
+    width: calc(50% - 14px) !important;
+    margin: 0 0 0 18px !important;
+    text-align: left !important;
   }
 
   .ant-timeline .first-row {
@@ -189,7 +189,7 @@ a:hover {
 
 .ant-timeline .timeline-tag {
   text-transform: capitalize;
-  margin: 0;
+  margin: 0 !important;
 }
 
 .ant-timeline .timeline-amount {
