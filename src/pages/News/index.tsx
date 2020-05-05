@@ -4,8 +4,8 @@ import { Card, Col, Row, Skeleton, Typography } from "antd";
 const { Title } = Typography;
 
 const NewsPage = () => {
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
-  const [posts, setPosts] = React.useState<any[]>([]);
+  const [isLoading, setIsLoading] = React.useState<boolean>(true);
+  const [posts, setPosts] = React.useState<any[]>(Array.from(Array(3).keys()));
 
   React.useEffect(() => {
     const getPosts = async () => {
@@ -21,7 +21,7 @@ const NewsPage = () => {
           return {
             ...rest,
             descriptionShort: descriptionShort.replace(/<[\s\S]+?\/?>/g, ""),
-            descriptionLong: descriptionLong.replace(/<[\s\S]+?\/?>/g, "")
+            descriptionLong: descriptionLong.replace(/<[\s\S]+?\/?>/g, ""),
           };
         });
 
@@ -34,17 +34,20 @@ const NewsPage = () => {
   }, []);
 
   return (
-    <Skeleton loading={isLoading}>
+    <>
       {posts.map(
-        ({
-          title,
-          pubDate,
-          link,
-          thumbnail,
-          descriptionShort,
-          descriptionLong
-        }) => (
-          <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]}>
+        (
+          {
+            title,
+            pubDate,
+            link,
+            thumbnail,
+            descriptionShort,
+            descriptionLong,
+          },
+          index
+        ) => (
+          <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]} key={index}>
             <Col xs={24} md={10} lg={8}>
               <a href={link} target="_blank" rel="noopener noreferrer">
                 <img src={thumbnail} alt={title} width="100%" />
@@ -52,34 +55,36 @@ const NewsPage = () => {
             </Col>
             <Col xs={24} md={14} lg={16}>
               <Card size="small">
-                <Title level={4} style={{ marginBottom: 0 }}>
-                  {title}
-                </Title>
-                <span
-                  style={{
-                    display: "block",
-                    fontSize: "12px",
-                    marginBottom: "12px"
-                  }}
-                  className="color-muted"
-                >
-                  {pubDate}
-                </span>
-                <div
-                  dangerouslySetInnerHTML={{ __html: descriptionShort }}
-                ></div>
-                <div
-                  dangerouslySetInnerHTML={{ __html: descriptionLong }}
-                ></div>
-                <a href={link} target="_blank" rel="noopener noreferrer">
-                  Continue reading
-                </a>
+                <Skeleton active loading={isLoading}>
+                  <Title level={4} style={{ marginBottom: 0 }}>
+                    {title}
+                  </Title>
+                  <span
+                    style={{
+                      display: "block",
+                      fontSize: "12px",
+                      marginBottom: "12px",
+                    }}
+                    className="color-muted"
+                  >
+                    {pubDate}
+                  </span>
+                  <div
+                    dangerouslySetInnerHTML={{ __html: descriptionShort }}
+                  ></div>
+                  <div
+                    dangerouslySetInnerHTML={{ __html: descriptionLong }}
+                  ></div>
+                  <a href={link} target="_blank" rel="noopener noreferrer">
+                    Continue reading
+                  </a>
+                </Skeleton>
               </Card>
             </Col>
           </Row>
         )
       )}
-    </Skeleton>
+    </>
   );
 };
 
