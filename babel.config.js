@@ -5,12 +5,8 @@ module.exports = {
       "module-resolver",
       {
         root: ["./"],
-        alias: {
-          components: "./src/components",
-          types: "./src/types"
-        }
-      }
+      },
     ],
-    "@babel/plugin-proposal-optional-chaining"
-  ]
+    "@babel/plugin-proposal-optional-chaining",
+  ],
 };

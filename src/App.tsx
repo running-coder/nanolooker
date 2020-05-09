@@ -15,6 +15,7 @@ import AccountPage from "pages/Account";
 import BlockPage from "pages/Block";
 import NewsPage from "pages/News";
 import StatusPage from "pages/Status";
+import useAnalytics from "hooks/use-analytics";
 
 import "antd/dist/antd.css";
 import "./App.css";
@@ -22,8 +23,10 @@ import "./Theme.css";
 
 const { Content, Footer } = Layout;
 
-const App: React.FC = props => {
+const App: React.FC = (props) => {
   const { theme } = React.useContext(PreferencesContext);
+
+  useAnalytics();
 
   return (
     <>
