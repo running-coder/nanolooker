@@ -1,6 +1,7 @@
 require("dotenv").config();
 require("./cron/ws");
 require("./cron/marketCapRank");
+require("./cron/distribution");
 require("./ws");
 
 const express = require("express");
@@ -13,18 +14,18 @@ const {
   TOTAL_CONFIRMATIONS_KEY_24H,
   TOTAL_NANO_VOLUME_KEY_24H,
   TOTAL_CONFIRMATIONS_KEY_48H,
-  TOTAL_NANO_VOLUME_KEY_48H
+  TOTAL_NANO_VOLUME_KEY_48H,
 } = require("./constants");
 const { wsCache } = require("./ws/cache");
 const {
   getBtcTransactionFees,
   TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H,
-  TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H
+  TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H,
 } = require("./api/btcTransactionFees");
 
 const { getCoingeckoStats } = require("./api/coingeckoStats");
 const {
-  getDeveloperFundTransactions
+  getDeveloperFundTransactions,
 } = require("./api/developerFundTransactions");
 const { getNodeStatus } = require("./api/nodeStatus");
 const { getKnownAccounts } = require("./api/knownAccounts");
@@ -33,7 +34,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: true
+    origin: true,
   })
 );
 
@@ -67,10 +68,10 @@ app.get("/api/market-statistics", async (req, res) => {
 
   const {
     btcTransactionFees24h,
-    btcTransactionFees48h
+    btcTransactionFees48h,
   } = await getBtcTransactionFees();
   const { marketStats, priceStats } = await getCoingeckoStats({
-    fiat: req.query.fiat
+    fiat: req.query.fiat,
   });
 
   return res.send({
@@ -81,7 +82,7 @@ app.get("/api/market-statistics", async (req, res) => {
     [TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H]: btcTransactionFees24h,
     [TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H]: btcTransactionFees48h,
     ...marketStats,
-    priceStats
+    priceStats,
   });
 });
 

@@ -11,13 +11,15 @@ const MARKET_CAP_RANK_COLLECTION = "MARKET_CAP_RANK_COLLECTION";
 const MARKET_CAP_RANK = "MARKET_CAP_RANK";
 const MARKET_CAP_RANK_24H = "MARKET_CAP_RANK_24H";
 const COINGECKO_MARKET_STATS = "COINGECKO_MARKET_STATS";
+const DISTRIBUTION = "DISTRIBUTION";
+const DORMANT_FUNDS = "DORMANT_FUNDS";
 const COINGECKO_PRICE_STATS = "COINGECKO_PRICE_STATS";
 const MONGO_URL = "mongodb://localhost:27017";
 const MONGO_DB = "nanolooker";
 const MONGO_OPTIONS = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  numberOfRetries: 100
+  numberOfRetries: 100,
 };
 
 // https://api.coingecko.com/api/v3/simple/supported_vs_currencies
@@ -38,8 +40,10 @@ module.exports = {
   MARKET_CAP_RANK_24H,
   COINGECKO_MARKET_STATS,
   COINGECKO_PRICE_STATS,
+  DISTRIBUTION,
+  DORMANT_FUNDS,
   MONGO_URL,
   MONGO_DB,
   MONGO_OPTIONS,
-  SUPPORTED_CRYPTOCURRENCY
+  SUPPORTED_CRYPTOCURRENCY,
 };
