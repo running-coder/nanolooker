@@ -6,7 +6,7 @@ const { rpc } = require("../rpc");
 
 const apiCache = new NodeCache({
   stdTTL: 120,
-  deleteOnExpire: true
+  deleteOnExpire: true,
 });
 
 const KNOWN_ACCOUNTS = "KNOWN_ACCOUNTS";
@@ -22,7 +22,7 @@ const getKnownAccounts = async () => {
       const accounts = knownAccounts.flatMap(({ account }) => [account]);
 
       const { balances } = await rpc("accounts_balances", {
-        accounts
+        accounts,
       });
 
       knownAccounts = knownAccounts
@@ -30,8 +30,18 @@ const getKnownAccounts = async () => {
           account,
           alias,
           balance: balances[account]
-            ? rawToRai(new BigNumber(balances[account].balance || 0)) //.plus(balances[account].pending || 0)
-            : 0
+            ? rawToRai(new BigNumber(balances[account].balance || 0))
+            : 0,
+          pending: balances[account]
+            ? rawToRai(new BigNumber(balances[account].pending || 0))
+            : 0,
+          total: balances[account]
+            ? rawToRai(
+                new BigNumber(balances[account].balance || 0).plus(
+                  balances[account].pending || 0
+                )
+              )
+            : 0,
         }))
         .filter(({ alias }) => !!alias);
 
@@ -46,5 +56,5 @@ const getKnownAccounts = async () => {
 
 module.exports = {
   getKnownAccounts,
-  KNOWN_ACCOUNTS
+  KNOWN_ACCOUNTS,
 };

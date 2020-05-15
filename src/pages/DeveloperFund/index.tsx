@@ -29,7 +29,7 @@ import {
   ORIGINAL_DEVELOPER_FUND_BLOCK,
   ORIGINAL_DEVELOPER_FUND_BURN_BLOCK,
   ORIGINAL_DEVELOPER_FUND_ACCOUNT,
-} from "./developerFundAccounts.json";
+} from "../../knownAccounts.json";
 
 const DEVELOPER_FUND_CHANGE_LINK =
   "https://medium.com/nanocurrency/announcement-changes-to-nano-foundation-development-fund-account-43f8f340a841";

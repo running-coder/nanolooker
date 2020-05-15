@@ -2,13 +2,11 @@ const NodeCache = require("node-cache");
 const sortBy = require("lodash/sortBy");
 const reverse = require("lodash/reverse");
 const { rpc } = require("../rpc");
-const {
-  DEVELOPER_FUND_ACCOUNTS
-} = require("../../src/pages/DeveloperFund/developerFundAccounts");
+const { DEVELOPER_FUND_ACCOUNTS } = require("../../src/knownAccounts.json");
 
 const apiCache = new NodeCache({
   stdTTL: 3600,
-  deleteOnExpire: true
+  deleteOnExpire: true,
 });
 
 const DEVELOPER_FUND_TRANSACTIONS = "DEVELOPER_FUND_TRANSACTIONS";
@@ -20,12 +18,12 @@ const getDeveloperFundTransactions = async () => {
     let accountsHistory = [];
     const accountsHistoryPromises = [];
 
-    DEVELOPER_FUND_ACCOUNTS.forEach(async account => {
+    DEVELOPER_FUND_ACCOUNTS.forEach(async (account) => {
       const promise = new Promise(async (resolve, reject) => {
         try {
           const res = await rpc("account_history", {
             account,
-            count: "-1"
+            count: "-1",
           });
 
           const history = res.history
@@ -63,5 +61,5 @@ const getDeveloperFundTransactions = async () => {
 
 module.exports = {
   getDeveloperFundTransactions,
-  DEVELOPER_FUND_TRANSACTIONS
+  DEVELOPER_FUND_TRANSACTIONS,
 };

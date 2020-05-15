@@ -22,15 +22,17 @@ const KnownAccountsPage = () => {
         columns={[
           {
             title: "Balance",
-            dataIndex: "balance",
+            dataIndex: "total",
             // @ts-ignore
             defaultSortOrder: "descend",
             // @ts-ignore
             sorter: {
-              compare: (a, b) => a.balance - b.balance,
+              compare: (a, b) => a.total - b.total,
             },
             render: (text: string) => (
-              <span className="break-word">{new BigNumber(text).toFormat()} NANO</span>
+              <span className="break-word">
+                {new BigNumber(text).toFormat()} NANO
+              </span>
             ),
           },
           {

@@ -1,7 +1,7 @@
 require("dotenv").config();
 require("./cron/ws");
 require("./cron/marketCapRank");
-require("./cron/distribution");
+const { getDistributionData } = require("./cron/distribution");
 require("./ws");
 
 const express = require("express");
@@ -52,6 +52,12 @@ app.post("/api/rpc", async (req, res) => {
   const result = await rpc(action, params);
 
   return res.send(result);
+});
+
+app.get("/api/distribution", (req, res) => {
+  const data = getDistributionData();
+
+  return res.send(data);
 });
 
 app.get("/api/developer-fund/transactions", async (req, res) => {

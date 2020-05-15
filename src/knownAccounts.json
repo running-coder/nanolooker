@@ -4,6 +4,17 @@
   "ORIGINAL_DEVELOPER_FUND_ACCOUNT": "nano_1ipx847tk8o46pwxt5qjdbncjqcbwcc1rrmqnkztrfjy5k7z4imsrata9est",
   "ORIGINAL_DEVELOPER_FUND_BLOCK": "8F02D66117CAC96AD0C66DB2DD583F8452D1CCE979FAEA5C72E4937F33F4ADA4",
   "ORIGINAL_DEVELOPER_FUND_BURN_BLOCK": "ECCB8CB65CD3106EDA8CE9AA893FEAD497A91BCA903890CBD7A5C59F06AB9113",
+  "KNOWN_EXCHANGE_ACCOUNTS": [
+    "nano_14cuejfpr58epnpxenirusimsrbwxbecin7a3izq1injptecc31qsjwquoe6",
+    "nano_3xinwsdt57qo5bcysock15do87r9fuepq84erab5udm6wekymq9e9tiin8hw",
+    "nano_3uip1jmeo4irjuua9xiyosq6fkgogwd6bf5uqopb1m6mfq6g3n8cna6h3tuk",
+    "nano_3cpz7oh9qr5b7obbcb5867omqf8esix4sdd5w6mh8kkknamjgbnwrimxsaaf",
+    "nano_3hua6a116y4jmbeaf63zi6mn8gf5s4n3eyxa3q4m5ibabi6pmegfubky3wpi",
+    "nano_3jwrszth46rk1mu7rmb4rhm54us8yg1gw3ipodftqtikf5yqdyr7471nsg1k",
+    "nano_3x4ui45q1cw8hydmfdn4ec5ijsdqi4ryp14g4ayh71jcdkwmddrq7ca9xzn9",
+    "nano_1niabkx3gbxit5j5yyqcpas71dkffggbr6zpd3heui8rpoocm5xqbdwq44oh",
+    "nano_1h31pb3b4puzuy9ijc4yucce73gewd3bm3zpugiq46sbwsnzw8cge6hxnfzb"
+  ],
   "DEVELOPER_FUND_ACCOUNTS": [
     "nano_3hsss3n1idbotapj678rx36xsc6fxsi1furuzi39p9d34gdjfy1o9fhmummp",
     "nano_35a485rf6mxigjbcibzcuwmcsbganftgyamskkusu7zt9ftdse9unzfynfqb",

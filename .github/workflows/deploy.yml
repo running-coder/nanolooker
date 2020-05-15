@@ -28,7 +28,7 @@ jobs:
       - name: Rsync deployment
         uses: burnett01/rsync-deployments@4.0
         with:
-          switches: -avzr --delete --exclude=".env"
+          switches: -avzr --delete --exclude=".env,server/data/"
           path: "."
           remote_path: /var/www/www.nanolooker.com
           remote_host: ${{ secrets.DO_HOST }}
