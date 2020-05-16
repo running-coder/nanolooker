@@ -1,7 +1,12 @@
 import React from "react";
 
+export interface DistributionIndex {
+  accounts: number;
+  balance: number;
+}
+
 interface Data {
-  distribution: any[];
+  distribution: DistributionIndex[];
   dormantFunds: any;
 }
 

@@ -16,10 +16,10 @@ const FiatPreferences: React.FC = () => {
 
   return (
     <>
-      <Text style={{ marginRight: "12px" }}>Change fiat currency</Text>
+      <Text style={{ marginRight: "12px" }}>Fiat currency</Text>
       <Select
         defaultValue={fiat}
-        onChange={value => {
+        onChange={(value) => {
           setFiat(value);
           setIsInitialLoading(true);
           getMarketStatistics(value);

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {
+  Button,
   Card,
   Col,
   Descriptions,
@@ -170,7 +171,13 @@ const DeveloperFund = () => {
                   <br />
                 </Skeleton>
                 <Link to={`/developer-fund/transactions`}>
-                  View all send transactions
+                  <Button
+                    type="primary"
+                    size="small"
+                    style={{ marginTop: "6px" }}
+                  >
+                    View all send transactions
+                  </Button>
                 </Link>
               </Descriptions.Item>
             </Descriptions>

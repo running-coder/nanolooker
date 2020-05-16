@@ -10,11 +10,11 @@ const LanguagePreferences: React.FC = () => {
 
   return (
     <>
-      <Text style={{ marginRight: "12px" }}>Select language</Text>
+      <Text style={{ marginRight: "12px" }}>Language</Text>
       <Select
         disabled
         defaultValue={language}
-        onChange={value => {
+        onChange={(value) => {
           setLanguage(value);
         }}
       >

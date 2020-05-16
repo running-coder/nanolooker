@@ -49,9 +49,16 @@ const NewsPage = () => {
         ) => (
           <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]} key={index}>
             <Col xs={24} md={10} lg={8}>
-              <a href={link} target="_blank" rel="noopener noreferrer">
-                <img src={thumbnail} alt={title} width="100%" />
-              </a>
+              <Card
+                bodyStyle={{
+                  padding: 0,
+                  minHeight: isLoading ? "180px" : "auto",
+                }}
+              >
+                <a href={link} target="_blank" rel="noopener noreferrer">
+                  <img src={thumbnail} alt={title} width="100%" />
+                </a>
+              </Card>
             </Col>
             <Col xs={24} md={14} lg={16}>
               <Card size="small">

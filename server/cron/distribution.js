@@ -73,7 +73,7 @@ const getDistribution = async () => {
         async ([account, { balance: rawBalance, pending: rawPending }]) => {
           const balance = rawToRai(rawBalance);
           const pending = rawToRai(rawPending);
-          const total = BigNumber(balance)
+          const total = new BigNumber(balance)
             .plus(pending)
             .toNumber();
 
@@ -97,7 +97,7 @@ const getDistribution = async () => {
 
           distribution[index] = {
             accounts: (distribution[index].accounts += 1),
-            balance: BigNumber(total)
+            balance: new BigNumber(total)
               .plus(distribution[index].balance)
               .toNumber(),
           };

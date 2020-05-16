@@ -5,7 +5,7 @@ import { StackedColumn, StackedColumnConfig } from "@antv/g2plot";
 import useDeepCompareEffect from "use-deep-compare-effect";
 import BigNumber from "bignumber.js";
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
-import useDistribution from "api/hooks/use-distribution";
+import useDistribution, { DistributionIndex } from "api/hooks/use-distribution";
 import QuestionCircle from "components/QuestionCircle";
 
 const { Text, Title } = Typography;
@@ -18,12 +18,12 @@ const distributionMap = [
   "0.001 - <1",
   "1 - <10",
   "10 - <100",
-  "100 - <1k",
-  "1k - <10k",
-  "10k - <100k",
-  "100m - <1m",
-  "1m - <10m",
-  "10m - <100m",
+  "100 - <1K",
+  "1K - <10K",
+  "10K - <100K",
+  "100K - <1M",
+  "1M - <10M",
+  "10M - <100M",
 ];
 
 let distributionChart: any = null;
@@ -45,8 +45,29 @@ const Distribution = () => {
   const { data } = useDistribution();
 
   React.useEffect(() => {
-    if (!data?.distribution) return;
-    const tmpDistributionData: any = [];
+    return () => {
+      distributionChart = null;
+    };
+  }, []);
+
+  React.useEffect(() => {
+    if (!data?.distribution || !knownExchangeAccounts.length) return;
+
+    let knownExchangeDistribution: DistributionIndex[] = [];
+    if (!isIncludeExchanges) {
+      knownExchangeAccounts.forEach(({ total }) => {
+        let index = total >= 1 ? `${Math.floor(total)}`.length : 0;
+
+        knownExchangeDistribution[index] = {
+          accounts: (knownExchangeDistribution[index]?.accounts || 0) + 1,
+          balance: new BigNumber(total)
+            .plus(knownExchangeDistribution[index]?.balance || 0)
+            .toNumber(),
+        };
+      });
+    }
+
+    const tmpDistributionData: any[] = [];
     let tmpTotalAccounts = 0;
     let tmpTotalBalance = 0;
 
@@ -55,27 +76,33 @@ const Distribution = () => {
         { accounts, balance }: { accounts: number; balance: number },
         i: number
       ): void => {
-        // if (i === 0) return;
-        tmpTotalAccounts += accounts;
-        tmpTotalBalance += balance;
-        tmpDistributionData.push({
-          title: distributionMap[i],
-          value: balance,
-          type: "balance",
-        });
+        const calcAccounts =
+          accounts - (knownExchangeDistribution[i]?.accounts || 0);
+        const calcBalance = new BigNumber(balance)
+          .minus(knownExchangeDistribution[i]?.balance || 0)
+          .toNumber();
+
+        tmpTotalAccounts += calcAccounts;
+        tmpTotalBalance += calcBalance;
 
         tmpDistributionData.push({
           title: distributionMap[i],
-          value: accounts,
+          value: calcBalance,
+          type: "balance",
+        });
+        tmpDistributionData.push({
+          title: distributionMap[i],
+          value: calcAccounts,
           type: "accounts",
         });
       }
     );
+
     setTotalAccounts(tmpTotalAccounts);
     setTotalBalance(tmpTotalBalance);
     setDistributionData(tmpDistributionData);
     setIsRendered(true);
-  }, [data]);
+  }, [data, isIncludeExchanges, knownExchangeAccounts]);
 
   useDeepCompareEffect(() => {
     if (!distributionChartRef?.current || !distributionData.length) return;
@@ -146,18 +173,19 @@ const Distribution = () => {
       <Card>
         <div style={{ marginBottom: "12px" }}>
           <Text type="secondary" style={{ fontSize: "12px" }}>
-            Total of {new BigNumber(totalAccounts).toFormat()} accounts holding{" "}
-            {new BigNumber(totalBalance).toFormat()} NANO are accounted for.
+            Total of <strong>{new BigNumber(totalAccounts).toFormat()}</strong>{" "}
+            accounts are holding{" "}
+            <strong>{new BigNumber(totalBalance).toFormat()}</strong> NANO
           </Text>
           <br />
           <Text type="secondary" style={{ fontSize: "12px" }}>
-            Any account with a balance lower than 0.001 is excluded.
+            Any account with a balance of <strong>&lt;0.001</strong> is excluded
           </Text>
         </div>
+
         <div style={{ marginBottom: "6px" }}>
           <Switch
-            disabled={true}
-            // disabled={isKnownAccountsLoading}
+            disabled={isKnownAccountsLoading}
             checkedChildren={<CheckOutlined />}
             unCheckedChildren={<CloseOutlined />}
             onChange={(checked: boolean) => {
