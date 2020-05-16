@@ -14,6 +14,7 @@ const distributionCache = new NodeCache();
 // const ACCOUNTS_PATH = join(__dirname, "../data/accounts.json");
 const DISTRIBUTION_PATH = join(__dirname, "../data/distribution.json");
 const DORMANT_FUNDS_PATH = join(__dirname, "../data/dormantFunds.json");
+const STATUS_PATH = join(__dirname, "../data/status.json");
 // Balance + pending below this amount will be ignored
 const MIN_TOTAL = 0.001;
 
@@ -104,7 +105,7 @@ const getDistribution = async () => {
       )
     );
 
-    await sleep(1000);
+    await sleep(2000);
   }
 
   return { distribution, dormantFunds };
@@ -116,10 +117,19 @@ const doDistributionCron = async () => {
 
   const { distribution, dormantFunds } = await getDistribution();
 
-  console.log(dormantFunds);
-
   fs.writeFileSync(DISTRIBUTION_PATH, JSON.stringify(distribution, null, 2));
   fs.writeFileSync(DORMANT_FUNDS_PATH, JSON.stringify(dormantFunds, null, 2));
+  fs.writeFileSync(
+    STATUS_PATH,
+    JSON.stringify(
+      {
+        executionTime: (new Date() - startTime) / 1000,
+        date: new Date(),
+      },
+      null,
+      2
+    )
+  );
 
   console.log(
     `Distribution cron finished in ${(new Date() - startTime) / 1000}s`
