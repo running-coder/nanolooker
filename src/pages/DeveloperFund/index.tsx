@@ -55,9 +55,7 @@ const DeveloperFund = () => {
     accountsBalances,
     isLoading: isAccountsBalancesLoading,
   } = useAccountsBalances(DEVELOPER_FUND_ACCOUNTS);
-  const {
-    availableSupply: { available = 0 },
-  } = useAvailableSupply();
+  const { availableSupply } = useAvailableSupply();
   const { developerFundTransactions } = useDeveloperAccountFund();
 
   const data = Object.entries(accountsBalances?.balances || []).reduce(
@@ -219,7 +217,7 @@ const DeveloperFund = () => {
                   {new BigNumber("7000000").toFormat()} NANO
                   <br />
                   {new BigNumber(7000000 * 100)
-                    .dividedBy(rawToRai(available))
+                    .dividedBy(availableSupply)
                     .toFormat(2)}
                   % of the circulating supply
                 </>

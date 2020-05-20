@@ -6,7 +6,9 @@ import useDeepCompareEffect from "use-deep-compare-effect";
 import BigNumber from "bignumber.js";
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 import useDistribution, { DistributionIndex } from "api/hooks/use-distribution";
+import DormantFunds from "./DormantFunds";
 import QuestionCircle from "components/QuestionCircle";
+import { intToString } from "components/utils";
 
 const { Text, Title } = Typography;
 
@@ -39,9 +41,7 @@ const Distribution = () => {
   const [totalAccounts, setTotalAccounts] = React.useState<number>(0);
   const [totalBalance, setTotalBalance] = React.useState<number>(0);
   const [distributionData, setDistributionData] = React.useState<any[]>([]);
-  const [isRendered, setIsRendered] = React.useState<boolean>(false);
   const [isLogScale, setIsLogScale] = React.useState<boolean>(false);
-  const distributionChartRef = React.useRef<any>(null);
   const { data } = useDistribution();
 
   React.useEffect(() => {
@@ -101,17 +101,17 @@ const Distribution = () => {
     setTotalAccounts(tmpTotalAccounts);
     setTotalBalance(tmpTotalBalance);
     setDistributionData(tmpDistributionData);
-    setIsRendered(true);
   }, [data, isIncludeExchanges, knownExchangeAccounts]);
 
   useDeepCompareEffect(() => {
-    if (!distributionChartRef?.current || !distributionData.length) return;
+    if (!distributionData.length) return;
 
     // @TODO: Validate data: https://nanocharts.info/p/05/balance-distribution
     // https://g2plot.antv.vision/en/examples/column/stacked#connected-area-interaction
 
     const config: StackedColumnConfig = {
       forceFit: true,
+      // responsive: true,
       padding: "auto",
       data: distributionData,
       xField: "title",
@@ -125,6 +125,9 @@ const Distribution = () => {
       meta: {
         value: {
           alias: " ",
+          formatter: (text) => {
+            return intToString(text);
+          },
         },
         title: {
           alias: " ",
@@ -140,6 +143,7 @@ const Distribution = () => {
       },
       connectedArea: {
         visible: true,
+        // triggerOn: "mouseenter touchstart",
         triggerOn: false,
       },
       legend: {
@@ -157,7 +161,7 @@ const Distribution = () => {
 
     if (!distributionChart) {
       distributionChart = new StackedColumn(
-        distributionChartRef.current,
+        document.getElementById("distribution-chart") as HTMLElement,
         config
       );
     } else {
@@ -165,20 +169,20 @@ const Distribution = () => {
     }
 
     distributionChart.render();
-  }, [distributionData, distributionChartRef, isRendered, isLogScale]);
+  }, [distributionData, isLogScale]);
 
   return (
     <>
       <Title level={3}>Nano Distribution</Title>
-      <Card>
+      <Card size="small">
         <div style={{ marginBottom: "12px" }}>
-          <Text type="secondary" style={{ fontSize: "12px" }}>
+          <Text style={{ fontSize: "12px" }}>
             Total of <strong>{new BigNumber(totalAccounts).toFormat()}</strong>{" "}
             accounts are holding{" "}
             <strong>{new BigNumber(totalBalance).toFormat()}</strong> NANO
           </Text>
           <br />
-          <Text type="secondary" style={{ fontSize: "12px" }}>
+          <Text style={{ fontSize: "12px" }}>
             Any account with a balance of <strong>&lt;0.001</strong> is excluded
           </Text>
         </div>
@@ -193,9 +197,7 @@ const Distribution = () => {
             }}
             defaultChecked={isIncludeExchanges}
           />
-          <Text style={{ margin: "0 6px" }}>
-            Include known exchanges accounts
-          </Text>
+          <Text style={{ margin: "0 6px" }}>Include known exchanges</Text>
           <Tooltip
             placement="right"
             title={`Exclude ${knownExchangeAccounts
@@ -214,7 +216,7 @@ const Distribution = () => {
             <QuestionCircle />
           </Tooltip>
         </div>
-        <div>
+        <div style={{ marginBottom: "6px" }}>
           <Switch
             disabled={isKnownAccountsLoading}
             checkedChildren={<CheckOutlined />}
@@ -227,8 +229,17 @@ const Distribution = () => {
           <Text style={{ margin: "0 6px" }}>Log scale</Text>
         </div>
 
-        <div id="container" ref={distributionChartRef}></div>
+        <div
+          id="distribution-chart"
+          style={{
+            margin: `0 -24px ${distributionData.length ? "-24px" : "0"} -24px`,
+          }}
+        ></div>
       </Card>
+
+      <div style={{ margin: "12px 0" }}>
+        <DormantFunds data={data?.dormantFunds} />
+      </div>
     </>
   );
 };

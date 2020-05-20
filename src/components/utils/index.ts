@@ -10,7 +10,7 @@ export enum Colors {
   SEND = "#df4567",
   SEND_DARK = "#e04576",
   RECEIVE = "#52c41a",
-  RECEIVE_DARK = "#26e8a7"
+  RECEIVE_DARK = "#26e8a7",
 }
 
 export enum TwoToneColors {
@@ -21,13 +21,13 @@ export enum TwoToneColors {
   SEND = "#e04576",
   SEND_DARK = "#e04576",
   RECEIVE = "green",
-  RECEIVE_DARK = "#26e8a7"
+  RECEIVE_DARK = "#26e8a7",
 }
 
 // @TODO: map subtype to color?
 
 function sleep(ms: number) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 export const refreshActionDelay = async (action: Function) => {
@@ -97,4 +97,16 @@ export const timestampToDate = (timestamp: string | number) => {
   ).padStart(2, "0")}:${String(date.getMinutes()).padStart(2, "0")}:${String(
     date.getSeconds()
   ).padStart(2, "0")}`;
+};
+
+export const intToString = (value: number) => {
+  var suffixes = ["", "K", "M"];
+  var suffixNum = Math.floor(("" + value).length / 3);
+  var shortValue: any = parseFloat(
+    (suffixNum !== 0 ? value / Math.pow(1000, suffixNum) : value).toPrecision(2)
+  );
+  if (shortValue % 1 !== 0) {
+    shortValue = shortValue.toFixed(1);
+  }
+  return shortValue + suffixes[suffixNum];
 };

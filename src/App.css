@@ -268,3 +268,7 @@ a:hover {
 .ant-popover-inner-content {
   padding: 12px 0;
 }
+
+.ant-slider-mark-text {
+  white-space: nowrap;
+}

@@ -5,26 +5,23 @@ import useAvailableSupply from "api/hooks/use-available-supply";
 import useFrontierCount from "api/hooks/use-frontier-count";
 import { NodeStatusContext } from "api/contexts/NodeStatus";
 import LoadingStatistic from "components/LoadingStatistic";
-import { rawToRai } from "components/utils";
 
 const Ledger: React.FC = () => {
+  const { availableSupply } = useAvailableSupply();
   const {
-    availableSupply: { available = 0 }
-  } = useAvailableSupply();
-  const {
-    frontierCount: { count: frontierCount }
+    frontierCount: { count: frontierCount },
   } = useFrontierCount();
   const {
     nodeStatus: { ledgerSize },
-    isLoading: isNodeStatusLoading
+    isLoading: isNodeStatusLoading,
   } = React.useContext(NodeStatusContext);
 
   return (
     <Card size="small" title="Ledger">
       <LoadingStatistic
         title="Available Supply"
-        value={rawToRai(available)}
-        isLoading={!available}
+        value={availableSupply}
+        isLoading={!availableSupply}
       />
 
       <LoadingStatistic
