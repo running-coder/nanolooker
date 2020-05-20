@@ -104,8 +104,6 @@ const Distribution = () => {
   }, [data, isIncludeExchanges, knownExchangeAccounts]);
 
   useDeepCompareEffect(() => {
-    if (!distributionData.length) return;
-
     // @TODO: Validate data: https://nanocharts.info/p/05/balance-distribution
     // https://g2plot.antv.vision/en/examples/column/stacked#connected-area-interaction
 
@@ -210,7 +208,6 @@ const Distribution = () => {
                 0
               )
             ).toFormat()} NANO`}
-            overlayClassName="tooltip-sm"
             style={{ marginLeft: "6px" }}
           >
             <QuestionCircle />

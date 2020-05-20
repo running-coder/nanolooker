@@ -11,18 +11,18 @@ import BigNumber from "bignumber.js";
 const Node: React.FC = () => {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const {
-    uptime: { seconds }
+    uptime: { seconds },
   } = useUptime();
   const {
-    version: { node_vendor }
+    version: { node_vendor },
   } = useVersion();
   const {
     nodeStatus: {
       memory: { total = 0 } = {},
-      nodeStats: { cpu = 0, memory = 0 } = {}
+      nodeStats: { cpu = 0, memory = 0 } = {},
     },
     getNodeStatus,
-    isLoading: isNodeStatusLoading
+    isLoading: isNodeStatusLoading,
   } = React.useContext(NodeStatusContext);
 
   const refreshNode = async () => {
@@ -38,7 +38,7 @@ const Node: React.FC = () => {
       size="small"
       title="Node"
       extra={
-        <Tooltip title="Reload" overlayClassName="tooltip-sm">
+        <Tooltip title="Reload">
           <Button
             type="primary"
             icon={<ReloadOutlined />}

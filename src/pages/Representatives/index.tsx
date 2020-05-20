@@ -87,7 +87,6 @@ const Representatives = () => {
                     <Tooltip
                       placement="right"
                       title={`To optimize performances, only accounts with voting weight >= 1000 NANO are considered but normally any account with > 0 voting weight, but < 0.1% of the online voting weight.`}
-                      overlayClassName="tooltip-sm"
                     >
                       <QuestionCircle />
                     </Tooltip>
@@ -108,7 +107,6 @@ const Representatives = () => {
                     <Tooltip
                       placement="right"
                       title={`An account with a minimum of ${principalRepresentativeMinWeight} NANO or >= 0.1% of the online voting weight delegated to it is required to get the Principal Representative status. When configured on a node which is voting, the votes it produces will be rebroadcasted by other nodes to who receive them, helping the network reach consensus more quickly.`}
-                      overlayClassName="tooltip-sm"
                     >
                       <QuestionCircle />
                     </Tooltip>
@@ -128,7 +126,6 @@ const Representatives = () => {
                     <Tooltip
                       placement="right"
                       title={`Online representative accounts that have voted recently.`}
-                      overlayClassName="tooltip-sm"
                     >
                       <QuestionCircle />
                     </Tooltip>

@@ -12,10 +12,7 @@ const Copy = ({ text }: { text: string }) => {
   const [isCopied, setIsCopied] = React.useState<boolean>(false);
 
   return (
-    <Tooltip
-      title={isCopied ? "Copied!" : "Copy"}
-      overlayClassName="tooltip-sm"
-    >
+    <Tooltip title={isCopied ? "Copied!" : "Copy"}>
       <CopyToClipboard
         text={text}
         onCopy={() => {
@@ -42,7 +39,7 @@ const Copy = ({ text }: { text: string }) => {
             size="small"
             disabled={isCopied}
             style={{
-              borderColor: isCopied ? (Colors.RECEIVE as string) : undefined
+              borderColor: isCopied ? (Colors.RECEIVE as string) : undefined,
             }}
           >
             {theme === Theme.DARK ? <CopyFilled /> : <CopyOutlined />}

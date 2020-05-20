@@ -129,7 +129,8 @@ body .theme-dark {
   border-color: gray !important;
 }
 
-.theme-dark .ant-card-body {
+.theme-dark .ant-card-body,
+.theme-dark .ant-slider-mark-text {
   color: #e1e1e1 !important;
 }
 

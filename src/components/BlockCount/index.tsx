@@ -38,7 +38,7 @@ const BlockCount: React.FC = () => {
       size="small"
       title="Block Count"
       extra={
-        <Tooltip title="Reload" overlayClassName="tooltip-sm">
+        <Tooltip title="Reload">
           <Button
             type="primary"
             icon={<ReloadOutlined />}

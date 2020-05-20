@@ -111,7 +111,6 @@ const AccountDetails = () => {
                 <Tooltip
                   placement="right"
                   title={`An account with a minimum of ${minWeight} NANO or >= 0.1% of the online voting weight delegated to it is required to get the Principal Representative status. When configured on a node which is voting, the votes it produces will be rebroadcasted by other nodes to who receive them, helping the network reach consensus more quickly.`}
-                  overlayClassName="tooltip-sm"
                   style={{ marginLeft: "6px" }}
                 >
                   <QuestionCircle />
@@ -169,7 +168,6 @@ const AccountDetails = () => {
                 title={
                   "A transaction state where a block sending funds was published and confirmed by the network, but a matching block receiving those funds has not yet been sent or confirmed."
                 }
-                overlayClassName="tooltip-sm"
               >
                 <QuestionCircle />
               </Tooltip>

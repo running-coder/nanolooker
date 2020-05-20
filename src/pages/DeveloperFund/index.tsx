@@ -135,7 +135,6 @@ const DeveloperFund = () => {
                     <Tooltip
                       placement="right"
                       title={`Last send transaction from any of the 48 accounts.`}
-                      overlayClassName="tooltip-sm"
                     >
                       <QuestionCircle />
                     </Tooltip>

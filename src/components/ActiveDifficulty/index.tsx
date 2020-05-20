@@ -27,7 +27,7 @@ const ActiveDifficulty: React.FC = () => {
       size="small"
       title="Active Difficulty"
       extra={
-        <Tooltip title="Reload" overlayClassName="tooltip-sm">
+        <Tooltip title="Reload">
           <Button
             type="primary"
             icon={<ReloadOutlined />}
