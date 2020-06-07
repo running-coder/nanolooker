@@ -78,6 +78,10 @@ body .theme-dark {
   background-color: #1f1f1f;
 }
 
+.theme-dark .ant-dropdown-menu-item {
+  color: #e1e1e1;
+}
+
 .theme-dark .ant-dropdown-menu-item:hover,
 .theme-dark .ant-dropdown-menu-submenu-title:hover {
   background-color: rgba(255, 255, 255, 0.08);

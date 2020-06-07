@@ -115,7 +115,7 @@ const DormantFunds = ({ data }: any) => {
 
         <div
           style={{
-            margin: `${isMediumAndLower ? "48px 60% 48px" : "72px auto 0"}`,
+            margin: `${isMediumAndLower ? "48px 20px 48px auto" : "72px auto 0"}`,
             width: isMediumAndLower ? "20%" : "90%",
             height: isMediumAndLower ? "300px" : "auto",
           }}
