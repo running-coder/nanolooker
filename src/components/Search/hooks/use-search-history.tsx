@@ -13,7 +13,7 @@ const getSearchHistory = (): string[] => {
   let searchHistory;
   try {
     searchHistory = JSON.parse(
-      window.localStorage.getItem(SEARCH_HISTORY_KEY) || ""
+      window.localStorage.getItem(SEARCH_HISTORY_KEY) || "",
     );
   } catch (_e) {}
 
@@ -22,7 +22,7 @@ const getSearchHistory = (): string[] => {
 
 const useSearchHistory = (): UseSearchHistoryReturn => {
   const [searchHistory, setSearchHistory] = React.useState<string[]>(
-    getSearchHistory()
+    getSearchHistory(),
   );
 
   const addSearchHistory = React.useCallback(
@@ -36,12 +36,12 @@ const useSearchHistory = (): UseSearchHistoryReturn => {
 
       localStorage.setItem(
         SEARCH_HISTORY_KEY,
-        JSON.stringify(newSearchHistory)
+        JSON.stringify(newSearchHistory),
       );
 
       setSearchHistory(newSearchHistory);
     },
-    [searchHistory]
+    [searchHistory],
   );
 
   const removeSearchHistory = React.useCallback(
@@ -49,12 +49,12 @@ const useSearchHistory = (): UseSearchHistoryReturn => {
       const newSearchHistory = searchHistory.filter(h => h !== value);
       localStorage.setItem(
         SEARCH_HISTORY_KEY,
-        JSON.stringify(newSearchHistory)
+        JSON.stringify(newSearchHistory),
       );
 
       setSearchHistory(newSearchHistory);
     },
-    [searchHistory]
+    [searchHistory],
   );
 
   return { searchHistory, addSearchHistory, removeSearchHistory };

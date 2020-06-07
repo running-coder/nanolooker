@@ -6,7 +6,7 @@ const {
   MONGO_DB,
   MONGO_OPTIONS,
   TOTAL_CONFIRMATIONS_COLLECTION,
-  TOTAL_NANO_VOLUME_COLLECTION
+  TOTAL_NANO_VOLUME_COLLECTION,
 } = require("../constants");
 
 const UPDATE_CACHE_INTERVAL = 10000;
@@ -29,14 +29,14 @@ const ws = new ReconnectingWebSocket("wss://www.nanolooker.com/ws", [], {
   connectionTimeout: 1000,
   maxRetries: 100000,
   maxReconnectionDelay: 2000,
-  minReconnectionDelay: 10
+  minReconnectionDelay: 10,
 });
 
 ws.onopen = () => {
   console.log("WS OPENED");
   const subscription = {
     action: "subscribe",
-    topic: "confirmation"
+    topic: "confirmation",
   };
   ws.send(JSON.stringify(subscription));
 
@@ -60,8 +60,8 @@ ws.onmessage = msg => {
     topic,
     message: {
       amount,
-      block: { subtype }
-    }
+      block: { subtype },
+    },
   } = JSON.parse(msg.data);
 
   if (topic === "confirmation") {
@@ -81,7 +81,7 @@ function updateDb() {
   if (accumulatedConfirmations) {
     db.collection(TOTAL_CONFIRMATIONS_COLLECTION).insertOne({
       value: accumulatedConfirmations,
-      createdAt: new Date()
+      createdAt: new Date(),
     });
     accumulatedConfirmations = 0;
   }
@@ -89,7 +89,7 @@ function updateDb() {
   if (accumulatedVolume) {
     db.collection(TOTAL_NANO_VOLUME_COLLECTION).insertOne({
       value: accumulatedVolume,
-      createdAt: new Date()
+      createdAt: new Date(),
     });
     accumulatedVolume = 0;
   }

@@ -13,7 +13,7 @@ const DormantFunds = ({ data }: any) => {
   const [marks, setMarks] = React.useState({});
   const [totalFunds, setTotalFunds] = React.useState<number>(0);
   const [unknownDormantFunds, setUnknownDormantFunds] = React.useState<number>(
-    0
+    0,
   );
   const { availableSupply } = useAvailableSupply();
   // const isSmallAndLower = useMediaQuery("(min-width: 992px)");
@@ -43,7 +43,7 @@ const DormantFunds = ({ data }: any) => {
     const marks = dormantFundsByRangeKeys.reduce(
       (acc: any = {}, key: string, i: number) => {
         const percent = Math.ceil(
-          (100 / (dormantFundsByRangeKeys.length - 1)) * i
+          (100 / (dormantFundsByRangeKeys.length - 1)) * i,
         );
 
         dormantFundsByRange[key].percent = percent;
@@ -59,13 +59,13 @@ const DormantFunds = ({ data }: any) => {
 
         return acc;
       },
-      {}
+      {},
     );
 
     setMarks(marks);
     setTotalFunds(totalFunds);
     setUnknownDormantFunds(
-      new BigNumber(availableSupply).minus(totalFunds).toNumber()
+      new BigNumber(availableSupply).minus(totalFunds).toNumber(),
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
@@ -128,9 +128,9 @@ const DormantFunds = ({ data }: any) => {
             tooltipVisible
             defaultValue={0}
             tooltipPlacement={isMediumAndLower ? "left" : "top"}
-            tipFormatter={(key) => {
+            tipFormatter={key => {
               const totalDormant = new BigNumber(
-                find(dormantFundsByRange, ["percent", key])?.totalDormant || 0
+                find(dormantFundsByRange, ["percent", key])?.totalDormant || 0,
               )
                 .plus(unknownDormantFunds)
                 .toNumber();

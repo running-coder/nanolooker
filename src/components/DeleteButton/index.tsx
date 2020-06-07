@@ -2,7 +2,7 @@ import React from "react";
 import {
   CloseCircleTwoTone,
   CloseCircleFilled,
-  CloseCircleOutlined
+  CloseCircleOutlined,
 } from "@ant-design/icons";
 import { Colors, TwoToneColors } from "components/utils";
 import { Theme, PreferencesContext } from "api/contexts/Preferences";

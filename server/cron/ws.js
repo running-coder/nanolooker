@@ -13,7 +13,7 @@ const {
   TOTAL_CONFIRMATIONS_KEY_48H,
   TOTAL_NANO_VOLUME_COLLECTION,
   TOTAL_NANO_VOLUME_KEY_24H,
-  TOTAL_NANO_VOLUME_KEY_48H
+  TOTAL_NANO_VOLUME_KEY_48H,
 } = require("../constants");
 const { rawToRai } = require("../utils");
 
@@ -27,11 +27,11 @@ MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (_err, client) => {
 
   db.collection(TOTAL_CONFIRMATIONS_COLLECTION).createIndex(
     { createdAt: 1 },
-    { expireAfterSeconds: EXPIRE_48H }
+    { expireAfterSeconds: EXPIRE_48H },
   );
   db.collection(TOTAL_NANO_VOLUME_COLLECTION).createIndex(
     { createdAt: 1 },
-    { expireAfterSeconds: EXPIRE_48H }
+    { expireAfterSeconds: EXPIRE_48H },
   );
 });
 
@@ -43,11 +43,11 @@ cron.schedule("*/10 * * * * *", async () => {
       {
         $match: {
           createdAt: {
-            $gte: new Date(Date.now() - EXPIRE_24H * 1000)
-          }
-        }
+            $gte: new Date(Date.now() - EXPIRE_24H * 1000),
+          },
+        },
       },
-      { $group: { _id: null, totalConfirmations: { $sum: "$value" } } }
+      { $group: { _id: null, totalConfirmations: { $sum: "$value" } } },
     ])
     .toArray((_err, [{ totalConfirmations = 0 } = {}] = []) => {
       wsCache.set(TOTAL_CONFIRMATIONS_KEY_24H, totalConfirmations);
@@ -58,11 +58,11 @@ cron.schedule("*/10 * * * * *", async () => {
       {
         $match: {
           createdAt: {
-            $gte: new Date(Date.now() - EXPIRE_48H * 1000)
-          }
-        }
+            $gte: new Date(Date.now() - EXPIRE_48H * 1000),
+          },
+        },
       },
-      { $group: { _id: null, totalConfirmations: { $sum: "$value" } } }
+      { $group: { _id: null, totalConfirmations: { $sum: "$value" } } },
     ])
     .toArray((_err, [{ totalConfirmations = 0 } = {}] = []) => {
       wsCache.set(TOTAL_CONFIRMATIONS_KEY_48H, totalConfirmations);
@@ -73,11 +73,11 @@ cron.schedule("*/10 * * * * *", async () => {
       {
         $match: {
           createdAt: {
-            $gte: new Date(Date.now() - EXPIRE_24H * 1000)
-          }
-        }
+            $gte: new Date(Date.now() - EXPIRE_24H * 1000),
+          },
+        },
       },
-      { $group: { _id: null, totalNanoVolume: { $sum: "$value" } } }
+      { $group: { _id: null, totalNanoVolume: { $sum: "$value" } } },
     ])
     .toArray((_err, [{ totalNanoVolume = 0 } = {}] = []) => {
       wsCache.set(TOTAL_NANO_VOLUME_KEY_24H, rawToRai(totalNanoVolume));
@@ -88,11 +88,11 @@ cron.schedule("*/10 * * * * *", async () => {
       {
         $match: {
           createdAt: {
-            $gte: new Date(Date.now() - EXPIRE_48H * 1000)
-          }
-        }
+            $gte: new Date(Date.now() - EXPIRE_48H * 1000),
+          },
+        },
       },
-      { $group: { _id: null, totalNanoVolume: { $sum: "$value" } } }
+      { $group: { _id: null, totalNanoVolume: { $sum: "$value" } } },
     ])
     .toArray((_err, [{ totalNanoVolume = 0 } = {}] = []) => {
       wsCache.set(TOTAL_NANO_VOLUME_KEY_48H, rawToRai(totalNanoVolume));

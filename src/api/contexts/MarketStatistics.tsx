@@ -58,18 +58,18 @@ export const MarketStatisticsContext = React.createContext<Context>({
     change24h: 0,
     totalSupply: 0,
     circulatingSupply: 0,
-    priceStats: {}
+    priceStats: {},
   },
   getMarketStatistics: () => {},
   setIsInitialLoading: () => {},
   isInitialLoading: false,
   isLoading: false,
-  isError: false
+  isError: false,
 });
 
 const Provider: React.FC = ({ children }) => {
   const [marketStatistics, setMarketStatistics] = React.useState(
-    {} as Response
+    {} as Response,
   );
   const [isInitialLoading, setIsInitialLoading] = React.useState<boolean>(true);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
@@ -85,8 +85,8 @@ const Provider: React.FC = ({ children }) => {
       const query = qs.stringify(
         { ...(fiat !== Fiat.USD ? { fiat } : null) },
         {
-          addQueryPrefix: true
-        }
+          addQueryPrefix: true,
+        },
       );
       const res = await fetch(`/api/market-statistics${query}`);
       const json = await res.json();
@@ -118,7 +118,7 @@ const Provider: React.FC = ({ children }) => {
         isInitialLoading,
         setIsInitialLoading,
         isLoading,
-        isError
+        isError,
       }}
     >
       {children}

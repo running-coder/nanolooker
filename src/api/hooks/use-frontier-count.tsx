@@ -14,7 +14,7 @@ export interface UsefrontierCountReturn {
 
 const useFrontierCount = (): UsefrontierCountReturn => {
   const [frontierCount, setFrontierCount] = React.useState(
-    {} as FrontierCountResponse
+    {} as FrontierCountResponse,
   );
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [isError, setIsError] = React.useState<boolean>(false);

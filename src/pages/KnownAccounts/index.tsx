@@ -18,7 +18,7 @@ const KnownAccountsPage = () => {
         size="small"
         pagination={false}
         loading={isLoading}
-        rowKey={(record) => record.account}
+        rowKey={record => record.account}
         columns={[
           {
             title: "Balance",
@@ -78,7 +78,7 @@ const KnownAccountsPage = () => {
                 </Button>
               </div>
             ),
-            filterIcon: (filtered) => (
+            filterIcon: filtered => (
               <SearchOutlined
                 style={{ color: filtered ? "#1890ff" : undefined }}
               />
@@ -88,7 +88,7 @@ const KnownAccountsPage = () => {
                 .toString()
                 .toLowerCase()
                 .includes(String(value).toLowerCase()),
-            onFilterDropdownVisibleChange: (visible) => {
+            onFilterDropdownVisibleChange: visible => {
               if (visible) {
                 setTimeout(() => inputRef?.current?.select());
               }

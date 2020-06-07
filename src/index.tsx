@@ -12,5 +12,5 @@ ReactDOM.render(
       <App />
     </IndexProvider>
   </BrowserRouter>,
-  document.getElementById("root")
+  document.getElementById("root"),
 );

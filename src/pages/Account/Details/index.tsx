@@ -39,7 +39,7 @@ export const AccountDetailsLayout = ({
 const AccountDetails = () => {
   const { theme, fiat } = React.useContext(PreferencesContext);
   const [representativeAccount, setRepresentativeAccount] = React.useState(
-    {} as any
+    {} as any,
   );
   const {
     marketStatistics: {
@@ -61,11 +61,11 @@ const AccountDetails = () => {
   } = React.useContext(RepresentativesContext);
   const { confirmationQuorum } = React.useContext(ConfirmationQuorumContext);
   const { representatives: representativesOnline } = React.useContext(
-    RepresentativesOnlineContext
+    RepresentativesOnlineContext,
   );
   const balance = new BigNumber(rawToRai(accountInfo?.balance || 0)).toNumber();
   const balancePending = new BigNumber(
-    rawToRai(accountInfo?.pending || 0)
+    rawToRai(accountInfo?.pending || 0),
   ).toFormat(8);
   const fiatBalance = new BigNumber(balance)
     .times(currentPrice)
@@ -95,8 +95,8 @@ const AccountDetails = () => {
         rawToRai(
           new BigNumber(confirmationQuorum.online_stake_total)
             .times(0.001)
-            .toString()
-        )
+            .toString(),
+        ),
       ).toFormat(0)
     : "100000";
 
@@ -137,7 +137,7 @@ const AccountDetails = () => {
                 <Badge
                   color={
                     representativesOnline.includes(
-                      accountInfo?.representative || ""
+                      accountInfo?.representative || "",
                     )
                       ? theme === Theme.DARK
                         ? Colors.RECEIVE_DARK

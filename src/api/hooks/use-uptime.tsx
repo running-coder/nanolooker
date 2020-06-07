@@ -27,7 +27,7 @@ const useUptime = (): UseUptimeReturn => {
 
     setTimeout(() => {
       setUptime({
-        seconds: (parseInt(uptime.seconds) + 60).toString()
+        seconds: (parseInt(uptime.seconds) + 60).toString(),
       });
     }, ONE_MINUTE);
   }, [uptime]);

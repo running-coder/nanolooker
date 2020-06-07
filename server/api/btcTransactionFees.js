@@ -3,7 +3,7 @@ const NodeCache = require("node-cache");
 
 const apiCache = new NodeCache({
   stdTTL: 3600,
-  deleteOnExpire: true
+  deleteOnExpire: true,
 });
 
 const TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H =
@@ -13,16 +13,16 @@ const TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H =
 
 const getBtcTransactionFees = async () => {
   let btcTransactionFees24h = apiCache.get(
-    TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H
+    TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H,
   );
   let btcTransactionFees48h = apiCache.get(
-    TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H
+    TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H,
   );
 
   if (!btcTransactionFees24h || btcTransactionFees48h) {
     try {
       const res = await fetch(
-        "https://api.blockchain.info/charts/transaction-fees?cors=true&format=json"
+        "https://api.blockchain.info/charts/transaction-fees?cors=true&format=json",
       );
       const { values } = await res.json();
 
@@ -31,11 +31,11 @@ const getBtcTransactionFees = async () => {
 
       apiCache.set(
         TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H,
-        btcTransactionFees24h
+        btcTransactionFees24h,
       );
       apiCache.set(
         TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H,
-        btcTransactionFees48h
+        btcTransactionFees48h,
       );
     } catch (e) {}
   }
@@ -46,5 +46,5 @@ const getBtcTransactionFees = async () => {
 module.exports = {
   getBtcTransactionFees,
   TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H,
-  TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H
+  TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H,
 };

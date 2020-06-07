@@ -36,7 +36,7 @@ const Distribution = () => {
     isLoading: isKnownAccountsLoading,
   } = React.useContext(KnownAccountsContext);
   const [isIncludeExchanges, setIsIncludeExchanges] = React.useState<boolean>(
-    true
+    true,
   );
   const [totalAccounts, setTotalAccounts] = React.useState<number>(0);
   const [totalBalance, setTotalBalance] = React.useState<number>(0);
@@ -74,7 +74,7 @@ const Distribution = () => {
     data.distribution.forEach(
       (
         { accounts, balance }: { accounts: number; balance: number },
-        i: number
+        i: number,
       ): void => {
         const calcAccounts =
           accounts - (knownExchangeDistribution[i]?.accounts || 0);
@@ -95,7 +95,7 @@ const Distribution = () => {
           value: calcAccounts,
           type: "accounts",
         });
-      }
+      },
     );
 
     setTotalAccounts(tmpTotalAccounts);
@@ -123,7 +123,7 @@ const Distribution = () => {
       meta: {
         value: {
           alias: " ",
-          formatter: (text) => {
+          formatter: text => {
             return intToString(text);
           },
         },
@@ -160,7 +160,7 @@ const Distribution = () => {
     if (!distributionChart) {
       distributionChart = new StackedColumn(
         document.getElementById("distribution-chart") as HTMLElement,
-        config
+        config,
       );
     } else {
       distributionChart.updateConfig(config);
@@ -201,12 +201,12 @@ const Distribution = () => {
             title={`Exclude ${knownExchangeAccounts
               .map(({ alias }) => alias)
               .join(
-                ", "
+                ", ",
               )} from the distribution chart. Those accounts combined holds ${new BigNumber(
               knownExchangeAccounts.reduce(
                 (acc, { total }) => new BigNumber(acc).plus(total).toNumber(),
-                0
-              )
+                0,
+              ),
             ).toFormat()} NANO`}
             style={{ marginLeft: "6px" }}
           >

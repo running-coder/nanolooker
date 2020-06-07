@@ -49,7 +49,7 @@ const Representatives = () => {
 
   const principalRepresentatives = principalRepresentativeMinWeight
     ? representatives?.filter(
-        ({ weight }) => weight >= principalRepresentativeMinWeight
+        ({ weight }) => weight >= principalRepresentativeMinWeight,
       )
     : undefined;
 
@@ -185,7 +185,7 @@ const Representatives = () => {
           isConfirmationQuorumLoading
         }
         pagination={false}
-        rowKey={(record) => record.account}
+        rowKey={record => record.account}
         columns={[
           {
             title: "Weight",
@@ -204,7 +204,7 @@ const Representatives = () => {
             dataIndex: "account",
             render: (text: string) => {
               const alias = knownAccounts.find(
-                ({ account: knownAccount }) => knownAccount === text
+                ({ account: knownAccount }) => knownAccount === text,
               )?.alias;
               return (
                 <div style={{ display: "flex" }}>

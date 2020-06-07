@@ -18,7 +18,7 @@ const getDeveloperFundTransactions = async () => {
     let accountsHistory = [];
     const accountsHistoryPromises = [];
 
-    DEVELOPER_FUND_ACCOUNTS.forEach(async (account) => {
+    DEVELOPER_FUND_ACCOUNTS.forEach(async account => {
       const promise = new Promise(async (resolve, reject) => {
         try {
           const res = await rpc("account_history", {
@@ -28,7 +28,7 @@ const getDeveloperFundTransactions = async () => {
 
           const history = res.history
             .map(({ type, height, ...rest }) =>
-              type === "send" ? { origin: account, type, ...rest } : undefined
+              type === "send" ? { origin: account, type, ...rest } : undefined,
             )
             .filter(Boolean);
 
@@ -46,13 +46,13 @@ const getDeveloperFundTransactions = async () => {
     developerFundTransactions = await Promise.all(accountsHistoryPromises).then(
       () => {
         developerFundTransactions = reverse(
-          sortBy(accountsHistory, ["local_timestamp"])
+          sortBy(accountsHistory, ["local_timestamp"]),
         );
 
         apiCache.set(DEVELOPER_FUND_TRANSACTIONS, developerFundTransactions);
 
         return developerFundTransactions;
-      }
+      },
     );
   }
 

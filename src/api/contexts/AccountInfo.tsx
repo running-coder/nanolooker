@@ -29,13 +29,13 @@ export const AccountInfoContext = React.createContext<AccountInfoReturn>({
   setAccount: () => {},
   accountInfo: {} as AccountInfoRPCResponse,
   isLoading: false,
-  isError: false
+  isError: false,
 });
 
 const Provider: React.FC = ({ children }) => {
   const [account, setAccount] = React.useState<string>("");
   const [accountInfo, setAccountInfo] = React.useState(
-    {} as AccountInfoRPCResponse
+    {} as AccountInfoRPCResponse,
   );
   const [isLoading, setIsLoading] = React.useState(false);
   const [isError, setIsError] = React.useState(false);
@@ -46,7 +46,7 @@ const Provider: React.FC = ({ children }) => {
     const json = await rpc("account_info", {
       account,
       representative: "true",
-      pending: "true"
+      pending: "true",
     });
 
     !json || json.error ? setIsError(true) : setAccountInfo(json);

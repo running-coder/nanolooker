@@ -6,7 +6,7 @@ import {
   Theme,
   PreferencesContext,
   CurrencySymbol,
-  CurrencyDecimal
+  CurrencyDecimal,
 } from "api/contexts/Preferences";
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 import { BlocksInfoContext } from "api/contexts/BlocksInfo";
@@ -16,7 +16,7 @@ import {
   timestampToDate,
   isValidAccountAddress,
   isValidBlockHash,
-  isOpenAccountBlockHash
+  isOpenAccountBlockHash,
 } from "components/utils";
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 
@@ -28,22 +28,22 @@ const BlockDetails = () => {
     marketStatistics: {
       currentPrice,
       priceStats: { bitcoin: { [fiat]: btcCurrentPrice = 0 } } = {
-        bitcoin: { [fiat]: 0 }
-      }
+        bitcoin: { [fiat]: 0 },
+      },
     },
-    isInitialLoading: isMarketStatisticsInitialLoading
+    isInitialLoading: isMarketStatisticsInitialLoading,
   } = React.useContext(MarketStatisticsContext);
   const {
     blocks,
     blocksInfo,
-    isLoading: isBlocksInfoLoading
+    isLoading: isBlocksInfoLoading,
   } = React.useContext(BlocksInfoContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
 
   const skeletonProps = {
     active: true,
     paragraph: false,
-    loading: isBlocksInfoLoading || isMarketStatisticsInitialLoading
+    loading: isBlocksInfoLoading || isMarketStatisticsInitialLoading,
   };
 
   const blockInfo = blocksInfo?.blocks?.[blocks[0]];
@@ -58,8 +58,8 @@ const BlockDetails = () => {
       link_as_account: linkAsAccount = "",
       previous = "",
       signature = "",
-      work = ""
-    } = {}
+      work = "",
+    } = {},
   } = blockInfo || {};
 
   const modifiedTimestamp = Number(blockInfo?.local_timestamp) * 1000;
@@ -94,13 +94,13 @@ const BlockDetails = () => {
     : linkAsAccount;
 
   const blockAccountAlias = knownAccounts.find(
-    ({ account: knownAccount }) => knownAccount === blockAccount
+    ({ account: knownAccount }) => knownAccount === blockAccount,
   )?.alias;
   const secondAccountAlias = knownAccounts.find(
-    ({ account: knownAccount }) => knownAccount === secondAccount
+    ({ account: knownAccount }) => knownAccount === secondAccount,
   )?.alias;
   const representativeAlias = knownAccounts.find(
-    ({ account: knownAccount }) => knownAccount === representative
+    ({ account: knownAccount }) => knownAccount === representative,
   )?.alias;
 
   // @TODO COMPLETE FOR BLOCK

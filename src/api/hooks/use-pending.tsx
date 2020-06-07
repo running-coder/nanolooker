@@ -35,7 +35,7 @@ const usePending = (account: string, params: Params): Return => {
 
     const json = await rpc("pending", {
       account,
-      ...params
+      ...params,
     });
 
     !json || json.error ? setIsError(true) : setPending(json);

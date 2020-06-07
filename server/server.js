@@ -35,7 +35,7 @@ const app = express();
 app.use(
   cors({
     origin: true,
-  })
+  }),
 );
 
 app.use(bodyParser.json());

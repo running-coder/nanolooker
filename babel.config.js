@@ -2,11 +2,11 @@ module.exports = {
   // presets: ["react-app"],
   plugins: [
     [
-      "module-resolver",
+      'module-resolver',
       {
-        root: ["./"],
+        root: ['./'],
       },
     ],
-    "@babel/plugin-proposal-optional-chaining",
+    '@babel/plugin-proposal-optional-chaining',
   ],
 };

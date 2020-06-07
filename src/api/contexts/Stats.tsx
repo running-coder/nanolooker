@@ -10,7 +10,7 @@ export interface Return {
 export const StatsContext = React.createContext<Return>({
   stats: {},
   isLoading: false,
-  isError: false
+  isError: false,
 });
 
 // type Types = 'counters' | 'samples' | 'objects';

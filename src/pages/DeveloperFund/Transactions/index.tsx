@@ -11,7 +11,7 @@ const DeveloperFundTransaction = () => {
   const [currentPage, setCurrentPage] = React.useState<number>(1);
   const {
     developerFundTransactions = [],
-    isLoading
+    isLoading,
   } = useDeveloperFundTransactions();
 
   const totalTransactions = developerFundTransactions.length;
@@ -20,7 +20,7 @@ const DeveloperFundTransaction = () => {
   const start = 0 + (currentPage - 1) * TRANSACTIONS_PER_PAGE;
   const data = developerFundTransactions?.slice(
     start,
-    start + TRANSACTIONS_PER_PAGE
+    start + TRANSACTIONS_PER_PAGE,
   );
 
   return (

@@ -23,12 +23,12 @@ const AccountPendingHistory = () => {
   const { account, accountInfo } = React.useContext(AccountInfoContext);
   const {
     pending: { blocks = {} } = {},
-    isLoading: isAccountHistoryLoading
+    isLoading: isAccountHistoryLoading,
   } = usePending(account, {
     count: String(MAX_PENDING_TRANSACTIONS),
     sorting: true,
     source: true,
-    threshold: PENDING_MIN_THRESHHOLD
+    threshold: PENDING_MIN_THRESHHOLD,
   });
   const totalPending = Object.keys(blocks).length;
   const isPaginated = true;
@@ -43,8 +43,8 @@ const AccountPendingHistory = () => {
         hash: block,
         amount,
         account: source,
-        subtype: "pending"
-      })
+        subtype: "pending",
+      }),
     );
   }
 

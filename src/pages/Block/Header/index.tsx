@@ -16,7 +16,7 @@ const BlockHeader = () => {
           marginRight: "6px",
           wordWrap: "break-word",
           position: "relative",
-          marginBottom: "12px"
+          marginBottom: "12px",
         }}
         className="color-normal"
       >
@@ -25,7 +25,7 @@ const BlockHeader = () => {
             style={{
               fontSize: "18px",
               marginRight: "6px",
-              alignSelf: "flex-start"
+              alignSelf: "flex-start",
             }}
           />
         </div>

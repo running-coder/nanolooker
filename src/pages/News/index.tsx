@@ -11,7 +11,7 @@ const NewsPage = () => {
     const getPosts = async () => {
       try {
         const res = await fetch(
-          "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/nanocurrency"
+          "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/nanocurrency",
         );
         const { items } = await res.json();
 
@@ -45,7 +45,7 @@ const NewsPage = () => {
             descriptionShort,
             descriptionLong,
           },
-          index
+          index,
         ) => (
           <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]} key={index}>
             <Col xs={24} md={10} lg={8}>
@@ -89,7 +89,7 @@ const NewsPage = () => {
               </Card>
             </Col>
           </Row>
-        )
+        ),
       )}
     </>
   );

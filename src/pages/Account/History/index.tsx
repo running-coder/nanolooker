@@ -16,12 +16,12 @@ const AccountHistory = () => {
   const [currentHead, setCurrentHead] = React.useState<string | undefined>();
   const {
     accountHistory: { history, previous: previousHead },
-    isLoading: isAccountHistoryLoading
+    isLoading: isAccountHistoryLoading,
   } = useAccountHistory(Object.keys(accountInfo).length ? account : "", {
     count: String(TRANSACTIONS_PER_PAGE),
     raw: true,
     offset: isPaginated ? (currentPage - 1) * TRANSACTIONS_PER_PAGE : undefined,
-    head: !isPaginated ? currentHead || accountInfo?.frontier : undefined
+    head: !isPaginated ? currentHead || accountInfo?.frontier : undefined,
   });
 
   return (

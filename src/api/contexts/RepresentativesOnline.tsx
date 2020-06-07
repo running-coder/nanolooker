@@ -12,7 +12,7 @@ export const RepresentativesOnlineContext = React.createContext<
 >({
   representatives: [],
   isLoading: false,
-  isError: false
+  isError: false,
 });
 
 const Provider: React.FC = ({ children }) => {

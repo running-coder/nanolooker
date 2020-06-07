@@ -28,7 +28,7 @@ export const BlocksInfoContext = React.createContext<Return>({
   setBlocks: () => {},
   blocksInfo: {} as Response,
   isLoading: false,
-  isError: false
+  isError: false,
 });
 
 const Provider: React.FC = ({ children }) => {
@@ -45,7 +45,7 @@ const Provider: React.FC = ({ children }) => {
       pending: "true",
       source: "true",
       balance: "true",
-      json_block: "true"
+      json_block: "true",
     });
 
     !json || json.error ? setIsError(true) : setBlocksInfo(json);
@@ -54,7 +54,7 @@ const Provider: React.FC = ({ children }) => {
 
   useDeepCompareEffect(() => {
     const filteredBlocks = (blocks || []).filter(block =>
-      isValidBlockHash(block)
+      isValidBlockHash(block),
     );
 
     if (filteredBlocks.length) {

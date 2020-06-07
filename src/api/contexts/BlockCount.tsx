@@ -19,7 +19,7 @@ export const BlockCountContext = React.createContext<Return & Response>({
   cemented: "0",
   getBlockCount: () => {},
   isLoading: false,
-  isError: false
+  isError: false,
 });
 
 const Provider: React.FC = ({ children }) => {

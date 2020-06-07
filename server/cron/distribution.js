@@ -18,7 +18,7 @@ const STATUS_PATH = join(__dirname, "../data/status.json");
 // Balance + pending below this amount will be ignored
 const MIN_TOTAL = 0.001;
 
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 const getAccounts = async () => {
   const { count } = await rpc("frontier_count");
@@ -65,7 +65,7 @@ const getDistribution = async () => {
     });
 
     console.log(
-      `processing balances chunk ${i + 1} of ${balancesChunks.length}`
+      `processing balances chunk ${i + 1} of ${balancesChunks.length}`,
     );
 
     await Promise.all(
@@ -73,9 +73,7 @@ const getDistribution = async () => {
         async ([account, { balance: rawBalance, pending: rawPending }]) => {
           const balance = rawToRai(rawBalance);
           const pending = rawToRai(rawPending);
-          const total = new BigNumber(balance)
-            .plus(pending)
-            .toNumber();
+          const total = new BigNumber(balance).plus(pending).toNumber();
 
           if (total < MIN_TOTAL) return;
 
@@ -96,13 +94,13 @@ const getDistribution = async () => {
           let index = total >= 1 ? `${parseInt(total)}`.length : 0;
 
           distribution[index] = {
-            accounts: (distribution[index].accounts += 1),
+            accounts: distribution[index].accounts += 1,
             balance: new BigNumber(total)
               .plus(distribution[index].balance)
               .toNumber(),
           };
-        }
-      )
+        },
+      ),
     );
 
     await sleep(2000);
@@ -127,12 +125,12 @@ const doDistributionCron = async () => {
         date: new Date(),
       },
       null,
-      2
-    )
+      2,
+    ),
   );
 
   console.log(
-    `Distribution cron finished in ${(new Date() - startTime) / 1000}s`
+    `Distribution cron finished in ${(new Date() - startTime) / 1000}s`,
   );
 };
 

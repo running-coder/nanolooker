@@ -26,10 +26,10 @@ export const KnownAccountsContext = React.createContext<Context>({
 
 const Provider: React.FC = ({ children }) => {
   const [knownAccounts, setKnownAccounts] = React.useState(
-    [] as KnownAccount[]
+    [] as KnownAccount[],
   );
   const [knownExchangeAccounts, setKnownExchangeAccounts] = React.useState(
-    [] as KnownAccount[]
+    [] as KnownAccount[],
   );
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [isError, setIsError] = React.useState<boolean>(false);
@@ -43,9 +43,9 @@ const Provider: React.FC = ({ children }) => {
     !json || json.error ? setIsError(true) : setKnownAccounts(json);
 
     setKnownExchangeAccounts(
-      [...KNOWN_EXCHANGE_ACCOUNTS].map((account) =>
-        find(json, ["account", account])
-      )
+      [...KNOWN_EXCHANGE_ACCOUNTS].map(account =>
+        find(json, ["account", account]),
+      ),
     );
 
     setIsLoading(false);

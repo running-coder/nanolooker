@@ -4,7 +4,7 @@ import { rawToRai } from "components/utils";
 import { Type, Subtype } from "types/Transaction";
 
 enum Topic {
-  CONFIRMATION = "confirmation"
+  CONFIRMATION = "confirmation",
 }
 
 interface Block {
@@ -51,7 +51,7 @@ const useSocket = () => {
       setIsConnected(true);
       const confirmation_subscription = {
         action: "subscribe",
-        topic: Topic.CONFIRMATION
+        topic: Topic.CONFIRMATION,
       };
       ws.send(JSON.stringify(confirmation_subscription));
     };
@@ -107,15 +107,15 @@ const useSocket = () => {
           setRecentTransactions(prevRecentTransactions =>
             [
               json.message as RecentTransaction,
-              ...prevRecentTransactions
-            ].slice(0, MAX_RECENT_TRANSACTIONS)
+              ...prevRecentTransactions,
+            ].slice(0, MAX_RECENT_TRANSACTIONS),
           );
         }
       } catch (_e) {
         // silence error
       }
     },
-    [isMinAmount]
+    [isMinAmount],
   );
 
   return {
@@ -123,7 +123,7 @@ const useSocket = () => {
     isConnected,
     setIsMinAmount,
     isDisabled,
-    setIsDisabled
+    setIsDisabled,
   };
 };
 

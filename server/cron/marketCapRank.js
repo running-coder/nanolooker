@@ -6,7 +6,7 @@ const {
   MONGO_DB,
   MONGO_OPTIONS,
   EXPIRE_48H,
-  MARKET_CAP_RANK_COLLECTION
+  MARKET_CAP_RANK_COLLECTION,
 } = require("../constants");
 
 const getNextHour = () => {
@@ -26,12 +26,12 @@ cron.schedule("*/20 * * * *", async () => {
 
     db.collection(MARKET_CAP_RANK_COLLECTION).createIndex(
       { createdAt: 1 },
-      { expireAfterSeconds: EXPIRE_48H }
+      { expireAfterSeconds: EXPIRE_48H },
     );
   });
 
   const res = await fetch(
-    "https://api.coingecko.com/api/v3/coins/nano?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false"
+    "https://api.coingecko.com/api/v3/coins/nano?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false",
   );
   const { market_cap_rank: marketCapRank } = await res.json();
   const hour = getNextHour();
@@ -39,15 +39,15 @@ cron.schedule("*/20 * * * *", async () => {
   db.collection(MARKET_CAP_RANK_COLLECTION)
     .updateOne(
       {
-        hour
+        hour,
       },
       {
         $set: {
-          value: marketCapRank
+          value: marketCapRank,
         },
-        $setOnInsert: { hour, createdAt: new Date() }
+        $setOnInsert: { hour, createdAt: new Date() },
       },
-      { upsert: true }
+      { upsert: true },
     )
     .then(() => {
       mongoClient.close();

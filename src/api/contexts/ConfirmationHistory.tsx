@@ -19,16 +19,16 @@ export const ConfirmationHistoryContext = React.createContext<
 >({
   confirmation_stats: {
     count: "0",
-    average: "0"
+    average: "0",
   },
   confirmations: [],
   getConfirmationHistory: () => {},
-  isError: false
+  isError: false,
 });
 
 const Provider: React.FC = ({ children }) => {
   const [confirmationHistory, setConfirmationHistory] = React.useState(
-    {} as Response
+    {} as Response,
   );
   const [isError, setIsError] = React.useState(false);
 

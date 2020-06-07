@@ -8,12 +8,12 @@ export const rpc = async (action: string, params?: any) => {
       method: "POST",
       headers: {
         Accept: "application/json",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         action,
-        ...params
-      })
+        ...params,
+      }),
     });
 
     json = await res.json();

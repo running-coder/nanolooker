@@ -12,12 +12,12 @@ const {
   COINGECKO_PRICE_STATS,
   MARKET_CAP_RANK_24H,
   MARKET_CAP_RANK_COLLECTION,
-  SUPPORTED_CRYPTOCURRENCY
+  SUPPORTED_CRYPTOCURRENCY,
 } = require("../constants");
 
 const apiCache = new NodeCache({
   stdTTL: 15,
-  deleteOnExpire: true
+  deleteOnExpire: true,
 });
 
 const DEFAULT_FIAT = "usd";
@@ -46,10 +46,10 @@ const getCoingeckoStats = async ({ fiat }) => {
             $query: {
               createdAt: {
                 $lte: new Date(Date.now() - EXPIRE_24H * 1000),
-                $gte: new Date(Date.now() - EXPIRE_48H * 1000)
-              }
+                $gte: new Date(Date.now() - EXPIRE_48H * 1000),
+              },
             },
-            $orderby: { value: 1 }
+            $orderby: { value: 1 },
           })
           .toArray((_err, [{ value } = {}] = []) => {
             apiCache.set(MARKET_CAP_RANK_24H, value, EXPIRE_1h);
@@ -64,7 +64,7 @@ const getCoingeckoStats = async ({ fiat }) => {
     new Promise(async resolve => {
       try {
         const res = await fetch(
-          "https://api.coingecko.com/api/v3/coins/nano?localization=false&tickers=false&market_data=true&community_data=true&developer_data=true&sparkline=true"
+          "https://api.coingecko.com/api/v3/coins/nano?localization=false&tickers=false&market_data=true&community_data=true&developer_data=true&sparkline=true",
         );
 
         const {
@@ -76,8 +76,8 @@ const getCoingeckoStats = async ({ fiat }) => {
             current_price: { [fiat]: currentPrice },
             price_change_percentage_24h: change24h,
             total_supply: totalSupply,
-            circulating_supply: circulatingSupply
-          }
+            circulating_supply: circulatingSupply,
+          },
         } = await res.json();
 
         marketStats = {
@@ -88,7 +88,7 @@ const getCoingeckoStats = async ({ fiat }) => {
           totalSupply,
           circulatingSupply,
           currentPrice,
-          change24h
+          change24h,
         };
 
         apiCache.set(`${COINGECKO_MARKET_STATS}-${fiat}`, marketStats);
@@ -103,7 +103,7 @@ const getCoingeckoStats = async ({ fiat }) => {
         const ids = SUPPORTED_CRYPTOCURRENCY.map(({ id }) => id).join(",");
 
         const resPrices = await fetch(
-          `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=${fiat}&include_24hr_change=true`
+          `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=${fiat}&include_24hr_change=true`,
         );
         priceStats = await resPrices.json();
 
@@ -116,16 +116,16 @@ const getCoingeckoStats = async ({ fiat }) => {
   [marketCapRank24h, marketStats, priceStats] = await Promise.all([
     getMarketCapRank24h,
     getMarketStats,
-    getPriceStats
+    getPriceStats,
   ]);
 
   return {
     marketStats: Object.assign(marketStats, { marketCapRank24h }),
-    priceStats
+    priceStats,
   };
 };
 
 module.exports = {
   apiCache,
-  getCoingeckoStats
+  getCoingeckoStats,
 };

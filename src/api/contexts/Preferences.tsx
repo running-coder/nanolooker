@@ -2,7 +2,7 @@ import React from "react";
 
 export enum Theme {
   LIGHT = "light",
-  DARK = "dark"
+  DARK = "dark",
 }
 
 export enum CurrencySymbol {
@@ -11,7 +11,7 @@ export enum CurrencySymbol {
   eur = "€",
   gbp = "£",
   cny = "¥",
-  jpy = "¥"
+  jpy = "¥",
 }
 
 // https://en.wikipedia.org/wiki/ISO_4217
@@ -21,7 +21,7 @@ export enum CurrencyDecimal {
   eur = 2,
   gbp = 2,
   cny = 2,
-  jpy = 0
+  jpy = 0,
 }
 
 export enum Fiat {
@@ -30,12 +30,12 @@ export enum Fiat {
   EUR = "eur",
   GBP = "gbp",
   CNY = "cny",
-  JPY = "jpy"
+  JPY = "jpy",
 }
 
 export enum Language {
   EN = "en",
-  FR = "fr"
+  FR = "fr",
 }
 
 interface Preferences {
@@ -62,7 +62,7 @@ const getCryptocurrency = (): string[] => {
   let preferences;
   try {
     preferences = JSON.parse(
-      window.localStorage.getItem(CRYPTOCURRENCY_KEY) || ""
+      window.localStorage.getItem(CRYPTOCURRENCY_KEY) || "",
     );
   } catch (_e) {}
 
@@ -79,21 +79,21 @@ export const PreferencesContext = React.createContext<Preferences>({
   removeCryptocurrency: () => {},
   reorderCryptocurrency: () => {},
   setFiat: () => {},
-  setLanguage: () => {}
+  setLanguage: () => {},
 });
 
 const Provider: React.FC = ({ children }) => {
   const [theme, setTheme] = React.useState<Theme>(
-    (localStorage.getItem(THEME_KEY) as Theme) || Theme.LIGHT
+    (localStorage.getItem(THEME_KEY) as Theme) || Theme.LIGHT,
   );
   const [cryptocurrency, setCryptocurrency] = React.useState<string[]>(
-    getCryptocurrency()
+    getCryptocurrency(),
   );
   const [fiat, setFiat] = React.useState<Fiat>(
-    (localStorage.getItem(FIAT_KEY) as Fiat) || Fiat.USD
+    (localStorage.getItem(FIAT_KEY) as Fiat) || Fiat.USD,
   );
   const [language, setLanguage] = React.useState<Language>(
-    (localStorage.getItem(LANGUAGE_KEY) as Language) || Language.EN
+    (localStorage.getItem(LANGUAGE_KEY) as Language) || Language.EN,
   );
 
   const addCryptocurrency = React.useCallback(
@@ -106,12 +106,12 @@ const Provider: React.FC = ({ children }) => {
 
       localStorage.setItem(
         CRYPTOCURRENCY_KEY,
-        JSON.stringify(newCryptocurrency)
+        JSON.stringify(newCryptocurrency),
       );
 
       setCryptocurrency(newCryptocurrency);
     },
-    [cryptocurrency]
+    [cryptocurrency],
   );
 
   const removeCryptocurrency = React.useCallback(
@@ -119,12 +119,12 @@ const Provider: React.FC = ({ children }) => {
       const newCryptocurrency = cryptocurrency.filter(h => h !== value);
       localStorage.setItem(
         CRYPTOCURRENCY_KEY,
-        JSON.stringify(newCryptocurrency)
+        JSON.stringify(newCryptocurrency),
       );
 
       setCryptocurrency(newCryptocurrency);
     },
-    [cryptocurrency]
+    [cryptocurrency],
   );
 
   const reorderCryptocurrency = (newOrder: string[]) => {
@@ -160,7 +160,7 @@ const Provider: React.FC = ({ children }) => {
         removeCryptocurrency,
         reorderCryptocurrency,
         setFiat: setLocalstorageFiat,
-        setLanguage: setLocalstorageLanguage
+        setLanguage: setLocalstorageLanguage,
       }}
     >
       {children}

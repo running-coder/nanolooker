@@ -30,7 +30,7 @@ const useAccountsBalances = (accounts: string[]): Return => {
     setIsLoading(true);
 
     const json = await rpc("accounts_balances", {
-      accounts
+      accounts,
     });
 
     !json || json.error ? setIsError(true) : setAccountsBalance(json);
@@ -39,7 +39,7 @@ const useAccountsBalances = (accounts: string[]): Return => {
 
   useDeepCompareEffect(() => {
     getAccountsBalances(
-      accounts?.filter(account => isValidAccountAddress(account))
+      accounts?.filter(account => isValidAccountAddress(account)),
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [accounts]);

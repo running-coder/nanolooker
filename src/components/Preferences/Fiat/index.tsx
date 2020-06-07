@@ -11,7 +11,7 @@ const { Text } = Typography;
 const FiatPreferences: React.FC = () => {
   const { fiat, setFiat } = React.useContext(PreferencesContext);
   const { setIsInitialLoading, getMarketStatistics } = React.useContext(
-    MarketStatisticsContext
+    MarketStatisticsContext,
   );
 
   return (
@@ -19,7 +19,7 @@ const FiatPreferences: React.FC = () => {
       <Text style={{ marginRight: "12px" }}>Fiat currency</Text>
       <Select
         defaultValue={fiat}
-        onChange={(value) => {
+        onChange={value => {
           setFiat(value);
           setIsInitialLoading(true);
           getMarketStatistics(value);

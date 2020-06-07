@@ -27,7 +27,7 @@ export enum TwoToneColors {
 // @TODO: map subtype to color?
 
 function sleep(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 export const refreshActionDelay = async (action: Function) => {
@@ -91,11 +91,11 @@ export const timestampToDate = (timestamp: string | number) => {
 
   return `${date.getFullYear()}/${String(date.getMonth() + 1).padStart(
     2,
-    "0"
+    "0",
   )}/${String(date.getDate()).padStart(2, "0")} ${String(
-    date.getHours()
+    date.getHours(),
   ).padStart(2, "0")}:${String(date.getMinutes()).padStart(2, "0")}:${String(
-    date.getSeconds()
+    date.getSeconds(),
   ).padStart(2, "0")}`;
 };
 
@@ -103,7 +103,9 @@ export const intToString = (value: number) => {
   var suffixes = ["", "K", "M"];
   var suffixNum = Math.floor(("" + value).length / 3);
   var shortValue: any = parseFloat(
-    (suffixNum !== 0 ? value / Math.pow(1000, suffixNum) : value).toPrecision(2)
+    (suffixNum !== 0 ? value / Math.pow(1000, suffixNum) : value).toPrecision(
+      2,
+    ),
   );
   if (shortValue % 1 !== 0) {
     shortValue = shortValue.toFixed(1);

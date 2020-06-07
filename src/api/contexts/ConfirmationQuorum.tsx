@@ -22,12 +22,12 @@ export const ConfirmationQuorumContext = React.createContext<
 >({
   confirmationQuorum: {} as ConfirmationQuorumRPCResponse,
   isLoading: false,
-  isError: false
+  isError: false,
 });
 
 const Provider: React.FC = ({ children }) => {
   const [confirmationQuorum, setConfirmationQuorum] = React.useState(
-    {} as ConfirmationQuorumRPCResponse
+    {} as ConfirmationQuorumRPCResponse,
   );
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [isError, setIsError] = React.useState<boolean>(false);

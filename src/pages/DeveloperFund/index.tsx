@@ -76,7 +76,7 @@ const DeveloperFund = () => {
 
       return accounts;
     },
-    [] as any
+    [] as any,
   );
 
   const fiatBalance = new BigNumber(totalBalance)
@@ -241,7 +241,7 @@ const DeveloperFund = () => {
         size="small"
         pagination={false}
         loading={isAccountsBalancesLoading}
-        rowKey={(record) => record.account}
+        rowKey={record => record.account}
         columns={[
           {
             title: "Balance",

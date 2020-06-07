@@ -6,7 +6,7 @@ const NodeCache = require("node-cache");
 
 const apiCache = new NodeCache({
   stdTTL: 30,
-  deleteOnExpire: true
+  deleteOnExpire: true,
 });
 
 const NODE_STATUS = "NODE_STATUS";
@@ -19,20 +19,20 @@ const getNodeStatus = async () => {
       const [{ pid }] = await find("name", "nano_node");
       const { cpu, memory, elapsed } = await pidusage(pid);
       const { size: ledgerSize } = fs.statSync(
-        `${process.env.NANO_FOLDER}/data.ldb`
+        `${process.env.NANO_FOLDER}/data.ldb`,
       );
 
       nodeStatus = {
         memory: {
           free: os.freemem(),
-          total: os.totalmem()
+          total: os.totalmem(),
         },
         ledgerSize,
         nodeStats: {
           cpu,
           memory,
-          elapsed
-        }
+          elapsed,
+        },
       };
 
       apiCache.set(NODE_STATUS, nodeStatus);
@@ -46,5 +46,5 @@ const getNodeStatus = async () => {
 
 module.exports = {
   getNodeStatus,
-  NODE_STATUS
+  NODE_STATUS,
 };

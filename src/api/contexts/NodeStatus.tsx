@@ -24,12 +24,12 @@ export const NodeStatusContext = React.createContext<Return>({
   nodeStatus: {} as NodeStatus,
   getNodeStatus: () => {},
   isLoading: false,
-  isError: false
+  isError: false,
 });
 
 const Provider: React.FC = ({ children }) => {
   const [nodeStatus, setNodeStatus] = React.useState<NodeStatus>(
-    {} as NodeStatus
+    {} as NodeStatus,
   );
   const [isLoading, setIsLoading] = React.useState(false);
   const [isError, setIsError] = React.useState(false);

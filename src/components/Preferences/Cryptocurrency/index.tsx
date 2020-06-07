@@ -13,7 +13,7 @@ const CryptocurrencyPreferences: React.FC = () => {
     cryptocurrency,
     addCryptocurrency,
     removeCryptocurrency,
-    reorderCryptocurrency
+    reorderCryptocurrency,
   } = React.useContext(PreferencesContext);
   const [search, setSearch] = React.useState<string>("");
 
@@ -58,7 +58,7 @@ const CryptocurrencyPreferences: React.FC = () => {
     const items = reorder(
       cryptocurrency,
       result.source.index,
-      result.destination.index
+      result.destination.index,
     );
     reorderCryptocurrency(items);
   };
@@ -99,7 +99,7 @@ const CryptocurrencyPreferences: React.FC = () => {
                   backgroundColor: snapshot.isDraggingOver
                     ? "#1890ff24"
                     : "#f6f6f6",
-                  listStyle: "none"
+                  listStyle: "none",
                 }}
                 ref={provided.innerRef}
                 {...provided.droppableProps}
@@ -107,7 +107,7 @@ const CryptocurrencyPreferences: React.FC = () => {
                 {cryptocurrency.map((symbol, index) => {
                   const { name = "" } =
                     dataSource.find(
-                      ({ symbol: sourceSymbol }) => sourceSymbol === symbol
+                      ({ symbol: sourceSymbol }) => sourceSymbol === symbol,
                     ) || {};
                   return (
                     <Draggable draggableId={name} index={index} key={name}>
@@ -129,7 +129,7 @@ const CryptocurrencyPreferences: React.FC = () => {
                               border: "1px solid #d9d9d9",
                               ...(index !== cryptocurrency.length - 1
                                 ? { marginBottom: "6px" }
-                                : { marginBottom: "-1px" })
+                                : { marginBottom: "-1px" }),
                             }}
                           >
                             <span>

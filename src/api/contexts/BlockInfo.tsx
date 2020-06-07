@@ -37,7 +37,7 @@ export const BlockInfoContext = React.createContext<Return>({
   setBlock: () => {},
   blockInfo: {} as BlockInfo,
   isLoading: false,
-  isError: false
+  isError: false,
 });
 
 const Provider: React.FC = ({ children }) => {
@@ -51,7 +51,7 @@ const Provider: React.FC = ({ children }) => {
     setIsLoading(true);
     const json = await rpc("block_info", {
       hash: block,
-      json_block: "true"
+      json_block: "true",
     });
 
     !json || json.error ? setIsError(true) : setBlockInfo(json);

@@ -25,13 +25,13 @@ const Price = () => {
       <Skeleton {...skeletonProps}>
         <CryptocurrencyPrice
           {...(SupportedCryptocurrency.find(
-            ({ symbol }) => symbol === "nano"
+            ({ symbol }) => symbol === "nano",
           ) as CryptocurrencyPriceProps)}
         />
 
-        {cryptocurrency.map((symbol) => {
+        {cryptocurrency.map(symbol => {
           const crypto = SupportedCryptocurrency.find(
-            ({ symbol: supportedSymbol }) => supportedSymbol === symbol
+            ({ symbol: supportedSymbol }) => supportedSymbol === symbol,
           );
 
           return crypto ? (

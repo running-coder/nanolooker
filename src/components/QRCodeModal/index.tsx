@@ -32,7 +32,7 @@ const QRCodeModal = ({ text, children }: QRCodeModalProps) => {
       {React.cloneElement(children, {
         onClick: () => {
           setIsVisible(true);
-        }
+        },
       })}
       <Modal
         width="300px"
@@ -45,7 +45,7 @@ const QRCodeModal = ({ text, children }: QRCodeModalProps) => {
             onClick={() => setIsVisible(false)}
           >
             Ok
-          </Button>
+          </Button>,
         ]}
       >
         <div style={{ textAlign: "center" }}>

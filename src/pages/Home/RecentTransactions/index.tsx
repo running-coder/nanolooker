@@ -7,7 +7,7 @@ import {
   SettingOutlined,
   CloseCircleFilled,
   CloseCircleTwoTone,
-  SyncOutlined
+  SyncOutlined,
 } from "@ant-design/icons";
 
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -28,7 +28,7 @@ const RecentTransactions = () => {
     isConnected,
     setIsMinAmount,
     isDisabled,
-    setIsDisabled
+    setIsDisabled,
   } = useSockets();
   const { knownAccounts } = React.useContext(KnownAccountsContext);
   const isMediumAndLower = !useMediaQuery("(min-width: 768px)");
@@ -116,7 +116,7 @@ const RecentTransactions = () => {
                     }`
                   ];
                 const alias = knownAccounts.find(
-                  ({ account: knownAccount }) => knownAccount === account
+                  ({ account: knownAccount }) => knownAccount === account,
                 )?.alias;
 
                 return (
@@ -145,7 +145,7 @@ const RecentTransactions = () => {
                         <Text style={{ color }} className="timeline-amount">
                           {amount
                             ? `${new BigNumber(
-                                rawToRai(amount)
+                                rawToRai(amount),
                               ).toFormat()} NANO`
                             : "N/A"}
                         </Text>
@@ -155,7 +155,7 @@ const RecentTransactions = () => {
                         live={true}
                         className="timeline-timeago color-muted"
                         style={{
-                          marginLeft: subtype === "change" ? "6px" : 0
+                          marginLeft: subtype === "change" ? "6px" : 0,
                         }}
                       />
                     </div>
@@ -171,7 +171,7 @@ const RecentTransactions = () => {
                     </Link>
                   </Timeline.Item>
                 );
-              }
+              },
             )}
           </Timeline>
         ) : null}

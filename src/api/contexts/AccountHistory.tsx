@@ -37,24 +37,24 @@ export interface UsePeersReturn {
 
 const Provider = (
   account: string,
-  params: AccountHistoryParams
+  params: AccountHistoryParams,
 ): UsePeersReturn => {
   const [accountHistory, setAccountHistory] = React.useState(
-    {} as AccountHistory
+    {} as AccountHistory,
   );
   const [isLoading, setIsLoading] = React.useState(false);
   const [isError, setIsError] = React.useState(false);
 
   const getAccountHistory = async (
     account: string,
-    params: AccountHistoryParams
+    params: AccountHistoryParams,
   ) => {
     setIsError(false);
     setIsLoading(true);
 
     const json = await rpc("account_history", {
       account,
-      ...params
+      ...params,
     });
 
     !json || json.error ? setIsError(true) : setAccountHistory(json);

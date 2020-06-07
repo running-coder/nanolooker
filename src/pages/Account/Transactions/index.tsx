@@ -8,7 +8,7 @@ import {
   Pagination,
   Row,
   Tag,
-  Typography
+  Typography,
 } from "antd";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import TimeAgo from "timeago-react";
@@ -52,7 +52,7 @@ const TransactionsTable = ({
   currentPage,
   totalPages,
   setCurrentPage,
-  setCurrentHead
+  setCurrentHead,
 }: TransactionsTableProps) => {
   const { theme } = React.useContext(PreferencesContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
@@ -104,9 +104,9 @@ const TransactionsTable = ({
                 amount,
                 representative,
                 hash,
-                local_timestamp: localTimestamp
+                local_timestamp: localTimestamp,
               }: History,
-              index: number
+              index: number,
             ) => {
               const transactionType = subtype || type;
               const themeColor = `${transactionType.toUpperCase()}${
@@ -115,7 +115,7 @@ const TransactionsTable = ({
               const knownAccount =
                 account &&
                 knownAccounts.find(
-                  ({ account: knownAccount }) => account === knownAccount
+                  ({ account: knownAccount }) => account === knownAccount,
                 );
 
               const modifiedTimestamp = Number(localTimestamp) * 1000;
@@ -192,7 +192,7 @@ const TransactionsTable = ({
                   </Col>
                 </Row>
               );
-            }
+            },
           )}
           {showPaginate ? (
             <Row className="row-pagination">
@@ -208,7 +208,7 @@ const TransactionsTable = ({
                       onChange: (page: number) => {
                         setCurrentPage?.(page);
                       },
-                      showSizeChanger: false
+                      showSizeChanger: false,
                     }}
                   />
                 </Col>

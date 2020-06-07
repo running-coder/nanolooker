@@ -38,8 +38,8 @@ const getKnownAccounts = async () => {
           total: balances[account]
             ? rawToRai(
                 new BigNumber(balances[account].balance || 0).plus(
-                  balances[account].pending || 0
-                )
+                  balances[account].pending || 0,
+                ),
               )
             : 0,
         }))

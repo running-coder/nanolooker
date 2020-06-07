@@ -9,7 +9,7 @@ const POLL_INTERVAL = 1000 * 30;
 const BlockCount: React.FC = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   const { count, unchecked, cemented, getBlockCount } = React.useContext(
-    BlockCountContext
+    BlockCountContext,
   );
 
   const refreshBlockCount = async () => {

@@ -11,7 +11,7 @@ import { AccountInfoContext } from "api/contexts/AccountInfo";
 const AccountPage = () => {
   const { account = "" } = useParams();
   const { setAccount, isError: isAccountInfoError } = React.useContext(
-    AccountInfoContext
+    AccountInfoContext,
   );
   const isValid = isValidAccountAddress(account);
 

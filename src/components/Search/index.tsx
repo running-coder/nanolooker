@@ -4,7 +4,7 @@ import { Dropdown, Input, Menu } from "antd";
 import {
   WalletOutlined,
   BlockOutlined,
-  HistoryOutlined
+  HistoryOutlined,
 } from "@ant-design/icons";
 import { isValidAccountAddress, isValidBlockHash } from "components/utils";
 import DeleteButton from "components/DeleteButton";
@@ -23,7 +23,7 @@ const Search = () => {
   const {
     searchHistory,
     addSearchHistory,
-    removeSearchHistory
+    removeSearchHistory,
   } = useSearchHistory();
 
   let history = useHistory();
@@ -48,7 +48,7 @@ const Search = () => {
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [addSearchHistory]
+    [addSearchHistory],
   );
 
   React.useEffect(() => {
@@ -66,7 +66,7 @@ const Search = () => {
         position: "absolute",
         right: "-8px",
         top: "15px",
-        transitionDelay: `${isExpanded ? 0 : 0.2}s`
+        transitionDelay: `${isExpanded ? 0 : 0.2}s`,
       }}
       value={searchValue}
       suffix={

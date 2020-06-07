@@ -15,14 +15,14 @@ const AccountHeader = () => {
   const { account = "" } = useParams();
   const [knownAccount, setKnownAccount] = React.useState<KnownAccount>();
   const [representativeAccount, setRepresentativeAccount] = React.useState(
-    {} as any
+    {} as any,
   );
   const {
     representatives,
-    isLoading: isRepresentativesLoading
+    isLoading: isRepresentativesLoading,
   } = React.useContext(RepresentativesContext);
   const {
-    confirmationQuorum: { principal_representative_min_weight: minWeight }
+    confirmationQuorum: { principal_representative_min_weight: minWeight },
   } = React.useContext(ConfirmationQuorumContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
 
@@ -39,8 +39,8 @@ const AccountHeader = () => {
 
     setKnownAccount(
       knownAccounts.find(
-        ({ account: knownAccount }) => knownAccount === account
-      )
+        ({ account: knownAccount }) => knownAccount === account,
+      ),
     );
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -69,7 +69,7 @@ const AccountHeader = () => {
           marginRight: "6px",
           wordWrap: "break-word",
           position: "relative",
-          marginBottom: "12px"
+          marginBottom: "12px",
         }}
         className="color-normal"
       >
@@ -77,7 +77,7 @@ const AccountHeader = () => {
           <WalletOutlined
             style={{
               fontSize: "18px",
-              marginRight: "6px"
+              marginRight: "6px",
             }}
           />
         </div>

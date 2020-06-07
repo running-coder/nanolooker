@@ -11,15 +11,15 @@ const representativesTransformer = json => {
           if (weightAsNumber > 1000) {
             acc.push({
               account,
-              weight: weightAsNumber
+              weight: weightAsNumber,
             });
           }
           return acc;
         },
-        []
+        [],
       ),
-      ["weight"]
-    )
+      ["weight"],
+    ),
   );
 
   return json;

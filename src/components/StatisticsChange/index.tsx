@@ -4,7 +4,7 @@ import {
   ArrowUpOutlined,
   ArrowDownOutlined,
   FallOutlined,
-  RiseOutlined
+  RiseOutlined,
 } from "@ant-design/icons";
 import { Colors } from "components/utils";
 import { Theme, PreferencesContext } from "api/contexts/Preferences";
@@ -20,7 +20,7 @@ const StatisticsChange: React.FC<StatisticsChangeProps> = ({
   value,
   isPercent,
   isNumber,
-  isArrow
+  isArrow,
 }) => {
   const { theme } = React.useContext(PreferencesContext);
   const color = (value === 0
@@ -35,7 +35,7 @@ const StatisticsChange: React.FC<StatisticsChangeProps> = ({
 
   const styles = {
     color,
-    fontSize: "12px"
+    fontSize: "12px",
   };
 
   return !isNaN(value) && value !== Infinity ? (
@@ -43,7 +43,7 @@ const StatisticsChange: React.FC<StatisticsChangeProps> = ({
       <span
         style={{
           marginRight: "3px",
-          ...styles
+          ...styles,
         }}
       >
         {isPercent ? `${new BigNumber(value).toFormat(2)}%` : null}

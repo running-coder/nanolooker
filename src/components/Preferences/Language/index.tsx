@@ -14,7 +14,7 @@ const LanguagePreferences: React.FC = () => {
       <Select
         disabled
         defaultValue={language}
-        onChange={(value) => {
+        onChange={value => {
           setLanguage(value);
         }}
       >

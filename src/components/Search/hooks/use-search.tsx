@@ -2,7 +2,7 @@ import React from "react";
 
 export enum SearchType {
   ACCOUNT = "account",
-  BLOCK = "block"
+  BLOCK = "block",
 }
 
 export interface UseSearchReturn {

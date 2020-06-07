@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Card, Statistic, Skeleton, Tooltip } from "antd";
 import { ReloadOutlined } from "@ant-design/icons";
 import useActiveDifficulty, {
-  UseActiveDifficultyReturn
+  UseActiveDifficultyReturn,
 } from "api/hooks/use-active-difficulty";
 
 import { refreshActionDelay } from "components/utils";
@@ -11,7 +11,7 @@ const ActiveDifficulty: React.FC = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   const {
     activeDifficulty: { network_minimum, network_current, multiplier },
-    getActiveDifficulty
+    getActiveDifficulty,
   }: UseActiveDifficultyReturn = useActiveDifficulty();
 
   const refreshActiveDifficulty = async () => {

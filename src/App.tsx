@@ -23,7 +23,7 @@ import "./Theme.css";
 
 const { Content, Footer } = Layout;
 
-const App: React.FC = (props) => {
+const App: React.FC = props => {
   const { theme } = React.useContext(PreferencesContext);
 
   useAnalytics();
