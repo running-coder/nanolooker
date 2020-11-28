@@ -11,7 +11,7 @@ const { rpc } = require("../rpc");
 
 const distributionCache = new NodeCache();
 
-// const ACCOUNTS_PATH = join(__dirname, "../data/accounts.json");
+const ACCOUNTS_PATH = join(__dirname, "../data/accounts.json");
 const DISTRIBUTION_PATH = join(__dirname, "../data/distribution.json");
 const DORMANT_FUNDS_PATH = join(__dirname, "../data/dormantFunds.json");
 const STATUS_PATH = join(__dirname, "../data/status.json");
@@ -22,17 +22,38 @@ const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 const getAccounts = async () => {
   const { count } = await rpc("frontier_count");
-  const { frontiers } = await rpc("frontiers", {
-    account: BURN_ACCOUNT,
-    count,
-  });
 
-  // fs.writeFileSync(
-  //   ACCOUNTS_PATH,
-  //   JSON.stringify(Object.keys(frontiers), null, 2)
-  // );
+  console.log("~~~~count", count);
 
-  return Object.keys(frontiers);
+  let currentAccountCount = 0;
+  let nextAccount = BURN_ACCOUNT;
+  let steps = 500000;
+  let nextCount = 0;
+  let accounts = [];
+
+  while (currentAccountCount < count) {
+    nextCount =
+      currentAccountCount + steps > count ? count - currentAccountCount : steps;
+
+    const { frontiers } = await rpc("frontiers", {
+      account: nextAccount,
+      count: nextCount + 1,
+    });
+
+    console.log(`getting frontier ${nextAccount}, count ${nextCount + 1}`);
+
+    const currentFrontiers = Object.keys(frontiers);
+    currentFrontiers.shift();
+    currentAccountCount += currentFrontiers.length;
+    if (currentFrontiers.length) {
+      nextAccount = currentFrontiers[currentFrontiers.length - 1];
+      accounts = accounts.concat(currentFrontiers);
+    }
+  }
+
+  fs.writeFileSync(ACCOUNTS_PATH, JSON.stringify(accounts, null, 2));
+
+  return accounts;
 };
 
 const getDistribution = async () => {
@@ -103,7 +124,7 @@ const getDistribution = async () => {
       ),
     );
 
-    await sleep(2000);
+    await sleep(1000);
   }
 
   return { distribution, dormantFunds };

@@ -82,6 +82,16 @@ const Distribution = () => {
           .minus(knownExchangeDistribution[i]?.balance || 0)
           .toNumber();
 
+        // if (i === 8) {
+        //   console.log("~~~~accounts", accounts);
+        //   console.log("~~~~accounts", balance);
+        //   console.log(
+        //     "~~~~knownExchangeDistribution[i]?.accounts",
+        //     knownExchangeDistribution[i]?.accounts,
+        //     knownExchangeDistribution[i]?.balance,
+        //   );
+        // }
+
         tmpTotalAccounts += calcAccounts;
         tmpTotalBalance += calcBalance;
 
