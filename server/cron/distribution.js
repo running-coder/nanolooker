@@ -23,8 +23,6 @@ const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 const getAccounts = async () => {
   const { count } = await rpc("frontier_count");
 
-  console.log("~~~~count", count);
-
   let currentAccountCount = 0;
   let nextAccount = BURN_ACCOUNT;
   let steps = 500000;
@@ -98,9 +96,27 @@ const getDistribution = async () => {
 
           if (total < MIN_TOTAL) return;
 
-          const {
-            modified_timestamp: modifiedTimestamp,
-          } = await rpc("account_info", { account });
+          // const {
+          //   modified_timestamp: modifiedTimestamp,
+          // } = await rpc("account_info", { account });
+
+          const { history } = await rpc("account_history", {
+            account,
+            count: 2,
+          });
+
+          const result =
+            history &&
+            history.find(({ local_timestamp: localTimestamp }) => {
+              const timestamp = parseInt(localTimestamp);
+
+              return (
+                timestamp &&
+                (localTimestamp < 1598572800 || localTimestamp > 1598659200)
+              );
+            });
+          if (!result) return;
+          const modifiedTimestamp = result.local_timestamp;
 
           const date = new Date(parseFloat(modifiedTimestamp) * 1000);
 
@@ -170,11 +186,11 @@ if (!fs.existsSync(DISTRIBUTION_PATH) || !fs.existsSync(DORMANT_FUNDS_PATH)) {
 const getDistributionData = () => {
   let distribution =
     distributionCache.get(DISTRIBUTION) || fs.existsSync(DISTRIBUTION_PATH)
-      ? JSON.parse(fs.readFileSync(DISTRIBUTION_PATH))
+      ? JSON.parse(fs.readFileSync(DISTRIBUTION_PATH, "utf8"))
       : [];
   let dormantFunds =
     distributionCache.get(DORMANT_FUNDS) || fs.existsSync(DORMANT_FUNDS_PATH)
-      ? JSON.parse(fs.readFileSync(DORMANT_FUNDS_PATH))
+      ? JSON.parse(fs.readFileSync(DORMANT_FUNDS_PATH, "utf8"))
       : {};
 
   return {
