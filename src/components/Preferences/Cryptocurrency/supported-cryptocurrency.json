@@ -1003,5 +1003,10 @@
     "id": "coinmetro",
     "symbol": "xcm",
     "name": "CoinMetro"
+  },
+  {
+    "id": "banano",
+    "symbol": "ban",
+    "name": "Banano"
   }
 ]
