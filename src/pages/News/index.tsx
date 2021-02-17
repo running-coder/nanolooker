@@ -1,45 +1,184 @@
 import React from "react";
-import { Card, Col, Row, Skeleton, Typography } from "antd";
+import orderBy from "lodash/orderBy";
+import uniqBy from "lodash/uniqBy";
+import {
+  Button,
+  Card,
+  Col,
+  Dropdown,
+  Menu,
+  Row,
+  Skeleton,
+  Space,
+  Typography,
+} from "antd";
+import { DownOutlined } from "@ant-design/icons";
 
-const { Title } = Typography;
+const { Title, Text } = Typography;
+
+const removeHtmlTags = (html: string): string =>
+  html.replace(/<[\s\S]+?\/?>/g, "");
+
+enum MEDIUM_FEEDS {
+  NANO_CURRENCY = "nanocurrency",
+  NANO_EDUCATION = "nano-education",
+  SENATUS = "@senatusspqr",
+  JOOHANSSON = "@nanojson",
+}
+
+const AUTHORS: string[] = [];
+
+enum DEFAULT_FILTERS {
+  ALL_FEEDS = "All feeds",
+  ALL_AUTHORS = "All authors",
+}
+
+interface MediumPost {
+  author: string;
+  categories: string[];
+  description: string;
+  content: string;
+  descriptionLong: string;
+  descriptionShort: string;
+  enclosure: any;
+  guid: string;
+  link: string;
+  pubDate: string;
+  thumbnail: string;
+  title: string;
+  feed?: MEDIUM_FEEDS;
+}
+
+const getMediumPosts = async () => {
+  const mediumPosts = (await Promise.all(
+    Object.values(MEDIUM_FEEDS).map(
+      feed =>
+        new Promise(async (resolve, reject) => {
+          try {
+            const res = await fetch(
+              `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/${feed}`,
+            );
+            const { items } = await res.json();
+
+            const posts: MediumPost[] = items.map(
+              ({ description, content, author, ...rest }: MediumPost) => {
+                const [, descriptionShort, descriptionLong] =
+                  description.match(/(<p>.+?<\/p>)[\s\S]+?(<p>.+?<\/p>)/) || [];
+
+                if (!AUTHORS.includes(author)) {
+                  AUTHORS.push(author);
+                }
+
+                return {
+                  ...rest,
+                  author,
+                  descriptionShort: removeHtmlTags(descriptionShort),
+                  descriptionLong: removeHtmlTags(descriptionLong),
+                  feed,
+                };
+              },
+            );
+
+            resolve(posts);
+          } catch (e) {
+            reject([]);
+          }
+        }),
+    ),
+  )) as MediumPost[][];
+
+  const orderedPosts = orderBy(
+    mediumPosts.flatMap(x => x),
+    ["pubDate"],
+    ["desc"],
+  );
+
+  const filteredPosts = uniqBy(orderedPosts, "title");
+
+  // @NOTE Add category filtering if needed in the future
+  // filteredPosts.filter(({ categories }) => categories.includes("nano"));
+
+  return filteredPosts;
+};
 
 const NewsPage = () => {
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
   const [posts, setPosts] = React.useState<any[]>(Array.from(Array(3).keys()));
+  const [feedFilter, setFeedFilter] = React.useState<MEDIUM_FEEDS | string>(
+    DEFAULT_FILTERS.ALL_FEEDS,
+  );
+  const [authorFilter, setAuthorFilter] = React.useState<string>(
+    DEFAULT_FILTERS.ALL_AUTHORS,
+  );
 
   React.useEffect(() => {
-    const getPosts = async () => {
-      try {
-        const res = await fetch(
-          "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/nanocurrency",
-        );
-        const { items } = await res.json();
-
-        const posts = items.map(({ description, content, ...rest }: any) => {
-          const [, descriptionShort, descriptionLong] =
-            description.match(/(<p>.+?<\/p>)[\s\S]+?(<p>.+?<\/p>)/) || [];
-          return {
-            ...rest,
-            descriptionShort: descriptionShort.replace(/<[\s\S]+?\/?>/g, ""),
-            descriptionLong: descriptionLong.replace(/<[\s\S]+?\/?>/g, ""),
-          };
-        });
-
-        setPosts(posts);
-        setIsLoading(false);
-      } catch (e) {}
-    };
-
-    getPosts();
+    getMediumPosts().then(posts => {
+      setPosts(posts);
+      setIsLoading(false);
+    });
   }, []);
+
+  const handleFeedFilter = ({ key }: any) => {
+    setFeedFilter(key);
+  };
+  const handleAuthorFilter = ({ key }: any) => {
+    setAuthorFilter(key);
+  };
+
+  const filteredPosts = posts
+    .filter(({ feed }) =>
+      feedFilter !== DEFAULT_FILTERS.ALL_FEEDS ? feedFilter === feed : true,
+    )
+    .filter(({ author }) =>
+      authorFilter !== DEFAULT_FILTERS.ALL_AUTHORS
+        ? authorFilter === author
+        : true,
+    );
 
   return (
     <>
-      {posts.map(
+      <Space style={{ marginBottom: "12px" }}>
+        <Dropdown
+          overlay={
+            <Menu onClick={handleFeedFilter}>
+              <Menu.Item key={DEFAULT_FILTERS.ALL_FEEDS}>
+                {DEFAULT_FILTERS.ALL_FEEDS}
+              </Menu.Item>
+              {Object.values(MEDIUM_FEEDS).map(feed => (
+                <Menu.Item key={feed}>{feed}</Menu.Item>
+              ))}
+            </Menu>
+          }
+        >
+          <Button>
+            {feedFilter || DEFAULT_FILTERS.ALL_FEEDS} <DownOutlined />
+          </Button>
+        </Dropdown>
+
+        <Dropdown
+          overlay={
+            <Menu onClick={handleAuthorFilter}>
+              <Menu.Item key={DEFAULT_FILTERS.ALL_AUTHORS}>
+                {DEFAULT_FILTERS.ALL_AUTHORS}
+              </Menu.Item>
+              {AUTHORS.map(author => (
+                <Menu.Item key={author}>{author}</Menu.Item>
+              ))}
+            </Menu>
+          }
+        >
+          <Button>
+            {authorFilter || DEFAULT_FILTERS.ALL_AUTHORS} <DownOutlined />
+          </Button>
+        </Dropdown>
+      </Space>
+
+      {filteredPosts.map(
         (
           {
             title,
             pubDate,
+            author,
             link,
             thumbnail,
             descriptionShort,
@@ -74,7 +213,7 @@ const NewsPage = () => {
                     }}
                     className="color-muted"
                   >
-                    {pubDate}
+                    {pubDate} by {author}
                   </span>
                   <div
                     dangerouslySetInnerHTML={{ __html: descriptionShort }}
@@ -91,6 +230,10 @@ const NewsPage = () => {
           </Row>
         ),
       )}
+
+      {!filteredPosts?.length ? (
+        <Text style={{ display: "block" }}>No results</Text>
+      ) : null}
     </>
   );
 };

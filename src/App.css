@@ -131,7 +131,7 @@ a:hover {
 }
 
 .ant-descriptions-item-label {
-  white-space: nowrap;
+  white-space: normal;
 }
 
 @media (min-width: 768px) {
