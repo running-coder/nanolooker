@@ -21,6 +21,7 @@ const removeHtmlTags = (html: string): string =>
 
 enum MEDIUM_FEEDS {
   NANO_CURRENCY = "nanocurrency",
+  NANO_CENTER = "the-nano-center",
   NANO_EDUCATION = "nano-education",
   SENATUS = "@senatusspqr",
   JOOHANSSON = "@nanojson",
