@@ -2,6 +2,7 @@ import React from "react";
 import BigNumber from "bignumber.js";
 import { rawToRai } from "components/utils";
 import { Type, Subtype } from "types/Transaction";
+import { PreferencesContext } from "../contexts/Preferences";
 
 enum Topic {
   CONFIRMATION = "confirmation",
@@ -35,12 +36,15 @@ let ws: any;
 let isForcedClosed = false;
 
 const useSocket = () => {
-  const [isDisabled, setIsDisabled] = React.useState<boolean>(false);
-  const [isMinAmount, setIsMinAmount] = React.useState<boolean>(false);
   const [isConnected, setIsConnected] = React.useState<boolean>(false);
   const [recentTransactions, setRecentTransactions] = React.useState<
     RecentTransaction[]
   >([]);
+
+  const {
+    hideTransactionsUnderOneNano,
+    disableLiveTransactions,
+  } = React.useContext(PreferencesContext);
 
   const connect = () => {
     isForcedClosed = false;
@@ -71,25 +75,26 @@ const useSocket = () => {
 
     return () => {
       isForcedClosed = true;
-      ws.close();
+      ws?.close();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   React.useEffect(() => {
-    if (isDisabled) {
+    if (disableLiveTransactions) {
       isForcedClosed = true;
-      ws.close();
+      ws?.close();
     } else {
       connect();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isDisabled]);
+  }, [disableLiveTransactions]);
 
   React.useEffect(() => {
+    if (!ws) return;
     ws.onmessage = onMessage;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isMinAmount]);
+  }, [hideTransactionsUnderOneNano]);
 
   const onMessage = React.useCallback(
     (msg: any) => {
@@ -97,7 +102,7 @@ const useSocket = () => {
         const json = JSON.parse(msg.data);
         if (json.topic === Topic.CONFIRMATION) {
           if (
-            isMinAmount &&
+            hideTransactionsUnderOneNano &&
             new BigNumber(rawToRai(json.message.amount)).toNumber() < 1
           ) {
             return;
@@ -115,15 +120,12 @@ const useSocket = () => {
         // silence error
       }
     },
-    [isMinAmount],
+    [hideTransactionsUnderOneNano],
   );
 
   return {
     recentTransactions,
     isConnected,
-    setIsMinAmount,
-    isDisabled,
-    setIsDisabled,
   };
 };
 

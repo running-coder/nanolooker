@@ -112,3 +112,11 @@ export const intToString = (value: number) => {
   }
   return shortValue + suffixes[suffixNum];
 };
+
+export const toBoolean = (value: any) =>
+  typeof value === "string"
+    ? value.toLowerCase() === "true" ||
+      !["", "0", "false"].includes(value.toLowerCase())
+    : typeof value === "number"
+    ? value !== 0
+    : !!value;

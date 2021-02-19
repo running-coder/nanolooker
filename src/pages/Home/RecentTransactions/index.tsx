@@ -22,14 +22,14 @@ import { Theme, PreferencesContext } from "api/contexts/Preferences";
 const { Text } = Typography;
 
 const RecentTransactions = () => {
-  const { theme } = React.useContext(PreferencesContext);
   const {
-    recentTransactions,
-    isConnected,
-    setIsMinAmount,
-    isDisabled,
-    setIsDisabled,
-  } = useSockets();
+    theme,
+    hideTransactionsUnderOneNano,
+    disableLiveTransactions,
+    setHideTransactionsUnderOneNano,
+    setDisableLiveTransactions,
+  } = React.useContext(PreferencesContext);
+  const { recentTransactions, isConnected } = useSockets();
   const { knownAccounts } = React.useContext(KnownAccountsContext);
   const isMediumAndLower = !useMediaQuery("(min-width: 768px)");
 
@@ -48,9 +48,9 @@ const RecentTransactions = () => {
                   checkedChildren={<CheckOutlined />}
                   unCheckedChildren={<CloseOutlined />}
                   onChange={(checked: boolean) => {
-                    setIsDisabled(!checked);
+                    setDisableLiveTransactions(!checked);
                   }}
-                  defaultChecked
+                  defaultChecked={!disableLiveTransactions}
                 />
               </List.Item>
               <List.Item>
@@ -61,9 +61,9 @@ const RecentTransactions = () => {
                   checkedChildren={<CheckOutlined />}
                   unCheckedChildren={<CloseOutlined />}
                   onChange={(checked: boolean) => {
-                    setIsMinAmount(!checked);
+                    setHideTransactionsUnderOneNano(!checked);
                   }}
-                  defaultChecked
+                  defaultChecked={!hideTransactionsUnderOneNano}
                 />
               </List.Item>
             </List>
@@ -75,7 +75,7 @@ const RecentTransactions = () => {
       }
     >
       <div style={{ margin: "1em 0" }}>
-        {isDisabled ? (
+        {disableLiveTransactions ? (
           <div style={{ textAlign: "center" }}>
             {theme === Theme.DARK ? (
               <CloseCircleFilled style={{ color: TwoToneColors.SEND_DARK }} />
@@ -85,7 +85,9 @@ const RecentTransactions = () => {
             <Text style={{ marginLeft: "8px" }}>Live updates disabled</Text>
           </div>
         ) : null}
-        {isConnected && !isDisabled && !recentTransactions.length ? (
+        {isConnected &&
+        !disableLiveTransactions &&
+        !recentTransactions.length ? (
           <div style={{ textAlign: "center" }}>
             <SyncOutlined spin />
             <Text style={{ marginLeft: "8px" }}>
@@ -93,7 +95,7 @@ const RecentTransactions = () => {
             </Text>
           </div>
         ) : null}
-        {!isConnected ? (
+        {!isConnected && !disableLiveTransactions ? (
           <div style={{ textAlign: "center" }}>
             <SyncOutlined spin />
             <Text style={{ marginLeft: "8px" }}>
@@ -104,7 +106,7 @@ const RecentTransactions = () => {
         {recentTransactions.length ? (
           <Timeline
             mode={isMediumAndLower ? "left" : "alternate"}
-            style={{ marginTop: isDisabled ? "24px" : 0 }}
+            style={{ marginTop: disableLiveTransactions ? "24px" : 0 }}
           >
             {recentTransactions.map(
               ({ account, amount, hash, timestamp, block: { subtype } }) => {
