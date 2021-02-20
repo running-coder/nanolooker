@@ -8,26 +8,34 @@ enum Topic {
   CONFIRMATION = "confirmation",
 }
 
-interface Block {
-  type: Type;
-  account: string;
-  previous: string;
-  representative: string;
-  balance: string;
-  link: string;
-  link_as_account: string;
-  signature: string;
-  work: string;
-  subtype: Subtype;
+type ConfirmationType = "active_quorum";
+
+interface MessageData {
+  message: RecentTransaction;
+  time: string;
+  topic: Topic;
 }
 
 interface RecentTransaction {
   account: string;
   amount: string;
-  hash: string;
-  confirmation_type: string;
   block: Block;
+  confirmation_type: ConfirmationType;
+  hash: string;
   timestamp: number;
+}
+
+interface Block {
+  account: string;
+  balance: string;
+  link: string;
+  link_as_account: string;
+  previous: string;
+  representative: string;
+  signature: string;
+  subtype: Subtype;
+  type: Type;
+  work: string;
 }
 
 const MAX_RECENT_TRANSACTIONS: number = 25;
@@ -97,23 +105,26 @@ const useSocket = () => {
   }, [hideTransactionsUnderOneNano]);
 
   const onMessage = React.useCallback(
-    (msg: any) => {
+    (msg: MessageEvent) => {
       try {
-        const json = JSON.parse(msg.data);
-        if (json.topic === Topic.CONFIRMATION) {
+        const { message, topic }: MessageData = JSON.parse(msg.data);
+
+        if (topic === Topic.CONFIRMATION) {
           if (
             hideTransactionsUnderOneNano &&
-            new BigNumber(rawToRai(json.message.amount)).toNumber() < 1
+            ["send", "receive"].includes(message.block.subtype) &&
+            new BigNumber(rawToRai(message.amount)).toNumber() < 1
           ) {
             return;
           }
-          json.message.timestamp = new Date().getTime();
+
+          message.timestamp = new Date().getTime();
 
           setRecentTransactions(prevRecentTransactions =>
-            [
-              json.message as RecentTransaction,
-              ...prevRecentTransactions,
-            ].slice(0, MAX_RECENT_TRANSACTIONS),
+            [message, ...prevRecentTransactions].slice(
+              0,
+              MAX_RECENT_TRANSACTIONS,
+            ),
           );
         }
       } catch (_e) {
