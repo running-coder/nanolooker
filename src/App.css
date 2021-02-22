@@ -134,7 +134,19 @@ a:hover {
   white-space: normal;
 }
 
+.ant-layout-content {
+  padding: 6px;
+}
+
 @media (min-width: 768px) {
+  .ant-descriptions-item-label {
+    white-space: nowrap;
+  }
+
+  .ant-layout-content {
+    padding: 18px;
+  }
+
   .ant-timeline .right .ant-timeline-item-content {
     left: inherit !important;
     width: calc(50% - 12px) !important;

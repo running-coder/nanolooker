@@ -36,7 +36,7 @@ const App: React.FC = props => {
         className={theme ? `theme-${theme}` : undefined}
       >
         <AppHeader />
-        <Content style={{ padding: "20px" }}>
+        <Content>
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/representatives" component={RepresentativesPage} />

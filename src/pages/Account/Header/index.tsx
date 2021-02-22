@@ -66,7 +66,6 @@ const AccountHeader = () => {
           display: "flex",
           alignItems: "flex-start",
           fontSize: "16px",
-          marginRight: "6px",
           wordWrap: "break-word",
           position: "relative",
           marginBottom: "12px",
