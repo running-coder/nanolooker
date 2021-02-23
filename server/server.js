@@ -27,6 +27,7 @@ const { getCoingeckoStats } = require("./api/coingeckoStats");
 const {
   getDeveloperFundTransactions,
 } = require("./api/developerFundTransactions");
+const { getLargeTransactions } = require("./api/largeTransactions");
 const { getNodeStatus } = require("./api/nodeStatus");
 const { getKnownAccounts } = require("./api/knownAccounts");
 
@@ -58,6 +59,12 @@ app.get("/api/distribution", (req, res) => {
   const data = getDistributionData();
 
   return res.send(data);
+});
+
+app.get("/api/large-transactions", async (req, res) => {
+  const { largeTransactions } = await getLargeTransactions();
+
+  return res.send(largeTransactions);
 });
 
 app.get("/api/developer-fund/transactions", async (req, res) => {

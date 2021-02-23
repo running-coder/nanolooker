@@ -8,12 +8,14 @@ const {
   MONGO_OPTIONS,
   EXPIRE_24H,
   EXPIRE_48H,
+  EXPIRE_1W,
   TOTAL_CONFIRMATIONS_COLLECTION,
   TOTAL_CONFIRMATIONS_KEY_24H,
   TOTAL_CONFIRMATIONS_KEY_48H,
   TOTAL_NANO_VOLUME_COLLECTION,
   TOTAL_NANO_VOLUME_KEY_24H,
   TOTAL_NANO_VOLUME_KEY_48H,
+  LARGE_TRANSACTIONS,
 } = require("../constants");
 const { rawToRai } = require("../utils");
 
@@ -25,6 +27,10 @@ MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (_err, client) => {
 
   db = client.db(MONGO_DB);
 
+  db.collection(LARGE_TRANSACTIONS).createIndex(
+    { createdAt: 1 },
+    { expireAfterSeconds: EXPIRE_1W },
+  );
   db.collection(TOTAL_CONFIRMATIONS_COLLECTION).createIndex(
     { createdAt: 1 },
     { expireAfterSeconds: EXPIRE_48H },

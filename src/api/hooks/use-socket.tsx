@@ -118,7 +118,7 @@ const useSocket = () => {
             return;
           }
 
-          message.timestamp = new Date().getTime();
+          message.timestamp = Date.now();
 
           setRecentTransactions(prevRecentTransactions =>
             [message, ...prevRecentTransactions].slice(

@@ -7,7 +7,9 @@ const {
   MONGO_OPTIONS,
   TOTAL_CONFIRMATIONS_COLLECTION,
   TOTAL_NANO_VOLUME_COLLECTION,
+  LARGE_TRANSACTIONS,
 } = require("../constants");
+const { rawToRai } = require("../utils");
 
 const UPDATE_CACHE_INTERVAL = 10000;
 
@@ -22,6 +24,7 @@ MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (_err, client) => {
 
 let accumulatedConfirmations = 0;
 let accumulatedVolume = 0;
+let accumulatedLargeTransactionHashes = [];
 
 // https://github.com/cryptocode/nano-websocket-sample-nodejs/blob/master/index.js
 const ws = new ReconnectingWebSocket("wss://www.nanolooker.com/ws", [], {
@@ -56,16 +59,20 @@ ws.onerror = () => {
 };
 
 ws.onmessage = msg => {
+  const { topic, message } = JSON.parse(msg.data);
   const {
-    topic,
-    message: {
-      amount,
-      block: { subtype },
-    },
-  } = JSON.parse(msg.data);
+    amount,
+    block: { subtype },
+  } = message;
 
   if (topic === "confirmation") {
     accumulatedConfirmations = accumulatedConfirmations + 1;
+
+    if (subtype === "send" && rawToRai(amount) >= 5000) {
+      // Adding date because the message doesn't contain one
+      message.timestamp = Date.now();
+      accumulatedLargeTransactionHashes.push(message);
+    }
 
     if (["send", "receive"].includes(subtype)) {
       accumulatedVolume = new BigNumber(amount)
@@ -77,6 +84,14 @@ ws.onmessage = msg => {
 
 function updateDb() {
   if (!db) return;
+
+  if (accumulatedLargeTransactionHashes.length) {
+    db.collection(LARGE_TRANSACTIONS).insertOne({
+      value: accumulatedLargeTransactionHashes,
+      createdAt: new Date(),
+    });
+    accumulatedLargeTransactionHashes = [];
+  }
 
   if (accumulatedConfirmations) {
     db.collection(TOTAL_CONFIRMATIONS_COLLECTION).insertOne({
