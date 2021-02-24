@@ -24,6 +24,8 @@ const AccountHistory = () => {
     head: !isPaginated ? currentHead || accountInfo?.frontier : undefined,
   });
 
+  // @TODO Replace useHistory by HistoryContext
+
   return (
     <>
       <Title level={3} style={{ marginTop: "0.5em" }}>

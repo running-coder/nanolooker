@@ -20,7 +20,7 @@ interface PendingHistoryBlock extends PendingBlock {
 const PENDING_MIN_THRESHHOLD = new BigNumber(raiToRaw(0.000001)).toFixed();
 
 const AccountPendingHistory = () => {
-  const { account, accountInfo } = React.useContext(AccountInfoContext);
+  const { account } = React.useContext(AccountInfoContext);
   const {
     pending: { blocks = {} } = {},
     isLoading: isAccountHistoryLoading,
@@ -36,6 +36,7 @@ const AccountPendingHistory = () => {
   const [currentPage, setCurrentPage] = React.useState<number>(1);
 
   let pendingHistory: PendingHistoryBlock[] | undefined = undefined;
+
   if (totalPending) {
     pendingHistory = Object.entries(blocks).map(
       // @ts-ignore
@@ -51,7 +52,7 @@ const AccountPendingHistory = () => {
   const start = 0 + (currentPage - 1) * TRANSACTIONS_PER_PAGE;
   const data = pendingHistory?.slice(start, start + TRANSACTIONS_PER_PAGE);
 
-  return Number(accountInfo?.pending) > Number(PENDING_MIN_THRESHHOLD) ? (
+  return pendingHistory ? (
     <>
       <Title level={3} style={{ marginTop: "0.5em" }}>
         {isAccountHistoryLoading ? "" : pendingHistory?.length} Pending
@@ -65,7 +66,7 @@ const AccountPendingHistory = () => {
         showPaginate={showPaginate}
         pageSize={TRANSACTIONS_PER_PAGE}
         currentPage={currentPage}
-        totalPages={pendingHistory?.length || 0}
+        totalPages={pendingHistory.length}
         setCurrentPage={setCurrentPage}
       />
     </>
