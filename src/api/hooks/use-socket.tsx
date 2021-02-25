@@ -1,41 +1,18 @@
 import React from "react";
 import BigNumber from "bignumber.js";
 import { rawToRai } from "components/utils";
-import { Type, Subtype } from "types/Transaction";
 import { PreferencesContext } from "../contexts/Preferences";
+
+import type { Transaction } from "types/transaction";
 
 enum Topic {
   CONFIRMATION = "confirmation",
 }
 
-type ConfirmationType = "active_quorum";
-
 interface MessageData {
-  message: RecentTransaction;
+  message: Transaction;
   time: string;
   topic: Topic;
-}
-
-interface RecentTransaction {
-  account: string;
-  amount: string;
-  block: Block;
-  confirmation_type: ConfirmationType;
-  hash: string;
-  timestamp: number;
-}
-
-interface Block {
-  account: string;
-  balance: string;
-  link: string;
-  link_as_account: string;
-  previous: string;
-  representative: string;
-  signature: string;
-  subtype: Subtype;
-  type: Type;
-  work: string;
 }
 
 const MAX_RECENT_TRANSACTIONS: number = 25;
@@ -46,7 +23,7 @@ let isForcedClosed = false;
 const useSocket = () => {
   const [isConnected, setIsConnected] = React.useState<boolean>(false);
   const [recentTransactions, setRecentTransactions] = React.useState<
-    RecentTransaction[]
+    Transaction[]
   >([]);
 
   const {

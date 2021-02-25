@@ -5,8 +5,10 @@ import BlockHeader from "./Header";
 import BlockDetails from "./Details";
 import { isValidBlockHash } from "components/utils";
 
+import type { PageParams } from 'types/page'
+
 const BlockPage = () => {
-  const { block = "" } = useParams();
+  const { block = "" } = useParams<PageParams>();
   const { setBlocks } = React.useContext(BlocksInfoContext);
 
   const isValid = isValidBlockHash(block);

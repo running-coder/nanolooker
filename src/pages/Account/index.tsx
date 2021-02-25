@@ -8,8 +8,10 @@ import AccountPendingHistory from "./Pending";
 import AccountHistory from "./History";
 import { AccountInfoContext } from "api/contexts/AccountInfo";
 
+import type { PageParams } from 'types/page'
+
 const AccountPage = () => {
-  const { account = "" } = useParams();
+  const { account = "" } = useParams<PageParams>();
   const { setAccount, isError: isAccountInfoError } = React.useContext(
     AccountInfoContext,
   );

@@ -1,7 +1,8 @@
 import React from "react";
 import { rpc } from "api/rpc";
 import { isValidAccountAddress } from "components/utils";
-import { Type, Subtype } from "types/Transaction";
+
+import type  { Type, Subtype } from "types/transaction";
 
 export interface History {
   type: Type;

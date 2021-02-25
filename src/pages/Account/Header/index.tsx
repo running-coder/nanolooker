@@ -9,10 +9,13 @@ import { RepresentativesContext } from "api/contexts/Representatives";
 import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
 import { KnownAccountsContext, KnownAccount } from "api/contexts/KnownAccounts";
 
+import type { PageParams } from 'types/page'
+
 const { Title } = Typography;
 
+
 const AccountHeader = () => {
-  const { account = "" } = useParams();
+  const { account = "" } = useParams<PageParams>();
   const [knownAccount, setKnownAccount] = React.useState<KnownAccount>();
   const [representativeAccount, setRepresentativeAccount] = React.useState(
     {} as any,

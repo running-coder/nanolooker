@@ -54,11 +54,13 @@ const KnownAccountsPage = () => {
                   onChange={({ target: { value } }) => {
                     setSelectedKeys([value]);
                   }}
+                  // @ts-ignore
                   onPressEnter={confirm}
                   style={{ width: 188, marginBottom: 8, display: "block" }}
                 />
                 <Button
                   type="primary"
+                  // @ts-ignore
                   onClick={confirm}
                   icon={<SearchOutlined />}
                   size="small"

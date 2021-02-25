@@ -3,8 +3,10 @@ import { BlockOutlined } from "@ant-design/icons";
 import { useParams } from "react-router-dom";
 import Copy from "components/Copy";
 
+import type { PageParams } from 'types/page'
+
 const BlockHeader = () => {
-  const { block = "" } = useParams();
+  const { block = "" } = useParams<PageParams>();
 
   return (
     <>

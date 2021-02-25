@@ -2,7 +2,8 @@ import React from "react";
 import useDeepCompareEffect from "use-deep-compare-effect";
 import { rpc } from "api/rpc";
 import { isValidAccountAddress } from "components/utils";
-import { Type, Subtype } from "types/Transaction";
+
+import type { Type, Subtype } from "types/transaction";
 
 interface History {
   type: Type;

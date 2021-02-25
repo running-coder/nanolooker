@@ -3,6 +3,7 @@ import PreferencesProvider from "./Preferences";
 import MarketStatisticsProvider from "./MarketStatistics";
 import NodeStatusProvider from "./NodeStatus";
 import KnownAccountsProvider from "./KnownAccounts";
+import LargeTransactionsProvider from "./LargeTransactions";
 import AccountInfoProvider from "./AccountInfo";
 import BlockInfoProvider from "./BlockInfo";
 import BlocksInfoProvider from "./BlocksInfo";
@@ -18,23 +19,25 @@ const IndexProvider: React.FC = ({ children }) => {
       <MarketStatisticsProvider>
         <NodeStatusProvider>
           <KnownAccountsProvider>
-            <AccountInfoProvider>
-              <BlockInfoProvider>
-                <BlocksInfoProvider>
-                  <ConfirmationQuorumProvider>
-                    <RepresentativesProvider>
-                      <RepresentativesOnlineProvider>
-                        <BlockCountProvider>
-                          <ConfirmationHistoryProvider>
-                            {children}
-                          </ConfirmationHistoryProvider>
-                        </BlockCountProvider>
-                      </RepresentativesOnlineProvider>
-                    </RepresentativesProvider>
-                  </ConfirmationQuorumProvider>
-                </BlocksInfoProvider>
-              </BlockInfoProvider>
-            </AccountInfoProvider>
+            <LargeTransactionsProvider>
+              <AccountInfoProvider>
+                <BlockInfoProvider>
+                  <BlocksInfoProvider>
+                    <ConfirmationQuorumProvider>
+                      <RepresentativesProvider>
+                        <RepresentativesOnlineProvider>
+                          <BlockCountProvider>
+                            <ConfirmationHistoryProvider>
+                              {children}
+                            </ConfirmationHistoryProvider>
+                          </BlockCountProvider>
+                        </RepresentativesOnlineProvider>
+                      </RepresentativesProvider>
+                    </ConfirmationQuorumProvider>
+                  </BlocksInfoProvider>
+                </BlockInfoProvider>
+              </AccountInfoProvider>
+            </LargeTransactionsProvider>
           </KnownAccountsProvider>
         </NodeStatusProvider>
       </MarketStatisticsProvider>

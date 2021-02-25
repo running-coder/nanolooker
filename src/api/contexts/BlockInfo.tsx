@@ -1,7 +1,8 @@
 import React from "react";
 import { rpc } from "api/rpc";
-import { Subtype, Type } from "types/Transaction";
 import { isValidBlockHash } from "components/utils";
+
+import type { Subtype, Type } from "types/transaction";
 
 export interface BlockInfo {
   block_account: string;

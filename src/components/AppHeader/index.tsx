@@ -69,13 +69,17 @@ const AppHeader: React.FC = () => {
                   <Link to="/representatives" />
                 </Menu.Item>
                 <Menu.Item key="developer-fund">
-                  DeveloperFund
+                  Developer Fund
                   <Link to="/developer-fund" />
                 </Menu.Item>
                 <Menu.Item key="known-accounts">
                   Known Accounts
                   <Link to="/known-accounts" />
                 </Menu.Item>
+                {/* <Menu.Item key="large-transactions">
+                  Large Transactions
+                  <Link to="/large-transactions" />
+                </Menu.Item> */}
                 <Menu.Item key="distribution">
                   Distribution
                   <Link to="/distribution" />

@@ -5,7 +5,8 @@ import usePending, { PendingBlock } from "api/hooks/use-pending";
 import { AccountInfoContext } from "api/contexts/AccountInfo";
 import TransactionsTable from "pages/Account/Transactions";
 import { raiToRaw } from "components/utils";
-import { Subtype } from "types/Transaction";
+
+import type { Subtype } from "types/transaction";
 
 const MAX_PENDING_TRANSACTIONS = 15;
 const TRANSACTIONS_PER_PAGE = 5;
@@ -17,7 +18,7 @@ interface PendingHistoryBlock extends PendingBlock {
   subtype: Subtype;
 }
 
-const PENDING_MIN_THRESHHOLD = new BigNumber(raiToRaw(0.000001)).toFixed();
+const PENDING_MIN_THRESHOLD = new BigNumber(raiToRaw(0.000001)).toFixed();
 
 const AccountPendingHistory = () => {
   const { account } = React.useContext(AccountInfoContext);
@@ -28,7 +29,7 @@ const AccountPendingHistory = () => {
     count: String(MAX_PENDING_TRANSACTIONS),
     sorting: true,
     source: true,
-    threshold: PENDING_MIN_THRESHHOLD,
+    threshold: PENDING_MIN_THRESHOLD,
   });
   const totalPending = Object.keys(blocks).length;
   const isPaginated = true;
