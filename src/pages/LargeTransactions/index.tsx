@@ -1,6 +1,6 @@
 import React from "react";
 import { Tooltip, Typography } from "antd";
-import { LargeTransactionsContext } from "api/contexts/LargeTransactions";
+import useLargeTransactions from "api/hooks/use-large-transactions";
 import TransactionsTable from "pages/Account/Transactions";
 import QuestionCircle from "components/QuestionCircle";
 
@@ -8,11 +8,7 @@ const TRANSACTIONS_PER_PAGE = 25;
 const { Text, Title } = Typography;
 
 const LargeTransactions = () => {
-  const {
-    getLargeTransactions,
-    largeTransactions,
-    isLoading,
-  } = React.useContext(LargeTransactionsContext);
+  const { largeTransactions, isLoading } = useLargeTransactions();
   const [currentPage, setCurrentPage] = React.useState<number>(1);
 
   const showPaginate = largeTransactions.length > TRANSACTIONS_PER_PAGE;
@@ -24,11 +20,6 @@ const LargeTransactions = () => {
       amount,
       local_timestamp: Math.floor(timestamp / 1000),
     }));
-
-  React.useEffect(() => {
-    getLargeTransactions();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <>
@@ -46,18 +37,16 @@ const LargeTransactions = () => {
         </Tooltip>
       </div>
 
-      {data ? (
-        <TransactionsTable
-          data={data}
-          isLoading={isLoading}
-          isPaginated={true}
-          showPaginate={showPaginate}
-          pageSize={TRANSACTIONS_PER_PAGE}
-          currentPage={currentPage}
-          totalPages={largeTransactions.length}
-          setCurrentPage={setCurrentPage}
-        />
-      ) : null}
+      <TransactionsTable
+        data={data}
+        isLoading={isLoading}
+        isPaginated={true}
+        showPaginate={showPaginate}
+        pageSize={TRANSACTIONS_PER_PAGE}
+        currentPage={currentPage}
+        totalPages={largeTransactions.length}
+        setCurrentPage={setCurrentPage}
+      />
     </>
   );
 };

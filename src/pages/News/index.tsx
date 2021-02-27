@@ -126,6 +126,7 @@ const NewsPage = () => {
       setPosts(posts);
       setIsLoading(false);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleFeedFilter = ({ key }: any) => {

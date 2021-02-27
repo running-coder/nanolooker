@@ -68,7 +68,7 @@ ws.onmessage = msg => {
   if (topic === "confirmation") {
     accumulatedConfirmations = accumulatedConfirmations + 1;
 
-    // 10,000 nano
+    // 10,000 NANO
     if (subtype === "send" && amount.length >= 35) {
       // Adding date because the message doesn't contain one
       message.timestamp = Date.now();
