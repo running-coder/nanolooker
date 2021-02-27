@@ -15,6 +15,7 @@ const {
   TOTAL_NANO_VOLUME_KEY_24H,
   TOTAL_CONFIRMATIONS_KEY_48H,
   TOTAL_NANO_VOLUME_KEY_48H,
+  CONFIRMATIONS_PER_SECOND,
 } = require("./constants");
 const { wsCache } = require("./ws/cache");
 const {
@@ -53,6 +54,10 @@ app.post("/api/rpc", async (req, res) => {
   const result = await rpc(action, params);
 
   return res.send(result);
+});
+
+app.get("/api/confirmations-per-second", (req, res) => {
+  return res.send(wsCache.get(CONFIRMATIONS_PER_SECOND));
 });
 
 app.get("/api/distribution", (req, res) => {

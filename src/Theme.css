@@ -15,12 +15,12 @@ body .theme-dark {
   background: #fff;
 }
 
-.theme-light .sub-header {
+.theme-light .app-sub-header {
   background: #fff;
   border-top: solid 1px #f0f0f0;
 }
 
-.theme-dark .sub-header {
+.theme-dark .app-sub-header {
   color: #e1e1e1;
   background: #1e1e1e;
   border-color: #1e1e1e;

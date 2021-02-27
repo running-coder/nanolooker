@@ -27,14 +27,14 @@ const AppHeader: React.FC = () => {
   return (
     <>
       <Header
+        className="app-header"
         style={{
           position: "relative",
-          padding: "0 20px",
           width: "100%",
           height: "auto",
         }}
       >
-        <Row gutter={[16, 0]} style={{ width: "100%" }}>
+        <Row gutter={[20, 0]} style={{ width: "100%" }}>
           <Col
             xs={{ span: 6 }}
             md={{ span: 4 }}
@@ -108,11 +108,10 @@ const AppHeader: React.FC = () => {
         </Row>
       </Header>
       <div
-        className="sub-header"
+        className="app-sub-header"
         style={{
           display: "flex",
           justifyContent: "space-between",
-          padding: "3px 20px",
         }}
       >
         <div

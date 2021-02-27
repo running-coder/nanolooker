@@ -23,7 +23,7 @@ const LoadingStatistic = ({
       paragraph={false}
       className="isloading-skeleton-width"
     >
-      <Statistic title={title} {...rest}></Statistic>
+      <Statistic title={title} {...rest} />
     </Skeleton>
   </>
 );

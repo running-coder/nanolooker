@@ -8,8 +8,8 @@ const {
   TOTAL_CONFIRMATIONS_COLLECTION,
   TOTAL_NANO_VOLUME_COLLECTION,
   LARGE_TRANSACTIONS,
+  CONFIRMATIONS_PER_SECOND,
 } = require("../constants");
-const { rawToRai } = require("../utils");
 
 const UPDATE_CACHE_INTERVAL = 10000;
 
@@ -68,7 +68,8 @@ ws.onmessage = msg => {
   if (topic === "confirmation") {
     accumulatedConfirmations = accumulatedConfirmations + 1;
 
-    if (subtype === "send" && rawToRai(amount) >= 5000) {
+    // 10,000 nano
+    if (subtype === "send" && amount.length >= 35) {
       // Adding date because the message doesn't contain one
       message.timestamp = Date.now();
       accumulatedLargeTransactionHashes.push(message);
@@ -95,6 +96,10 @@ function updateDb() {
 
   if (accumulatedConfirmations) {
     db.collection(TOTAL_CONFIRMATIONS_COLLECTION).insertOne({
+      value: accumulatedConfirmations,
+      createdAt: new Date(),
+    });
+    db.collection(CONFIRMATIONS_PER_SECOND).insertOne({
       value: accumulatedConfirmations,
       createdAt: new Date(),
     });

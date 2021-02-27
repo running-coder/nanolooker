@@ -135,7 +135,20 @@ a:hover {
 }
 
 .ant-layout-content {
-  padding: 6px;
+  padding: 12px;
+}
+
+.app-header {
+  padding: 0 12px;
+}
+
+.app-sub-header {
+  padding: 3px 12px;
+}
+
+.cps-container {
+  text-align: left;
+  margin-bottom: 3px;
 }
 
 @media (min-width: 768px) {
@@ -143,8 +156,20 @@ a:hover {
     white-space: nowrap;
   }
 
+  .app-header {
+    padding: 0 20px;
+  }
+
   .ant-layout-content {
-    padding: 18px;
+    padding: 20px;
+  }
+
+  .app-sub-header {
+    padding: 3px 20px;
+  }
+
+  .cps-container {
+    text-align: center;
   }
 
   .ant-timeline .right .ant-timeline-item-content {

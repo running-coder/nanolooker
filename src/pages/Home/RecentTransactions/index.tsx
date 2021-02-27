@@ -9,11 +9,11 @@ import {
   CloseCircleTwoTone,
   SyncOutlined,
 } from "@ant-design/icons";
-
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import TimeAgo from "timeago-react";
 import BigNumber from "bignumber.js";
 import { Colors, TwoToneColors } from "components/utils";
+import ConfirmationsPerSecond from "components/ConfirmationsPerSecond";
 import useSockets from "api/hooks/use-socket";
 import { rawToRai } from "components/utils";
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
@@ -36,7 +36,7 @@ const RecentTransactions = () => {
   return (
     <Card
       size="small"
-      title="Recent Transactions"
+      title={<Text>Recent Transactions</Text>}
       extra={
         <Popover
           placement="left"
@@ -74,7 +74,8 @@ const RecentTransactions = () => {
         </Popover>
       }
     >
-      <div style={{ margin: "1em 0" }}>
+      <div style={{ margin: "0" }}>
+        <ConfirmationsPerSecond />
         {disableLiveTransactions ? (
           <div style={{ textAlign: "center" }}>
             {theme === Theme.DARK ? (
