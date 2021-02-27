@@ -131,7 +131,7 @@ a:hover {
 }
 
 .ant-descriptions-item-label {
-  white-space: normal;
+  white-space: nowrap;
 }
 
 .ant-layout-content {

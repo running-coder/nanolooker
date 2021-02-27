@@ -84,6 +84,10 @@ const AppHeader: React.FC = () => {
                   Distribution
                   <Link to="/distribution" />
                 </Menu.Item>
+                <Menu.Item key="faucets">
+                  Faucets
+                  <Link to="/faucets" />
+                </Menu.Item>
               </SubMenu>
               <Menu.Item key="news">
                 <CalendarOutlined />

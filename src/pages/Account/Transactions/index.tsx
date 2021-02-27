@@ -146,7 +146,7 @@ const TransactionsTable = ({
                     ) : null}
                     <Link
                       to={`/account/${account || representative}`}
-                      className="break-word color-normal "
+                      className="break-word color-normal"
                     >
                       {account || representative}
                     </Link>

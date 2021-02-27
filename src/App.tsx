@@ -10,6 +10,7 @@ import RepresentativesPage from "pages/Representatives";
 import DeveloperFundPage from "pages/DeveloperFund";
 import DeveloperFundTransactionsPage from "pages/DeveloperFund/Transactions";
 import DistributionPage from "pages/Distribution";
+import FaucetsPage from "pages/Faucets";
 import LargeTransactionsPage from "pages/LargeTransactions";
 import KnownAccountsPage from "pages/KnownAccounts";
 import AccountPage from "pages/Account";
@@ -48,6 +49,7 @@ const App: React.FC = props => {
             />
             <Route path="/known-accounts" component={KnownAccountsPage} />
             <Route path="/distribution" component={DistributionPage} />
+            <Route path="/faucets" component={FaucetsPage} />
             <Route
               path="/large-transactions/:sortBy?"
               component={LargeTransactionsPage}
