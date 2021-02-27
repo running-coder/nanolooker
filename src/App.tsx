@@ -54,7 +54,7 @@ const App: React.FC = props => {
             />
             <Route path="/account/:account?" component={AccountPage} />
             <Route path="/block/:block?" component={BlockPage} />
-            <Route path="/news" component={NewsPage} />
+            <Route path="/news/:feed?" component={NewsPage} />
             <Route path="/status" component={StatusPage} />
           </Switch>
         </Content>

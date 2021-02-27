@@ -13,6 +13,9 @@ import {
   Typography,
 } from "antd";
 import { DownOutlined } from "@ant-design/icons";
+import { useParams, useHistory } from "react-router-dom";
+
+import type { PageParams } from "types/page";
 
 const { Title, Text } = Typography;
 
@@ -103,6 +106,8 @@ const getMediumPosts = async () => {
 };
 
 const NewsPage = () => {
+  const history = useHistory();
+  const { feed = "" } = useParams<PageParams>();
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
   const [posts, setPosts] = React.useState<any[]>(Array.from(Array(3).keys()));
   const [feedFilter, setFeedFilter] = React.useState<MEDIUM_FEEDS | string>(
@@ -114,14 +119,22 @@ const NewsPage = () => {
 
   React.useEffect(() => {
     getMediumPosts().then(posts => {
+      if (feed && posts.find(({ feed: postFeed }) => postFeed === feed)) {
+        handleFeedFilter({ key: feed });
+      }
+
       setPosts(posts);
       setIsLoading(false);
     });
   }, []);
 
   const handleFeedFilter = ({ key }: any) => {
+    history.replace(
+      `/news${key !== DEFAULT_FILTERS.ALL_FEEDS ? `/${key}` : ""}`,
+    );
     setFeedFilter(key);
   };
+
   const handleAuthorFilter = ({ key }: any) => {
     setAuthorFilter(key);
   };
@@ -222,7 +235,12 @@ const NewsPage = () => {
                   <div
                     dangerouslySetInnerHTML={{ __html: descriptionLong }}
                   ></div>
-                  <a href={link} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ marginTop: "12px", display: "inline-block" }}
+                  >
                     Continue reading
                   </a>
                 </Skeleton>

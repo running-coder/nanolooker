@@ -219,20 +219,22 @@ const Representatives = () => {
                         : Colors.SEND
                     }
                   />
-                  {alias ? (
-                    <span
-                      className="color-important"
-                      style={{ marginRight: "6px" }}
+                  <div>
+                    {alias ? (
+                      <span
+                        className="color-important"
+                        style={{ marginRight: "6px", display: "block" }}
+                      >
+                        {alias}
+                      </span>
+                    ) : null}
+                    <Link
+                      to={`/account/${text}`}
+                      className="color-normal break-word"
                     >
-                      {alias}
-                    </span>
-                  ) : null}
-                  <Link
-                    to={`/account/${text}`}
-                    className="color-normal break-word"
-                  >
-                    {text}
-                  </Link>
+                      {text}
+                    </Link>
+                  </div>
                 </div>
               );
             },

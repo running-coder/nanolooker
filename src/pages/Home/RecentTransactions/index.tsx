@@ -36,7 +36,7 @@ const RecentTransactions = () => {
   return (
     <Card
       size="small"
-      title={<Text>Recent Transactions</Text>}
+      title="Recent Transactions"
       extra={
         <Popover
           placement="left"
