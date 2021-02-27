@@ -26,8 +26,8 @@ const getLargeTransactions = async () => {
         db.collection(LARGE_TRANSACTIONS)
           .find({
             $query: {},
-            $orderby: { value: 1 },
           })
+          .sort({ createdAt: -1 })
           .toArray((_err, values = []) => {
             const transactions = values.map(
               ({ value: [transaction] }) => transaction,

@@ -76,10 +76,10 @@ const AppHeader: React.FC = () => {
                   Known Accounts
                   <Link to="/known-accounts" />
                 </Menu.Item>
-                {/* <Menu.Item key="large-transactions">
+                <Menu.Item key="large-transactions">
                   Large Transactions
                   <Link to="/large-transactions" />
-                </Menu.Item> */}
+                </Menu.Item>
                 <Menu.Item key="distribution">
                   Distribution
                   <Link to="/distribution" />

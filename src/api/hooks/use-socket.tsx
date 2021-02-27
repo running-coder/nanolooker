@@ -45,7 +45,7 @@ const useSocket = () => {
       ws.send(JSON.stringify(confirmation_subscription));
     };
 
-    ws.onclose = function() {
+    ws.onclose = function () {
       if (isForcedClosed) return;
       setTimeout(() => {
         connect();
