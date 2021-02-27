@@ -49,7 +49,7 @@ const App: React.FC = props => {
             <Route path="/known-accounts" component={KnownAccountsPage} />
             <Route path="/distribution" component={DistributionPage} />
             <Route
-              path="/large-transactions"
+              path="/large-transactions/:sortBy?"
               component={LargeTransactionsPage}
             />
             <Route path="/account/:account?" component={AccountPage} />
