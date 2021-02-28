@@ -62,7 +62,7 @@ const LargeTransactions = () => {
 
     setOrderedTransactions(orderedData);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [largeTransactions, sortBy]);
+  }, [largeTransactions, sortBy, currentPage]);
 
   const handleSortBy = ({ key }: any) => {
     history.replace(`/large-transactions/${key}`);
