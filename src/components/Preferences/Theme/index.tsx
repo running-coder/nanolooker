@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Switch, Typography } from "antd";
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import { PreferencesContext, Theme } from "api/contexts/Preferences";
@@ -6,11 +7,12 @@ import { PreferencesContext, Theme } from "api/contexts/Preferences";
 const { Text } = Typography;
 
 const ThemePreference: React.FC = () => {
+  const { t } = useTranslation();
   const { theme, setTheme } = React.useContext(PreferencesContext);
 
   return (
     <>
-      <Text style={{ marginRight: "16px" }}>Dark mode</Text>
+      <Text style={{ marginRight: "16px" }}>{t("preferences.darkMode")}</Text>
       <Switch
         checkedChildren={<CheckOutlined />}
         unCheckedChildren={<CloseOutlined />}

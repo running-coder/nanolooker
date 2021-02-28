@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router-dom";
 import { Dropdown, Input, Menu } from "antd";
 import {
@@ -16,6 +17,7 @@ import { Theme, PreferencesContext } from "api/contexts/Preferences";
 const { Search: SearchAnt } = Input;
 
 const Search = () => {
+  const { t } = useTranslation();
   const { theme } = React.useContext(PreferencesContext);
   const [isExpanded, setIsExpanded] = React.useState(false);
   const [isError, setIsError] = React.useState(false);
@@ -76,7 +78,7 @@ const Search = () => {
           overlay={
             <Menu>
               {!searchHistory.length ? (
-                <Menu.Item disabled>No search history</Menu.Item>
+                <Menu.Item disabled>{t("search.noHistory")}</Menu.Item>
               ) : (
                 searchHistory.map(history => (
                   <Menu.Item
@@ -118,7 +120,7 @@ const Search = () => {
         </Dropdown>
       }
       className={isError ? "has-error" : ""}
-      placeholder="Search by Address / Txhash / Block"
+      placeholder={t("search.searchBy")}
       onFocus={() => setIsExpanded(true)}
       onBlur={() => setIsExpanded(false)}
       onChange={(e: any) => {

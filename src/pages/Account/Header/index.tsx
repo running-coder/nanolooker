@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Button, Typography } from "antd";
 import { WalletOutlined, QrcodeOutlined } from "@ant-design/icons";
 import find from "lodash/find";
@@ -9,12 +10,12 @@ import { RepresentativesContext } from "api/contexts/Representatives";
 import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
 import { KnownAccountsContext, KnownAccount } from "api/contexts/KnownAccounts";
 
-import type { PageParams } from 'types/page'
+import type { PageParams } from "types/page";
 
 const { Title } = Typography;
 
-
 const AccountHeader = () => {
+  const { t } = useTranslation();
   const { account = "" } = useParams<PageParams>();
   const [knownAccount, setKnownAccount] = React.useState<KnownAccount>();
   const [representativeAccount, setRepresentativeAccount] = React.useState(
@@ -54,8 +55,9 @@ const AccountHeader = () => {
       {representativeAccount?.account && minWeight ? (
         <>
           <Title level={3}>
-            {representativeAccount.weight >= minWeight ? "Principal " : ""}
-            Representative
+            {representativeAccount.weight >= minWeight
+              ? t("common.principalRepresentative")
+              : t("common.representative")}
           </Title>
         </>
       ) : null}

@@ -62,43 +62,43 @@ const AppHeader: React.FC = () => {
                 title={
                   <span onClick={() => history.push("/")}>
                     <ApartmentOutlined />
-                    Explore
+                    {t("menu.explore")}
                   </span>
                 }
               >
                 <Menu.Item key="representatives">
-                  {t("representatives")}
+                  {t("menu.representatives")}
                   <Link to="/representatives" />
                 </Menu.Item>
                 <Menu.Item key="developer-fund">
-                  Developer Fund
+                  {t("menu.developerFund")}
                   <Link to="/developer-fund" />
                 </Menu.Item>
                 <Menu.Item key="known-accounts">
-                  Known Accounts
+                  {t("menu.knownAccounts")}
                   <Link to="/known-accounts" />
                 </Menu.Item>
                 <Menu.Item key="large-transactions">
-                  Large Transactions
+                  {t("menu.largeTransactions")}
                   <Link to="/large-transactions" />
                 </Menu.Item>
                 <Menu.Item key="distribution">
-                  Distribution
+                  {t("menu.distribution")}
                   <Link to="/distribution" />
                 </Menu.Item>
                 <Menu.Item key="faucets">
-                  Faucets
+                  {t("menu.faucets")}
                   <Link to="/faucets" />
                 </Menu.Item>
               </SubMenu>
               <Menu.Item key="news">
                 <CalendarOutlined />
-                News
+                {t("menu.news")}
                 <Link to="/news" />
               </Menu.Item>
               <Menu.Item key="status">
                 <DatabaseOutlined />
-                Node Status
+                {t("menu.nodeStatus")}
                 <Link to="/status" />
               </Menu.Item>
             </Menu>

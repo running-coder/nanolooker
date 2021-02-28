@@ -1,4 +1,71 @@
 {
-  "representatives": "Représentants",
-  "language": "Langue"
+  "common": {
+    "representative": "Représentant",
+    "principalRepresentative": "Représentant Principal"
+  },
+  "transaction": {
+    "send": "Envoi",
+    "receive": "Réception",
+    "pending": "En attente",
+    "cps": "CPS"
+  },
+  "tooltips": {
+    "cps": "Confirmations Par Seconde. Le taux de blocs confirmés (envoi ou réception) sur le réseau NANO.",
+    "votingWeight": "Un compte avec un minimum de {{minWeight}} NANO ou >= 0,1% du poids de vote en ligne qui lui est délégué est requis pour obtenir le statut de représentant principal. Lorsqu'ils sont configurés sur un nœud qui vote, les votes qu'il produit seront rediffusés par d'autres nœuds vers qui les reçoivent, ce qui permet au réseau d'atteindre un consensus plus rapidement.",
+    "pending": "Un état de transaction où un bloc d'envoi de fonds a été publié et confirmé par le réseau, mais un bloc correspondant recevant ces fonds n'a pas encore été envoyé ou confirmé."
+  },
+  "search": {
+    "searchBy": "Recherche par Address / Bloc",
+    "noHistory": "Aucun historique de recherche"
+  },
+  "preferences": {
+    "darkMode": "Mode de nuit",
+    "language": "Langue",
+    "watch": "Surveiller d'autres cryptomonnaies",
+    "fiatCurrency": "Monnaie fiduciaire"
+  },
+  "menu": {
+    "explore": "Explorer",
+    "representatives": "Représentants",
+    "developerFund": "Fond de développement",
+    "knownAccounts": "Comptes connus",
+    "largeTransactions": "Transactions volimineuses",
+    "distribution": "Distribution",
+    "faucets": "Robitets (Faucets)",
+    "news": "Nouvelles",
+    "nodeStatus": "Status du noeud"
+  },
+  "pages": {
+    "home": {
+      "statistics": "Statistiques",
+      "marketCapRank": "Classement de la capitalisation",
+      "marketCap": "Capitalisation du marché",
+      "circulatingSupply": "NANO en circulation",
+      "latestBlock": "Dernier bloc",
+      "principalRepOnline": "Représentants principaux en ligne",
+      "ledgerSize": "Taille du grand livre",
+      "last24Hours": "Dernières 24 heures",
+      "avgConfirmationTime": "Temps de confirmation moyen (secondes)",
+      "confirmedTransactions": "Transactions confirmés",
+      "nanoTransactionFees": "Frais de transaction NANO",
+      "foreverFree": "Gratuit pour toujours",
+      "exchangeVolume": "Volume des échanges",
+      "onChainVolume": "Volume sur la chaîne NANO",
+      "bitcoinFees": "Frais de transaction Bitcoin payés aux mineurs",
+      "recentTransactions": "Transactions récentes",
+      "liveUpdatesDisabled": "Mises à jour en direct désactivées",
+      "waitingForTransactions": "En attente de nouvelles transactions",
+      "connectingToBlockchain": "Connexion à la blockchain NANO",
+      "preferences": {
+        "enableLiveUpdates": "Activer les mises à jour en direct",
+        "includeAmountsUnder": "Inclure les montants inférieurs à 1 NANO"
+      }
+    },
+    "account": {
+      "votingWeight": "Poids du vote",
+      "balance": "Balance",
+      "noRepresentative": "Pas de Représentant",
+      "lastTransaction": "Dernière transaction"
+    }
+  }
 }

@@ -1,4 +1,71 @@
 {
-  "representatives": "Representatives",
-  "language": "Language"
+  "common": {
+    "representative": "Representative",
+    "principalRepresentative": "Principal Representative"
+  },
+  "transaction": {
+    "send": "Send",
+    "receive": "Receive",
+    "pending": "Pending",
+    "cps": "CPS"
+  },
+  "tooltips": {
+    "cps": "Confirmations Per Second. The rate of confirmed blocks (send or receive) on the NANO network.",
+    "votingWeight": "An account with a minimum of {{minWeight}} NANO or >= 0.1% of the online voting weight delegated to it is required to get the Principal Representative status. When configured on a node which is voting, the votes it produces will be rebroadcasted by other nodes to who receive them, helping the network reach consensus more quickly.",
+    "pending": "A transaction state where a block sending funds was published and confirmed by the network, but a matching block receiving those funds has not yet been sent or confirmed."
+  },
+  "search": {
+    "searchBy": "Search by Address / Block",
+    "noHistory": "No search history"
+  },
+  "preferences": {
+    "darkMode": "Dark mode",
+    "language": "Language",
+    "watch": " Watch other cryptocurrencies",
+    "fiatCurrency": "Fiat currency"
+  },
+  "menu": {
+    "explore": "Explore",
+    "representatives": "Representatives",
+    "developerFund": "Developer Fund",
+    "knownAccounts": "Known Accounts",
+    "largeTransactions": "Large Transactions",
+    "distribution": "Distribution",
+    "faucets": "Faucets",
+    "news": "News",
+    "nodeStatus": "Node Status"
+  },
+  "pages": {
+    "home": {
+      "statistics": "Statistics",
+      "marketCapRank": "Market cap rank",
+      "marketCap": "Market cap",
+      "circulatingSupply": "Circulating Supply",
+      "latestBlock": "Latest block",
+      "principalRepOnline": "Principal Representatives Online",
+      "ledgerSize": "Ledger size",
+      "last24Hours": "Last 24 hours",
+      "avgConfirmationTime": "Avg. confirmation time (seconds)",
+      "confirmedTransactions": "Confirmed transactions",
+      "nanoTransactionFees": "NANO transaction fees",
+      "foreverFree": "Forever free",
+      "exchangeVolume": "Exchange volume",
+      "onChainVolume": "On-chain NANO volume",
+      "bitcoinFees": "Bitcoin transaction fees paid to miners",
+      "recentTransactions": "Recent Transactions",
+      "liveUpdatesDisabled": "Live updates disabled",
+      "waitingForTransactions": "Waiting for transactions",
+      "connectingToBlockchain": "Connecting to the NANO blockchain",
+      "preferences": {
+        "enableLiveUpdates": "Enable live updates",
+        "includeAmountsUnder1": "Include amounts under 1 NANO"
+      }
+    },
+    "account": {
+      "votingWeight": "Voting weight",
+      "balance": "Balance",
+      "noRepresentative": "No Representative",
+      "lastTransaction": "Last transaction"
+    }
+  }
 }

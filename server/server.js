@@ -57,7 +57,7 @@ app.post("/api/rpc", async (req, res) => {
 });
 
 app.get("/api/confirmations-per-second", (req, res) => {
-  return res.send(wsCache.get(CONFIRMATIONS_PER_SECOND));
+  return res.send({ cps: wsCache.get(CONFIRMATIONS_PER_SECOND) });
 });
 
 app.get("/api/distribution", (req, res) => {

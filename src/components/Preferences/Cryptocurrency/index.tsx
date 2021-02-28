@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { AutoComplete, Typography } from "antd";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { PreferencesContext } from "api/contexts/Preferences";
@@ -9,6 +10,7 @@ const { Option } = AutoComplete;
 const { Text } = Typography;
 
 const CryptocurrencyPreferences: React.FC = () => {
+  const { t } = useTranslation();
   const {
     cryptocurrency,
     addCryptocurrency,
@@ -66,7 +68,7 @@ const CryptocurrencyPreferences: React.FC = () => {
   return (
     <div>
       <Text style={{ marginBottom: "6px", display: "block" }}>
-        Watch other cryptocurrencies
+        {t("preferences.watch")}
       </Text>
 
       <AutoComplete

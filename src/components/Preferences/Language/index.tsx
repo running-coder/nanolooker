@@ -1,5 +1,5 @@
-import i18next from "i18next";
 import React from "react";
+import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import { Select, Typography } from "antd";
 
@@ -16,7 +16,7 @@ const LanguagePreferences: React.FC = () => {
 
   return (
     <>
-      <Text style={{ marginRight: "12px" }}>{t("language")}</Text>
+      <Text style={{ marginRight: "12px" }}>{t("preferences.language")}</Text>
       <Select
         defaultValue={i18next.language}
         onChange={value => {

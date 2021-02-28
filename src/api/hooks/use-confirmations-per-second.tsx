@@ -1,21 +1,23 @@
 import React from "react";
 
 export interface UseUptimeReturn {
-  confirmationsPerSecond: string;
+  confirmationsPerSecond: string | undefined;
 }
 
 let confirmationsPerSecondInterval: number | undefined;
 
 const useConfirmationsPerSecond = (): UseUptimeReturn => {
-  const [confirmationsPerSecond, setConfirmationsPerSecond] = React.useState(
-    "",
-  );
+  const [confirmationsPerSecond, setConfirmationsPerSecond] = React.useState();
 
   const getConfirmationsPerSecond = async () => {
-    const res = await fetch(`/api/confirmations-per-second`);
-    const text = await res.text();
+    try {
+      const res = await fetch(`/api/confirmations-per-second`);
+      const { cps } = await res.json();
 
-    setConfirmationsPerSecond(text);
+      setConfirmationsPerSecond(cps);
+    } catch (err) {
+      setConfirmationsPerSecond(undefined);
+    }
 
     confirmationsPerSecondInterval = window.setTimeout(() => {
       getConfirmationsPerSecond();

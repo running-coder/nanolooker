@@ -1,4 +1,5 @@
 import React, { ReactElement } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Badge, Card, Col, Descriptions, Row, Skeleton, Tooltip } from "antd";
 import find from "lodash/find";
@@ -37,6 +38,7 @@ export const AccountDetailsLayout = ({
 );
 
 const AccountDetails = () => {
+  const { t } = useTranslation();
   const { theme, fiat } = React.useContext(PreferencesContext);
   const [representativeAccount, setRepresentativeAccount] = React.useState(
     {} as any,
@@ -107,10 +109,12 @@ const AccountDetails = () => {
           <Descriptions.Item
             label={
               <>
-                <span style={{ marginRight: "6px" }}>Voting weight</span>
+                <span style={{ marginRight: "6px" }}>
+                  {t("pages.account.votingWeight")}
+                </span>
                 <Tooltip
                   placement="right"
-                  title={`An account with a minimum of ${minWeight} NANO or >= 0.1% of the online voting weight delegated to it is required to get the Principal Representative status. When configured on a node which is voting, the votes it produces will be rebroadcasted by other nodes to who receive them, helping the network reach consensus more quickly.`}
+                  title={t("tooltips.votingWeight", { minWeight })}
                   style={{ marginLeft: "6px" }}
                 >
                   <QuestionCircle />
@@ -121,7 +125,7 @@ const AccountDetails = () => {
             {new BigNumber(representativeAccount.weight).toFormat()} NANO
           </Descriptions.Item>
         ) : null}
-        <Descriptions.Item label="Balance">
+        <Descriptions.Item label={t("pages.account.balance")}>
           <Skeleton {...skeletonProps}>
             {new BigNumber(balance).toFormat()} NANO
             <br />
@@ -130,7 +134,7 @@ const AccountDetails = () => {
             {`${CurrencySymbol?.[fiat]}${fiatBalance} / ${btcBalance} BTC`}
           </Skeleton>
         </Descriptions.Item>
-        <Descriptions.Item label="Representative">
+        <Descriptions.Item label={t("common.representative")}>
           <Skeleton {...skeletonProps}>
             {accountInfo?.representative ? (
               <div style={{ display: "flex" }}>
@@ -155,20 +159,17 @@ const AccountDetails = () => {
                 </Link>
               </div>
             ) : (
-              "No Representative"
+              t("pages.account.noRepresentative")
             )}
           </Skeleton>
         </Descriptions.Item>
         <Descriptions.Item
           label={
             <>
-              <span style={{ marginRight: "6px" }}>Pending</span>
-              <Tooltip
-                placement="right"
-                title={
-                  "A transaction state where a block sending funds was published and confirmed by the network, but a matching block receiving those funds has not yet been sent or confirmed."
-                }
-              >
+              <span style={{ marginRight: "6px" }}>
+                {t("transaction.pending")}
+              </span>
+              <Tooltip placement="right" title={t("tooltips.pending")}>
                 <QuestionCircle />
               </Tooltip>
             </>
@@ -177,7 +178,7 @@ const AccountDetails = () => {
           <Skeleton {...skeletonProps}>{balancePending} NANO</Skeleton>
         </Descriptions.Item>
 
-        <Descriptions.Item label="Last transaction">
+        <Descriptions.Item label={t("pages.account.lastTransaction")}>
           <Skeleton {...skeletonProps}>
             {modifiedTimestamp ? (
               <>

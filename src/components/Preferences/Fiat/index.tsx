@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Select, Typography } from "antd";
 import { PreferencesContext, Fiat } from "api/contexts/Preferences";
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
@@ -9,6 +10,7 @@ const { Option } = Select;
 const { Text } = Typography;
 
 const FiatPreferences: React.FC = () => {
+  const { t } = useTranslation();
   const { fiat, setFiat } = React.useContext(PreferencesContext);
   const { setIsInitialLoading, getMarketStatistics } = React.useContext(
     MarketStatisticsContext,
@@ -16,7 +18,9 @@ const FiatPreferences: React.FC = () => {
 
   return (
     <>
-      <Text style={{ marginRight: "12px" }}>Fiat currency</Text>
+      <Text style={{ marginRight: "12px" }}>
+        {t("preferences.fiatCurrency")}
+      </Text>
       <Select
         defaultValue={fiat}
         onChange={value => {

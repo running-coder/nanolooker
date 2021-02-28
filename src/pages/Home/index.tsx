@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Card, Col, Row, Skeleton, Statistic } from "antd";
 import BigNumber from "bignumber.js";
 import {
@@ -24,6 +25,7 @@ import StatisticsChange from "components/StatisticsChange";
 import RecentTransactions from "./RecentTransactions";
 
 const HomePage = () => {
+  const { t } = useTranslation();
   const { fiat } = React.useContext(PreferencesContext);
   const {
     marketStatistics,
@@ -113,13 +115,13 @@ const HomePage = () => {
         style={{ marginBottom: "12px" }}
       >
         <Col sm={24} md={12} style={{ width: "100%" }}>
-          <Card size="small" title="Statistics">
+          <Card size="small" title={t("pages.home.statistics")}>
             <Skeleton active loading={false}>
               <Row gutter={6}>
                 <Col xs={24} sm={12}>
                   <LoadingStatistic
                     isLoading={isMarketStatisticsInitialLoading}
-                    title="Market cap rank"
+                    title={t("pages.home.marketCapRank")}
                     prefix="#"
                     suffix={
                       marketCapRank24h ? (
@@ -134,7 +136,9 @@ const HomePage = () => {
                   />
                   <LoadingStatistic
                     isLoading={isMarketStatisticsInitialLoading}
-                    title={`Market cap (${fiat.toUpperCase()})`}
+                    title={`${t(
+                      "pages.home.marketCap",
+                    )} (${fiat.toUpperCase()})`}
                     prefix={CurrencySymbol?.[fiat]}
                     suffix={
                       <StatisticsChange
@@ -146,25 +150,25 @@ const HomePage = () => {
                   />
                   <LoadingStatistic
                     isLoading={isMarketStatisticsInitialLoading}
-                    title="Circulating Supply"
+                    title={t("pages.home.circulatingSupply")}
                     value={new BigNumber(circulatingSupply).toNumber()}
                   />
                 </Col>
                 <Col xs={24} sm={12}>
                   <LoadingStatistic
                     isLoading={!count}
-                    title="Latest block"
+                    title={t("pages.home.latestBlock")}
                     value={count}
                   />
                   <LoadingStatistic
                     isLoading={!representatives.length}
-                    title="Principal Representatives Online"
+                    title={t("pages.home.principalRepOnline")}
                     value={representatives.length}
                   />
 
                   <LoadingStatistic
                     isLoading={isNodeStatusLoading}
-                    title="Blockchain size"
+                    title={t("pages.home.ledgerSize")}
                     suffix="GB"
                     value={new BigNumber(ledgerSize)
                       .dividedBy(1000e6)
@@ -176,18 +180,18 @@ const HomePage = () => {
           </Card>
         </Col>
         <Col sm={24} md={12} style={{ width: "100%" }}>
-          <Card size="small" title="Last 24 hours">
+          <Card size="small" title={t("pages.home.last24Hours")}>
             <Skeleton active loading={false}>
               <Row gutter={6}>
                 <Col xs={24} sm={12}>
                   <LoadingStatistic
                     isLoading={!average}
-                    title="Avg. confirmation time (seconds)"
+                    title={t("pages.home.avgConfirmationTime")}
                     value={new BigNumber(average).dividedBy(1000).toNumber()}
                   />
                   <LoadingStatistic
                     isLoading={isMarketStatisticsInitialLoading}
-                    title="Confirmed transactions"
+                    title={t("pages.home.confirmedTransactions")}
                     suffix={
                       <StatisticsChange
                         value={confirmationChange24h}
@@ -196,18 +200,24 @@ const HomePage = () => {
                     }
                     value={marketStatistics[TOTAL_CONFIRMATIONS_KEY_24H]}
                   />
-                  <Statistic title="NANO transaction fees" value="Always 0" />
+                  <Statistic
+                    title={t("pages.home.nanoTransactionFees")}
+                    // @ts-ignore
+                    value={t("pages.home.foreverFree")}
+                  />
                 </Col>
                 <Col xs={24} sm={12}>
                   <LoadingStatistic
                     isLoading={isMarketStatisticsInitialLoading}
-                    title={`Exchange volume (${fiat.toUpperCase()})`}
+                    title={`${t(
+                      "pages.home.exchangeVolume",
+                    )} (${fiat.toUpperCase()})`}
                     prefix={CurrencySymbol?.[fiat]}
                     value={`${new BigNumber(volume24h).toNumber()}`}
                   />
                   <LoadingStatistic
                     isLoading={isMarketStatisticsInitialLoading}
-                    title="On-chain NANO volume"
+                    title={t("pages.home.onChainVolume")}
                     suffix={
                       <StatisticsChange
                         value={onChainVolumeChange24h}
@@ -222,7 +232,9 @@ const HomePage = () => {
                   />
                   <LoadingStatistic
                     isLoading={isMarketStatisticsInitialLoading}
-                    title={`Bitcoin transaction fees paid to miners (${fiat.toUpperCase()})`}
+                    title={`${t(
+                      "pages.home.bitcoinFees",
+                    )} (${fiat.toUpperCase()})`}
                     prefix={CurrencySymbol?.[fiat]}
                     value={btcTransactionFees24h}
                     suffix={

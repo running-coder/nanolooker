@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Card, List, Popover, Switch, Tag, Timeline, Typography } from "antd";
 import {
@@ -22,6 +23,7 @@ import { Theme, PreferencesContext } from "api/contexts/Preferences";
 const { Text } = Typography;
 
 const RecentTransactions = () => {
+  const { t } = useTranslation();
   const {
     theme,
     hideTransactionsUnderOneNano,
@@ -36,14 +38,16 @@ const RecentTransactions = () => {
   return (
     <Card
       size="small"
-      title="Recent Transactions"
+      title={t("pages.home.recentTransactions")}
       extra={
         <Popover
           placement="left"
           content={
             <List size="small">
               <List.Item>
-                <Text style={{ marginRight: "16px" }}>Enable live updates</Text>
+                <Text style={{ marginRight: "16px" }}>
+                  {t("pages.home.preferences.enableLiveUpdates")}
+                </Text>
                 <Switch
                   checkedChildren={<CheckOutlined />}
                   unCheckedChildren={<CloseOutlined />}
@@ -55,7 +59,7 @@ const RecentTransactions = () => {
               </List.Item>
               <List.Item>
                 <Text style={{ marginRight: "16px" }}>
-                  Include amounts under 1 NANO
+                  {t("pages.home.preferences.includeAmountsUnder1")}
                 </Text>
                 <Switch
                   checkedChildren={<CheckOutlined />}
@@ -83,7 +87,9 @@ const RecentTransactions = () => {
             ) : (
               <CloseCircleTwoTone twoToneColor={TwoToneColors.SEND} />
             )}
-            <Text style={{ marginLeft: "8px" }}>Live updates disabled</Text>
+            <Text style={{ marginLeft: "8px" }}>
+              {t("pages.home.preferences.liveUpdatesDisabled")}
+            </Text>
           </div>
         ) : null}
         {isConnected &&
@@ -92,7 +98,7 @@ const RecentTransactions = () => {
           <div style={{ textAlign: "center" }}>
             <SyncOutlined spin />
             <Text style={{ marginLeft: "8px" }}>
-              Waiting for transactions ...
+              {t("pages.home.waitingForTransactions")} ...
             </Text>
           </div>
         ) : null}
@@ -100,7 +106,7 @@ const RecentTransactions = () => {
           <div style={{ textAlign: "center" }}>
             <SyncOutlined spin />
             <Text style={{ marginLeft: "8px" }}>
-              Connecting to the NANO blockchain ...
+              {t("pages.home.connectingToBlockchain")} ...
             </Text>
           </div>
         ) : null}
