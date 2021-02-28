@@ -1,5 +1,5 @@
 import React from "react";
-import { toBoolean } from "../../components/utils";
+import { toBoolean } from "components/utils";
 
 export enum Theme {
   LIGHT = "light",
@@ -34,16 +34,10 @@ export enum Fiat {
   JPY = "jpy",
 }
 
-export enum Language {
-  EN = "en",
-  FR = "fr",
-}
-
 interface Preferences {
   theme: Theme;
   cryptocurrency: string[];
   fiat: Fiat;
-  language: Language;
   setTheme: Function;
   hideTransactionsUnderOneNano: boolean;
   disableLiveTransactions: boolean;
@@ -51,7 +45,6 @@ interface Preferences {
   removeCryptocurrency: Function;
   reorderCryptocurrency: Function;
   setFiat: Function;
-  setLanguage: Function;
   setHideTransactionsUnderOneNano: Function;
   setDisableLiveTransactions: Function;
 }
@@ -60,7 +53,6 @@ enum LOCALSTORAGE_KEYS {
   THEME = "THEME",
   CRYPTOCURRENCY = "CRYPTOCURRENCY",
   FIAT = "FIAT",
-  LANGUAGE = "LANGUAGE",
   HIDE_TRANSACTIONS_UNDER_ONE_NANO = "HIDE_TRANSACTIONS_UNDER_ONE_NANO",
   DISABLE_LIVE_TRANSACTIONS = "DISABLE_LIVE_TRANSACTIONS",
 }
@@ -82,7 +74,6 @@ export const PreferencesContext = React.createContext<Preferences>({
   theme: Theme.LIGHT,
   cryptocurrency: [],
   fiat: Fiat.USD,
-  language: Language.EN,
   hideTransactionsUnderOneNano: false,
   disableLiveTransactions: false,
   setTheme: () => {},
@@ -90,7 +81,6 @@ export const PreferencesContext = React.createContext<Preferences>({
   removeCryptocurrency: () => {},
   reorderCryptocurrency: () => {},
   setFiat: () => {},
-  setLanguage: () => {},
   setHideTransactionsUnderOneNano: () => {},
   setDisableLiveTransactions: () => {},
 });
@@ -105,10 +95,6 @@ const Provider: React.FC = ({ children }) => {
   const [fiat, setFiat] = React.useState<Fiat>(
     (localStorage.getItem(LOCALSTORAGE_KEYS.FIAT) as Fiat) || Fiat.USD,
   );
-  const [language, setLanguage] = React.useState<Language>(
-    (localStorage.getItem(LOCALSTORAGE_KEYS.LANGUAGE) as Language) ||
-      Language.EN,
-  );
   const [
     hideTransactionsUnderOneNano,
     setHideTransactionsUnderOneNano,
@@ -117,9 +103,10 @@ const Provider: React.FC = ({ children }) => {
       localStorage.getItem(LOCALSTORAGE_KEYS.HIDE_TRANSACTIONS_UNDER_ONE_NANO),
     ),
   );
-  const [disableLiveTransactions, setDisableLiveTransactions] = React.useState<
-    boolean
-  >(
+  const [
+    disableLiveTransactions,
+    setDisableLiveTransactions,
+  ] = React.useState<boolean>(
     toBoolean(
       localStorage.getItem(LOCALSTORAGE_KEYS.DISABLE_LIVE_TRANSACTIONS),
     ),
@@ -175,11 +162,6 @@ const Provider: React.FC = ({ children }) => {
     setFiat(newValue);
   };
 
-  const setLocalstorageLanguage = (newValue: Language) => {
-    localStorage.setItem(LOCALSTORAGE_KEYS.LANGUAGE, newValue);
-    setLanguage(newValue);
-  };
-
   const setLocalstorageHideTransactionsUnderOneNano = (newValue: boolean) => {
     localStorage.setItem(
       LOCALSTORAGE_KEYS.HIDE_TRANSACTIONS_UNDER_ONE_NANO,
@@ -202,7 +184,6 @@ const Provider: React.FC = ({ children }) => {
         theme,
         cryptocurrency,
         fiat,
-        language,
         hideTransactionsUnderOneNano,
         disableLiveTransactions,
         setTheme: setLocalstorageTheme,
@@ -210,7 +191,6 @@ const Provider: React.FC = ({ children }) => {
         removeCryptocurrency,
         reorderCryptocurrency,
         setFiat: setLocalstorageFiat,
-        setLanguage: setLocalstorageLanguage,
         setHideTransactionsUnderOneNano: setLocalstorageHideTransactionsUnderOneNano,
         setDisableLiveTransactions: setLocalstorageDisableLiveTransactions,
       }}

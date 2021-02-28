@@ -1,21 +1,26 @@
+import i18next from "i18next";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Select, Typography } from "antd";
-import { PreferencesContext } from "api/contexts/Preferences";
 
 const { Option } = Select;
 const { Text } = Typography;
 
+export enum Language {
+  EN = "en",
+  FR = "fr",
+}
+
 const LanguagePreferences: React.FC = () => {
-  const { language, setLanguage } = React.useContext(PreferencesContext);
+  const { t } = useTranslation();
 
   return (
     <>
-      <Text style={{ marginRight: "12px" }}>Language</Text>
+      <Text style={{ marginRight: "12px" }}>{t("language")}</Text>
       <Select
-        disabled
-        defaultValue={language}
+        defaultValue={i18next.language}
         onChange={value => {
-          setLanguage(value);
+          i18next.changeLanguage(value);
         }}
       >
         <Option value="en">English</Option>

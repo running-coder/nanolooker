@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Col, Layout, Menu, Row } from "antd";
 import {
   ApartmentOutlined,
@@ -18,6 +19,7 @@ const AppHeader: React.FC = () => {
   const [activeMenu, setActiveMenu] = React.useState<string>("");
   const history = useHistory();
   const { pathname } = useLocation();
+  const { t } = useTranslation();
 
   React.useEffect(() => {
     const key = pathname.replace(/\/?([^/]+)/, "$1");
@@ -65,7 +67,7 @@ const AppHeader: React.FC = () => {
                 }
               >
                 <Menu.Item key="representatives">
-                  Representatives
+                  {t("representatives")}
                   <Link to="/representatives" />
                 </Menu.Item>
                 <Menu.Item key="developer-fund">
