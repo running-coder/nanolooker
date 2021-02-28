@@ -39,33 +39,30 @@ const LargeTransactions = () => {
   const [sortBy, setSortBy] = React.useState(defaultSortBy);
 
   const showPaginate = largeTransactions.length > TRANSACTIONS_PER_PAGE;
-  const start = 0 + (currentPage - 1) * TRANSACTIONS_PER_PAGE;
 
   React.useEffect(() => {
-    const data = largeTransactions
-      ?.slice(start, start + TRANSACTIONS_PER_PAGE)
-      .map(({ timestamp, block, hash, amount }) => ({
+    const start = 0 + (currentPage - 1) * TRANSACTIONS_PER_PAGE;
+    const data = largeTransactions.map(
+      ({ timestamp, block, hash, amount }) => ({
         ...block,
         amount,
         hash,
         largest: new BigNumber(rawToRai(amount)).toNumber(),
         latest: timestamp,
         local_timestamp: Math.floor(timestamp / 1000),
-      }));
+      }),
+    );
+    const orderedData = orderBy(data, [sortBy.toLowerCase()], ["desc"]);
+    const pageData = orderedData?.slice(start, start + TRANSACTIONS_PER_PAGE);
 
     // @ts-ignore
-    const orderedData: Transaction[] = orderBy(
-      data,
-      [sortBy.toLowerCase()],
-      ["desc"],
-    );
-
-    setOrderedTransactions(orderedData);
+    setOrderedTransactions(pageData);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [largeTransactions, sortBy, currentPage]);
 
   const handleSortBy = ({ key }: any) => {
     history.replace(`/large-transactions/${key}`);
+    setCurrentPage(1);
     setSortBy(key);
   };
 
