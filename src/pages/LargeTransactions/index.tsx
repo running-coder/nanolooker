@@ -44,9 +44,10 @@ const LargeTransactions = () => {
   React.useEffect(() => {
     const data = largeTransactions
       ?.slice(start, start + TRANSACTIONS_PER_PAGE)
-      .map(({ timestamp, block, amount }) => ({
+      .map(({ timestamp, block, hash, amount }) => ({
         ...block,
         amount,
+        hash,
         largest: new BigNumber(rawToRai(amount)).toNumber(),
         latest: timestamp,
         local_timestamp: Math.floor(timestamp / 1000),
