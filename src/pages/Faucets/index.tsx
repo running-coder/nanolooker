@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Card, Descriptions, Typography } from "antd";
 import { Link } from "react-router-dom";
 
@@ -32,15 +33,13 @@ const faucets = [
 ];
 
 const FaucetsPage = () => {
+  const { t } = useTranslation();
+
   return (
     <>
-      <Title level={3}>Faucets</Title>
+      <Title level={3}>{t("menu.faucets")}</Title>
       <div style={{ marginBottom: "12px" }}>
-        <Text>
-          Faucets allows you to claim small amounts of NANO for free. These
-          faucets are for you to experience how easy it is to send and receive
-          NANO across the world.
-        </Text>
+        <Text>{t("pages.faucets.description")}</Text>
       </div>
       <Card size="small" bodyStyle={{ padding: 0 }} bordered={false}>
         <Descriptions bordered column={1} size="small">

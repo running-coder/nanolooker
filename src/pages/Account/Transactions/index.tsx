@@ -91,7 +91,7 @@ const TransactionsTable = ({
             {t("transaction.amount")}
           </Col>
           <Col xs={0} lg={3} style={{ textAlign: "right" }}>
-            {t("transaction.date")}
+            {t("common.date")}
           </Col>
         </Row>
       ) : null}

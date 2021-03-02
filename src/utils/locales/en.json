@@ -107,6 +107,9 @@
       "totalOnlineStake": "Total online stake",
       "totalPeerStake": "Total peer stake",
       "principalRepresentatives": "Principal Representatives"
+    },
+    "faucets": {
+      "description": "Faucets allows you to claim small amounts of NANO for free. These faucets are for you to experience how easy it is to send and receive NANO across the world instantly on a decentralized network."
     }
   }
 }

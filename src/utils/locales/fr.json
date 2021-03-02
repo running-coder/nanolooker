@@ -107,6 +107,9 @@
       "totalOnlineStake": "Mise totale en ligne",
       "totalPeerStake": "Participation totale des pairs",
       "principalRepresentatives": "Représentants principaux"
+    },
+    "faucets": {
+      "description": "Les robitets (Faucets) vous permet de réclamer gratuitement de petites quantités de NANO. Ces robinets vous permettent de découvrir à quel point il est facile d'envoyer et de recevoir des NANO à travers le monde instantanément sur un réseau décentralisé."
     }
   }
 }
