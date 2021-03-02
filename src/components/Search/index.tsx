@@ -7,7 +7,12 @@ import {
   BlockOutlined,
   HistoryOutlined,
 } from "@ant-design/icons";
-import { isValidAccountAddress, isValidBlockHash } from "components/utils";
+import {
+  isValidAccountAddress,
+  isValidBlockHash,
+  getAccountAddressFromText,
+  getAccountBlockHashFromText,
+} from "components/utils";
 import DeleteButton from "components/DeleteButton";
 
 import useSearch from "./hooks/use-search";
@@ -126,6 +131,21 @@ const Search = () => {
       onChange={(e: any) => {
         const { value } = e.target;
         setSearchValue(value);
+      }}
+      onPaste={e => {
+        e.preventDefault();
+
+        // @ts-ignore
+        const paste = (e.clipboardData || window.clipboardData).getData("text");
+        const account = getAccountAddressFromText(paste);
+        if (account) {
+          setSearchValue(account);
+        } else {
+          const hash = getAccountBlockHashFromText(paste);
+          if (hash) {
+            setSearchValue(hash);
+          }
+        }
       }}
       onSearch={value => {
         value !== searchValue ? setSearchValue(value) : validateSearch(value);

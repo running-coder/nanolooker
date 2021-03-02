@@ -77,14 +77,37 @@ export const formatPublicAddress = (address: string): string => {
   return formattedAddress;
 };
 
+export const ACCOUNT_REGEX = /((nano|xrb)_)?[0-9a-z]{60}/;
+export const BLOCK_REGEX = /[0-9A-F]{64}/;
+
 export const isValidAccountAddress = (address: string): boolean =>
-  /^((nano|xrb)_)?[0-9a-z]{60}$/.test(address);
+  new RegExp(`^${ACCOUNT_REGEX.toString().replace(/\//g, "")}$`).test(address);
+
+export const getAccountAddressFromText = (text: string): string | null => {
+  const [, address] =
+    text?.match(
+      new RegExp(
+        `[^sS]*?(${ACCOUNT_REGEX.toString().replace(/\//g, "")})[^sS]*?`,
+      ),
+    ) || [];
+  return address;
+};
 
 export const isOpenAccountBlockHash = (hash: string): boolean =>
   /^[0]{64}$/.test(hash);
 
 export const isValidBlockHash = (hash: string): boolean =>
-  /^[0-9A-F]{64}$/.test(hash) && !isOpenAccountBlockHash(hash);
+  new RegExp(`^${BLOCK_REGEX.toString().replace(/\//g, "")}$`).test(hash);
+
+export const getAccountBlockHashFromText = (text: string): string | null => {
+  const [, hash] =
+    text?.match(
+      new RegExp(
+        `[^sS]*?(${BLOCK_REGEX.toString().replace(/\//g, "")})[^sS]*?`,
+      ),
+    ) || [];
+  return hash;
+};
 
 export const timestampToDate = (timestamp: string | number) => {
   const date = new Date(timestamp);
