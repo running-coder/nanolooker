@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import { isValidAccountAddress } from "components/utils";
 import AccountHeader from "./Header";
@@ -8,9 +9,10 @@ import AccountPendingHistory from "./Pending";
 import AccountHistory from "./History";
 import { AccountInfoContext } from "api/contexts/AccountInfo";
 
-import type { PageParams } from 'types/page'
+import type { PageParams } from "types/page";
 
 const AccountPage = () => {
+  const { t } = useTranslation();
   const { account = "" } = useParams<PageParams>();
   const { setAccount, isError: isAccountInfoError } = React.useContext(
     AccountInfoContext,
@@ -40,7 +42,7 @@ const AccountPage = () => {
       {/* @TODO Limit RPC call to single */}
       <AccountPendingHistory />
       <AccountHistory />
-      {!isValid || !account ? "Missing account" : null}
+      {!isValid || !account ? t("pages.account.missingAccount") : null}
     </>
   );
 };

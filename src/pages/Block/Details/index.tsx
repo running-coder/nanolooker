@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Card, Descriptions, Skeleton, Tag, Typography } from "antd";
 import BigNumber from "bignumber.js";
@@ -20,9 +21,10 @@ import {
 } from "components/utils";
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 
-const { Title } = Typography;
+const { Text, Title } = Typography;
 
 const BlockDetails = () => {
+  const { t } = useTranslation();
   const { theme, fiat } = React.useContext(PreferencesContext);
   const {
     marketStatistics: {
@@ -84,9 +86,9 @@ const BlockDetails = () => {
 
   let linkAccountLabel = "";
   if (subtype === "send") {
-    linkAccountLabel = "Receiver";
+    linkAccountLabel = t("pages.block.receiver");
   } else if (subtype === "receive") {
-    linkAccountLabel = "Sender";
+    linkAccountLabel = t("pages.block.sender");
   }
 
   const secondAccount = isValidAccountAddress(sourceAccount || "")
@@ -118,7 +120,7 @@ const BlockDetails = () => {
         bordered={false}
       >
         <Descriptions bordered column={1} size="small">
-          <Descriptions.Item label="Block subtype">
+          <Descriptions.Item label={t("pages.block.blockSubtype")}>
             <Tag
               color={
                 // @ts-ignore
@@ -133,7 +135,7 @@ const BlockDetails = () => {
               {subtype || type}
             </Tag>
           </Descriptions.Item>
-          <Descriptions.Item label="Account">
+          <Descriptions.Item label={t("common.account")}>
             {blockAccountAlias ? (
               <strong style={{ marginRight: "6px" }}>
                 {blockAccountAlias}
@@ -143,7 +145,7 @@ const BlockDetails = () => {
               {blockAccount}
             </Link>
           </Descriptions.Item>
-          <Descriptions.Item label="Amount">
+          <Descriptions.Item label={t("transaction.amount")}>
             <Skeleton {...skeletonProps}>
               {new BigNumber(amount).toFormat()} NANO
               <br />
@@ -152,7 +154,7 @@ const BlockDetails = () => {
               {`${CurrencySymbol?.[fiat]}${fiatAmount} / ${btcAmount} BTC`}
             </Skeleton>
           </Descriptions.Item>
-          <Descriptions.Item label="Balance">
+          <Descriptions.Item label={t("common.balance")}>
             <Skeleton {...skeletonProps}>
               {new BigNumber(balance).toFormat()} NANO
               <br />
@@ -174,7 +176,7 @@ const BlockDetails = () => {
             </Descriptions.Item>
           ) : null}
           {representative ? (
-            <Descriptions.Item label="Representative">
+            <Descriptions.Item label={t("common.representative")}>
               {representativeAlias ? (
                 <strong style={{ marginRight: "6px" }}>
                   {representativeAlias}
@@ -186,28 +188,30 @@ const BlockDetails = () => {
             </Descriptions.Item>
           ) : null}
           {modifiedTimestamp ? (
-            <Descriptions.Item label="Date">
+            <Descriptions.Item label={t("common.date")}>
               {timestampToDate(modifiedTimestamp)}
             </Descriptions.Item>
           ) : null}
-          {isValidBlockHash(previous) ? (
-            <Descriptions.Item label="Previous block">
+
+          <Descriptions.Item label={t("pages.block.previousBlock")}>
+            {isValidBlockHash(previous) ? (
               <span className="break-word">{previous}</span>
-            </Descriptions.Item>
-          ) : null}
-          {isOpenAccountBlockHash(previous) ? (
-            <Descriptions.Item label="Previous block">
-              This Block opened the account
-            </Descriptions.Item>
-          ) : null}
-          <Descriptions.Item label="Signature">
+            ) : null}
+            {isOpenAccountBlockHash(previous) ? (
+              <Text>{t("pages.block.openAccountBlock")}</Text>
+            ) : null}
+          </Descriptions.Item>
+
+          <Descriptions.Item label={t("pages.block.signature")}>
             <span className="break-word">{signature}</span>
           </Descriptions.Item>
-          <Descriptions.Item label="Work">{work}</Descriptions.Item>
+          <Descriptions.Item label={t("pages.block.signature")}>
+            {work}
+          </Descriptions.Item>
         </Descriptions>
       </Card>
 
-      <Title level={3}>Original Block Content</Title>
+      <Title level={3}>{t("pages.block.originalBlockContent")}</Title>
       <Card size="small">
         <pre style={{ fontSize: "12px", marginBottom: 0 }}>
           {JSON.stringify(blockInfo, null, 2)}

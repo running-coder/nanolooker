@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Typography } from "antd";
 import BigNumber from "bignumber.js";
 import useAccountHistory from "api/hooks/use-account-history";
@@ -9,6 +10,7 @@ const TRANSACTIONS_PER_PAGE = 25;
 const { Title } = Typography;
 
 const AccountHistory = () => {
+  const { t } = useTranslation();
   const { account, accountInfo } = React.useContext(AccountInfoContext);
   const isPaginated = Number(accountInfo?.block_count) <= 100;
   const showPaginate = Number(accountInfo?.block_count) > TRANSACTIONS_PER_PAGE;
@@ -29,8 +31,8 @@ const AccountHistory = () => {
   return (
     <>
       <Title level={3} style={{ marginTop: "0.5em" }}>
-        {new BigNumber(accountInfo?.block_count || 0).toFormat()} Total
-        Transactions
+        {new BigNumber(accountInfo?.block_count || 0).toFormat()}{" "}
+        {t("pages.account.totalTransactions")}
       </Title>
 
       <TransactionsTable

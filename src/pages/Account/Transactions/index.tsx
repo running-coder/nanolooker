@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import {
   Button,
@@ -54,6 +55,7 @@ const TransactionsTable = ({
   setCurrentPage,
   setCurrentHead,
 }: TransactionsTableProps) => {
+  const { t } = useTranslation();
   const { theme } = React.useContext(PreferencesContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
   const isLargeAndHigher = useMediaQuery("(min-width: 992px)");
@@ -80,16 +82,16 @@ const TransactionsTable = ({
           className="row-header color-muted"
         >
           <Col xs={0} lg={2}>
-            Type
+            {t("transaction.type")}
           </Col>
           <Col xs={0} lg={14}>
-            Account / Block
+            {t("transaction.accountAndBlock")}
           </Col>
           <Col xs={0} lg={5}>
-            Amount
+            {t("transaction.amount")}
           </Col>
           <Col xs={0} lg={3} style={{ textAlign: "right" }}>
-            Date
+            {t("transaction.date")}
           </Col>
         </Row>
       ) : null}
@@ -135,7 +137,7 @@ const TransactionsTable = ({
                       style={{ textTransform: "capitalize" }}
                       className={`tag-${subtype || type}`}
                     >
-                      {transactionType}
+                      {t(`transaction.${transactionType}`)}
                     </Tag>
                   </Col>
                   <Col xs={24} md={20} lg={14}>
@@ -187,7 +189,7 @@ const TransactionsTable = ({
                         />
                       </>
                     ) : (
-                      "Unknown"
+                      t("transaction.unknown")
                     )}
                   </Col>
                 </Row>
@@ -220,7 +222,7 @@ const TransactionsTable = ({
                     onClick={setCurrentHead}
                     type={theme === Theme.DARK ? "primary" : "default"}
                   >
-                    Load more transactions
+                    {t("pages.account.loadMoreTransactions")}
                   </Button>
                 </Col>
               ) : null}

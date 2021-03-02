@@ -1,18 +1,33 @@
 {
   "common": {
+    "account": "Compte",
+    "block": "Bloc",
     "representative": "Représentant",
-    "principalRepresentative": "Représentant Principal"
+    "principalRepresentative": "Représentant Principal",
+    "date": "Date",
+    "unknown": "Inconnu",
+    "balance": "Balance",
+    "weight": "Poids"
   },
   "transaction": {
+    "type": "Type",
+    "accountAndBlock": "Compte / Bloc",
     "send": "Envoi",
     "receive": "Réception",
     "pending": "En attente",
-    "cps": "CPS"
+    "cps": "CPS",
+    "change": "Change",
+    "open": "Ouverture",
+    "state": "État",
+    "amount": "Montant"
   },
   "tooltips": {
     "cps": "Confirmations Par Seconde. Le taux de blocs confirmés (envoi ou réception) sur le réseau NANO.",
     "votingWeight": "Un compte avec un minimum de {{minWeight}} NANO ou >= 0,1% du poids de vote en ligne qui lui est délégué est requis pour obtenir le statut de représentant principal. Lorsqu'ils sont configurés sur un nœud qui vote, les votes qu'il produit seront rediffusés par d'autres nœuds vers qui les reçoivent, ce qui permet au réseau d'atteindre un consensus plus rapidement.",
-    "pending": "Un état de transaction où un bloc d'envoi de fonds a été publié et confirmé par le réseau, mais un bloc correspondant recevant ces fonds n'a pas encore été envoyé ou confirmé."
+    "pending": "Un état de transaction où un bloc d'envoi de fonds a été publié et confirmé par le réseau, mais un bloc correspondant recevant ces fonds n'a pas encore été envoyé ou confirmé.",
+    "totalRepresentatives": "Pour optimiser les performances, seuls les comptes avec un poids de vote> = 1000 NANO sont considérés mais normalement tout compte avec un poids de vote> 0, mais <0,1% du poids de vote en ligne.",
+    "totalPrincipalRepresentatives": "Un compte avec un minimum de {{principalRepresentativeMinWeight}} NANO ou> = 0,1% du poids de vote en ligne qui lui est délégué est requis pour obtenir le statut de représentant principal. Lorsqu'ils sont configurés sur un nœud qui vote, les votes qu'il produit seront rediffusés par d'autres nœuds à qui les reçoivent, aidant le réseau à atteindre un consensus plus rapidement.",
+    "onlineRepresentatives": "Comptes de représentants en ligne qui ont voté récemment."
   },
   "search": {
     "searchBy": "Recherche par Address / Bloc",
@@ -33,7 +48,7 @@
     "distribution": "Distribution",
     "faucets": "Robitets (Faucets)",
     "news": "Nouvelles",
-    "nodeStatus": "Status du noeud"
+    "nodeStatus": "Status du nœuds"
   },
   "pages": {
     "home": {
@@ -48,7 +63,6 @@
       "avgConfirmationTime": "Temps de confirmation moyen (secondes)",
       "confirmedTransactions": "Transactions confirmés",
       "nanoTransactionFees": "Frais de transaction NANO",
-      "foreverFree": "Gratuit pour toujours",
       "exchangeVolume": "Volume des échanges",
       "onChainVolume": "Volume sur la chaîne NANO",
       "bitcoinFees": "Frais de transaction Bitcoin payés aux mineurs",
@@ -63,9 +77,36 @@
     },
     "account": {
       "votingWeight": "Poids du vote",
-      "balance": "Balance",
       "noRepresentative": "Pas de Représentant",
-      "lastTransaction": "Dernière transaction"
+      "lastTransaction": "Dernière transaction",
+      "pendingTransactions": "Transactions en attente",
+      "loadMoreTransactions": "Voir plus de transactions",
+      "notOpenedYet": "Ce compte n'a pas encore été ouvert",
+      "notOpenedYetReason": "Bien que l'adresse du compte soit valide, aucun bloc n'a encore été publié dans sa chaîne. Si NANO a été envoyé sur ce compte, il doit encore publier un bloc correspondant pour empocher les fonds.",
+      "totalTransactions": "Total des Transactions",
+      "missingAccount": "Compte manquant"
+    },
+    "block": {
+      "blockSubtype": "Sous-type de bloc",
+      "receiver": "Destinataire",
+      "sender": "Expéditeur",
+      "previousBlock": "Bloc précédent",
+      "signature": "Signature",
+      "work": "Travail",
+      "openAccountBlock": "Ce block a ouvert le compte",
+      "originalBlockContent": "Contenu original du bloc"
+    },
+    "representatives": {
+      "totalRepresentatives": "Total des représentants",
+      "totalPrincipalRepresentatives": "TotaTotal des représentants principaux",
+      "onlineRepresentatives": "Représentants en ligne",
+      "confirmationQuorum": "Quorum de confirmation",
+      "principalRepresentativeMinWeight": "Poids minimum du représentant principal",
+      "onlineWrightQuorumPercent": "Pourcentage de quorum de poids en ligne",
+      "minimumOnlineWeight": "Poids minimum en ligne",
+      "totalOnlineStake": "Mise totale en ligne",
+      "totalPeerStake": "Participation totale des pairs",
+      "principalRepresentatives": "Représentants principaux"
     }
   }
 }

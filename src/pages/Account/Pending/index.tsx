@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Typography } from "antd";
 import BigNumber from "bignumber.js";
 import usePending, { PendingBlock } from "api/hooks/use-pending";
@@ -21,6 +22,7 @@ interface PendingHistoryBlock extends PendingBlock {
 const PENDING_MIN_THRESHOLD = new BigNumber(raiToRaw(0.000001)).toFixed();
 
 const AccountPendingHistory = () => {
+  const { t } = useTranslation();
   const { account } = React.useContext(AccountInfoContext);
   const {
     pending: { blocks = {} } = {},
@@ -56,8 +58,8 @@ const AccountPendingHistory = () => {
   return pendingHistory ? (
     <>
       <Title level={3} style={{ marginTop: "0.5em" }}>
-        {isAccountHistoryLoading ? "" : pendingHistory?.length} Pending
-        Transactions
+        {isAccountHistoryLoading ? "" : pendingHistory?.length}{" "}
+        {t("pages.account.pendingTransactions")}
       </Title>
 
       <TransactionsTable

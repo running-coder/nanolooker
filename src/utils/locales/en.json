@@ -1,18 +1,33 @@
 {
   "common": {
+    "account": "Account",
+    "block": "Block",
     "representative": "Representative",
-    "principalRepresentative": "Principal Representative"
+    "principalRepresentative": "Principal Representative",
+    "date": "Date",
+    "unknown": "Unknown",
+    "balance": "Balance",
+    "weight": "Weight"
   },
   "transaction": {
+    "type": "Type",
+    "accountAndBlock": "Account / Block",
     "send": "Send",
     "receive": "Receive",
     "pending": "Pending",
-    "cps": "CPS"
+    "change": "Change",
+    "open": "Open",
+    "state": "State",
+    "cps": "CPS",
+    "amount": "Amount"
   },
   "tooltips": {
     "cps": "Confirmations Per Second. The rate of confirmed blocks (send or receive) on the NANO network.",
     "votingWeight": "An account with a minimum of {{minWeight}} NANO or >= 0.1% of the online voting weight delegated to it is required to get the Principal Representative status. When configured on a node which is voting, the votes it produces will be rebroadcasted by other nodes to who receive them, helping the network reach consensus more quickly.",
-    "pending": "A transaction state where a block sending funds was published and confirmed by the network, but a matching block receiving those funds has not yet been sent or confirmed."
+    "pending": "A transaction state where a block sending funds was published and confirmed by the network, but a matching block receiving those funds has not yet been sent or confirmed.",
+    "totalRepresentatives": "To optimize performances, only accounts with voting weight >= 1000 NANO are considered but normally any account with > 0 voting weight, but < 0.1% of the online voting weight.",
+    "totalPrincipalRepresentatives": "An account with a minimum of {{principalRepresentativeMinWeight}} NANO or >= 0.1% of the online voting weight delegated to it is required to get the Principal Representative status. When configured on a node which is voting, the votes it produces will be rebroadcasted by other nodes to who receive them, helping the network reach consensus more quickly.",
+    "onlineRepresentatives": "Online representative accounts that have voted recently."
   },
   "search": {
     "searchBy": "Search by Address / Block",
@@ -48,7 +63,6 @@
       "avgConfirmationTime": "Avg. confirmation time (seconds)",
       "confirmedTransactions": "Confirmed transactions",
       "nanoTransactionFees": "NANO transaction fees",
-      "foreverFree": "Forever free",
       "exchangeVolume": "Exchange volume",
       "onChainVolume": "On-chain NANO volume",
       "bitcoinFees": "Bitcoin transaction fees paid to miners",
@@ -63,9 +77,36 @@
     },
     "account": {
       "votingWeight": "Voting weight",
-      "balance": "Balance",
       "noRepresentative": "No Representative",
-      "lastTransaction": "Last transaction"
+      "lastTransaction": "Last transaction",
+      "pendingTransactions": "Pending Transactions",
+      "loadMoreTransactions": "Load more transactions",
+      "notOpenedYet": "This account hasn't been opened yet",
+      "notOpenedYetReason": "While the account address is valid, no blocks have been published to its chain yet. If NANO has been sent to this account, it still needs to publish a corresponding block to pocket the funds.",
+      "totalTransactions": "Total Transactions",
+      "missingAccount": "Missing account"
+    },
+    "block": {
+      "blockSubtype": "Block subtype",
+      "receiver": "Destinataire",
+      "sender": "Expéditeur",
+      "previousBlock": "Previous block",
+      "signature": "Signature",
+      "work": "Work",
+      "openAccountBlock": "This Block opened the account",
+      "originalBlockContent": "Original Block Content"
+    },
+    "representatives": {
+      "totalRepresentatives": "Total Representatives",
+      "totalPrincipalRepresentatives": "Total Principal Representatives",
+      "onlineRepresentatives": "Online Representatives",
+      "confirmationQuorum": "Confirmation Quorum",
+      "principalRepresentativeMinWeight": "Principal Representative min weight",
+      "onlineWrightQuorumPercent": "Online weight quorum percent",
+      "minimumOnlineWeight": "Minimum online weight",
+      "totalOnlineStake": "Total online stake",
+      "totalPeerStake": "Total peer stake",
+      "principalRepresentatives": "Principal Representatives"
     }
   }
 }

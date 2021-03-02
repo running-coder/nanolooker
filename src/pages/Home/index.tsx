@@ -202,8 +202,7 @@ const HomePage = () => {
                   />
                   <Statistic
                     title={t("pages.home.nanoTransactionFees")}
-                    // @ts-ignore
-                    value={t("pages.home.foreverFree")}
+                    value={0}
                   />
                 </Col>
                 <Col xs={24} sm={12}>

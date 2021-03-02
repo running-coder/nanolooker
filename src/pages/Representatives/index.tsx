@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import {
   Badge,
@@ -23,6 +24,7 @@ import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 const { Title } = Typography;
 
 const Representatives = () => {
+  const { t } = useTranslation();
   const { theme } = React.useContext(PreferencesContext);
   const {
     representatives,
@@ -75,18 +77,18 @@ const Representatives = () => {
     <>
       <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]}>
         <Col xs={24} sm={24} md={12} lg={12} xl={12}>
-          <Title level={3}>Representatives</Title>
+          <Title level={3}>{t("menu.representatives")}</Title>
           <Card size="small" bodyStyle={{ padding: 0 }} bordered={false}>
             <Descriptions bordered column={1} size="small">
               <Descriptions.Item
                 label={
                   <>
                     <span style={{ marginRight: "6px" }}>
-                      Total Representatives
+                      {t("pages.representatives.totalRepresentatives")}
                     </span>
                     <Tooltip
                       placement="right"
-                      title={`To optimize performances, only accounts with voting weight >= 1000 NANO are considered but normally any account with > 0 voting weight, but < 0.1% of the online voting weight.`}
+                      title={t("tooltips.totalRepresentatives")}
                     >
                       <QuestionCircle />
                     </Tooltip>
@@ -102,11 +104,13 @@ const Representatives = () => {
                 label={
                   <>
                     <span style={{ marginRight: "6px" }}>
-                      Total Principal Representatives
+                      {t("pages.representatives.totalPrincipalRepresentatives")}
                     </span>
                     <Tooltip
                       placement="right"
-                      title={`An account with a minimum of ${principalRepresentativeMinWeight} NANO or >= 0.1% of the online voting weight delegated to it is required to get the Principal Representative status. When configured on a node which is voting, the votes it produces will be rebroadcasted by other nodes to who receive them, helping the network reach consensus more quickly.`}
+                      title={t("tooltips.totalPrincipalRepresentatives", {
+                        principalRepresentativeMinWeight,
+                      })}
                     >
                       <QuestionCircle />
                     </Tooltip>
@@ -121,11 +125,11 @@ const Representatives = () => {
                 label={
                   <>
                     <span style={{ marginRight: "6px" }}>
-                      Online Representatives
+                      {t("pages.representatives.onlineRepresentatives")}
                     </span>
                     <Tooltip
                       placement="right"
-                      title={`Online representative accounts that have voted recently.`}
+                      title={t("tooltips.onlineRepresentatives")}
                     >
                       <QuestionCircle />
                     </Tooltip>
@@ -140,33 +144,45 @@ const Representatives = () => {
           </Card>
         </Col>
         <Col xs={24} sm={24} md={12} lg={12} xl={12}>
-          <Title level={3}>Confirmation Quorum</Title>
+          <Title level={3}>
+            {t("pages.representatives.confirmationQuorum")}
+          </Title>
           <Card size="small" bodyStyle={{ padding: 0 }} bordered={false}>
             <Descriptions bordered column={1} size="small">
               <Descriptions.Item
-                label={<>Principal Representative min weight</>}
+                label={t(
+                  "pages.representatives.principalRepresentativeMinWeight",
+                )}
               >
                 <Skeleton {...confirmationQuorumSkeletonProps}>
                   {new BigNumber(principalRepresentativeMinWeight).toFormat()}{" "}
                   NANO
                 </Skeleton>
               </Descriptions.Item>
-              <Descriptions.Item label={<>Online weight quorum percent</>}>
+              <Descriptions.Item
+                label={t("pages.representatives.onlineWrightQuorumPercent")}
+              >
                 <Skeleton {...confirmationQuorumSkeletonProps}>
                   {onlineWeightQuorumPercent}%
                 </Skeleton>
               </Descriptions.Item>
-              <Descriptions.Item label={<>Minimum online weight</>}>
+              <Descriptions.Item
+                label={t("pages.representatives.minimumOnlineWeight")}
+              >
                 <Skeleton {...confirmationQuorumSkeletonProps}>
                   {new BigNumber(rawToRai(onlineWeightMinimum)).toFormat()} NANO
                 </Skeleton>
               </Descriptions.Item>
-              <Descriptions.Item label={<>Total online stake</>}>
+              <Descriptions.Item
+                label={t("pages.representatives.totalOnlineStake")}
+              >
                 <Skeleton {...confirmationQuorumSkeletonProps}>
                   {new BigNumber(rawToRai(onlineStakeTotal)).toFormat(0)} NANO
                 </Skeleton>
               </Descriptions.Item>
-              <Descriptions.Item label={<>Total peer stake</>}>
+              <Descriptions.Item
+                label={t("pages.representatives.totalPeerStake")}
+              >
                 <Skeleton {...confirmationQuorumSkeletonProps}>
                   {new BigNumber(rawToRai(peersStakeTotal)).toFormat(0)} NANO
                 </Skeleton>
@@ -176,7 +192,9 @@ const Representatives = () => {
         </Col>
       </Row>
 
-      <Title level={3}>Principal Representatives</Title>
+      <Title level={3}>
+        {t("pages.representatives.principalRepresentatives")}
+      </Title>
       <Table
         size="small"
         loading={
@@ -188,7 +206,7 @@ const Representatives = () => {
         rowKey={record => record.account}
         columns={[
           {
-            title: "Weight",
+            title: t("common.weight"),
             dataIndex: "weight",
             defaultSortOrder: "descend",
             sorter: {
@@ -200,7 +218,7 @@ const Representatives = () => {
             ),
           },
           {
-            title: "Account",
+            title: t("common.account"),
             dataIndex: "account",
             render: (text: string) => {
               const alias = knownAccounts.find(

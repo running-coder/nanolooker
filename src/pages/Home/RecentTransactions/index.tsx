@@ -88,7 +88,7 @@ const RecentTransactions = () => {
               <CloseCircleTwoTone twoToneColor={TwoToneColors.SEND} />
             )}
             <Text style={{ marginLeft: "8px" }}>
-              {t("pages.home.preferences.liveUpdatesDisabled")}
+              {t("pages.home.liveUpdatesDisabled")}
             </Text>
           </div>
         ) : null}

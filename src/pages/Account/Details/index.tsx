@@ -125,7 +125,7 @@ const AccountDetails = () => {
             {new BigNumber(representativeAccount.weight).toFormat()} NANO
           </Descriptions.Item>
         ) : null}
-        <Descriptions.Item label={t("pages.account.balance")}>
+        <Descriptions.Item label={t("common.balance")}>
           <Skeleton {...skeletonProps}>
             {new BigNumber(balance).toFormat()} NANO
             <br />
