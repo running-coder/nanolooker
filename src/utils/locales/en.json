@@ -18,6 +18,7 @@
     "change": "Change",
     "open": "Open",
     "state": "State",
+    "epoch": "Epoch",
     "cps": "CPS",
     "amount": "Amount"
   },
@@ -46,6 +47,7 @@
     "knownAccounts": "Known Accounts",
     "largeTransactions": "Large Transactions",
     "distribution": "Distribution",
+    "walletTracker": "Wallet Tracker",
     "faucets": "Faucets",
     "news": "News",
     "nodeStatus": "Node Status"

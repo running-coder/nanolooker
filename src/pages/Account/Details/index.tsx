@@ -1,7 +1,16 @@
 import React, { ReactElement } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { Badge, Card, Col, Descriptions, Row, Skeleton, Tooltip } from "antd";
+import {
+  Badge,
+  Card,
+  Col,
+  Descriptions,
+  Row,
+  Skeleton,
+  Tag,
+  Tooltip,
+} from "antd";
 import find from "lodash/find";
 import BigNumber from "bignumber.js";
 import TimeAgo from "timeago-react";
@@ -43,6 +52,9 @@ const AccountDetails = () => {
   const [representativeAccount, setRepresentativeAccount] = React.useState(
     {} as any,
   );
+  const [accountsRepresentative, setAccountsRepresentative] = React.useState(
+    {} as any,
+  );
   const {
     marketStatistics: {
       currentPrice,
@@ -61,7 +73,9 @@ const AccountDetails = () => {
     representatives,
     isLoading: isRepresentativesLoading,
   } = React.useContext(RepresentativesContext);
-  const { confirmationQuorum } = React.useContext(ConfirmationQuorumContext);
+  const {
+    confirmationQuorum: { principal_representative_min_weight: minWeight },
+  } = React.useContext(ConfirmationQuorumContext);
   const { representatives: representativesOnline } = React.useContext(
     RepresentativesOnlineContext,
   );
@@ -89,18 +103,19 @@ const AccountDetails = () => {
 
     setRepresentativeAccount(find(representatives, ["account", account]) || {});
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [account, isRepresentativesLoading, representatives.length]);
+    if (accountInfo.representative) {
+      setAccountsRepresentative(
+        find(representatives, ["account", accountInfo.representative]) || {},
+      );
+    }
 
-  const minWeight = confirmationQuorum?.online_stake_total
-    ? new BigNumber(
-        rawToRai(
-          new BigNumber(confirmationQuorum.online_stake_total)
-            .times(0.001)
-            .toString(),
-        ),
-      ).toFormat(0)
-    : "100000";
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    account,
+    accountInfo.representative,
+    isRepresentativesLoading,
+    representatives.length,
+  ]);
 
   return (
     <AccountDetailsLayout bordered={false}>
@@ -137,27 +152,34 @@ const AccountDetails = () => {
         <Descriptions.Item label={t("common.representative")}>
           <Skeleton {...skeletonProps}>
             {accountInfo?.representative ? (
-              <div style={{ display: "flex" }}>
-                <Badge
-                  color={
-                    representativesOnline.includes(
-                      accountInfo?.representative || "",
-                    )
-                      ? theme === Theme.DARK
-                        ? Colors.RECEIVE_DARK
-                        : Colors.RECEIVE
-                      : theme === Theme.DARK
-                      ? Colors.SEND_DARK
-                      : Colors.SEND
-                  }
-                />
-                <Link
-                  to={`/account/${accountInfo.representative}`}
-                  className="break-word"
-                >
-                  {accountInfo.representative}
-                </Link>
-              </div>
+              <>
+                <div style={{ display: "flex" }}>
+                  <Badge
+                    color={
+                      representativesOnline.includes(
+                        accountInfo?.representative || "",
+                      )
+                        ? theme === Theme.DARK
+                          ? Colors.RECEIVE_DARK
+                          : Colors.RECEIVE
+                        : theme === Theme.DARK
+                        ? Colors.SEND_DARK
+                        : Colors.SEND
+                    }
+                  />
+                  <Link
+                    to={`/account/${accountInfo.representative}`}
+                    className="break-word"
+                  >
+                    {accountInfo.representative}
+                  </Link>
+                </div>
+                {accountsRepresentative?.weight >= minWeight ? (
+                  <Tag style={{ marginTop: "3px" }}>
+                    {t("common.principalRepresentative")}
+                  </Tag>
+                ) : null}
+              </>
             ) : (
               t("pages.account.noRepresentative")
             )}

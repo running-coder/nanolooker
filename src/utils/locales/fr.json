@@ -19,14 +19,15 @@
     "change": "Change",
     "open": "Ouverture",
     "state": "État",
+    "epoch": "Époque",
     "amount": "Montant"
   },
   "tooltips": {
     "cps": "Confirmations Par Seconde. Le taux de blocs confirmés (envoi ou réception) sur le réseau NANO.",
     "votingWeight": "Un compte avec un minimum de {{minWeight}} NANO ou >= 0,1% du poids de vote en ligne qui lui est délégué est requis pour obtenir le statut de représentant principal. Lorsqu'ils sont configurés sur un nœud qui vote, les votes qu'il produit seront rediffusés par d'autres nœuds vers qui les reçoivent, ce qui permet au réseau d'atteindre un consensus plus rapidement.",
     "pending": "Un état de transaction où un bloc d'envoi de fonds a été publié et confirmé par le réseau, mais un bloc correspondant recevant ces fonds n'a pas encore été envoyé ou confirmé.",
-    "totalRepresentatives": "Pour optimiser les performances, seuls les comptes avec un poids de vote> = 1000 NANO sont considérés mais normalement tout compte avec un poids de vote> 0, mais <0,1% du poids de vote en ligne.",
-    "totalPrincipalRepresentatives": "Un compte avec un minimum de {{principalRepresentativeMinWeight}} NANO ou> = 0,1% du poids de vote en ligne qui lui est délégué est requis pour obtenir le statut de représentant principal. Lorsqu'ils sont configurés sur un nœud qui vote, les votes qu'il produit seront rediffusés par d'autres nœuds à qui les reçoivent, aidant le réseau à atteindre un consensus plus rapidement.",
+    "totalRepresentatives": "Pour optimiser les performances, seuls les comptes avec un poids de vote >= 1000 NANO sont considérés mais normalement tout compte avec un poids de vote> 0, mais <0,1% du poids de vote en ligne.",
+    "totalPrincipalRepresentatives": "Un compte avec un minimum de {{principalRepresentativeMinWeight}} NANO ou >= 0,1% du poids de vote en ligne qui lui est délégué est requis pour obtenir le statut de représentant principal. Lorsqu'ils sont configurés sur un nœud qui vote, les votes qu'il produit seront rediffusés par d'autres nœuds à qui les reçoivent, aidant le réseau à atteindre un consensus plus rapidement.",
     "onlineRepresentatives": "Comptes de représentants en ligne qui ont voté récemment."
   },
   "search": {
@@ -46,6 +47,7 @@
     "knownAccounts": "Comptes connus",
     "largeTransactions": "Transactions volimineuses",
     "distribution": "Distribution",
+    "walletTracker": "Suivi de portefeuille",
     "faucets": "Robitets (Faucets)",
     "news": "Nouvelles",
     "nodeStatus": "Status du nœuds"

@@ -7,10 +7,10 @@ import en from "./locales/en.json";
 import fr from "./locales/fr.json";
 
 i18n
-  // .use(LanguageDetector)
   .use(initReactI18next)
+  // .use(LanguageDetector)
   .init({
-    lng: localStorage.getItem("i18nextLng") || undefined,
+    lng: localStorage.getItem("LANGUAGE") || undefined,
     fallbackLng: "en",
     resources: {
       en: {

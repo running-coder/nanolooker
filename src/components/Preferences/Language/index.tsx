@@ -21,6 +21,7 @@ const LanguagePreferences: React.FC = () => {
         defaultValue={i18next.language}
         onChange={value => {
           i18next.changeLanguage(value);
+          localStorage.setItem("LANGUAGE", value);
         }}
       >
         <Option value="en">English</Option>

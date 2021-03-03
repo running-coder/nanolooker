@@ -189,7 +189,7 @@ const TransactionsTable = ({
                         />
                       </>
                     ) : (
-                      t("transaction.unknown")
+                      t("common.unknown")
                     )}
                   </Col>
                 </Row>

@@ -1,0 +1,46 @@
+[
+  {
+    "name": "Binance Hot Wallet",
+    "account": "nano_3jwrszth46rk1mu7rmb4rhm54us8yg1gw3ipodftqtikf5yqdyr7471nsg1k"
+  },
+  {
+    "name": "Binance US Hot Wallet",
+    "account": "nano_17oc98sqccfqqfah8jggkziu8i6ar8biq7syxqcd6e1sagje11gts88gfj95"
+  },
+  {
+    "name": "Binance Cold Wallet",
+    "account": "nano_3x4ui45q1cw8hydmfdn4ec5ijsdqi4ryp14g4ayh71jcdkwmddrq7ca9xzn9"
+  },
+  {
+    "name": "Binance Cold Wallet #2",
+    "account": "nano_14cuejfpr58epnpxenirusimsrbwxbecin7a3izq1injptecc31qsjwquoe6"
+  },
+  {
+    "name": "Kraken Hot Wallet",
+    "account": "nano_3cpz7oh9qr5b7obbcb5867omqf8esix4sdd5w6mh8kkknamjgbnwrimxsaaf"
+  },
+  {
+    "name": "KuCoin Hot Wallet",
+    "account": "nano_3hua6a116y4jmbeaf63zi6mn8gf5s4n3eyxa3q4m5ibabi6pmegfubky3wpi"
+  },
+  {
+    "name": "KuCoin Cold Wallet",
+    "account": "nano_1c3nz77f3t5bz346je4bwtcfxgfnp6habs9to4utfeuhjfpxdhkd593kn5gn"
+  },
+  {
+    "name": "Huobi Hot Wallet",
+    "account": "nano_1oxho99gkeczaweapwfkoqq465c1apr4fq5qmnmrwb3u5cjebq5rctqqikhf"
+  },
+  {
+    "name": "Huobi Cold Wallet",
+    "account": "nano_1kiw5p5kfsypbf5cjhrmbkq5xjrufhjawaz1i691yw4tfsn14ssjx64orfdb"
+  },
+  {
+    "name": "Huobi Hot Wallet #2",
+    "account": "nano_3jyt9ye4yerydg91twwgxo7edke84a7cbjtomq4bg7uh5anqwiture4h1saa"
+  },
+  {
+    "name": "Mercatox Cold Wallet",
+    "account": "nano_1e3t7fh57qozn1fkcdzatypygbcoxs9r3ku9tsqx69fn5za4fqfjrihf5w7c"
+  }
+]

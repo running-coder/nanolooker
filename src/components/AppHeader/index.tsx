@@ -86,6 +86,10 @@ const AppHeader: React.FC = () => {
                   {t("menu.distribution")}
                   <Link to="/distribution" />
                 </Menu.Item>
+                <Menu.Item key="wallet-tracker">
+                  {t("menu.walletTracker")}
+                  <Link to="/wallet-tracker" />
+                </Menu.Item>
                 <Menu.Item key="faucets">
                   {t("menu.faucets")}
                   <Link to="/faucets" />
