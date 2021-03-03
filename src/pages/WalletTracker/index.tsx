@@ -1,11 +1,24 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Card, Descriptions, Typography } from "antd";
-import { Link } from "react-router-dom";
+import { Card, Typography } from "antd";
 
-import exchangeWallets from "./exchanges.json";
+// import exchangeWallets from "./exchanges.json";
 
-const { Title, Text } = Typography;
+const { Title } = Typography;
+
+// const colors = [
+//   "magenta",
+//   "red",
+//   "volcano",
+//   "orange",
+//   "gold",
+//   "lime",
+//   "green",
+//   "cyan",
+//   "blue",
+//   "geekblue",
+//   "purple",
+// ];
 
 const WalletTrackerPage = () => {
   const { t } = useTranslation();

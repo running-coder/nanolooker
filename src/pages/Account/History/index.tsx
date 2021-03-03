@@ -19,7 +19,7 @@ const AccountHistory = () => {
   const {
     accountHistory: { history, previous: previousHead },
     isLoading: isAccountHistoryLoading,
-  } = useAccountHistory(Object.keys(accountInfo).length ? account : "", {
+  } = useAccountHistory(account, {
     count: String(TRANSACTIONS_PER_PAGE),
     raw: true,
     offset: isPaginated ? (currentPage - 1) * TRANSACTIONS_PER_PAGE : undefined,

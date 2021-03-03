@@ -75,7 +75,8 @@ ws.onmessage = msg => {
       accumulatedLargeTransactionHashes.push(message);
     }
 
-    if (["send", "receive"].includes(subtype)) {
+    // Skip accumulating dust amounts
+    if (["send", "receive"].includes(subtype) && amount.length >= 25) {
       accumulatedVolume = new BigNumber(amount)
         .plus(accumulatedVolume)
         .toNumber();

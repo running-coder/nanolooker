@@ -69,6 +69,10 @@ a:hover {
   margin: 0;
 }
 
+.ant-statistic-title {
+  margin-bottom: -3px;
+}
+
 .ant-descriptions-item-content {
   width: 90%;
 }

@@ -49,7 +49,12 @@ const Provider: React.FC = ({ children }) => {
       pending: "true",
     });
 
-    !json || json.error ? setIsError(true) : setAccountInfo(json);
+    if (!json || json.error) {
+      setIsError(true);
+      setAccountInfo({} as AccountInfoRPCResponse);
+    } else {
+      setAccountInfo(json);
+    }
     setIsLoading(false);
   };
 
