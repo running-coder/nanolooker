@@ -70,7 +70,7 @@ const App: React.FC = () => {
           >
             <GithubOutlined /> Nano Looker
           </a>{" "}
-          ©2020 Created by RunningCoder
+          ©{new Date().getFullYear()} Created by RunningCoder
         </Footer>
       </Layout>
     </>
