@@ -73,6 +73,15 @@ a:hover {
   margin-bottom: -3px;
 }
 
+.ant-statistic + .ant-statistic {
+  margin-top: 6px;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+}
+
 .ant-descriptions-item-content {
   width: 90%;
 }

@@ -10,7 +10,7 @@ import {
   CloseCircleTwoTone,
   SyncOutlined,
 } from "@ant-design/icons";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+// import useMediaQuery from "@material-ui/core/useMediaQuery";
 import TimeAgo from "timeago-react";
 import BigNumber from "bignumber.js";
 import { Colors, TwoToneColors } from "components/utils";
@@ -33,7 +33,7 @@ const RecentTransactions = () => {
   } = React.useContext(PreferencesContext);
   const { recentTransactions, isConnected } = useSockets();
   const { knownAccounts } = React.useContext(KnownAccountsContext);
-  const isMediumAndLower = !useMediaQuery("(min-width: 768px)");
+  const isMediumAndLower = window.innerWidth <= 768;
 
   return (
     <Card
@@ -78,7 +78,14 @@ const RecentTransactions = () => {
         </Popover>
       }
     >
-      <div style={{ margin: "0" }}>
+      <div
+        className="sticky"
+        style={{
+          paddingBottom: "6px",
+          zIndex: 1,
+          background: theme === Theme.DARK ? "#1e1e1e" : "#fff",
+        }}
+      >
         <ConfirmationsPerSecond />
         {disableLiveTransactions ? (
           <div style={{ textAlign: "center" }}>
@@ -110,81 +117,78 @@ const RecentTransactions = () => {
             </Text>
           </div>
         ) : null}
-        {recentTransactions.length ? (
-          <Timeline
-            mode={isMediumAndLower ? "left" : "alternate"}
-            style={{ marginTop: disableLiveTransactions ? "24px" : 0 }}
-          >
-            {recentTransactions.map(
-              ({ account, amount, hash, timestamp, block: { subtype } }) => {
-                const color =
-                  // @ts-ignore
-                  Colors[
-                    `${subtype.toUpperCase()}${
-                      theme === Theme.DARK ? "_DARK" : ""
-                    }`
-                  ];
-                const alias = knownAccounts.find(
-                  ({ account: knownAccount }) => knownAccount === account,
-                )?.alias;
-
-                return (
-                  <Timeline.Item
-                    color={color}
-                    key={hash}
-                    className={`fadein ${
-                      subtype === "send" ? "right" : "left"
-                    }`}
-                  >
-                    <div className="first-row">
-                      <Tag
-                        color={
-                          // @ts-ignore
-                          TwoToneColors[
-                            `${subtype.toUpperCase()}${
-                              theme === Theme.DARK ? "_DARK" : ""
-                            }`
-                          ]
-                        }
-                        className={`tag-${subtype} timeline-tag`}
-                      >
-                        {subtype}
-                      </Tag>
-                      {subtype !== "change" ? (
-                        <Text style={{ color }} className="timeline-amount">
-                          {amount
-                            ? `${new BigNumber(
-                                rawToRai(amount),
-                              ).toFormat()} NANO`
-                            : "N/A"}
-                        </Text>
-                      ) : null}
-                      <TimeAgo
-                        datetime={timestamp}
-                        live={true}
-                        className="timeline-timeago color-muted"
-                        style={{
-                          marginLeft: subtype === "change" ? "6px" : 0,
-                        }}
-                      />
-                    </div>
-                    {alias ? (
-                      <div className="color-important">{alias}</div>
-                    ) : null}
-                    <Link to={`/account/${account}`} className="color-normal">
-                      {account}
-                    </Link>
-                    <br />
-                    <Link to={`/block/${hash}`} className="color-muted">
-                      {hash}
-                    </Link>
-                  </Timeline.Item>
-                );
-              },
-            )}
-          </Timeline>
-        ) : null}
       </div>
+      {recentTransactions.length ? (
+        <Timeline
+          className="sticky"
+          mode={isMediumAndLower ? "left" : "alternate"}
+          // style={{ marginTop: disableLiveTransactions ? "24px" : 0 }}
+        >
+          {recentTransactions.map(
+            ({ account, amount, hash, timestamp, block: { subtype } }) => {
+              const color =
+                // @ts-ignore
+                Colors[
+                  `${subtype.toUpperCase()}${
+                    theme === Theme.DARK ? "_DARK" : ""
+                  }`
+                ];
+              const alias = knownAccounts.find(
+                ({ account: knownAccount }) => knownAccount === account,
+              )?.alias;
+
+              return (
+                <Timeline.Item
+                  color={color}
+                  key={hash}
+                  className={`fadein ${subtype === "send" ? "right" : "left"}`}
+                >
+                  <div className="first-row">
+                    <Tag
+                      color={
+                        // @ts-ignore
+                        TwoToneColors[
+                          `${subtype.toUpperCase()}${
+                            theme === Theme.DARK ? "_DARK" : ""
+                          }`
+                        ]
+                      }
+                      className={`tag-${subtype} timeline-tag`}
+                    >
+                      {subtype}
+                    </Tag>
+                    {subtype !== "change" ? (
+                      <Text style={{ color }} className="timeline-amount">
+                        {amount
+                          ? `${new BigNumber(rawToRai(amount)).toFormat()} NANO`
+                          : "N/A"}
+                      </Text>
+                    ) : null}
+                    <TimeAgo
+                      datetime={timestamp}
+                      live={true}
+                      className="timeline-timeago color-muted"
+                      style={{
+                        marginLeft: subtype === "change" ? "6px" : 0,
+                      }}
+                    />
+                  </div>
+                  {alias ? (
+                    <div className="color-important">{alias}</div>
+                  ) : null}
+                  <Link to={`/account/${account}`} className="color-normal">
+                    {account}
+                  </Link>
+                  <br />
+                  <Link to={`/block/${hash}`} className="color-muted">
+                    {hash}
+                  </Link>
+                </Timeline.Item>
+              );
+            },
+          )}
+        </Timeline>
+      ) : null}
     </Card>
   );
 };

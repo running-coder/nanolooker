@@ -15,7 +15,8 @@ interface MessageData {
   topic: Topic;
 }
 
-const MAX_RECENT_TRANSACTIONS: number = 25;
+// Display less transactions on mobile
+const MAX_RECENT_TRANSACTIONS: number = window.innerWidth <= 768 ? 12 : 20;
 
 let ws: any;
 let isForcedClosed = false;
