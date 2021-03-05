@@ -1,7 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
-import { Card, List, Popover, Switch, Tag, Timeline, Typography } from "antd";
+import { Card, List, Popover, Switch, Typography } from "antd";
 import {
   CheckOutlined,
   CloseOutlined,
@@ -10,15 +9,11 @@ import {
   CloseCircleTwoTone,
   SyncOutlined,
 } from "@ant-design/icons";
-// import useMediaQuery from "@material-ui/core/useMediaQuery";
-import TimeAgo from "timeago-react";
-import BigNumber from "bignumber.js";
-import { Colors, TwoToneColors } from "components/utils";
+import { TwoToneColors } from "components/utils";
 import ConfirmationsPerSecond from "components/ConfirmationsPerSecond";
 import useSockets from "api/hooks/use-socket";
-import { rawToRai } from "components/utils";
-import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 import { Theme, PreferencesContext } from "api/contexts/Preferences";
+import Timeline from "./Timeline";
 
 const { Text } = Typography;
 
@@ -31,9 +26,7 @@ const RecentTransactions = () => {
     setHideTransactionsUnderOneNano,
     setDisableLiveTransactions,
   } = React.useContext(PreferencesContext);
-  const { recentTransactions, isConnected } = useSockets();
-  const { knownAccounts } = React.useContext(KnownAccountsContext);
-  const isMediumAndLower = window.innerWidth <= 768;
+  const { recentTransactions, isConnected, isError } = useSockets();
 
   return (
     <Card
@@ -113,82 +106,28 @@ const RecentTransactions = () => {
           <div style={{ textAlign: "center" }}>
             <SyncOutlined spin />
             <Text style={{ marginLeft: "8px" }}>
-              {t("pages.home.connectingToBlockchain")} ...
+              {isError
+                ? t("pages.home.reconnectingToBlockchain")
+                : t("pages.home.connectingToBlockchain")}
+              ...
             </Text>
           </div>
         ) : null}
       </div>
-      {recentTransactions.length ? (
-        <Timeline
-          className="sticky"
-          mode={isMediumAndLower ? "left" : "alternate"}
-          // style={{ marginTop: disableLiveTransactions ? "24px" : 0 }}
-        >
-          {recentTransactions.map(
-            ({ account, amount, hash, timestamp, block: { subtype } }) => {
-              const color =
-                // @ts-ignore
-                Colors[
-                  `${subtype.toUpperCase()}${
-                    theme === Theme.DARK ? "_DARK" : ""
-                  }`
-                ];
-              const alias = knownAccounts.find(
-                ({ account: knownAccount }) => knownAccount === account,
-              )?.alias;
-
-              return (
-                <Timeline.Item
-                  color={color}
-                  key={hash}
-                  className={`fadein ${subtype === "send" ? "right" : "left"}`}
-                >
-                  <div className="first-row">
-                    <Tag
-                      color={
-                        // @ts-ignore
-                        TwoToneColors[
-                          `${subtype.toUpperCase()}${
-                            theme === Theme.DARK ? "_DARK" : ""
-                          }`
-                        ]
-                      }
-                      className={`tag-${subtype} timeline-tag`}
-                    >
-                      {subtype}
-                    </Tag>
-                    {subtype !== "change" ? (
-                      <Text style={{ color }} className="timeline-amount">
-                        {amount
-                          ? `${new BigNumber(rawToRai(amount)).toFormat()} NANO`
-                          : "N/A"}
-                      </Text>
-                    ) : null}
-                    <TimeAgo
-                      datetime={timestamp}
-                      live={true}
-                      className="timeline-timeago color-muted"
-                      style={{
-                        marginLeft: subtype === "change" ? "6px" : 0,
-                      }}
-                    />
-                  </div>
-                  {alias ? (
-                    <div className="color-important">{alias}</div>
-                  ) : null}
-                  <Link to={`/account/${account}`} className="color-normal">
-                    {account}
-                  </Link>
-                  <br />
-                  <Link to={`/block/${hash}`} className="color-muted">
-                    {hash}
-                  </Link>
-                </Timeline.Item>
-              );
-            },
-          )}
-        </Timeline>
-      ) : null}
+      <div
+        className="gradient-container"
+        style={{
+          maxHeight: "1260px",
+          overflow: "hidden",
+        }}
+      >
+        {recentTransactions.length ? (
+          <>
+            <Timeline recentTransactions={recentTransactions} />
+            <div className="bottom-gradient" />
+          </>
+        ) : null}
+      </div>
     </Card>
   );
 };

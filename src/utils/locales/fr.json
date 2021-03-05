@@ -72,6 +72,7 @@
       "liveUpdatesDisabled": "Mises à jour en direct désactivées",
       "waitingForTransactions": "En attente de nouvelles transactions",
       "connectingToBlockchain": "Connexion à la blockchain NANO",
+      "reconnectingToBlockchain": "Déconnecté, reconnection en cours à la blockchain NANO",
       "preferences": {
         "enableLiveUpdates": "Activer les mises à jour en direct",
         "includeAmountsUnder": "Inclure les montants inférieurs à 1 NANO"

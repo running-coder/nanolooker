@@ -10,6 +10,7 @@ export interface Transaction {
   confirmation_type: ConfirmationType;
   hash: string;
   timestamp: number;
+  alias?: string;
 }
 
 export interface Block {

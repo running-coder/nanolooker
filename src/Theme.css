@@ -258,3 +258,7 @@ body .theme-dark {
   border-color: #e04576;
   background-color: #e04576 !important;
 }
+
+.theme-dark .bottom-gradient {
+  background: linear-gradient(transparent, #1e1e1e);
+}
