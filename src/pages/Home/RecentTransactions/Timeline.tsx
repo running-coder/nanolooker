@@ -1,6 +1,6 @@
 import React from "react";
 // import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Tag, Timeline, Typography } from "antd";
 import TimeAgo from "timeago-react";
 import BigNumber from "bignumber.js";
@@ -17,7 +17,12 @@ interface Props {
 
 const RecentTransactions: React.FC<Props> = ({ recentTransactions }) => {
   //   const { t } = useTranslation();
-  const { theme } = React.useContext(PreferencesContext);
+  const history = useHistory();
+  const {
+    theme,
+    hideTransactionsUnderOneNano,
+    disableLiveTransactions,
+  } = React.useContext(PreferencesContext);
   const isMediumAndLower = window.innerWidth <= 768;
 
   return (
@@ -67,13 +72,42 @@ const RecentTransactions: React.FC<Props> = ({ recentTransactions }) => {
                 />
               </div>
               {alias ? <div className="color-important">{alias}</div> : null}
-              <Link to={`/account/${account}`} className="color-normal">
-                {account}
-              </Link>
-              <br />
-              <Link to={`/block/${hash}`} className="color-muted">
-                {hash}
-              </Link>
+              {hideTransactionsUnderOneNano || disableLiveTransactions ? (
+                <>
+                  <Link to={`/account/${account}`} className="color-normal">
+                    {account}
+                  </Link>
+                  <br />
+                  <Link to={`/block/${hash}`} className="color-muted">
+                    {hash}
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <span
+                    className="link color-normal"
+                    // iOS has difficulties when using <a> & onClick listeners when CPS are very high,
+                    // the other page onClick events becomes unresponsive, using <span> & onMouseDown instead
+                    // seems to remove that limitation :shrug:
+                    onMouseDown={e => {
+                      e.preventDefault();
+                      history.push(`/account/${account}`);
+                    }}
+                  >
+                    {account}
+                  </span>
+                  <br />
+                  <span
+                    className="link color-muted"
+                    onMouseDown={e => {
+                      e.preventDefault();
+                      history.push(`/block/${hash}`);
+                    }}
+                  >
+                    {hash}
+                  </span>
+                </>
+              )}
             </Timeline.Item>
           );
         },

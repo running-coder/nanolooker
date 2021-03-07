@@ -263,6 +263,11 @@ a:hover {
   position: relative;
 }
 
+.link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .bottom-gradient {
   position: absolute;
   width: 100%;
