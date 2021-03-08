@@ -187,6 +187,7 @@ const HomePage = () => {
                   <LoadingStatistic
                     isLoading={!average}
                     title={t("pages.home.avgConfirmationTime")}
+                    tooltip={t("tooltips.avgConfirmationTime")}
                     value={new BigNumber(average).dividedBy(1000).toNumber()}
                   />
                   <LoadingStatistic
@@ -232,8 +233,9 @@ const HomePage = () => {
                   <LoadingStatistic
                     isLoading={isMarketStatisticsInitialLoading}
                     title={`${t(
-                      "pages.home.bitcoinFees",
+                      "pages.home.bitcoinTransactionFees",
                     )} (${fiat.toUpperCase()})`}
+                    tooltip={t("tooltips.bitcoinTransactionFees")}
                     prefix={CurrencySymbol?.[fiat]}
                     value={btcTransactionFees24h}
                     suffix={

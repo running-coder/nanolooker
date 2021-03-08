@@ -1,6 +1,7 @@
 const fetch = require("node-fetch");
 const NodeCache = require("node-cache");
 const MongoClient = require("mongodb").MongoClient;
+const { Sentry } = require("../sentry");
 const {
   EXPIRE_1h,
   EXPIRE_24H,
@@ -33,30 +34,35 @@ const getCoingeckoStats = async ({ fiat }) => {
 
   const getMarketCapRank24h =
     marketCapRank24h ||
-    new Promise(resolve => {
+    new Promise((resolve, reject) => {
       let db;
-      MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (_err, client) => {
-        if (_err) {
-          throw _err;
-        }
-        db = client.db(MONGO_DB);
+      try {
+        MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (err, client) => {
+          if (err) {
+            throw err;
+          }
+          db = client.db(MONGO_DB);
 
-        db.collection(MARKET_CAP_RANK_COLLECTION)
-          .find({
-            $query: {
-              createdAt: {
-                $lte: new Date(Date.now() - EXPIRE_24H * 1000),
-                $gte: new Date(Date.now() - EXPIRE_48H * 1000),
+          db.collection(MARKET_CAP_RANK_COLLECTION)
+            .find({
+              $query: {
+                createdAt: {
+                  $lte: new Date(Date.now() - EXPIRE_24H * 1000),
+                  $gte: new Date(Date.now() - EXPIRE_48H * 1000),
+                },
               },
-            },
-            $orderby: { value: 1 },
-          })
-          .toArray((_err, [{ value } = {}] = []) => {
-            apiCache.set(MARKET_CAP_RANK_24H, value, EXPIRE_1h);
-            client.close();
-            resolve(value);
-          });
-      });
+              $orderby: { value: 1 },
+            })
+            .toArray((_err, [{ value } = {}] = []) => {
+              apiCache.set(MARKET_CAP_RANK_24H, value, EXPIRE_1h);
+              client.close();
+              resolve(value);
+            });
+        });
+      } catch (err) {
+        Sentry.captureException(err);
+        reject();
+      }
     });
 
   const getMarketStats =

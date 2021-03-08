@@ -1,6 +1,7 @@
 const WS = require("ws");
 const BigNumber = require("bignumber.js");
 const ReconnectingWebSocket = require("reconnecting-websocket");
+const { Sentry } = require("../sentry");
 const {
   MONGO_URL,
   MONGO_DB,
@@ -18,9 +19,16 @@ let updateDbInterval = null;
 const { MongoClient } = require("mongodb");
 
 let db;
-MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (_err, client) => {
-  db = client.db(MONGO_DB);
-});
+try {
+  MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (err, client) => {
+    if (err) {
+      throw err;
+    }
+    db = client.db(MONGO_DB);
+  });
+} catch (err) {
+  Sentry.captureException(err);
+}
 
 let accumulatedConfirmations = 0;
 let accumulatedVolume = 0;
@@ -87,32 +95,36 @@ ws.onmessage = msg => {
 function updateDb() {
   if (!db) return;
 
-  if (accumulatedLargeTransactionHashes.length) {
-    db.collection(LARGE_TRANSACTIONS).insertOne({
-      value: accumulatedLargeTransactionHashes,
-      createdAt: new Date(),
-    });
-    accumulatedLargeTransactionHashes = [];
-  }
+  try {
+    if (accumulatedLargeTransactionHashes.length) {
+      db.collection(LARGE_TRANSACTIONS).insertOne({
+        value: accumulatedLargeTransactionHashes,
+        createdAt: new Date(),
+      });
+      accumulatedLargeTransactionHashes = [];
+    }
 
-  if (accumulatedConfirmations) {
-    db.collection(TOTAL_CONFIRMATIONS_COLLECTION).insertOne({
-      value: accumulatedConfirmations,
-      createdAt: new Date(),
-    });
-    db.collection(CONFIRMATIONS_PER_SECOND).insertOne({
-      value: accumulatedConfirmations,
-      createdAt: new Date(),
-    });
-    accumulatedConfirmations = 0;
-  }
+    if (accumulatedConfirmations) {
+      db.collection(TOTAL_CONFIRMATIONS_COLLECTION).insertOne({
+        value: accumulatedConfirmations,
+        createdAt: new Date(),
+      });
+      db.collection(CONFIRMATIONS_PER_SECOND).insertOne({
+        value: accumulatedConfirmations,
+        createdAt: new Date(),
+      });
+      accumulatedConfirmations = 0;
+    }
 
-  if (accumulatedVolume) {
-    db.collection(TOTAL_NANO_VOLUME_COLLECTION).insertOne({
-      value: accumulatedVolume,
-      createdAt: new Date(),
-    });
-    accumulatedVolume = 0;
+    if (accumulatedVolume) {
+      db.collection(TOTAL_NANO_VOLUME_COLLECTION).insertOne({
+        value: accumulatedVolume,
+        createdAt: new Date(),
+      });
+      accumulatedVolume = 0;
+    }
+  } catch (err) {
+    Sentry.captureException(err);
   }
 }
 

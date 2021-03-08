@@ -1,6 +1,7 @@
 const fetch = require("node-fetch");
 const cron = require("node-cron");
 const MongoClient = require("mongodb").MongoClient;
+const { Sentry } = require("../sentry");
 const {
   MONGO_URL,
   MONGO_DB,
@@ -20,36 +21,45 @@ cron.schedule("*/20 * * * *", async () => {
   let db;
   let mongoClient;
 
-  MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (_err, client) => {
-    mongoClient = client;
-    db = client.db(MONGO_DB);
+  try {
+    MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (err, client) => {
+      if (err) {
+        throw err;
+      }
 
-    db.collection(MARKET_CAP_RANK_COLLECTION).createIndex(
-      { createdAt: 1 },
-      { expireAfterSeconds: EXPIRE_48H },
-    );
-  });
+      mongoClient = client;
+      db = client.db(MONGO_DB);
 
-  const res = await fetch(
-    "https://api.coingecko.com/api/v3/coins/nano?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false",
-  );
-  const { market_cap_rank: marketCapRank } = await res.json();
-  const hour = getNextHour();
-
-  db.collection(MARKET_CAP_RANK_COLLECTION)
-    .updateOne(
-      {
-        hour,
-      },
-      {
-        $set: {
-          value: marketCapRank,
-        },
-        $setOnInsert: { hour, createdAt: new Date() },
-      },
-      { upsert: true },
-    )
-    .then(() => {
-      mongoClient.close();
+      db.collection(MARKET_CAP_RANK_COLLECTION).createIndex(
+        { createdAt: 1 },
+        { expireAfterSeconds: EXPIRE_48H },
+      );
     });
+
+    const res = await fetch(
+      "https://api.coingecko.com/api/v3/coins/nano?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false",
+    );
+    const { market_cap_rank: marketCapRank } = await res.json();
+    const hour = getNextHour();
+
+    await db
+      .collection(MARKET_CAP_RANK_COLLECTION)
+      .updateOne(
+        {
+          hour,
+        },
+        {
+          $set: {
+            value: marketCapRank,
+          },
+          $setOnInsert: { hour, createdAt: new Date() },
+        },
+        { upsert: true },
+      )
+      .then(() => {
+        mongoClient.close();
+      });
+  } catch (err) {
+    Sentry.captureException(err);
+  }
 });

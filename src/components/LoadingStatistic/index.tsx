@@ -1,9 +1,11 @@
 import React from "react";
-import { Skeleton, Statistic } from "antd";
+import { Skeleton, Statistic, Tooltip } from "antd";
+import QuestionCircle from "components/QuestionCircle";
 
 interface LoadingStatisticProps {
   isLoading: boolean;
   title: string;
+  tooltip?: string;
   value: any;
   prefix?: string | React.ReactNode;
   suffix?: string | React.ReactNode;
@@ -13,6 +15,7 @@ interface LoadingStatisticProps {
 const LoadingStatistic = ({
   isLoading,
   title,
+  tooltip,
   ...rest
 }: LoadingStatisticProps) => (
   <>
@@ -23,7 +26,21 @@ const LoadingStatistic = ({
       paragraph={false}
       className="isloading-skeleton-width"
     >
-      <Statistic title={title} {...rest} />
+      <Statistic
+        title={
+          <>
+            {title}
+            {tooltip ? (
+              <span style={{ marginLeft: "6px" }}>
+                <Tooltip placement="right" title={tooltip}>
+                  <QuestionCircle />
+                </Tooltip>
+              </span>
+            ) : null}
+          </>
+        }
+        {...rest}
+      />
     </Skeleton>
   </>
 );

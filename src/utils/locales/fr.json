@@ -23,7 +23,9 @@
     "amount": "Montant"
   },
   "tooltips": {
-    "cps": "Confirmations Par Seconde. Le taux de blocs confirmés (envoi ou réception) sur le réseau NANO.",
+    "avgConfirmationTime": "Le temps moyen de confirmation est calculé localement sur le nœud. Si le nœud est redémarré ou dans un état dégradé, le temps de confirmation moyen peut être plus élevé que le reste du réseau pendant que le nœud se synchronise avec le réseau NANO.",
+    "bitcoinTransactionFees": "Cette valeur n'a aucun impact sur le réseau NANO, c'est uniquement à des fins de comparaison. Il représente la somme des frais de transaction que les utilisateurs de Bitcoin paient aux mineurs pour que leur transaction soit acceptée sur le réseau Bitcoin.",
+    "cps": "Confirmations par seconde. Le taux de blocs confirmés (envoi ou réception) sur le réseau NANO. Cette statistique est échantillonnée au cours de la dernière minute localement sur le nœud. Si le nœud est redémarré, la valeur CPS peut être supérieure à la moyenne réelle sur le réseau pendant que le nœud rattrape son retard.",
     "votingWeight": "Un compte avec un minimum de {{minWeight}} NANO ou >= 0,1% du poids de vote en ligne qui lui est délégué est requis pour obtenir le statut de représentant principal. Lorsqu'ils sont configurés sur un nœud qui vote, les votes qu'il produit seront rediffusés par d'autres nœuds vers qui les reçoivent, ce qui permet au réseau d'atteindre un consensus plus rapidement.",
     "pending": "Un état de transaction où un bloc d'envoi de fonds a été publié et confirmé par le réseau, mais un bloc correspondant recevant ces fonds n'a pas encore été envoyé ou confirmé.",
     "totalRepresentatives": "Pour optimiser les performances, seuls les comptes avec un poids de vote >= 1000 NANO sont considérés mais normalement tout compte avec un poids de vote> 0, mais <0,1% du poids de vote en ligne.",
@@ -67,7 +69,7 @@
       "nanoTransactionFees": "Frais de transaction NANO",
       "exchangeVolume": "Volume des échanges",
       "onChainVolume": "Volume sur la chaîne NANO",
-      "bitcoinFees": "Frais de transaction Bitcoin payés aux mineurs",
+      "bitcoinTransactionFees": "Frais de transaction Bitcoin payés aux mineurs",
       "recentTransactions": "Transactions récentes",
       "liveUpdatesDisabled": "Mises à jour en direct désactivées",
       "waitingForTransactions": "En attente de nouvelles transactions",
