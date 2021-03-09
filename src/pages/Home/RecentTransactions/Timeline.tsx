@@ -1,5 +1,5 @@
 import React from "react";
-// import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import { Link, useHistory } from "react-router-dom";
 import { Tag, Timeline, Typography } from "antd";
 import TimeAgo from "timeago-react";
@@ -16,7 +16,7 @@ interface Props {
 }
 
 const RecentTransactions: React.FC<Props> = ({ recentTransactions }) => {
-  //   const { t } = useTranslation();
+  const { t } = useTranslation();
   const history = useHistory();
   const {
     theme,
@@ -53,13 +53,13 @@ const RecentTransactions: React.FC<Props> = ({ recentTransactions }) => {
                   }
                   className={`tag-${subtype} timeline-tag`}
                 >
-                  {subtype}
+                  {t(`transaction.${subtype}`)}
                 </Tag>
                 {subtype !== "change" ? (
                   <Text style={{ color }} className="timeline-amount">
                     {amount
                       ? `${new BigNumber(rawToRai(amount)).toFormat()} NANO`
-                      : "N/A"}
+                      : t("common.notAvailable")}
                   </Text>
                 ) : null}
                 <TimeAgo

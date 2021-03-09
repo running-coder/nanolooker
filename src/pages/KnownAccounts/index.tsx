@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Button, Input, Table, Typography } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
@@ -8,12 +9,17 @@ import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 const { Title } = Typography;
 
 const KnownAccountsPage = () => {
+  const { t } = useTranslation();
   const { knownAccounts, isLoading } = React.useContext(KnownAccountsContext);
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   return (
     <>
-      <Title level={3}>{knownAccounts.length} Total Known Accounts</Title>
+      <Title level={3}>
+        {t("pages.knownAccounts.totalAccounts", {
+          totalAccounts: knownAccounts.length,
+        })}
+      </Title>
       <Table
         size="small"
         pagination={false}
@@ -21,7 +27,7 @@ const KnownAccountsPage = () => {
         rowKey={record => record.account}
         columns={[
           {
-            title: "Balance",
+            title: t("common.balance"),
             dataIndex: "total",
             // @ts-ignore
             defaultSortOrder: "descend",
@@ -36,7 +42,7 @@ const KnownAccountsPage = () => {
             ),
           },
           {
-            title: "Alias",
+            title: t("common.alias"),
             dataIndex: "alias",
             filterDropdown: ({
               setSelectedKeys,
@@ -48,7 +54,7 @@ const KnownAccountsPage = () => {
                 <Input
                   // @ts-ignore
                   ref={inputRef}
-                  placeholder={`Search Alias`}
+                  placeholder={t("common.searchAlias")}
                   // @ts-ignore
                   value={selectedKeys[0]}
                   onChange={({ target: { value } }) => {
@@ -66,7 +72,7 @@ const KnownAccountsPage = () => {
                   size="small"
                   style={{ width: 90, marginRight: 8 }}
                 >
-                  Search
+                  {t("common.search")}
                 </Button>
                 <Button
                   onClick={() => {
@@ -76,7 +82,7 @@ const KnownAccountsPage = () => {
                   size="small"
                   style={{ width: 90 }}
                 >
-                  Reset
+                  {t("common.reset")}
                 </Button>
               </div>
             ),
@@ -115,7 +121,7 @@ const KnownAccountsPage = () => {
             ),
           },
           {
-            title: "Account",
+            title: t("common.account"),
             dataIndex: "account",
             render: (text: string) => (
               <>

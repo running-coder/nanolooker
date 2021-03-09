@@ -7,7 +7,16 @@
     "date": "Date",
     "unknown": "Inconnu",
     "balance": "Balance",
-    "weight": "Poids"
+    "totalBalance": "Balance totale",
+    "weight": "Poids",
+    "notAvailable": "N/D",
+    "continueReading": "Continuer la lecture",
+    "alias": "Alias",
+    "search": "Recherche",
+    "reset": "Réinitialiser",
+    "searchAlias": "Recherche d'alias",
+    "noResults": "Aucun résultats",
+    "by": "Par"
   },
   "transaction": {
     "type": "Type",
@@ -30,7 +39,10 @@
     "pending": "Un état de transaction où un bloc d'envoi de fonds a été publié et confirmé par le réseau, mais un bloc correspondant recevant ces fonds n'a pas encore été envoyé ou confirmé.",
     "totalRepresentatives": "Pour optimiser les performances, seuls les comptes avec un poids de vote >= 1000 NANO sont considérés mais normalement tout compte avec un poids de vote> 0, mais <0,1% du poids de vote en ligne.",
     "totalPrincipalRepresentatives": "Un compte avec un minimum de {{principalRepresentativeMinWeight}} NANO ou >= 0,1% du poids de vote en ligne qui lui est délégué est requis pour obtenir le statut de représentant principal. Lorsqu'ils sont configurés sur un nœud qui vote, les votes qu'il produit seront rediffusés par d'autres nœuds à qui les reçoivent, aidant le réseau à atteindre un consensus plus rapidement.",
-    "onlineRepresentatives": "Comptes de représentants en ligne qui ont voté récemment."
+    "onlineRepresentatives": "Comptes de représentants en ligne qui ont voté récemment.",
+    "lastTransaction": "Dernière transaction d'envoi depuis l'un des {{totalAccounts}} comptes.",
+    "largeTransactions": "Uniquement les transactions d'envoi de 10,000 NANO ou plus sont temporairement sauvegardées pendant une semaine.",
+    "knownExchangeBalance": "Exclure {{knownExchangeList}} du diagramme de distribution. Ces comptes combinés contiennent {{knownExchangeBalance}} NANO"
   },
   "search": {
     "searchBy": "Recherche par Address / Bloc",
@@ -53,6 +65,9 @@
     "faucets": "Robitets (Faucets)",
     "news": "Nouvelles",
     "nodeStatus": "Status du nœud"
+  },
+  "footer": {
+    "createdBy": "Créé par {{creator}}"
   },
   "pages": {
     "home": {
@@ -115,6 +130,62 @@
     },
     "faucets": {
       "description": "Les robitets (Faucets) vous permet de réclamer gratuitement de petites quantités de NANO. Ces robinets vous permettent de découvrir à quel point il est facile d'envoyer et de recevoir des NANO à travers le monde instantanément sur un réseau décentralisé."
+    },
+    "developerFund": {
+      "description": "À partir du 25/11/19, le fonds de développement a été divisé en {{totalAccounts}} comptes suite à un examen de la politique de sécurité interne et des poids de vote représentatifs.",
+      "lastTransaction": "Dernière transaction",
+      "allTransactions": "Afficher toutes les transactions d'envoi",
+      "originalDeveloperFund": "Fonds d'origine pour les développeurs",
+      "originalDeveloperFundDescription": "La distribution de Nano (anciennement RaiBlocks) a été effectuée en résolvant les captchas manuels à partir de fin 2015 et se terminant en octobre 2017. La distribution s'est arrêtée après ~ 39% du montant de <0>Genèse</0> a été distribué et le reste de l'approvisionnement a été <1>brûlé</1>.",
+      "totalAccounts": "{{totalAccounts}} Comptes au total",
+      "percentOfTotal": "{{percent}}% des NANO en circulation"
+    },
+    "knownAccounts": {
+      "totalAccounts": "{{totalAccounts}} Comptes connus"
+    },
+    "largeTransactions": {
+      "description": "Transactions volumineuses se déroulant sur la blockchain NANO.",
+      "latest": "Dernière transaction",
+      "largest": "Montant le plus élevé"
+    },
+    "distribution": {
+      "title": "Distribution de NANO",
+      "summary": "Un total de <0>{{i18nTotalAccounts}}</strong> comptes détiennent <1>{{i18nTotalBalances}}</1> NANO",
+      "summaryMinBalance": "Tout compte dont le solde est inférieur à <0>0,001</0> est exclu",
+      "includeKnownExchanges": "Inclure les échanges connus",
+      "logScale": "Échelle logarithmique",
+      "dormantFunds": "Fonds dormants",
+      "dormantFundsExperiment": "Il s'agit d'une expérience pour comprendre combien de comptes sont actifs sur la blockchain Nano. Pour chaque compte, le script vérifie s'il y a une date de dernière transaction sur le nœud local, s'il y a alors le solde de ce compte est accumulé pour cette date",
+      "availableSupply": "Somme des Nano disponibles",
+      "knownAccountBalances": "Soldes de compte connus",
+      "UnknownDormantFunds": "Fonds dormants inconnus",
+      "dormantFundsEli5": "Par exemple, si un compte a été traité pour la dernière fois il y a 2 trimestres (6 mois), son solde (y compris les montants en attente) sera considéré comme «dormant» depuis 1 trimestre.",
+      "dormantNano": "NANO dormant",
+      "ofAvailableSupply": "de l'offre disponible"
+    },
+    "news": {
+      "allFeeds": "Tous les flux",
+      "allAuthors": "Tous les auteurs"
+    },
+    "status": {
+      "blockCount": "Nombre de blocs",
+      "reload": "Recharger",
+      "count": "Compte",
+      "unchecked": "Non vérifié",
+      "cemented": "Cimenté",
+      "ledger": "Registre",
+      "availableSupply": "Approvisionnement disponible",
+      "nanoAccounts": "Comptes NANO",
+      "ledgerSize": "Taille du grand livre",
+      "activeDifficulty": "Difficulté active",
+      "networkMinimum": "Difficulté minimum du réseau",
+      "networkCurrent": "Difficulté actuellle sur le réseau",
+      "multiplier": "Multiplicateur",
+      "node": "Nœud",
+      "version": "Version",
+      "uptime": "Disponibilité",
+      "cpuUsage": "L'utilisation du processeur",
+      "memory": "Mémoire"
     }
   }
 }

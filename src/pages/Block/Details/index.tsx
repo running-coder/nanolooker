@@ -205,7 +205,7 @@ const BlockDetails = () => {
           <Descriptions.Item label={t("pages.block.signature")}>
             <span className="break-word">{signature}</span>
           </Descriptions.Item>
-          <Descriptions.Item label={t("pages.block.signature")}>
+          <Descriptions.Item label={t("pages.block.work")}>
             {work}
           </Descriptions.Item>
         </Descriptions>

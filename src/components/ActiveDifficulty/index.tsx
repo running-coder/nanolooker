@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Button, Card, Statistic, Skeleton, Tooltip } from "antd";
 import { ReloadOutlined } from "@ant-design/icons";
 import useActiveDifficulty, {
@@ -8,6 +9,7 @@ import useActiveDifficulty, {
 import { refreshActionDelay } from "components/utils";
 
 const ActiveDifficulty: React.FC = () => {
+  const { t } = useTranslation();
   const [isLoading, setIsLoading] = React.useState(false);
   const {
     activeDifficulty: { network_minimum, network_current, multiplier },
@@ -25,9 +27,9 @@ const ActiveDifficulty: React.FC = () => {
   return (
     <Card
       size="small"
-      title="Active Difficulty"
+      title={t("pages.status.activeDifficulty")}
       extra={
-        <Tooltip title="Reload">
+        <Tooltip title={t("pages.status.reload")}>
           <Button
             type="primary"
             icon={<ReloadOutlined />}
@@ -40,17 +42,17 @@ const ActiveDifficulty: React.FC = () => {
     >
       <Skeleton active loading={!network_current}>
         <Statistic
-          title="Network Minimum"
+          title={t("pages.status.networkMinimum")}
           value={network_minimum}
           valueStyle={{ opacity }}
         />
         <Statistic
-          title="Network Current"
+          title={t("pages.status.networkCurrent")}
           value={network_current}
           valueStyle={{ opacity }}
         />
         <Statistic
-          title="Multiplier"
+          title={t("pages.status.multiplier")}
           value={multiplier}
           valueStyle={{ opacity }}
         />

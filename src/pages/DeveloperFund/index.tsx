@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation, Trans } from "react-i18next";
 import { Link } from "react-router-dom";
 import {
   Button,
@@ -40,6 +41,7 @@ const DEVELOPER_FUND_ORIGINAL_LINK =
 const { Title } = Typography;
 
 const DeveloperFund = () => {
+  const { t } = useTranslation();
   let totalBalance: number = 0;
   const { fiat } = React.useContext(PreferencesContext);
   const {
@@ -102,12 +104,12 @@ const DeveloperFund = () => {
     <>
       <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]}>
         <Col xs={24} sm={24} md={12} lg={12} xl={12}>
-          <Title level={3}>Developer Fund</Title>
+          <Title level={3}>{t("menu.developerFund")}</Title>
           <Card size="small" bodyStyle={{ padding: 0 }} bordered={false}>
             <div style={{ padding: "8px 16px" }}>
-              As of 11/25/19 the developer fund has been split up into 48
-              accounts following a review of internal security policy and
-              representative voting weights.
+              {t("pages.developerFund.description", {
+                totalAccounts: data.length,
+              })}
               <br />
               <a
                 style={{ display: "inline-block", marginTop: "10px" }}
@@ -115,11 +117,11 @@ const DeveloperFund = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Continue reading
+                {t("common.continueReading")}
               </a>
             </div>
             <Descriptions bordered column={1} size="small">
-              <Descriptions.Item label="Total Balances">
+              <Descriptions.Item label={t("common.totalBalance")}>
                 <Skeleton {...skeletonProps}>
                   {new BigNumber(totalBalance).toFormat()} NANO
                   <br />
@@ -131,10 +133,14 @@ const DeveloperFund = () => {
               <Descriptions.Item
                 label={
                   <>
-                    <span style={{ marginRight: "6px" }}>Last Transaction</span>
+                    <span style={{ marginRight: "6px" }}>
+                      {t("pages.developerFund.lastTransaction")}
+                    </span>
                     <Tooltip
                       placement="right"
-                      title={`Last send transaction from any of the 48 accounts.`}
+                      title={t("tooltips.lastTransaction", {
+                        totalAccounts: data.length,
+                      })}
                     >
                       <QuestionCircle />
                     </Tooltip>
@@ -173,7 +179,7 @@ const DeveloperFund = () => {
                     size="small"
                     style={{ marginTop: "6px" }}
                   >
-                    View all send transactions
+                    {t("pages.developerFund.allTransactions")}
                   </Button>
                 </Link>
               </Descriptions.Item>
@@ -181,17 +187,17 @@ const DeveloperFund = () => {
           </Card>
         </Col>
         <Col xs={24} sm={24} md={12} lg={12} xl={12}>
-          <Title level={3}>Original Developer Fund</Title>
+          <Title level={3}>
+            {t("pages.developerFund.originalDeveloperFund")}
+          </Title>
           <Card size="small" bodyStyle={{ padding: 0 }} bordered={false}>
             <div style={{ padding: "8px 16px" }}>
-              The distribution of Nano (formerly RaiBlocks) was performed
-              through solving manual captchas starting in late 2015 and ending
-              in October 2017. Distribution stopped after ~39% of the{" "}
-              <Link to={`/account/${GENESIS_ACCOUNT}`}>Genesis</Link> amount was
-              distributed and the rest of the supply was{" "}
-              <Link to={`/block/${ORIGINAL_DEVELOPER_FUND_BURN_BLOCK}`}>
-                burnt.
-              </Link>
+              <Trans i18nKey="pages.developerFund.originalDeveloperFundDescription">
+                <Link to={`/account/${GENESIS_ACCOUNT}`}>Genesis</Link>
+                <Link
+                  to={`/block/${ORIGINAL_DEVELOPER_FUND_BURN_BLOCK}`}
+                ></Link>
+              </Trans>
               <br />
               <a
                 style={{ display: "inline-block", marginTop: "10px" }}
@@ -199,11 +205,11 @@ const DeveloperFund = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Continue reading
+                {t("common.continueReading")}
               </a>
             </div>
             <Descriptions bordered column={1} size="small">
-              <Descriptions.Item label="Address">
+              <Descriptions.Item label={t("common.account")}>
                 <Link
                   to={`/account/${ORIGINAL_DEVELOPER_FUND_ACCOUNT}`}
                   className="break-word"
@@ -211,17 +217,18 @@ const DeveloperFund = () => {
                   {ORIGINAL_DEVELOPER_FUND_ACCOUNT}
                 </Link>
               </Descriptions.Item>
-              <Descriptions.Item label="Balance">
+              <Descriptions.Item label={t("common.balance")}>
                 <>
                   {new BigNumber("7000000").toFormat()} NANO
                   <br />
-                  {new BigNumber(7000000 * 100)
-                    .dividedBy(availableSupply)
-                    .toFormat(2)}
-                  % of the circulating supply
+                  {t("pages.developerFund.percentOfTotal", {
+                    percent: new BigNumber(7000000 * 100)
+                      .dividedBy(availableSupply)
+                      .toFormat(2),
+                  })}
                 </>
               </Descriptions.Item>
-              <Descriptions.Item label="Block">
+              <Descriptions.Item label={t("common.block")}>
                 <Link
                   to={`/block/${ORIGINAL_DEVELOPER_FUND_BLOCK}`}
                   className="break-word"
@@ -235,7 +242,7 @@ const DeveloperFund = () => {
       </Row>
 
       <Title level={3} style={{ marginTop: "0.5em" }}>
-        {data.length} Total Accounts
+        {t("pages.developerFund.totalAccounts", { totalAccounts: data.length })}
       </Title>
       <Table
         size="small"
@@ -244,7 +251,7 @@ const DeveloperFund = () => {
         rowKey={record => record.account}
         columns={[
           {
-            title: "Balance",
+            title: t("common.balance"),
             dataIndex: "balance",
             defaultSortOrder: "descend",
             sorter: {
@@ -256,7 +263,7 @@ const DeveloperFund = () => {
             ),
           },
           {
-            title: "Account",
+            title: t("common.account"),
             dataIndex: "account",
             render: (text: string) => (
               <>

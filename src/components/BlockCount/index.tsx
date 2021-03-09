@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Button, Card, Statistic, Skeleton, Tooltip } from "antd";
 import { ReloadOutlined } from "@ant-design/icons";
 import { refreshActionDelay } from "components/utils";
@@ -7,6 +8,7 @@ import { BlockCountContext } from "api/contexts/BlockCount";
 const POLL_INTERVAL = 1000 * 30;
 
 const BlockCount: React.FC = () => {
+  const { t } = useTranslation();
   const [isLoading, setIsLoading] = React.useState(false);
   const { count, unchecked, cemented, getBlockCount } = React.useContext(
     BlockCountContext,
@@ -36,9 +38,9 @@ const BlockCount: React.FC = () => {
   return (
     <Card
       size="small"
-      title="Block Count"
+      title={t("pages.status.blockCount")}
       extra={
-        <Tooltip title="Reload">
+        <Tooltip title={t("pages.status.reload")}>
           <Button
             type="primary"
             icon={<ReloadOutlined />}
@@ -50,13 +52,21 @@ const BlockCount: React.FC = () => {
       }
     >
       <Skeleton active loading={!count}>
-        <Statistic title="Count" value={count} valueStyle={{ opacity }} />
         <Statistic
-          title="Unchecked"
+          title={t("pages.status.count")}
+          value={count}
+          valueStyle={{ opacity }}
+        />
+        <Statistic
+          title={t("pages.status.unchecked")}
           value={unchecked}
           valueStyle={{ opacity }}
         />
-        <Statistic title="Cemented" value={cemented} valueStyle={{ opacity }} />
+        <Statistic
+          title={t("pages.status.cemented")}
+          value={cemented}
+          valueStyle={{ opacity }}
+        />
       </Skeleton>
     </Card>
   );

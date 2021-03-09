@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import orderBy from "lodash/orderBy";
 import uniqBy from "lodash/uniqBy";
 import {
@@ -32,10 +33,7 @@ enum MEDIUM_FEEDS {
 
 const AUTHORS: string[] = [];
 
-enum DEFAULT_FILTERS {
-  ALL_FEEDS = "All feeds",
-  ALL_AUTHORS = "All authors",
-}
+const ALL = "all";
 
 interface MediumPost {
   author: string;
@@ -106,16 +104,15 @@ const getMediumPosts = async () => {
 };
 
 const NewsPage = () => {
+  const { t } = useTranslation();
   const history = useHistory();
   const { feed = "" } = useParams<PageParams>();
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
   const [posts, setPosts] = React.useState<any[]>(Array.from(Array(3).keys()));
   const [feedFilter, setFeedFilter] = React.useState<MEDIUM_FEEDS | string>(
-    DEFAULT_FILTERS.ALL_FEEDS,
+    ALL,
   );
-  const [authorFilter, setAuthorFilter] = React.useState<string>(
-    DEFAULT_FILTERS.ALL_AUTHORS,
-  );
+  const [authorFilter, setAuthorFilter] = React.useState<string>(ALL);
 
   React.useEffect(() => {
     getMediumPosts().then(posts => {
@@ -130,9 +127,7 @@ const NewsPage = () => {
   }, []);
 
   const handleFeedFilter = ({ key }: any) => {
-    history.replace(
-      `/news${key !== DEFAULT_FILTERS.ALL_FEEDS ? `/${key}` : ""}`,
-    );
+    history.replace(`/news${key !== ALL ? `/${key}` : ""}`);
     setFeedFilter(key);
   };
 
@@ -141,13 +136,9 @@ const NewsPage = () => {
   };
 
   const filteredPosts = posts
-    .filter(({ feed }) =>
-      feedFilter !== DEFAULT_FILTERS.ALL_FEEDS ? feedFilter === feed : true,
-    )
+    .filter(({ feed }) => (feedFilter !== ALL ? feedFilter === feed : true))
     .filter(({ author }) =>
-      authorFilter !== DEFAULT_FILTERS.ALL_AUTHORS
-        ? authorFilter === author
-        : true,
+      authorFilter !== ALL ? authorFilter === author : true,
     );
 
   return (
@@ -156,9 +147,7 @@ const NewsPage = () => {
         <Dropdown
           overlay={
             <Menu onClick={handleFeedFilter}>
-              <Menu.Item key={DEFAULT_FILTERS.ALL_FEEDS}>
-                {DEFAULT_FILTERS.ALL_FEEDS}
-              </Menu.Item>
+              <Menu.Item key={ALL}>{t("pages.news.allFeeds")}</Menu.Item>
               {Object.values(MEDIUM_FEEDS).map(feed => (
                 <Menu.Item key={feed}>{feed}</Menu.Item>
               ))}
@@ -166,16 +155,15 @@ const NewsPage = () => {
           }
         >
           <Button>
-            {feedFilter || DEFAULT_FILTERS.ALL_FEEDS} <DownOutlined />
+            {feedFilter !== ALL ? feedFilter : t("pages.news.allFeeds")}{" "}
+            <DownOutlined />
           </Button>
         </Dropdown>
 
         <Dropdown
           overlay={
             <Menu onClick={handleAuthorFilter}>
-              <Menu.Item key={DEFAULT_FILTERS.ALL_AUTHORS}>
-                {DEFAULT_FILTERS.ALL_AUTHORS}
-              </Menu.Item>
+              <Menu.Item key={ALL}>{t("pages.news.allAuthors")}</Menu.Item>
               {AUTHORS.map(author => (
                 <Menu.Item key={author}>{author}</Menu.Item>
               ))}
@@ -183,7 +171,8 @@ const NewsPage = () => {
           }
         >
           <Button>
-            {authorFilter || DEFAULT_FILTERS.ALL_AUTHORS} <DownOutlined />
+            {authorFilter !== ALL ? authorFilter : t("pages.news.allAuthors")}{" "}
+            <DownOutlined />
           </Button>
         </Dropdown>
       </Space>
@@ -228,7 +217,7 @@ const NewsPage = () => {
                     }}
                     className="color-muted"
                   >
-                    {pubDate} by {author}
+                    {pubDate} {t("common.by")} {author}
                   </span>
                   <div
                     dangerouslySetInnerHTML={{ __html: descriptionShort }}
@@ -242,7 +231,7 @@ const NewsPage = () => {
                     rel="noopener noreferrer"
                     style={{ marginTop: "12px", display: "inline-block" }}
                   >
-                    Continue reading
+                    {t("common.continueReading")}
                   </a>
                 </Skeleton>
               </Card>
@@ -252,7 +241,7 @@ const NewsPage = () => {
       )}
 
       {!filteredPosts?.length ? (
-        <Text style={{ display: "block" }}>No results</Text>
+        <Text style={{ display: "block" }}>{t("common.noResults")}</Text>
       ) : null}
     </>
   );

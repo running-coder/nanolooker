@@ -166,15 +166,15 @@ a:hover {
 
 @media (min-width: 768px) {
   .app-header {
-    padding: 0 20px;
+    padding: 0 18px;
   }
 
   .ant-layout-content {
-    padding: 20px;
+    padding: 18px;
   }
 
   .app-sub-header {
-    padding: 3px 20px;
+    padding: 3px 18px;
   }
 
   .cps-container {

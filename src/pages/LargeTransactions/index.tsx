@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import orderBy from "lodash/orderBy";
 import BigNumber from "bignumber.js";
 import { Button, Dropdown, Menu, Tooltip, Typography } from "antd";
@@ -20,12 +21,8 @@ export enum SORT_BY {
   LARGEST = "largest",
 }
 
-const SORT_BY_MAPPING = {
-  latest: "Latest transaction",
-  largest: "Largest amount",
-};
-
 const LargeTransactions = () => {
+  const { t } = useTranslation();
   const history = useHistory();
   const { sortBy: paramSortBy = SORT_BY.LATEST } = useParams<PageParams>();
   const { largeTransactions, isLoading } = useLargeTransactions();
@@ -68,16 +65,13 @@ const LargeTransactions = () => {
 
   return (
     <>
-      <Title level={3}>Large Transactions</Title>
+      <Title level={3}>{t("menu.largeTransactions")}</Title>
 
       <div style={{ marginBottom: "12px" }}>
         <Text style={{ marginRight: "6px" }}>
-          Large transactions happening on the NANO blockchain.
+          {t("pages.largeTransactions.description")}
         </Text>
-        <Tooltip
-          placement="right"
-          title={`Send only transactions of 10,000 NANO or more are temporarily saved for 1 week.`}
-        >
+        <Tooltip placement="right" title={t("tooltips.largeTransactions")}>
           <QuestionCircle />
         </Tooltip>
       </div>
@@ -86,13 +80,15 @@ const LargeTransactions = () => {
           overlay={
             <Menu onClick={handleSortBy}>
               {Object.values(SORT_BY).map(sortBy => (
-                <Menu.Item key={sortBy}>{SORT_BY_MAPPING[sortBy]}</Menu.Item>
+                <Menu.Item key={sortBy}>
+                  {t(`pages.largeTransactions.${sortBy}`)}
+                </Menu.Item>
               ))}
             </Menu>
           }
         >
           <Button>
-            {SORT_BY_MAPPING[sortBy]} <DownOutlined />
+            {t(`pages.largeTransactions.${sortBy}`)} <DownOutlined />
           </Button>
         </Dropdown>
       </div>

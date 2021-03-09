@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Button, Card, Tooltip } from "antd";
 import { ReloadOutlined } from "@ant-design/icons";
 import { secondsToTime, refreshActionDelay } from "components/utils";
@@ -9,6 +10,7 @@ import LoadingStatistic from "components/LoadingStatistic";
 import BigNumber from "bignumber.js";
 
 const Node: React.FC = () => {
+  const { t } = useTranslation();
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const {
     uptime: { seconds },
@@ -36,9 +38,9 @@ const Node: React.FC = () => {
   return (
     <Card
       size="small"
-      title="Node"
+      title={t("pages.status.node")}
       extra={
-        <Tooltip title="Reload">
+        <Tooltip title={t("pages.status.reload")}>
           <Button
             type="primary"
             icon={<ReloadOutlined />}
@@ -50,26 +52,26 @@ const Node: React.FC = () => {
       }
     >
       <LoadingStatistic
-        title="Version"
+        title={t("pages.status.version")}
         value={node_vendor}
         isLoading={!node_vendor}
         valueStyle={{ opacity }}
       />
       <LoadingStatistic
-        title="Uptime"
+        title={t("pages.status.uptime")}
         value={secondsToTime(seconds || 0)}
         isLoading={!node_vendor}
         valueStyle={{ opacity }}
       />
       <LoadingStatistic
-        title="CPU Usage"
+        title={t("pages.status.cpuUsage")}
         value={new BigNumber(cpu).decimalPlaces(2).toNumber()}
         suffix="%"
         isLoading={isNodeStatusLoading}
         valueStyle={{ opacity }}
       />
       <LoadingStatistic
-        title="Memory"
+        title={t("pages.status.memory")}
         value={`${new BigNumber(memory)
           .dividedBy(1000e6)
           .toFormat(2)} / ${new BigNumber(total)

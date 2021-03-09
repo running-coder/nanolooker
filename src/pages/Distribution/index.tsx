@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation, Trans } from "react-i18next";
 import { Card, Switch, Tooltip, Typography } from "antd";
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import { StackedColumn, StackedColumnConfig } from "@antv/g2plot";
@@ -31,6 +32,7 @@ const distributionMap = [
 let distributionChart: any = null;
 
 const Distribution = () => {
+  const { t } = useTranslation();
   const {
     knownExchangeAccounts,
     isLoading: isKnownAccountsLoading,
@@ -169,19 +171,39 @@ const Distribution = () => {
     distributionChart.render();
   }, [distributionData, isLogScale]);
 
+  const i18nTotalAccounts = new BigNumber(totalAccounts).toFormat();
+  const i18nTotalBalances = new BigNumber(totalBalance).toFormat();
+  const knownExchangeList = knownExchangeAccounts
+    .map(({ alias }) => alias)
+    .join(", ");
+  const knownExchangeBalance = new BigNumber(
+    knownExchangeAccounts.reduce(
+      (acc, { total }) => new BigNumber(acc).plus(total).toNumber(),
+      0,
+    ),
+  ).toFormat();
+
   return (
     <>
-      <Title level={3}>Nano Distribution</Title>
+      <Title level={3}>{t("pages.distribution.title")}</Title>
       <Card size="small">
         <div style={{ marginBottom: "12px" }}>
           <Text style={{ fontSize: "12px" }}>
-            Total of <strong>{new BigNumber(totalAccounts).toFormat()}</strong>{" "}
-            accounts are holding{" "}
-            <strong>{new BigNumber(totalBalance).toFormat()}</strong> NANO
+            <Trans
+              i18nKey="pages.distribution.summary"
+              // @ts-ignore
+              i18nTotalAccounts={i18nTotalAccounts}
+              i18nTotalBalances={i18nTotalBalances}
+            >
+              <strong>{{ i18nTotalAccounts }}</strong>
+              <strong>{{ i18nTotalBalances }}</strong>
+            </Trans>
           </Text>
           <br />
           <Text style={{ fontSize: "12px" }}>
-            Any account with a balance of <strong>&lt;0.001</strong> is excluded
+            <Trans i18nKey="pages.distribution.summaryMinBalance">
+              <strong />
+            </Trans>
           </Text>
         </div>
 
@@ -195,19 +217,15 @@ const Distribution = () => {
             }}
             defaultChecked={isIncludeExchanges}
           />
-          <Text style={{ margin: "0 6px" }}>Include known exchanges</Text>
+          <Text style={{ margin: "0 6px" }}>
+            {t("pages.distribution.includeKnownExchanges")}
+          </Text>
           <Tooltip
             placement="right"
-            title={`Exclude ${knownExchangeAccounts
-              .map(({ alias }) => alias)
-              .join(
-                ", ",
-              )} from the distribution chart. Those accounts combined holds ${new BigNumber(
-              knownExchangeAccounts.reduce(
-                (acc, { total }) => new BigNumber(acc).plus(total).toNumber(),
-                0,
-              ),
-            ).toFormat()} NANO`}
+            title={t("tooltips.knownExchangeBalance", {
+              knownExchangeList,
+              knownExchangeBalance,
+            })}
             style={{ marginLeft: "6px" }}
           >
             <QuestionCircle />
@@ -223,7 +241,9 @@ const Distribution = () => {
             }}
             defaultChecked={isLogScale}
           />
-          <Text style={{ margin: "0 6px" }}>Log scale</Text>
+          <Text style={{ margin: "0 6px" }}>
+            {t("pages.distribution.logScale")}
+          </Text>
         </div>
 
         <div

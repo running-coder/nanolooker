@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 import { Route, Switch } from "react-router-dom";
 import { Layout } from "antd";
 import { GithubOutlined } from "@ant-design/icons";
@@ -27,6 +28,7 @@ import "./Theme.css";
 const { Content, Footer } = Layout;
 
 const App: React.FC = () => {
+  const { t } = useTranslation();
   const { theme } = React.useContext(PreferencesContext);
 
   useAnalytics();
@@ -70,7 +72,8 @@ const App: React.FC = () => {
           >
             <GithubOutlined /> Nano Looker
           </a>{" "}
-          ©{new Date().getFullYear()} Created by RunningCoder
+          ©{new Date().getFullYear()}{" "}
+          {t("footer.createdBy", { creator: "RunningCoder" })}
         </Footer>
       </Layout>
     </>

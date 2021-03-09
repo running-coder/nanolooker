@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import find from "lodash/find";
 import { Card, Slider, Typography } from "antd";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -10,6 +11,7 @@ const { Text, Title } = Typography;
 let dormantFundsByRange: any = {};
 
 const DormantFunds = ({ data }: any) => {
+  const { t } = useTranslation();
   const [marks, setMarks] = React.useState({});
   const [totalFunds, setTotalFunds] = React.useState<number>(0);
   const [unknownDormantFunds, setUnknownDormantFunds] = React.useState<number>(
@@ -72,34 +74,27 @@ const DormantFunds = ({ data }: any) => {
 
   return (
     <>
-      <Title level={3}>Dormant funds</Title>
+      <Title level={3}>{t("pages.distribution.dormantFunds")}</Title>
       <Card size="small">
         <div style={{ marginBottom: "12px" }}>
           <Text style={{ fontSize: "12px" }}>
-            This is an experiment to understand how many accounts are active on
-            the Nano blockchain since <strong>October 2018</strong>.
-          </Text>
-          <br />
-          <Text style={{ fontSize: "12px" }}>
-            If an account that last transacted before to October 2018 becomes
-            active, it will be picked up by the compilation script and deducted
-            from the <strong>unknown dormant funds</strong>.
+            {t("pages.distribution.dormantFundsExperiment")}
           </Text>
           <br />
           <Text style={{ fontSize: "12px" }}>
             <ul style={{ margin: "12px 0" }}>
               <li>
-                Nano available supply:{" "}
+                {t("pages.distribution.availableSupply")}:{" "}
                 <strong>
                   {new BigNumber(availableSupply).toFormat()} NANO
                 </strong>
               </li>
               <li>
-                Known account balances:{" "}
+                {t("pages.distribution.knownAccountBalances")}:{" "}
                 <strong>{new BigNumber(totalFunds).toFormat()} NANO</strong>
               </li>
               <li>
-                Unknown dormant funds:{" "}
+                {t("pages.distribution.unknownDormantFunds")}:{" "}
                 <strong>
                   {new BigNumber(unknownDormantFunds).toFormat()} NANO
                 </strong>
@@ -107,15 +102,15 @@ const DormantFunds = ({ data }: any) => {
             </ul>
           </Text>
           <Text style={{ fontSize: "12px" }}>
-            As an example, if an account last transacted 2 quarters ago (6
-            months), its balance (including pending amounts) will be considered
-            being "dormant" since 1 quarter ago
+            {t("pages.distribution.dormantFundsEli5")}
           </Text>
         </div>
 
         <div
           style={{
-            margin: `${isMediumAndLower ? "48px 20px 48px auto" : "72px auto 0"}`,
+            margin: `${
+              isMediumAndLower ? "48px 20px 48px auto" : "72px auto 0"
+            }`,
             width: isMediumAndLower ? "20%" : "90%",
             height: isMediumAndLower ? "300px" : "auto",
           }}
@@ -143,11 +138,11 @@ const DormantFunds = ({ data }: any) => {
                 <div style={{ fontSize: "12px" }}>
                   <div>
                     <strong>{new BigNumber(totalDormant).toFormat(5)}</strong>{" "}
-                    dormant NANO
+                    {t("pages.distribution.dormantNano")}
                   </div>
                   <div>
-                    <strong>{percentAvailableSupply}%</strong> of available
-                    supply
+                    <strong>{percentAvailableSupply}%</strong>{" "}
+                    {t("pages.distribution.ofAvailableSupply")}
                   </div>
                 </div>
               );

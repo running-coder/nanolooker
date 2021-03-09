@@ -7,7 +7,16 @@
     "date": "Date",
     "unknown": "Unknown",
     "balance": "Balance",
-    "weight": "Weight"
+    "totalBalance": "Total Balance",
+    "weight": "Weight",
+    "notAvailable": "N/A",
+    "continueReading": "Continue reading",
+    "alias": "Alias",
+    "search": "Search",
+    "reset": "Reset",
+    "searchAlias": "Search Alias",
+    "noResults": "No results",
+    "by": "By"
   },
   "transaction": {
     "type": "Type",
@@ -30,7 +39,10 @@
     "pending": "A transaction state where a block sending funds was published and confirmed by the network, but a matching block receiving those funds has not yet been sent or confirmed.",
     "totalRepresentatives": "To optimize performances, only accounts with voting weight >= 1000 NANO are considered but normally any account with > 0 voting weight, but < 0.1% of the online voting weight.",
     "totalPrincipalRepresentatives": "An account with a minimum of {{principalRepresentativeMinWeight}} NANO or >= 0.1% of the online voting weight delegated to it is required to get the Principal Representative status. When configured on a node which is voting, the votes it produces will be rebroadcasted by other nodes to who receive them, helping the network reach consensus more quickly.",
-    "onlineRepresentatives": "Online representative accounts that have voted recently."
+    "onlineRepresentatives": "Online representative accounts that have voted recently.",
+    "lastTransaction": "Last send transaction from any of the {{totalAccounts}} accounts.",
+    "largeTransactions": "Only send transactions of 10,000 NANO or more are temporarily saved for one week.",
+    "knownExchangeBalance": "Exclude {{knownExchangeList}} from the distribution chart. Those accounts combined holds {{knownExchangeBalance}} NANO"
   },
   "search": {
     "searchBy": "Search by Address / Block",
@@ -53,6 +65,9 @@
     "faucets": "Faucets",
     "news": "News",
     "nodeStatus": "Node Status"
+  },
+  "footer": {
+    "createdBy": "Created by {{creator}}"
   },
   "pages": {
     "home": {
@@ -115,6 +130,62 @@
     },
     "faucets": {
       "description": "Faucets allows you to claim small amounts of NANO for free. These faucets are for you to experience how easy it is to send and receive NANO across the world instantly on a decentralized network."
+    },
+    "developerFund": {
+      "description": "As of 11/25/19 the developer fund has been split up into {{totalAccounts}} accounts following a review of internal security policy and representative voting weights.",
+      "lastTransaction": "Last transaction",
+      "allTransactions": "View all send transactions",
+      "originalDeveloperFund": "Original Developer Fund",
+      "originalDeveloperFundDescription": "The distribution of Nano (formerly RaiBlocks) was performed through solving manual captchas starting in late 2015 and ending in October 2017. Distribution stopped after ~39% of the <1>Genesis</1> amount was distributed and the rest of the supply was <3>burnt</3>.",
+      "totalAccounts": "{{totalAccounts}} Total Accounts",
+      "percentOfTotal": "{{percent}}%  of the circulating supply"
+    },
+    "knownAccounts": {
+      "totalAccounts": "{{totalAccounts}} Total Known Accounts"
+    },
+    "largeTransactions": {
+      "description": "Large transactions happening on the NANO blockchain.",
+      "latest": "Latest transaction",
+      "largest": "Largest amount"
+    },
+    "distribution": {
+      "title": "Nano Distribution",
+      "summary": "Total of <0>{{i18nTotalAccounts}}</strong> accounts are holding <1>{{i18nTotalBalances}}</1> NANO",
+      "summaryMinBalance": "Any account with a balance inferior to <0>0.001</0> is excluded",
+      "includeKnownExchanges": "Include known exchanges",
+      "logScale": "Log Scale",
+      "dormantFunds": "Dormant Funds",
+      "dormantFundsExperiment": "This is an experiment to understand how many accounts are active on the Nano blockchain. For each account the script checks if there is a last transaction date on the local node, if there is then the balance from that account is accumulated for that date",
+      "availableSupply": "Nano available supply",
+      "knownAccountBalances": "Known account balances",
+      "UnknownDormantFunds": "Unknown dormant funds",
+      "dormantFundsEli5": "As an example, if an account last transacted 2 quarters ago (6 months), its balance (including pending amounts) will be considered being \"dormant\" since 1 quarter ago",
+      "dormantNano": "Dormant NANO",
+      "ofAvailableSupply": "of available supply"
+    },
+    "news": {
+      "allFeeds": "All Feeds",
+      "allAuthors": "All Authors"
+    },
+    "status": {
+      "blockCount": "Block Count",
+      "reload": "Reload",
+      "count": "Count",
+      "unchecked": "Unchecked",
+      "cemented": "Cemented",
+      "ledger": "Ledger",
+      "availableSupply": "Available supply",
+      "nanoAccounts": "NANO accounts",
+      "ledgerSize": "Ledger size",
+      "activeDifficulty": "Active Difficulty",
+      "networkMinimum": "Network Minimum",
+      "networkCurrent": "Network Current",
+      "multiplier": "Multiplier",
+      "node": "Node",
+      "version": "Version",
+      "uptime": "Uptime",
+      "cpuUsage": "CPU Usage",
+      "memory": "Memory"
     }
   }
 }

@@ -166,7 +166,7 @@ const TransactionsTable = ({
                       style={{ color: Colors[themeColor] }}
                       className="break-word"
                     >
-                      {!amount ? "N/A" : ""}
+                      {!amount ? t("common.notAvailable") : ""}
                       {["receive", "open"].includes(transactionType) ? "+" : ""}
                       {subtype === "send" ? "-" : ""}
                       {amount
