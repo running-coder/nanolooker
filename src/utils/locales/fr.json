@@ -32,9 +32,9 @@
     "amount": "Montant"
   },
   "tooltips": {
-    "avgConfirmationTime": "Le temps moyen de confirmation est calculé localement sur le nœud. Si le nœud est redémarré ou dans un état dégradé, le temps de confirmation moyen peut être plus élevé que le reste du réseau pendant que le nœud se synchronise avec le réseau NANO.",
+    "avgConfirmationTime": "Le temps moyen de confirmation est calculé localement sur le nœud. Si le nœud est redémarré ou dans un état dégradé, le temps de confirmation moyen peut être supérieur à celui du reste du réseau.",
     "bitcoinTransactionFees": "Cette valeur n'a aucun impact sur le réseau NANO, c'est uniquement à des fins de comparaison. Il représente la somme des frais de transaction que les utilisateurs de Bitcoin paient aux mineurs pour que leur transaction soit acceptée sur le réseau Bitcoin.",
-    "cps": "Confirmations par seconde. Le taux de blocs confirmés (envoi ou réception) sur le réseau NANO. Cette statistique est échantillonnée au cours de la dernière minute localement sur le nœud. Si le nœud est redémarré, la valeur CPS peut être supérieure à la moyenne réelle sur le réseau pendant que le nœud rattrape son retard.",
+    "cps": "Confirmations par seconde. Le taux de blocs confirmés (envoi ou réception) sur le réseau NANO. Il est échantillonné au cours de la dernière minute localement sur le nœud. Si le nœud est redémarré ou dans un état dégradé, la valeur CPS peut être supérieure ou inférieure à la moyenne réelle sur le réseau pendant que le nœud se synchronise et se reconnecte avec les autres nœuds.",
     "votingWeight": "Un compte avec un minimum de {{minWeight}} NANO ou >= 0,1% du poids de vote en ligne qui lui est délégué est requis pour obtenir le statut de représentant principal. Lorsqu'ils sont configurés sur un nœud qui vote, les votes qu'il produit seront rediffusés par d'autres nœuds vers qui les reçoivent, ce qui permet au réseau d'atteindre un consensus plus rapidement.",
     "pending": "Un état de transaction où un bloc d'envoi de fonds a été publié et confirmé par le réseau, mais un bloc correspondant recevant ces fonds n'a pas encore été envoyé ou confirmé.",
     "totalRepresentatives": "Pour optimiser les performances, seuls les comptes avec un poids de vote >= 1000 NANO sont considérés mais normalement tout compte avec un poids de vote> 0, mais <0,1% du poids de vote en ligne.",
@@ -150,16 +150,17 @@
     },
     "distribution": {
       "title": "Distribution de NANO",
+      "executionDate": "La dernière compilation de distribution était le <1>{{date}}</1>",
       "summary": "Un total de <0>{{i18nTotalAccounts}}</strong> comptes détiennent <1>{{i18nTotalBalances}}</1> NANO",
       "summaryMinBalance": "Tout compte dont le solde est inférieur à <0>0,001</0> est exclu",
       "includeKnownExchanges": "Inclure les échanges connus",
       "logScale": "Échelle logarithmique",
       "dormantFunds": "Fonds dormants",
-      "dormantFundsExperiment": "Il s'agit d'une expérience pour comprendre combien de comptes sont actifs sur la blockchain Nano. Pour chaque compte, le script vérifie s'il y a une date de dernière transaction sur le nœud local, s'il y a alors le solde de ce compte est accumulé pour cette date",
+      "dormantFundsExperiment": "Il s'agit d'une expérience pour comprendre combien de comptes sont actifs sur la blockchain Nano. Pour chacun des {{totalAccounts}} comptes, la date de la dernière transaction sur le nœud local est capturée. Le solde et les montants en attente que contient ce compte sont marqués comme actifs pour ce mois. Le mois suivant, si ce compte n'a pas effectué de transaction, son solde et en attente sera marqué comme dormant.",
       "availableSupply": "Somme des Nano disponibles",
       "knownAccountBalances": "Soldes de compte connus",
-      "UnknownDormantFunds": "Fonds dormants inconnus",
-      "dormantFundsEli5": "Par exemple, si un compte a été traité pour la dernière fois il y a 2 trimestres (6 mois), son solde (y compris les montants en attente) sera considéré comme «dormant» depuis 1 trimestre.",
+      "unknownDormantFunds": "Fonds dormants inconnus",
+      "dormantFundsQuarterExample": "Un compte qui détient 50 NANO et 50 NANO en attente ont effectué la dernière transaction il y a 6 mois (2 trimestres), un solde de 100 NANO est ajouté comme «dormant» au total du trimestre suivant.",
       "dormantNano": "NANO dormant",
       "ofAvailableSupply": "de l'offre disponible"
     },

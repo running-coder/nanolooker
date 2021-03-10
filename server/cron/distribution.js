@@ -1,17 +1,30 @@
 const fs = require("fs");
+const util = require("util");
 const { join } = require("path");
+const rimraf = require("rimraf");
 const NodeCache = require("node-cache");
 const cron = require("node-cron");
 const chunk = require("lodash/chunk");
 const BigNumber = require("bignumber.js");
-const { DISTRIBUTION, DORMANT_FUNDS } = require("../constants");
+const { Sentry } = require("../sentry");
+const {
+  EXPIRE_24H,
+  DISTRIBUTION,
+  DORMANT_FUNDS,
+  STATUS,
+} = require("../constants");
 const { rawToRai } = require("../utils");
 const { BURN_ACCOUNT } = require("../../src/knownAccounts.json");
 const { rpc } = require("../rpc");
+const readdir = util.promisify(fs.readdir);
+const mkdir = util.promisify(fs.mkdir);
 
-const distributionCache = new NodeCache();
+const distributionCache = new NodeCache({
+  stdTTL: EXPIRE_24H,
+  deleteOnExpire: true,
+});
 
-const ACCOUNTS_PATH = join(__dirname, "../data/accounts.json");
+const TMP_ACCOUNTS_PATH = join(__dirname, "../data/tmp");
 const DISTRIBUTION_PATH = join(__dirname, "../data/distribution.json");
 const DORMANT_FUNDS_PATH = join(__dirname, "../data/dormantFunds.json");
 const STATUS_PATH = join(__dirname, "../data/status.json");
@@ -27,7 +40,11 @@ const getAccounts = async () => {
   let nextAccount = BURN_ACCOUNT;
   let steps = 500000;
   let nextCount = 0;
-  let accounts = [];
+
+  let currentPage = 0;
+
+  rimraf(TMP_ACCOUNTS_PATH, () => {});
+  await mkdir(`${TMP_ACCOUNTS_PATH}`, { recursive: true });
 
   while (currentAccountCount < count) {
     nextCount =
@@ -45,13 +62,14 @@ const getAccounts = async () => {
     currentAccountCount += currentFrontiers.length;
     if (currentFrontiers.length) {
       nextAccount = currentFrontiers[currentFrontiers.length - 1];
-      accounts = accounts.concat(currentFrontiers);
+
+      fs.writeFileSync(
+        `${TMP_ACCOUNTS_PATH}/${currentPage}.json`,
+        JSON.stringify(currentFrontiers, null, 2),
+      );
+      currentPage += 1;
     }
   }
-
-  fs.writeFileSync(ACCOUNTS_PATH, JSON.stringify(accounts, null, 2));
-
-  return accounts;
 };
 
 const getDistribution = async () => {
@@ -73,127 +91,159 @@ const getDistribution = async () => {
   // Funds that have not moved since X
   const dormantFunds = {};
 
-  const accounts = await getAccounts();
-  // const accounts = JSON.parse(fs.readFileSync(ACCOUNTS_PATH, "utf8"));
+  await getAccounts();
 
-  const balancesChunks = chunk(accounts, 5000);
+  const tmpAccountFiles = await readdir(TMP_ACCOUNTS_PATH);
 
-  for (let i = 0; i < balancesChunks.length; i++) {
-    let { balances } = await rpc("accounts_balances", {
-      accounts: balancesChunks[i],
-    });
-
-    console.log(
-      `processing balances chunk ${i + 1} of ${balancesChunks.length}`,
+  for (let y = 0; y < tmpAccountFiles.length; y++) {
+    const accounts = JSON.parse(
+      fs.readFileSync(`${TMP_ACCOUNTS_PATH}/${tmpAccountFiles[y]}`, "utf8"),
     );
+    const balancesChunks = chunk(accounts, 5000);
 
-    await Promise.all(
-      Object.entries(balances).map(
-        async ([account, { balance: rawBalance, pending: rawPending }]) => {
-          const balance = rawToRai(rawBalance);
-          const pending = rawToRai(rawPending);
-          const total = new BigNumber(balance).plus(pending).toNumber();
+    for (let i = 0; i < balancesChunks.length; i++) {
+      let { balances } = await rpc("accounts_balances", {
+        accounts: balancesChunks[i],
+      });
 
-          if (total < MIN_TOTAL) return;
+      console.log(
+        `processing balances: ${tmpAccountFiles[y]} - chunk ${i + 1} of ${
+          balancesChunks.length
+        }`,
+      );
 
-          // const {
-          //   modified_timestamp: modifiedTimestamp,
-          // } = await rpc("account_info", { account });
+      await Promise.all(
+        Object.entries(balances).map(
+          async ([account, { balance: rawBalance, pending: rawPending }]) => {
+            const balance = rawToRai(rawBalance);
+            const pending = rawToRai(rawPending);
+            const total = new BigNumber(balance).plus(pending).toNumber();
 
-          const { history } = await rpc("account_history", {
-            account,
-            count: 2,
-          });
+            if (total < MIN_TOTAL) return;
 
-          const result =
-            history &&
-            history.find(({ local_timestamp: localTimestamp }) => {
-              const timestamp = parseInt(localTimestamp);
+            // const {
+            //   modified_timestamp: modifiedTimestamp,
+            // } = await rpc("account_info", { account });
 
-              return (
-                timestamp &&
-                (localTimestamp < 1598572800 || localTimestamp > 1598659200)
-              );
+            const { history } = await rpc("account_history", {
+              account,
+              count: 2,
             });
-          if (!result) return;
-          const modifiedTimestamp = result.local_timestamp;
 
-          const date = new Date(parseFloat(modifiedTimestamp) * 1000);
+            const result =
+              history &&
+              history.find(({ local_timestamp: localTimestamp }) => {
+                const timestamp = parseInt(localTimestamp);
 
-          const year = date.getFullYear();
-          const month = date.getMonth();
+                return (
+                  timestamp &&
+                  (localTimestamp < 1598572800 || localTimestamp > 1598659200)
+                );
+              });
+            if (!result) return;
+            const modifiedTimestamp = result.local_timestamp;
 
-          if (!dormantFunds[year]) {
-            dormantFunds[year] = [];
-          }
-          dormantFunds[year][month] = (dormantFunds[year][month] || 0) + total;
+            const date = new Date(parseFloat(modifiedTimestamp) * 1000);
 
-          let index = total >= 1 ? `${parseInt(total)}`.length : 0;
+            const year = date.getFullYear();
+            const month = date.getMonth();
 
-          distribution[index] = {
-            accounts: distribution[index].accounts += 1,
-            balance: new BigNumber(total)
-              .plus(distribution[index].balance)
-              .toNumber(),
-          };
-        },
-      ),
-    );
+            if (!dormantFunds[year]) {
+              dormantFunds[year] = [];
+            }
+            dormantFunds[year][month] =
+              (dormantFunds[year][month] || 0) + total;
 
-    await sleep(1000);
+            let index = total >= 1 ? `${parseInt(total)}`.length : 0;
+
+            distribution[index] = {
+              accounts: (distribution[index].accounts += 1),
+              balance: new BigNumber(total)
+                .plus(distribution[index].balance)
+                .toNumber(),
+            };
+          },
+        ),
+      );
+
+      await sleep(1000);
+    }
   }
 
   return { distribution, dormantFunds };
 };
 
 const doDistributionCron = async () => {
-  const startTime = new Date();
-  console.log("Distribution cron started");
+  try {
+    const startTime = new Date();
+    console.log("Distribution cron started");
 
-  const { distribution, dormantFunds } = await getDistribution();
+    const { distribution, dormantFunds } = await getDistribution();
 
-  fs.writeFileSync(DISTRIBUTION_PATH, JSON.stringify(distribution, null, 2));
-  fs.writeFileSync(DORMANT_FUNDS_PATH, JSON.stringify(dormantFunds, null, 2));
-  fs.writeFileSync(
-    STATUS_PATH,
-    JSON.stringify(
-      {
-        executionTime: (new Date() - startTime) / 1000,
-        date: new Date(),
-      },
-      null,
-      2,
-    ),
-  );
+    fs.writeFileSync(DISTRIBUTION_PATH, JSON.stringify(distribution, null, 2));
+    fs.writeFileSync(DORMANT_FUNDS_PATH, JSON.stringify(dormantFunds, null, 2));
+    fs.writeFileSync(
+      STATUS_PATH,
+      JSON.stringify(
+        {
+          executionTime: (new Date() - startTime) / 1000,
+          date: new Date(),
+        },
+        null,
+        2,
+      ),
+    );
 
-  console.log(
-    `Distribution cron finished in ${(new Date() - startTime) / 1000}s`,
-  );
+    console.log(
+      `Distribution cron finished in ${(new Date() - startTime) / 1000}s`,
+    );
+
+    distributionCache.set(DISTRIBUTION, distribution);
+    distributionCache.set(DORMANT_FUNDS, dormantFunds);
+
+    rimraf(TMP_ACCOUNTS_PATH, () => {});
+  } catch (err) {
+    console.log(err);
+    Sentry.captureException(err);
+  }
 };
 
 // https://crontab.guru/#15_5_*_*_2,5
 // “At 05:15 on Tuesday and Friday.”
 cron.schedule("15 5 * * 2,5", async () => {
   if (process.env.NODE_ENV !== "production") return;
-  doDistributionCron();
+  // Disable cron until amounts are sorted out
+  // doDistributionCron();
 });
 
-if (!fs.existsSync(DISTRIBUTION_PATH) || !fs.existsSync(DORMANT_FUNDS_PATH)) {
-  // On app start, doDistributionCron if the data files do not exist
-  doDistributionCron();
-}
-
 const getDistributionData = () => {
-  let distribution =
-    distributionCache.get(DISTRIBUTION) || fs.existsSync(DISTRIBUTION_PATH)
+  let distribution = distributionCache.get(DISTRIBUTION);
+  let dormantFunds = distributionCache.get(DORMANT_FUNDS);
+  let status = distributionCache.get(STATUS);
+
+  if (!distribution) {
+    distribution = fs.existsSync(DISTRIBUTION_PATH)
       ? JSON.parse(fs.readFileSync(DISTRIBUTION_PATH, "utf8"))
       : [];
-  let dormantFunds =
-    distributionCache.get(DORMANT_FUNDS) || fs.existsSync(DORMANT_FUNDS_PATH)
+    distributionCache.set(DISTRIBUTION, distribution);
+  }
+
+  if (!dormantFunds) {
+    dormantFunds = fs.existsSync(DORMANT_FUNDS_PATH)
       ? JSON.parse(fs.readFileSync(DORMANT_FUNDS_PATH, "utf8"))
       : {};
+    distributionCache.set(DORMANT_FUNDS, dormantFunds);
+  }
+
+  if (!status) {
+    status = fs.existsSync(STATUS_PATH)
+      ? JSON.parse(fs.readFileSync(STATUS_PATH, "utf8"))
+      : {};
+    distributionCache.set(STATUS, status);
+  }
 
   return {
+    status,
     distribution,
     dormantFunds,
   };

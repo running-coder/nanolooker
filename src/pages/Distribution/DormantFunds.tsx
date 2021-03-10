@@ -4,6 +4,7 @@ import find from "lodash/find";
 import { Card, Slider, Typography } from "antd";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import BigNumber from "bignumber.js";
+import useFrontierCount from "api/hooks/use-frontier-count";
 import useAvailableSupply from "api/hooks/use-available-supply";
 
 const { Text, Title } = Typography;
@@ -17,6 +18,9 @@ const DormantFunds = ({ data }: any) => {
   const [unknownDormantFunds, setUnknownDormantFunds] = React.useState<number>(
     0,
   );
+  const {
+    frontierCount: { count: frontierCount },
+  } = useFrontierCount();
   const { availableSupply } = useAvailableSupply();
   // const isSmallAndLower = useMediaQuery("(min-width: 992px)");
   const isMediumAndLower = !useMediaQuery("(min-width: 768px)");
@@ -78,7 +82,9 @@ const DormantFunds = ({ data }: any) => {
       <Card size="small">
         <div style={{ marginBottom: "12px" }}>
           <Text style={{ fontSize: "12px" }}>
-            {t("pages.distribution.dormantFundsExperiment")}
+            {t("pages.distribution.dormantFundsExperiment", {
+              totalAccounts: new BigNumber(frontierCount).toFormat(),
+            })}
           </Text>
           <br />
           <Text style={{ fontSize: "12px" }}>
@@ -102,7 +108,10 @@ const DormantFunds = ({ data }: any) => {
             </ul>
           </Text>
           <Text style={{ fontSize: "12px" }}>
-            {t("pages.distribution.dormantFundsEli5")}
+            {t("pages.distribution.dormantFundsMonthExample")}
+          </Text>
+          <Text style={{ fontSize: "12px" }}>
+            {t("pages.distribution.dormantFundsQuarterExample")}
           </Text>
         </div>
 

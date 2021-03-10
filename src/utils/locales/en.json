@@ -32,9 +32,9 @@
     "amount": "Amount"
   },
   "tooltips": {
-    "avgConfirmationTime": "The average confirmation time is calculated locally on the node. If the node is restarted or in degraded condition, the average confirmation time might be higher than the rest of the network while the node syncs with the NANO network.",
+    "avgConfirmationTime": "The average confirmation time is calculated locally on the node. If the node is restarted or in degraded condition, the average confirmation time might be higher than the rest of the network.",
     "bitcoinTransactionFees": "This value have no impact on the NANO network, it is solely for comparison purpose. It represents the sum of transaction fees the Bitcoin users are paying to the miners to get their transaction accepted on the Bitcoin network.",
-    "cps": "Confirmations Per Second. The rate of confirmed blocks (send or receive) on the NANO network. This statistic is sampled over the last minute locally on the node. If the node is restarted the CPS value might be higher than the actual average on the network while the node catches up.",
+    "cps": "Confirmations Per Second. The rate of confirmed blocks (send or receive) on the NANO network. It is sampled over the last minute locally on the node. If the node is restarted or in a degraded condition, the CPS value might be higher or lower than the actual average on the network while the node syncs and reconnects with the other nodes.",
     "votingWeight": "An account with a minimum of {{minWeight}} NANO or >= 0.1% of the online voting weight delegated to it is required to get the Principal Representative status. When configured on a node which is voting, the votes it produces will be rebroadcasted by other nodes to who receive them, helping the network reach consensus more quickly.",
     "pending": "A transaction state where a block sending funds was published and confirmed by the network, but a matching block receiving those funds has not yet been sent or confirmed.",
     "totalRepresentatives": "To optimize performances, only accounts with voting weight >= 1000 NANO are considered but normally any account with > 0 voting weight, but < 0.1% of the online voting weight.",
@@ -150,16 +150,17 @@
     },
     "distribution": {
       "title": "Nano Distribution",
+      "executionDate": "Last distribution compilation was on <1>{{date}}</1>",
       "summary": "Total of <0>{{i18nTotalAccounts}}</strong> accounts are holding <1>{{i18nTotalBalances}}</1> NANO",
       "summaryMinBalance": "Any account with a balance inferior to <0>0.001</0> is excluded",
       "includeKnownExchanges": "Include known exchanges",
       "logScale": "Log Scale",
       "dormantFunds": "Dormant Funds",
-      "dormantFundsExperiment": "This is an experiment to understand how many accounts are active on the Nano blockchain. For each account the script checks if there is a last transaction date on the local node, if there is then the balance from that account is accumulated for that date",
+      "dormantFundsExperiment": "This is an experiment to understand how many accounts are active on the Nano blockchain. For each of the {{totalAccounts}} accounts, the last transaction date on the local node is captured. The balance and pending amounts this account contains is marked as active for that month. The following month if that account has not transacted, its balance and pending will be marked as dormant.",
       "availableSupply": "Nano available supply",
       "knownAccountBalances": "Known account balances",
-      "UnknownDormantFunds": "Unknown dormant funds",
-      "dormantFundsEli5": "As an example, if an account last transacted 2 quarters ago (6 months), its balance (including pending amounts) will be considered being \"dormant\" since 1 quarter ago",
+      "unknownDormantFunds": "Unknown dormant funds",
+      "dormantFundsQuarterExample": "An account which holds 50 NANO and 50 pending NANO have last transacted 6 months ago (2 quarters), a balance of 100 NANO is added as \"dormant\" to the total of the following quarter.",
       "dormantNano": "Dormant NANO",
       "ofAvailableSupply": "of available supply"
     },

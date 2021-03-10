@@ -183,11 +183,23 @@ const Distribution = () => {
     ),
   ).toFormat();
 
+  const date = data?.status?.date;
+
   return (
     <>
       <Title level={3}>{t("pages.distribution.title")}</Title>
       <Card size="small">
         <div style={{ marginBottom: "12px" }}>
+          <Text style={{ fontSize: "12px" }}>
+            <Trans
+              i18nKey="pages.distribution.executionDate"
+              //@ts-ignore
+              date={date}
+            >
+              <strong>{{ date }}</strong>
+            </Trans>
+          </Text>
+          <br />
           <Text style={{ fontSize: "12px" }}>
             <Trans
               i18nKey="pages.distribution.summary"
