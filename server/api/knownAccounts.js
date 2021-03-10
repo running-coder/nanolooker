@@ -6,7 +6,6 @@ const { rpc } = require("../rpc");
 
 const apiCache = new NodeCache({
   stdTTL: 120,
-  deleteOnExpire: true,
 });
 
 const KNOWN_ACCOUNTS = "KNOWN_ACCOUNTS";
@@ -21,9 +20,12 @@ const getKnownAccounts = async () => {
 
       const accounts = knownAccounts.flatMap(({ account }) => [account]);
 
-      const { balances } = await rpc("accounts_balances", {
-        accounts,
-      });
+      const { balances } =
+        (await rpc("accounts_balances", {
+          accounts,
+        })) || {};
+
+      if (!balances) return;
 
       knownAccounts = knownAccounts
         .map(({ account, alias }) => ({

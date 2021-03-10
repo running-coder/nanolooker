@@ -43,7 +43,6 @@ const getAccounts = async () => {
 
   let currentPage = 0;
 
-  rimraf(TMP_ACCOUNTS_PATH, () => {});
   await mkdir(`${TMP_ACCOUNTS_PATH}`, { recursive: true });
 
   while (currentAccountCount < count) {
@@ -121,25 +120,30 @@ const getDistribution = async () => {
 
             if (total < MIN_TOTAL) return;
 
-            // const {
-            //   modified_timestamp: modifiedTimestamp,
-            // } = await rpc("account_info", { account });
+            const index = total >= 1 ? `${parseInt(total)}`.length : 0;
 
+            // Add the account as part of the Distribution
+            distribution[index] = {
+              accounts: (distribution[index].accounts += 1),
+              balance: new BigNumber(total)
+                .plus(distribution[index].balance)
+                .toNumber(),
+            };
+
+            // Search for the last transaction date to place the accounts
+            // balance and pending into the Dormant funds
             const { history } = await rpc("account_history", {
               account,
-              count: 2,
+              count: 1,
             });
 
             const result =
               history &&
               history.find(({ local_timestamp: localTimestamp }) => {
                 const timestamp = parseInt(localTimestamp);
-
-                return (
-                  timestamp &&
-                  (localTimestamp < 1598572800 || localTimestamp > 1598659200)
-                );
+                return timestamp;
               });
+
             if (!result) return;
             const modifiedTimestamp = result.local_timestamp;
 
@@ -153,15 +157,6 @@ const getDistribution = async () => {
             }
             dormantFunds[year][month] =
               (dormantFunds[year][month] || 0) + total;
-
-            let index = total >= 1 ? `${parseInt(total)}`.length : 0;
-
-            distribution[index] = {
-              accounts: (distribution[index].accounts += 1),
-              balance: new BigNumber(total)
-                .plus(distribution[index].balance)
-                .toNumber(),
-            };
           },
         ),
       );
@@ -201,7 +196,7 @@ const doDistributionCron = async () => {
     distributionCache.set(DISTRIBUTION, distribution);
     distributionCache.set(DORMANT_FUNDS, dormantFunds);
 
-    rimraf(TMP_ACCOUNTS_PATH, () => {});
+    // rimraf(TMP_ACCOUNTS_PATH, () => {});
   } catch (err) {
     console.log(err);
     Sentry.captureException(err);

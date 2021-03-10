@@ -183,7 +183,7 @@ const Distribution = () => {
     ),
   ).toFormat();
 
-  const date = data?.status?.date;
+  const date = data?.status?.date || t("common.notAvailable");
 
   return (
     <>
@@ -191,22 +191,13 @@ const Distribution = () => {
       <Card size="small">
         <div style={{ marginBottom: "12px" }}>
           <Text style={{ fontSize: "12px" }}>
-            <Trans
-              i18nKey="pages.distribution.executionDate"
-              //@ts-ignore
-              date={date}
-            >
+            <Trans i18nKey="pages.distribution.executionDate">
               <strong>{{ date }}</strong>
             </Trans>
           </Text>
           <br />
           <Text style={{ fontSize: "12px" }}>
-            <Trans
-              i18nKey="pages.distribution.summary"
-              // @ts-ignore
-              i18nTotalAccounts={i18nTotalAccounts}
-              i18nTotalBalances={i18nTotalBalances}
-            >
+            <Trans i18nKey="pages.distribution.summary">
               <strong>{{ i18nTotalAccounts }}</strong>
               <strong>{{ i18nTotalBalances }}</strong>
             </Trans>
