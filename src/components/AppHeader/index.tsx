@@ -36,7 +36,7 @@ const AppHeader: React.FC = () => {
           height: "auto",
         }}
       >
-        <Row gutter={[20, 0]} style={{ width: "100%" }}>
+        <Row gutter={[18, 0]} style={{ width: "100%" }}>
           <Col
             xs={{ span: 6 }}
             md={{ span: 4 }}

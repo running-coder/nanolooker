@@ -20,12 +20,12 @@ const getKnownAccounts = async () => {
 
       const accounts = knownAccounts.flatMap(({ account }) => [account]);
 
-      const { balances } =
+      const { balances = {} } =
         (await rpc("accounts_balances", {
           accounts,
         })) || {};
 
-      if (!balances) return;
+      if (!balances) return {};
 
       knownAccounts = knownAccounts
         .map(({ account, alias }) => ({

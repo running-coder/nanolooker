@@ -58,6 +58,7 @@ const getAccounts = async () => {
     console.log(`getting frontier ${nextAccount}, count ${nextCount + 1}`);
 
     const currentFrontiers = Object.keys(frontiers);
+    // As the request was steps + 1, remove the first element which was the nextAccount
     currentFrontiers.shift();
     currentAccountCount += currentFrontiers.length;
     if (currentFrontiers.length) {
@@ -215,8 +216,17 @@ const doDistributionCron = async () => {
 cron.schedule("15 5 * * 2,5", async () => {
   if (process.env.NODE_ENV !== "production") return;
   // Disable cron until amounts are sorted out
-  // doDistributionCron();
+  doDistributionCron();
 });
+
+if (
+  !fs.existsSync(DISTRIBUTION_PATH) &&
+  !fs.existsSync(DORMANT_FUNDS_PATH) &&
+  !fs.existsSync(STATUS_PATH) &&
+  process.env.NODE_ENV === "production"
+) {
+  doDistributionCron();
+}
 
 const getDistributionData = () => {
   let distribution = distributionCache.get(DISTRIBUTION);
