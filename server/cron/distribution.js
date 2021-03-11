@@ -24,8 +24,9 @@ const distributionCache = new NodeCache({
   deleteOnExpire: true,
 });
 
-const TMP_ACCOUNTS_PATH = join(__dirname, "../data/tmp");
+const TMP_ACCOUNTS_PATH = join(__dirname, "../data/tmp/account");
 const DISTRIBUTION_PATH = join(__dirname, "../data/distribution.json");
+const TMP_DISTRIBUTION_PATH = join(__dirname, "../data/tmp/distribution");
 const DORMANT_FUNDS_PATH = join(__dirname, "../data/dormantFunds.json");
 const STATUS_PATH = join(__dirname, "../data/status.json");
 // Balance + pending below this amount will be ignored
@@ -89,6 +90,7 @@ const getDistribution = async () => {
 
   // Funds that have not moved since X
   const dormantFunds = {};
+  await mkdir(`${TMP_DISTRIBUTION_PATH}`, { recursive: true });
 
   await getAccounts();
 
@@ -159,6 +161,11 @@ const getDistribution = async () => {
               (dormantFunds[year][month] || 0) + total;
           },
         ),
+      );
+
+      fs.writeFileSync(
+        `${TMP_DISTRIBUTION_PATH}/${tmpAccountFiles[y]}`,
+        JSON.stringify({ distribution, dormantFunds }, null, 2),
       );
 
       await sleep(1000);
