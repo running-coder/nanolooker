@@ -206,7 +206,7 @@ const doDistributionCron = async () => {
 
     // rimraf(TMP_ACCOUNTS_PATH, () => {});
   } catch (err) {
-    console.log(err);
+    console.log("Error", err);
     Sentry.captureException(err);
   }
 };

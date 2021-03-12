@@ -27,6 +27,7 @@ try {
     db = client.db(MONGO_DB);
   });
 } catch (err) {
+  console.log("Error", err);
   Sentry.captureException(err);
 }
 
@@ -124,6 +125,7 @@ function updateDb() {
       accumulatedVolume = 0;
     }
   } catch (err) {
+    console.log("Error", err);
     Sentry.captureException(err);
   }
 }

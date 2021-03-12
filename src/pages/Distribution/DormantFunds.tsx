@@ -22,7 +22,6 @@ const DormantFunds = ({ data }: any) => {
     frontierCount: { count: frontierCount },
   } = useFrontierCount();
   const { availableSupply } = useAvailableSupply();
-  // const isSmallAndLower = useMediaQuery("(min-width: 992px)");
   const isMediumAndLower = !useMediaQuery("(min-width: 768px)");
 
   React.useEffect(() => {
@@ -106,9 +105,6 @@ const DormantFunds = ({ data }: any) => {
                 </strong>
               </li>
             </ul>
-          </Text>
-          <Text style={{ fontSize: "12px" }}>
-            {t("pages.distribution.dormantFundsMonthExample")}
           </Text>
           <Text style={{ fontSize: "12px" }}>
             {t("pages.distribution.dormantFundsQuarterExample")}

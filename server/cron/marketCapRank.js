@@ -60,6 +60,7 @@ cron.schedule("*/20 * * * *", async () => {
         mongoClient.close();
       });
   } catch (err) {
+    console.log("Error", err);
     Sentry.captureException(err);
   }
 });

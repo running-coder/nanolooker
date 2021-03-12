@@ -1,5 +1,6 @@
 const fetch = require("node-fetch");
 const NodeCache = require("node-cache");
+const { Sentry } = require("../sentry");
 
 const apiCache = new NodeCache({
   stdTTL: 3600,
@@ -37,7 +38,10 @@ const getBtcTransactionFees = async () => {
         TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H,
         btcTransactionFees48h,
       );
-    } catch (e) {}
+    } catch (err) {
+      console.log("Error", err);
+      Sentry.captureException(err);
+    }
   }
 
   return { btcTransactionFees24h, btcTransactionFees48h };

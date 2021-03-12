@@ -40,6 +40,7 @@ const getLargeTransactions = async () => {
             });
         });
       } catch (err) {
+        console.log("Error", err);
         Sentry.captureException(err);
         reject();
       }

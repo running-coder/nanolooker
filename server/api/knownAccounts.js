@@ -3,6 +3,7 @@ const NodeCache = require("node-cache");
 const BigNumber = require("bignumber.js");
 const { rawToRai } = require("../utils");
 const { rpc } = require("../rpc");
+const { Sentry } = require("../sentry");
 
 const apiCache = new NodeCache({
   stdTTL: 120,
@@ -20,12 +21,9 @@ const getKnownAccounts = async () => {
 
       const accounts = knownAccounts.flatMap(({ account }) => [account]);
 
-      const { balances = {} } =
-        (await rpc("accounts_balances", {
-          accounts,
-        })) || {};
-
-      if (!balances) return {};
+      const { balances } = await rpc("accounts_balances", {
+        accounts,
+      });
 
       knownAccounts = knownAccounts
         .map(({ account, alias }) => ({
@@ -49,7 +47,8 @@ const getKnownAccounts = async () => {
 
       apiCache.set(KNOWN_ACCOUNTS, knownAccounts);
     } catch (err) {
-      console.log(err);
+      console.log("Error", err);
+      Sentry.captureException(err);
     }
   }
 

@@ -61,7 +61,7 @@
     "knownAccounts": "Comptes connus",
     "largeTransactions": "Transactions volimineuses",
     "distribution": "Distribution",
-    "walletTracker": "Suivi de portefeuille",
+    "exchangeTracker": "Suivi des plateforme d'échanges",
     "faucets": "Robitets (Faucets)",
     "news": "Nouvelles",
     "nodeStatus": "Status du nœud"

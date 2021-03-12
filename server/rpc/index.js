@@ -6,6 +6,7 @@ const {
 const {
   transformer: representatives,
 } = require("./transformers/representatives");
+const { Sentry } = require("../sentry");
 
 const rpcCache = new NodeCache();
 
@@ -93,8 +94,9 @@ const rpc = async (action, params) => {
     } else {
       console.log(`Cache found for: ${cacheKey}`);
     }
-  } catch (e) {
-    console.log(e);
+  } catch (err) {
+    console.log("Error", err);
+    Sentry.captureException(err);
   }
 
   return json;

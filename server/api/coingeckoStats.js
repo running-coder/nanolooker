@@ -60,6 +60,7 @@ const getCoingeckoStats = async ({ fiat }) => {
             });
         });
       } catch (err) {
+        console.log("Error", err);
         Sentry.captureException(err);
         reject();
       }
@@ -99,7 +100,10 @@ const getCoingeckoStats = async ({ fiat }) => {
 
         apiCache.set(`${COINGECKO_MARKET_STATS}-${fiat}`, marketStats);
         resolve(marketStats);
-      } catch (e) {}
+      } catch (err) {
+        console.log("Error", err);
+        Sentry.captureException(err);
+      }
     });
 
   const getPriceStats =
@@ -116,7 +120,10 @@ const getCoingeckoStats = async ({ fiat }) => {
         apiCache.set(`${COINGECKO_PRICE_STATS}-${fiat}`, priceStats);
 
         resolve(priceStats);
-      } catch (e) {}
+      } catch (err) {
+        console.log("Error", err);
+        Sentry.captureException(err);
+      }
     });
 
   [marketCapRank24h, marketStats, priceStats] = await Promise.all([

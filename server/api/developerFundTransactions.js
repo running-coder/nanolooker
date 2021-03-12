@@ -1,6 +1,7 @@
 const NodeCache = require("node-cache");
 const sortBy = require("lodash/sortBy");
 const reverse = require("lodash/reverse");
+const { Sentry } = require("../sentry");
 const { rpc } = require("../rpc");
 const { DEVELOPER_FUND_ACCOUNTS } = require("../../src/knownAccounts.json");
 
@@ -35,7 +36,9 @@ const getDeveloperFundTransactions = async () => {
           accountsHistory = accountsHistory.concat(history);
 
           resolve();
-        } catch (e) {
+        } catch (err) {
+          console.log("Error", err);
+          Sentry.captureException(err);
           reject();
         }
       });

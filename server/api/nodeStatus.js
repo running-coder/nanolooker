@@ -3,6 +3,7 @@ const os = require("os");
 const find = require("find-process");
 const pidusage = require("pidusage");
 const NodeCache = require("node-cache");
+const { Sentry } = require("../sentry");
 
 const apiCache = new NodeCache({
   stdTTL: 30,
@@ -37,7 +38,8 @@ const getNodeStatus = async () => {
 
       apiCache.set(NODE_STATUS, nodeStatus);
     } catch (err) {
-      console.log(err);
+      console.log("Error", err);
+      Sentry.captureException(err);
     }
   }
 

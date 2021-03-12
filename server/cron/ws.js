@@ -50,6 +50,7 @@ try {
     );
   });
 } catch (err) {
+  console.log("Error", err);
   Sentry.captureException(err);
 }
 
@@ -77,6 +78,7 @@ cron.schedule("*/3 * * * * *", async () => {
         );
       });
   } catch (err) {
+    console.log("Error", err);
     Sentry.captureException(err);
   }
 });
@@ -145,6 +147,7 @@ cron.schedule("*/10 * * * * *", async () => {
         wsCache.set(TOTAL_NANO_VOLUME_KEY_48H, rawToRai(totalNanoVolume));
       });
   } catch (err) {
+    console.log("Error", err);
     Sentry.captureException(err);
   }
 });

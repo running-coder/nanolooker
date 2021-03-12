@@ -31,6 +31,7 @@ try {
     );
   });
 } catch (err) {
+  console.log("Error", err);
   Sentry.captureException(err);
 }
 
@@ -53,9 +54,7 @@ const getAccountBalance = async account => {
 
 const getAccountHistory = async (account, latestDate) => {
   const balance = await getAccountBalance(account);
-
-  const oneYear = 31536000;
-  const maxDate = Date.now() / 1000 - oneYear;
+  const maxDate = Date.now() / 1000 - EXPIRE_1Y;
   let currentDate = formatDate(new Date().getTime());
   const dailyBalances = [
     {
@@ -88,7 +87,7 @@ const getAccountHistory = async (account, latestDate) => {
       }
       if (["send", "receive"].includes(type)) {
         currentBalance = BigNumber(currentBalance)
-          [type === "send" ? "minus" : "plus"](amount)
+          [type === "send" ? "plus" : "minus"](amount)
           .toNumber();
 
         const date = formatDate(parseFloat(localTimestamp) * 1000);
@@ -118,11 +117,12 @@ const getAccountHistory = async (account, latestDate) => {
   }
 
   console.log(`Account history completed: ${account}`);
-  console.log(`Adding: ${dailyBalances.length} day(s)`);
 
   if (dailyBalances.length > 1) {
+    console.log(`Adding: ${dailyBalances.length} day(s)`);
     db.collection(EXCHANGE_BALANCES_COLLECTION).insertMany(dailyBalances);
   } else {
+    console.log(`Updating: 1 day`);
     db.collection(EXCHANGE_BALANCES_COLLECTION).updateOne(
       {
         date: currentDate,
@@ -166,22 +166,7 @@ const getAccountsHistory = async () => {
 
     await getAccountHistory(account, latestDate);
   }
-
-  console.log("Done!");
 };
-
-// Everyday at midnight
-cron.schedule("0 0 * * *", async () => {
-  if (!db) return;
-
-  try {
-    getAccountsHistory();
-    exchangeBalancesCache.set(EXCHANGE_BALANCES_COLLECTION, null);
-    getExchangeBalances();
-  } catch (err) {
-    Sentry.captureException(err);
-  }
-});
 
 const getExchangeBalances = async () => {
   let exchangeBalances = exchangeBalancesCache.get(
@@ -197,14 +182,29 @@ const getExchangeBalances = async () => {
 
     exchangeBalances = await new Promise((resolve, reject) => {
       db.collection(EXCHANGE_BALANCES_COLLECTION)
-        .find()
-        .sort({ date: -1 })
+        .aggregate([
+          {
+            $addFields: {
+              convertedDate: { $toDate: "$date" },
+            },
+          },
+          {
+            $match: {
+              convertedDate: {
+                $gte: new Date(Date.now() - EXPIRE_1Y * 1000),
+              },
+            },
+          },
+        ])
+        .sort({ convertedDate: 1 })
         .toArray((_err, data = []) => {
           const balances = {};
           accounts.forEach(({ account }) => (balances[account] = []));
 
           data.forEach(({ date, balance, account }) => {
-            balances[account].push({ date, balance });
+            if (balances[account]) {
+              balances[account].push({ date, balance });
+            }
           });
 
           resolve(balances);
@@ -216,6 +216,27 @@ const getExchangeBalances = async () => {
 
   return exchangeBalances;
 };
+
+// Everyday at midnight
+cron.schedule("0 0 * * *", async () => {
+  if (!db || process.env.NODE_ENV !== "production") return;
+
+  doExchangeBalancesCron();
+});
+
+const doExchangeBalancesCron = () => {
+  console.log("Starting doExchangeBalancesCron");
+  try {
+    getAccountsHistory();
+    exchangeBalancesCache.set(EXCHANGE_BALANCES_COLLECTION, null);
+    getExchangeBalances();
+  } catch (err) {
+    console.log("Error", err);
+    Sentry.captureException(err);
+  }
+};
+
+doExchangeBalancesCron();
 
 module.exports = {
   getExchangeBalances,

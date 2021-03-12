@@ -61,7 +61,7 @@
     "knownAccounts": "Known Accounts",
     "largeTransactions": "Large Transactions",
     "distribution": "Distribution",
-    "walletTracker": "Wallet Tracker",
+    "exchangeTracker": "Exchange Tracker",
     "faucets": "Faucets",
     "news": "News",
     "nodeStatus": "Node Status"
@@ -187,6 +187,9 @@
       "uptime": "Uptime",
       "cpuUsage": "CPU Usage",
       "memory": "Memory"
+    },
+    "exchangeTracker": {
+      "description": "Everyday a snapshot of the Exchange balance is taken to better understand the NANO movement across its ecosystem."
     }
   }
 }

@@ -3,8 +3,7 @@ require("./cron/ws");
 require("./cron/marketCapRank");
 const { getDistributionData } = require("./cron/distribution");
 require("./ws");
-const { getExchangeBalances } = require("./cron/exchangeBalances");
-
+const { getExchangeBalances } = require("./cron/exchangeTracker");
 const express = require("express");
 const cors = require("cors");
 const { rpc, allowedRpcMethods } = require("./rpc");
@@ -73,7 +72,7 @@ app.get("/api/large-transactions", async (req, res) => {
   return res.send(largeTransactions);
 });
 
-app.get("/api/exchange-balances", async (req, res) => {
+app.get("/api/exchange-tracker", async (req, res) => {
   const exchangeBalances = await getExchangeBalances();
 
   return res.send(exchangeBalances);
