@@ -41,6 +41,7 @@ const BlockDetails = () => {
     isLoading: isBlocksInfoLoading,
   } = React.useContext(BlocksInfoContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
+  const isMediumAndLower = window.innerWidth <= 768;
 
   const skeletonProps = {
     active: true,
@@ -166,7 +167,12 @@ const BlockDetails = () => {
           {linkAccountLabel ? (
             <Descriptions.Item label={linkAccountLabel}>
               {secondAccountAlias ? (
-                <strong style={{ marginRight: "6px" }}>
+                <strong
+                  style={{
+                    display: isMediumAndLower ? "block" : "inline-block",
+                    marginRight: "6px",
+                  }}
+                >
                   {secondAccountAlias}
                 </strong>
               ) : null}
@@ -178,7 +184,12 @@ const BlockDetails = () => {
           {representative ? (
             <Descriptions.Item label={t("common.representative")}>
               {representativeAlias ? (
-                <strong style={{ marginRight: "6px" }}>
+                <strong
+                  style={{
+                    display: isMediumAndLower ? "block" : "inline-block",
+                    marginRight: "6px",
+                  }}
+                >
                   {representativeAlias}
                 </strong>
               ) : null}

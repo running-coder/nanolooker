@@ -323,7 +323,8 @@ a:hover {
   padding-top: 6px;
 }
 
-.ant-tag.tag-send {
+.ant-tag.tag-send,
+.ant-tag.tag-offline {
   color: #e04576;
   border-color: #ffa2bf;
   background-color: #fff0f2 !important;

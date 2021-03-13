@@ -16,7 +16,9 @@
     "reset": "Réinitialiser",
     "searchAlias": "Recherche d'alias",
     "noResults": "Aucun résultats",
-    "by": "Par"
+    "by": "Par",
+    "online": "En ligne",
+    "offline": "Hors-ligne"
   },
   "transaction": {
     "type": "Type",

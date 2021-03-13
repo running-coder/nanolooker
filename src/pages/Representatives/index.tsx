@@ -2,13 +2,13 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import {
-  Badge,
   Card,
   Col,
   Descriptions,
   Row,
   Skeleton,
   Table,
+  Tag,
   Tooltip,
   Typography,
 } from "antd";
@@ -18,7 +18,7 @@ import { RepresentativesContext } from "api/contexts/Representatives";
 import { RepresentativesOnlineContext } from "api/contexts/RepresentativesOnline";
 import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
 import QuestionCircle from "components/QuestionCircle";
-import { rawToRai, Colors } from "components/utils";
+import { rawToRai, TwoToneColors } from "components/utils";
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 
 const { Title } = Typography;
@@ -224,20 +224,32 @@ const Representatives = () => {
               const alias = knownAccounts.find(
                 ({ account: knownAccount }) => knownAccount === text,
               )?.alias;
+              const isRepresentativeOnline = representativesOnline.includes(
+                text,
+              );
               return (
-                <div style={{ display: "flex" }}>
-                  <Badge
-                    color={
-                      representativesOnline.includes(text)
-                        ? theme === Theme.DARK
-                          ? Colors.RECEIVE_DARK
-                          : Colors.RECEIVE
-                        : theme === Theme.DARK
-                        ? Colors.SEND_DARK
-                        : Colors.SEND
-                    }
-                  />
-                  <div>
+                <>
+                  <div style={{ display: "flex" }}>
+                    <Tag
+                      color={
+                        isRepresentativeOnline
+                          ? theme === Theme.DARK
+                            ? TwoToneColors.RECEIVE_DARK
+                            : TwoToneColors.RECEIVE
+                          : theme === Theme.DARK
+                          ? TwoToneColors.SEND_DARK
+                          : TwoToneColors.SEND
+                      }
+                      className={`tag-${
+                        isRepresentativeOnline ? "online" : "offline"
+                      }`}
+                    >
+                      {t(
+                        `common.${
+                          isRepresentativeOnline ? "online" : "offline"
+                        }`,
+                      )}
+                    </Tag>
                     {alias ? (
                       <span
                         className="color-important"
@@ -246,6 +258,8 @@ const Representatives = () => {
                         {alias}
                       </span>
                     ) : null}
+                  </div>
+                  <div>
                     <Link
                       to={`/account/${text}`}
                       className="color-normal break-word"
@@ -253,7 +267,7 @@ const Representatives = () => {
                       {text}
                     </Link>
                   </div>
-                </div>
+                </>
               );
             },
           },

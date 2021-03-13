@@ -16,7 +16,9 @@
     "reset": "Reset",
     "searchAlias": "Search Alias",
     "noResults": "No results",
-    "by": "By"
+    "by": "By",
+    "online": "Online",
+    "offline": "Offline"
   },
   "transaction": {
     "type": "Type",

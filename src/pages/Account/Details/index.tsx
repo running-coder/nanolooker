@@ -1,16 +1,7 @@
 import React, { ReactElement } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import {
-  Badge,
-  Card,
-  Col,
-  Descriptions,
-  Row,
-  Skeleton,
-  Tag,
-  Tooltip,
-} from "antd";
+import { Card, Col, Descriptions, Row, Skeleton, Tag, Tooltip } from "antd";
 import find from "lodash/find";
 import BigNumber from "bignumber.js";
 import TimeAgo from "timeago-react";
@@ -26,7 +17,7 @@ import { RepresentativesOnlineContext } from "api/contexts/RepresentativesOnline
 import { RepresentativesContext } from "api/contexts/Representatives";
 import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
 import QuestionCircle from "components/QuestionCircle";
-import { rawToRai, timestampToDate, Colors } from "components/utils";
+import { rawToRai, timestampToDate, TwoToneColors } from "components/utils";
 
 interface AccountDetailsLayoutProps {
   bordered?: boolean;
@@ -117,6 +108,10 @@ const AccountDetails = () => {
     representatives.length,
   ]);
 
+  const isRepresentativeOnline = representativesOnline.includes(
+    accountInfo?.representative || "",
+  );
+
   return (
     <AccountDetailsLayout bordered={false}>
       <Descriptions bordered column={1} size="small">
@@ -153,32 +148,35 @@ const AccountDetails = () => {
           <Skeleton {...skeletonProps}>
             {accountInfo?.representative ? (
               <>
-                <div style={{ display: "flex" }}>
-                  <Badge
+                <div style={{ display: "flex", marginBottom: "3px" }}>
+                  <Tag
                     color={
-                      representativesOnline.includes(
-                        accountInfo?.representative || "",
-                      )
+                      isRepresentativeOnline
                         ? theme === Theme.DARK
-                          ? Colors.RECEIVE_DARK
-                          : Colors.RECEIVE
+                          ? TwoToneColors.RECEIVE_DARK
+                          : TwoToneColors.RECEIVE
                         : theme === Theme.DARK
-                        ? Colors.SEND_DARK
-                        : Colors.SEND
+                        ? TwoToneColors.SEND_DARK
+                        : TwoToneColors.SEND
                     }
-                  />
-                  <Link
-                    to={`/account/${accountInfo.representative}`}
-                    className="break-word"
+                    className={`tag-${
+                      isRepresentativeOnline ? "online" : "offline"
+                    }`}
                   >
-                    {accountInfo.representative}
-                  </Link>
-                </div>
-                {accountsRepresentative?.weight >= minWeight ? (
-                  <Tag style={{ marginTop: "3px" }}>
-                    {t("common.principalRepresentative")}
+                    {t(
+                      `common.${isRepresentativeOnline ? "online" : "offline"}`,
+                    )}
                   </Tag>
-                ) : null}
+                  {accountsRepresentative?.weight >= minWeight ? (
+                    <Tag>{t("common.principalRepresentative")}</Tag>
+                  ) : null}
+                </div>
+                <Link
+                  to={`/account/${accountInfo.representative}`}
+                  className="break-word"
+                >
+                  {accountInfo.representative}
+                </Link>
               </>
             ) : (
               t("pages.account.noRepresentative")
