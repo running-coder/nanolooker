@@ -77,7 +77,11 @@ const ExchangeTrackerPage = () => {
   const { t } = useTranslation();
   // const [isLoading, setIsLoading] = React.useState(true);
   const [activeWallets, setActiveWallets] = React.useState<string[]>(
-    exchangeWallets.map(({ account }) => account),
+    exchangeWallets
+      .map(({ account, name }) =>
+        !name.toLowerCase().includes("cold") ? account : "",
+      )
+      .filter(Boolean),
   );
   const [
     exchangeBalances,
@@ -155,19 +159,18 @@ const ExchangeTrackerPage = () => {
       },
       yAxis: {
         label: {
-          formatter: v => new BigNumber(v).toFormat(),
+          formatter: value =>
+            `${new BigNumber(value).dividedBy(1000000).toFormat()}M`,
         },
       },
       legend: {
         visible: false,
       },
-      // colorField: "type", // or seriesField in some cases
-      color: activeWallets.map(
-        account =>
-          accountToLineColorMap.find(
-            ({ account: accountToColor }) => account === accountToColor,
-          )?.color || "magenta",
-      ),
+      color: accountToLineColorMap
+        .map(({ account, color }) =>
+          activeWallets.includes(account) ? color : undefined,
+        )
+        .filter(Boolean),
     };
 
     if (!exchangeTrackerChart) {
