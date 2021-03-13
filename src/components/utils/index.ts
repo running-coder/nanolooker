@@ -97,6 +97,7 @@ export const isOpenAccountBlockHash = (hash: string): boolean =>
   /^[0]{64}$/.test(hash);
 
 export const isValidBlockHash = (hash: string): boolean =>
+  !/^[0]+$/.test(hash) &&
   new RegExp(`^${BLOCK_REGEX.toString().replace(/\//g, "")}$`).test(hash);
 
 export const getAccountBlockHashFromText = (text: string): string | null => {

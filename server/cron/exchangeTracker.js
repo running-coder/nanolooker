@@ -236,7 +236,7 @@ const doExchangeBalancesCron = () => {
   }
 };
 
-doExchangeBalancesCron();
+// doExchangeBalancesCron();
 
 module.exports = {
   getExchangeBalances,

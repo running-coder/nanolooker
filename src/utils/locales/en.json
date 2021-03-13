@@ -156,7 +156,7 @@
       "includeKnownExchanges": "Include known exchanges",
       "logScale": "Log Scale",
       "dormantFunds": "Dormant Funds",
-      "dormantFundsExperiment": "This is an experiment to understand how many accounts are active on the Nano blockchain. For each of the {{totalAccounts}} accounts, the last transaction date on the local node is captured. The balance and pending amounts this account contains is marked as active for that month. The following month if that account has not transacted, its balance and pending will be marked as dormant.",
+      "dormantFundsExperiment": "This is an experiment to understand how many accounts are active on the Nano blockchain. For each of the {{totalAccounts}} accounts, the last transaction date on the local node is captured. The balance and pending amounts each account contains is marked as active for the month they last transacted. The following month, the balance and pending will be marked as dormant.",
       "availableSupply": "Nano available supply",
       "knownAccountBalances": "Known account balances",
       "unknownDormantFunds": "Unknown dormant funds",

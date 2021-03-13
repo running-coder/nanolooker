@@ -195,7 +195,9 @@ const BlockDetails = () => {
 
           <Descriptions.Item label={t("pages.block.previousBlock")}>
             {isValidBlockHash(previous) ? (
-              <span className="break-word">{previous}</span>
+              <Link to={`/block/${previous}`} className="break-word">
+                {previous}
+              </Link>
             ) : null}
             {isOpenAccountBlockHash(previous) ? (
               <Text>{t("pages.block.openAccountBlock")}</Text>

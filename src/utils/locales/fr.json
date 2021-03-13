@@ -156,7 +156,7 @@
       "includeKnownExchanges": "Inclure les échanges connus",
       "logScale": "Échelle logarithmique",
       "dormantFunds": "Fonds dormants",
-      "dormantFundsExperiment": "Il s'agit d'une expérience pour comprendre combien de comptes sont actifs sur la blockchain Nano. Pour chacun des {{totalAccounts}} comptes, la date de la dernière transaction sur le nœud local est capturée. Le solde et les montants en attente que contient ce compte sont marqués comme actifs pour ce mois. Le mois suivant, si ce compte n'a pas effectué de transaction, son solde et en attente sera marqué comme dormant.",
+      "dormantFundsExperiment": "Il s'agit d'une expérience pour comprendre combien de comptes sont actifs sur la blockchain Nano. Pour chacun des {{totalAccounts}} comptes, la date de la dernière transaction sur le nœud local est capturée. Le solde et les montants en attente que contient chaque compte sont marqués comme actifs pour le mois de leur dernière transaction. Le mois suivant, le solde et en attente sera marqué comme dormant.",
       "availableSupply": "Somme des Nano disponibles",
       "knownAccountBalances": "Soldes de compte connus",
       "unknownDormantFunds": "Fonds dormants inconnus",
