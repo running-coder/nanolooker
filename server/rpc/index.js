@@ -37,23 +37,23 @@ const allowedRpcMethods = [
 ];
 
 const cacheSettings = {
-  account_history: undefined,
+  account_history: 5,
   account_info: 5,
-  accounts_balances: 30,
+  accounts_balances: 5,
   active_difficulty: 10,
   available_supply: 604800,
   block_count: 5,
-  block_info: 120,
+  block_info: 5,
   blocks_info: 120,
-  confirmation_history: 3600,
-  confirmation_quorum: 60,
-  frontier_count: undefined,
-  peers: undefined,
+  confirmation_history: 120,
+  confirmation_quorum: 30,
+  frontier_count: 10,
+  peers: 10,
   pending: 5,
-  representatives: 120,
-  representatives_online: 120,
+  representatives: 60,
+  representatives_online: 60,
   stats: 5,
-  uptime: 120,
+  uptime: 60,
   version: 3600,
 };
 
