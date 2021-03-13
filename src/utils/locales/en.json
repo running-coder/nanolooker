@@ -108,8 +108,8 @@
     },
     "block": {
       "blockSubtype": "Block subtype",
-      "receiver": "Destinataire",
-      "sender": "Expéditeur",
+      "receiver": "Receiver",
+      "sender": "Sender",
       "previousBlock": "Previous block",
       "signature": "Signature",
       "work": "Work",
