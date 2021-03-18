@@ -54,7 +54,7 @@ const cacheSettings = {
   representatives_online: 60,
   stats: 5,
   uptime: 60,
-  version: 3600,
+  version: 30,
 };
 
 const getCacheKey = (action, params) =>
