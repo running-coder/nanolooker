@@ -4,10 +4,12 @@ import QRCode from "qrcode";
 
 interface QRCodeModalProps {
   children: any;
-  text: string;
+  account: string;
+  header?: React.ReactNode;
+  body?: React.ReactNode;
 }
 
-const QRCodeModal = ({ text, children }: QRCodeModalProps) => {
+const QRCodeModal = ({ header, body, account, children }: QRCodeModalProps) => {
   const [isVisible, setIsVisible] = React.useState(false);
   const [base64Image, setBase64Image] = React.useState<string>("");
 
@@ -21,7 +23,7 @@ const QRCodeModal = ({ text, children }: QRCodeModalProps) => {
 
   React.useEffect(() => {
     if (isVisible && !base64Image) {
-      generateQR(text);
+      generateQR(account);
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -48,10 +50,11 @@ const QRCodeModal = ({ text, children }: QRCodeModalProps) => {
           </Button>,
         ]}
       >
+        {header}
         <div style={{ textAlign: "center" }}>
           {base64Image ? <img src={base64Image} alt="QR code" /> : null}
         </div>
-        <p>{text}</p>
+        {body}
       </Modal>
     </>
   );

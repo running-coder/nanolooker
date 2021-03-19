@@ -69,7 +69,11 @@
     "nodeStatus": "Node Status"
   },
   "footer": {
-    "createdBy": "Created by {{creator}}"
+    "createdBy": "Created by {{creator}}",
+    "donations": {
+      "donate": "Donate",
+      "title": "Nano Looker donations address"
+    }
   },
   "pages": {
     "home": {
@@ -191,7 +195,7 @@
       "memory": "Memory"
     },
     "exchangeTracker": {
-      "description": "Everyday a snapshot of the Exchange balance is taken to better understand the NANO movement across its ecosystem."
+      "description": "Everyday a snapshot of the balance from the most popular Exchanges where Nano is traded is taken to analyse movement on the network."
     }
   }
 }

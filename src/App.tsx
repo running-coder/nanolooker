@@ -1,11 +1,10 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { useTranslation } from "react-i18next";
 import { Route, Switch } from "react-router-dom";
 import { Layout } from "antd";
-import { GithubOutlined } from "@ant-design/icons";
 import { PreferencesContext } from "api/contexts/Preferences";
 import AppHeader from "components/AppHeader";
+import AppFooter from "components/AppFooter";
 import HomePage from "pages/Home";
 import RepresentativesPage from "pages/Representatives";
 import DeveloperFundPage from "pages/DeveloperFund";
@@ -25,10 +24,9 @@ import "antd/dist/antd.css";
 import "./App.css";
 import "./Theme.css";
 
-const { Content, Footer } = Layout;
+const { Content } = Layout;
 
 const App: React.FC = () => {
-  const { t } = useTranslation();
   const { theme } = React.useContext(PreferencesContext);
 
   useAnalytics();
@@ -64,17 +62,7 @@ const App: React.FC = () => {
             <Route path="/status" component={StatusPage} />
           </Switch>
         </Content>
-        <Footer style={{ textAlign: "center" }}>
-          <a
-            href="https://github.com/running-coder/nanolooker"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <GithubOutlined /> Nano Looker
-          </a>{" "}
-          ©{new Date().getFullYear()}{" "}
-          {t("footer.createdBy", { creator: "RunningCoder" })}
-        </Footer>
+        <AppFooter />
       </Layout>
     </>
   );

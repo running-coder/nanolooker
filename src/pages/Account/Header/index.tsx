@@ -12,7 +12,7 @@ import { KnownAccountsContext, KnownAccount } from "api/contexts/KnownAccounts";
 
 import type { PageParams } from "types/page";
 
-const { Title } = Typography;
+const { Text, Title } = Typography;
 
 const AccountHeader = () => {
   const { t } = useTranslation();
@@ -97,7 +97,7 @@ const AccountHeader = () => {
           <span style={{ marginRight: "6px", display: "flex" }}>
             <Copy text={account} />
           </span>
-          <QRCodeModal text={account}>
+          <QRCodeModal account={account} body={<Text>{account}</Text>}>
             <Button
               shape="circle"
               icon={<QrcodeOutlined />}

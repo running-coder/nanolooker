@@ -1,14 +1,15 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import moment from "moment";
 import foreach from "lodash/forEach";
 import BigNumber from "bignumber.js";
 import { Line, LineConfig } from "@antv/g2plot";
 import { Card, Tag, Typography } from "antd";
 import { WalletOutlined } from "@ant-design/icons";
-import { formatDate, tagColors, lineColors } from "./utils";
+import { tagColors, lineColors } from "./utils";
 import exchangeWallets from "../../exchanges.json";
 
-const { Title } = Typography;
+const { Text, Title } = Typography;
 
 const accountToLineColorMap = exchangeWallets.map(({ account }, i) => ({
   account,
@@ -50,12 +51,11 @@ const getExchangeBalances = async () => {
         // If the exchange history is missing dates, fill in the blanks
         // so the balance graph line is vertical and not diagonal
         if (i !== exchangeBalances[account].length - 1) {
-          const tomorrow = new Date(date);
-          tomorrow.setDate(tomorrow.getDate() + 1);
-          const formattedTomorrow = formatDate(tomorrow);
-          if (exchangeBalances[account][i + 1].date !== formattedTomorrow) {
+          const tomorrow = moment(date).utc().add(1, "days").format();
+
+          if (!tomorrow.startsWith(exchangeBalances[account][i + 1].date)) {
             balances.push({
-              date: formattedTomorrow,
+              date: tomorrow,
               balance: exchangeBalances[account][i + 1].balance,
             });
           }
@@ -75,7 +75,6 @@ const getExchangeBalances = async () => {
 
 const ExchangeTrackerPage = () => {
   const { t } = useTranslation();
-  // const [isLoading, setIsLoading] = React.useState(true);
   const [activeWallets, setActiveWallets] = React.useState<string[]>(
     exchangeWallets
       .map(({ account, name }) =>
@@ -101,9 +100,7 @@ const ExchangeTrackerPage = () => {
 
   React.useEffect(() => {
     if (!exchangeBalances) return;
-    // setIsLoading(true);
     filterData();
-    // setIsLoading(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeWallets, exchangeBalances]);
 
@@ -189,8 +186,13 @@ const ExchangeTrackerPage = () => {
   return (
     <>
       <Title level={3}>{t("menu.exchangeTracker")}</Title>
+
       <Card size="small" bordered={false}>
-        {/* {t("pages.exchangeTracker.description")} */}
+        <div style={{ marginBottom: "12px" }}>
+          <Text style={{ fontSize: "12px" }}>
+            {t("pages.exchangeTracker.description")}
+          </Text>
+        </div>
         <div>
           {exchangeWallets.map(({ name, account }, index) => {
             const [tagColor, lineColor] = activeWallets.includes(account)

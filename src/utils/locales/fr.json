@@ -69,7 +69,11 @@
     "nodeStatus": "Status du nœud"
   },
   "footer": {
-    "createdBy": "Créé par {{creator}}"
+    "createdBy": "Créé par {{creator}}",
+    "donations": {
+      "donate": "Faire un don",
+      "title": "Adresse des dons Nano Looker"
+    }
   },
   "pages": {
     "home": {
