@@ -166,11 +166,11 @@ a:hover {
 
 @media (min-width: 768px) {
   .app-header {
-    padding: 0 18px;
+    padding: 0 12px;
   }
 
   .ant-layout-content {
-    padding: 18px;
+    padding: 12px;
   }
 
   .app-sub-header {
@@ -230,7 +230,7 @@ a:hover {
 }
 
 .ant-timeline-item-head {
-  background-color: transparent;
+  /* background-color: transparent; */
 }
 
 .ant-timeline .timeline-tag {
@@ -240,6 +240,7 @@ a:hover {
 
 .ant-timeline .timeline-amount {
   margin: 0 6px;
+  word-break: break-all;
 }
 
 .ant-timeline .timeline-timeago {

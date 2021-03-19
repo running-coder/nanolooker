@@ -156,8 +156,8 @@
     },
     "distribution": {
       "title": "Distribution de NANO",
-      "executionDate": "La dernière compilation de distribution était le <1>{{date}}</1>",
-      "summary": "Un total de <0>{{i18nTotalAccounts}}</strong> comptes détiennent <1>{{i18nTotalBalances}}</1> NANO",
+      "executionDate": "La dernière compilation de distribution était le <0>{{date}}</0>",
+      "summary": "Un total de <0>{{i18nTotalAccounts}}</0> comptes détiennent <1>{{i18nTotalBalances}}</1> NANO",
       "summaryMinBalance": "Tout compte dont le solde est inférieur à <0>0,001</0> est exclu",
       "includeKnownExchanges": "Inclure les échanges connus",
       "logScale": "Échelle logarithmique",
@@ -193,6 +193,9 @@
       "uptime": "Disponibilité",
       "cpuUsage": "L'utilisation du processeur",
       "memory": "Mémoire"
+    },
+    "exchangeTracker": {
+      "description": "Chaque jour, une capture du solde des comptes des plateformes d'échanges les plus populaires où Nano est négocié est pris. Cette mesure peut permettre d'analyser les mouvements et fluctuations sur le réseau."
     }
   }
 }

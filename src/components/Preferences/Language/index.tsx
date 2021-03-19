@@ -9,6 +9,7 @@ const { Text } = Typography;
 export enum Language {
   EN = "en",
   FR = "fr",
+  PT = "pt",
 }
 
 const LanguagePreferences: React.FC = () => {
@@ -26,6 +27,7 @@ const LanguagePreferences: React.FC = () => {
       >
         <Option value="en">English</Option>
         <Option value="fr">Français</Option>
+        <Option value="pt">Português</Option>
       </Select>
     </>
   );

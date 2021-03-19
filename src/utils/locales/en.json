@@ -53,7 +53,7 @@
   "preferences": {
     "darkMode": "Dark mode",
     "language": "Language",
-    "watch": " Watch other cryptocurrencies",
+    "watch": "Watch other cryptocurrencies",
     "fiatCurrency": "Fiat currency"
   },
   "menu": {
@@ -156,8 +156,8 @@
     },
     "distribution": {
       "title": "Nano Distribution",
-      "executionDate": "Last distribution compilation was on <1>{{date}}</1>",
-      "summary": "Total of <0>{{i18nTotalAccounts}}</strong> accounts are holding <1>{{i18nTotalBalances}}</1> NANO",
+      "executionDate": "Last distribution compilation was on <0>{{date}}</0>",
+      "summary": "Total of <0>{{i18nTotalAccounts}}</0> accounts are holding <1>{{i18nTotalBalances}}</1> NANO",
       "summaryMinBalance": "Any account with a balance inferior to <0>0.001</0> is excluded",
       "includeKnownExchanges": "Include known exchanges",
       "logScale": "Log Scale",
@@ -195,7 +195,7 @@
       "memory": "Memory"
     },
     "exchangeTracker": {
-      "description": "Everyday a snapshot of the balance from the most popular Exchanges where Nano is traded is taken to analyse movement on the network."
+      "description": "Every day a capture of the account balances of the most popular exchanges where Nano is traded is taken. This measurement can be used to analyze movements and fluctuations on the network."
     }
   }
 }
