@@ -133,9 +133,7 @@ const DeveloperFund = () => {
               <Descriptions.Item
                 label={
                   <>
-                    <span style={{ marginRight: "6px" }}>
-                      {t("pages.developerFund.lastTransaction")}
-                    </span>
+                    {t("pages.developerFund.lastTransaction")}
                     <Tooltip
                       placement="right"
                       title={t("tooltips.lastTransaction", {

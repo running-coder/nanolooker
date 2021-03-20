@@ -83,9 +83,7 @@ const Representatives = () => {
               <Descriptions.Item
                 label={
                   <>
-                    <span style={{ marginRight: "6px" }}>
-                      {t("pages.representatives.totalRepresentatives")}
-                    </span>
+                    {t("pages.representatives.totalRepresentatives")}
                     <Tooltip
                       placement="right"
                       title={t("tooltips.totalRepresentatives")}
@@ -103,9 +101,7 @@ const Representatives = () => {
               <Descriptions.Item
                 label={
                   <>
-                    <span style={{ marginRight: "6px" }}>
-                      {t("pages.representatives.totalPrincipalRepresentatives")}
-                    </span>
+                    {t("pages.representatives.totalPrincipalRepresentatives")}
                     <Tooltip
                       placement="right"
                       title={t("tooltips.totalPrincipalRepresentatives", {
@@ -124,9 +120,7 @@ const Representatives = () => {
               <Descriptions.Item
                 label={
                   <>
-                    <span style={{ marginRight: "6px" }}>
-                      {t("pages.representatives.onlineRepresentatives")}
-                    </span>
+                    {t("pages.representatives.onlineRepresentatives")}
                     <Tooltip
                       placement="right"
                       title={t("tooltips.onlineRepresentatives")}

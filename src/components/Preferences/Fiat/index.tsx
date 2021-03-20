@@ -9,7 +9,11 @@ import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 const { Option } = Select;
 const { Text } = Typography;
 
-const FiatPreferences: React.FC = () => {
+interface Props {
+  isDetailed?: boolean;
+}
+
+const FiatPreferences: React.FC<Props> = ({ isDetailed }) => {
   const { t } = useTranslation();
   const { fiat, setFiat } = React.useContext(PreferencesContext);
   const { setIsInitialLoading, getMarketStatistics } = React.useContext(
@@ -18,23 +22,32 @@ const FiatPreferences: React.FC = () => {
 
   return (
     <>
-      <Text style={{ marginRight: "12px" }}>
+      <Text className={isDetailed ? "preference-detailed-title" : ""}>
         {t("preferences.fiatCurrency")}
       </Text>
-      <Select
-        defaultValue={fiat}
-        onChange={value => {
-          setFiat(value);
-          setIsInitialLoading(true);
-          getMarketStatistics(value);
-        }}
-      >
-        {Object.entries(Fiat).map(([key, value]) => (
-          <Option value={value} key={key}>
-            {key}
-          </Option>
-        ))}
-      </Select>
+      <div style={{ display: "flex" }}>
+        <div>
+          <Select
+            defaultValue={fiat}
+            onChange={value => {
+              setFiat(value);
+              setIsInitialLoading(true);
+              getMarketStatistics(value);
+            }}
+          >
+            {Object.entries(Fiat).map(([key, value]) => (
+              <Option value={value} key={key}>
+                {key}
+              </Option>
+            ))}
+          </Select>
+        </div>
+        {isDetailed ? (
+          <Text style={{ marginLeft: "12px", alignSelf: "center" }}>
+            {t("preferences.fiatCurrencyDetailed")}
+          </Text>
+        ) : null}
+      </div>
     </>
   );
 };

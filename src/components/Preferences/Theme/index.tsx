@@ -6,21 +6,35 @@ import { PreferencesContext, Theme } from "api/contexts/Preferences";
 
 const { Text } = Typography;
 
-const ThemePreference: React.FC = () => {
+interface Props {
+  isDetailed?: boolean;
+}
+
+const ThemePreference: React.FC<Props> = ({ isDetailed }) => {
   const { t } = useTranslation();
   const { theme, setTheme } = React.useContext(PreferencesContext);
 
   return (
     <>
-      <Text style={{ marginRight: "16px" }}>{t("preferences.darkMode")}</Text>
-      <Switch
-        checkedChildren={<CheckOutlined />}
-        unCheckedChildren={<CloseOutlined />}
-        onChange={(checked: boolean) => {
-          setTheme(checked ? Theme.DARK : Theme.LIGHT);
-        }}
-        defaultChecked={theme === Theme.DARK}
-      />
+      <Text className={isDetailed ? "preference-detailed-title" : ""}>
+        {t("preferences.darkMode")}
+      </Text>
+      <div style={{ display: "flex" }}>
+        <Switch
+          checkedChildren={<CheckOutlined />}
+          unCheckedChildren={<CloseOutlined />}
+          onChange={(checked: boolean) => {
+            setTheme(checked ? Theme.DARK : Theme.LIGHT);
+          }}
+          checked={theme === Theme.DARK}
+          // defaultChecked={theme === Theme.DARK}
+        />
+        {isDetailed ? (
+          <Text style={{ marginLeft: "12px" }}>
+            {t("preferences.darkModeDetailed")}
+          </Text>
+        ) : null}
+      </div>
     </>
   );
 };

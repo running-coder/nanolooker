@@ -1,7 +1,13 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { Tag, Layout, Typography } from "antd";
-import { GithubOutlined, HeartTwoTone } from "@ant-design/icons";
+import { Link } from "react-router-dom";
+import { Tag, Layout, Typography, Button } from "antd";
+import {
+  GithubOutlined,
+  HeartTwoTone,
+  SearchOutlined,
+} from "@ant-design/icons";
+import Copy from "components/Copy";
 import QRCodeModal from "components/QRCodeModal";
 
 const { Text } = Typography;
@@ -30,7 +36,20 @@ const AppFooter: React.FC = () => {
       <QRCodeModal
         account={DONATION_ACCOUNT}
         header={<Text>{t("footer.donations.title")}</Text>}
-        body={<Text>{DONATION_ACCOUNT}</Text>}
+        body={
+          <>
+            <div style={{ textAlign: "center", marginBottom: "12px" }}>
+              <span style={{ marginRight: "12px" }}>
+                <Copy text={DONATION_ACCOUNT} />
+              </span>
+
+              <Link to={`/account/${DONATION_ACCOUNT}`}>
+                <Button shape="circle" size="small" icon={<SearchOutlined />} />
+              </Link>
+            </div>
+            <Text>{DONATION_ACCOUNT}</Text>
+          </>
+        }
       >
         <Tag
           color="magenta"

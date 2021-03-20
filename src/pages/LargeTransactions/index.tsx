@@ -68,9 +68,7 @@ const LargeTransactions = () => {
       <Title level={3}>{t("menu.largeTransactions")}</Title>
 
       <div style={{ marginBottom: "12px" }}>
-        <Text style={{ marginRight: "6px" }}>
-          {t("pages.largeTransactions.description")}
-        </Text>
+        <Text>{t("pages.largeTransactions.description")}</Text>
         <Tooltip placement="right" title={t("tooltips.largeTransactions")}>
           <QuestionCircle />
         </Tooltip>

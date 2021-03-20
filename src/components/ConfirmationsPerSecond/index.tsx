@@ -13,7 +13,7 @@ const ConfirmationsPerSecond = () => {
       <Statistic
         suffix={t("transaction.cps")}
         value={confirmationsPerSecond}
-        style={{ display: "inline-block", marginRight: "6px" }}
+        style={{ display: "inline-block" }}
       ></Statistic>
       <Tooltip placement="right" title={t("tooltips.cps")}>
         <QuestionCircle />

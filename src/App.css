@@ -230,7 +230,7 @@ a:hover {
 }
 
 .ant-timeline-item-head {
-  /* background-color: transparent; */
+  background-color: transparent;
 }
 
 .ant-timeline .timeline-tag {
@@ -337,4 +337,36 @@ a:hover {
 
 .ant-slider-mark-text {
   white-space: nowrap;
+}
+
+.detailed-preference {
+  padding-bottom: 6px;
+}
+
+.detailed-preference + .detailed-preference {
+  padding-top: 6px;
+  margin-top: 6px;
+  border-top: solid 1px #eff2f5;
+}
+
+.preference-detailed-title {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.detail-layout .ant-row + .ant-row {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: solid 1px #f0f2f5;
+}
+
+.detail-layout .ant-row .ant-col:first-child {
+  font-size: 16px;
+}
+
+.anticon.anticon-question-circle {
+  margin-left: 6px;
+  font-size: 14px !important;
 }

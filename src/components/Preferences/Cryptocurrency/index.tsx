@@ -9,7 +9,11 @@ import dataSource from "./supported-cryptocurrency.json";
 const { Option } = AutoComplete;
 const { Text } = Typography;
 
-const CryptocurrencyPreferences: React.FC = () => {
+interface Props {
+  isDetailed?: boolean;
+}
+
+const CryptocurrencyPreferences: React.FC<Props> = ({ isDetailed }) => {
   const { t } = useTranslation();
   const {
     cryptocurrency,
@@ -67,7 +71,10 @@ const CryptocurrencyPreferences: React.FC = () => {
 
   return (
     <div>
-      <Text style={{ marginBottom: "6px", display: "block" }}>
+      <Text
+        style={{ display: "block" }}
+        className={isDetailed ? "preference-detailed-title" : ""}
+      >
         {t("preferences.watch")}
       </Text>
 
@@ -91,7 +98,7 @@ const CryptocurrencyPreferences: React.FC = () => {
 
       {cryptocurrency.length ? (
         <DragDropContext onDragEnd={onDragEnd}>
-          <Droppable droppableId="hello">
+          <Droppable droppableId={`hello${isDetailed ? "-detailed" : ""}`}>
             {(provided, snapshot) => (
               <ul
                 style={{

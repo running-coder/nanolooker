@@ -31,11 +31,9 @@ const LoadingStatistic = ({
           <>
             {title}
             {tooltip ? (
-              <span style={{ marginLeft: "6px" }}>
-                <Tooltip placement="right" title={tooltip}>
-                  <QuestionCircle />
-                </Tooltip>
-              </span>
+              <Tooltip placement="right" title={tooltip}>
+                <QuestionCircle />
+              </Tooltip>
             ) : null}
           </>
         }
