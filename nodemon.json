@@ -1,4 +1,4 @@
 {
-  "delay": "1000",
+  "delay": "2000",
   "ignore": ["server/data"]
 }

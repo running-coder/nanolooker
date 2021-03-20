@@ -10,6 +10,7 @@ process.on("uncaughtException", err => {
 
 process.on("exit", code => {
   Sentry.captureException(new Error("Exiting with code"), { extra: { code } });
+  process.exit(code);
 });
 
 process.on("unhandledRejection", (reason, promise) => {

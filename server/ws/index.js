@@ -131,22 +131,25 @@ function updateDb() {
 }
 
 // Catches ctrl+c event
-process.once("SIGINT", () => {
+process.once("SIGINT", err => {
   updateDb();
+  Sentry.captureException(err);
   console.log("process.kill: SIGINT");
   process.kill(process.pid, "SIGINT");
 });
 
 // Catches "kill pid"ss
-process.once("SIGUSR1", () => {
+process.once("SIGUSR1", err => {
   updateDb();
+  Sentry.captureException(err);
   console.log("process.kill: SIGISIGUSR1NT");
   process.kill(process.pid, "SIGUSR1");
 });
 
 // Used by Nodemon to restart
-process.once("SIGUSR2", () => {
+process.once("SIGUSR2", err => {
   updateDb();
+  Sentry.captureException(err);
   console.log("process.kill: SIGUSR2");
   process.kill(process.pid, "SIGUSR2");
 });
