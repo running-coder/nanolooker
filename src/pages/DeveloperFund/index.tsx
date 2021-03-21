@@ -5,7 +5,6 @@ import {
   Button,
   Card,
   Col,
-  Descriptions,
   Row,
   Skeleton,
   Table,
@@ -24,6 +23,7 @@ import useAccountsBalances from "api/hooks/use-accounts-balances";
 import useAvailableSupply from "api/hooks/use-available-supply";
 import useDeveloperAccountFund from "api/hooks/use-developer-fund-transactions";
 import QuestionCircle from "components/QuestionCircle";
+import LoadingStatistic from "components/LoadingStatistic";
 import { rawToRai, timestampToDate } from "components/utils";
 import {
   GENESIS_ACCOUNT,
@@ -103,16 +103,25 @@ const DeveloperFund = () => {
   return (
     <>
       <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]}>
-        <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+        <Col xs={24} lg={12}>
           <Title level={3}>{t("menu.developerFund")}</Title>
-          <Card size="small" bodyStyle={{ padding: 0 }} bordered={false}>
-            <div style={{ padding: "8px 16px" }}>
+          <Card size="small" bordered={false} className="detail-layout">
+            <div
+              style={{
+                borderBottom: "solid 1px #f0f2f5",
+                paddingBottom: "6px",
+                marginBottom: "12px",
+              }}
+            >
               {t("pages.developerFund.description", {
                 totalAccounts: data.length,
               })}
               <br />
               <a
-                style={{ display: "inline-block", marginTop: "10px" }}
+                style={{
+                  display: "inline-block",
+                  marginTop: "12px",
+                }}
                 href={DEVELOPER_FUND_CHANGE_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -120,31 +129,36 @@ const DeveloperFund = () => {
                 {t("common.continueReading")}
               </a>
             </div>
-            <Descriptions bordered column={1} size="small">
-              <Descriptions.Item label={t("common.totalBalance")}>
-                <Skeleton {...skeletonProps}>
-                  {new BigNumber(totalBalance).toFormat()} NANO
-                  <br />
-                </Skeleton>
+
+            <Row gutter={6}>
+              <Col xs={24} sm={6}>
+                {t("common.totalBalance")}
+              </Col>
+              <Col xs={24} sm={18}>
+                <LoadingStatistic
+                  isLoading={skeletonProps.loading}
+                  suffix="NANO"
+                  value={totalBalance}
+                />
                 <Skeleton {...skeletonProps}>
                   {`${CurrencySymbol?.[fiat]}${fiatBalance} / ${btcBalance} BTC`}
                 </Skeleton>
-              </Descriptions.Item>
-              <Descriptions.Item
-                label={
-                  <>
-                    {t("pages.developerFund.lastTransaction")}
-                    <Tooltip
-                      placement="right"
-                      title={t("tooltips.lastTransaction", {
-                        totalAccounts: data.length,
-                      })}
-                    >
-                      <QuestionCircle />
-                    </Tooltip>
-                  </>
-                }
-              >
+              </Col>
+            </Row>
+
+            <Row gutter={6}>
+              <Col xs={24} sm={6}>
+                {t("pages.developerFund.lastTransaction")}
+                <Tooltip
+                  placement="right"
+                  title={t("tooltips.lastTransaction", {
+                    totalAccounts: data.length,
+                  })}
+                >
+                  <QuestionCircle />
+                </Tooltip>
+              </Col>
+              <Col xs={24} sm={18}>
                 <Skeleton active loading={!modifiedTimestamp} paragraph={false}>
                   <TimeAgo datetime={modifiedTimestamp} live={false} /> (
                   {timestampToDate(modifiedTimestamp)})
@@ -180,16 +194,22 @@ const DeveloperFund = () => {
                     {t("pages.developerFund.allTransactions")}
                   </Button>
                 </Link>
-              </Descriptions.Item>
-            </Descriptions>
+              </Col>
+            </Row>
           </Card>
         </Col>
-        <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+        <Col xs={24} lg={12}>
           <Title level={3}>
             {t("pages.developerFund.originalDeveloperFund")}
           </Title>
-          <Card size="small" bodyStyle={{ padding: 0 }} bordered={false}>
-            <div style={{ padding: "8px 16px" }}>
+          <Card size="small" bordered={false} className="detail-layout">
+            <div
+              style={{
+                borderBottom: "solid 1px #f0f2f5",
+                paddingBottom: "6px",
+                marginBottom: "12px",
+              }}
+            >
               <Trans i18nKey="pages.developerFund.originalDeveloperFundDescription">
                 <Link to={`/account/${GENESIS_ACCOUNT}`}>Genesis</Link>
                 <Link
@@ -198,7 +218,7 @@ const DeveloperFund = () => {
               </Trans>
               <br />
               <a
-                style={{ display: "inline-block", marginTop: "10px" }}
+                style={{ display: "inline-block", marginTop: "12px" }}
                 href={DEVELOPER_FUND_ORIGINAL_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -206,35 +226,47 @@ const DeveloperFund = () => {
                 {t("common.continueReading")}
               </a>
             </div>
-            <Descriptions bordered column={1} size="small">
-              <Descriptions.Item label={t("common.account")}>
+
+            <Row gutter={6}>
+              <Col xs={24} sm={6}>
+                {t("common.account")}
+              </Col>
+              <Col xs={24} sm={18}>
                 <Link
                   to={`/account/${ORIGINAL_DEVELOPER_FUND_ACCOUNT}`}
                   className="break-word"
                 >
                   {ORIGINAL_DEVELOPER_FUND_ACCOUNT}
                 </Link>
-              </Descriptions.Item>
-              <Descriptions.Item label={t("common.balance")}>
-                <>
-                  {new BigNumber("7000000").toFormat()} NANO
-                  <br />
-                  {t("pages.developerFund.percentOfTotal", {
-                    percent: new BigNumber(7000000 * 100)
-                      .dividedBy(availableSupply)
-                      .toFormat(2),
-                  })}
-                </>
-              </Descriptions.Item>
-              <Descriptions.Item label={t("common.block")}>
+              </Col>
+            </Row>
+            <Row gutter={6}>
+              <Col xs={24} sm={6}>
+                {t("common.balance")}
+              </Col>
+              <Col xs={24} sm={18}>
+                {new BigNumber("7000000").toFormat()} NANO
+                <br />
+                {t("pages.developerFund.percentOfTotal", {
+                  percent: new BigNumber(7000000 * 100)
+                    .dividedBy(availableSupply)
+                    .toFormat(2),
+                })}
+              </Col>
+            </Row>
+            <Row gutter={6}>
+              <Col xs={24} sm={6}>
+                {t("common.block")}
+              </Col>
+              <Col xs={24} sm={18}>
                 <Link
                   to={`/block/${ORIGINAL_DEVELOPER_FUND_BLOCK}`}
                   className="break-word"
                 >
                   {ORIGINAL_DEVELOPER_FUND_BLOCK}
                 </Link>
-              </Descriptions.Item>
-            </Descriptions>
+              </Col>
+            </Row>
           </Card>
         </Col>
       </Row>

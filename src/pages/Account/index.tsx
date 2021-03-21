@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
+import { Card, Typography } from "antd";
 import { isValidAccountAddress } from "components/utils";
 import AccountHeader from "./Header";
 import AccountDetails from "./Details";
@@ -10,6 +11,8 @@ import AccountHistory from "./History";
 import { AccountInfoContext } from "api/contexts/AccountInfo";
 
 import type { PageParams } from "types/page";
+
+const { Text, Title } = Typography;
 
 const AccountPage = () => {
   const { t } = useTranslation();
@@ -40,9 +43,15 @@ const AccountPage = () => {
       ) : null}
 
       {/* @TODO Limit RPC call to single */}
-      <AccountPendingHistory />
-      <AccountHistory />
-      {!isValid || !account ? t("pages.account.missingAccount") : null}
+      {isValid ? <AccountPendingHistory /> : null}
+      {isValid ? <AccountHistory /> : null}
+
+      {!isValid || !account ? (
+        <Card bordered={false}>
+          <Title level={3}>{t("pages.account.missingAccount")}</Title>
+          <Text>{t("pages.account.missingAccountInfo")}</Text>
+        </Card>
+      ) : null}
     </>
   );
 };

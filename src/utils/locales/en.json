@@ -18,7 +18,9 @@
     "noResults": "No results",
     "by": "By",
     "online": "Online",
-    "offline": "Offline"
+    "offline": "Offline",
+    "copied": "Copied",
+    "copy": "Copy"
   },
   "transaction": {
     "type": "Type",
@@ -52,13 +54,13 @@
   },
   "preferences": {
     "darkMode": "Dark mode",
-    "darkModeDetailed": " Switch from Light or Dark mode to improve your site browsing experience depending on your environment.",
+    "darkModeDetailed": "Switch from Light or Dark mode to improve your site browsing experience depending on your environment.",
     "language": "Language",
     "languageDetailed": "Choose desired language. Nano Looker is looking for contributors to help improve the explorer's translation. <0>Contribute</0>",
     "watch": "Watch other cryptocurrencies",
     "watchDetailed": "Watch the price of other cryptocurrencies in the top 100.",
     "fiatCurrency": "Fiat currency",
-    "fiatCurrencyDetailed": "Fiat money is government-issued currency. Select a base reference to calculate Nano's price."
+    "fiatCurrencyDetailed": "Fiat money is government-issued currency. Select a fiat currency to compare Nano's price."
   },
   "menu": {
     "explore": "Explore",
@@ -77,7 +79,7 @@
     "createdBy": "Created by {{creator}}",
     "donations": {
       "donate": "Donate",
-      "title": "Nano Looker donations address"
+      "title": "Nano Looker donation account"
     }
   },
   "pages": {
@@ -108,6 +110,7 @@
     },
     "account": {
       "votingWeight": "Voting weight",
+      "percentVotingWeight": "% of the voting weight",
       "noRepresentative": "No Representative",
       "lastTransaction": "Last transaction",
       "pendingTransactions": "Pending Transactions",
@@ -115,17 +118,22 @@
       "notOpenedYet": "This account hasn't been opened yet",
       "notOpenedYetReason": "While the account address is valid, no blocks have been published to its chain yet. If NANO has been sent to this account, it still needs to publish a corresponding block to pocket the funds.",
       "totalTransactions": "Total Transactions",
-      "missingAccount": "Missing account"
+      "missingAccount": "Missing account",
+      "missingAccountInfo": "The account is not specified in the URL. Use the top search bar for searching for an account or append it in the URL after /account/"
     },
     "block": {
       "blockSubtype": "Block subtype",
+      "confirmedStatus": "The block is confirmed on the network",
+      "pendingStatus": "The block is not yet confirmed on the network",
       "receiver": "Receiver",
       "sender": "Sender",
       "previousBlock": "Previous block",
       "signature": "Signature",
       "work": "Work",
       "openAccountBlock": "This Block opened the account",
-      "originalBlockContent": "Original Block Content"
+      "originalBlockContent": "Original Block Content",
+      "missingBlock": "Missing block",
+      "missingBlockInfo": "The block is not specified in the URL. Use the top search bar for searching for a block or append it in the URL after /block/"
     },
     "representatives": {
       "totalRepresentatives": "Total Representatives",

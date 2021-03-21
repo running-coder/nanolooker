@@ -1,7 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { Card, Descriptions, Skeleton, Tag, Typography } from "antd";
+import { Card, Col, Row, Skeleton, Tag, Tooltip, Typography } from "antd";
+import { CheckCircleOutlined, SyncOutlined } from "@ant-design/icons";
 import BigNumber from "bignumber.js";
 import {
   Theme,
@@ -12,6 +13,7 @@ import {
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 import { BlocksInfoContext } from "api/contexts/BlocksInfo";
 import {
+  toBoolean,
   TwoToneColors,
   rawToRai,
   timestampToDate,
@@ -20,6 +22,7 @@ import {
   isOpenAccountBlockHash,
 } from "components/utils";
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
+import LoadingStatistic from "components/LoadingStatistic";
 
 const { Text, Title } = Typography;
 
@@ -113,30 +116,50 @@ const BlockDetails = () => {
 
   // missing "source_account": "nano_1ipx847tk8o46pwxt5qjdbncjqcbwcc1rrmqnkztrfjy5k7z4imsrata9est",
 
+  const isConfirmed = toBoolean(blockInfo?.confirmed);
+
   return (
     <>
       <Card
         size="small"
-        bodyStyle={{ padding: 0, marginBottom: "10px" }}
         bordered={false}
+        className="detail-layout"
+        style={{ marginBottom: "12px" }}
       >
-        <Descriptions bordered column={1} size="small">
-          <Descriptions.Item label={t("pages.block.blockSubtype")}>
-            <Tag
-              color={
-                // @ts-ignore
-                TwoToneColors[
-                  `${(subtype || type).toUpperCase()}${
-                    theme === Theme.DARK ? "_DARK" : ""
-                  }`
-                ]
-              }
-              className={`tag-${subtype || type}`}
+        <Row gutter={6}>
+          <Col xs={24} sm={6} md={4}>
+            {t("pages.block.blockSubtype")}
+          </Col>
+          <Col xs={24} sm={18} md={20}>
+            <Tooltip
+              title={t(
+                `pages.block.${isConfirmed ? "confirmed" : "pending"}Status`,
+              )}
             >
-              {subtype || type}
-            </Tag>
-          </Descriptions.Item>
-          <Descriptions.Item label={t("common.account")}>
+              <Tag
+                icon={
+                  isConfirmed ? <CheckCircleOutlined /> : <SyncOutlined spin />
+                }
+                color={
+                  // @ts-ignore
+                  TwoToneColors[
+                    `${(subtype || type).toUpperCase()}${
+                      theme === Theme.DARK ? "_DARK" : ""
+                    }`
+                  ]
+                }
+                className={`tag-${subtype || type}`}
+              >
+                {t(`transaction.${subtype || type}`)}
+              </Tag>
+            </Tooltip>
+          </Col>
+        </Row>
+        <Row gutter={6}>
+          <Col xs={24} sm={6} md={4}>
+            {t("common.account")}
+          </Col>
+          <Col xs={24} sm={18} md={20}>
             {blockAccountAlias ? (
               <strong style={{ marginRight: "6px" }}>
                 {blockAccountAlias}
@@ -145,17 +168,28 @@ const BlockDetails = () => {
             <Link to={`/account/${blockAccount}`} className="break-word">
               {blockAccount}
             </Link>
-          </Descriptions.Item>
-          <Descriptions.Item label={t("transaction.amount")}>
-            <Skeleton {...skeletonProps}>
-              {new BigNumber(amount).toFormat()} NANO
-              <br />
-            </Skeleton>
+          </Col>
+        </Row>
+        <Row gutter={6}>
+          <Col xs={24} sm={6} md={4}>
+            {t("transaction.amount")}
+          </Col>
+          <Col xs={24} sm={18} md={20}>
+            <LoadingStatistic
+              isLoading={skeletonProps.loading}
+              suffix="NANO"
+              value={amount >= 1 ? amount : new BigNumber(amount).toFormat()}
+            />
             <Skeleton {...skeletonProps}>
               {`${CurrencySymbol?.[fiat]}${fiatAmount} / ${btcAmount} BTC`}
             </Skeleton>
-          </Descriptions.Item>
-          <Descriptions.Item label={t("common.balance")}>
+          </Col>
+        </Row>
+        <Row gutter={6}>
+          <Col xs={24} sm={6} md={4}>
+            {t("common.balance")}
+          </Col>
+          <Col xs={24} sm={18} md={20}>
             <Skeleton {...skeletonProps}>
               {new BigNumber(balance).toFormat()} NANO
               <br />
@@ -163,9 +197,14 @@ const BlockDetails = () => {
             <Skeleton {...skeletonProps}>
               {`${CurrencySymbol?.[fiat]}${fiatBalance} / ${btcBalance} BTC`}
             </Skeleton>
-          </Descriptions.Item>
-          {linkAccountLabel ? (
-            <Descriptions.Item label={linkAccountLabel}>
+          </Col>
+        </Row>
+        {linkAccountLabel ? (
+          <Row gutter={6}>
+            <Col xs={24} sm={6} md={4}>
+              {linkAccountLabel}
+            </Col>
+            <Col xs={24} sm={18} md={20}>
               {secondAccountAlias ? (
                 <strong
                   style={{
@@ -179,10 +218,15 @@ const BlockDetails = () => {
               <Link to={`/account/${secondAccount}`} className="break-word">
                 {secondAccount}
               </Link>
-            </Descriptions.Item>
-          ) : null}
-          {representative ? (
-            <Descriptions.Item label={t("common.representative")}>
+            </Col>
+          </Row>
+        ) : null}
+        {representative ? (
+          <Row gutter={6}>
+            <Col xs={24} sm={6} md={4}>
+              {t("common.representative")}
+            </Col>
+            <Col xs={24} sm={18} md={20}>
               {representativeAlias ? (
                 <strong
                   style={{
@@ -196,15 +240,24 @@ const BlockDetails = () => {
               <Link to={`/account/${representative}`} className="break-word">
                 {representative}
               </Link>
-            </Descriptions.Item>
-          ) : null}
-          {modifiedTimestamp ? (
-            <Descriptions.Item label={t("common.date")}>
+            </Col>
+          </Row>
+        ) : null}
+        {modifiedTimestamp ? (
+          <Row gutter={6}>
+            <Col xs={24} sm={6} md={4}>
+              {t("common.date")}
+            </Col>
+            <Col xs={24} sm={18} md={20}>
               {timestampToDate(modifiedTimestamp)}
-            </Descriptions.Item>
-          ) : null}
-
-          <Descriptions.Item label={t("pages.block.previousBlock")}>
+            </Col>
+          </Row>
+        ) : null}
+        <Row gutter={6}>
+          <Col xs={24} sm={6} md={4}>
+            {t("pages.block.previousBlock")}
+          </Col>
+          <Col xs={24} sm={18} md={20}>
             {isValidBlockHash(previous) ? (
               <Link to={`/block/${previous}`} className="break-word">
                 {previous}
@@ -213,15 +266,24 @@ const BlockDetails = () => {
             {isOpenAccountBlockHash(previous) ? (
               <Text>{t("pages.block.openAccountBlock")}</Text>
             ) : null}
-          </Descriptions.Item>
-
-          <Descriptions.Item label={t("pages.block.signature")}>
+          </Col>
+        </Row>
+        <Row gutter={6}>
+          <Col xs={24} sm={6} md={4}>
+            {t("pages.block.signature")}
+          </Col>
+          <Col xs={24} sm={18} md={20}>
             <span className="break-word">{signature}</span>
-          </Descriptions.Item>
-          <Descriptions.Item label={t("pages.block.work")}>
+          </Col>
+        </Row>
+        <Row gutter={6}>
+          <Col xs={24} sm={6} md={4}>
+            {t("pages.block.work")}
+          </Col>
+          <Col xs={24} sm={18} md={20}>
             {work}
-          </Descriptions.Item>
-        </Descriptions>
+          </Col>
+        </Row>
       </Card>
 
       <Title level={3}>{t("pages.block.originalBlockContent")}</Title>

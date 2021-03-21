@@ -16,6 +16,7 @@ import { AccountInfoContext } from "api/contexts/AccountInfo";
 import { RepresentativesOnlineContext } from "api/contexts/RepresentativesOnline";
 import { RepresentativesContext } from "api/contexts/Representatives";
 import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
+import LoadingStatistic from "components/LoadingStatistic";
 import QuestionCircle from "components/QuestionCircle";
 import { rawToRai, timestampToDate, TwoToneColors } from "components/utils";
 
@@ -65,11 +66,15 @@ const AccountDetails = () => {
     isLoading: isRepresentativesLoading,
   } = React.useContext(RepresentativesContext);
   const {
-    confirmationQuorum: { principal_representative_min_weight: minWeight },
+    confirmationQuorum: {
+      principal_representative_min_weight: minWeight,
+      online_stake_total: onlineStakeTotal = 0,
+    },
   } = React.useContext(ConfirmationQuorumContext);
   const { representatives: representativesOnline } = React.useContext(
     RepresentativesOnlineContext,
   );
+
   const balance = new BigNumber(rawToRai(accountInfo?.balance || 0)).toNumber();
   const balancePending = new BigNumber(
     rawToRai(accountInfo?.pending || 0),
@@ -115,12 +120,25 @@ const AccountDetails = () => {
   return (
     <AccountDetailsLayout bordered={false}>
       <>
+        <Row gutter={6}>
+          <Col xs={24} sm={6}>
+            {t("common.balance")}
+          </Col>
+          <Col xs={24} sm={18}>
+            <LoadingStatistic
+              isLoading={skeletonProps.loading}
+              suffix="NANO"
+              value={balance >= 1 ? balance : new BigNumber(balance).toFormat()}
+            />
+            <Skeleton {...skeletonProps}>
+              {`${CurrencySymbol?.[fiat]}${fiatBalance} / ${btcBalance} BTC`}
+            </Skeleton>
+          </Col>
+        </Row>
         {representativeAccount?.account ? (
           <Row gutter={6}>
             <Col xs={24} sm={6}>
-              <span style={{ marginRight: "6px" }}>
-                {t("pages.account.votingWeight")}
-              </span>
+              {t("pages.account.votingWeight")}
               <Tooltip
                 placement="right"
                 title={t("tooltips.votingWeight", { minWeight })}
@@ -129,24 +147,18 @@ const AccountDetails = () => {
               </Tooltip>
             </Col>
             <Col xs={24} sm={18}>
-              {new BigNumber(representativeAccount.weight).toFormat()} NANO
+              <>
+                {new BigNumber(representativeAccount.weight).toFormat()}
+                <br />
+                {new BigNumber(representativeAccount.weight)
+                  .times(100)
+                  .dividedBy(rawToRai(onlineStakeTotal))
+                  .toFormat(2)}
+                {t("pages.account.percentVotingWeight")}
+              </>
             </Col>
           </Row>
         ) : null}
-        <Row gutter={6}>
-          <Col xs={24} sm={6}>
-            {t("common.balance")}
-          </Col>
-          <Col xs={24} sm={18}>
-            <Skeleton {...skeletonProps}>
-              {new BigNumber(balance).toFormat()} NANO
-              <br />
-            </Skeleton>
-            <Skeleton {...skeletonProps}>
-              {`${CurrencySymbol?.[fiat]}${fiatBalance} / ${btcBalance} BTC`}
-            </Skeleton>
-          </Col>
-        </Row>
         <Row gutter={6}>
           <Col xs={24} sm={6}>
             {t("common.representative")}
@@ -155,7 +167,7 @@ const AccountDetails = () => {
             <Skeleton {...skeletonProps}>
               {accountInfo?.representative ? (
                 <>
-                  <div style={{ display: "flex", marginBottom: "3px" }}>
+                  <div style={{ display: "flex", margin: "3px 0" }}>
                     <Tag
                       color={
                         isRepresentativeOnline
@@ -193,17 +205,19 @@ const AccountDetails = () => {
             </Skeleton>
           </Col>
         </Row>
-        <Row gutter={6}>
-          <Col xs={24} sm={6}>
-            {t("transaction.pending")}
-            <Tooltip placement="right" title={t("tooltips.pending")}>
-              <QuestionCircle />
-            </Tooltip>
-          </Col>
-          <Col xs={24} sm={18}>
-            <Skeleton {...skeletonProps}>{balancePending} NANO</Skeleton>
-          </Col>
-        </Row>
+        {parseFloat(accountInfo?.pending) ? (
+          <Row gutter={6}>
+            <Col xs={24} sm={6}>
+              {t("transaction.pending")}
+              <Tooltip placement="right" title={t("tooltips.pending")}>
+                <QuestionCircle />
+              </Tooltip>
+            </Col>
+            <Col xs={24} sm={18}>
+              <Skeleton {...skeletonProps}>{balancePending} NANO</Skeleton>
+            </Col>
+          </Row>
+        ) : null}
         <Row gutter={6}>
           <Col xs={24} sm={6}>
             {t("pages.account.lastTransaction")}
@@ -219,10 +233,6 @@ const AccountDetails = () => {
             </Skeleton>
           </Col>
         </Row>
-        {/* <Row gutter={6}>
-          <Col xs={24} sm={6}></Col>
-          <Col xs={24} sm={18}></Col>
-        </Row> */}
       </>
     </AccountDetailsLayout>
   );

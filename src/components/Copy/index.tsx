@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Button, Tooltip } from "antd";
 import { CheckCircleFilled, CopyOutlined, CopyFilled } from "@ant-design/icons";
 import CopyToClipboard from "react-copy-to-clipboard";
@@ -8,11 +9,12 @@ import { Colors } from "components/utils";
 let copiedTimeout: number | undefined;
 
 const Copy = ({ text }: { text: string }) => {
+  const { t } = useTranslation();
   const { theme } = React.useContext(PreferencesContext);
   const [isCopied, setIsCopied] = React.useState<boolean>(false);
 
   return (
-    <Tooltip title={isCopied ? "Copied!" : "Copy"}>
+    <Tooltip title={isCopied ? `${t("common.copied")}!` : t("common.copy")}>
       <CopyToClipboard
         text={text}
         onCopy={() => {

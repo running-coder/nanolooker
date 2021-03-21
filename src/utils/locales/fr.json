@@ -18,7 +18,9 @@
     "noResults": "Aucun résultats",
     "by": "Par",
     "online": "En ligne",
-    "offline": "Hors-ligne"
+    "offline": "Hors-ligne",
+    "copied": "Copié",
+    "copy": "Copier"
   },
   "transaction": {
     "type": "Type",
@@ -52,9 +54,13 @@
   },
   "preferences": {
     "darkMode": "Mode de nuit",
+    "darkModeDetailed": "Passez du mode Clair ou Foncé pour améliorer l'expérience de navigation de votre site en fonction de votre environnement.",
     "language": "Langue",
+    "languageDetailed": "Choisissez la langue souhaitée. Nano Looker recherche des contributeurs pour aider à améliorer la traduction de l'explorateur. <0>Contribuer</0>",
     "watch": "Surveiller d'autres cryptomonnaies",
-    "fiatCurrency": "Monnaie fiduciaire"
+    "watchDetailed": "Surveillez le prix des autres crypto-monnaies dans le top 100.",
+    "fiatCurrency": "Monnaie fiduciaire",
+    "fiatCurrencyDetailed": "L'argent fiduciaire est une monnaie émise par le gouvernement. Sélectionnez une monnaie fiduciaire pour comparer le prix de Nano."
   },
   "menu": {
     "explore": "Explorer",
@@ -66,13 +72,14 @@
     "exchangeTracker": "Suivi des plateforme d'échanges",
     "faucets": "Robitets (Faucets)",
     "news": "Nouvelles",
-    "nodeStatus": "Status du nœud"
+    "nodeStatus": "Status du nœud",
+    "preferences": "Préférences"
   },
   "footer": {
     "createdBy": "Créé par {{creator}}",
     "donations": {
       "donate": "Faire un don",
-      "title": "Adresse des dons Nano Looker"
+      "title": "Compte des dons Nano Looker"
     }
   },
   "pages": {
@@ -103,6 +110,7 @@
     },
     "account": {
       "votingWeight": "Poids du vote",
+      "percentVotingWeight": "% du poids du vote",
       "noRepresentative": "Pas de Représentant",
       "lastTransaction": "Dernière transaction",
       "pendingTransactions": "Transactions en attente",
@@ -110,17 +118,22 @@
       "notOpenedYet": "Ce compte n'a pas encore été ouvert",
       "notOpenedYetReason": "Bien que l'adresse du compte soit valide, aucun bloc n'a encore été publié dans sa chaîne. Si NANO a été envoyé sur ce compte, il doit encore publier un bloc correspondant pour empocher les fonds.",
       "totalTransactions": "Total des Transactions",
-      "missingAccount": "Compte manquant"
+      "missingAccount": "Compte manquant",
+      "missingAccountInfo": "Le compte n'est pas spécifié dans l'URL. Utilisez la barre de recherche supérieure pour rechercher un compte ou ajoutez-le dans l'URL après /account/"
     },
     "block": {
       "blockSubtype": "Sous-type de bloc",
+      "confirmedStatus": "Le bloc est confirmé sur le réseau",
+      "pendingStatus": "Le bloc n'est pas encore confirmé sur le réseau",
       "receiver": "Destinataire",
       "sender": "Expéditeur",
       "previousBlock": "Bloc précédent",
       "signature": "Signature",
       "work": "Travail",
       "openAccountBlock": "Ce block a ouvert le compte",
-      "originalBlockContent": "Contenu original du bloc"
+      "originalBlockContent": "Contenu original du bloc",
+      "missingBlock": "Bloc manquant",
+      "missingBlockInfo": "Le bloc n'est pas spécifié dans l'URL. Utilisez la barre de recherche supérieure pour rechercher un bloc ou ajoutez-le dans l'URL après /block/"
     },
     "representatives": {
       "totalRepresentatives": "Total des représentants",
@@ -177,7 +190,7 @@
     "status": {
       "blockCount": "Nombre de blocs",
       "reload": "Recharger",
-      "count": "Compte",
+      "count": "Total",
       "unchecked": "Non vérifié",
       "cemented": "Cimenté",
       "ledger": "Registre",
@@ -196,6 +209,12 @@
     },
     "exchangeTracker": {
       "description": "Chaque jour, une capture du solde des comptes des plateformes d'échanges les plus populaires où Nano est négocié est pris. Cette mesure peut permettre d'analyser les mouvements et fluctuations sur le réseau."
+    },
+    "preferences": {
+      "description": "Gérez vos préférences pour chaque section. Les préférences sont stockées sur le navigateur, si vous effacez vos données, vos préférences seront rétablies par défaut.",
+      "general": "Réglages généraux",
+      "bookmarks": "Signets",
+      "searchHistory": "Historique des recherches"
     }
   }
 }

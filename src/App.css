@@ -363,7 +363,7 @@ a:hover {
 }
 
 .detail-layout .ant-row .ant-col:first-child {
-  font-size: 16px;
+  color: gray;
 }
 
 .anticon.anticon-question-circle {

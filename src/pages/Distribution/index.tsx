@@ -220,7 +220,9 @@ const Distribution = () => {
             }}
             defaultChecked={isIncludeExchanges}
           />
-          <Text>{t("pages.distribution.includeKnownExchanges")}</Text>
+          <Text style={{ marginLeft: "6px" }}>
+            {t("pages.distribution.includeKnownExchanges")}
+          </Text>
           <Tooltip
             placement="right"
             title={t("tooltips.knownExchangeBalance", {

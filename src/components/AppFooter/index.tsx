@@ -13,7 +13,7 @@ import QRCodeModal from "components/QRCodeModal";
 const { Text } = Typography;
 const { Footer } = Layout;
 
-const DONATION_ACCOUNT =
+export const DONATION_ACCOUNT =
   "nano_1gxx3dbrprrh9ycf1p5wo9qgmftppg6z7688njum14aybjkaiweqmwpuu9py";
 
 const AppFooter: React.FC = () => {
@@ -38,12 +38,18 @@ const AppFooter: React.FC = () => {
         header={<Text>{t("footer.donations.title")}</Text>}
         body={
           <>
-            <div style={{ textAlign: "center", marginBottom: "12px" }}>
-              <span style={{ marginRight: "12px" }}>
-                <Copy text={DONATION_ACCOUNT} />
-              </span>
-
-              <Link to={`/account/${DONATION_ACCOUNT}`}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginBottom: "12px",
+              }}
+            >
+              <Copy text={DONATION_ACCOUNT} />
+              <Link
+                to={`/account/${DONATION_ACCOUNT}`}
+                style={{ marginLeft: "12px" }}
+              >
                 <Button shape="circle" size="small" icon={<SearchOutlined />} />
               </Link>
             </div>

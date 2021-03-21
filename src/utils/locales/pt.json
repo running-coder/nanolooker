@@ -18,7 +18,9 @@
     "noResults": "Sem resultados",
     "by": "De",
     "online": "Conectados",
-    "offline": "Desligado"
+    "offline": "Desligado",
+    "copied": "Copiado",
+    "copy": "Cópia de"
   },
   "transaction": {
     "type": "Modelo",
@@ -52,9 +54,13 @@
   },
   "preferences": {
     "darkMode": "Modo escuro",
+    "darkModeDetailed": "Mude do modo Claro ou Escuro para melhorar sua experiência de navegação no site, dependendo do seu ambiente.",
     "language": "Língua",
+    "languageDetailed": "Escolha o idioma desejado. Nano Looker está procurando colaboradores para ajudar a melhorar a tradução do explorador. <0>Contribua</0>",
     "watch": "Assistir a outras criptomoedas",
-    "fiatCurrency": "Moeda Fiat"
+    "watchDetailed": "Observe o preço de outras criptomoedas entre as 100 principais.",
+    "fiatCurrency": "Moeda Fiat",
+    "fiatCurrencyDetailed": "O dinheiro Fiat é uma moeda emitida pelo governo. Selecione uma moeda fiduciária para comparar o preço do Nano."
   },
   "menu": {
     "explore": "Explorar",
@@ -66,13 +72,14 @@
     "exchangeTracker": "Rastreador de Troca",
     "faucets": "Torneiros",
     "news": "Notícia",
-    "nodeStatus": "Status do nó"
+    "nodeStatus": "Status do nó",
+    "preferences": "Preferências"
   },
   "footer": {
     "createdBy": "Criado por {{creator}}",
     "donations": {
       "donate": "Doar",
-      "title": "Endereço de doações do Nano Looker"
+      "title": "Conta de doação Nano Looker"
     }
   },
   "pages": {
@@ -103,6 +110,7 @@
     },
     "account": {
       "votingWeight": "Peso de votação",
+      "percentVotingWeight": "% do peso do voto",
       "noRepresentative": "Sem Representante",
       "lastTransaction": "Última transação",
       "pendingTransactions": "Transações Pendentes",
@@ -110,17 +118,22 @@
       "notOpenedYet": "Esta conta ainda não foi aberta",
       "notOpenedYetReason": "Embora o endereço da conta seja válido, nenhum bloqueio foi publicado em sua cadeia ainda. Se NANO foi enviado para esta conta, ainda precisa publicar um bloco correspondente para embolsar os fundos.",
       "totalTransactions": "Total de transações",
-      "missingAccount": "Conta faltando"
+      "missingAccount": "Conta faltando",
+      "missingAccountInfo": "A conta não está especificada no URL. Use a barra de pesquisa superior para pesquisar uma conta ou anexe-a no URL após /conta/"
     },
     "block": {
       "blockSubtype": "Subtipo de bloco",
+      "confirmedStatus": "O bloco é confirmado na rede",
+      "pendingStatus": "O bloco ainda não está confirmado na rede",
       "receiver": "Receptor",
       "sender": "Remetente",
       "previousBlock": "Bloco anterior",
       "signature": "Assinatura",
       "work": "Trabalhar",
       "openAccountBlock": "Este bloco abriu a conta",
-      "originalBlockContent": "Conteúdo Original do Bloco"
+      "originalBlockContent": "Conteúdo Original do Bloco",
+      "missingBlock": "Bloco ausente",
+      "missingBlockInfo": "O bloco não está especificado no URL. Use a barra de pesquisa superior para pesquisar um bloco ou anexe-o na URL após /block/"
     },
     "representatives": {
       "totalRepresentatives": "Total de Representantes",
@@ -196,6 +209,12 @@
     },
     "exchangeTracker": {
       "description": "Todos os dias é feita uma captura dos saldos das contas das bolsas mais populares onde o Nano é negociado. Esta medição pode ser usada para analisar movimentos e flutuações na rede."
+    },
+    "preferences": {
+      "description": "Gerencie suas preferências para todas as seções. As preferências são armazenadas no navegador, se você limpar seus dados, suas preferências voltarão aos padrões.",
+      "general": "Configurações Gerais",
+      "bookmarks": "Favoritos",
+      "searchHistory": "Histórico de busca"
     }
   }
 }
