@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Card, Col, Row, Skeleton, Tag, Tooltip, Typography } from "antd";
 import { CheckCircleOutlined, SyncOutlined } from "@ant-design/icons";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import BigNumber from "bignumber.js";
 import {
   Theme,
@@ -44,7 +45,7 @@ const BlockDetails = () => {
     isLoading: isBlocksInfoLoading,
   } = React.useContext(BlocksInfoContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
-  const isMediumAndLower = window.innerWidth <= 768;
+  const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
 
   const skeletonProps = {
     active: true,
@@ -109,13 +110,6 @@ const BlockDetails = () => {
     ({ account: knownAccount }) => knownAccount === representative,
   )?.alias;
 
-  // @TODO COMPLETE FOR BLOCK
-  // FAC080FA957BEA21C6059C4D47E479D8B6AB8A11C781416FBE8A41CF4CBD67B2
-
-  /// prevous == None (this block opened the account)
-
-  // missing "source_account": "nano_1ipx847tk8o46pwxt5qjdbncjqcbwcc1rrmqnkztrfjy5k7z4imsrata9est",
-
   const isConfirmed = toBoolean(blockInfo?.confirmed);
 
   return (
@@ -127,11 +121,14 @@ const BlockDetails = () => {
         style={{ marginBottom: "12px" }}
       >
         <Row gutter={6}>
-          <Col xs={24} sm={6} md={4}>
-            {t("pages.block.blockSubtype")}
-          </Col>
+          {isSmallAndLower ? null : (
+            <Col xs={24} sm={6} md={4}>
+              {t("pages.block.blockSubtype")}
+            </Col>
+          )}
           <Col xs={24} sm={18} md={20}>
             <Tooltip
+              placement={isSmallAndLower ? "right" : "top"}
               title={t(
                 `pages.block.${isConfirmed ? "confirmed" : "pending"}Status`,
               )}
@@ -208,8 +205,7 @@ const BlockDetails = () => {
               {secondAccountAlias ? (
                 <strong
                   style={{
-                    display: isMediumAndLower ? "block" : "inline-block",
-                    marginRight: "6px",
+                    display: "block",
                   }}
                 >
                   {secondAccountAlias}
@@ -230,8 +226,7 @@ const BlockDetails = () => {
               {representativeAlias ? (
                 <strong
                   style={{
-                    display: isMediumAndLower ? "block" : "inline-block",
-                    marginRight: "6px",
+                    display: "block",
                   }}
                 >
                   {representativeAlias}
