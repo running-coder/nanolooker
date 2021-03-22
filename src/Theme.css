@@ -262,3 +262,7 @@ body .theme-dark {
 .theme-dark .bottom-gradient {
   background: linear-gradient(transparent, #1e1e1e);
 }
+
+.theme-dark .detail-layout .ant-row + .ant-row {
+  border-color: #2f2f2f;
+}
