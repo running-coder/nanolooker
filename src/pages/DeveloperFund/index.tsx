@@ -107,8 +107,8 @@ const DeveloperFund = () => {
           <Title level={3}>{t("menu.developerFund")}</Title>
           <Card size="small" bordered={false} className="detail-layout">
             <div
+              className="divider"
               style={{
-                borderBottom: "solid 1px #f0f2f5",
                 paddingBottom: "6px",
                 marginBottom: "12px",
               }}
@@ -204,8 +204,8 @@ const DeveloperFund = () => {
           </Title>
           <Card size="small" bordered={false} className="detail-layout">
             <div
+              className="divider"
               style={{
-                borderBottom: "solid 1px #f0f2f5",
                 paddingBottom: "6px",
                 marginBottom: "12px",
               }}

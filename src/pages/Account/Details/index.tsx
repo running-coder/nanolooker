@@ -19,6 +19,7 @@ import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
 import LoadingStatistic from "components/LoadingStatistic";
 import QuestionCircle from "components/QuestionCircle";
 import { rawToRai, timestampToDate, TwoToneColors } from "components/utils";
+import AccountHeader from "../Header";
 
 interface AccountDetailsLayoutProps {
   bordered?: boolean;
@@ -120,6 +121,11 @@ const AccountDetails = () => {
   return (
     <AccountDetailsLayout bordered={false}>
       <>
+        <Row gutter={6}>
+          <Col xs={24}>
+            <AccountHeader />
+          </Col>
+        </Row>
         <Row gutter={6}>
           <Col xs={24} sm={6}>
             {t("common.balance")}

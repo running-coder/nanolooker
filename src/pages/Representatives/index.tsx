@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import {
   Card,
   Col,
-  Descriptions,
   Row,
   Skeleton,
   Table,
@@ -41,7 +40,6 @@ const Representatives = () => {
       online_weight_minimum: onlineWeightMinimum = 0,
       online_stake_total: onlineStakeTotal = 0,
       peers_stake_total: peersStakeTotal = 0,
-      // peers_stake_required: peersStakeRequired,
       principal_representative_min_weight: principalRepresentativeMinWeight = 0,
     },
     isLoading: isConfirmationQuorumLoading,
@@ -76,112 +74,131 @@ const Representatives = () => {
   return (
     <>
       <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]}>
-        <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+        <Col xs={24} md={12}>
           <Title level={3}>{t("menu.representatives")}</Title>
-          <Card size="small" bodyStyle={{ padding: 0 }} bordered={false}>
-            <Descriptions bordered column={1} size="small">
-              <Descriptions.Item
-                label={
-                  <>
-                    {t("pages.representatives.totalRepresentatives")}
-                    <Tooltip
-                      placement="right"
-                      title={t("tooltips.totalRepresentatives")}
-                    >
-                      <QuestionCircle />
-                    </Tooltip>
-                  </>
-                }
-              >
+          <Card
+            size="small"
+            bordered={false}
+            className="detail-layout"
+            style={{ marginBottom: "12px" }}
+          >
+            <Row gutter={6}>
+              <Col xs={24} sm={12} xl={8}>
+                {t("pages.representatives.totalRepresentatives")}
+                <Tooltip
+                  placement="right"
+                  title={t("tooltips.totalRepresentatives")}
+                >
+                  <QuestionCircle />
+                </Tooltip>
+              </Col>
+              <Col xs={24} sm={12} xl={16}>
                 <Skeleton {...representativesSkeletonProps}>
                   {representatives?.length -
                     (principalRepresentatives?.length || 0)}
                 </Skeleton>
-              </Descriptions.Item>
-              <Descriptions.Item
-                label={
-                  <>
-                    {t("pages.representatives.totalPrincipalRepresentatives")}
-                    <Tooltip
-                      placement="right"
-                      title={t("tooltips.totalPrincipalRepresentatives", {
-                        principalRepresentativeMinWeight,
-                      })}
-                    >
-                      <QuestionCircle />
-                    </Tooltip>
-                  </>
-                }
-              >
+              </Col>
+            </Row>
+            <Row gutter={6}>
+              <Col xs={24} sm={12} xl={8}>
+                {t("pages.representatives.totalPrincipalRepresentatives")}
+                <Tooltip
+                  placement="right"
+                  title={t("tooltips.totalPrincipalRepresentatives", {
+                    principalRepresentativeMinWeight,
+                  })}
+                >
+                  <QuestionCircle />
+                </Tooltip>
+              </Col>
+              <Col xs={24} sm={12} xl={16}>
                 <Skeleton {...representativesSkeletonProps}>
                   {principalRepresentatives?.length}
                 </Skeleton>
-              </Descriptions.Item>
-              <Descriptions.Item
-                label={
-                  <>
-                    {t("pages.representatives.onlineRepresentatives")}
-                    <Tooltip
-                      placement="right"
-                      title={t("tooltips.onlineRepresentatives")}
-                    >
-                      <QuestionCircle />
-                    </Tooltip>
-                  </>
-                }
-              >
+              </Col>
+            </Row>
+            <Row gutter={6}>
+              <Col xs={24} sm={12} xl={8}>
+                <>
+                  {t("pages.representatives.onlineRepresentatives")}
+                  <Tooltip
+                    placement="right"
+                    title={t("tooltips.onlineRepresentatives")}
+                  >
+                    <QuestionCircle />
+                  </Tooltip>
+                </>
+              </Col>
+              <Col xs={24} sm={12} xl={16}>
                 <Skeleton {...representativesOnlineSkeletonProps}>
                   {representativesOnline?.length}
                 </Skeleton>
-              </Descriptions.Item>
-            </Descriptions>
+              </Col>
+            </Row>
           </Card>
         </Col>
-        <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+        <Col xs={24} md={12}>
           <Title level={3}>
             {t("pages.representatives.confirmationQuorum")}
           </Title>
-          <Card size="small" bodyStyle={{ padding: 0 }} bordered={false}>
-            <Descriptions bordered column={1} size="small">
-              <Descriptions.Item
-                label={t(
-                  "pages.representatives.principalRepresentativeMinWeight",
-                )}
-              >
+          <Card
+            size="small"
+            bordered={false}
+            className="detail-layout"
+            style={{ marginBottom: "12px" }}
+          >
+            <Row gutter={6}>
+              <Col xs={24} sm={8}>
+                {t("pages.representatives.principalRepresentativeMinWeight")}
+              </Col>
+              <Col xs={24} sm={16}>
                 <Skeleton {...confirmationQuorumSkeletonProps}>
                   {new BigNumber(principalRepresentativeMinWeight).toFormat()}{" "}
                   NANO
                 </Skeleton>
-              </Descriptions.Item>
-              <Descriptions.Item
-                label={t("pages.representatives.onlineWrightQuorumPercent")}
-              >
+              </Col>
+            </Row>
+            <Row gutter={6}>
+              <Col xs={24} sm={8}>
+                {t("pages.representatives.onlineWrightQuorumPercent")}
+              </Col>
+              <Col xs={24} sm={16}>
                 <Skeleton {...confirmationQuorumSkeletonProps}>
                   {onlineWeightQuorumPercent}%
                 </Skeleton>
-              </Descriptions.Item>
-              <Descriptions.Item
-                label={t("pages.representatives.minimumOnlineWeight")}
-              >
+              </Col>
+            </Row>
+            <Row gutter={6}>
+              <Col xs={24} sm={8}>
+                {t("pages.representatives.minimumOnlineWeight")}
+              </Col>
+              <Col xs={24} sm={16}>
+                {" "}
                 <Skeleton {...confirmationQuorumSkeletonProps}>
                   {new BigNumber(rawToRai(onlineWeightMinimum)).toFormat()} NANO
                 </Skeleton>
-              </Descriptions.Item>
-              <Descriptions.Item
-                label={t("pages.representatives.totalOnlineStake")}
-              >
+              </Col>
+            </Row>
+            <Row gutter={6}>
+              <Col xs={24} sm={8}>
+                {t("pages.representatives.totalOnlineStake")}
+              </Col>
+              <Col xs={24} sm={16}>
                 <Skeleton {...confirmationQuorumSkeletonProps}>
                   {new BigNumber(rawToRai(onlineStakeTotal)).toFormat(0)} NANO
                 </Skeleton>
-              </Descriptions.Item>
-              <Descriptions.Item
-                label={t("pages.representatives.totalPeerStake")}
-              >
+              </Col>
+            </Row>
+            <Row gutter={6}>
+              <Col xs={24} sm={8}>
+                {t("pages.representatives.totalPeerStake")}
+              </Col>
+              <Col xs={24} sm={16}>
                 <Skeleton {...confirmationQuorumSkeletonProps}>
                   {new BigNumber(rawToRai(peersStakeTotal)).toFormat(0)} NANO
                 </Skeleton>
-              </Descriptions.Item>
-            </Descriptions>
+              </Col>
+            </Row>
           </Card>
         </Col>
       </Row>

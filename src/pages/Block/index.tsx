@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import { Card, Typography } from "antd";
 import { BlocksInfoContext } from "api/contexts/BlocksInfo";
-import BlockHeader from "./Header";
 import BlockDetails from "./Details";
 import { isValidBlockHash } from "components/utils";
 
@@ -25,7 +24,7 @@ const BlockPage = () => {
 
   return (
     <>
-      {isValid ? <BlockHeader /> : null}
+      <Title level={3}>{t("common.block")}</Title>
       {isValid ? <BlockDetails /> : null}
       {!isValid || !block ? (
         <Card bordered={false}>

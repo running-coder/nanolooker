@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Card, Descriptions, Typography } from "antd";
+import { Card, Col, Row, Typography } from "antd";
 import { Link } from "react-router-dom";
 
 const { Title, Text } = Typography;
@@ -41,10 +41,18 @@ const FaucetsPage = () => {
       <div style={{ marginBottom: "12px" }}>
         <Text>{t("pages.faucets.description")}</Text>
       </div>
-      <Card size="small" bodyStyle={{ padding: 0 }} bordered={false}>
-        <Descriptions bordered column={1} size="small">
-          {faucets.map(({ name, account, link }) => (
-            <Descriptions.Item label={name}>
+      <Card
+        size="small"
+        bordered={false}
+        className="detail-layout"
+        style={{ marginBottom: "12px" }}
+      >
+        {faucets.map(({ name, account, link }) => (
+          <Row gutter={6} key={name}>
+            <Col xs={24} sm={6} xl={4}>
+              {name}
+            </Col>
+            <Col xs={24} sm={18} xl={20}>
               <Link
                 to={`/account/${account}`}
                 className="break-word color-normal"
@@ -60,9 +68,9 @@ const FaucetsPage = () => {
               >
                 {link}
               </a>
-            </Descriptions.Item>
-          ))}
-        </Descriptions>
+            </Col>
+          </Row>
+        ))}
       </Card>
     </>
   );

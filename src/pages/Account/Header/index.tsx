@@ -2,7 +2,6 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Button, Typography } from "antd";
 import { WalletOutlined, QrcodeOutlined } from "@ant-design/icons";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import find from "lodash/find";
 import { useParams } from "react-router-dom";
 import Copy from "components/Copy";
@@ -31,7 +30,6 @@ const AccountHeader = () => {
     confirmationQuorum: { principal_representative_min_weight: minWeight },
   } = React.useContext(ConfirmationQuorumContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
-  const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
 
   React.useEffect(() => {
     if (!account || isRepresentativesLoading || !representatives.length) return;
@@ -57,7 +55,7 @@ const AccountHeader = () => {
     <>
       {representativeAccount?.account && minWeight ? (
         <>
-          <Title level={3}>
+          <Title level={3} style={{ margin: 0 }}>
             {representativeAccount.weight >= minWeight
               ? t("common.principalRepresentative")
               : t("common.representative")}
@@ -65,27 +63,26 @@ const AccountHeader = () => {
         </>
       ) : null}
       {knownAccount ? (
-        <Title level={4} style={{ marginTop: 0 }}>
+        <Title level={4} style={{ margin: 0 }}>
           {knownAccount.alias}
         </Title>
       ) : null}
       {!knownAccount && account === DONATION_ACCOUNT ? (
-        <Title level={4} style={{ marginTop: 0 }}>
+        <Title level={4} style={{ margin: 0 }}>
           {t("footer.donations.title")}
         </Title>
       ) : null}
       <div
         style={{
           display: "flex",
-          alignItems: "flex-start",
+          alignItems: "baseline",
           fontSize: "16px",
           wordWrap: "break-word",
           position: "relative",
-          marginBottom: "6px",
         }}
         className="color-normal"
       >
-        <div>
+        <div style={{ alignSelf: "baseline" }}>
           <WalletOutlined
             style={{
               fontSize: "18px",
@@ -103,12 +100,14 @@ const AccountHeader = () => {
         </span>
         <div
           style={{
-            whiteSpace: "nowrap",
-            display: isSmallAndLower ? "block" : "inline-flex",
+            textAlign: "right",
           }}
         >
           <span
-            style={{ marginRight: "6px", display: "flex", marginBottom: "6px" }}
+            style={{
+              display: "inline-block",
+              fontSize: 0,
+            }}
           >
             <Copy text={account} />
           </span>
@@ -117,7 +116,7 @@ const AccountHeader = () => {
               shape="circle"
               icon={<QrcodeOutlined />}
               size="small"
-              style={{ marginRight: "6px" }}
+              style={{ marginLeft: "6px", marginTop: "3px" }}
             />
           </QRCodeModal>
         </div>

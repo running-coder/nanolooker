@@ -9,6 +9,8 @@ import {
 } from "@ant-design/icons";
 import Copy from "components/Copy";
 import QRCodeModal from "components/QRCodeModal";
+import { Theme, PreferencesContext } from "api/contexts/Preferences";
+import { TwoToneColors } from "components/utils";
 
 const { Text } = Typography;
 const { Footer } = Layout;
@@ -18,6 +20,10 @@ export const DONATION_ACCOUNT =
 
 const AppFooter: React.FC = () => {
   const { t } = useTranslation();
+  const { theme } = React.useContext(PreferencesContext);
+
+  const donateColor =
+    theme === Theme.DARK ? TwoToneColors.DONATE_DARK : TwoToneColors.DONATE;
 
   return (
     <Footer style={{ textAlign: "center" }}>
@@ -58,8 +64,8 @@ const AppFooter: React.FC = () => {
         }
       >
         <Tag
-          color="magenta"
-          icon={<HeartTwoTone twoToneColor="#eb2f96" />}
+          color={donateColor}
+          icon={<HeartTwoTone twoToneColor={donateColor} />}
           style={{ cursor: "pointer", marginTop: "6px" }}
         >
           {t("footer.donations.donate")}

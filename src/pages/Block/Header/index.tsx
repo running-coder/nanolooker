@@ -3,7 +3,7 @@ import { BlockOutlined } from "@ant-design/icons";
 import { useParams } from "react-router-dom";
 import Copy from "components/Copy";
 
-import type { PageParams } from 'types/page'
+import type { PageParams } from "types/page";
 
 const BlockHeader = () => {
   const { block = "" } = useParams<PageParams>();
@@ -13,21 +13,18 @@ const BlockHeader = () => {
       <div
         style={{
           display: "flex",
-          alignItems: "flex-start",
+          alignItems: "baseline",
           fontSize: "16px",
-          marginRight: "6px",
           wordWrap: "break-word",
           position: "relative",
-          marginBottom: "12px",
         }}
         className="color-normal"
       >
-        <div>
+        <div style={{ alignSelf: "baseline" }}>
           <BlockOutlined
             style={{
               fontSize: "18px",
               marginRight: "6px",
-              alignSelf: "flex-start",
             }}
           />
         </div>
@@ -37,7 +34,12 @@ const BlockHeader = () => {
           <span>{block.substr(-57, 50)}</span>
           <span style={{ color: "#1890ff" }}>{block.substr(-7)}</span>
         </span>
-        <div>
+        <div
+          style={{
+            textAlign: "right",
+            fontSize: 0,
+          }}
+        >
           <Copy text={block} />
         </div>
       </div>

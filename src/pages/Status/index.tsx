@@ -4,6 +4,7 @@ import BlockCount from "components/BlockCount";
 import ActiveDifficulty from "components/ActiveDifficulty";
 import Node from "components/Node";
 import Ledger from "components/Ledger";
+import Peers from "components/Peers";
 
 const StatusPage = () => {
   return (
@@ -19,6 +20,9 @@ const StatusPage = () => {
       </Col>
       <Col xs={24} sm={12} lg={8}>
         <Node />
+      </Col>
+      <Col xs={24} sm={12} lg={8}>
+        <Peers />
       </Col>
     </Row>
   );

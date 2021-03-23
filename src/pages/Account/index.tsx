@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import { Card, Typography } from "antd";
 import { isValidAccountAddress } from "components/utils";
-import AccountHeader from "./Header";
 import AccountDetails from "./Details";
 import AccountDetailsUnopened from "./Details/Unopened";
 import AccountPendingHistory from "./Pending";
@@ -29,11 +28,10 @@ const AccountPage = () => {
 
   return (
     <>
-      {isValid ? <AccountHeader /> : null}
+      <Title level={3}>{t("common.account")}</Title>
       {isValid && !isAccountInfoError ? (
         <>
           <AccountDetails />
-          {/* @TODO Add account pending transactions THIS CONDITION RE-RENDERS 2 times... possible isError + loading... :pepethink: */}
         </>
       ) : null}
       {isValid && isAccountInfoError ? (
@@ -41,8 +39,6 @@ const AccountPage = () => {
           <AccountDetailsUnopened />
         </>
       ) : null}
-
-      {/* @TODO Limit RPC call to single */}
       {isValid ? <AccountPendingHistory /> : null}
       {isValid ? <AccountHistory /> : null}
 

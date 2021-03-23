@@ -133,7 +133,9 @@
       "openAccountBlock": "This Block opened the account",
       "originalBlockContent": "Original Block Content",
       "missingBlock": "Missing block",
-      "missingBlockInfo": "The block is not specified in the URL. Use the top search bar for searching for a block or append it in the URL after /block/"
+      "missingBlockInfo": "The block is not specified in the URL. Use the top search bar for searching for a block or append it in the URL after /block/",
+      "blockNotFound": "Block not found",
+      "blockNotFoundInfo": "The block you requested in not found. It is possible that the block is present on the Nano network but has yet to be seen by the node. Make sure you are searching for the correct block or try again later."
     },
     "representatives": {
       "totalRepresentatives": "Total Representatives",
@@ -205,7 +207,10 @@
       "version": "Version",
       "uptime": "Uptime",
       "cpuUsage": "CPU Usage",
-      "memory": "Memory"
+      "memory": "Memory",
+      "peers": "Peers",
+      "connectedPeers": "Connected Peers",
+      "protocolVersion": "Protocol Version {{protocolVersion}}"
     },
     "exchangeTracker": {
       "description": "Every day a capture of the account balances of the most popular exchanges where Nano is traded is taken. This measurement can be used to analyze movements and fluctuations on the network."

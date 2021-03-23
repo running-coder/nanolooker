@@ -142,28 +142,6 @@ body .theme-dark {
   opacity: 0.25;
 }
 
-.theme-dark .ant-descriptions {
-  color: #e1e1e1;
-}
-
-.theme-dark .ant-descriptions-bordered .ant-descriptions-item-label {
-  color: #e1e1e1;
-  background: #1e1e1e;
-  border-color: #1e1e1e;
-}
-
-.theme-dark .ant-descriptions-item-content {
-  color: #e1e1e1;
-}
-
-.theme-dark .ant-descriptions-bordered .ant-descriptions-view {
-  border-color: #1e1e1e;
-}
-
-.theme-dark .ant-descriptions-bordered .ant-descriptions-row {
-  border-color: #1e1e1e;
-}
-
 .theme-dark .ant-table thead > tr > th {
   color: #e1e1e1;
   background: #1e1e1e !important;
@@ -253,7 +231,8 @@ body .theme-dark {
   border-color: #2f2f2f;
 }
 
-.theme-dark .ant-tag.tag-send {
+.theme-dark .ant-tag.tag-send,
+.theme-dark .ant-tag.tag-offline {
   color: #fff;
   border-color: #e04576;
   background-color: #e04576 !important;
@@ -264,5 +243,9 @@ body .theme-dark {
 }
 
 .theme-dark .detail-layout .ant-row + .ant-row {
+  border-color: #2f2f2f;
+}
+
+.theme-dark .detail-layout .divider {
   border-color: #2f2f2f;
 }

@@ -1,31 +1,56 @@
 import React from "react";
 import { rpc } from "api/rpc";
 
-export interface PeersResponse {
-  peers: any;
+interface Peer {
+  protocol_version: string;
+  node_id: string;
+  type: "tcp" | "udp";
+}
+
+interface Peers {
+  [key: string]: Peer;
 }
 
 export interface UsePeersReturn {
-  peers: PeersResponse;
+  peers: Peers;
+  getPeers: () => {};
   count: number;
+  isLoading: boolean;
   isError: boolean;
 }
 
 const usePeers = (): UsePeersReturn => {
-  const [peers, setPeers] = React.useState({} as PeersResponse);
+  const [peers, setPeers] = React.useState({} as Peers);
+  const [isLoading, setIsLoading] = React.useState(false);
   const [isError, setIsError] = React.useState(false);
 
   const getPeers = async () => {
-    const json = await rpc("peers");
+    setIsLoading(true);
+    setIsError(false);
 
-    !json || json.error ? setIsError(true) : setPeers(json);
+    try {
+      const json = await rpc("peers", { peer_details: true });
+
+      !json || json.error || !json.peers
+        ? setIsError(true)
+        : setPeers(json.peers);
+    } catch (err) {
+      setIsError(true);
+    }
+    setIsLoading(false);
   };
 
   React.useEffect(() => {
     getPeers();
   }, []);
 
-  return { peers, count: Object.keys(peers?.peers || {}).length, isError };
+  return {
+    peers,
+    getPeers,
+    count: Object.keys(peers).length,
+    isLoading,
+    isError,
+  };
 };
 
 export default usePeers;

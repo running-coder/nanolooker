@@ -82,19 +82,6 @@ a:hover {
   top: 0;
 }
 
-.ant-descriptions-item-content {
-  width: 90%;
-}
-
-.ant-descriptions-item-content .ant-skeleton-title,
-.price-list .ant-skeleton-title {
-  margin: 0;
-}
-
-.ant-descriptions-item-content .ant-skeleton + .ant-skeleton {
-  margin-top: 10px;
-}
-
 .container {
   display: flex;
   white-space: nowrap;
@@ -141,10 +128,6 @@ a:hover {
 
 .break-word {
   word-break: break-word;
-}
-
-.ant-descriptions-item-label {
-  white-space: nowrap;
 }
 
 .ant-layout-content {
@@ -362,8 +345,21 @@ a:hover {
   border-top: solid 1px #f0f2f5;
 }
 
+.detail-layout .divider {
+  border-bottom: solid 1px #f0f2f5;
+}
+
 .detail-layout .ant-row .ant-col:first-child {
   color: gray;
+}
+
+.detail-layout .ant-skeleton-title,
+.price-list .ant-skeleton-title {
+  margin: 4px 0;
+}
+
+.detail-layout .ant-skeleton + .ant-skeleton {
+  margin-top: 4px;
 }
 
 .anticon.anticon-question-circle {
