@@ -2,7 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Col, Row, Switch, Typography } from "antd";
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
-import { PreferencesContext, Theme } from "api/contexts/Preferences";
+import { PreferencesContext } from "api/contexts/Preferences";
 
 const { Text } = Typography;
 
@@ -10,20 +10,23 @@ interface Props {
   isDetailed?: boolean;
 }
 
-const ThemePreference: React.FC<Props> = ({ isDetailed }) => {
+const FilterTransactionsPreferences: React.FC<Props> = ({ isDetailed }) => {
   const { t } = useTranslation();
-  const { theme, setTheme } = React.useContext(PreferencesContext);
+  const {
+    hideTransactionsUnderOneNano,
+    setHideTransactionsUnderOneNano,
+  } = React.useContext(PreferencesContext);
 
   return (
     <Row>
       <Col xs={isDetailed ? 24 : 18}>
         <Text className={isDetailed ? "preference-detailed-title" : ""}>
-          {t("preferences.darkMode")}
+          {t("preferences.filterTransactions")}
         </Text>
       </Col>
       {isDetailed ? (
         <Col xs={18}>
-          <Text>{t("preferences.darkModeDetailed")}</Text>
+          <Text>{t("preferences.filterTransactionsDetailed")}</Text>
         </Col>
       ) : null}
 
@@ -32,13 +35,13 @@ const ThemePreference: React.FC<Props> = ({ isDetailed }) => {
           checkedChildren={<CheckOutlined />}
           unCheckedChildren={<CloseOutlined />}
           onChange={(checked: boolean) => {
-            setTheme(checked ? Theme.DARK : Theme.LIGHT);
+            setHideTransactionsUnderOneNano(!checked);
           }}
-          checked={theme === Theme.DARK}
+          checked={!hideTransactionsUnderOneNano}
         />
       </Col>
     </Row>
   );
 };
 
-export default ThemePreference;
+export default FilterTransactionsPreferences;

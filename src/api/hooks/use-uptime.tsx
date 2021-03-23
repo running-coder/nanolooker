@@ -26,6 +26,7 @@ const useUptime = (): UseUptimeReturn => {
     if (!uptime?.seconds) return;
 
     setTimeout(() => {
+      if (document.visibilityState !== "visible") return;
       setUptime({
         seconds: (parseInt(uptime.seconds) + 60).toString(),
       });

@@ -12,6 +12,7 @@ import { KnownAccountsContext, KnownAccount } from "api/contexts/KnownAccounts";
 import { DONATION_ACCOUNT } from "components/AppFooter";
 
 import type { PageParams } from "types/page";
+import { PreferencesContext } from "api/contexts/Preferences";
 
 const { Text, Title } = Typography;
 
@@ -26,6 +27,7 @@ const AccountHeader = () => {
     representatives,
     isLoading: isRepresentativesLoading,
   } = React.useContext(RepresentativesContext);
+  const { natricons } = React.useContext(PreferencesContext);
   const {
     confirmationQuorum: { principal_representative_min_weight: minWeight },
   } = React.useContext(ConfirmationQuorumContext);
@@ -75,21 +77,36 @@ const AccountHeader = () => {
       <div
         style={{
           display: "flex",
-          alignItems: "baseline",
+          alignItems: natricons ? "center" : "baseline",
           fontSize: "16px",
           wordWrap: "break-word",
           position: "relative",
         }}
         className="color-normal"
       >
-        <div style={{ alignSelf: "baseline" }}>
-          <WalletOutlined
+        {natricons ? (
+          <img
+            alt="natricon"
+            src={`https://natricon.com/api/v1/nano?address=${account}&svc=nanolooker`}
             style={{
-              fontSize: "18px",
-              marginRight: "6px",
+              marginTop: "-12px",
+              marginLeft: "-18px",
+              marginBottom: "-18px",
+              marginRight: "-6px",
             }}
+            width="80px"
+            height="80px"
           />
-        </div>
+        ) : (
+          <div style={{ alignSelf: "baseline" }}>
+            <WalletOutlined
+              style={{
+                fontSize: "18px",
+                marginRight: "6px",
+              }}
+            />
+          </div>
+        )}
         <span className="break-word" style={{ marginRight: "6px" }}>
           <span>
             {account.substr(account.length * -1, account.length - 60)}

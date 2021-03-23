@@ -6,7 +6,7 @@ import {
   ApartmentOutlined,
   CalendarOutlined,
   DatabaseOutlined,
-  // SettingOutlined,
+  SettingOutlined,
 } from "@ant-design/icons";
 import { useHistory, useLocation } from "react-router-dom";
 import Search from "components/Search";
@@ -106,11 +106,11 @@ const AppHeader: React.FC = () => {
                 {t("menu.nodeStatus")}
                 <Link to="/status" />
               </Menu.Item>
-              {/* <Menu.Item key="preferences">
+              <Menu.Item key="preferences">
                 <SettingOutlined />
                 {t("menu.preferences")}
                 <Link to="/preferences" />
-              </Menu.Item> */}
+              </Menu.Item>
             </Menu>
           </Col>
 

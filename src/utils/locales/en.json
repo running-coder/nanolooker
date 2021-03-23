@@ -58,9 +58,16 @@
     "language": "Language",
     "languageDetailed": "Choose desired language. Nano Looker is looking for contributors to help improve the explorer's translation. <0>Contribute</0>",
     "watch": "Watch other cryptocurrencies",
-    "watchDetailed": "Watch the price of other cryptocurrencies in the top 100.",
+    "watchSearch": "Search cryptocurrencies",
+    "watchDetailed": "Watch the price of other cryptocurrencies in the top 100. The current market prices and 24 hours change will appear in the top bar. You may also re-order your selection using drag and drop.",
     "fiatCurrency": "Fiat currency",
-    "fiatCurrencyDetailed": "Fiat money is government-issued currency. Select a fiat currency to compare Nano's price."
+    "fiatCurrencyDetailed": "Fiat money is government-issued currency. Select a fiat currency to compare Nano's price.",
+    "natricons": "Natricons",
+    "natriconsDetailed": "Natricons are friendly, familiar face for Nano addresses. Use them on Account pages, anywhere there is a Nano address nearby.",
+    "liveTransactions": "Enable live updates",
+    "liveTransactionsDetailed": "Watch live transactions happening on the Nano network. Available on the Home page.",
+    "filterTransactions": "Include amounts under 1 NANO",
+    "filterTransactionsDetailed": "Include small amounts to be displayed in the live transactions feed on the Home page."
   },
   "menu": {
     "explore": "Explore",
@@ -102,11 +109,7 @@
       "liveUpdatesDisabled": "Live updates disabled",
       "waitingForTransactions": "Waiting for transactions",
       "connectingToBlockchain": "Connecting to the NANO blockchain",
-      "reconnectingToBlockchain": "Disconnected, reconnecting to the NANO blockchain",
-      "preferences": {
-        "enableLiveUpdates": "Enable live updates",
-        "includeAmountsUnder1": "Include amounts under 1 NANO"
-      }
+      "reconnectingToBlockchain": "Disconnected, reconnecting to the NANO blockchain"
     },
     "account": {
       "votingWeight": "Voting weight",
@@ -157,7 +160,7 @@
       "lastTransaction": "Last transaction",
       "allTransactions": "View all send transactions",
       "originalDeveloperFund": "Original Developer Fund",
-      "originalDeveloperFundDescription": "The distribution of Nano (formerly RaiBlocks) was performed through solving manual captchas starting in late 2015 and ending in October 2017. Distribution stopped after ~39% of the <1>Genesis</1> amount was distributed and the rest of the supply was <3>burnt</3>.",
+      "originalDeveloperFundDescription": "The distribution of Nano (formerly RaiBlocks) was performed through solving manual captchas starting in late 2015 and ending in October 2017. Distribution stopped after ~39% of the <0>Genesis</0> amount was distributed and the rest of the supply was <1>burnt</1>.",
       "totalAccounts": "{{totalAccounts}} Total Accounts",
       "percentOfTotal": "{{percent}}%  of the circulating supply"
     },

@@ -56,9 +56,11 @@ const TransactionsTable = ({
   setCurrentHead,
 }: TransactionsTableProps) => {
   const { t } = useTranslation();
-  const { theme } = React.useContext(PreferencesContext);
+  const { theme, natricons } = React.useContext(PreferencesContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
+
   const isLargeAndHigher = useMediaQuery("(min-width: 992px)");
+  const smallNatriconSize = !useMediaQuery("(min-width: 768px)");
 
   return (
     <Card size="small" className="transaction-card">
@@ -84,7 +86,8 @@ const TransactionsTable = ({
           <Col xs={0} lg={2}>
             {t("transaction.type")}
           </Col>
-          <Col xs={0} lg={14}>
+          {natricons ? <Col xs={0} lg={2}></Col> : null}
+          <Col xs={0} lg={natricons ? 12 : 14}>
             {t("transaction.accountAndBlock")}
           </Col>
           <Col xs={0} lg={5}>
@@ -130,7 +133,7 @@ const TransactionsTable = ({
                   align="middle"
                   gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]}
                 >
-                  <Col xs={24} md={4} lg={2}>
+                  <Col xs={natricons ? 12 : 24} md={4} lg={2}>
                     <Tag
                       // @ts-ignore
                       color={TwoToneColors[themeColor]}
@@ -140,7 +143,29 @@ const TransactionsTable = ({
                       {t(`transaction.${transactionType}`)}
                     </Tag>
                   </Col>
-                  <Col xs={24} md={20} lg={14}>
+                  {natricons ? (
+                    <Col xs={12} md={2} style={{ textAlign: "right" }}>
+                      {account ? (
+                        <img
+                          alt="natricon"
+                          src={`https://natricon.com/api/v1/nano?address=${account}&svc=nanolooker`}
+                          style={{
+                            marginTop: "-12px",
+                            marginLeft: "-18px",
+                            marginBottom: "-18px",
+                            marginRight: "-6px",
+                          }}
+                          width={`${smallNatriconSize ? 60 : 80}px`}
+                          height={`${smallNatriconSize ? 60 : 80}px`}
+                        />
+                      ) : null}
+                    </Col>
+                  ) : null}
+                  <Col
+                    xs={24}
+                    md={natricons ? 18 : 20}
+                    lg={natricons ? 12 : 14}
+                  >
                     {knownAccount ? (
                       <div className="color-important">
                         {knownAccount.alias}

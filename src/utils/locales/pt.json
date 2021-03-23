@@ -58,9 +58,16 @@
     "language": "Língua",
     "languageDetailed": "Escolha o idioma desejado. Nano Looker está procurando colaboradores para ajudar a melhorar a tradução do explorador. <0>Contribua</0>",
     "watch": "Assistir a outras criptomoedas",
-    "watchDetailed": "Observe o preço de outras criptomoedas entre as 100 principais.",
+    "watchSearch": "Pesquisar criptomoedas",
+    "watchDetailed": "Observe o preço de outras criptomoedas entre as 100 principais. Os preços de mercado atuais e a mudança de 24 horas aparecerão na barra superior. Você também pode reordenar sua seleção usando arrastar e soltar.",
     "fiatCurrency": "Moeda Fiat",
-    "fiatCurrencyDetailed": "O dinheiro Fiat é uma moeda emitida pelo governo. Selecione uma moeda fiduciária para comparar o preço do Nano."
+    "fiatCurrencyDetailed": "O dinheiro Fiat é uma moeda emitida pelo governo. Selecione uma moeda fiduciária para comparar o preço do Nano.",
+    "natricons": "Natricons",
+    "natriconsDetailed": "Natricons são um rosto amigável e familiar para endereços Nano. Use-os nas páginas da conta, em qualquer lugar onde haja um endereço Nano nas proximidades.",
+    "liveTransactions": "Habilitar atualizações ao vivo",
+    "liveTransactionsDetailed": "Assista às transações ao vivo acontecendo na rede Nano. Disponível na página inicial.",
+    "filterTransactions": "Inclui valores abaixo de 1 NANO",
+    "filterTransactionsDetailed": "Inclua pequenas quantias a serem exibidas no feed de transações ao vivo na página inicial."
   },
   "menu": {
     "explore": "Explorar",
@@ -102,11 +109,7 @@
       "liveUpdatesDisabled": "Atualizações ao vivo desativadas",
       "waitingForTransactions": "Esperando por transações",
       "connectingToBlockchain": "Conectando-se ao blockchain NANO",
-      "reconnectingToBlockchain": "Desconectado, reconectando ao blockchain NANO",
-      "preferences": {
-        "enableLiveUpdates": "Habilitar atualizações ao vivo",
-        "includeAmountsUnder1": "Inclui valores abaixo de 1 NANO"
-      }
+      "reconnectingToBlockchain": "Desconectado, reconectando ao blockchain NANO"
     },
     "account": {
       "votingWeight": "Peso de votação",
@@ -157,7 +160,7 @@
       "lastTransaction": "Última transação",
       "allTransactions": "View all send transactions",
       "originalDeveloperFund": "Fundo de desenvolvedor original",
-      "originalDeveloperFundDescription": "A distribuição do Nano (anteriormente RaiBlocks) foi realizada através da resolução de captchas manuais começando no final de 2015 e terminando em outubro de 2017. A distribuição parou depois que ~ 39% da quantidade de <1>Genesis</1> foi distribuída e o restante do fornecimento foi <3>queimado</3>.",
+      "originalDeveloperFundDescription": "A distribuição do Nano (anteriormente RaiBlocks) foi realizada através da resolução de captchas manuais começando no final de 2015 e terminando em outubro de 2017. A distribuição parou depois que ~ 39% da quantidade de <0>Genesis</0> foi distribuída e o restante do fornecimento foi <1>queimado</1>.",
       "totalAccounts": "{{totalAccounts}} Total de contas",
       "percentOfTotal": "{{percent}}% do estoque circulante"
     },

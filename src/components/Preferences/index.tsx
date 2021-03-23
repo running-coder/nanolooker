@@ -1,5 +1,5 @@
 import React from "react";
-import { List, Popover } from "antd";
+import { Card, Popover } from "antd";
 import { SettingOutlined } from "@ant-design/icons";
 import { Theme, PreferencesContext } from "api/contexts/Preferences";
 import ThemePreferences from "./Theme";
@@ -10,31 +10,26 @@ import LanguagePreferences from "./Language";
 const Preferences: React.FC = () => {
   const { theme } = React.useContext(PreferencesContext);
   return (
-    <>
-      <Popover
-        className={theme === Theme.DARK ? "theme-dark" : ""}
-        placement="bottomRight"
-        content={
-          <List size="small">
-            <List.Item>
-              <ThemePreferences />
-            </List.Item>
-            <List.Item>
-              <LanguagePreferences />
-            </List.Item>
-            <List.Item>
-              <CryptocurrencyPreferences />
-            </List.Item>
-            <List.Item>
-              <FiatPreferences />
-            </List.Item>
-          </List>
-        }
-        trigger="click"
-      >
-        <SettingOutlined />
-      </Popover>
-    </>
+    <Popover
+      className={theme === Theme.DARK ? "theme-dark" : ""}
+      placement="bottomRight"
+      content={
+        <Card
+          size="small"
+          bordered={false}
+          style={{ maxWidth: 340 }}
+          className="detail-layout"
+        >
+          <ThemePreferences />
+          <LanguagePreferences />
+          <CryptocurrencyPreferences />
+          <FiatPreferences />
+        </Card>
+      }
+      trigger="click"
+    >
+      <SettingOutlined />
+    </Popover>
   );
 };
 

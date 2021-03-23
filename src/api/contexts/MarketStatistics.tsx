@@ -99,6 +99,7 @@ const Provider: React.FC = ({ children }) => {
     setIsLoading(false);
 
     pollMarketStatisticsInterval = window.setTimeout(() => {
+      if (document.visibilityState !== 'visible') return;
       getMarketStatistics(fiat);
     }, 7500);
   };

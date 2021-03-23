@@ -29,16 +29,8 @@ const AccountPage = () => {
   return (
     <>
       <Title level={3}>{t("common.account")}</Title>
-      {isValid && !isAccountInfoError ? (
-        <>
-          <AccountDetails />
-        </>
-      ) : null}
-      {isValid && isAccountInfoError ? (
-        <>
-          <AccountDetailsUnopened />
-        </>
-      ) : null}
+      {isValid && !isAccountInfoError ? <AccountDetails /> : null}
+      {isValid && isAccountInfoError ? <AccountDetailsUnopened /> : null}
       {isValid ? <AccountPendingHistory /> : null}
       {isValid ? <AccountHistory /> : null}
 

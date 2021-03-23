@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useHistory } from "react-router-dom";
 import { Tag, Timeline, Typography } from "antd";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import TimeAgo from "timeago-react";
 import BigNumber from "bignumber.js";
 import { Colors, TwoToneColors } from "components/utils";
@@ -23,7 +24,7 @@ const RecentTransactions: React.FC<Props> = ({ recentTransactions }) => {
     hideTransactionsUnderOneNano,
     disableLiveTransactions,
   } = React.useContext(PreferencesContext);
-  const isMediumAndLower = window.innerWidth <= 768;
+  const isMediumAndLower = !useMediaQuery("(min-width: 768px)");
 
   return (
     <Timeline className="sticky" mode={isMediumAndLower ? "left" : "alternate"}>

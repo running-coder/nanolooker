@@ -22,6 +22,7 @@ const MAX_RECENT_TRANSACTIONS: number = window.innerWidth <= 768 ? 10 : 15;
 
 let ws: WebSocket | undefined;
 let isForcedClosed = false;
+let isMounted: boolean = false;
 
 const useSocket = () => {
   const [isConnected, setIsConnected] = React.useState<boolean>(false);
@@ -36,9 +37,22 @@ const useSocket = () => {
   const { knownAccounts } = React.useContext(KnownAccountsContext);
 
   React.useEffect(() => {
+    function visibilityChange() {
+      if (document.visibilityState !== "visible") {
+        isForcedClosed = true;
+        ws?.close();
+      } else if (!document.getElementById("live-transactions-disabled")) {
+        isForcedClosed = false;
+        connect();
+      }
+    }
+
+    isMounted = true;
+    window.addEventListener("visibilitychange", visibilityChange);
+
     return () => {
-      isForcedClosed = true;
-      ws?.close();
+      isMounted = false;
+      window.removeEventListener("visibilitychange", visibilityChange);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -50,6 +64,11 @@ const useSocket = () => {
     } else {
       connect();
     }
+
+    return () => {
+      isForcedClosed = true;
+      ws?.close();
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [disableLiveTransactions]);
 
@@ -113,9 +132,10 @@ const useSocket = () => {
 
     ws.onclose = () => {
       ws = undefined;
+      if (!isMounted) return;
+      setIsConnected(false);
       if (isForcedClosed) return;
       setTimeout(() => {
-        // @ts-ignore
         connect();
       }, 1000);
     };

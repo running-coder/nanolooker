@@ -58,9 +58,16 @@
     "language": "Langue",
     "languageDetailed": "Choisissez la langue souhaitée. Nano Looker recherche des contributeurs pour aider à améliorer la traduction de l'explorateur. <0>Contribuer</0>",
     "watch": "Surveiller d'autres cryptomonnaies",
-    "watchDetailed": "Surveillez le prix des autres crypto-monnaies dans le top 100.",
+    "watchSearch": "Rechercher des crypto-monnaies",
+    "watchDetailed": "Surveillez le prix des autres crypto-monnaies dans le top 100. Les prix actuels du marché et le changement sur 24 heures apparaîtront dans la barre supérieure. Vous pouvez également réorganiser votre sélection par glisser-déposer.",
     "fiatCurrency": "Monnaie fiduciaire",
-    "fiatCurrencyDetailed": "L'argent fiduciaire est une monnaie émise par le gouvernement. Sélectionnez une monnaie fiduciaire pour comparer le prix de Nano."
+    "fiatCurrencyDetailed": "L'argent fiduciaire est une monnaie émise par le gouvernement. Sélectionnez une monnaie fiduciaire pour comparer le prix de Nano.",
+    "natricons": "Natricons",
+    "natriconsDetailed": "Les Natricons sont un visage amical et familier pour les adresses Nano. Utilisez-les sur les pages de compte, partout où il y a une adresse Nano à proximité.",
+    "liveTransactions": "Activer les mises à jour en direct",
+    "liveTransactionsDetailed": "Regardez les transactions en direct se déroulant sur le réseau Nano. Disponible sur la page d'accueil.",
+    "filterTransactions": "Inclure les montants inférieurs à 1 NANO",
+    "filterTransactionsDetailed": "Incluez les petits montants à afficher dans le flux de transactions en direct sur la page d'accueil."
   },
   "menu": {
     "explore": "Explorer",
@@ -102,11 +109,7 @@
       "liveUpdatesDisabled": "Mises à jour en direct désactivées",
       "waitingForTransactions": "En attente de nouvelles transactions",
       "connectingToBlockchain": "Connexion à la blockchain NANO",
-      "reconnectingToBlockchain": "Déconnecté, reconnection en cours à la blockchain NANO",
-      "preferences": {
-        "enableLiveUpdates": "Activer les mises à jour en direct",
-        "includeAmountsUnder": "Inclure les montants inférieurs à 1 NANO"
-      }
+      "reconnectingToBlockchain": "Déconnecté, reconnection en cours à la blockchain NANO"
     },
     "account": {
       "votingWeight": "Poids du vote",

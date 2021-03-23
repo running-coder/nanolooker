@@ -1,10 +1,7 @@
-import React from "react";
+import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { Card, List, Popover, Switch, Typography } from "antd";
+import { Card, Typography } from "antd";
 import {
-  CheckOutlined,
-  CloseOutlined,
-  SettingOutlined,
   CloseCircleFilled,
   CloseCircleTwoTone,
   SyncOutlined,
@@ -13,63 +10,24 @@ import { TwoToneColors } from "components/utils";
 import ConfirmationsPerSecond from "components/ConfirmationsPerSecond";
 import useSockets from "api/hooks/use-socket";
 import { Theme, PreferencesContext } from "api/contexts/Preferences";
+import RecentTransactionsPreferences from "components/Preferences/RecentTransactions";
 import Timeline from "./Timeline";
 
 const { Text } = Typography;
 
 const RecentTransactions = () => {
   const { t } = useTranslation();
-  const {
-    theme,
-    hideTransactionsUnderOneNano,
-    disableLiveTransactions,
-    setHideTransactionsUnderOneNano,
-    setDisableLiveTransactions,
-  } = React.useContext(PreferencesContext);
+  const { theme, disableLiveTransactions } = React.useContext(
+    PreferencesContext,
+  );
+
   const { recentTransactions, isConnected, isError } = useSockets();
 
   return (
     <Card
       size="small"
       title={t("pages.home.recentTransactions")}
-      extra={
-        <Popover
-          placement="left"
-          content={
-            <List size="small">
-              <List.Item>
-                <Text style={{ marginRight: "16px" }}>
-                  {t("pages.home.preferences.enableLiveUpdates")}
-                </Text>
-                <Switch
-                  checkedChildren={<CheckOutlined />}
-                  unCheckedChildren={<CloseOutlined />}
-                  onChange={(checked: boolean) => {
-                    setDisableLiveTransactions(!checked);
-                  }}
-                  defaultChecked={!disableLiveTransactions}
-                />
-              </List.Item>
-              <List.Item>
-                <Text style={{ marginRight: "16px" }}>
-                  {t("pages.home.preferences.includeAmountsUnder1")}
-                </Text>
-                <Switch
-                  checkedChildren={<CheckOutlined />}
-                  unCheckedChildren={<CloseOutlined />}
-                  onChange={(checked: boolean) => {
-                    setHideTransactionsUnderOneNano(!checked);
-                  }}
-                  defaultChecked={!hideTransactionsUnderOneNano}
-                />
-              </List.Item>
-            </List>
-          }
-          trigger="click"
-        >
-          <SettingOutlined />
-        </Popover>
-      }
+      extra={<RecentTransactionsPreferences />}
     >
       <div
         className="sticky"
@@ -87,7 +45,7 @@ const RecentTransactions = () => {
             ) : (
               <CloseCircleTwoTone twoToneColor={TwoToneColors.SEND} />
             )}
-            <Text style={{ marginLeft: "8px" }}>
+            <Text style={{ marginLeft: "8px" }} id="live-transactions-disabled">
               {t("pages.home.liveUpdatesDisabled")}
             </Text>
           </div>

@@ -112,7 +112,7 @@ const BlockDetails = () => {
   )?.alias;
 
   const isConfirmed = toBoolean(blockInfo?.confirmed);
-  console.log("~~~~", String(amount), new BigNumber(amount).toFormat().length);
+
   return (
     <>
       {!isBlocksInfoLoading && !blockInfo ? (

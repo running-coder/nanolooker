@@ -5,6 +5,9 @@ import ThemePreference from "components/Preferences/Theme";
 import LanguagePreferences from "components/Preferences/Language";
 import CryptocurrencyPreferences from "components/Preferences/Cryptocurrency";
 import FiatPreferences from "components/Preferences/Fiat";
+import NatriconsPreferences from "components/Preferences/Natricons";
+import LiveTransactionsPreferences from "components/Preferences/LiveTransactions";
+import FilterTransactionsPreferences from "components/Preferences/FilterTransactions";
 
 const { Title } = Typography;
 
@@ -14,34 +17,42 @@ const PreferencesPage: React.FC = () => {
   return (
     <>
       <Title level={3}>{t("menu.preferences")}</Title>
-      {/* <Text>{t("pages.preferences.description")}</Text> */}
-      <Card size="small" style={{ marginBottom: "12px" }}>
+      <Card
+        size="small"
+        style={{ marginBottom: "12px" }}
+        className="detail-layout"
+      >
         <Title level={4}>{t("pages.preferences.general")}</Title>
-        <div className="detailed-preference">
-          <ThemePreference isDetailed />
-        </div>
-        <div className="detailed-preference">
-          <LanguagePreferences isDetailed />
-        </div>
-        <div className="detailed-preference">
-          <CryptocurrencyPreferences isDetailed />
-        </div>
-        <div className="detailed-preference">
-          <FiatPreferences isDetailed />
-        </div>
+        <ThemePreference isDetailed />
+        <LanguagePreferences isDetailed />
+        <CryptocurrencyPreferences isDetailed />
+        <FiatPreferences isDetailed />
       </Card>
-      <Card size="small" style={{ marginBottom: "12px" }}>
+      <Card
+        size="small"
+        style={{ marginBottom: "12px" }}
+        className="detail-layout"
+      >
         <Title level={4}>{t("transaction.accountAndBlock")}</Title>
+        <NatriconsPreferences isDetailed />
       </Card>
-      <Card size="small" style={{ marginBottom: "12px" }}>
+      <Card
+        size="small"
+        style={{ marginBottom: "12px" }}
+        className="detail-layout"
+      >
         <Title level={4}>{t("pages.home.recentTransactions")}</Title>
+        <LiveTransactionsPreferences isDetailed />
+        <FilterTransactionsPreferences isDetailed />
       </Card>
+      {/* 
       <Card size="small" style={{ marginBottom: "12px" }}>
         <Title level={4}>{t("pages.preferences.bookmarks")}</Title>
-      </Card>
-      <Card size="small" style={{ marginBottom: "12px" }}>
+      </Card> 
+      */}
+      {/* <Card size="small" style={{ marginBottom: "12px" }}>
         <Title level={4}>{t("pages.preferences.searchHistory")}</Title>
-      </Card>
+      </Card> */}
     </>
   );
 };

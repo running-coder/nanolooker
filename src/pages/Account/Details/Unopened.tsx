@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Typography } from "antd";
 import { AccountDetailsLayout } from ".";
 
-const { Title } = Typography;
+const { Text, Title } = Typography;
 
 const AccountDetailsUnopened = () => {
   const { t } = useTranslation();
@@ -11,7 +11,9 @@ const AccountDetailsUnopened = () => {
     <AccountDetailsLayout>
       <div style={{ padding: "12px" }}>
         <Title level={3}>{t("pages.account.notOpenedYet")}</Title>
-        <p className="color-muted">{t("pages.account.notOpenedYetReason")}</p>
+        <Text className="color-muted">
+          {t("pages.account.notOpenedYetReason")}
+        </Text>
       </div>
     </AccountDetailsLayout>
   );

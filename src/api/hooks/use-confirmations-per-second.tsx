@@ -20,6 +20,7 @@ const useConfirmationsPerSecond = (): UseUptimeReturn => {
     }
 
     confirmationsPerSecondInterval = window.setTimeout(() => {
+      if (document.visibilityState !== "visible") return;
       getConfirmationsPerSecond();
     }, 3000);
   };

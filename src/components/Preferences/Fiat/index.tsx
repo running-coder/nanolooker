@@ -1,10 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Select, Typography } from "antd";
+import { Col, Row, Select, Typography } from "antd";
 import { PreferencesContext, Fiat } from "api/contexts/Preferences";
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
-
-// @TODO share "Allowed fiats"
 
 const { Option } = Select;
 const { Text } = Typography;
@@ -21,34 +19,35 @@ const FiatPreferences: React.FC<Props> = ({ isDetailed }) => {
   );
 
   return (
-    <>
-      <Text className={isDetailed ? "preference-detailed-title" : ""}>
-        {t("preferences.fiatCurrency")}
-      </Text>
-      <div style={{ display: "flex" }}>
-        <div>
-          <Select
-            defaultValue={fiat}
-            onChange={value => {
-              setFiat(value);
-              setIsInitialLoading(true);
-              getMarketStatistics(value);
-            }}
-          >
-            {Object.entries(Fiat).map(([key, value]) => (
-              <Option value={value} key={key}>
-                {key}
-              </Option>
-            ))}
-          </Select>
-        </div>
-        {isDetailed ? (
-          <Text style={{ marginLeft: "12px", alignSelf: "center" }}>
-            {t("preferences.fiatCurrencyDetailed")}
-          </Text>
-        ) : null}
-      </div>
-    </>
+    <Row>
+      <Col xs={isDetailed ? 24 : 18}>
+        <Text className={isDetailed ? "preference-detailed-title" : ""}>
+          {t("preferences.fiatCurrency")}
+        </Text>
+      </Col>
+      {isDetailed ? (
+        <Col xs={18}>
+          <Text>{t("preferences.fiatCurrencyDetailed")}</Text>
+        </Col>
+      ) : null}
+
+      <Col xs={6} style={{ textAlign: "right" }}>
+        <Select
+          defaultValue={fiat}
+          onChange={value => {
+            setFiat(value);
+            setIsInitialLoading(true);
+            getMarketStatistics(value);
+          }}
+        >
+          {Object.entries(Fiat).map(([key, value]) => (
+            <Option value={value} key={key}>
+              {key}
+            </Option>
+          ))}
+        </Select>
+      </Col>
+    </Row>
   );
 };
 

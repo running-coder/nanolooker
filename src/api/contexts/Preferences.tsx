@@ -47,6 +47,8 @@ interface Preferences {
   setFiat: Function;
   setHideTransactionsUnderOneNano: Function;
   setDisableLiveTransactions: Function;
+  natricons: boolean;
+  setNatricons: Function;
 }
 
 enum LOCALSTORAGE_KEYS {
@@ -55,6 +57,7 @@ enum LOCALSTORAGE_KEYS {
   FIAT = "FIAT",
   HIDE_TRANSACTIONS_UNDER_ONE_NANO = "HIDE_TRANSACTIONS_UNDER_ONE_NANO",
   DISABLE_LIVE_TRANSACTIONS = "DISABLE_LIVE_TRANSACTIONS",
+  NATRICONS = "NATRICONS",
 }
 
 const MAX_CRYPTOCURRENCY: number = 10;
@@ -76,6 +79,7 @@ export const PreferencesContext = React.createContext<Preferences>({
   fiat: Fiat.USD,
   hideTransactionsUnderOneNano: false,
   disableLiveTransactions: false,
+  natricons: false,
   setTheme: () => {},
   addCryptocurrency: () => {},
   removeCryptocurrency: () => {},
@@ -83,6 +87,7 @@ export const PreferencesContext = React.createContext<Preferences>({
   setFiat: () => {},
   setHideTransactionsUnderOneNano: () => {},
   setDisableLiveTransactions: () => {},
+  setNatricons: () => {},
 });
 
 const Provider: React.FC = ({ children }) => {
@@ -110,6 +115,9 @@ const Provider: React.FC = ({ children }) => {
     toBoolean(
       localStorage.getItem(LOCALSTORAGE_KEYS.DISABLE_LIVE_TRANSACTIONS),
     ),
+  );
+  const [natricons, setNatricons] = React.useState<boolean>(
+    toBoolean(localStorage.getItem(LOCALSTORAGE_KEYS.NATRICONS)),
   );
 
   const addCryptocurrency = React.useCallback(
@@ -178,6 +186,11 @@ const Provider: React.FC = ({ children }) => {
     setDisableLiveTransactions(newValue);
   };
 
+  const setLocalstorageNatricons = (newValue: boolean) => {
+    localStorage.setItem(LOCALSTORAGE_KEYS.NATRICONS, `${newValue}`);
+    setNatricons(newValue);
+  };
+
   return (
     <PreferencesContext.Provider
       value={{
@@ -186,6 +199,7 @@ const Provider: React.FC = ({ children }) => {
         fiat,
         hideTransactionsUnderOneNano,
         disableLiveTransactions,
+        natricons,
         setTheme: setLocalstorageTheme,
         addCryptocurrency,
         removeCryptocurrency,
@@ -193,6 +207,7 @@ const Provider: React.FC = ({ children }) => {
         setFiat: setLocalstorageFiat,
         setHideTransactionsUnderOneNano: setLocalstorageHideTransactionsUnderOneNano,
         setDisableLiveTransactions: setLocalstorageDisableLiveTransactions,
+        setNatricons: setLocalstorageNatricons,
       }}
     >
       {children}
