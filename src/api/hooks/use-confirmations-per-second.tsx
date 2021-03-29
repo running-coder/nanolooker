@@ -4,12 +4,13 @@ export interface UseUptimeReturn {
   confirmationsPerSecond: string | undefined;
 }
 
-let confirmationsPerSecondInterval: number | undefined;
+let confirmationsPerSecondTimeout: number | undefined;
 
 const useConfirmationsPerSecond = (): UseUptimeReturn => {
   const [confirmationsPerSecond, setConfirmationsPerSecond] = React.useState();
 
   const getConfirmationsPerSecond = async () => {
+    clearTimeout(confirmationsPerSecondTimeout);
     try {
       const res = await fetch(`/api/confirmations-per-second`);
       const { cps } = await res.json();
@@ -19,16 +20,27 @@ const useConfirmationsPerSecond = (): UseUptimeReturn => {
       setConfirmationsPerSecond(undefined);
     }
 
-    confirmationsPerSecondInterval = window.setTimeout(() => {
-      if (document.visibilityState !== "visible") return;
+    confirmationsPerSecondTimeout = window.setTimeout(() => {
       getConfirmationsPerSecond();
     }, 3000);
   };
 
   React.useEffect(() => {
-    getConfirmationsPerSecond();
+    function visibilityChange() {
+      if (document.visibilityState === "visible") {
+        getConfirmationsPerSecond();
+      } else {
+        clearTimeout(confirmationsPerSecondTimeout);
+      }
+    }
 
-    return () => clearInterval(confirmationsPerSecondInterval);
+    getConfirmationsPerSecond();
+    window.addEventListener("visibilitychange", visibilityChange);
+
+    return () => {
+      clearTimeout(confirmationsPerSecondTimeout);
+      window.removeEventListener("visibilitychange", visibilityChange);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

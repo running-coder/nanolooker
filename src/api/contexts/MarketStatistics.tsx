@@ -39,7 +39,7 @@ export interface Context {
   isError: boolean;
 }
 
-let pollMarketStatisticsInterval: number | undefined;
+let pollMarketStatisticsTimeout: number | undefined;
 
 export const MarketStatisticsContext = React.createContext<Context>({
   marketStatistics: {
@@ -77,7 +77,7 @@ const Provider: React.FC = ({ children }) => {
   const { fiat } = React.useContext(PreferencesContext);
 
   const getMarketStatistics = async (fiat: string) => {
-    clearTimeout(pollMarketStatisticsInterval);
+    clearTimeout(pollMarketStatisticsTimeout);
 
     setIsError(false);
     setIsLoading(true);
@@ -98,16 +98,27 @@ const Provider: React.FC = ({ children }) => {
     setIsInitialLoading(false);
     setIsLoading(false);
 
-    pollMarketStatisticsInterval = window.setTimeout(() => {
-      if (document.visibilityState !== 'visible') return;
+    pollMarketStatisticsTimeout = window.setTimeout(() => {
       getMarketStatistics(fiat);
     }, 7500);
   };
 
   React.useEffect(() => {
-    getMarketStatistics(fiat);
+    function visibilityChange() {
+      if (document.visibilityState === "visible") {
+        getMarketStatistics(fiat);
+      } else {
+        clearTimeout(pollMarketStatisticsTimeout);
+      }
+    }
 
-    return () => clearInterval(pollMarketStatisticsInterval);
+    getMarketStatistics(fiat);
+    window.addEventListener("visibilitychange", visibilityChange);
+
+    return () => {
+      clearTimeout(pollMarketStatisticsTimeout);
+      window.removeEventListener("visibilitychange", visibilityChange);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
