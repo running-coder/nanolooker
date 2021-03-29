@@ -80,9 +80,13 @@ const Distribution = () => {
       ): void => {
         const calcAccounts =
           accounts - (knownExchangeDistribution[i]?.accounts || 0);
-        const calcBalance = new BigNumber(balance)
+        let calcBalance = new BigNumber(balance)
           .minus(knownExchangeDistribution[i]?.balance || 0)
           .toNumber();
+
+        if (calcBalance < 0 && !calcAccounts) {
+          calcBalance = 0;
+        }
 
         tmpTotalAccounts += calcAccounts;
         tmpTotalBalance += calcBalance;
