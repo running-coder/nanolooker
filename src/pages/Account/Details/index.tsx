@@ -77,7 +77,8 @@ const AccountDetails = () => {
     accountHistory: { history },
     isLoading: isAccountHistoryLoading,
   } = useAccountHistory(account, {
-    count: "1",
+    count: "5",
+    raw: true,
   });
   const { representatives } = React.useContext(RepresentativesContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
@@ -102,7 +103,14 @@ const AccountDetails = () => {
     .times(currentPrice)
     .dividedBy(btcCurrentPrice)
     .toFormat(12);
-  const modifiedTimestamp = Number(history?.[0]?.local_timestamp || 0) * 1000;
+
+  const lastTransaction = (history || []).find(
+    ({ local_timestamp, subtype = "" }) =>
+      ["change", "send", "receive"].includes(subtype) &&
+      parseInt(local_timestamp || "0"),
+  );
+  const modifiedTimestamp =
+    Number(lastTransaction?.local_timestamp || 0) * 1000;
 
   const skeletonProps = {
     active: true,
