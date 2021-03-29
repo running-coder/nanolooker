@@ -9,7 +9,6 @@ import QRCodeModal from "components/QRCodeModal";
 import { RepresentativesContext } from "api/contexts/Representatives";
 import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
 import { KnownAccountsContext, KnownAccount } from "api/contexts/KnownAccounts";
-import { DONATION_ACCOUNT } from "components/AppFooter";
 
 import type { PageParams } from "types/page";
 import { PreferencesContext } from "api/contexts/Preferences";
@@ -67,11 +66,6 @@ const AccountHeader = () => {
       {knownAccount ? (
         <Title level={4} style={{ margin: 0 }}>
           {knownAccount.alias}
-        </Title>
-      ) : null}
-      {!knownAccount && account === DONATION_ACCOUNT ? (
-        <Title level={4} style={{ margin: 0 }}>
-          {t("footer.donations.title")}
         </Title>
       ) : null}
       <div

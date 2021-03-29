@@ -178,7 +178,7 @@ const BlockDetails = () => {
               </Col>
               <Col xs={24} sm={18} xl={20}>
                 {blockAccountAlias ? (
-                  <strong style={{ marginRight: "6px" }}>
+                  <strong style={{ display: "block" }}>
                     {blockAccountAlias}
                   </strong>
                 ) : null}
