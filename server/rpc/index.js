@@ -36,6 +36,7 @@ const allowedRpcMethods = [
   "successors",
   "uptime",
   "version",
+  "work_validate",
 ];
 
 const cacheSettings = {
@@ -59,6 +60,7 @@ const cacheSettings = {
   successors: undefined,
   uptime: 30,
   version: 30,
+  work_validate: undefined,
 };
 
 const getCacheKey = (action, params) =>
