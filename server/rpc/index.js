@@ -29,9 +29,11 @@ const allowedRpcMethods = [
   "frontier_count",
   "peers",
   "pending",
+  "process",
   "representatives",
   "representatives_online",
   "stats",
+  "successors",
   "uptime",
   "version",
 ];
@@ -50,9 +52,11 @@ const cacheSettings = {
   frontier_count: 5,
   peers: 10,
   pending: 5,
+  process: undefined,
   representatives: 30,
   representatives_online: 30,
   stats: 5,
+  successors: undefined,
   uptime: 30,
   version: 30,
 };
