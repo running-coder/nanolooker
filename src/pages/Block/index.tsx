@@ -21,6 +21,8 @@ const BlockPage = () => {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     setBlocks([block]);
+
+    return () => setBlocks([]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [block]);
 

@@ -25,6 +25,8 @@ const AccountPage = () => {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     setAccount(account);
+
+    return () => setAccount("");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [account]);
 
