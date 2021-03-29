@@ -46,7 +46,9 @@
     "onlineRepresentatives": "Comptes de représentants en ligne qui ont voté récemment.",
     "lastTransaction": "Dernière transaction d'envoi depuis l'un des {{totalAccounts}} comptes.",
     "largeTransactions": "Uniquement les transactions d'envoi de 10,000 NANO ou plus sont temporairement sauvegardées pendant une semaine.",
-    "knownExchangeBalance": "Exclure {{knownExchangeList}} du diagramme de distribution. Ces comptes combinés contiennent {{knownExchangeBalance}} NANO"
+    "knownExchangeBalance": "Exclure {{knownExchangeList}} du diagramme de distribution. Ces comptes combinés contiennent {{knownExchangeBalance}} NANO",
+    "unchecked": "Blocs (transactions) qui ont été téléchargés mais pas encore traités par le nœud Nano. Le logiciel de nœud télécharge tous les bocks des autres nœuds comme non vérifiés, les traite et les ajoute au nombre de blocs, confirme les blocs de frontière pour chaque compte, puis les marque comme cimentés.",
+    "cemented": "Lorsqu'un nœud spécifique marque une transaction confirmée comme irréversible localement en définissant la hauteur de confirmation du compte (dans la base de données des nœuds) sur la hauteur de bloc désormais plus élevée de la transaction confirmée. Le cimentage est une opération au niveau du nœud."
   },
   "search": {
     "searchBy": "Recherche par Address / Bloc",
@@ -56,7 +58,7 @@
     "darkMode": "Mode de nuit",
     "darkModeDetailed": "Passez du mode Clair ou Foncé pour améliorer l'expérience de navigation de votre site en fonction de votre environnement.",
     "language": "Langue",
-    "languageDetailed": "Choisissez la langue souhaitée. Nano Looker recherche des contributeurs pour aider à améliorer la traduction de l'explorateur. <0>Contribuer</0>",
+    "languageDetailed": "Choisissez la langue souhaitée. NanoLooker recherche des contributeurs pour aider à améliorer la traduction de l'explorateur. <0>Contribuer</0>",
     "watch": "Surveiller d'autres cryptomonnaies",
     "watchSearch": "Rechercher des crypto-monnaies",
     "watchDetailed": "Surveillez le prix des autres crypto-monnaies dans le top 100. Les prix actuels du marché et le changement sur 24 heures apparaîtront dans la barre supérieure. Vous pouvez également réorganiser votre sélection par glisser-déposer.",
@@ -86,7 +88,7 @@
     "createdBy": "Créé par {{creator}}",
     "donations": {
       "donate": "Faire un don",
-      "title": "Compte des dons Nano Looker"
+      "title": "Compte de don NanoLooker"
     }
   },
   "pages": {

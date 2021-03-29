@@ -46,7 +46,9 @@
     "onlineRepresentatives": "Online representative accounts that have voted recently.",
     "lastTransaction": "Last send transaction from any of the {{totalAccounts}} accounts.",
     "largeTransactions": "Only send transactions of 10,000 NANO or more are temporarily saved for one week.",
-    "knownExchangeBalance": "Exclude {{knownExchangeList}} from the distribution chart. Those accounts combined holds {{knownExchangeBalance}} NANO"
+    "knownExchangeBalance": "Exclude {{knownExchangeList}} from the distribution chart. Those accounts combined holds {{knownExchangeBalance}} NANO",
+    "unchecked": "Blocks (transactions) that have been downloaded but not yet processed by the Nano node. The node software downloads all bocks from other nodes as unchecked, processes them and adds to block count, confirms the frontier blocks for each account, and then marks them as cemented.",
+    "cemented": "When a specific node marks a confirmed transaction as locally irreversible by setting the account's confirmation height (in the node database) to the now higher block height of the confirmed transaction. Cementing is a node-level operation."
   },
   "search": {
     "searchBy": "Search by Address / Block",
@@ -56,7 +58,7 @@
     "darkMode": "Dark mode",
     "darkModeDetailed": "Switch from Light or Dark mode to improve your site browsing experience depending on your environment.",
     "language": "Language",
-    "languageDetailed": "Choose desired language. Nano Looker is looking for contributors to help improve the explorer's translation. <0>Contribute</0>",
+    "languageDetailed": "Choose desired language. NanoLooker is looking for contributors to help improve the explorer's translation. <0>Contribute</0>",
     "watch": "Watch other cryptocurrencies",
     "watchSearch": "Search cryptocurrencies",
     "watchDetailed": "Watch the price of other cryptocurrencies in the top 100. The current market prices and 24 hours change will appear in the top bar. You may also re-order your selection using drag and drop.",
@@ -86,7 +88,7 @@
     "createdBy": "Created by {{creator}}",
     "donations": {
       "donate": "Donate",
-      "title": "Nano Looker donation account"
+      "title": "NanoLooker donation account"
     }
   },
   "pages": {

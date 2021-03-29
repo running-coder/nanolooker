@@ -9,7 +9,7 @@ import { raiToRaw } from "components/utils";
 
 import type { Subtype } from "types/transaction";
 
-const MAX_PENDING_TRANSACTIONS = 15;
+const MAX_PENDING_TRANSACTIONS = 1000;
 const TRANSACTIONS_PER_PAGE = 5;
 const { Title } = Typography;
 
@@ -17,6 +17,7 @@ interface PendingHistoryBlock extends PendingBlock {
   hash: string;
   account: string;
   subtype: Subtype;
+  sorting: boolean;
 }
 
 const PENDING_MIN_THRESHOLD = new BigNumber(raiToRaw(0.000001)).toFixed();
@@ -48,6 +49,7 @@ const AccountPendingHistory = () => {
         amount,
         account: source,
         subtype: "pending",
+        sorting: true,
       }),
     );
   }

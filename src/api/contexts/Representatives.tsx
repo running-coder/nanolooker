@@ -1,7 +1,7 @@
 import React from "react";
 import { rpc } from "api/rpc";
 
-interface Representative {
+export interface Representative {
   account: string;
   weight: number;
 }

@@ -5,6 +5,7 @@ import { Card, Col, Row, Skeleton, Tag, Tooltip } from "antd";
 import find from "lodash/find";
 import BigNumber from "bignumber.js";
 import TimeAgo from "timeago-react";
+import useAccountHistory from "api/hooks/use-account-history";
 import {
   Theme,
   PreferencesContext,
@@ -14,16 +15,25 @@ import {
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 import { AccountInfoContext } from "api/contexts/AccountInfo";
 import { RepresentativesOnlineContext } from "api/contexts/RepresentativesOnline";
-import { RepresentativesContext } from "api/contexts/Representatives";
+import {
+  Representative,
+  RepresentativesContext,
+} from "api/contexts/Representatives";
 import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
 import LoadingStatistic from "components/LoadingStatistic";
 import QuestionCircle from "components/QuestionCircle";
 import { rawToRai, timestampToDate, TwoToneColors } from "components/utils";
 import AccountHeader from "../Header";
+import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 
 interface AccountDetailsLayoutProps {
   bordered?: boolean;
   children?: ReactElement;
+}
+
+interface AccountsRepresentative extends Representative {
+  isOnline: boolean;
+  alias?: string;
 }
 
 export const AccountDetailsLayout = ({
@@ -46,8 +56,9 @@ const AccountDetails = () => {
     {} as any,
   );
   const [accountsRepresentative, setAccountsRepresentative] = React.useState(
-    {} as any,
+    {} as AccountsRepresentative,
   );
+
   const {
     marketStatistics: {
       currentPrice,
@@ -63,9 +74,13 @@ const AccountDetails = () => {
     isLoading: isAccountInfoLoading,
   } = React.useContext(AccountInfoContext);
   const {
-    representatives,
-    isLoading: isRepresentativesLoading,
-  } = React.useContext(RepresentativesContext);
+    accountHistory: { history },
+    isLoading: isAccountHistoryLoading,
+  } = useAccountHistory(account, {
+    count: "1",
+  });
+  const { representatives } = React.useContext(RepresentativesContext);
+  const { knownAccounts } = React.useContext(KnownAccountsContext);
   const {
     confirmationQuorum: {
       principal_representative_min_weight: minWeight,
@@ -87,7 +102,7 @@ const AccountDetails = () => {
     .times(currentPrice)
     .dividedBy(btcCurrentPrice)
     .toFormat(12);
-  const modifiedTimestamp = Number(accountInfo?.modified_timestamp) * 1000;
+  const modifiedTimestamp = Number(history?.[0]?.local_timestamp || 0) * 1000;
 
   const skeletonProps = {
     active: true,
@@ -96,27 +111,27 @@ const AccountDetails = () => {
   };
 
   React.useEffect(() => {
-    if (!account || isRepresentativesLoading || !representatives.length) return;
+    if (!account || isAccountInfoLoading || !representatives.length) return;
 
     setRepresentativeAccount(find(representatives, ["account", account]) || {});
 
     if (accountInfo.representative) {
-      setAccountsRepresentative(
-        find(representatives, ["account", accountInfo.representative]) || {},
-      );
+      const accountsRepresentative: AccountsRepresentative = {
+        ...find(representatives, ["account", accountInfo.representative])!,
+        isOnline: representativesOnline.includes(
+          accountInfo.representative || "",
+        ),
+        alias: knownAccounts.find(
+          ({ account: knownAccount }) =>
+            accountInfo.representative === knownAccount,
+        )?.alias,
+      };
+
+      setAccountsRepresentative(accountsRepresentative);
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [
-    account,
-    accountInfo.representative,
-    isRepresentativesLoading,
-    representatives.length,
-  ]);
-
-  const isRepresentativeOnline = representativesOnline.includes(
-    accountInfo?.representative || "",
-  );
+  }, [account, isAccountInfoLoading, representatives.length]);
 
   return (
     <AccountDetailsLayout bordered={false}>
@@ -171,12 +186,12 @@ const AccountDetails = () => {
           </Col>
           <Col xs={24} sm={18}>
             <Skeleton {...skeletonProps}>
-              {accountInfo?.representative ? (
+              {accountsRepresentative?.account ? (
                 <>
                   <div style={{ display: "flex", margin: "3px 0" }}>
                     <Tag
                       color={
-                        isRepresentativeOnline
+                        accountsRepresentative.isOnline
                           ? theme === Theme.DARK
                             ? TwoToneColors.RECEIVE_DARK
                             : TwoToneColors.RECEIVE
@@ -185,12 +200,12 @@ const AccountDetails = () => {
                           : TwoToneColors.SEND
                       }
                       className={`tag-${
-                        isRepresentativeOnline ? "online" : "offline"
+                        accountsRepresentative.isOnline ? "online" : "offline"
                       }`}
                     >
                       {t(
                         `common.${
-                          isRepresentativeOnline ? "online" : "offline"
+                          accountsRepresentative.isOnline ? "online" : "offline"
                         }`,
                       )}
                     </Tag>
@@ -198,6 +213,13 @@ const AccountDetails = () => {
                       <Tag>{t("common.principalRepresentative")}</Tag>
                     ) : null}
                   </div>
+
+                  {accountsRepresentative.alias ? (
+                    <div className="color-important">
+                      {accountsRepresentative.alias}
+                    </div>
+                  ) : null}
+
                   <Link
                     to={`/account/${accountInfo.representative}`}
                     className="break-word"
@@ -229,13 +251,15 @@ const AccountDetails = () => {
             {t("pages.account.lastTransaction")}
           </Col>
           <Col xs={24} sm={18}>
-            <Skeleton {...skeletonProps}>
+            <Skeleton {...skeletonProps} loading={isAccountHistoryLoading}>
               {modifiedTimestamp ? (
                 <>
                   <TimeAgo datetime={modifiedTimestamp} live={false} /> (
                   {timestampToDate(modifiedTimestamp)})
                 </>
-              ) : null}
+              ) : (
+                t("common.unknown")
+              )}
             </Skeleton>
           </Col>
         </Row>

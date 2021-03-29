@@ -22,6 +22,8 @@ const AccountPage = () => {
   const isValid = isValidAccountAddress(account);
 
   React.useEffect(() => {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     setAccount(account);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [account]);

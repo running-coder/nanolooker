@@ -19,12 +19,22 @@ const AccountHistory = () => {
   const {
     accountHistory: { history, previous: previousHead },
     isLoading: isAccountHistoryLoading,
-  } = useAccountHistory(account, {
-    count: String(TRANSACTIONS_PER_PAGE),
-    raw: true,
-    offset: isPaginated ? (currentPage - 1) * TRANSACTIONS_PER_PAGE : undefined,
-    head: !isPaginated ? currentHead || accountInfo?.frontier : undefined,
-  });
+  } = useAccountHistory(
+    account,
+    {
+      count: String(TRANSACTIONS_PER_PAGE),
+      raw: true,
+      offset: isPaginated
+        ? (currentPage - 1) * TRANSACTIONS_PER_PAGE
+        : undefined,
+      head: !isPaginated
+        ? currentHead || accountInfo?.frontier || ""
+        : undefined,
+    },
+    {
+      concatHistory: !isPaginated,
+    },
+  );
 
   // @TODO Replace useHistory by HistoryContext
 
@@ -36,6 +46,7 @@ const AccountHistory = () => {
       </Title>
 
       <TransactionsTable
+        scrollTo="totalTransactions"
         data={history}
         isLoading={isAccountHistoryLoading}
         isPaginated={isPaginated}

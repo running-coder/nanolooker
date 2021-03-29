@@ -296,6 +296,7 @@ a:hover {
   right: 0;
   bottom: 0;
   left: 0;
+  z-index: 2;
   background-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -312,6 +313,11 @@ a:hover {
   color: #e04576;
   border-color: #ffa2bf;
   background-color: #fff0f2 !important;
+}
+
+.ant-tag-magenta {
+  color: magenta;
+  border-color: rgba(255, 0, 255, 0.5);
 }
 
 .ant-popover-inner-content {

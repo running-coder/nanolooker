@@ -31,6 +31,9 @@ interface AccountHistoryParams {
   account_filter?: string[];
 }
 
+interface AccountHistoryOptions {
+  concatHistory: boolean;
+}
 export interface UseAccountHistoryReturn {
   accountHistory: AccountHistory;
   isLoading: boolean;
@@ -40,6 +43,7 @@ export interface UseAccountHistoryReturn {
 const useAccountHistory = (
   account: string,
   params: AccountHistoryParams,
+  options?: AccountHistoryOptions,
 ): UseAccountHistoryReturn => {
   const [accountHistory, setAccountHistory] = React.useState(
     {} as AccountHistory,
@@ -59,12 +63,21 @@ const useAccountHistory = (
       ...params,
     });
 
-    !json || json.error ? setIsError(true) : setAccountHistory(json);
+    if (!json || json.error) {
+      setIsError(true);
+    } else {
+      if (options?.concatHistory && json.account === accountHistory.account) {
+        json.history = (accountHistory.history || []).concat(json.history);
+      }
+      setAccountHistory(json);
+    }
+
     setIsLoading(false);
   };
 
   useDeepCompareEffect(() => {
-    if (!isValidAccountAddress(account)) return;
+    // Prevent double request if account's head is currently being fetched
+    if (!isValidAccountAddress(account) || params.head === "") return;
 
     getAccountHistory(account, params);
     // eslint-disable-next-line react-hooks/exhaustive-deps

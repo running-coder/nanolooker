@@ -93,7 +93,6 @@ const useSocket = () => {
           }
 
           message.timestamp = Date.now();
-
           message.alias = find(
             knownAccounts,
             ({ account: knownAccount }) => knownAccount === message.account,

@@ -33,6 +33,7 @@ export const TransactionsLayout: React.FC = ({ children }) => (
 );
 
 interface TransactionsTableProps {
+  scrollTo?: string;
   data: any;
   isLoading: boolean;
   showPaginate?: boolean;
@@ -45,6 +46,7 @@ interface TransactionsTableProps {
 }
 
 const TransactionsTable = ({
+  scrollTo,
   data,
   isLoading,
   showPaginate,
@@ -63,7 +65,7 @@ const TransactionsTable = ({
   const smallNatriconSize = !useMediaQuery("(min-width: 768px)");
 
   return (
-    <Card size="small" className="transaction-card">
+    <Card size="small" className="transaction-card" id={scrollTo}>
       {isLoading ? (
         <div className="ant-spin-nested-loading">
           <div>
@@ -185,7 +187,7 @@ const TransactionsTable = ({
                       {hash}
                     </Link>
                   </Col>
-                  <Col xs={12} md={12} lg={5}>
+                  <Col xs={16} md={12} lg={5}>
                     <Text
                       // @ts-ignore
                       style={{ color: Colors[themeColor] }}
@@ -199,7 +201,7 @@ const TransactionsTable = ({
                         : ""}
                     </Text>
                   </Col>
-                  <Col xs={12} md={12} lg={3} style={{ textAlign: "right" }}>
+                  <Col xs={8} md={12} lg={3} style={{ textAlign: "right" }}>
                     {Number(localTimestamp) ? (
                       <>
                         {modifiedDate.getFullYear()}/
@@ -233,6 +235,11 @@ const TransactionsTable = ({
                       current: currentPage,
                       disabled: false,
                       onChange: (page: number) => {
+                        if (scrollTo) {
+                          const element = document.getElementById(scrollTo);
+                          element?.scrollIntoView();
+                        }
+
                         setCurrentPage?.(page);
                       },
                       showSizeChanger: false,

@@ -33,7 +33,7 @@ const AppFooter: React.FC = () => {
           rel="noopener noreferrer"
           target="_blank"
         >
-          <GithubOutlined /> Nano Looker
+          <GithubOutlined /> NanoLooker
         </a>{" "}
         ©{new Date().getFullYear()}{" "}
         {t("footer.createdBy", { creator: "RunningCoder" })}

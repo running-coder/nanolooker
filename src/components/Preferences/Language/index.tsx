@@ -27,7 +27,7 @@ const LanguagePreferences: React.FC<Props> = ({ isDetailed }) => {
         </Text>
       </Col>
       {isDetailed ? (
-        <Col xs={18}>
+        <Col xs={16}>
           <Text>
             <Trans
               i18nKey="preferences.languageDetailed"
@@ -45,7 +45,7 @@ const LanguagePreferences: React.FC<Props> = ({ isDetailed }) => {
         </Col>
       ) : null}
 
-      <Col xs={isDetailed ? 6 : undefined} style={{ textAlign: "right" }}>
+      <Col xs={isDetailed ? 8 : undefined} style={{ textAlign: "right" }}>
         <Select
           value={i18next.language}
           onChange={value => {

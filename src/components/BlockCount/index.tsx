@@ -4,6 +4,7 @@ import { Button, Card, Statistic, Skeleton, Tooltip } from "antd";
 import { ReloadOutlined } from "@ant-design/icons";
 import { refreshActionDelay } from "components/utils";
 import { BlockCountContext } from "api/contexts/BlockCount";
+import QuestionCircle from "components/QuestionCircle";
 
 const POLL_INTERVAL = 1000 * 30;
 
@@ -58,12 +59,26 @@ const BlockCount: React.FC = () => {
           valueStyle={{ opacity }}
         />
         <Statistic
-          title={t("pages.status.unchecked")}
+          title={
+            <>
+              {t("pages.status.unchecked")}
+              <Tooltip placement="right" title={t("tooltips.unchecked")}>
+                <QuestionCircle />
+              </Tooltip>
+            </>
+          }
           value={unchecked}
           valueStyle={{ opacity }}
         />
         <Statistic
-          title={t("pages.status.cemented")}
+          title={
+            <>
+              {t("pages.status.cemented")}
+              <Tooltip placement="right" title={t("tooltips.cemented")}>
+                <QuestionCircle />
+              </Tooltip>
+            </>
+          }
           value={cemented}
           valueStyle={{ opacity }}
         />
