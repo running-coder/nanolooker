@@ -137,15 +137,16 @@ const getDistribution = async () => {
             // balance and pending into the Dormant funds
             const { history } = await rpc("account_history", {
               account,
-              count: 1,
+              count: 5,
+              // Using raw allows to include "change" transactions
+              raw: true,
             });
 
-            const result =
-              history &&
-              history.find(({ local_timestamp: localTimestamp }) => {
-                const timestamp = parseInt(localTimestamp);
-                return timestamp;
-              });
+            const result = (history || []).find(
+              ({ local_timestamp, subtype = "" }) =>
+                ["change", "send", "receive"].includes(subtype) &&
+                parseInt(local_timestamp || "0"),
+            );
 
             if (!result) return;
             const modifiedTimestamp = result.local_timestamp;
@@ -214,9 +215,9 @@ const doDistributionCron = async () => {
 // https://crontab.guru/#15_5_*_*_2,5
 // “At 05:15 on Tuesday and Friday.”
 cron.schedule("15 5 * * 2,5", async () => {
-  if (process.env.NODE_ENV !== "production") return;
+  // if (process.env.NODE_ENV !== "production") return;
   // Disable cron until amounts are sorted out
-  doDistributionCron();
+  // doDistributionCron();
 });
 
 if (

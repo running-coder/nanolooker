@@ -65,7 +65,9 @@ const cacheSettings = {
 
 const getCacheKey = (action, params) =>
   `${action}${
-    Object.keys(params).length ? `-${Object.values(params).join("-")}` : ""
+    params && Object.keys(params).length
+      ? `-${Object.values(params).filter(Boolean).join("-")}`
+      : ""
   }`;
 
 const rpc = async (action, params) => {
