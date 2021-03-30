@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Col, Row, Switch, Typography } from "antd";
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import { PreferencesContext } from "api/contexts/Preferences";
+import { Natricon } from "components/Preferences/Natricons/Natricon";
 import { DEVELOPER_FUND_ACCOUNTS } from "knownAccounts.json";
 
 const { Text } = Typography;
@@ -22,17 +23,13 @@ const NatriconsPreferences: React.FC<Props> = ({ isDetailed }) => {
 
   return (
     <div style={{ display: "flex", alignItems: "flex-start" }}>
-      <img
-        alt="natricon"
-        src={`https://natricon.com/api/v1/nano?address=${account}&svc=nanolooker`}
+      <Natricon
+        account={account}
         style={{
-          marginTop: "-12px",
-          marginLeft: "-18px",
-          marginBottom: "-18px",
-          marginRight: "-6px",
+          margin: "-12px -6px -18px -18px ",
+          width: "80px",
+          height: "80px",
         }}
-        width="80px"
-        height="80px"
       />
 
       <Row style={{ width: "100%" }}>

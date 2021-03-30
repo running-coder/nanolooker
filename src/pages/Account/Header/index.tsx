@@ -6,6 +6,7 @@ import find from "lodash/find";
 import { useParams } from "react-router-dom";
 import Copy from "components/Copy";
 import QRCodeModal from "components/QRCodeModal";
+import { Natricon } from "components/Preferences/Natricons/Natricon";
 import { RepresentativesContext } from "api/contexts/Representatives";
 import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
 import { KnownAccountsContext, KnownAccount } from "api/contexts/KnownAccounts";
@@ -79,17 +80,13 @@ const AccountHeader = () => {
         className="color-normal"
       >
         {natricons ? (
-          <img
-            alt="natricon"
-            src={`https://natricon.com/api/v1/nano?address=${account}&svc=nanolooker`}
+          <Natricon
+            account={account}
             style={{
-              marginTop: "-12px",
-              marginLeft: "-18px",
-              marginBottom: "-18px",
-              marginRight: "-6px",
+              margin: "-12px -6px -18px -18px",
+              width: "80px",
+              height: "80px",
             }}
-            width="80px"
-            height="80px"
           />
         ) : (
           <div style={{ alignSelf: "baseline" }}>

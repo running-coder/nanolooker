@@ -16,6 +16,7 @@ import TimeAgo from "timeago-react";
 import BigNumber from "bignumber.js";
 import { rawToRai } from "components/utils";
 import { Colors, TwoToneColors } from "components/utils";
+import { Natricon } from "components/Preferences/Natricons/Natricon";
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 import { Theme, PreferencesContext } from "api/contexts/Preferences";
 import { History } from "api/contexts/AccountHistory";
@@ -147,20 +148,14 @@ const TransactionsTable = ({
                   </Col>
                   {natricons ? (
                     <Col xs={12} md={2} style={{ textAlign: "right" }}>
-                      {account ? (
-                        <img
-                          alt="natricon"
-                          src={`https://natricon.com/api/v1/nano?address=${account}&svc=nanolooker`}
-                          style={{
-                            marginTop: "-12px",
-                            marginLeft: "-18px",
-                            marginBottom: "-18px",
-                            marginRight: "-6px",
-                          }}
-                          width={`${smallNatriconSize ? 60 : 80}px`}
-                          height={`${smallNatriconSize ? 60 : 80}px`}
-                        />
-                      ) : null}
+                      <Natricon
+                        account={account}
+                        style={{
+                          margin: "-12px -6px -18px -18px ",
+                          width: `${smallNatriconSize ? 60 : 80}px`,
+                          height: `${smallNatriconSize ? 60 : 80}px`,
+                        }}
+                      />
                     </Col>
                   ) : null}
                   <Col
