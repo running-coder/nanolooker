@@ -13,7 +13,6 @@ const BlockHeader = () => {
       <div
         style={{
           display: "flex",
-          alignItems: "baseline",
           fontSize: "16px",
           wordWrap: "break-word",
           position: "relative",
@@ -36,8 +35,7 @@ const BlockHeader = () => {
         </span>
         <div
           style={{
-            textAlign: "right",
-            fontSize: 0,
+            display: "flex",
           }}
         >
           <Copy text={block} />

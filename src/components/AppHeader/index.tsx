@@ -32,15 +32,16 @@ const AppHeader: React.FC = () => {
       <Header
         className="app-header"
         style={{
+          paddingTop: "6px",
           position: "relative",
           width: "100%",
           height: "auto",
         }}
       >
-        <Row gutter={[18, 0]} style={{ width: "100%" }}>
+        <Row style={{ alignItems: "center" }}>
           <Col
-            xs={{ span: 6 }}
-            md={{ span: 4 }}
+            xs={6}
+            md={4}
             order={1}
             style={{
               display: "flex",
@@ -52,7 +53,6 @@ const AppHeader: React.FC = () => {
               NanoLooker
             </Link>
           </Col>
-
           <Col xs={{ span: 24, order: 3 }} md={{ span: 12, order: 2 }}>
             <Menu
               onClick={() => {}}

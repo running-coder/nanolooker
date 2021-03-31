@@ -74,17 +74,37 @@ body .theme-dark {
   border-color: #1e1e1e;
 }
 
-.theme-dark .ant-dropdown-menu {
+.theme-dark .ant-dropdown-menu,
+.theme-dark.ant-select-dropdown {
   background-color: #1f1f1f;
 }
 
-.theme-dark .ant-dropdown-menu-item {
+.theme-dark .ant-dropdown-menu-item,
+.theme-dark .ant-select-item {
   color: #e1e1e1;
 }
 
 .theme-dark .ant-dropdown-menu-item:hover,
-.theme-dark .ant-dropdown-menu-submenu-title:hover {
+.theme-dark .ant-select-item:hover,
+.theme-dark .ant-dropdown-menu-submenu-title:hover,
+.theme-dark .ant-select-submenu-title:hover {
   background-color: rgba(255, 255, 255, 0.08);
+}
+
+.theme-dark .ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.theme-dark .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 600;
+  background-color: #111b26;
+}
+.theme-dark .ant-select-item-option-selected:not(.ant-select-item-option-disabled) .ant-select-item-option-state {
+  color: #177ddc;
+}
+.theme-dark .ant-select-item-option-disabled {
+  color: rgba(255, 255, 255, 0.3);
+  cursor: not-allowed;
 }
 
 .theme-dark .ant-input {
@@ -236,6 +256,11 @@ body .theme-dark {
   color: #fff;
   border-color: #e04576;
   background-color: #e04576 !important;
+}
+
+.theme-dark .ant-tag.tag-receive,
+.theme-dark .ant-tag.tag-online {
+  color: darkgreen;
 }
 
 .theme-dark .bottom-gradient {

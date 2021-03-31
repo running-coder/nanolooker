@@ -266,7 +266,15 @@ const AccountDetails = () => {
                   {timestampToDate(modifiedTimestamp)})
                 </>
               ) : (
-                t("common.unknown")
+                <>
+                  {t("common.unknown")}
+                  <Tooltip
+                    placement="right"
+                    title={t("tooltips.unknownLastTransaction")}
+                  >
+                    <QuestionCircle />
+                  </Tooltip>
+                </>
               )}
             </Skeleton>
           </Col>

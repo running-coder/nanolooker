@@ -372,3 +372,7 @@ a:hover {
   margin-left: 6px;
   font-size: 14px !important;
 }
+
+.search-autocomplete-dropdown {
+  width: 650px !important;
+}

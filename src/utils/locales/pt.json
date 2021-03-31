@@ -48,7 +48,8 @@
     "largeTransactions": "Apenas transações de envio de 10.000 NANO ou mais são salvas temporariamente por uma semana.",
     "knownExchangeBalance": "Exclua {{knownExchangeList}} do gráfico de distribuição. Essas contas combinadas contêm {{knownExchangeBalance}} NANO",
     "unchecked": "Blocos (transações) que foram baixados, mas ainda não processados pelo nó Nano. O software de nó baixa todos os blocos de outros nós como desmarcados, os processa e adiciona à contagem de blocos, confirma os blocos de fronteira para cada conta e, em seguida, os marca como cimentados.",
-    "cemented": "Quando um nó específico marca uma transação confirmada como localmente irreversível, definindo a altura de confirmação da conta (no banco de dados do nó) para a altura de bloco agora mais alta da transação confirmada. A cimentação é uma operação no nível do nó."
+    "cemented": "Quando um nó específico marca uma transação confirmada como localmente irreversível, definindo a altura de confirmação da conta (no banco de dados do nó) para a altura de bloco agora mais alta da transação confirmada. A cimentação é uma operação no nível do nó.",
+    "unknownLastTransaction": "As datas de transação foram introduzidas em fevereiro de 2019. Antes dessa data, os tempos de transação não eram registrados localmente nos nós. A razão pela qual a data da última transação é desconhecida é porque ela foi confirmada antes que as datas fossem registradas ou antes que o nó NanoLooker estivesse em serviço."
   },
   "search": {
     "searchBy": "Pesquisa por endereço / bloco",

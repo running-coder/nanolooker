@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Button, Typography } from "antd";
 import { WalletOutlined, QrcodeOutlined } from "@ant-design/icons";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import find from "lodash/find";
 import { useParams } from "react-router-dom";
 import Copy from "components/Copy";
@@ -32,6 +33,7 @@ const AccountHeader = () => {
     confirmationQuorum: { principal_representative_min_weight: minWeight },
   } = React.useContext(ConfirmationQuorumContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
+  const isMediumAndLower = !useMediaQuery("(min-width: 768px)");
 
   React.useEffect(() => {
     if (!account || isRepresentativesLoading || !representatives.length) return;
@@ -72,7 +74,7 @@ const AccountHeader = () => {
       <div
         style={{
           display: "flex",
-          alignItems: natricons ? "center" : "baseline",
+          alignItems: natricons ? "center" : "",
           fontSize: "16px",
           wordWrap: "break-word",
           position: "relative",
@@ -109,22 +111,20 @@ const AccountHeader = () => {
         <div
           style={{
             textAlign: "right",
+            display: "flex",
+            flexDirection: isMediumAndLower ? "column" : "row",
           }}
         >
-          <span
-            style={{
-              display: "inline-block",
-              fontSize: 0,
-            }}
-          >
-            <Copy text={account} />
-          </span>
+          <Copy text={account} />
           <QRCodeModal account={account} body={<Text>{account}</Text>}>
             <Button
               shape="circle"
               icon={<QrcodeOutlined />}
               size="small"
-              style={{ marginLeft: "6px", marginTop: "3px" }}
+              style={{
+                marginTop: isMediumAndLower ? "3px" : 0,
+                marginLeft: isMediumAndLower ? 0 : "6px",
+              }}
             />
           </QRCodeModal>
         </div>
