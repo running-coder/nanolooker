@@ -76,9 +76,7 @@ const useAccountHistory = (
   };
 
   useDeepCompareEffect(() => {
-    // Prevent double request if account's head is currently being fetched
-    if (!isValidAccountAddress(account) || params.head === "") return;
-
+    if (!isValidAccountAddress(account)) return;
     getAccountHistory(account, params);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [account, params]);

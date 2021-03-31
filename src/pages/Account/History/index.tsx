@@ -24,17 +24,20 @@ const AccountHistory = () => {
     {
       count: String(TRANSACTIONS_PER_PAGE),
       raw: true,
-      offset: isPaginated
-        ? (currentPage - 1) * TRANSACTIONS_PER_PAGE
-        : undefined,
-      head: !isPaginated
-        ? currentHead || accountInfo?.frontier || ""
-        : undefined,
+      ...(isPaginated
+        ? { offset: (currentPage - 1) * TRANSACTIONS_PER_PAGE }
+        : undefined),
+      ...(!isPaginated && currentHead ? { head: currentHead } : undefined),
     },
     {
       concatHistory: !isPaginated,
     },
   );
+
+  React.useEffect(() => {
+    setCurrentPage(1);
+    setCurrentHead(undefined);
+  }, [account]);
 
   return (
     <>
