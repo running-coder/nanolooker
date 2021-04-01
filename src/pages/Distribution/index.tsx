@@ -53,16 +53,21 @@ const Distribution = () => {
   }, []);
 
   React.useEffect(() => {
-    if (!data?.distribution || !knownExchangeAccounts.length) return;
+    if (
+      !data?.distribution ||
+      !data?.knownExchanges ||
+      !knownExchangeAccounts.length
+    )
+      return;
 
     let knownExchangeDistribution: DistributionIndex[] = [];
     if (!isIncludeExchanges) {
-      knownExchangeAccounts.forEach(({ total }) => {
-        let index = total >= 1 ? `${Math.floor(total)}`.length : 0;
+      Object.values(data.knownExchanges).forEach(balance => {
+        let index = balance >= 1 ? `${Math.floor(balance)}`.length : 0;
 
         knownExchangeDistribution[index] = {
           accounts: (knownExchangeDistribution[index]?.accounts || 0) + 1,
-          balance: new BigNumber(total)
+          balance: new BigNumber(balance)
             .plus(knownExchangeDistribution[index]?.balance || 0)
             .toNumber(),
         };

@@ -11,6 +11,7 @@ const {
   EXPIRE_24H,
   DISTRIBUTION,
   DORMANT_FUNDS,
+  KNOWN_EXCHANGES,
   STATUS,
 } = require("../constants");
 const { rawToRai } = require("../utils");
@@ -24,10 +25,13 @@ const distributionCache = new NodeCache({
   deleteOnExpire: true,
 });
 
+const { KNOWN_EXCHANGE_ACCOUNTS } = require("../../src/knownAccounts.json");
+
 const TMP_ACCOUNTS_PATH = join(__dirname, "../data/tmp/account");
 const DISTRIBUTION_PATH = join(__dirname, "../data/distribution.json");
 const TMP_DISTRIBUTION_PATH = join(__dirname, "../data/tmp/distribution");
 const DORMANT_FUNDS_PATH = join(__dirname, "../data/dormantFunds.json");
+const KNOWN_EXCHANGES_PATH = join(__dirname, "../data/knownExchanges.json");
 const STATUS_PATH = join(__dirname, "../data/status.json");
 // Balance + pending below this amount will be ignored
 const MIN_TOTAL = 0.001;
@@ -73,6 +77,26 @@ const getAccounts = async () => {
   }
 };
 
+const getKnownExchanges = async () => {
+  const { balances } = await rpc("accounts_balances", {
+    accounts: KNOWN_EXCHANGE_ACCOUNTS,
+  });
+
+  return Object.entries(balances).reduce(
+    (acc, [account, { balance: rawBalance, pending: rawPending }]) => {
+      const balance = rawToRai(rawBalance);
+      const pending = rawToRai(rawPending);
+      const total = new BigNumber(balance).plus(pending).toNumber();
+
+      return {
+        ...acc,
+        [account]: total,
+      };
+    },
+    {},
+  );
+};
+
 const getDistribution = async () => {
   // Distribution pattern
   // 0.001 - <1
@@ -91,6 +115,11 @@ const getDistribution = async () => {
 
   // Funds that have not moved since X
   const dormantFunds = {};
+
+  // Get the known exchange balance so when they are excluded from the distribution their balance matches the distribution buckets
+  // eg. if accountA is in bucket C when the script generates the balances but a few days after accountA's balance now matches bucket D
+  const knownExchanges = await getKnownExchanges();
+
   await mkdir(`${TMP_DISTRIBUTION_PATH}`, { recursive: true });
 
   await getAccounts();
@@ -170,11 +199,12 @@ const getDistribution = async () => {
         JSON.stringify({ distribution, dormantFunds }, null, 2),
       );
 
-      await sleep(1000);
+      // @TODO check if can remove the sleep now that the node is a bit more powerful
+      await sleep(100);
     }
   }
 
-  return { distribution, dormantFunds };
+  return { distribution, dormantFunds, knownExchanges };
 };
 
 const doDistributionCron = async () => {
@@ -182,10 +212,18 @@ const doDistributionCron = async () => {
     const startTime = new Date();
     console.log("Distribution cron started");
 
-    const { distribution, dormantFunds } = await getDistribution();
+    const {
+      distribution,
+      dormantFunds,
+      knownExchanges,
+    } = await getDistribution();
 
     fs.writeFileSync(DISTRIBUTION_PATH, JSON.stringify(distribution, null, 2));
     fs.writeFileSync(DORMANT_FUNDS_PATH, JSON.stringify(dormantFunds, null, 2));
+    fs.writeFileSync(
+      KNOWN_EXCHANGES_PATH,
+      JSON.stringify(knownExchanges, null, 2),
+    );
     fs.writeFileSync(
       STATUS_PATH,
       JSON.stringify(
@@ -204,6 +242,7 @@ const doDistributionCron = async () => {
 
     distributionCache.set(DISTRIBUTION, distribution);
     distributionCache.set(DORMANT_FUNDS, dormantFunds);
+    distributionCache.set(KNOWN_EXCHANGES, knownExchanges);
 
     // rimraf(TMP_ACCOUNTS_PATH, () => {});
   } catch (err) {
@@ -223,6 +262,7 @@ cron.schedule("15 5 * * 2,5", async () => {
 if (
   !fs.existsSync(DISTRIBUTION_PATH) &&
   !fs.existsSync(DORMANT_FUNDS_PATH) &&
+  !fs.existsSync(KNOWN_EXCHANGES_PATH) &&
   !fs.existsSync(STATUS_PATH) &&
   process.env.NODE_ENV === "production"
 ) {
@@ -232,6 +272,7 @@ if (
 const getDistributionData = () => {
   let distribution = distributionCache.get(DISTRIBUTION);
   let dormantFunds = distributionCache.get(DORMANT_FUNDS);
+  let knownExchanges = distributionCache.get(KNOWN_EXCHANGES);
   let status = distributionCache.get(STATUS);
 
   if (!distribution) {
@@ -248,6 +289,13 @@ const getDistributionData = () => {
     distributionCache.set(DORMANT_FUNDS, dormantFunds);
   }
 
+  if (!knownExchanges) {
+    knownExchanges = fs.existsSync(KNOWN_EXCHANGES_PATH)
+      ? JSON.parse(fs.readFileSync(KNOWN_EXCHANGES_PATH, "utf8"))
+      : {};
+    distributionCache.set(KNOWN_EXCHANGES, knownExchanges);
+  }
+
   if (!status) {
     status = fs.existsSync(STATUS_PATH)
       ? JSON.parse(fs.readFileSync(STATUS_PATH, "utf8"))
@@ -259,6 +307,7 @@ const getDistributionData = () => {
     status,
     distribution,
     dormantFunds,
+    knownExchanges,
   };
 };
 

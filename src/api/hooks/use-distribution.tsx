@@ -8,6 +8,7 @@ export interface DistributionIndex {
 interface Data {
   distribution: DistributionIndex[];
   dormantFunds: any;
+  knownExchanges: { [key: string]: number };
   status: {
     executionTime: number;
     date: string;
