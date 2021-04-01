@@ -50,11 +50,11 @@ const Search = () => {
         setIsError(!isValidAccount && !isValidBlock);
 
         if (isValidAccount) {
-          addSearchHistory(value);
-          history.push(`/account/${value}`);
+          addSearchHistory(value.toLowerCase());
+          history.push(`/account/${value.toLowerCase()}`);
         } else if (isValidBlock) {
-          addSearchHistory(value);
-          history.push(`/block/${value}`);
+          addSearchHistory(value.toUpperCase());
+          history.push(`/block/${value.toUpperCase()}`);
         } else {
           const filteredKnownAccounts = knownAccounts
             .filter(({ alias }) =>

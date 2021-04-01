@@ -12,7 +12,7 @@ const { Title } = Typography;
 const AccountHistory = () => {
   const { t } = useTranslation();
   const { account, accountInfo } = React.useContext(AccountInfoContext);
-  const isPaginated = Number(accountInfo?.block_count) <= 100;
+  const isPaginated = Number(accountInfo?.block_count) <= 250;
   const showPaginate = Number(accountInfo?.block_count) > TRANSACTIONS_PER_PAGE;
   const [currentPage, setCurrentPage] = React.useState<number>(1);
   const [currentHead, setCurrentHead] = React.useState<string | undefined>();
@@ -30,7 +30,7 @@ const AccountHistory = () => {
       ...(!isPaginated && currentHead ? { head: currentHead } : undefined),
     },
     {
-      concatHistory: !isPaginated,
+      concatHistory: !!accountInfo?.block_count && !isPaginated,
     },
   );
 

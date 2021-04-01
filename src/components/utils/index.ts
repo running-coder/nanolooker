@@ -79,17 +79,20 @@ export const formatPublicAddress = (address: string): string => {
   return formattedAddress;
 };
 
-export const ACCOUNT_REGEX = /((nano|xrb)_)?[0-9a-z]{60}/;
+export const ACCOUNT_REGEX = /((nano|xrb)_)?(1|3)[1-9a-z]{59}/;
 export const BLOCK_REGEX = /[0-9A-F]{64}/;
 
 export const isValidAccountAddress = (address: string): boolean =>
-  new RegExp(`^${ACCOUNT_REGEX.toString().replace(/\//g, "")}$`).test(address);
+  new RegExp(`^${ACCOUNT_REGEX.toString().replace(/\//g, "")}$`, "i").test(
+    address,
+  );
 
 export const getAccountAddressFromText = (text: string): string | null => {
   const [, address] =
     text?.match(
       new RegExp(
         `[^sS]*?(${ACCOUNT_REGEX.toString().replace(/\//g, "")})[^sS]*?`,
+        "i",
       ),
     ) || [];
   return address;
@@ -100,13 +103,14 @@ export const isOpenAccountBlockHash = (hash: string): boolean =>
 
 export const isValidBlockHash = (hash: string): boolean =>
   !/^[0]+$/.test(hash) &&
-  new RegExp(`^${BLOCK_REGEX.toString().replace(/\//g, "")}$`).test(hash);
+  new RegExp(`^${BLOCK_REGEX.toString().replace(/\//g, "")}$`, "i").test(hash);
 
 export const getAccountBlockHashFromText = (text: string): string | null => {
   const [, hash] =
     text?.match(
       new RegExp(
         `[^sS]*?(${BLOCK_REGEX.toString().replace(/\//g, "")})[^sS]*?`,
+        "i",
       ),
     ) || [];
   return hash;
