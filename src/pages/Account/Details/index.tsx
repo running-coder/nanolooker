@@ -31,11 +31,6 @@ interface AccountDetailsLayoutProps {
   children?: ReactElement;
 }
 
-interface AccountsRepresentative extends Representative {
-  isOnline: boolean;
-  alias?: string;
-}
-
 export const AccountDetailsLayout = ({
   bordered,
   children,
@@ -56,7 +51,7 @@ const AccountDetails = () => {
     {} as any,
   );
   const [accountsRepresentative, setAccountsRepresentative] = React.useState(
-    {} as AccountsRepresentative,
+    {} as Representative,
   );
 
   const {
@@ -84,7 +79,7 @@ const AccountDetails = () => {
   const { knownAccounts } = React.useContext(KnownAccountsContext);
   const {
     confirmationQuorum: {
-      principal_representative_min_weight: minWeight,
+      principal_representative_min_weight: principalRepresentativeMinWeight,
       online_stake_total: onlineStakeTotal = 0,
     },
   } = React.useContext(ConfirmationQuorumContext);
@@ -124,7 +119,7 @@ const AccountDetails = () => {
     setRepresentativeAccount(find(representatives, ["account", account]) || {});
 
     if (accountInfo.representative) {
-      const accountsRepresentative: AccountsRepresentative = {
+      const accountsRepresentative: Representative = {
         ...find(representatives, ["account", accountInfo.representative])!,
         isOnline: representativesOnline.includes(
           accountInfo.representative || "",
@@ -170,7 +165,9 @@ const AccountDetails = () => {
               {t("pages.account.votingWeight")}
               <Tooltip
                 placement="right"
-                title={t("tooltips.votingWeight", { minWeight })}
+                title={t("tooltips.votingWeight", {
+                  minWeight: principalRepresentativeMinWeight,
+                })}
               >
                 <QuestionCircle />
               </Tooltip>
@@ -217,7 +214,8 @@ const AccountDetails = () => {
                         }`,
                       )}
                     </Tag>
-                    {accountsRepresentative?.weight >= minWeight ? (
+                    {accountsRepresentative?.weight >=
+                    principalRepresentativeMinWeight ? (
                       <Tag>{t("common.principalRepresentative")}</Tag>
                     ) : null}
                   </div>

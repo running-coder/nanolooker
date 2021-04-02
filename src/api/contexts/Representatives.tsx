@@ -4,21 +4,22 @@ import { rpc } from "api/rpc";
 export interface Representative {
   account: string;
   weight: number;
+  isOnline?: boolean;
+  alias?: string;
 }
-
 export interface RepresentativesReturn {
   representatives: Representative[];
   isLoading: boolean;
   isError: boolean;
 }
 
-export const RepresentativesContext = React.createContext<
-  RepresentativesReturn
->({
-  representatives: [],
-  isLoading: false,
-  isError: false,
-});
+export const RepresentativesContext = React.createContext<RepresentativesReturn>(
+  {
+    representatives: [],
+    isLoading: false,
+    isError: false,
+  },
+);
 
 const Provider: React.FC = ({ children }) => {
   const [representatives, setRepresentatives] = React.useState<

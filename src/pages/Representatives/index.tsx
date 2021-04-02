@@ -6,11 +6,12 @@ import {
   Col,
   Row,
   Skeleton,
-  Table,
+  Statistic,
   Tag,
   Tooltip,
   Typography,
 } from "antd";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import BigNumber from "bignumber.js";
 import { Theme, PreferencesContext } from "api/contexts/Preferences";
 import { RepresentativesContext } from "api/contexts/Representatives";
@@ -24,6 +25,7 @@ const { Title } = Typography;
 
 const Representatives = () => {
   const { t } = useTranslation();
+  const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
   const { theme } = React.useContext(PreferencesContext);
   const {
     representatives,
@@ -94,8 +96,7 @@ const Representatives = () => {
               </Col>
               <Col xs={24} sm={12} xl={16}>
                 <Skeleton {...representativesSkeletonProps}>
-                  {representatives?.length -
-                    (principalRepresentatives?.length || 0)}
+                  {representatives?.length || 0}
                 </Skeleton>
               </Col>
             </Row>
@@ -120,10 +121,10 @@ const Representatives = () => {
             <Row gutter={6}>
               <Col xs={24} sm={12} xl={8}>
                 <>
-                  {t("pages.representatives.onlineRepresentatives")}
+                  {t("pages.representatives.onlinePrincipalRepresentatives")}
                   <Tooltip
                     placement="right"
-                    title={t("tooltips.onlineRepresentatives")}
+                    title={t("tooltips.onlinePrincipalRepresentatives")}
                   >
                     <QuestionCircle />
                   </Tooltip>
@@ -203,88 +204,87 @@ const Representatives = () => {
         </Col>
       </Row>
 
-      <Title level={3}>
-        {t("pages.representatives.principalRepresentatives")}
-      </Title>
-      <Table
+      <Card
         size="small"
-        loading={
-          isRepresentativesLoading ||
-          isRepresentativesOnlineLoading ||
-          isConfirmationQuorumLoading
-        }
-        pagination={false}
-        rowKey={record => record.account}
-        columns={[
-          {
-            title: t("common.weight"),
-            dataIndex: "weight",
-            defaultSortOrder: "descend",
-            sorter: {
-              compare: (a, b) => a.weight - b.weight,
-              multiple: 3,
-            },
-            render: (text: string) => (
-              <>{new BigNumber(text).toFormat()} NANO</>
-            ),
-          },
-          {
-            title: t("common.account"),
-            dataIndex: "account",
-            render: (text: string) => {
-              const alias = knownAccounts.find(
-                ({ account: knownAccount }) => knownAccount === text,
-              )?.alias;
-              const isRepresentativeOnline = representativesOnline.includes(
-                text,
-              );
-              return (
-                <>
-                  <div style={{ display: "flex" }}>
-                    <Tag
-                      color={
-                        isRepresentativeOnline
-                          ? theme === Theme.DARK
-                            ? TwoToneColors.RECEIVE_DARK
-                            : TwoToneColors.RECEIVE
-                          : theme === Theme.DARK
-                          ? TwoToneColors.SEND_DARK
-                          : TwoToneColors.SEND
-                      }
-                      className={`tag-${
-                        isRepresentativeOnline ? "online" : "offline"
-                      }`}
-                    >
-                      {t(
-                        `common.${
-                          isRepresentativeOnline ? "online" : "offline"
-                        }`,
-                      )}
-                    </Tag>
-                    {alias ? (
-                      <span
-                        className="color-important"
-                        style={{ marginRight: "6px", display: "block" }}
-                      >
-                        {alias}
-                      </span>
-                    ) : null}
-                  </div>
-                  <div>
-                    <Link
-                      to={`/account/${text}`}
-                      className="color-normal break-word"
-                    >
-                      {text}
-                    </Link>
-                  </div>
-                </>
-              );
-            },
-          },
-        ]}
-        dataSource={principalRepresentatives}
-      />
+        bordered={false}
+        className="detail-layout"
+        style={{ marginBottom: "12px" }}
+      >
+        {!isSmallAndLower ? (
+          <>
+            <Row gutter={6}>
+              <Col sm={12} md={10} xl={6}>
+                {t("pages.account.votingWeight")}
+              </Col>
+              <Col sm={12} md={14} xl={18}>
+                {t("common.account")}
+              </Col>
+            </Row>
+          </>
+        ) : null}
+        {representatives?.map(({ account, weight }) => {
+          const isOnline = representativesOnline.includes(account);
+          const alias = knownAccounts.find(
+            ({ account: knownAccount }) => account === knownAccount,
+          )?.alias;
+
+          return (
+            <Row gutter={6}>
+              <Col
+                xs={{ span: 24, order: 2 }}
+                sm={{ span: 12, order: 1 }}
+                md={10}
+                xl={6}
+              >
+                <Statistic suffix="NANO" value={weight} />
+                {weight >= principalRepresentativeMinWeight ? (
+                  <>
+                    {new BigNumber(weight)
+                      .times(100)
+                      .dividedBy(rawToRai(onlineStakeTotal))
+                      .toFormat(2)}
+                    {isSmallAndLower
+                      ? t("pages.account.percentVotingWeight")
+                      : "%"}
+                  </>
+                ) : null}
+              </Col>
+              <Col
+                xs={{ span: 24, order: 1 }}
+                sm={{ span: 12, order: 2 }}
+                md={14}
+                xl={18}
+              >
+                <div style={{ display: "flex", margin: "3px 0" }}>
+                  <Tag
+                    color={
+                      isOnline
+                        ? theme === Theme.DARK
+                          ? TwoToneColors.RECEIVE_DARK
+                          : TwoToneColors.RECEIVE
+                        : theme === Theme.DARK
+                        ? TwoToneColors.SEND_DARK
+                        : TwoToneColors.SEND
+                    }
+                    className={`tag-${isOnline ? "online" : "offline"}`}
+                  >
+                    {t(`common.${isOnline ? "online" : "offline"}`)}
+                  </Tag>
+                  {weight >= principalRepresentativeMinWeight ? (
+                    <Tag>{t("common.principalRepresentative")}</Tag>
+                  ) : null}
+                </div>
+
+                {alias ? <div className="color-important">{alias}</div> : null}
+
+                <Link to={`/account/${account}`} className="break-word">
+                  {account}
+                </Link>
+              </Col>
+            </Row>
+          );
+        })}
+      </Card>
     </>
   );
 };

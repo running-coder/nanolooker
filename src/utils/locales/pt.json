@@ -43,7 +43,7 @@
     "pending": "Um estado de transação em que um bloco de envio de fundos foi publicado e confirmado pela rede, mas um bloco correspondente que recebe esses fundos ainda não foi enviado ou confirmado.",
     "totalRepresentatives": "Para otimizar o desempenho, apenas contas com peso de voto >= 1000 NANO são consideradas, mas normalmente qualquer conta com peso de voto > 0, mas < 0,1% do peso de voto online.",
     "totalPrincipalRepresentatives": "Uma conta com um mínimo de {{principalRepresentativeMinWeight}} NANO ou >= 0,1% do peso da votação online delegado a ela é necessária para obter o status de Representante Principal. Quando configurado em um nó que está votando, os votos por ele produzidos serão retransmitidos por outros nós para quem os recebe, ajudando a rede a chegar a um consenso mais rapidamente.",
-    "onlineRepresentatives": "Contas de representantes online que votaram recentemente.",
+    "onlinePrincipalRepresentatives": "Contas de representantes online que votaram recentemente.",
     "lastTransaction": "Última transação enviada de qualquer uma das contas {{totalAccounts}}.",
     "largeTransactions": "Apenas transações de envio de 10.000 NANO ou mais são salvas temporariamente por uma semana.",
     "knownExchangeBalance": "Exclua {{knownExchangeList}} do gráfico de distribuição. Essas contas combinadas contêm {{knownExchangeBalance}} NANO",
@@ -116,7 +116,7 @@
     },
     "account": {
       "votingWeight": "Peso de votação",
-      "percentVotingWeight": "% do peso do voto",
+      "percentVotingWeight": "% do voto",
       "noRepresentative": "Sem Representante",
       "lastTransaction": "Última transação",
       "pendingTransactions": "Transações Pendentes",
@@ -146,7 +146,7 @@
     "representatives": {
       "totalRepresentatives": "Total de Representantes",
       "totalPrincipalRepresentatives": "Total de Representantes Principais",
-      "onlineRepresentatives": "Representantes Online",
+      "onlinePrincipalRepresentatives": "Representantes Principais Online",
       "confirmationQuorum": "Quorum de confirmação",
       "principalRepresentativeMinWeight": "Peso mínimo do Representante Principal",
       "onlineWrightQuorumPercent": "Porcentagem de quorum de peso online",
