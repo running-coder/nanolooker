@@ -63,6 +63,15 @@ const cacheSettings = {
   work_validate: undefined,
 };
 
+const limits = {
+  accounts_balances: {
+    accounts: 50,
+  },
+  blocks_info: {
+    hashes: 1,
+  },
+};
+
 const getCacheKey = (action, params) =>
   `${action}${
     params && Object.keys(params).length
@@ -70,7 +79,7 @@ const getCacheKey = (action, params) =>
       : ""
   }`;
 
-const rpc = async (action, params) => {
+const rpc = async (action, params, isLimited) => {
   let res;
   let json;
   let cacheKey = cacheSettings[action] && getCacheKey(action, params);
@@ -79,6 +88,14 @@ const rpc = async (action, params) => {
     json = cacheKey && rpcCache.get(cacheKey);
 
     if (!json) {
+      if (isLimited && limits[action]) {
+        for (const key in limits[action]) {
+          if (params[key] && params[key].length > limits[action][key]) {
+            return { error: `Limit exceeded for "${action}"` };
+          }
+        }
+      }
+
       const body = JSON.stringify({
         jsonrpc: "2.0",
         action,

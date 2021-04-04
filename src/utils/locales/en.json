@@ -4,6 +4,7 @@
     "block": "Block",
     "representative": "Representative",
     "principalRepresentative": "Principal Representative",
+    "delegators": "Delegators",
     "date": "Date",
     "unknown": "Unknown",
     "balance": "Balance",
@@ -21,6 +22,10 @@
     "offline": "Offline",
     "copied": "Copied",
     "copy": "Copy"
+  },
+  "nodeHealth": {
+    "nodeReloading": "Nano node is reloading",
+    "nodeReady": "Nano node is ready"
   },
   "transaction": {
     "type": "Type",
@@ -116,7 +121,7 @@
     },
     "account": {
       "votingWeight": "Voting weight",
-      "percentVotingWeight": "% voting weight",
+      "percentVotingWeight": "% of the network voting weight",
       "noRepresentative": "No Representative",
       "lastTransaction": "Last transaction",
       "pendingTransactions": "Pending Transactions",
@@ -154,6 +159,10 @@
       "totalOnlineStake": "Total online stake",
       "totalPeerStake": "Total peer stake",
       "principalRepresentatives": "Principal Representatives"
+    },
+    "representative": {
+      "votingWeight": "Representative voting weight",
+      "noDelegatorsFound": "No delegators found"
     },
     "faucets": {
       "description": "Faucets allows you to claim small amounts of NANO for free. These faucets are for you to experience how easy it is to send and receive NANO across the world instantly on a decentralized network."

@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Card, Col, Row, Skeleton, Tag, Tooltip } from "antd";
 import find from "lodash/find";
 import BigNumber from "bignumber.js";
@@ -46,6 +46,7 @@ export const AccountDetailsLayout = ({
 
 const AccountDetails = () => {
   const { t } = useTranslation();
+  const location = useLocation();
   const { theme, fiat } = React.useContext(PreferencesContext);
   const [representativeAccount, setRepresentativeAccount] = React.useState(
     {} as any,
@@ -112,6 +113,9 @@ const AccountDetails = () => {
     paragraph: false,
     loading: isAccountInfoLoading || isMarketStatisticsInitialLoading,
   };
+
+  const isAccountPage = location.pathname.startsWith("/account/");
+  // const isRepresentativePage = location.pathname.startsWith("/representative/");
 
   React.useEffect(() => {
     if (!account || isAccountInfoLoading || !representatives.length) return;
@@ -227,7 +231,9 @@ const AccountDetails = () => {
                   ) : null}
 
                   <Link
-                    to={`/account/${accountInfo.representative}`}
+                    to={`/${isAccountPage ? "representative" : "account"}/${
+                      accountInfo.representative
+                    }`}
                     className="break-word"
                   >
                     {accountInfo.representative}

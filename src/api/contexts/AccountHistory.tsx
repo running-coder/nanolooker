@@ -2,7 +2,7 @@ import React from "react";
 import { rpc } from "api/rpc";
 import { isValidAccountAddress } from "components/utils";
 
-import type  { Type, Subtype } from "types/transaction";
+import type { Type, Subtype } from "types/transaction";
 
 export interface History {
   type: Type;
@@ -53,12 +53,17 @@ const Provider = (
     setIsError(false);
     setIsLoading(true);
 
-    const json = await rpc("account_history", {
-      account,
-      ...params,
-    });
+    try {
+      const json = await rpc("account_history", {
+        account,
+        ...params,
+      });
 
-    !json || json.error ? setIsError(true) : setAccountHistory(json);
+      json.error ? setIsError(true) : setAccountHistory(json);
+    } catch (err) {
+      setIsError(true);
+    }
+
     setIsLoading(false);
   };
 

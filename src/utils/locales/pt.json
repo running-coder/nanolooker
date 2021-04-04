@@ -4,6 +4,7 @@
     "block": "Quadra",
     "representative": "Representante",
     "principalRepresentative": "Representante Principal",
+    "delegators": "Delegadores",
     "date": "Encontro",
     "unknown": "Desconhecida",
     "balance": "Equilíbrio",
@@ -21,6 +22,10 @@
     "offline": "Desligado",
     "copied": "Copiado",
     "copy": "Cópia de"
+  },
+  "nodeHealth": {
+    "nodeReloading": "Nano node está recarregando",
+    "nodeReady": "Nano node está pronto"
   },
   "transaction": {
     "type": "Modelo",
@@ -116,7 +121,7 @@
     },
     "account": {
       "votingWeight": "Peso de votação",
-      "percentVotingWeight": "% do voto",
+      "percentVotingWeight": "% do peso do voto da rede",
       "noRepresentative": "Sem Representante",
       "lastTransaction": "Última transação",
       "pendingTransactions": "Transações Pendentes",
@@ -154,6 +159,10 @@
       "totalOnlineStake": "Aposta online total",
       "totalPeerStake": "Participação de pares total",
       "principalRepresentatives": "Representantes Principais"
+    },
+    "representative": {
+      "votingWeight": "Peso de voto representativo",
+      "noDelegatorsFound": "Nenhum delegador encontrado"
     },
     "faucets": {
       "description": "As torneiras permitem reivindicar pequenas quantidades de NANO gratuitamente. Essas torneiras são para você experimentar como é fácil enviar e receber NANO em todo o mundo instantaneamente em uma rede descentralizada."

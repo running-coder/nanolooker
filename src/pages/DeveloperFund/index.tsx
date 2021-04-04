@@ -1,16 +1,9 @@
 import React from "react";
 import { useTranslation, Trans } from "react-i18next";
 import { Link } from "react-router-dom";
-import {
-  Button,
-  Card,
-  Col,
-  Row,
-  Skeleton,
-  Table,
-  Tooltip,
-  Typography,
-} from "antd";
+import { Button, Card, Col, Row, Skeleton, Tooltip, Typography } from "antd";
+import orderBy from "lodash/orderBy";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import TimeAgo from "timeago-react";
 import BigNumber from "bignumber.js";
 import {
@@ -59,27 +52,34 @@ const DeveloperFund = () => {
   } = useAccountsBalances(DEVELOPER_FUND_ACCOUNTS);
   const { availableSupply } = useAvailableSupply();
   const { developerFundTransactions } = useDeveloperAccountFund();
+  const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
 
-  const data = Object.entries(accountsBalances?.balances || []).reduce(
-    // @ts-ignore
-    (accounts, [account, { balance, pending }]) => {
-      const calculatedBalance = new BigNumber(rawToRai(balance || 0))
-        .plus(rawToRai(pending || 0))
-        .toNumber();
+  const data = orderBy(
+    Object.entries(accountsBalances?.balances || []).reduce(
+      // @ts-ignore
+      (accounts, [account, { balance, pending }]) => {
+        const calculatedBalance = new BigNumber(rawToRai(balance || 0))
+          .plus(rawToRai(pending || 0))
+          .toNumber();
 
-      totalBalance = new BigNumber(totalBalance)
-        .plus(calculatedBalance)
-        .toNumber();
+        totalBalance = new BigNumber(totalBalance)
+          .plus(calculatedBalance)
+          .toNumber();
 
-      accounts.push({
-        account,
-        balance: calculatedBalance,
-      });
+        accounts.push({
+          account,
+          balance: calculatedBalance,
+        });
 
-      return accounts;
-    },
-    [] as any,
+        return accounts;
+      },
+      [] as any,
+    ),
+    ["balance"],
+    ["desc"],
   );
+
+  console.log("~~~~data", data);
 
   const fiatBalance = new BigNumber(totalBalance)
     .times(currentPrice)
@@ -274,41 +274,38 @@ const DeveloperFund = () => {
       <Title level={3} style={{ marginTop: "0.5em" }}>
         {t("pages.developerFund.totalAccounts", { totalAccounts: data.length })}
       </Title>
-      <Table
+
+      <Card
         size="small"
-        pagination={false}
-        loading={isAccountsBalancesLoading}
-        rowKey={record => record.account}
-        columns={[
-          {
-            title: t("common.balance"),
-            dataIndex: "balance",
-            defaultSortOrder: "descend",
-            sorter: {
-              compare: (a, b) => a.balance - b.balance,
-              multiple: 3,
-            },
-            render: (text: string) => (
-              <>{new BigNumber(text).toFormat()} NANO</>
-            ),
-          },
-          {
-            title: t("common.account"),
-            dataIndex: "account",
-            render: (text: string) => (
-              <>
-                <Link
-                  to={`/account/${text}`}
-                  className="color-normal break-word"
-                >
-                  {text}
-                </Link>
-              </>
-            ),
-          },
-        ]}
-        dataSource={data}
-      />
+        bordered={false}
+        className="detail-layout"
+        style={{ marginBottom: "12px" }}
+      >
+        {!isSmallAndLower ? (
+          <>
+            <Row gutter={6}>
+              <Col sm={10} md={10} xl={6}>
+                {t("common.balance")}
+              </Col>
+              <Col sm={14} md={14} xl={18}>
+                {t("common.account")}
+              </Col>
+            </Row>
+          </>
+        ) : null}
+        {data?.map(({ account, balance }) => (
+          <Row gutter={6} key={account}>
+            <Col sm={10} md={10} xl={6}>
+              {balance} NANO
+            </Col>
+            <Col sm={14} md={14} xl={18}>
+              <Link to={`/account/${account}`} className="break-word">
+                {account}
+              </Link>
+            </Col>
+          </Row>
+        ))}
+      </Card>
     </>
   );
 };

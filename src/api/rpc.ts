@@ -1,4 +1,13 @@
-// @TODO complete the RPC types...
+let isRPCAvailable = true;
+
+const dispatchRPCStateChange = () => {
+  isRPCAvailable = false;
+  const event = new Event("rpcStateChange", {
+    bubbles: false,
+  });
+  window.dispatchEvent(event);
+};
+
 export const rpc = async (action: string, params?: any) => {
   let res;
   let json;
@@ -18,9 +27,15 @@ export const rpc = async (action: string, params?: any) => {
 
     json = await res.json();
 
-    // console.log("~~action", action, json);
-  } catch (e) {
-    // silence error
+    if (!json && isRPCAvailable) {
+      dispatchRPCStateChange();
+    } else if (!isRPCAvailable) {
+      isRPCAvailable = true;
+    }
+  } catch (err) {
+    if (isRPCAvailable) {
+      dispatchRPCStateChange();
+    }
   }
 
   return json;

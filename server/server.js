@@ -2,6 +2,7 @@ require("dotenv").config();
 require("./cron/ws");
 require("./cron/marketCapRank");
 const { getDistributionData } = require("./cron/distribution");
+const { getDelegatorsData } = require("./cron/delegators");
 require("./ws");
 const { getExchangeBalances } = require("./cron/exchangeTracker");
 const express = require("express");
@@ -51,7 +52,7 @@ app.post("/api/rpc", async (req, res) => {
     return res.status(422).send("RPC action not allowed");
   }
 
-  const result = await rpc(action, params);
+  const result = await rpc(action, params, true);
 
   return res.send(result);
 });
@@ -62,6 +63,12 @@ app.get("/api/confirmations-per-second", (req, res) => {
 
 app.get("/api/distribution", (req, res) => {
   const data = getDistributionData();
+
+  return res.send(data);
+});
+
+app.get("/api/delegators", (req, res) => {
+  const data = getDelegatorsData();
 
   return res.send(data);
 });

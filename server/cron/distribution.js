@@ -260,11 +260,11 @@ cron.schedule("15 5 * * 2,5", async () => {
 });
 
 if (
+  process.env.NODE_ENV === "production" &&
   !fs.existsSync(DISTRIBUTION_PATH) &&
   !fs.existsSync(DORMANT_FUNDS_PATH) &&
   !fs.existsSync(KNOWN_EXCHANGES_PATH) &&
-  !fs.existsSync(STATUS_PATH) &&
-  process.env.NODE_ENV === "production"
+  !fs.existsSync(STATUS_PATH)
 ) {
   doDistributionCron();
 }

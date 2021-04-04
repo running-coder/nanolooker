@@ -21,29 +21,32 @@ const getKnownAccounts = async () => {
 
       const accounts = knownAccounts.flatMap(({ account }) => [account]);
 
-      const { balances } = await rpc("accounts_balances", {
-        accounts,
-      });
+      const { balances } =
+        (await rpc("accounts_balances", {
+          accounts,
+        })) || {};
 
-      knownAccounts = knownAccounts
-        .map(({ account, alias }) => ({
-          account,
-          alias,
-          balance: balances[account]
-            ? rawToRai(new BigNumber(balances[account].balance || 0))
-            : 0,
-          pending: balances[account]
-            ? rawToRai(new BigNumber(balances[account].pending || 0))
-            : 0,
-          total: balances[account]
-            ? rawToRai(
-                new BigNumber(balances[account].balance || 0).plus(
-                  balances[account].pending || 0,
-                ),
-              )
-            : 0,
-        }))
-        .filter(({ alias }) => !!alias);
+      knownAccounts = balances
+        ? knownAccounts
+            .map(({ account, alias }) => ({
+              account,
+              alias,
+              balance: balances[account]
+                ? rawToRai(new BigNumber(balances[account].balance || 0))
+                : 0,
+              pending: balances[account]
+                ? rawToRai(new BigNumber(balances[account].pending || 0))
+                : 0,
+              total: balances[account]
+                ? rawToRai(
+                    new BigNumber(balances[account].balance || 0).plus(
+                      balances[account].pending || 0,
+                    ),
+                  )
+                : 0,
+            }))
+            .filter(({ alias }) => !!alias)
+        : [];
 
       apiCache.set(KNOWN_ACCOUNTS, knownAccounts);
     } catch (err) {

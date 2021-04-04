@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import {
+  Button,
   Card,
   Col,
   Row,
@@ -17,6 +18,7 @@ import { Theme, PreferencesContext } from "api/contexts/Preferences";
 import { RepresentativesContext } from "api/contexts/Representatives";
 import { RepresentativesOnlineContext } from "api/contexts/RepresentativesOnline";
 import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
+import { DelegatorsContext } from "api/contexts/Delegators";
 import QuestionCircle from "components/QuestionCircle";
 import { rawToRai, TwoToneColors } from "components/utils";
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
@@ -48,6 +50,11 @@ const Representatives = () => {
   } = React.useContext(ConfirmationQuorumContext);
 
   const { knownAccounts } = React.useContext(KnownAccountsContext);
+  const {
+    delegators: allDelegators,
+    getDelegators,
+    isLoading,
+  } = React.useContext(DelegatorsContext);
 
   const principalRepresentatives = principalRepresentativeMinWeight
     ? representatives?.filter(
@@ -73,6 +80,11 @@ const Representatives = () => {
     loading: isRepresentativesOnlineLoading,
   };
 
+  React.useEffect(() => {
+    getDelegators();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <>
       <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]}>
@@ -85,7 +97,7 @@ const Representatives = () => {
             style={{ marginBottom: "12px" }}
           >
             <Row gutter={6}>
-              <Col xs={24} sm={12} xl={8}>
+              <Col xs={24} sm={12} xl={10}>
                 {t("pages.representatives.totalRepresentatives")}
                 <Tooltip
                   placement="right"
@@ -94,14 +106,14 @@ const Representatives = () => {
                   <QuestionCircle />
                 </Tooltip>
               </Col>
-              <Col xs={24} sm={12} xl={16}>
+              <Col xs={24} sm={12} xl={14}>
                 <Skeleton {...representativesSkeletonProps}>
                   {representatives?.length || 0}
                 </Skeleton>
               </Col>
             </Row>
             <Row gutter={6}>
-              <Col xs={24} sm={12} xl={8}>
+              <Col xs={24} sm={12} xl={10}>
                 {t("pages.representatives.totalPrincipalRepresentatives")}
                 <Tooltip
                   placement="right"
@@ -112,14 +124,14 @@ const Representatives = () => {
                   <QuestionCircle />
                 </Tooltip>
               </Col>
-              <Col xs={24} sm={12} xl={16}>
+              <Col xs={24} sm={12} xl={14}>
                 <Skeleton {...representativesSkeletonProps}>
                   {principalRepresentatives?.length}
                 </Skeleton>
               </Col>
             </Row>
             <Row gutter={6}>
-              <Col xs={24} sm={12} xl={8}>
+              <Col xs={24} sm={12} xl={10}>
                 <>
                   {t("pages.representatives.onlinePrincipalRepresentatives")}
                   <Tooltip
@@ -130,7 +142,7 @@ const Representatives = () => {
                   </Tooltip>
                 </>
               </Col>
-              <Col xs={24} sm={12} xl={16}>
+              <Col xs={24} sm={12} xl={14}>
                 <Skeleton {...representativesOnlineSkeletonProps}>
                   {representativesOnline?.length}
                 </Skeleton>
@@ -213,11 +225,14 @@ const Representatives = () => {
         {!isSmallAndLower ? (
           <>
             <Row gutter={6}>
-              <Col sm={12} md={10} xl={6}>
+              <Col sm={10} md={10} xl={6}>
                 {t("pages.account.votingWeight")}
               </Col>
-              <Col sm={12} md={14} xl={18}>
+              <Col sm={10} md={10} xl={14}>
                 {t("common.account")}
+              </Col>
+              <Col sm={4} md={4} xl={4}>
+                {t("common.delegators")}
               </Col>
             </Row>
           </>
@@ -227,9 +242,9 @@ const Representatives = () => {
           const alias = knownAccounts.find(
             ({ account: knownAccount }) => account === knownAccount,
           )?.alias;
-
+          const delegators = allDelegators[account]?.delegators;
           return (
-            <Row gutter={6}>
+            <Row gutter={6} key={account}>
               <Col
                 xs={{ span: 24, order: 2 }}
                 sm={{ span: 12, order: 1 }}
@@ -251,9 +266,9 @@ const Representatives = () => {
               </Col>
               <Col
                 xs={{ span: 24, order: 1 }}
-                sm={{ span: 12, order: 2 }}
-                md={14}
-                xl={18}
+                sm={{ span: 10, order: 2 }}
+                md={10}
+                xl={14}
               >
                 <div style={{ display: "flex", margin: "3px 0" }}>
                   <Tag
@@ -280,6 +295,39 @@ const Representatives = () => {
                 <Link to={`/account/${account}`} className="break-word">
                   {account}
                 </Link>
+              </Col>
+              <Col
+                xs={{ span: 24, order: 3 }}
+                sm={{ span: 4, order: 3 }}
+                md={4}
+                xl={4}
+              >
+                {weight >= principalRepresentativeMinWeight ? (
+                  <Skeleton
+                    loading={isLoading}
+                    // title={{ width: "10%" }}
+                    paragraph={false}
+                  >
+                    <div>
+                      {delegators ? (
+                        <Link to={`/representative/${account}`}>
+                          <Button
+                            type="primary"
+                            size="small"
+                            style={{ marginTop: "6px" }}
+                          >
+                            {t("pages.account.viewDelegators", {
+                              count: Object.keys(delegators).length,
+                            })}
+                          </Button>
+                        </Link>
+                      ) : null}
+                      {!delegators
+                        ? t("pages.representative.noDelegatorsFound")
+                        : null}
+                    </div>
+                  </Skeleton>
+                ) : null}
               </Col>
             </Row>
           );

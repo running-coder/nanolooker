@@ -4,6 +4,7 @@
     "block": "Bloc",
     "representative": "Représentant",
     "principalRepresentative": "Représentant Principal",
+    "delegators": "Délégants",
     "date": "Date",
     "unknown": "Inconnu",
     "balance": "Balance",
@@ -21,6 +22,10 @@
     "offline": "Hors-ligne",
     "copied": "Copié",
     "copy": "Copier"
+  },
+  "nodeHealth": {
+    "nodeReloading": "Le nano node est en cours de rechargement",
+    "nodeReady": "Le nano node est prêt"
   },
   "transaction": {
     "type": "Type",
@@ -116,7 +121,7 @@
     },
     "account": {
       "votingWeight": "Poids du vote",
-      "percentVotingWeight": "% du vote",
+      "percentVotingWeight": "% du poids des votes du réseau",
       "noRepresentative": "Pas de Représentant",
       "lastTransaction": "Dernière transaction",
       "pendingTransactions": "Transactions en attente",
@@ -154,6 +159,10 @@
       "totalOnlineStake": "Mise totale en ligne",
       "totalPeerStake": "Participation totale des pairs",
       "principalRepresentatives": "Représentants principaux"
+    },
+    "representative": {
+      "votingWeight": "Poids du vote du représentant",
+      "noDelegatorsFound": "Aucun délégant trouvé"
     },
     "faucets": {
       "description": "Les robitets (Faucets) vous permet de réclamer gratuitement de petites quantités de NANO. Ces robinets vous permettent de découvrir à quel point il est facile d'envoyer et de recevoir des NANO à travers le monde instantanément sur un réseau décentralisé."

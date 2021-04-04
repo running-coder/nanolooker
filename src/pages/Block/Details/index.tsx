@@ -51,7 +51,7 @@ const BlockDetails = () => {
   const skeletonProps = {
     active: true,
     paragraph: false,
-    loading: isBlocksInfoLoading || isMarketStatisticsInitialLoading,
+    loading: isBlocksInfoLoading,
   };
 
   const blockInfo = blocksInfo?.blocks?.[blocks[0]];
@@ -141,35 +141,40 @@ const BlockDetails = () => {
                 </Col>
               )}
               <Col xs={24} sm={18} xl={20}>
-                <Tooltip
-                  placement={isSmallAndLower ? "right" : "top"}
-                  title={t(
-                    `pages.block.${
-                      isConfirmed ? "confirmed" : "pending"
-                    }Status`,
-                  )}
+                <Skeleton
+                  {...skeletonProps}
+                  title={{ width: isSmallAndLower ? "50%" : "20%" }}
                 >
-                  <Tag
-                    icon={
-                      isConfirmed ? (
-                        <CheckCircleOutlined />
-                      ) : (
-                        <SyncOutlined spin />
-                      )
-                    }
-                    color={
-                      // @ts-ignore
-                      TwoToneColors[
-                        `${(subtype || type).toUpperCase()}${
-                          theme === Theme.DARK ? "_DARK" : ""
-                        }`
-                      ]
-                    }
-                    className={`tag-${subtype || type}`}
+                  <Tooltip
+                    placement={isSmallAndLower ? "right" : "top"}
+                    title={t(
+                      `pages.block.${
+                        isConfirmed ? "confirmed" : "pending"
+                      }Status`,
+                    )}
                   >
-                    {t(`transaction.${subtype || type}`)}
-                  </Tag>
-                </Tooltip>
+                    <Tag
+                      icon={
+                        isConfirmed ? (
+                          <CheckCircleOutlined />
+                        ) : (
+                          <SyncOutlined spin />
+                        )
+                      }
+                      color={
+                        // @ts-ignore
+                        TwoToneColors[
+                          `${(subtype || type).toUpperCase()}${
+                            theme === Theme.DARK ? "_DARK" : ""
+                          }`
+                        ]
+                      }
+                      className={`tag-${subtype || type}`}
+                    >
+                      {t(`transaction.${subtype || type}`)}
+                    </Tag>
+                  </Tooltip>
+                </Skeleton>
               </Col>
             </Row>
             <Row gutter={6}>
@@ -177,14 +182,16 @@ const BlockDetails = () => {
                 {t("common.account")}
               </Col>
               <Col xs={24} sm={18} xl={20}>
-                {blockAccountAlias ? (
-                  <strong style={{ display: "block" }}>
-                    {blockAccountAlias}
-                  </strong>
-                ) : null}
-                <Link to={`/account/${blockAccount}`} className="break-word">
-                  {blockAccount}
-                </Link>
+                <Skeleton {...skeletonProps}>
+                  {blockAccountAlias ? (
+                    <strong style={{ display: "block" }}>
+                      {blockAccountAlias}
+                    </strong>
+                  ) : null}
+                  <Link to={`/account/${blockAccount}`} className="break-word">
+                    {blockAccount}
+                  </Link>
+                </Skeleton>
               </Col>
             </Row>
             <Row gutter={6}>
@@ -204,7 +211,13 @@ const BlockDetails = () => {
                     amount >= 1 ? amount : new BigNumber(amount).toFormat()
                   }
                 />
-                <Skeleton {...skeletonProps}>
+                <Skeleton
+                  {...skeletonProps}
+                  loading={
+                    skeletonProps.loading || isMarketStatisticsInitialLoading
+                  }
+                  title={{ width: isSmallAndLower ? "100%" : "33%" }}
+                >
                   {`${CurrencySymbol?.[fiat]}${fiatAmount} / ${btcAmount} BTC`}
                 </Skeleton>
               </Col>
@@ -214,11 +227,20 @@ const BlockDetails = () => {
                 {t("common.balance")}
               </Col>
               <Col xs={24} sm={18} xl={20}>
-                <Skeleton {...skeletonProps}>
+                <Skeleton
+                  {...skeletonProps}
+                  title={{ width: isSmallAndLower ? "100%" : "33%" }}
+                >
                   {new BigNumber(balance).toFormat()} NANO
                   <br />
                 </Skeleton>
-                <Skeleton {...skeletonProps}>
+                <Skeleton
+                  {...skeletonProps}
+                  loading={
+                    skeletonProps.loading || isMarketStatisticsInitialLoading
+                  }
+                  title={{ width: isSmallAndLower ? "100%" : "33%" }}
+                >
                   {`${CurrencySymbol?.[fiat]}${fiatBalance} / ${btcBalance} BTC`}
                 </Skeleton>
               </Col>
@@ -283,14 +305,19 @@ const BlockDetails = () => {
                 {t("pages.block.previousBlock")}
               </Col>
               <Col xs={24} sm={18} xl={20}>
-                {isValidBlockHash(previous) ? (
-                  <Link to={`/block/${previous}`} className="break-word">
-                    {previous}
-                  </Link>
-                ) : null}
-                {isOpenAccountBlockHash(previous) ? (
-                  <Text>{t("pages.block.openAccountBlock")}</Text>
-                ) : null}
+                <Skeleton
+                  {...skeletonProps}
+                  title={{ width: isSmallAndLower ? "100%" : "50%" }}
+                >
+                  {isValidBlockHash(previous) ? (
+                    <Link to={`/block/${previous}`} className="break-word">
+                      {previous}
+                    </Link>
+                  ) : null}
+                  {isOpenAccountBlockHash(previous) ? (
+                    <Text>{t("pages.block.openAccountBlock")}</Text>
+                  ) : null}
+                </Skeleton>
               </Col>
             </Row>
             <Row gutter={6}>
@@ -298,7 +325,9 @@ const BlockDetails = () => {
                 {t("pages.block.signature")}
               </Col>
               <Col xs={24} sm={18} xl={20}>
-                <span className="break-word">{signature}</span>
+                <Skeleton {...skeletonProps}>
+                  <span className="break-word">{signature}</span>
+                </Skeleton>
               </Col>
             </Row>
             <Row gutter={6}>
@@ -306,16 +335,23 @@ const BlockDetails = () => {
                 {t("pages.block.work")}
               </Col>
               <Col xs={24} sm={18} xl={20}>
-                {work}
+                <Skeleton
+                  {...skeletonProps}
+                  title={{ width: isSmallAndLower ? "100%" : "33%" }}
+                >
+                  {work}
+                </Skeleton>
               </Col>
             </Row>
           </Card>
 
           <Title level={3}>{t("pages.block.originalBlockContent")}</Title>
           <Card size="small">
-            <pre style={{ fontSize: "12px", marginBottom: 0 }}>
-              {JSON.stringify(blockInfo, null, 2)}
-            </pre>
+            <Skeleton {...skeletonProps} paragraph>
+              <pre style={{ fontSize: "12px", marginBottom: 0 }}>
+                {JSON.stringify(blockInfo, null, 2)}
+              </pre>
+            </Skeleton>
           </Card>
         </>
       ) : null}

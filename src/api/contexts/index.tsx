@@ -11,6 +11,7 @@ import RepresentativesOnlineProvider from "./RepresentativesOnline";
 import ConfirmationQuorumProvider from "./ConfirmationQuorum";
 import BlockCountProvider from "./BlockCount";
 import ConfirmationHistoryProvider from "./ConfirmationHistory";
+import DelegatorsProvider from "./Delegators";
 
 const IndexProvider: React.FC = ({ children }) => {
   return (
@@ -26,7 +27,7 @@ const IndexProvider: React.FC = ({ children }) => {
                       <RepresentativesOnlineProvider>
                         <BlockCountProvider>
                           <ConfirmationHistoryProvider>
-                            {children}
+                            <DelegatorsProvider>{children}</DelegatorsProvider>
                           </ConfirmationHistoryProvider>
                         </BlockCountProvider>
                       </RepresentativesOnlineProvider>
