@@ -79,8 +79,6 @@ const DeveloperFund = () => {
     ["desc"],
   );
 
-  console.log("~~~~data", data);
-
   const fiatBalance = new BigNumber(totalBalance)
     .times(currentPrice)
     .toFormat(CurrencyDecimal?.[fiat]);
@@ -296,7 +294,14 @@ const DeveloperFund = () => {
         {data?.map(({ account, balance }) => (
           <Row gutter={6} key={account}>
             <Col sm={10} md={10} xl={6}>
-              {balance} NANO
+              <span
+                className="default-color"
+                style={{
+                  display: "block",
+                }}
+              >
+                {balance} NANO
+              </span>
             </Col>
             <Col sm={14} md={14} xl={18}>
               <Link to={`/account/${account}`} className="break-word">

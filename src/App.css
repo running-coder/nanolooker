@@ -359,6 +359,10 @@ a:hover {
   color: gray;
 }
 
+.detail-layout .ant-row .ant-col .default-color {
+  color: rgba(0, 0, 0, 0.65);
+}
+
 .detail-layout .ant-skeleton-title,
 .price-list .ant-skeleton-title {
   margin: 4px 0;

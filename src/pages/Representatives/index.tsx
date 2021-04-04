@@ -7,7 +7,6 @@ import {
   Col,
   Row,
   Skeleton,
-  Statistic,
   Tag,
   Tooltip,
   Typography,
@@ -251,7 +250,15 @@ const Representatives = () => {
                 md={10}
                 xl={6}
               >
-                <Statistic suffix="NANO" value={weight} />
+                <span
+                  className="default-color"
+                  style={{
+                    display: "block",
+                  }}
+                >
+                  {weight} NANO
+                </span>
+
                 {weight >= principalRepresentativeMinWeight ? (
                   <>
                     {new BigNumber(weight)
