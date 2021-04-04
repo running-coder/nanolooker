@@ -7,15 +7,24 @@ import AccountDetails from "./Details";
 import AccountDetailsUnopened from "./Details/Unopened";
 import AccountPendingHistory from "./Pending";
 import AccountHistory from "./History";
+import AccountDelegators from "./Delegators";
 import { AccountInfoContext } from "api/contexts/AccountInfo";
 
 import type { PageParams } from "types/page";
 
 const { Text, Title } = Typography;
 
+export enum Sections {
+  TRANSACTIONS = "transactions",
+  DELEGATORS = "delegators",
+}
+
 const AccountPage = () => {
   const { t } = useTranslation();
-  const { account = "" } = useParams<PageParams>();
+  const {
+    account = "",
+    section = Sections.TRANSACTIONS,
+  } = useParams<PageParams>();
   const { setAccount, isError: isAccountInfoError } = React.useContext(
     AccountInfoContext,
   );
@@ -35,8 +44,13 @@ const AccountPage = () => {
       <Title level={3}>{t("common.account")}</Title>
       {isValid && !isAccountInfoError ? <AccountDetails /> : null}
       {isValid && isAccountInfoError ? <AccountDetailsUnopened /> : null}
-      {isValid ? <AccountPendingHistory /> : null}
-      {isValid ? <AccountHistory /> : null}
+      {isValid && section === Sections.TRANSACTIONS ? (
+        <AccountPendingHistory />
+      ) : null}
+      {isValid && section === Sections.TRANSACTIONS ? <AccountHistory /> : null}
+      {isValid && section === Sections.DELEGATORS ? (
+        <AccountDelegators />
+      ) : null}
 
       {!isValid || !account ? (
         <Card bordered={false}>

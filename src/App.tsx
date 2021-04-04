@@ -8,7 +8,6 @@ import AppHeader from "components/AppHeader";
 import AppFooter from "components/AppFooter";
 import HomePage from "pages/Home";
 import RepresentativesPage from "pages/Representatives";
-import RepresentativePage from "pages/Representative";
 import DeveloperFundPage from "pages/DeveloperFund";
 import DeveloperFundTransactionsPage from "pages/DeveloperFund/Transactions";
 import DistributionPage from "pages/Distribution";
@@ -47,11 +46,6 @@ const App: React.FC = () => {
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/representatives" component={RepresentativesPage} />
-            <Route
-              exact
-              path="/representative/:account?"
-              component={RepresentativePage}
-            />
             <Route exact path="/developer-fund" component={DeveloperFundPage} />
             <Route
               path="/developer-fund/transactions"
@@ -65,7 +59,10 @@ const App: React.FC = () => {
               path="/large-transactions/:sortBy?"
               component={LargeTransactionsPage}
             />
-            <Route path="/account/:account?" component={AccountPage} />
+            <Route
+              path="/account/:account?/:section?"
+              component={AccountPage}
+            />
             <Route path="/block/:block?" component={BlockPage} />
             <Route path="/news/:feed?" component={NewsPage} />
             <Route path="/status" component={StatusPage} />

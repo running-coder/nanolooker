@@ -33,6 +33,8 @@ const AccountPendingHistory = () => {
     sorting: true,
     source: true,
     threshold: PENDING_MIN_THRESHOLD,
+    // @Note Add an preference?
+    include_only_confirmed: true,
   });
   const totalPending = Object.keys(blocks).length;
   const isPaginated = true;

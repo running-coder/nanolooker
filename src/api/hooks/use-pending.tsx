@@ -7,6 +7,7 @@ interface Params {
   source?: boolean;
   sorting?: boolean;
   threshold?: string;
+  include_only_confirmed?: boolean;
 }
 
 interface Response {

@@ -317,7 +317,7 @@ const Representatives = () => {
                   >
                     <div>
                       {delegators ? (
-                        <Link to={`/representative/${account}`}>
+                        <Link to={`/account/${account}/delegators`}>
                           <Button
                             type="primary"
                             size="small"

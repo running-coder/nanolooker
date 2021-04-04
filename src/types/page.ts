@@ -5,4 +5,5 @@ export interface PageParams {
   block?: string;
   feed?: string;
   sortBy?: SORT_BY;
+  section?: string;
 }
