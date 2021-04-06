@@ -32,7 +32,7 @@ const faucets = [
   },
 ];
 
-const FaucetsPage = () => {
+const FaucetsPage: React.FC = () => {
   const { t } = useTranslation();
 
   return (

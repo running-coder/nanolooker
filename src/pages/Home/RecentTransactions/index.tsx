@@ -15,7 +15,7 @@ import Timeline from "./Timeline";
 
 const { Text } = Typography;
 
-const RecentTransactions = () => {
+const RecentTransactions: React.FC = () => {
   const { t } = useTranslation();
   const { theme, disableLiveTransactions } = React.useContext(
     PreferencesContext,

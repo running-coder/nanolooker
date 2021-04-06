@@ -20,6 +20,7 @@ import BlockPage from "pages/Block";
 import NewsPage from "pages/News";
 import StatusPage from "pages/Status";
 import PreferencesPage from "pages/Preferences";
+import Quake3Page from "pages/Quake3";
 import useAnalytics from "hooks/use-analytics";
 
 import "antd/dist/antd.css";
@@ -66,6 +67,7 @@ const App: React.FC = () => {
             <Route path="/block/:block?" component={BlockPage} />
             <Route path="/news/:feed?" component={NewsPage} />
             <Route path="/status" component={StatusPage} />
+            <Route path="/quake3" component={Quake3Page} />
             <Route path="/preferences" component={PreferencesPage} />
           </Switch>
         </Content>

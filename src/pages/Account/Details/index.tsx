@@ -47,7 +47,7 @@ export const AccountDetailsLayout = ({
   </Row>
 );
 
-const AccountDetails = () => {
+const AccountDetails: React.FC = () => {
   const { t } = useTranslation();
   const { section = Sections.TRANSACTIONS } = useParams<PageParams>();
   const { theme, fiat } = React.useContext(PreferencesContext);

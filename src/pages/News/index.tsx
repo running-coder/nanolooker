@@ -103,7 +103,7 @@ const getMediumPosts = async () => {
   return filteredPosts;
 };
 
-const NewsPage = () => {
+const NewsPage: React.FC = () => {
   const { t } = useTranslation();
   const history = useHistory();
   const { feed = "" } = useParams<PageParams>();

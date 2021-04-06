@@ -21,7 +21,7 @@ export enum SORT_BY {
   LARGEST = "largest",
 }
 
-const LargeTransactions = () => {
+const LargeTransactions: React.FC = () => {
   const { t } = useTranslation();
   const history = useHistory();
   const { sortBy: paramSortBy = SORT_BY.LATEST } = useParams<PageParams>();

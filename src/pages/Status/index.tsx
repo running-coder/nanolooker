@@ -6,7 +6,7 @@ import Node from "components/Node";
 import Ledger from "components/Ledger";
 import Peers from "components/Peers";
 
-const StatusPage = () => {
+const StatusPage: React.FC = () => {
   return (
     <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]}>
       <Col xs={24} sm={12} lg={8}>

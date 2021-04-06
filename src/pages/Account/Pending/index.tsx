@@ -22,7 +22,7 @@ interface PendingHistoryBlock extends PendingBlock {
 
 const PENDING_MIN_THRESHOLD = new BigNumber(raiToRaw(0.000001)).toFixed();
 
-const AccountPendingHistory = () => {
+const AccountPendingHistory: React.FC = () => {
   const { t } = useTranslation();
   const { account } = React.useContext(AccountInfoContext);
   const {

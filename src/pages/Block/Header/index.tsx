@@ -5,7 +5,7 @@ import Copy from "components/Copy";
 
 import type { PageParams } from "types/page";
 
-const BlockHeader = () => {
+const BlockHeader: React.FC = () => {
   const { block = "" } = useParams<PageParams>();
 
   return (

@@ -7,7 +7,7 @@ const { Title } = Typography;
 
 const TRANSACTIONS_PER_PAGE = 50;
 
-const DeveloperFundTransaction = () => {
+const DeveloperFundTransaction: React.FC = () => {
   const [currentPage, setCurrentPage] = React.useState<number>(1);
   const {
     developerFundTransactions = [],

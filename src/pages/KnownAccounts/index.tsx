@@ -8,7 +8,7 @@ import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 
 const { Title } = Typography;
 
-const KnownAccountsPage = () => {
+const KnownAccountsPage: React.FC = () => {
   const { t } = useTranslation();
   const { knownAccounts, isLoading } = React.useContext(KnownAccountsContext);
   const inputRef = React.useRef<HTMLInputElement>(null);

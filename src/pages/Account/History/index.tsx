@@ -9,7 +9,7 @@ import TransactionsTable from "pages/Account/Transactions";
 const TRANSACTIONS_PER_PAGE = 25;
 const { Title } = Typography;
 
-const AccountHistory = () => {
+const AccountHistory: React.FC = () => {
   const { t } = useTranslation();
   const { account, accountInfo } = React.useContext(AccountInfoContext);
   const isPaginated = Number(accountInfo?.block_count) <= 250;

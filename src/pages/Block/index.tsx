@@ -10,7 +10,7 @@ import type { PageParams } from "types/page";
 
 const { Text, Title } = Typography;
 
-const BlockPage = () => {
+const BlockPage: React.FC = () => {
   const { t } = useTranslation();
   const { block = "" } = useParams<PageParams>();
   const { setBlocks } = React.useContext(BlocksInfoContext);

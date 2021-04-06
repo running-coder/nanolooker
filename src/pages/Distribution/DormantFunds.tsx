@@ -11,7 +11,11 @@ const { Text, Title } = Typography;
 
 let dormantFundsByRange: any = {};
 
-const DormantFunds = ({ data }: any) => {
+interface Props {
+  data: any;
+}
+
+const DormantFunds: React.FC<Props> = ({ data }) => {
   const { t } = useTranslation();
   const [marks, setMarks] = React.useState({});
   const [totalFunds, setTotalFunds] = React.useState<number>(0);

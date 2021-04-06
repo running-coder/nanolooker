@@ -19,7 +19,7 @@ export enum Sections {
   DELEGATORS = "delegators",
 }
 
-const AccountPage = () => {
+const AccountPage: React.FC = () => {
   const { t } = useTranslation();
   const {
     account = "",

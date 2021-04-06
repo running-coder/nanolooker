@@ -111,6 +111,7 @@ const AppHeader: React.FC = () => {
                 {t("menu.preferences")}
                 <Link to="/preferences" />
               </Menu.Item>
+              {/* Earn NANO */}
             </Menu>
           </Col>
 

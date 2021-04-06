@@ -33,7 +33,7 @@ const DEVELOPER_FUND_ORIGINAL_LINK =
 
 const { Title } = Typography;
 
-const DeveloperFund = () => {
+const DeveloperFund: React.FC = () => {
   const { t } = useTranslation();
   let totalBalance: number = 0;
   const { fiat } = React.useContext(PreferencesContext);

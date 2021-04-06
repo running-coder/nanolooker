@@ -5,7 +5,7 @@ import { AccountDetailsLayout } from ".";
 
 const { Text, Title } = Typography;
 
-const AccountDetailsUnopened = () => {
+const AccountDetailsUnopened: React.FC = () => {
   const { t } = useTranslation();
   return (
     <AccountDetailsLayout>

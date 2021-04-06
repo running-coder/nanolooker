@@ -31,7 +31,7 @@ const distributionMap = [
 
 let distributionChart: any = null;
 
-const Distribution = () => {
+const Distribution: React.FC = () => {
   const { t } = useTranslation();
   const {
     knownExchangeAccounts,

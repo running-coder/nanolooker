@@ -28,7 +28,7 @@ import BlockHeader from "../Header";
 
 const { Text, Title } = Typography;
 
-const BlockDetails = () => {
+const BlockDetails: React.FC = () => {
   const { t } = useTranslation();
   const { theme, fiat } = React.useContext(PreferencesContext);
   const {

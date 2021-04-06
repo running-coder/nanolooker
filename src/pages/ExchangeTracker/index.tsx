@@ -73,7 +73,7 @@ const getExchangeBalances = async () => {
   return exchangeBalances;
 };
 
-const ExchangeTrackerPage = () => {
+const ExchangeTrackerPage: React.FC = () => {
   const { t } = useTranslation();
   const [activeWallets, setActiveWallets] = React.useState<string[]>(
     exchangeWallets

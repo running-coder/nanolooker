@@ -17,7 +17,7 @@ import { PreferencesContext } from "api/contexts/Preferences";
 
 const { Text, Title } = Typography;
 
-const AccountHeader = () => {
+const AccountHeader: React.FC = () => {
   const { t } = useTranslation();
   const { account = "" } = useParams<PageParams>();
   const [knownAccount, setKnownAccount] = React.useState<KnownAccount>();
