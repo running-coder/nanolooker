@@ -1,4 +1,5 @@
 import React from "react";
+// import find from "lodash/find";
 import useDeepCompareEffect from "use-deep-compare-effect";
 import { rpc } from "api/rpc";
 import { isValidAccountAddress } from "components/utils";
@@ -66,9 +67,22 @@ const useAccountHistory = (
     if (!json || json.error) {
       setIsError(true);
     } else {
+      const { history } = json;
       if (options?.concatHistory && json.account === accountHistory.account) {
-        json.history = (accountHistory.history || []).concat(json.history);
+        json.history = (accountHistory.history || []).concat(history);
       }
+
+      // @NOTE Add `confirmed` on history?
+      // const hashes = history && history.map(({ hash }: History) => hash);
+      // const { blocks } = await rpc("blocks_info", {
+      //   hashes,
+      // });
+
+      // // @ts-ignore
+      // Object.entries(blocks).forEach(([hash, { confirmed }]) => {
+      //   find(json.history, { hash }).confirmed = toBoolean(confirmed);
+      // });
+
       setAccountHistory(json);
     }
 

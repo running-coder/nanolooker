@@ -54,7 +54,9 @@
     "knownExchangeBalance": "Exclure {{knownExchangeList}} du diagramme de distribution. Ces comptes combinés contiennent {{knownExchangeBalance}} NANO",
     "unchecked": "Blocs (transactions) qui ont été téléchargés mais pas encore traités par le nœud Nano. Le logiciel de nœud télécharge tous les bocks des autres nœuds comme non vérifiés, les traite et les ajoute au nombre de blocs, confirme les blocs de frontière pour chaque compte, puis les marque comme cimentés.",
     "cemented": "Lorsqu'un nœud spécifique marque une transaction confirmée comme irréversible localement en définissant la hauteur de confirmation du compte (dans la base de données des nœuds) sur la hauteur de bloc désormais plus élevée de la transaction confirmée. Le cimentage est une opération au niveau du nœud.",
-    "unknownLastTransaction": "Les dates de transaction ont été introduites en février 2019. Avant cette date, les heures de transaction n'étaient pas enregistrées localement sur les nœuds. La raison pour laquelle la date de la dernière transaction est inconnue est qu'elle a été confirmée avant l'enregistrement des dates ou avant la mise en service du nœud NanoLooker."
+    "unknownLastTransaction": "Les dates de transaction ont été introduites en février 2019. Avant cette date, les heures de transaction n'étaient pas enregistrées localement sur les nœuds. La raison pour laquelle la date de la dernière transaction est inconnue est qu'elle a été confirmée avant l'enregistrement des dates ou avant la mise en service du nœud NanoLooker.",
+    "confirmationHeight": "Nombre stocké dans la base de données des nœuds locaux qui représente le bloc confirmé le plus élevé (le plus récent) d'une chaîne de comptes. Lié à (mais différent de) la hauteur du bloc.",
+    "blockHeight": "Valeur entière locale qui représente l'ordre d'un bloc dans une chaîne de comptes. Par exemple, le 15e bloc d'un compte aurait une hauteur de bloc de 15. Lié à (mais différent de) la hauteur de confirmation."
   },
   "search": {
     "searchBy": "Recherche par Address / Bloc",
@@ -123,6 +125,7 @@
       "votingWeight": "Poids du vote",
       "percentVotingWeight": "% du poids des votes du réseau",
       "noRepresentative": "Pas de Représentant",
+      "confirmationHeight": "Hauteur de confirmation",
       "lastTransaction": "Dernière transaction",
       "pendingTransactions": "Transactions en attente",
       "loadMoreTransactions": "Voir plus de transactions",
@@ -139,6 +142,7 @@
       "receiver": "Destinataire",
       "sender": "Expéditeur",
       "previousBlock": "Bloc précédent",
+      "height": "Hauteur du block",
       "signature": "Signature",
       "work": "Travail",
       "openAccountBlock": "Ce block a ouvert le compte",

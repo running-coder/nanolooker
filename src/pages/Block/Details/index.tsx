@@ -60,6 +60,7 @@ const BlockDetails: React.FC = () => {
     subtype,
     block_account: blockAccount,
     source_account: sourceAccount,
+    height,
     contents: {
       type = "",
       representative = "",
@@ -290,6 +291,14 @@ const BlockDetails: React.FC = () => {
                 </Col>
               </Row>
             ) : null}
+            <Row gutter={6}>
+              <Col xs={24} sm={6} xl={4}>
+                {t("pages.block.height")}
+              </Col>
+              <Col xs={24} sm={18} xl={20}>
+                <Skeleton {...skeletonProps}>{height}</Skeleton>
+              </Col>
+            </Row>
             {modifiedTimestamp ? (
               <Row gutter={6}>
                 <Col xs={24} sm={6} xl={4}>

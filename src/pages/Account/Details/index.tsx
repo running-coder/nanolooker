@@ -260,6 +260,19 @@ const AccountDetails: React.FC = () => {
         ) : null}
         <Row gutter={6}>
           <Col xs={24} sm={6}>
+            {t("pages.account.confirmationHeight")}
+            <Tooltip placement="right" title={t("tooltips.confirmationHeight")}>
+              <QuestionCircle />
+            </Tooltip>
+          </Col>
+          <Col xs={24} sm={18}>
+            <Skeleton {...skeletonProps}>
+              {accountInfo.confirmation_height}
+            </Skeleton>
+          </Col>
+        </Row>
+        <Row gutter={6}>
+          <Col xs={24} sm={6}>
             {t("pages.account.lastTransaction")}
           </Col>
           <Col xs={24} sm={18}>
