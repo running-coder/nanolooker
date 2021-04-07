@@ -23,15 +23,15 @@ const IndexProvider: React.FC = ({ children }) => {
               <BlockInfoProvider>
                 <BlocksInfoProvider>
                   <ConfirmationQuorumProvider>
-                    <RepresentativesProvider>
-                      <RepresentativesOnlineProvider>
+                    <RepresentativesOnlineProvider>
+                      <RepresentativesProvider>
                         <BlockCountProvider>
                           <ConfirmationHistoryProvider>
                             <DelegatorsProvider>{children}</DelegatorsProvider>
                           </ConfirmationHistoryProvider>
                         </BlockCountProvider>
-                      </RepresentativesOnlineProvider>
-                    </RepresentativesProvider>
+                      </RepresentativesProvider>
+                    </RepresentativesOnlineProvider>
                   </ConfirmationQuorumProvider>
                 </BlocksInfoProvider>
               </BlockInfoProvider>

@@ -140,6 +140,11 @@ const AccountDetails: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [account, isAccountInfoLoading, representatives.length]);
 
+  const votingWeight = new BigNumber(representativeAccount.weight)
+    .times(100)
+    .dividedBy(rawToRai(onlineStakeTotal))
+    .toNumber();
+
   return (
     <AccountDetailsLayout bordered={false}>
       <>
@@ -180,10 +185,9 @@ const AccountDetails: React.FC = () => {
               <>
                 {new BigNumber(representativeAccount.weight).toFormat()}
                 <br />
-                {new BigNumber(representativeAccount.weight)
-                  .times(100)
-                  .dividedBy(rawToRai(onlineStakeTotal))
-                  .toFormat(2)}
+                {new BigNumber(votingWeight).toFormat(
+                  votingWeight > 0.01 ? 2 : 4,
+                )}
                 {t("pages.account.percentVotingWeight")}
               </>
             </Col>

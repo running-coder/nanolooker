@@ -9,7 +9,7 @@ import {
 } from "api/contexts/Preferences";
 import { BlockCountContext } from "api/contexts/BlockCount";
 import { ConfirmationHistoryContext } from "api/contexts/ConfirmationHistory";
-import { RepresentativesOnlineContext } from "api/contexts/RepresentativesOnline";
+import { RepresentativesContext } from "api/contexts/Representatives";
 import { NodeStatusContext } from "api/contexts/NodeStatus";
 import {
   MarketStatisticsContext,
@@ -47,7 +47,7 @@ const HomePage = () => {
   const { confirmation_stats: { average = 0 } = {} } = React.useContext(
     ConfirmationHistoryContext,
   );
-  const { representatives } = React.useContext(RepresentativesOnlineContext);
+  const { representatives } = React.useContext(RepresentativesContext);
   const {
     nodeStatus: { ledgerSize },
     isLoading: isNodeStatusLoading,
@@ -163,7 +163,11 @@ const HomePage = () => {
                   <LoadingStatistic
                     isLoading={!representatives.length}
                     title={t("pages.home.principalRepOnline")}
-                    value={representatives.length}
+                    value={
+                      representatives.filter(
+                        ({ isOnline, isPrincipal }) => isOnline && isPrincipal,
+                      )?.length
+                    }
                   />
 
                   <LoadingStatistic

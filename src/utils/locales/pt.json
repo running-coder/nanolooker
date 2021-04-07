@@ -3,7 +3,9 @@
     "account": "Conta",
     "block": "Quadra",
     "representative": "Representante",
+    "representatives": "Representantes",
     "principalRepresentative": "Representante Principal",
+    "principalRepresentatives": "Representantes Principais",
     "delegators": "Delegadores",
     "date": "Encontro",
     "unknown": "Desconhecida",
@@ -46,8 +48,8 @@
     "cps": "Confirmações por segundo. A taxa de bloqueios confirmados (envio ou recebimento) na rede NANO. É amostrado no último minuto localmente no nó. Se o nó for reiniciado ou em uma condição degradada, o valor CPS pode ser maior ou menor do que a média real na rede enquanto o nó sincroniza e reconecta com os outros nós.",
     "votingWeight": "Uma conta com um mínimo de {{minWeight}} NANO ou >= 0,1% do peso do voto online delegado a ela é necessária para obter o status de Representante Principal. Quando configurado em um nó que está votando, os votos que ele produz serão retransmitidos por outros nós para quem os recebe, ajudando a rede a chegar a um consenso mais rapidamente.",
     "pending": "Um estado de transação em que um bloco de envio de fundos foi publicado e confirmado pela rede, mas um bloco correspondente que recebe esses fundos ainda não foi enviado ou confirmado.",
-    "totalRepresentatives": "Para otimizar o desempenho, apenas contas com peso de voto >= 1000 NANO são consideradas, mas normalmente qualquer conta com peso de voto > 0, mas < 0,1% do peso de voto online.",
-    "totalPrincipalRepresentatives": "Uma conta com um mínimo de {{principalRepresentativeMinWeight}} NANO ou >= 0,1% do peso da votação online delegado a ela é necessária para obter o status de Representante Principal. Quando configurado em um nó que está votando, os votos por ele produzidos serão retransmitidos por outros nós para quem os recebe, ajudando a rede a chegar a um consenso mais rapidamente.",
+    "representatives": "Para otimizar o desempenho, apenas contas com peso de voto >= 1000 NANO são consideradas, mas normalmente qualquer conta com peso de voto > 0, mas < 0,1% do peso de voto online.",
+    "principalRepresentatives": "Uma conta com um mínimo de {{principalRepresentativeMinWeight}} NANO ou >= 0,1% do peso da votação online delegado a ela é necessária para obter o status de Representante Principal. Quando configurado em um nó que está votando, os votos por ele produzidos serão retransmitidos por outros nós para quem os recebe, ajudando a rede a chegar a um consenso mais rapidamente.",
     "onlinePrincipalRepresentatives": "Contas de representantes online que votaram recentemente.",
     "lastTransaction": "Última transação enviada de qualquer uma das contas {{totalAccounts}}.",
     "largeTransactions": "Apenas transações de envio de 10.000 NANO ou mais são salvas temporariamente por uma semana.",
@@ -153,16 +155,15 @@
       "blockNotFoundInfo": "O bloqueio que você solicitou não foi encontrado. É possível que o bloco esteja presente na rede Nano, mas ainda não tenha sido visto pelo nó. Certifique-se de que está procurando o bloco correto ou tente novamente mais tarde."
     },
     "representatives": {
-      "totalRepresentatives": "Total de Representantes",
-      "totalPrincipalRepresentatives": "Total de Representantes Principais",
-      "onlinePrincipalRepresentatives": "Representantes Principais Online",
+      "onlineRepresentatives": "Representantes online",
+      "onlinePrincipalRepresentatives": "Representantes principais online",
       "confirmationQuorum": "Quorum de confirmação",
       "principalRepresentativeMinWeight": "Peso mínimo do Representante Principal",
       "onlineWrightQuorumPercent": "Porcentagem de quorum de peso online",
       "minimumOnlineWeight": "Peso mínimo online",
       "totalOnlineStake": "Aposta online total",
       "totalPeerStake": "Participação de pares total",
-      "principalRepresentatives": "Representantes Principais"
+      "includeOfflineRepresentatives": "Incluir representantes offline"
     },
     "representative": {
       "votingWeight": "Peso de voto representativo",

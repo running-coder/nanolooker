@@ -3,7 +3,9 @@
     "account": "Compte",
     "block": "Bloc",
     "representative": "Représentant",
+    "representatives": "Représentants",
     "principalRepresentative": "Représentant Principal",
+    "principalRepresentatives": "Représentants Principaux",
     "delegators": "Délégants",
     "date": "Date",
     "unknown": "Inconnu",
@@ -46,8 +48,8 @@
     "cps": "Confirmations par seconde. Le taux de blocs confirmés (envoi ou réception) sur le réseau NANO. Il est échantillonné au cours de la dernière minute localement sur le nœud. Si le nœud est redémarré ou dans un état dégradé, la valeur CPS peut être supérieure ou inférieure à la moyenne réelle sur le réseau pendant que le nœud se synchronise et se reconnecte avec les autres nœuds.",
     "votingWeight": "Un compte avec un minimum de {{minWeight}} NANO ou >= 0,1% du poids de vote en ligne qui lui est délégué est requis pour obtenir le statut de représentant principal. Lorsqu'ils sont configurés sur un nœud qui vote, les votes qu'il produit seront rediffusés par d'autres nœuds vers qui les reçoivent, ce qui permet au réseau d'atteindre un consensus plus rapidement.",
     "pending": "Un état de transaction où un bloc d'envoi de fonds a été publié et confirmé par le réseau, mais un bloc correspondant recevant ces fonds n'a pas encore été envoyé ou confirmé.",
-    "totalRepresentatives": "Pour optimiser les performances, seuls les comptes avec un poids de vote >= 1000 NANO sont considérés mais normalement tout compte avec un poids de vote> 0, mais <0,1% du poids de vote en ligne.",
-    "totalPrincipalRepresentatives": "Un compte avec un minimum de {{principalRepresentativeMinWeight}} NANO ou >= 0,1% du poids de vote en ligne qui lui est délégué est requis pour obtenir le statut de représentant principal. Lorsqu'ils sont configurés sur un nœud qui vote, les votes qu'il produit seront rediffusés par d'autres nœuds à qui les reçoivent, aidant le réseau à atteindre un consensus plus rapidement.",
+    "representatives": "Pour optimiser les performances, seuls les comptes avec un poids de vote >= 1000 NANO sont considérés mais normalement tout compte avec un poids de vote> 0, mais <0,1% du poids de vote en ligne.",
+    "principalRepresentatives": "Un compte avec un minimum de {{principalRepresentativeMinWeight}} NANO ou >= 0,1% du poids de vote en ligne qui lui est délégué est requis pour obtenir le statut de représentant principal. Lorsqu'ils sont configurés sur un nœud qui vote, les votes qu'il produit seront rediffusés par d'autres nœuds à qui les reçoivent, aidant le réseau à atteindre un consensus plus rapidement.",
     "onlinePrincipalRepresentatives": "Comptes de représentants en ligne qui ont voté récemment.",
     "lastTransaction": "Dernière transaction d'envoi depuis l'un des {{totalAccounts}} comptes.",
     "largeTransactions": "Uniquement les transactions d'envoi de 10,000 NANO ou plus sont temporairement sauvegardées pendant une semaine.",
@@ -153,8 +155,7 @@
       "blockNotFoundInfo": "Le bloc que vous avez demandé est introuvable. Il est possible que le bloc soit présent sur le réseau Nano mais n'ait pas encore été vu par le nœud. Assurez-vous que vous recherchez le bon bloc ou réessayez plus tard."
     },
     "representatives": {
-      "totalRepresentatives": "Total des représentants",
-      "totalPrincipalRepresentatives": "Total des représentants principaux",
+      "onlineRepresentatives": "Représentants en ligne",
       "onlinePrincipalRepresentatives": "Représentants principaux en ligne",
       "confirmationQuorum": "Quorum de confirmation",
       "principalRepresentativeMinWeight": "Poids minimum du représentant principal",
@@ -162,7 +163,7 @@
       "minimumOnlineWeight": "Poids minimum en ligne",
       "totalOnlineStake": "Mise totale en ligne",
       "totalPeerStake": "Participation totale des pairs",
-      "principalRepresentatives": "Représentants principaux"
+      "includeOfflineRepresentatives": "Include les représentants hors-ligne"
     },
     "representative": {
       "votingWeight": "Poids du vote du représentant",
