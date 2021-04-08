@@ -155,6 +155,8 @@
       "blockNotFoundInfo": "Le bloc que vous avez demandé est introuvable. Il est possible que le bloc soit présent sur le réseau Nano mais n'ait pas encore été vu par le nœud. Assurez-vous que vous recherchez le bon bloc ou réessayez plus tard."
     },
     "representatives": {
+      "votingDistribution": "Répartition des votes",
+      "votingDistributionDescription": "Par souci de simplification visuelle, seuls les principaux représentants sont affichés",
       "onlineRepresentatives": "Représentants en ligne",
       "onlinePrincipalRepresentatives": "Représentants principaux en ligne",
       "confirmationQuorum": "Quorum de confirmation",
@@ -163,7 +165,7 @@
       "minimumOnlineWeight": "Poids minimum en ligne",
       "totalOnlineStake": "Mise totale en ligne",
       "totalPeerStake": "Participation totale des pairs",
-      "includeOfflineRepresentatives": "Include les représentants hors-ligne"
+      "includeOfflineRepresentatives": "Inclure les représentants hors-ligne"
     },
     "representative": {
       "votingWeight": "Poids du vote du représentant",

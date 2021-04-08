@@ -20,7 +20,7 @@ export interface Context {
 export const KnownAccountsContext = React.createContext<Context>({
   knownAccounts: [],
   knownExchangeAccounts: [],
-  isLoading: false,
+  isLoading: true,
   isError: false,
 });
 
@@ -31,22 +31,27 @@ const Provider: React.FC = ({ children }) => {
   const [knownExchangeAccounts, setKnownExchangeAccounts] = React.useState(
     [] as KnownAccount[],
   );
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const [isLoading, setIsLoading] = React.useState<boolean>(true);
   const [isError, setIsError] = React.useState<boolean>(false);
 
   const getKnownAccounts = async () => {
     setIsError(false);
     setIsLoading(true);
-    const res = await fetch("/api/known-accounts");
-    const json = await res.json();
 
-    !json || json.error ? setIsError(true) : setKnownAccounts(json);
+    try {
+      const res = await fetch("/api/known-accounts");
+      const json = await res.json();
 
-    setKnownExchangeAccounts(
-      [...KNOWN_EXCHANGE_ACCOUNTS].map(account =>
-        find(json, ["account", account]),
-      ),
-    );
+      !json || json.error ? setIsError(true) : setKnownAccounts(json);
+
+      setKnownExchangeAccounts(
+        [...KNOWN_EXCHANGE_ACCOUNTS].map(account =>
+          find(json, ["account", account]),
+        ),
+      );
+    } catch (err) {
+      setIsError(true);
+    }
 
     setIsLoading(false);
   };

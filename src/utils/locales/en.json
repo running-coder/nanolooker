@@ -155,6 +155,8 @@
       "blockNotFoundInfo": "The block you requested in not found. It is possible that the block is present on the Nano network but has yet to be seen by the node. Make sure you are searching for the correct block or try again later."
     },
     "representatives": {
+      "votingDistribution": "Voting distribution",
+      "votingDistributionDescription": "For visual simplification, only principal representatives are shown",
       "onlineRepresentatives": "Online Representatives",
       "onlinePrincipalRepresentatives": "Online Principal Representatives",
       "confirmationQuorum": "Confirmation Quorum",

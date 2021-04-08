@@ -155,6 +155,8 @@
       "blockNotFoundInfo": "O bloqueio que você solicitou não foi encontrado. É possível que o bloco esteja presente na rede Nano, mas ainda não tenha sido visto pelo nó. Certifique-se de que está procurando o bloco correto ou tente novamente mais tarde."
     },
     "representatives": {
+      "votingDistribution": "Distribuição de votação",
+      "votingDistributionDescription": "Para simplificação visual, apenas os representantes principais são mostrados",
       "onlineRepresentatives": "Representantes online",
       "onlinePrincipalRepresentatives": "Representantes principais online",
       "confirmationQuorum": "Quorum de confirmação",

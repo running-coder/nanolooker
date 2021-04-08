@@ -21,7 +21,7 @@ export enum TwoToneColors {
   SEND = "#e04576",
   SEND_DARK = "#e04576",
   RECEIVE = "green",
-  RECEIVE_DARK = "#26e8a7",
+  RECEIVE_DARK = "#16c784",
   DONATE = "magenta",
   DONATE_DARK = "#eb2f96",
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { rpc } from "api/rpc";
+import { KnownAccountsContext } from "./KnownAccounts";
 import { ConfirmationQuorumContext } from "./ConfirmationQuorum";
 import { RepresentativesOnlineContext } from "./RepresentativesOnline";
 
@@ -19,7 +20,7 @@ export interface RepresentativesReturn {
 export const RepresentativesContext = React.createContext<RepresentativesReturn>(
   {
     representatives: [],
-    isLoading: false,
+    isLoading: true,
     isError: false,
   },
 );
@@ -30,7 +31,7 @@ const Provider: React.FC = ({ children }) => {
   const [representatives, setRepresentatives] = React.useState<
     Representative[]
   >([]);
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const [isLoading, setIsLoading] = React.useState<boolean>(true);
   const [isError, setIsError] = React.useState<boolean>(false);
   const {
     confirmationQuorum: {
@@ -39,6 +40,9 @@ const Provider: React.FC = ({ children }) => {
   } = React.useContext(ConfirmationQuorumContext);
   const { representatives: representativesOnline } = React.useContext(
     RepresentativesOnlineContext,
+  );
+  const { knownAccounts, isLoading: isKnownAccountsLoading } = React.useContext(
+    KnownAccountsContext,
   );
 
   const getRepresentatives = async () => {
@@ -60,30 +64,34 @@ const Provider: React.FC = ({ children }) => {
   React.useEffect(() => {
     if (
       isEnhancedRepresentativeDone ||
+      isKnownAccountsLoading ||
       !representatives.length ||
       !principalRepresentativeMinWeight ||
       !representativesOnline.length
     )
       return;
 
-    const formattedRepresentatives = representatives.map(
-      ({ account, weight }) => ({
+    isEnhancedRepresentativeDone = true;
+
+    setRepresentatives(representatives =>
+      representatives.map(({ account, weight }) => ({
         account,
         weight,
         isOnline: representativesOnline.includes(account),
         isPrincipal: weight >= principalRepresentativeMinWeight,
-      }),
+        alias: knownAccounts.find(
+          ({ account: knownAccount }) => account === knownAccount,
+        )?.alias,
+      })),
     );
-
-    isEnhancedRepresentativeDone = true;
-
-    setRepresentatives(formattedRepresentatives);
 
     setIsLoading(false);
   }, [
     representatives,
     principalRepresentativeMinWeight,
     representativesOnline,
+    knownAccounts,
+    isKnownAccountsLoading,
   ]);
 
   return (

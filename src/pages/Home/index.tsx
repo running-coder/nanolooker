@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Card, Col, Row, Skeleton, Statistic } from "antd";
+import { Card, Col, Row, Statistic } from "antd";
 import BigNumber from "bignumber.js";
 import {
   PreferencesContext,
@@ -116,142 +116,133 @@ const HomePage = () => {
       >
         <Col sm={24} md={12} style={{ width: "100%" }}>
           <Card size="small" title={t("pages.home.statistics")}>
-            <Skeleton active loading={false}>
-              <Row gutter={6}>
-                <Col xs={24} sm={12}>
-                  <LoadingStatistic
-                    isLoading={isMarketStatisticsInitialLoading}
-                    title={t("pages.home.marketCapRank")}
-                    prefix="#"
-                    suffix={
-                      marketCapRank24h ? (
-                        <StatisticsChange
-                          value={marketCapRank24h - marketCapRank}
-                          isNumber
-                          isArrow
-                        />
-                      ) : null
-                    }
-                    value={`${marketCapRank}`}
-                  />
-                  <LoadingStatistic
-                    isLoading={isMarketStatisticsInitialLoading}
-                    title={`${t(
-                      "pages.home.marketCap",
-                    )} (${fiat.toUpperCase()})`}
-                    prefix={CurrencySymbol?.[fiat]}
-                    suffix={
+            <Row gutter={6}>
+              <Col xs={24} sm={12}>
+                <LoadingStatistic
+                  isLoading={isMarketStatisticsInitialLoading}
+                  title={t("pages.home.marketCapRank")}
+                  prefix="#"
+                  suffix={
+                    marketCapRank24h ? (
                       <StatisticsChange
-                        value={marketCapChangePercentage24h}
-                        isPercent
+                        value={marketCapRank24h - marketCapRank}
+                        isNumber
+                        isArrow
                       />
-                    }
-                    value={`${new BigNumber(marketCap).toNumber()}`}
-                  />
-                  <LoadingStatistic
-                    isLoading={isMarketStatisticsInitialLoading}
-                    title={t("pages.home.circulatingSupply")}
-                    value={new BigNumber(circulatingSupply).toNumber()}
-                  />
-                </Col>
-                <Col xs={24} sm={12}>
-                  <LoadingStatistic
-                    isLoading={!count}
-                    title={t("pages.home.latestBlock")}
-                    value={count}
-                  />
-                  <LoadingStatistic
-                    isLoading={!representatives.length}
-                    title={t("pages.home.principalRepOnline")}
-                    value={
-                      representatives.filter(
-                        ({ isOnline, isPrincipal }) => isOnline && isPrincipal,
-                      )?.length
-                    }
-                  />
+                    ) : null
+                  }
+                  value={`${marketCapRank}`}
+                />
+                <LoadingStatistic
+                  isLoading={isMarketStatisticsInitialLoading}
+                  title={`${t("pages.home.marketCap")} (${fiat.toUpperCase()})`}
+                  prefix={CurrencySymbol?.[fiat]}
+                  suffix={
+                    <StatisticsChange
+                      value={marketCapChangePercentage24h}
+                      isPercent
+                    />
+                  }
+                  value={`${new BigNumber(marketCap).toNumber()}`}
+                />
+                <LoadingStatistic
+                  isLoading={isMarketStatisticsInitialLoading}
+                  title={t("pages.home.circulatingSupply")}
+                  value={new BigNumber(circulatingSupply).toNumber()}
+                />
+              </Col>
+              <Col xs={24} sm={12}>
+                <LoadingStatistic
+                  isLoading={!count}
+                  title={t("pages.home.latestBlock")}
+                  value={count}
+                />
+                <LoadingStatistic
+                  isLoading={!representatives.length}
+                  title={t("pages.home.principalRepOnline")}
+                  value={
+                    representatives.filter(
+                      ({ isOnline, isPrincipal }) => isOnline && isPrincipal,
+                    )?.length
+                  }
+                />
 
-                  <LoadingStatistic
-                    isLoading={isNodeStatusLoading}
-                    title={t("pages.home.ledgerSize")}
-                    suffix="GB"
-                    value={new BigNumber(ledgerSize)
-                      .dividedBy(1000e6)
-                      .toFormat(2)}
-                  />
-                </Col>
-              </Row>
-            </Skeleton>
+                <LoadingStatistic
+                  isLoading={isNodeStatusLoading}
+                  title={t("pages.home.ledgerSize")}
+                  suffix="GB"
+                  value={new BigNumber(ledgerSize)
+                    .dividedBy(1000e6)
+                    .toFormat(2)}
+                />
+              </Col>
+            </Row>
           </Card>
         </Col>
         <Col sm={24} md={12} style={{ width: "100%" }}>
           <Card size="small" title={t("pages.home.last24Hours")}>
-            <Skeleton active loading={false}>
-              <Row gutter={6}>
-                <Col xs={24} sm={12}>
-                  <LoadingStatistic
-                    isLoading={!average}
-                    title={t("pages.home.avgConfirmationTime")}
-                    tooltip={t("tooltips.avgConfirmationTime")}
-                    value={new BigNumber(average).dividedBy(1000).toNumber()}
-                  />
-                  <LoadingStatistic
-                    isLoading={isMarketStatisticsInitialLoading}
-                    title={t("pages.home.confirmedTransactions")}
-                    suffix={
-                      <StatisticsChange
-                        value={confirmationChange24h}
-                        isPercent
-                      />
-                    }
-                    value={marketStatistics[TOTAL_CONFIRMATIONS_KEY_24H]}
-                  />
-                  <Statistic
-                    title={t("pages.home.nanoTransactionFees")}
-                    value={0}
-                  />
-                </Col>
-                <Col xs={24} sm={12}>
-                  <LoadingStatistic
-                    isLoading={isMarketStatisticsInitialLoading}
-                    title={`${t(
-                      "pages.home.exchangeVolume",
-                    )} (${fiat.toUpperCase()})`}
-                    prefix={CurrencySymbol?.[fiat]}
-                    value={`${new BigNumber(volume24h).toNumber()}`}
-                  />
-                  <LoadingStatistic
-                    isLoading={isMarketStatisticsInitialLoading}
-                    title={t("pages.home.onChainVolume")}
-                    suffix={
-                      <StatisticsChange
-                        value={onChainVolumeChange24h}
-                        isPercent
-                      />
-                    }
-                    value={new BigNumber(
-                      marketStatistics[TOTAL_NANO_VOLUME_KEY_24H],
-                    )
-                      .decimalPlaces(5)
-                      .toNumber()}
-                  />
-                  <LoadingStatistic
-                    isLoading={isMarketStatisticsInitialLoading}
-                    title={`${t(
-                      "pages.home.bitcoinTransactionFees",
-                    )} (${fiat.toUpperCase()})`}
-                    tooltip={t("tooltips.bitcoinTransactionFees")}
-                    prefix={CurrencySymbol?.[fiat]}
-                    value={btcTransactionFees24h}
-                    suffix={
-                      <StatisticsChange
-                        value={btcTransactionFeesChange24h}
-                        isPercent
-                      />
-                    }
-                  />
-                </Col>
-              </Row>
-            </Skeleton>
+            <Row gutter={6}>
+              <Col xs={24} sm={12}>
+                <LoadingStatistic
+                  isLoading={!average}
+                  title={t("pages.home.avgConfirmationTime")}
+                  tooltip={t("tooltips.avgConfirmationTime")}
+                  value={new BigNumber(average).dividedBy(1000).toNumber()}
+                />
+                <LoadingStatistic
+                  isLoading={isMarketStatisticsInitialLoading}
+                  title={t("pages.home.confirmedTransactions")}
+                  suffix={
+                    <StatisticsChange value={confirmationChange24h} isPercent />
+                  }
+                  value={marketStatistics[TOTAL_CONFIRMATIONS_KEY_24H]}
+                />
+                <Statistic
+                  title={t("pages.home.nanoTransactionFees")}
+                  value={0}
+                />
+              </Col>
+              <Col xs={24} sm={12}>
+                <LoadingStatistic
+                  isLoading={isMarketStatisticsInitialLoading}
+                  title={`${t(
+                    "pages.home.exchangeVolume",
+                  )} (${fiat.toUpperCase()})`}
+                  prefix={CurrencySymbol?.[fiat]}
+                  value={`${new BigNumber(volume24h).toNumber()}`}
+                />
+                <LoadingStatistic
+                  isLoading={isMarketStatisticsInitialLoading}
+                  title={t("pages.home.onChainVolume")}
+                  suffix={
+                    <StatisticsChange
+                      value={onChainVolumeChange24h}
+                      isPercent
+                    />
+                  }
+                  value={new BigNumber(
+                    marketStatistics[TOTAL_NANO_VOLUME_KEY_24H],
+                  )
+                    .decimalPlaces(5)
+                    .toNumber()}
+                />
+                <LoadingStatistic
+                  isLoading={isMarketStatisticsInitialLoading}
+                  title={`${t(
+                    "pages.home.bitcoinTransactionFees",
+                  )} (${fiat.toUpperCase()})`}
+                  tooltip={t("tooltips.bitcoinTransactionFees")}
+                  prefix={CurrencySymbol?.[fiat]}
+                  value={btcTransactionFees24h}
+                  suffix={
+                    <StatisticsChange
+                      value={btcTransactionFeesChange24h}
+                      isPercent
+                    />
+                  }
+                />
+              </Col>
+            </Row>
           </Card>
         </Col>
       </Row>

@@ -9,8 +9,6 @@ import Copy from "components/Copy";
 import QRCodeModal from "components/QRCodeModal";
 import { Natricon } from "components/Preferences/Natricons/Natricon";
 import { RepresentativesContext } from "api/contexts/Representatives";
-import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
-import { KnownAccountsContext, KnownAccount } from "api/contexts/KnownAccounts";
 
 import type { PageParams } from "types/page";
 import { PreferencesContext } from "api/contexts/Preferences";
@@ -20,7 +18,6 @@ const { Text, Title } = Typography;
 const AccountHeader: React.FC = () => {
   const { t } = useTranslation();
   const { account = "" } = useParams<PageParams>();
-  const [knownAccount, setKnownAccount] = React.useState<KnownAccount>();
   const [representativeAccount, setRepresentativeAccount] = React.useState(
     {} as any,
   );
@@ -29,10 +26,6 @@ const AccountHeader: React.FC = () => {
     isLoading: isRepresentativesLoading,
   } = React.useContext(RepresentativesContext);
   const { natricons } = React.useContext(PreferencesContext);
-  const {
-    confirmationQuorum: { principal_representative_min_weight: minWeight },
-  } = React.useContext(ConfirmationQuorumContext);
-  const { knownAccounts } = React.useContext(KnownAccountsContext);
   const isMediumAndLower = !useMediaQuery("(min-width: 768px)");
 
   React.useEffect(() => {
@@ -41,34 +34,22 @@ const AccountHeader: React.FC = () => {
     setRepresentativeAccount(find(representatives, ["account", account]) || {});
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [account, isRepresentativesLoading, representatives.length]);
-
-  React.useEffect(() => {
-    if (!account || !knownAccounts.length) return;
-
-    setKnownAccount(
-      knownAccounts.find(
-        ({ account: knownAccount }) => knownAccount === account,
-      ),
-    );
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [account, knownAccounts.length]);
+  }, [account, isRepresentativesLoading, representatives]);
 
   return (
     <>
-      {representativeAccount?.account && minWeight ? (
+      {representativeAccount?.account ? (
         <>
           <Title level={3} style={{ margin: 0 }}>
-            {representativeAccount.weight >= minWeight
+            {representativeAccount.isPrincipal
               ? t("common.principalRepresentative")
               : t("common.representative")}
           </Title>
         </>
       ) : null}
-      {knownAccount ? (
+      {representativeAccount?.alias ? (
         <Title level={4} style={{ margin: 0 }}>
-          {knownAccount.alias}
+          {representativeAccount.alias}
         </Title>
       ) : null}
       <div

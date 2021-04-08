@@ -14,7 +14,6 @@ import {
 } from "api/contexts/Preferences";
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 import { AccountInfoContext } from "api/contexts/AccountInfo";
-import { RepresentativesOnlineContext } from "api/contexts/RepresentativesOnline";
 import {
   Representative,
   RepresentativesContext,
@@ -24,7 +23,6 @@ import LoadingStatistic from "components/LoadingStatistic";
 import QuestionCircle from "components/QuestionCircle";
 import { rawToRai, timestampToDate, TwoToneColors } from "components/utils";
 import AccountHeader from "../Header";
-import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 import { Sections } from "../.";
 
 import type { PageParams } from "types/page";
@@ -79,17 +77,16 @@ const AccountDetails: React.FC = () => {
     count: "5",
     raw: true,
   });
-  const { representatives } = React.useContext(RepresentativesContext);
-  const { knownAccounts } = React.useContext(KnownAccountsContext);
+  const {
+    representatives,
+    isLoading: isRepresentativesLoading,
+  } = React.useContext(RepresentativesContext);
   const {
     confirmationQuorum: {
       principal_representative_min_weight: principalRepresentativeMinWeight,
       online_stake_total: onlineStakeTotal = 0,
     },
   } = React.useContext(ConfirmationQuorumContext);
-  const { representatives: representativesOnline } = React.useContext(
-    RepresentativesOnlineContext,
-  );
 
   const balance = new BigNumber(rawToRai(accountInfo?.balance || 0)).toNumber();
   const balancePending = new BigNumber(
@@ -123,22 +120,16 @@ const AccountDetails: React.FC = () => {
     setRepresentativeAccount(find(representatives, ["account", account]) || {});
 
     if (accountInfo.representative) {
-      const accountsRepresentative: Representative = {
-        ...find(representatives, ["account", accountInfo.representative])!,
-        isOnline: representativesOnline.includes(
-          accountInfo.representative || "",
-        ),
-        alias: knownAccounts.find(
-          ({ account: knownAccount }) =>
-            accountInfo.representative === knownAccount,
-        )?.alias,
-      };
+      const accountsRepresentative: Representative = find(representatives, [
+        "account",
+        accountInfo.representative,
+      ])!;
 
       setAccountsRepresentative(accountsRepresentative);
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [account, isAccountInfoLoading, representatives.length]);
+  }, [account, isAccountInfoLoading, representatives]);
 
   const votingWeight = new BigNumber(representativeAccount.weight)
     .times(100)
@@ -198,32 +189,38 @@ const AccountDetails: React.FC = () => {
             {t("common.representative")}
           </Col>
           <Col xs={24} sm={18}>
-            <Skeleton {...skeletonProps}>
+            <Skeleton
+              {...skeletonProps}
+              loading={isAccountInfoLoading || isRepresentativesLoading}
+            >
               {accountsRepresentative?.account ? (
                 <>
                   <div style={{ display: "flex", margin: "3px 0" }}>
-                    <Tag
-                      color={
-                        accountsRepresentative.isOnline
-                          ? theme === Theme.DARK
-                            ? TwoToneColors.RECEIVE_DARK
-                            : TwoToneColors.RECEIVE
-                          : theme === Theme.DARK
-                          ? TwoToneColors.SEND_DARK
-                          : TwoToneColors.SEND
-                      }
-                      className={`tag-${
-                        accountsRepresentative.isOnline ? "online" : "offline"
-                      }`}
-                    >
-                      {t(
-                        `common.${
+                    {typeof accountsRepresentative.isOnline === "boolean" ? (
+                      <Tag
+                        color={
+                          accountsRepresentative.isOnline
+                            ? theme === Theme.DARK
+                              ? TwoToneColors.RECEIVE_DARK
+                              : TwoToneColors.RECEIVE
+                            : theme === Theme.DARK
+                            ? TwoToneColors.SEND_DARK
+                            : TwoToneColors.SEND
+                        }
+                        className={`tag-${
                           accountsRepresentative.isOnline ? "online" : "offline"
-                        }`,
-                      )}
-                    </Tag>
-                    {accountsRepresentative?.weight >=
-                    principalRepresentativeMinWeight ? (
+                        }`}
+                      >
+                        {t(
+                          `common.${
+                            accountsRepresentative.isOnline
+                              ? "online"
+                              : "offline"
+                          }`,
+                        )}
+                      </Tag>
+                    ) : null}
+                    {accountsRepresentative?.isPrincipal ? (
                       <Tag>{t("common.principalRepresentative")}</Tag>
                     ) : null}
                   </div>

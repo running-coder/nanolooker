@@ -17,13 +17,13 @@ export interface ConfirmationQuorumReturn {
   isError: boolean;
 }
 
-export const ConfirmationQuorumContext = React.createContext<
-  ConfirmationQuorumReturn
->({
-  confirmationQuorum: {} as ConfirmationQuorumRPCResponse,
-  isLoading: false,
-  isError: false,
-});
+export const ConfirmationQuorumContext = React.createContext<ConfirmationQuorumReturn>(
+  {
+    confirmationQuorum: {} as ConfirmationQuorumRPCResponse,
+    isLoading: false,
+    isError: false,
+  },
+);
 
 const Provider: React.FC = ({ children }) => {
   const [confirmationQuorum, setConfirmationQuorum] = React.useState(
