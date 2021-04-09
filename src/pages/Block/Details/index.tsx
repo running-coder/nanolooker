@@ -1,7 +1,16 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { Card, Col, Row, Skeleton, Tag, Tooltip, Typography } from "antd";
+import {
+  Alert,
+  Card,
+  Col,
+  Row,
+  Skeleton,
+  Tag,
+  Tooltip,
+  Typography,
+} from "antd";
 import { CheckCircleOutlined, SyncOutlined } from "@ant-design/icons";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import BigNumber from "bignumber.js";
@@ -146,6 +155,33 @@ const BlockDetails: React.FC = () => {
                   {...skeletonProps}
                   title={{ width: isSmallAndLower ? "50%" : "20%" }}
                 >
+                  {!isConfirmed ? (
+                    <>
+                      <Alert
+                        message="Has the block been unconfirmed for a while?"
+                        description={
+                          <>
+                            Join the{" "}
+                            <strong>Confirmy-block - Nano work pool</strong>{" "}
+                            Discord channel and ask for assistance{" "}
+                            <a
+                              href="https://discord.gg/HtcQhk6NVd"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              https://discord.gg/HtcQhk6NVd
+                            </a>
+                          </>
+                        }
+                        type="info"
+                        style={{
+                          marginBottom: "12px",
+                          display: "inline-block",
+                        }}
+                      />
+                      <br />
+                    </>
+                  ) : null}
                   <Tooltip
                     placement={isSmallAndLower ? "right" : "top"}
                     title={t(
