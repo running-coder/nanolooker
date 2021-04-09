@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import { Button, Typography } from "antd";
 import { WalletOutlined, QrcodeOutlined } from "@ant-design/icons";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import find from "lodash/find";
 import { useParams } from "react-router-dom";
 import Copy from "components/Copy";
 import QRCodeModal from "components/QRCodeModal";
@@ -12,6 +11,7 @@ import { RepresentativesContext } from "api/contexts/Representatives";
 
 import type { PageParams } from "types/page";
 import { PreferencesContext } from "api/contexts/Preferences";
+import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 
 const { Text, Title } = Typography;
 
@@ -21,17 +21,32 @@ const AccountHeader: React.FC = () => {
   const [representativeAccount, setRepresentativeAccount] = React.useState(
     {} as any,
   );
+  const [alias, setAlias] = React.useState("");
   const {
     representatives,
     isLoading: isRepresentativesLoading,
   } = React.useContext(RepresentativesContext);
   const { natricons } = React.useContext(PreferencesContext);
+  const { knownAccounts } = React.useContext(KnownAccountsContext);
   const isMediumAndLower = !useMediaQuery("(min-width: 768px)");
 
   React.useEffect(() => {
     if (!account || isRepresentativesLoading || !representatives.length) return;
 
-    setRepresentativeAccount(find(representatives, ["account", account]) || {});
+    const representative = representatives.find(
+      ({ account: representativeAccount }) => representativeAccount === account,
+    );
+
+    if (representative) {
+      setRepresentativeAccount(representative);
+    } else {
+      const alias = knownAccounts.find(
+        ({ account: knownAccount }) => knownAccount === account,
+      )?.alias;
+      if (alias) {
+        setAlias(alias);
+      }
+    }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [account, isRepresentativesLoading, representatives]);
@@ -47,9 +62,9 @@ const AccountHeader: React.FC = () => {
           </Title>
         </>
       ) : null}
-      {representativeAccount?.alias ? (
+      {representativeAccount?.alias || alias ? (
         <Title level={4} style={{ margin: 0 }}>
-          {representativeAccount.alias}
+          {representativeAccount.alias || alias}
         </Title>
       ) : null}
       <div
