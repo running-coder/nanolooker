@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Button, Typography } from "antd";
+import { Button, Tag, Typography } from "antd";
 import { WalletOutlined, QrcodeOutlined } from "@ant-design/icons";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useParams } from "react-router-dom";
@@ -8,12 +8,13 @@ import Copy from "components/Copy";
 import QRCodeModal from "components/QRCodeModal";
 import { Natricon } from "components/Preferences/Natricons/Natricon";
 import { RepresentativesContext } from "api/contexts/Representatives";
+import { Theme, PreferencesContext } from "api/contexts/Preferences";
+import { KnownAccountsContext } from "api/contexts/KnownAccounts";
+import { TwoToneColors } from "components/utils";
 
 import type { PageParams } from "types/page";
-import { PreferencesContext } from "api/contexts/Preferences";
-import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 
-const { Text, Title } = Typography;
+const { Title } = Typography;
 
 const AccountHeader: React.FC = () => {
   const { t } = useTranslation();
@@ -26,7 +27,7 @@ const AccountHeader: React.FC = () => {
     representatives,
     isLoading: isRepresentativesLoading,
   } = React.useContext(RepresentativesContext);
-  const { natricons } = React.useContext(PreferencesContext);
+  const { natricons, theme } = React.useContext(PreferencesContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
   const isMediumAndLower = !useMediaQuery("(min-width: 768px)");
 
@@ -48,25 +49,49 @@ const AccountHeader: React.FC = () => {
       }
     }
 
+    return () => {
+      setAlias("");
+      setRepresentativeAccount({});
+    };
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [account, isRepresentativesLoading, representatives]);
+
+  const { isOnline, isPrincipal } = representativeAccount;
 
   return (
     <>
       {representativeAccount?.account ? (
-        <>
-          <Title level={3} style={{ margin: 0 }}>
-            {representativeAccount.isPrincipal
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <Title level={3} style={{ margin: "0 6px 0 0" }}>
+            {isPrincipal
               ? t("common.principalRepresentative")
               : t("common.representative")}
           </Title>
-        </>
+          {typeof isOnline === "boolean" ? (
+            <Tag
+              color={
+                isOnline
+                  ? theme === Theme.DARK
+                    ? TwoToneColors.RECEIVE_DARK
+                    : TwoToneColors.RECEIVE
+                  : theme === Theme.DARK
+                  ? TwoToneColors.SEND_DARK
+                  : TwoToneColors.SEND
+              }
+              className={`tag-${isOnline ? "online" : "offline"}`}
+            >
+              {t(`common.${isOnline ? "online" : "offline"}`)}
+            </Tag>
+          ) : null}
+        </div>
       ) : null}
       {representativeAccount?.alias || alias ? (
         <Title level={4} style={{ margin: 0 }}>
           {representativeAccount.alias || alias}
         </Title>
       ) : null}
+
       <div
         style={{
           display: "flex",
@@ -112,7 +137,7 @@ const AccountHeader: React.FC = () => {
           }}
         >
           <Copy text={account} />
-          <QRCodeModal account={account} body={<Text>{account}</Text>}>
+          <QRCodeModal account={account}>
             <Button
               shape="circle"
               icon={<QrcodeOutlined />}

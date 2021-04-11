@@ -60,7 +60,7 @@ const Representatives = () => {
   const {
     delegators: allDelegators,
     getDelegators,
-    isLoading,
+    isLoading: isAllDelegatorsLoading,
   } = React.useContext(DelegatorsContext);
 
   const confirmationQuorumSkeletonProps = {
@@ -84,6 +84,8 @@ const Representatives = () => {
   React.useEffect(() => {
     if (isRepresentativesLoading || isConfirmationQuorumLoading) return;
 
+    const aliasSeparator = "|||";
+
     const config: PieConfig = {
       data: representatives
         .filter(
@@ -97,9 +99,7 @@ const Representatives = () => {
             .toFixed(2);
 
           return {
-            weight,
-            account,
-            alias,
+            alias: `${alias || ""}${aliasSeparator}${account}`,
             value,
           };
         }),
@@ -113,10 +113,13 @@ const Representatives = () => {
       tooltip: {
         showTitle: false,
         // @ts-ignore
-        formatter: (value, alias) => ({
-          name: alias || t("common.unknown"),
-          value: `${value}%`,
-        }),
+        formatter: (value, rawAlias, b, c) => {
+          const [alias, account] = rawAlias.split(aliasSeparator);
+          return {
+            name: alias || account || t("common.unknown"),
+            value: `${value}%`,
+          };
+        },
       },
       interactions: [{ type: "element-active" }],
     };
@@ -384,7 +387,7 @@ const Representatives = () => {
         {!isRepresentativesLoading &&
           filteredRepresentatives.map(
             ({ account, weight, isOnline, isPrincipal, alias }) => {
-              const delegators = allDelegators[account]?.delegators;
+              const delegatorsCount = allDelegators[account];
               return (
                 <Row gutter={6} key={account}>
                   <Col
@@ -409,7 +412,7 @@ const Representatives = () => {
                           .dividedBy(stake)
                           .toFormat(2)}
                         {isSmallAndLower
-                          ? t("pages.account.percentVotingWeight")
+                          ? t("pages.account.percentNetworkVotingWeight")
                           : "%"}
                       </>
                     ) : null}
@@ -457,25 +460,21 @@ const Representatives = () => {
                     xl={4}
                   >
                     <Skeleton
-                      loading={isLoading}
+                      loading={isAllDelegatorsLoading}
                       // title={{ width: "10%" }}
                       paragraph={false}
                     >
                       <div>
-                        {delegators ? (
+                        {delegatorsCount ? (
                           <Link to={`/account/${account}/delegators`}>
-                            <Button
-                              type="primary"
-                              size="small"
-                              style={{ marginTop: "6px" }}
-                            >
-                              {t("pages.account.viewDelegators", {
-                                count: Object.keys(delegators).length,
+                            <Button size="small" style={{ marginTop: "6px" }}>
+                              {t("pages.representatives.viewDelegators", {
+                                count: delegatorsCount,
                               })}
                             </Button>
                           </Link>
                         ) : null}
-                        {!delegators
+                        {!delegatorsCount
                           ? t("pages.representative.noDelegatorsFound")
                           : null}
                       </div>

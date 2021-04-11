@@ -2,7 +2,6 @@ require("dotenv").config();
 require("./cron/ws");
 require("./cron/marketCapRank");
 const { getDistributionData } = require("./cron/distribution");
-const { getDelegatorsData } = require("./cron/delegators");
 require("./ws");
 const { getExchangeBalances } = require("./cron/exchangeTracker");
 const express = require("express");
@@ -32,6 +31,7 @@ const {
 const { getLargeTransactions } = require("./api/largeTransactions");
 const { getNodeStatus } = require("./api/nodeStatus");
 const { getKnownAccounts } = require("./api/knownAccounts");
+const { getDelegators, getAllDelegators } = require("./api/delegators");
 
 const app = express();
 
@@ -67,8 +67,16 @@ app.get("/api/distribution", (req, res) => {
   return res.send(data);
 });
 
-app.get("/api/delegators", (req, res) => {
-  const data = getDelegatorsData();
+// @TODO ADD getDelegators && getAllDelegators if req.account is specified
+app.get("/api/delegators", async (req, res) => {
+  let data;
+  const { account } = req.query;
+
+  if (account) {
+    data = getDelegators({ account });
+  } else {
+    data = getAllDelegators();
+  }
 
   return res.send(data);
 });

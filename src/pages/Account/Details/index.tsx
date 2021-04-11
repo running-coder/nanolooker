@@ -179,7 +179,7 @@ const AccountDetails: React.FC = () => {
                 {new BigNumber(votingWeight).toFormat(
                   votingWeight > 0.01 ? 2 : 4,
                 )}
-                {t("pages.account.percentVotingWeight")}
+                {t("pages.account.percentNetworkVotingWeight")}
               </>
             </Col>
           </Row>

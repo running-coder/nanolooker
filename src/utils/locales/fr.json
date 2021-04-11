@@ -6,6 +6,9 @@
     "representatives": "Représentants",
     "principalRepresentative": "Représentant Principal",
     "principalRepresentatives": "Représentants Principaux",
+    "transaction": "Transaction",
+    "transactions": "Transactions",
+    "delegator": "Délégant",
     "delegators": "Délégants",
     "date": "Date",
     "unknown": "Inconnu",
@@ -125,15 +128,16 @@
     },
     "account": {
       "votingWeight": "Poids du vote",
-      "percentVotingWeight": "% du poids des votes du réseau",
+      "percentNetworkVotingWeight": "% du poids des votes du réseau",
+      "percentRepresentativeVotingWeight": "% du poids des votes du représentant",
       "noRepresentative": "Pas de Représentant",
       "confirmationHeight": "Hauteur de confirmation",
       "lastTransaction": "Dernière transaction",
       "pendingTransactions": "Transactions en attente",
       "loadMoreTransactions": "Voir plus de transactions",
+      "viewTransactions": "Voir les transactions",
       "notOpenedYet": "Ce compte n'a pas encore été ouvert",
       "notOpenedYetReason": "Bien que l'adresse du compte soit valide, aucun bloc n'a encore été publié dans sa chaîne. Si NANO a été envoyé sur ce compte, il doit encore publier un bloc correspondant pour empocher les fonds.",
-      "totalTransactions": "Total des Transactions",
       "missingAccount": "Compte manquant",
       "missingAccountInfo": "Le compte n'est pas spécifié dans l'URL. Utilisez la barre de recherche supérieure pour rechercher un compte ou ajoutez-le dans l'URL après /account/"
     },
@@ -165,7 +169,8 @@
       "minimumOnlineWeight": "Poids minimum en ligne",
       "totalOnlineStake": "Mise totale en ligne",
       "totalPeerStake": "Participation totale des pairs",
-      "includeOfflineRepresentatives": "Inclure les représentants hors-ligne"
+      "includeOfflineRepresentatives": "Inclure les représentants hors-ligne",
+      "viewDelegators": "Voir {{count}} délégants"
     },
     "representative": {
       "votingWeight": "Poids du vote du représentant",

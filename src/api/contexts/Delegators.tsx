@@ -1,11 +1,7 @@
 import React from "react";
 
 interface Delegator {
-  [key: string]: {
-    account: string;
-    weight: number;
-    delegators: { [key: string]: number };
-  };
+  [key: string]: number;
 }
 
 export interface Return {
@@ -36,7 +32,7 @@ const Provider: React.FC = ({ children }) => {
       const res = await fetch("/api/delegators");
       const json = await res.json();
 
-      !json || json.error ? setIsError(true) : setDelegators(json.delegators);
+      !json || json.error ? setIsError(true) : setDelegators(json);
     } catch (err) {}
     setIsLoading(false);
   };

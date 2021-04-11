@@ -1,17 +1,25 @@
 import React from "react";
-import { Button, Modal } from "antd";
+import { Link, useParams } from "react-router-dom";
+import { Button, Modal, Typography } from "antd";
+import { SearchOutlined } from "@ant-design/icons";
 import QRCode from "qrcode";
+import Copy from "components/Copy";
+import { DONATION_ACCOUNT } from "components/AppFooter";
+
+import type { PageParams } from "types/page";
 
 interface QRCodeModalProps {
   children: any;
   account: string;
   header?: React.ReactNode;
-  body?: React.ReactNode;
 }
 
-const QRCodeModal = ({ header, body, account, children }: QRCodeModalProps) => {
+const { Text } = Typography;
+
+const QRCodeModal = ({ header, account, children }: QRCodeModalProps) => {
   const [isVisible, setIsVisible] = React.useState(false);
   const [base64Image, setBase64Image] = React.useState<string>("");
+  const { account: accountParam = "" } = useParams<PageParams>();
 
   const generateQR = async (text: string) => {
     try {
@@ -54,7 +62,31 @@ const QRCodeModal = ({ header, body, account, children }: QRCodeModalProps) => {
         <div style={{ textAlign: "center" }}>
           {base64Image ? <img src={base64Image} alt="QR code" /> : null}
         </div>
-        {body}
+        <>
+          {account === DONATION_ACCOUNT && accountParam !== DONATION_ACCOUNT ? (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginBottom: "12px",
+              }}
+            >
+              <Copy text={DONATION_ACCOUNT} />
+              <Link
+                to={`/account/${DONATION_ACCOUNT}`}
+                style={{ marginLeft: "12px" }}
+              >
+                <Button
+                  shape="circle"
+                  size="small"
+                  icon={<SearchOutlined />}
+                  onClick={() => setIsVisible(false)}
+                />
+              </Link>
+            </div>
+          ) : null}
+          <Text>{DONATION_ACCOUNT}</Text>
+        </>
       </Modal>
     </>
   );

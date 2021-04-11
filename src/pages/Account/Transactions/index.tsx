@@ -149,7 +149,9 @@ const TransactionsTable = ({
                   {natricons ? (
                     <Col xs={12} md={2} style={{ textAlign: "right" }}>
                       <Natricon
-                        account={account}
+                        account={
+                          subtype === "change" ? representative : account
+                        }
                         style={{
                           margin: "-12px -6px -18px -18px ",
                           width: `${smallNatriconSize ? 60 : 80}px`,

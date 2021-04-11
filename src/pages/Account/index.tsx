@@ -47,6 +47,7 @@ const AccountPage: React.FC = () => {
       {isValid && section === Sections.TRANSACTIONS ? (
         <AccountPendingHistory />
       ) : null}
+
       {isValid && section === Sections.TRANSACTIONS ? <AccountHistory /> : null}
       {isValid && section === Sections.DELEGATORS ? (
         <AccountDelegators />

@@ -6,6 +6,9 @@
     "representatives": "Representantes",
     "principalRepresentative": "Representante Principal",
     "principalRepresentatives": "Representantes Principais",
+    "transaction": "Transação",
+    "transactions": "Transações",
+    "delegator": "Delegador",
     "delegators": "Delegadores",
     "date": "Encontro",
     "unknown": "Desconhecida",
@@ -125,15 +128,16 @@
     },
     "account": {
       "votingWeight": "Peso de votação",
-      "percentVotingWeight": "% do peso do voto da rede",
+      "percentNetworkVotingWeight": "% do peso do voto da rede",
+      "percentRepresentativeVotingWeight": "% do peso de voto do representante",
       "noRepresentative": "Sem Representante",
       "confirmationHeight": "Altura de confirmação",
       "lastTransaction": "Última transação",
       "pendingTransactions": "Transações Pendentes",
       "loadMoreTransactions": "Carregar mais transações",
+      "viewTransactions": "Ver transações",
       "notOpenedYet": "Esta conta ainda não foi aberta",
       "notOpenedYetReason": "Embora o endereço da conta seja válido, nenhum bloqueio foi publicado em sua cadeia ainda. Se NANO foi enviado para esta conta, ainda precisa publicar um bloco correspondente para embolsar os fundos.",
-      "totalTransactions": "Total de transações",
       "missingAccount": "Conta faltando",
       "missingAccountInfo": "A conta não está especificada no URL. Use a barra de pesquisa superior para pesquisar uma conta ou anexe-a no URL após /conta/"
     },
@@ -165,7 +169,8 @@
       "minimumOnlineWeight": "Peso mínimo online",
       "totalOnlineStake": "Aposta online total",
       "totalPeerStake": "Participação de pares total",
-      "includeOfflineRepresentatives": "Incluir representantes offline"
+      "includeOfflineRepresentatives": "Incluir representantes offline",
+      "viewDelegators": "Ver {{count}} delegadores"
     },
     "representative": {
       "votingWeight": "Peso de voto representativo",

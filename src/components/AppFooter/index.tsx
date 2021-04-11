@@ -1,13 +1,7 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
-import { Tag, Layout, Typography, Button } from "antd";
-import {
-  GithubOutlined,
-  HeartTwoTone,
-  SearchOutlined,
-} from "@ant-design/icons";
-import Copy from "components/Copy";
+import { Tag, Layout, Typography } from "antd";
+import { GithubOutlined, HeartTwoTone } from "@ant-design/icons";
 import QRCodeModal from "components/QRCodeModal";
 import { Theme, PreferencesContext } from "api/contexts/Preferences";
 import { TwoToneColors } from "components/utils";
@@ -42,26 +36,6 @@ const AppFooter: React.FC = () => {
       <QRCodeModal
         account={DONATION_ACCOUNT}
         header={<Text>{t("footer.donations.title")}</Text>}
-        body={
-          <>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: "12px",
-              }}
-            >
-              <Copy text={DONATION_ACCOUNT} />
-              <Link
-                to={`/account/${DONATION_ACCOUNT}`}
-                style={{ marginLeft: "12px" }}
-              >
-                <Button shape="circle" size="small" icon={<SearchOutlined />} />
-              </Link>
-            </div>
-            <Text>{DONATION_ACCOUNT}</Text>
-          </>
-        }
       >
         <Tag
           color={donateColor}

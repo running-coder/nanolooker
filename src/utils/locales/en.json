@@ -6,6 +6,9 @@
     "representatives": "Representatives",
     "principalRepresentative": "Principal Representative",
     "principalRepresentatives": "Principal Representatives",
+    "transaction": "Transaction",
+    "transactions": "Transactions",
+    "delegator": "Delegator",
     "delegators": "Delegators",
     "date": "Date",
     "unknown": "Unknown",
@@ -125,15 +128,16 @@
     },
     "account": {
       "votingWeight": "Voting weight",
-      "percentVotingWeight": "% of the network voting weight",
+      "percentNetworkVotingWeight": "% of the network voting weight",
+      "percentRepresentativeVotingWeight": "% of the representative's voting weight",
       "noRepresentative": "No Representative",
       "confirmationHeight": "Confirmation height",
       "lastTransaction": "Last transaction",
       "pendingTransactions": "Pending Transactions",
       "loadMoreTransactions": "Load more transactions",
+      "viewTransactions": "View transactions",
       "notOpenedYet": "This account hasn't been opened yet",
       "notOpenedYetReason": "While the account address is valid, no blocks have been published to its chain yet. If NANO has been sent to this account, it still needs to publish a corresponding block to pocket the funds.",
-      "totalTransactions": "Total Transactions",
       "missingAccount": "Missing account",
       "missingAccountInfo": "The account is not specified in the URL. Use the top search bar for searching for an account or append it in the URL after /account/"
     },
@@ -165,7 +169,8 @@
       "minimumOnlineWeight": "Minimum online weight",
       "totalOnlineStake": "Total online stake",
       "totalPeerStake": "Total peer stake",
-      "includeOfflineRepresentatives": "Include offline representatives"
+      "includeOfflineRepresentatives": "Include offline representatives",
+      "viewDelegators": "View {{count}} delegators"
     },
     "representative": {
       "votingWeight": "Representative voting weight",
