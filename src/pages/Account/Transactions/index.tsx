@@ -108,7 +108,7 @@ const TransactionsTable = ({
               {
                 subtype,
                 type,
-                account,
+                account: historyAccount,
                 amount,
                 representative,
                 hash,
@@ -120,6 +120,9 @@ const TransactionsTable = ({
               const themeColor = `${transactionType.toUpperCase()}${
                 theme === Theme.DARK ? "_DARK" : ""
               }`;
+              // When transaction is a representative change, the account is the representative
+              const account =
+                subtype === "change" ? representative : historyAccount;
               const knownAccount =
                 account &&
                 knownAccounts.find(
@@ -149,9 +152,7 @@ const TransactionsTable = ({
                   {natricons ? (
                     <Col xs={12} md={2} style={{ textAlign: "right" }}>
                       <Natricon
-                        account={
-                          subtype === "change" ? representative : account
-                        }
+                        account={account}
                         style={{
                           margin: "-12px -6px -18px -18px ",
                           width: `${smallNatriconSize ? 60 : 80}px`,
@@ -171,10 +172,10 @@ const TransactionsTable = ({
                       </div>
                     ) : null}
                     <Link
-                      to={`/account/${account || representative}`}
+                      to={`/account/${account}`}
                       className="break-word color-normal"
                     >
-                      {account || representative}
+                      {account}
                     </Link>
                     <br />
                     <Link
