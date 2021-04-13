@@ -145,10 +145,10 @@ const AccountDetails: React.FC = () => {
           </Col>
         </Row>
         <Row gutter={6}>
-          <Col xs={24} sm={6}>
+          <Col xs={24} sm={8} md={6}>
             {t("common.balance")}
           </Col>
-          <Col xs={24} sm={18}>
+          <Col xs={24} sm={16} md={18}>
             <LoadingStatistic
               isLoading={skeletonProps.loading}
               suffix="NANO"
@@ -161,7 +161,7 @@ const AccountDetails: React.FC = () => {
         </Row>
         {representativeAccount?.account ? (
           <Row gutter={6}>
-            <Col xs={24} sm={6}>
+            <Col xs={24} sm={8} md={6}>
               {t("pages.account.votingWeight")}
               <Tooltip
                 placement="right"
@@ -172,7 +172,7 @@ const AccountDetails: React.FC = () => {
                 <QuestionCircle />
               </Tooltip>
             </Col>
-            <Col xs={24} sm={18}>
+            <Col xs={24} sm={16} md={18}>
               <>
                 {new BigNumber(representativeAccount.weight).toFormat()}
                 <br />
@@ -185,10 +185,10 @@ const AccountDetails: React.FC = () => {
           </Row>
         ) : null}
         <Row gutter={6}>
-          <Col xs={24} sm={6}>
+          <Col xs={24} sm={8} md={6}>
             {t("common.representative")}
           </Col>
-          <Col xs={24} sm={18}>
+          <Col xs={24} sm={16} md={18}>
             <Skeleton
               {...skeletonProps}
               loading={isAccountInfoLoading || isRepresentativesLoading}
@@ -248,35 +248,35 @@ const AccountDetails: React.FC = () => {
         </Row>
         {parseFloat(accountInfo?.pending) ? (
           <Row gutter={6}>
-            <Col xs={24} sm={6}>
+            <Col xs={24} sm={8} md={6}>
               {t("transaction.pending")}
               <Tooltip placement="right" title={t("tooltips.pending")}>
                 <QuestionCircle />
               </Tooltip>
             </Col>
-            <Col xs={24} sm={18}>
+            <Col xs={24} sm={16} md={18}>
               <Skeleton {...skeletonProps}>{balancePending} NANO</Skeleton>
             </Col>
           </Row>
         ) : null}
         <Row gutter={6}>
-          <Col xs={24} sm={6}>
+          <Col xs={24} sm={8} md={6}>
             {t("pages.account.confirmationHeight")}
             <Tooltip placement="right" title={t("tooltips.confirmationHeight")}>
               <QuestionCircle />
             </Tooltip>
           </Col>
-          <Col xs={24} sm={18}>
+          <Col xs={24} sm={16} md={18}>
             <Skeleton {...skeletonProps}>
               {accountInfo.confirmation_height}
             </Skeleton>
           </Col>
         </Row>
         <Row gutter={6}>
-          <Col xs={24} sm={6}>
+          <Col xs={24} sm={8} md={6}>
             {t("pages.account.lastTransaction")}
           </Col>
-          <Col xs={24} sm={18}>
+          <Col xs={24} sm={16} md={18}>
             <Skeleton {...skeletonProps} loading={isAccountHistoryLoading}>
               {modifiedTimestamp ? (
                 <>

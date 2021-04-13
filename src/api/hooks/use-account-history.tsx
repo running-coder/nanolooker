@@ -66,6 +66,7 @@ const useAccountHistory = (
 
     if (!json || json.error) {
       setIsError(true);
+      setAccountHistory({} as AccountHistory);
     } else {
       const { history } = json;
       if (options?.concatHistory && json.account === accountHistory.account) {
@@ -90,7 +91,11 @@ const useAccountHistory = (
   };
 
   useDeepCompareEffect(() => {
-    if (!isValidAccountAddress(account)) return;
+    if (!isValidAccountAddress(account)) {
+      setAccountHistory({} as AccountHistory);
+      return;
+    }
+
     getAccountHistory(account, params);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [account, params]);

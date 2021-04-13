@@ -14,7 +14,7 @@ import { TwoToneColors } from "components/utils";
 
 import type { PageParams } from "types/page";
 
-const { Title } = Typography;
+const { Text, Title } = Typography;
 
 const AccountHeader: React.FC = () => {
   const { t } = useTranslation();
@@ -63,7 +63,7 @@ const AccountHeader: React.FC = () => {
     <>
       {representativeAccount?.account ? (
         <div style={{ display: "flex", alignItems: "center" }}>
-          <Title level={3} style={{ margin: "0 6px 0 0" }}>
+          <Title level={4} style={{ margin: "0 6px 0 0" }}>
             {isPrincipal
               ? t("common.principalRepresentative")
               : t("common.representative")}
@@ -87,9 +87,9 @@ const AccountHeader: React.FC = () => {
         </div>
       ) : null}
       {representativeAccount?.alias || alias ? (
-        <Title level={4} style={{ margin: 0 }}>
+        <Text className="color-important" style={{ fontSize: "18px" }}>
           {representativeAccount.alias || alias}
-        </Title>
+        </Text>
       ) : null}
 
       <div
