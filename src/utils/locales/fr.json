@@ -29,8 +29,8 @@
     "copy": "Copier"
   },
   "nodeHealth": {
-    "nodeReloading": "Le nano node est en cours de rechargement",
-    "nodeReady": "Le nano node est prêt"
+    "nodeReloading": "Le nœud Nano est en cours de rechargement",
+    "nodeReady": "Le nœud Nano est prêt"
   },
   "transaction": {
     "type": "Type",

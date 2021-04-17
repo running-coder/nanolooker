@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button, Space, Typography } from "antd";
 import {
   DollarOutlined,
@@ -47,6 +47,7 @@ const Banner: React.FC = () => {
             margin: 0,
             fontWeight: 200,
             fontSize: "28px",
+            whiteSpace: "nowrap",
           }}
         >
           Block Explorer
@@ -58,18 +59,9 @@ const Banner: React.FC = () => {
       </div>
 
       <Space>
-        {/* <Link to={"/what-is-nano"}>
-          <Button ghost>What is Nano?</Button>
-        </Link> */}
-
-        <Button
-          ghost
-          href="https://nano.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {t("menu.whatIsNano")}
-        </Button>
+        <Link to={"/what-is-nano"}>
+          <Button ghost>{t("menu.whatIsNano")}</Button>
+        </Link>
 
         <Button
           ghost

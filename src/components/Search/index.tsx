@@ -39,12 +39,6 @@ const Search = ({ isHome = false }) => {
 
   let history = useHistory();
 
-  React.useEffect(() => {
-    // @ts-ignore Issue with antd, unable to correctly set autofocus
-    isHome && searchRef?.current?.input.input.focus();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const validateSearch = React.useCallback(
     async (value: any) => {
       if (!value) {
@@ -200,7 +194,6 @@ const Search = ({ isHome = false }) => {
           value !== searchValue ? setSearchValue(value) : validateSearch(value);
         }}
         size={isHome ? "large" : "middle"}
-        autoFocus={true}
       />
     </AutoComplete>
   );
