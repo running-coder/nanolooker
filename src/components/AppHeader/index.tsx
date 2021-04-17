@@ -1,12 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { Col, Layout, Menu, Row } from "antd";
 import {
   ApartmentOutlined,
   CalendarOutlined,
   DatabaseOutlined,
-  SettingOutlined,
 } from "@ant-design/icons";
 import { useHistory, useLocation } from "react-router-dom";
 import Search from "components/Search";
@@ -17,10 +16,11 @@ const { SubMenu } = Menu;
 const { Header } = Layout;
 
 const AppHeader: React.FC = () => {
+  const { t } = useTranslation();
   const [activeMenu, setActiveMenu] = React.useState<string>("");
   const history = useHistory();
   const { pathname } = useLocation();
-  const { t } = useTranslation();
+  // const isHomePage = pathname === "/";
 
   React.useEffect(() => {
     const key = pathname.replace(/\/?([^/]+)/, "$1");
@@ -106,12 +106,6 @@ const AppHeader: React.FC = () => {
                 {t("menu.nodeStatus")}
                 <Link to="/status" />
               </Menu.Item>
-              <Menu.Item key="preferences">
-                <SettingOutlined />
-                {t("menu.preferences")}
-                <Link to="/preferences" />
-              </Menu.Item>
-              {/* Earn NANO */}
             </Menu>
           </Col>
 

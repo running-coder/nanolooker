@@ -61,7 +61,7 @@ const AccountPendingHistory: React.FC = () => {
 
   return pendingHistory ? (
     <>
-      <Title level={3} style={{ marginTop: "0.5em" }}>
+      <Title level={3}>
         {isAccountHistoryLoading ? "" : pendingHistory?.length}{" "}
         {t("pages.account.pendingTransactions")}
       </Title>

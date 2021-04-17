@@ -1,11 +1,6 @@
 import React from "react";
 import BigNumber from "bignumber.js";
-import {
-  ArrowUpOutlined,
-  ArrowDownOutlined,
-  FallOutlined,
-  RiseOutlined,
-} from "@ant-design/icons";
+import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons";
 import { Colors } from "components/utils";
 import { Theme, PreferencesContext } from "api/contexts/Preferences";
 
@@ -51,15 +46,9 @@ const StatisticsChange: React.FC<StatisticsChangeProps> = ({
       </span>
 
       {value >= 0 ? (
-        isArrow ? (
-          <ArrowUpOutlined style={styles} />
-        ) : (
-          <RiseOutlined style={styles} />
-        )
-      ) : isArrow ? (
-        <ArrowDownOutlined style={styles} />
+        <ArrowUpOutlined style={styles} />
       ) : (
-        <FallOutlined style={styles} />
+        <ArrowDownOutlined style={styles} />
       )}
     </>
   ) : null;

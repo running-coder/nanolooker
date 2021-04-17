@@ -385,3 +385,37 @@ a:hover {
   font-size: 16px;
   font-weight: bold;
 }
+
+/* p,
+ol {
+  font-size: 16px;
+  max-width: 680px;
+} */
+
+h1.ant-typography,
+h2.ant-typography,
+h3.ant-typography,
+h4.ant-typography {
+  font-weight: normal;
+}
+
+.home-banner .ant-btn:hover,
+.home-banner .ant-btn:focus,
+.home-banner .ant-btn:active,
+.home-banner .ant-btn.active {
+  color: rgba(255, 255, 255, 0.7);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.search-history-icon {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.search-history-icon:hover {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+body {
+  font-family: robotoregular, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}

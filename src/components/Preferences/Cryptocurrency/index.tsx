@@ -72,7 +72,13 @@ const CryptocurrencyPreferences: React.FC<Props> = ({ isDetailed }) => {
   return (
     <Row>
       <Col xs={24}>
-        <Text className={isDetailed ? "preference-detailed-title" : ""}>
+        <Text
+          className={isDetailed ? "preference-detailed-title" : ""}
+          style={{
+            display: "block",
+            marginBottom: "6px",
+          }}
+        >
           {t("preferences.watch")}
         </Text>
       </Col>

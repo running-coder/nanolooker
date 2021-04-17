@@ -63,7 +63,7 @@ const AccountHistory: React.FC = () => {
           justifyContent: "space-between",
         }}
       >
-        <Title level={3} style={{ marginTop: "0.5em", marginRight: "6px" }}>
+        <Title level={3} style={{ marginTop: "0", marginRight: "6px" }}>
           {count} {t(`common.transaction${count !== "1" ? "s" : ""}`)}
         </Title>
         {representative ? (

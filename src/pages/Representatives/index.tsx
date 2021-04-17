@@ -16,6 +16,7 @@ import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import { Pie, PieConfig } from "@antv/g2plot";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import BigNumber from "bignumber.js";
+// import forEach from "lodash/forEach";
 import { Theme, PreferencesContext } from "api/contexts/Preferences";
 import {
   Representative,
@@ -36,6 +37,7 @@ const Representatives = () => {
     isIncludeOfflineRepresentatives,
     setIsIncludeOfflineRepresentatives,
   ] = React.useState(true);
+  // const [isGroupedByEntities, setIsGroupedByEntities] = React.useState(false);
   const [filteredRepresentatives, setFilteredRepresentatives] = React.useState(
     [] as Representative[],
   );
@@ -45,6 +47,10 @@ const Representatives = () => {
     representatives,
     isLoading: isRepresentativesLoading,
   } = React.useContext(RepresentativesContext);
+  // const [
+  //   nakamotoCoefficientRepresentatives,
+  //   setNakamotoCoefficientRepresentatives,
+  // ] = React.useState([] as Representative[]);
 
   const {
     confirmationQuorum: {
@@ -86,31 +92,60 @@ const Representatives = () => {
 
     const aliasSeparator = "|||";
 
-    const config: PieConfig = {
-      data: representatives
-        .filter(
-          ({ isOnline, isPrincipal }) =>
-            isPrincipal && (!isIncludeOfflineRepresentatives ? isOnline : true),
-        )
-        .map(({ weight, account, alias }) => {
-          const value = new BigNumber(weight)
-            .times(100)
-            .dividedBy(stake)
-            .toFixed(2);
+    const filteredRepresentatives = representatives.filter(
+      ({ isOnline, isPrincipal }) =>
+        isPrincipal && (!isIncludeOfflineRepresentatives ? isOnline : true),
+    );
 
-          return {
-            alias: `${alias || ""}${aliasSeparator}${account}`,
-            value,
-          };
-        }),
+    // const nakamotoCoefficientRepresentatives: Representative[] = [];
+    // let nakamotoCoefficientWeight = 0;
+
+    // forEach(filteredRepresentatives, representative => {
+    //   const nextWeight = new BigNumber(nakamotoCoefficientWeight)
+    //     .plus(representative.weight)
+    //     .toNumber();
+    //   if (nextWeight <= 50) {
+    //     nakamotoCoefficientRepresentatives.push(representative);
+    //   } else {
+    //     return false;
+    //   }
+    // });
+
+    // setNakamotoCoefficientRepresentatives(nakamotoCoefficientRepresentatives);
+
+    const config: PieConfig = {
+      data: filteredRepresentatives.map(({ weight, account, alias }) => {
+        const value = new BigNumber(weight)
+          .times(100)
+          .dividedBy(stake)
+          .toFixed(2);
+
+        return {
+          alias: `${alias || ""}${aliasSeparator}${account}`,
+          value,
+        };
+      }),
       angleField: "value",
       colorField: "alias",
       radius: 0.8,
       label: {
         visible: true,
         type: "outer",
+        style:
+          theme === Theme.DARK
+            ? {
+                fill: "white",
+                stroke: "none",
+              }
+            : {
+                fill: "black",
+                stroke: "#fff",
+              },
       },
       tooltip: {
+        style: {
+          color: "green",
+        },
         showTitle: false,
         // @ts-ignore
         formatter: (value, rawAlias, b, c) => {
@@ -136,6 +171,7 @@ const Representatives = () => {
     representativesChart.render();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
+    theme,
     representatives,
     isRepresentativesLoading,
     isConfirmationQuorumLoading,
@@ -172,7 +208,8 @@ const Representatives = () => {
               <Text style={{ fontSize: "12px" }}>
                 {t("pages.representatives.votingDistributionDescription")}
               </Text>
-              <br />
+            </div>
+            <div style={{ marginBottom: "6px" }}>
               <Switch
                 disabled={isRepresentativesLoading}
                 checkedChildren={<CheckOutlined />}
@@ -186,6 +223,21 @@ const Representatives = () => {
                 {t("pages.representatives.includeOfflineRepresentatives")}
               </Text>
             </div>
+            {/* <div style={{ marginBottom: "6px" }}>
+              <Switch
+                disabled={isRepresentativesLoading}
+                checkedChildren={<CheckOutlined />}
+                unCheckedChildren={<CloseOutlined />}
+                onChange={(checked: boolean) => {
+                  setIsGroupedByEntities(checked);
+                }}
+                defaultChecked={isGroupedByEntities}
+              />
+              <Text style={{ marginLeft: "6px" }}>
+                {t("pages.representatives.groupByEntities")}
+              </Text>
+            </div> */}
+
             <div id="representatives-chart" />
           </Card>
         </Col>
@@ -342,13 +394,13 @@ const Representatives = () => {
         {!isSmallAndLower ? (
           <>
             <Row gutter={6}>
-              <Col sm={10} md={10} xl={6}>
+              <Col sm={6} md={6} xl={6}>
                 {t("pages.account.votingWeight")}
               </Col>
-              <Col sm={10} md={10} xl={14}>
+              <Col sm={12} md={12} xl={14}>
                 {t("common.account")}
               </Col>
-              <Col sm={4} md={4} xl={4}>
+              <Col sm={6} md={6} xl={4}>
                 {t("common.delegators")}
               </Col>
             </Row>
@@ -359,24 +411,24 @@ const Representatives = () => {
               <Row gutter={6} key={index}>
                 <Col
                   xs={{ span: 24, order: 2 }}
-                  sm={{ span: 10, order: 1 }}
-                  md={10}
+                  sm={{ span: 6, order: 1 }}
+                  md={6}
                   xl={6}
                 >
                   <Skeleton loading={true} paragraph={false} active />
                 </Col>
                 <Col
                   xs={{ span: 24, order: 1 }}
-                  sm={{ span: 10, order: 2 }}
-                  md={10}
+                  sm={{ span: 12, order: 2 }}
+                  md={12}
                   xl={14}
                 >
                   <Skeleton loading={true} paragraph={false} active />
                 </Col>
                 <Col
                   xs={{ span: 24, order: 3 }}
-                  sm={{ span: 4, order: 3 }}
-                  md={4}
+                  sm={{ span: 6, order: 3 }}
+                  md={6}
                   xl={4}
                 >
                   <Skeleton loading={true} paragraph={false} active />
@@ -392,8 +444,8 @@ const Representatives = () => {
                 <Row gutter={6} key={account}>
                   <Col
                     xs={{ span: 24, order: 2 }}
-                    sm={{ span: 10, order: 1 }}
-                    md={10}
+                    sm={{ span: 6, order: 1 }}
+                    md={6}
                     xl={6}
                   >
                     <span
@@ -419,8 +471,8 @@ const Representatives = () => {
                   </Col>
                   <Col
                     xs={{ span: 24, order: 1 }}
-                    sm={{ span: 10, order: 2 }}
-                    md={10}
+                    sm={{ span: 12, order: 2 }}
+                    md={12}
                     xl={14}
                   >
                     <div style={{ display: "flex", margin: "3px 0" }}>
@@ -455,8 +507,8 @@ const Representatives = () => {
                   </Col>
                   <Col
                     xs={{ span: 24, order: 3 }}
-                    sm={{ span: 4, order: 3 }}
-                    md={4}
+                    sm={{ span: 6, order: 3 }}
+                    md={6}
                     xl={4}
                   >
                     <Skeleton
@@ -464,20 +516,22 @@ const Representatives = () => {
                       // title={{ width: "10%" }}
                       paragraph={false}
                     >
-                      <div>
-                        {delegatorsCount ? (
-                          <Link to={`/account/${account}/delegators`}>
-                            <Button size="small" style={{ marginTop: "6px" }}>
-                              {t("pages.representatives.viewDelegators", {
-                                count: delegatorsCount,
-                              })}
-                            </Button>
-                          </Link>
-                        ) : null}
-                        {!delegatorsCount
-                          ? t("pages.representative.noDelegatorsFound")
-                          : null}
-                      </div>
+                      {delegatorsCount ? (
+                        <Link to={`/account/${account}/delegators`}>
+                          <Button
+                            ghost={theme === Theme.DARK}
+                            size="small"
+                            style={{ marginTop: "6px" }}
+                          >
+                            {t("pages.representatives.viewDelegators", {
+                              count: delegatorsCount,
+                            })}
+                          </Button>
+                        </Link>
+                      ) : null}
+                      {!delegatorsCount
+                        ? t("pages.representative.noDelegatorsFound")
+                        : null}
                     </Skeleton>
                   </Col>
                 </Row>

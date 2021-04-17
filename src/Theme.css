@@ -277,3 +277,16 @@ body .theme-dark {
 .theme-dark .detail-layout .divider {
   border-color: #2f2f2f;
 }
+
+.theme-dark .ant-btn.ant-btn-background-ghost {
+  color: rgba(255, 255, 255, 0.7);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.theme-dark .ant-btn.ant-btn-background-ghost:hover,
+.theme-dark .ant-btn.ant-btn-background-ghost:focus,
+.theme-dark .ant-btn.ant-btn-background-ghost:active,
+.theme-dark .ant-btn.ant-btn-background-ghost.active {
+  color: rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.5);
+}

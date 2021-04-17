@@ -66,7 +66,6 @@ const useAccountHistory = (
 
     if (!json || json.error) {
       setIsError(true);
-      setAccountHistory({} as AccountHistory);
     } else {
       const { history } = json;
       if (options?.concatHistory && json.account === accountHistory.account) {
@@ -90,14 +89,15 @@ const useAccountHistory = (
     setIsLoading(false);
   };
 
+  React.useEffect(() => {
+    // Reset on account change
+    setAccountHistory({} as AccountHistory);
+  }, [account]);
+
   useDeepCompareEffect(() => {
-    if (!isValidAccountAddress(account)) {
-      setAccountHistory({} as AccountHistory);
-      return;
-    }
+    if (!isValidAccountAddress(account)) return;
 
     getAccountHistory(account, params);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [account, params]);
 
   return { accountHistory, isLoading, isError };

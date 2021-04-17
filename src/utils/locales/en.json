@@ -47,6 +47,7 @@
   },
   "tooltips": {
     "avgConfirmationTime": "The average confirmation time is calculated locally on the node. If the node is restarted or in degraded condition, the average confirmation time might be higher than the rest of the network.",
+    "nanoTransactionFees": "Unlike any other cryptocurrencies Nano transactions are fee-less, forever.",
     "bitcoinTransactionFees": "This value have no impact on the NANO network, it is solely for comparison purpose. It represents the sum of transaction fees the Bitcoin users are paying to the miners to get their transaction accepted on the Bitcoin network.",
     "cps": "Confirmations Per Second. The rate of confirmed blocks (send or receive) on the NANO network. It is sampled over the last minute locally on the node. If the node is restarted or in a degraded condition, the CPS value might be higher or lower than the actual average on the network while the node syncs and reconnects with the other nodes.",
     "votingWeight": "An account with a minimum of {{minWeight}} NANO or >= 0.1% of the online voting weight delegated to it is required to get the Principal Representative status. When configured on a node which is voting, the votes it produces will be rebroadcasted by other nodes to who receive them, helping the network reach consensus more quickly.",
@@ -64,10 +65,11 @@
     "blockHeight": "A local integer value that represents the order of a block in an account chain. For example, the 15th block in an account would have a block height of 15. Related to (but different from) confirmation height."
   },
   "search": {
-    "searchBy": "Search by Address / Block",
+    "searchBy": "Search by Address / Block / Known Account",
     "noHistory": "No search history"
   },
   "preferences": {
+    "viewAll": "View all preferences",
     "darkMode": "Dark mode",
     "darkModeDetailed": "Switch from Light or Dark mode to improve your site browsing experience depending on your environment.",
     "language": "Language",
@@ -95,6 +97,8 @@
     "faucets": "Faucets",
     "news": "News",
     "nodeStatus": "Node Status",
+    "whatIsNano": "What is nano ?",
+    "earnNano": "Earn Nano",
     "preferences": "Preferences"
   },
   "footer": {
@@ -106,7 +110,9 @@
   },
   "pages": {
     "home": {
+      "network": "Network",
       "statistics": "Statistics",
+      "market": "Market",
       "marketCapRank": "Market cap rank",
       "marketCap": "Market cap",
       "circulatingSupply": "Circulating Supply",
@@ -170,6 +176,7 @@
       "totalOnlineStake": "Total online stake",
       "totalPeerStake": "Total peer stake",
       "includeOfflineRepresentatives": "Include offline representatives",
+      "groupByEntities": "Group by entities",
       "viewDelegators": "View {{count}} delegators"
     },
     "representative": {

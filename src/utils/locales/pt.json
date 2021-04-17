@@ -47,6 +47,7 @@
   },
   "tooltips": {
     "avgConfirmationTime": "O tempo médio de confirmação é calculado localmente no nó. Se o nó for reiniciado ou em condição degradada, o tempo médio de confirmação pode ser maior do que o resto da rede.",
+    "nanoTransactionFees": "Ao contrário de qualquer outra criptomoeda, as transações Nano são gratuitas, para sempre.",
     "bitcoinTransactionFees": "Este valor não tem impacto na rede NANO, é apenas para fins de comparação. Representa a soma das taxas de transação que os usuários de Bitcoin estão pagando aos mineiros para que suas transações sejam aceitas na rede Bitcoin.",
     "cps": "Confirmações por segundo. A taxa de bloqueios confirmados (envio ou recebimento) na rede NANO. É amostrado no último minuto localmente no nó. Se o nó for reiniciado ou em uma condição degradada, o valor CPS pode ser maior ou menor do que a média real na rede enquanto o nó sincroniza e reconecta com os outros nós.",
     "votingWeight": "Uma conta com um mínimo de {{minWeight}} NANO ou >= 0,1% do peso do voto online delegado a ela é necessária para obter o status de Representante Principal. Quando configurado em um nó que está votando, os votos que ele produz serão retransmitidos por outros nós para quem os recebe, ajudando a rede a chegar a um consenso mais rapidamente.",
@@ -68,6 +69,7 @@
     "noHistory": "Sem histórico de pesquisa"
   },
   "preferences": {
+    "viewAll": "Ver todas as preferências",
     "darkMode": "Modo escuro",
     "darkModeDetailed": "Mude do modo Claro ou Escuro para melhorar sua experiência de navegação no site, dependendo do seu ambiente.",
     "language": "Língua",
@@ -95,6 +97,8 @@
     "faucets": "Torneiros",
     "news": "Notícia",
     "nodeStatus": "Status do nó",
+    "whatIsNano": "O que é o Nano?",
+    "earnNano": "Ganhe Nano",
     "preferences": "Preferências"
   },
   "footer": {
@@ -106,7 +110,9 @@
   },
   "pages": {
     "home": {
+      "network": "Rede",
       "statistics": "Estatisticas",
+      "market": "Mercado",
       "marketCapRank": "Classificação de capitalização de mercado",
       "marketCap": "Valor de mercado",
       "circulatingSupply": "Suprimento Circulante",

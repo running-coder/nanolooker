@@ -1,6 +1,7 @@
 import React from "react";
 // import { useTranslation } from "react-i18next";
 import { Button, Card, Row, Col, Space, Typography } from "antd";
+import BigNumber from "bignumber.js";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import data from "./data.json";
 
@@ -19,26 +20,17 @@ const Quake3Page: React.FC = () => {
 
   return (
     <>
-      <Title level={3}>
-        Earn NANO playing Quake 3 with free to play{" "}
-        <a
-          href="https://nanoquakejs.com/"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          NanoQuakeJS
-        </a>
-      </Title>
+      <Title level={3}>NanoQuakeJS</Title>
 
       <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]}>
         <Col xs={24} md={12}>
           <Card size="small" bordered={false} className="detail-layout">
             <Row gutter={6}>
               <Col xs={24} sm={6}>
-                Players
+                Players Online
               </Col>
               <Col xs={24} sm={18}>
-                6/8
+                9/12
               </Col>
             </Row>
             <Row gutter={6}>
@@ -72,10 +64,34 @@ const Quake3Page: React.FC = () => {
           <Card size="small" bordered={false} className="detail-layout">
             <Row gutter={6}>
               <Col xs={24} sm={8}>
-                Season 2 payouts
+                Registered Players
               </Col>
-              <Col xs={24} sm={1}>
-                2.123456 NANO
+              <Col xs={24} sm={16}>
+                {new BigNumber(4143).toFormat()}
+              </Col>
+            </Row>
+            <Row gutter={6}>
+              <Col xs={24} sm={8}>
+                Total Frags
+              </Col>
+              <Col xs={24} sm={16}>
+                {new BigNumber(490334).toFormat()}
+              </Col>
+            </Row>
+            <Row gutter={6}>
+              <Col xs={24} sm={8}>
+                Season payouts
+              </Col>
+              <Col xs={24} sm={16}>
+                {new BigNumber(2.123456).toFormat()} NANO
+              </Col>
+            </Row>
+            <Row gutter={6}>
+              <Col xs={24} sm={8}>
+                Total paid out
+              </Col>
+              <Col xs={24} sm={16}>
+                {new BigNumber(215.55).toFormat()} NANO
               </Col>
             </Row>
             <Row gutter={6}>
@@ -83,7 +99,7 @@ const Quake3Page: React.FC = () => {
                 Last game
               </Col>
               <Col xs={24} sm={16}>
-                0.0024153 NANO
+                {new BigNumber(0.0023456).toFormat()} NANO
               </Col>
             </Row>
           </Card>
@@ -111,20 +127,23 @@ const Quake3Page: React.FC = () => {
           </Col>
         </Row>
         {data.map(
-          ({
-            character,
-            score,
-            ping,
-            time,
-            damageGiven,
-            damageTaken,
-            name,
-            awards,
-          }) => (
-            <Row gutter={12}>
+          (
+            {
+              character,
+              score,
+              ping,
+              time,
+              damageGiven,
+              damageTaken,
+              name,
+              awards,
+            },
+            index,
+          ) => (
+            <Row gutter={12} key={index}>
               <Col xs={2}>
                 <img
-                  src={`/quake3/characters/${character}.png`}
+                  src={`/earn-nano/quake3/characters/${character}.png`}
                   width="24px"
                   height="24px"
                   alt="sarge"
@@ -149,9 +168,10 @@ const Quake3Page: React.FC = () => {
               <Col xs={16} md={10}>
                 <Space>
                   {name}
-                  {awards.map(award => (
+                  {awards.map((award, index) => (
                     <img
-                      src={`/quake3/award/${award}.png`}
+                      key={index}
+                      src={`/earn-nano/quake3/award/${award}.png`}
                       width="24px"
                       height="24px"
                       alt={award}
@@ -172,7 +192,7 @@ const Quake3Page: React.FC = () => {
           rel="noopener noreferrer"
           size="large"
         >
-          Join the action now !
+          Join the action !
         </Button>
       </div>
     </>

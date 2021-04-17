@@ -44,6 +44,9 @@ const usePending = (account: string, params: Params): Return => {
   };
 
   React.useEffect(() => {
+    // Reset on account change
+    setPending({});
+
     if (!isValidAccountAddress(account)) return;
 
     getPending(account);

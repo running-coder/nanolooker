@@ -269,7 +269,7 @@ const DeveloperFund: React.FC = () => {
         </Col>
       </Row>
 
-      <Title level={3} style={{ marginTop: "0.5em" }}>
+      <Title level={3}>
         {t("pages.developerFund.totalAccounts", { totalAccounts: data.length })}
       </Title>
 

@@ -37,7 +37,7 @@ const Delegators: React.FC = () => {
           justifyContent: "space-between",
         }}
       >
-        <Title level={3} style={{ marginTop: "0.5em", marginRight: "6px" }}>
+        <Title level={3} style={{ marginRight: "6px" }}>
           {count} {t(`common.delegator${count !== "1" ? "s" : ""}`)}
         </Title>
 

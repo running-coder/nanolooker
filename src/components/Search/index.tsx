@@ -22,11 +22,11 @@ import { KnownAccount, KnownAccountsContext } from "api/contexts/KnownAccounts";
 
 const { Search: SearchAnt } = Input;
 
-const Search = () => {
+const Search = ({ isHome = false }) => {
   const { t } = useTranslation();
   const { theme } = React.useContext(PreferencesContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
-  const [isExpanded, setIsExpanded] = React.useState(false);
+  const [isExpanded, setIsExpanded] = React.useState(isHome);
   const [isError, setIsError] = React.useState(false);
   const [filteredResults, setFilteredResults] = React.useState([] as any);
   const { searchValue, setSearchValue } = useSearch();
@@ -35,8 +35,15 @@ const Search = () => {
     addSearchHistory,
     removeSearchHistory,
   } = useSearchHistory();
+  const searchRef = React.useRef(null);
 
   let history = useHistory();
+
+  React.useEffect(() => {
+    // @ts-ignore Issue with antd, unable to correctly set autofocus
+    isHome && searchRef?.current?.input.input.focus();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const validateSearch = React.useCallback(
     async (value: any) => {
@@ -50,8 +57,14 @@ const Search = () => {
         setIsError(!isValidAccount && !isValidBlock);
 
         if (isValidAccount) {
-          addSearchHistory(value.toLowerCase());
-          history.push(`/account/${value.toLowerCase()}`);
+          let account = value.toLowerCase();
+
+          if (!account.includes("_")) {
+            account = `nano_${account}`;
+            setSearchValue(account);
+          }
+          addSearchHistory(account);
+          history.push(`/account/${account}`);
         } else if (isValidBlock) {
           addSearchHistory(value.toUpperCase());
           history.push(`/block/${value.toUpperCase()}`);
@@ -89,7 +102,7 @@ const Search = () => {
     <AutoComplete
       style={{
         float: isExpanded ? "right" : "none",
-        maxWidth: "calc(100vw - 40px)",
+        maxWidth: "calc(100vw - 24px)",
         width: isExpanded ? "650px" : "100%",
         // transitionDelay: `${isExpanded ? 0 : 0.2}s`,
       }}
@@ -108,6 +121,7 @@ const Search = () => {
       value={searchValue}
     >
       <SearchAnt
+        ref={searchRef}
         allowClear
         suffix={
           <Dropdown
@@ -155,13 +169,16 @@ const Search = () => {
             }
             placement="bottomRight"
           >
-            <HistoryOutlined style={{ padding: "6px", marginRight: "6px" }} />
+            <HistoryOutlined
+              className="search-history-icon"
+              style={{ padding: "6px", marginRight: "6px" }}
+            />
           </Dropdown>
         }
         className={isError ? "has-error" : ""}
         placeholder={t("search.searchBy")}
         onFocus={() => setIsExpanded(true)}
-        onBlur={() => setIsExpanded(false)}
+        onBlur={() => setIsExpanded(isHome || false)}
         onPaste={e => {
           e.preventDefault();
 
@@ -182,6 +199,8 @@ const Search = () => {
         onSearch={value => {
           value !== searchValue ? setSearchValue(value) : validateSearch(value);
         }}
+        size={isHome ? "large" : "middle"}
+        autoFocus={true}
       />
     </AutoComplete>
   );
