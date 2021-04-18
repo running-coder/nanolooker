@@ -401,6 +401,10 @@ h4.ant-typography {
   border-color: rgba(255, 255, 255, 0.7);
 }
 
+.home-banner .ant-input-affix-wrapper {
+  border: none;
+}
+
 .search-history-icon {
   color: rgba(0, 0, 0, 0.45);
 }

@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { Card, Typography } from "antd";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
@@ -74,13 +75,6 @@ const WhatIsNanoPage: React.FC = () => {
           and euros are being printed, their own dollars and euros are becoming
           worth less and less over time.
         </p>
-        {/*
-        <a
-          href=""
-          target="_blank"
-          rel="noopener noreferrer"
-        ></a>
-         */}
         <p>
           However, Bitcoin comes with its own share of issues. Transactions
           take, on average,{" "}
@@ -173,11 +167,7 @@ const WhatIsNanoPage: React.FC = () => {
             .
           </li>
           <li>
-            Visit a{" "}
-            <a href="/faucets" target="_blank" rel="noopener noreferrer">
-              Nano Faucet
-            </a>
-            .
+            Visit a <Link to={"/faucets"}>Nano Faucet</Link>.
           </li>
           <li>Fill in your Nano_ address and hit send.</li>
         </ol>
@@ -229,12 +219,18 @@ const WhatIsNanoPage: React.FC = () => {
           terms of transactions or confirmations per second it can process. As
           hardware become cheaper, the limits of the Nano network will increase.
         </p>
-        <img
-          alt="Nano uses a block-lattice"
-          src="/what-is-nano/block-lattice.png"
-          width="100%"
-          style={{ maxWidth: 500, marginTop: "18px" }}
-        />
+        <a
+          href="https://medium.com/nanocurrency/nano-how-2-blocks-and-lattices-dd209208834d"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            alt="Nano uses a block-lattice"
+            src="/what-is-nano/block-lattice.png"
+            width="100%"
+            style={{ maxWidth: 600, marginTop: "18px" }}
+          />
+        </a>
 
         <Title level={3} style={{ marginTop: "18px" }}>
           So there’s no mining?
@@ -262,7 +258,7 @@ const WhatIsNanoPage: React.FC = () => {
           alt="Nano is environmental friendly versus Bitcoin"
           src="/what-is-nano/nano-vs-bitcoin.png"
           width="100%"
-          style={{ maxWidth: 500, marginTop: "18px" }}
+          style={{ maxWidth: 600, marginTop: "18px" }}
         />
 
         <Title level={3} style={{ marginTop: "18px" }}>
@@ -316,6 +312,19 @@ const WhatIsNanoPage: React.FC = () => {
           </a>
           .
         </p>
+
+        <a
+          href="https://medium.com/nanocurrency/why-you-should-take-your-nano-off-exchanges-for-yourself-the-network-and-nanos-value-b1890b01136c"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            alt="Nano is environmental friendly versus Bitcoin"
+            src="/what-is-nano/nano-decentralization.png"
+            width="100%"
+            style={{ maxWidth: 600, marginTop: "18px" }}
+          />
+        </a>
       </Card>
     </>
   );

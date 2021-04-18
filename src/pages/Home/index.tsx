@@ -113,7 +113,11 @@ const HomePage = () => {
     <>
       <Banner />
       <Row gutter={[{ xs: 6, sm: 12 }, 12]}>
-        <Col sm={24} md={12} style={{ width: "100%" }}>
+        <Col
+          xs={{ span: 24, order: 3 }}
+          md={{ span: 12, order: 1 }}
+          style={{ width: "100%" }}
+        >
           <Card size="small" title={t("pages.home.network")}>
             <Row gutter={6}>
               <Col xs={24} sm={12}>
@@ -163,7 +167,12 @@ const HomePage = () => {
           </Card>
         </Col>
 
-        <Col sm={24} md={12} lg={6} style={{ width: "100%" }}>
+        <Col
+          xs={{ span: 24, order: 2 }}
+          md={{ span: 12, order: 2 }}
+          lg={6}
+          style={{ width: "100%" }}
+        >
           <Card size="small" title={t("pages.home.last24Hours")}>
             <Row gutter={6}>
               <Col xs={24}>
@@ -210,7 +219,12 @@ const HomePage = () => {
           </Card>
         </Col>
 
-        <Col sm={24} md={12} lg={6} style={{ width: "100%" }}>
+        <Col
+          xs={{ span: 24, order: 1 }}
+          md={{ span: 12, order: 3 }}
+          lg={6}
+          style={{ width: "100%" }}
+        >
           <Card size="small" title={t("pages.home.market")}>
             <Row gutter={6}>
               <Col xs={24}>
