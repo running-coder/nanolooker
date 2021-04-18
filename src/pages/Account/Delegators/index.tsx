@@ -33,11 +33,11 @@ const Delegators: React.FC = () => {
       <div
         style={{
           display: "flex",
-          alignItems: "center",
+          alignItems: "flex-start",
           justifyContent: "space-between",
         }}
       >
-        <Title level={3} style={{ marginRight: "6px" }}>
+        <Title level={3}>
           {count} {t(`common.delegator${count !== "1" ? "s" : ""}`)}
         </Title>
 

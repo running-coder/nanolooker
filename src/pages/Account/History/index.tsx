@@ -59,11 +59,11 @@ const AccountHistory: React.FC = () => {
       <div
         style={{
           display: "flex",
-          alignItems: "center",
+          alignItems: "flex-start",
           justifyContent: "space-between",
         }}
       >
-        <Title level={3} style={{ marginTop: "0", marginRight: "6px" }}>
+        <Title level={3}>
           {count} {t(`common.transaction${count !== "1" ? "s" : ""}`)}
         </Title>
         {representative ? (
