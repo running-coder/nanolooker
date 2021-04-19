@@ -28,11 +28,11 @@ const Copy = ({ text }: { text: string }) => {
         {isCopied ? (
           theme === Theme.DARK ? (
             <CheckCircleFilled
-              style={{ fontSize: "24px", color: Colors.RECEIVE_DARK as string }}
+              style={{ fontSize: "24px", color: Colors.PENDING_DARK as string }}
             />
           ) : (
             <CheckCircleFilled
-              style={{ fontSize: "24px", color: Colors.RECEIVE as string }}
+              style={{ fontSize: "24px", color: Colors.PENDING as string }}
             />
           )
         ) : (

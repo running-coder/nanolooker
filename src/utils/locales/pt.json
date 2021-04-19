@@ -26,7 +26,9 @@
     "online": "Conectados",
     "offline": "Desligado",
     "copied": "Copiado",
-    "copy": "Cópia de"
+    "copy": "Cópia de",
+    "bookmark": "Marca páginas",
+    "bookmarks": "Favoritos"
   },
   "nodeHealth": {
     "nodeReloading": "Nano node está recarregando",
@@ -47,6 +49,7 @@
   },
   "tooltips": {
     "avgConfirmationTime": "O tempo médio de confirmação é calculado localmente no nó. Se o nó for reiniciado ou em condição degradada, o tempo médio de confirmação pode ser maior do que o resto da rede.",
+    "circulatingSupply": "A quantidade de moedas em circulação. Nano é totalmente distribuído, a oferta nunca aumentará.",
     "nanoTransactionFees": "Ao contrário de qualquer outra criptomoeda, as transações Nano são gratuitas, para sempre.",
     "bitcoinTransactionFees": "Este valor não tem impacto na rede NANO, é apenas para fins de comparação. Representa a soma das taxas de transação que os usuários de Bitcoin estão pagando aos mineiros para que suas transações sejam aceitas na rede Bitcoin.",
     "cps": "Confirmações por segundo. A taxa de bloqueios confirmados (envio ou recebimento) na rede NANO. É amostrado no último minuto localmente no nó. Se o nó for reiniciado ou em uma condição degradada, o valor CPS pode ser maior ou menor do que a média real na rede enquanto o nó sincroniza e reconecta com os outros nós.",
@@ -62,7 +65,8 @@
     "cemented": "Quando um nó específico marca uma transação confirmada como localmente irreversível, definindo a altura de confirmação da conta (no banco de dados do nó) para a altura de bloco agora mais alta da transação confirmada. A cimentação é uma operação no nível do nó.",
     "unknownLastTransaction": "As datas de transação foram introduzidas em fevereiro de 2019. Antes dessa data, os tempos de transação não eram registrados localmente nos nós. A razão pela qual a data da última transação é desconhecida é porque ela foi confirmada antes que as datas fossem registradas ou antes que o nó NanoLooker estivesse em serviço.",
     "confirmationHeight": "Um número armazenado no banco de dados do nó local que representa o bloco confirmado mais alto (mais recente) em uma cadeia de contas. Relacionado (mas diferente) da altura do bloco.",
-    "blockHeight": "Um valor inteiro local que representa a ordem de um bloco em uma cadeia de contas. Por exemplo, o 15º bloco em uma conta teria uma altura de bloco de 15. Relacionado (mas diferente de) altura de confirmação."
+    "blockHeight": "Um valor inteiro local que representa a ordem de um bloco em uma cadeia de contas. Por exemplo, o 15º bloco em uma conta teria uma altura de bloco de 15. Relacionado (mas diferente de) altura de confirmação.",
+    "bookmarks": "Os marcadores {{digite, capitalize}} são salvos em seu dispositivo. Você pode gerenciar seus {{type}} s conhecidos fornecendo-lhes aliases."
   },
   "search": {
     "searchBy": "Pesquisa por endereço / bloco",
@@ -176,6 +180,7 @@
       "totalOnlineStake": "Aposta online total",
       "totalPeerStake": "Participação de pares total",
       "includeOfflineRepresentatives": "Incluir representantes offline",
+      "groupByEntities": "Group by entities",
       "viewDelegators": "Ver {{count}} delegadores"
     },
     "representative": {
@@ -253,6 +258,10 @@
       "general": "Configurações Gerais",
       "bookmarks": "Favoritos",
       "searchHistory": "Histórico de busca"
+    },
+    "bookmarks": {
+      "viewAll": "Ver todos os favoritos",
+      "noBookmarksFound": "Nenhum marcador encontrado"
     }
   }
 }

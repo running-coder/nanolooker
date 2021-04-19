@@ -8,14 +8,14 @@ interface StatisticsChangeProps {
   value: number;
   isPercent?: boolean;
   isNumber?: boolean;
-  isArrow?: boolean;
+  suffix?: any;
 }
 
 const StatisticsChange: React.FC<StatisticsChangeProps> = ({
   value,
   isPercent,
   isNumber,
-  isArrow,
+  suffix,
 }) => {
   const { theme } = React.useContext(PreferencesContext);
   const color = (value === 0
@@ -50,6 +50,8 @@ const StatisticsChange: React.FC<StatisticsChangeProps> = ({
       ) : (
         <ArrowDownOutlined style={styles} />
       )}
+
+      {suffix}
     </>
   ) : null;
 };

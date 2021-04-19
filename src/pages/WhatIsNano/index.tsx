@@ -15,6 +15,8 @@ const WhatIsNanoPage: React.FC = () => {
   return (
     <>
       <Card
+        size="small"
+        bordered={false}
         className="what-is-nano-card"
         style={{ fontSize: isSmallAndLower ? "14px" : "18px" }}
       >
@@ -26,7 +28,7 @@ const WhatIsNanoPage: React.FC = () => {
           className="color-muted"
           style={{ display: "block", fontSize: "12px", marginBottom: "12px" }}
         >
-          5 minutes read that will change your perceptions - {t("common.by")}{" "}
+          5 min read that will change your perceptions - {t("common.by")}{" "}
           <a
             href="https://senatusspqr.medium.com/"
             target="_blank"
@@ -114,7 +116,10 @@ const WhatIsNanoPage: React.FC = () => {
           with, easy to accept and open to all.
         </blockquote>
 
-        <div className={isSmallAndLower ? "video-wrapper" : ""}>
+        <div
+          className={isSmallAndLower ? "video-wrapper" : ""}
+          style={{ marginBottom: "12px" }}
+        >
           <iframe
             title="Nano around the world"
             width="560"

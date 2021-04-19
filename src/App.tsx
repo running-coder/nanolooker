@@ -22,6 +22,7 @@ import StatusPage from "pages/Status";
 import EarnNanoPage from "pages/EarnNano";
 import WhatIsNanoPage from "pages/WhatIsNano";
 import PreferencesPage from "pages/Preferences";
+import BookmarksPage from "pages/Bookmarks";
 import useAnalytics from "hooks/use-analytics";
 
 import "antd/dist/antd.css";
@@ -71,6 +72,7 @@ const App: React.FC = () => {
             <Route path="/earn-nano/:section?" component={EarnNanoPage} />
             <Route path="/what-is-nano" component={WhatIsNanoPage} />
             <Route path="/preferences" component={PreferencesPage} />
+            <Route path="/bookmarks" component={BookmarksPage} />
           </Switch>
         </Content>
         <AppFooter />

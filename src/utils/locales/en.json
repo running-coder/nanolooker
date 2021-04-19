@@ -26,7 +26,9 @@
     "online": "Online",
     "offline": "Offline",
     "copied": "Copied",
-    "copy": "Copy"
+    "copy": "Copy",
+    "bookmark": "Bookmark",
+    "bookmarks": "Bookmarks"
   },
   "nodeHealth": {
     "nodeReloading": "Nano node is reloading",
@@ -47,6 +49,7 @@
   },
   "tooltips": {
     "avgConfirmationTime": "The average confirmation time is calculated locally on the node. If the node is restarted or in degraded condition, the average confirmation time might be higher than the rest of the network.",
+    "circulatingSupply": "The amount of coins that are in circulation. Nano is fully distributed, the supply will never increase.",
     "nanoTransactionFees": "Unlike any other cryptocurrencies Nano transactions are fee-less, forever.",
     "bitcoinTransactionFees": "This value have no impact on the NANO network, it is solely for comparison purpose. It represents the sum of transaction fees the Bitcoin users are paying to the miners to get their transaction accepted on the Bitcoin network.",
     "cps": "Confirmations Per Second. The rate of confirmed blocks (send or receive) on the NANO network. It is sampled over the last minute locally on the node. If the node is restarted or in a degraded condition, the CPS value might be higher or lower than the actual average on the network while the node syncs and reconnects with the other nodes.",
@@ -62,7 +65,8 @@
     "cemented": "When a specific node marks a confirmed transaction as locally irreversible by setting the account's confirmation height (in the node database) to the now higher block height of the confirmed transaction. Cementing is a node-level operation.",
     "unknownLastTransaction": "Transaction dates were introduced in February 2019. Prior to that date, the transaction times were not recorded locally on the nodes. The reason why the last transaction date is unknown is because it was confirmed before the dates were recorded or before the NanoLooker node was in service.",
     "confirmationHeight": "A number stored in the local node database that represents the highest (most recent) confirmed block in an account chain. Related to (but different from) block height.",
-    "blockHeight": "A local integer value that represents the order of a block in an account chain. For example, the 15th block in an account would have a block height of 15. Related to (but different from) confirmation height."
+    "blockHeight": "A local integer value that represents the order of a block in an account chain. For example, the 15th block in an account would have a block height of 15. Related to (but different from) confirmation height.",
+    "bookmarks": "{{type, capitalize}} bookmarks are saved on your device. You can manage your known {{type}}s by giving them aliases."
   },
   "search": {
     "searchBy": "Search by Address / Block / Known Account",
@@ -252,8 +256,12 @@
     "preferences": {
       "description": "Manage your preferences for every sections. The preferences are stored on the browser, if you clear your data your preferences will be back to defaults.",
       "general": "General settings",
-      "bookmarks": "Bookmarks",
+
       "searchHistory": "Search history"
+    },
+    "bookmarks": {
+      "viewAll": "View all bookmarks",
+      "noBookmarksFound": "No bookmarks found"
     }
   }
 }

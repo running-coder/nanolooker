@@ -32,6 +32,11 @@ const Preferences: React.FC = () => {
               <Link to="/preferences">{t("preferences.viewAll")}</Link>
             </Col>
           </Row>
+          <Row>
+            <Col xs={24} style={{ textAlign: "right" }}>
+              <Link to="/bookmarks">{t("pages.bookmarks.viewAll")}</Link>
+            </Col>
+          </Row>
         </Card>
       }
       trigger="click"

@@ -1,0 +1,42 @@
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { Card, Col, Row, Typography } from "antd";
+import { BookmarksContext } from "api/contexts/Bookmarks";
+import AccountHeader from "pages/Account/Header/Account";
+
+const { Title } = Typography;
+
+const BookmarksPage: React.FC = () => {
+  const { t } = useTranslation();
+  const { bookmarks } = React.useContext(BookmarksContext);
+
+  const hasAccountBookmarks = !!Object.keys(bookmarks?.account || {}).length;
+
+  return (
+    <>
+      <Title level={3}>{t("common.bookmarks")}</Title>
+      <Card size="small" bordered={false} className="detail-layout">
+        {hasAccountBookmarks ? (
+          Object.entries(bookmarks?.account).map(([account, alias]) => (
+            <Row gutter={6} key={account}>
+              <Col xs={24} sm={8} md={6}>
+                {alias}
+              </Col>
+              <Col xs={24} sm={16} md={18}>
+                <AccountHeader account={account} isLink />
+              </Col>
+            </Row>
+          ))
+        ) : (
+          <Row>
+            <Col xs={24} style={{ textAlign: "center" }}>
+              {t("pages.bookmarks.noBookmarksFound")}
+            </Col>
+          </Row>
+        )}
+      </Card>
+    </>
+  );
+};
+
+export default BookmarksPage;

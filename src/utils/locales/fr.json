@@ -26,7 +26,9 @@
     "online": "En ligne",
     "offline": "Hors-ligne",
     "copied": "Copié",
-    "copy": "Copier"
+    "copy": "Copier",
+    "bookmark": "Signet",
+    "bookmarks": "Signets"
   },
   "nodeHealth": {
     "nodeReloading": "Le nœud Nano est en cours de rechargement",
@@ -47,6 +49,7 @@
   },
   "tooltips": {
     "avgConfirmationTime": "Le temps moyen de confirmation est calculé localement sur le nœud. Si le nœud est redémarré ou dans un état dégradé, le temps de confirmation moyen peut être supérieur à celui du reste du réseau.",
+    "circulatingSupply": "La quantité de pièces en circulation. Nano est entièrement distribué, l'offre n'augmentera jamais.",
     "nanoTransactionFees": "Contrairement à toutes les autres crypto-monnaies, les transactions Nano sont sans frais, pour toujours.",
     "bitcoinTransactionFees": "Cette valeur n'a aucun impact sur le réseau NANO, c'est uniquement à des fins de comparaison. Il représente la somme des frais de transaction que les utilisateurs de Bitcoin paient aux mineurs pour que leur transaction soit acceptée sur le réseau Bitcoin.",
     "cps": "Confirmations par seconde. Le taux de blocs confirmés (envoi ou réception) sur le réseau NANO. Il est échantillonné au cours de la dernière minute localement sur le nœud. Si le nœud est redémarré ou dans un état dégradé, la valeur CPS peut être supérieure ou inférieure à la moyenne réelle sur le réseau pendant que le nœud se synchronise et se reconnecte avec les autres nœuds.",
@@ -62,7 +65,8 @@
     "cemented": "Lorsqu'un nœud spécifique marque une transaction confirmée comme irréversible localement en définissant la hauteur de confirmation du compte (dans la base de données des nœuds) sur la hauteur de bloc désormais plus élevée de la transaction confirmée. Le cimentage est une opération au niveau du nœud.",
     "unknownLastTransaction": "Les dates de transaction ont été introduites en février 2019. Avant cette date, les heures de transaction n'étaient pas enregistrées localement sur les nœuds. La raison pour laquelle la date de la dernière transaction est inconnue est qu'elle a été confirmée avant l'enregistrement des dates ou avant la mise en service du nœud NanoLooker.",
     "confirmationHeight": "Nombre stocké dans la base de données des nœuds locaux qui représente le bloc confirmé le plus élevé (le plus récent) d'une chaîne de comptes. Lié à (mais différent de) la hauteur du bloc.",
-    "blockHeight": "Valeur entière locale qui représente l'ordre d'un bloc dans une chaîne de comptes. Par exemple, le 15e bloc d'un compte aurait une hauteur de bloc de 15. Lié à (mais différent de) la hauteur de confirmation."
+    "blockHeight": "Valeur entière locale qui représente l'ordre d'un bloc dans une chaîne de comptes. Par exemple, le 15e bloc d'un compte aurait une hauteur de bloc de 15. Lié à (mais différent de) la hauteur de confirmation.",
+    "bookmarks": "Les {{type, capitalize}} favoris sont enregistrés sur votre appareil. Vous pouvez gérer vos {{type}} connus en leur donnant des alias."
   },
   "search": {
     "searchBy": "Recherche par Address / Bloc",
@@ -176,6 +180,7 @@
       "totalOnlineStake": "Mise totale en ligne",
       "totalPeerStake": "Participation totale des pairs",
       "includeOfflineRepresentatives": "Inclure les représentants hors-ligne",
+      "groupByEntities": "Group by entities",
       "viewDelegators": "Voir {{count}} délégants"
     },
     "representative": {
@@ -253,6 +258,10 @@
       "general": "Réglages généraux",
       "bookmarks": "Signets",
       "searchHistory": "Historique des recherches"
+    },
+    "bookmarks": {
+      "viewAll": "Afficher tous les signets",
+      "noBookmarksFound": "Aucun signet trouvé"
     }
   }
 }

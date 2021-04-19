@@ -3,6 +3,7 @@ import PreferencesProvider from "./Preferences";
 import MarketStatisticsProvider from "./MarketStatistics";
 import NodeStatusProvider from "./NodeStatus";
 import KnownAccountsProvider from "./KnownAccounts";
+import BookmarksProvider from "./Bookmarks";
 import AccountInfoProvider from "./AccountInfo";
 import BlockInfoProvider from "./BlockInfo";
 import BlocksInfoProvider from "./BlocksInfo";
@@ -19,23 +20,27 @@ const IndexProvider: React.FC = ({ children }) => {
       <MarketStatisticsProvider>
         <NodeStatusProvider>
           <KnownAccountsProvider>
-            <AccountInfoProvider>
-              <BlockInfoProvider>
-                <BlocksInfoProvider>
-                  <ConfirmationQuorumProvider>
-                    <RepresentativesOnlineProvider>
-                      <RepresentativesProvider>
-                        <BlockCountProvider>
-                          <ConfirmationHistoryProvider>
-                            <DelegatorsProvider>{children}</DelegatorsProvider>
-                          </ConfirmationHistoryProvider>
-                        </BlockCountProvider>
-                      </RepresentativesProvider>
-                    </RepresentativesOnlineProvider>
-                  </ConfirmationQuorumProvider>
-                </BlocksInfoProvider>
-              </BlockInfoProvider>
-            </AccountInfoProvider>
+            <BookmarksProvider>
+              <AccountInfoProvider>
+                <BlockInfoProvider>
+                  <BlocksInfoProvider>
+                    <ConfirmationQuorumProvider>
+                      <RepresentativesOnlineProvider>
+                        <RepresentativesProvider>
+                          <BlockCountProvider>
+                            <ConfirmationHistoryProvider>
+                              <DelegatorsProvider>
+                                {children}
+                              </DelegatorsProvider>
+                            </ConfirmationHistoryProvider>
+                          </BlockCountProvider>
+                        </RepresentativesProvider>
+                      </RepresentativesOnlineProvider>
+                    </ConfirmationQuorumProvider>
+                  </BlocksInfoProvider>
+                </BlockInfoProvider>
+              </AccountInfoProvider>
+            </BookmarksProvider>
           </KnownAccountsProvider>
         </NodeStatusProvider>
       </MarketStatisticsProvider>

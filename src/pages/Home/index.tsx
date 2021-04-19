@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Card, Col, Row } from "antd";
 import BigNumber from "bignumber.js";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {
   PreferencesContext,
   CurrencySymbol,
@@ -27,6 +28,7 @@ import RecentTransactions from "./RecentTransactions";
 
 const HomePage = () => {
   const { t } = useTranslation();
+  const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
   const { fiat } = React.useContext(PreferencesContext);
   const {
     marketStatistics,
@@ -129,6 +131,7 @@ const HomePage = () => {
                 <LoadingStatistic
                   isLoading={isMarketStatisticsInitialLoading}
                   title={t("pages.home.circulatingSupply")}
+                  tooltip={t("tooltips.circulatingSupply")}
                   value={new BigNumber(circulatingSupply).toNumber()}
                 />
                 <LoadingStatistic
@@ -142,12 +145,6 @@ const HomePage = () => {
               </Col>
               <Col xs={24} sm={12}>
                 <LoadingStatistic
-                  isLoading={!average}
-                  title={t("pages.home.avgConfirmationTime")}
-                  tooltip={t("tooltips.avgConfirmationTime")}
-                  value={new BigNumber(average).dividedBy(1000).toNumber()}
-                />
-                <LoadingStatistic
                   isLoading={!representatives.length}
                   title={t("pages.home.principalRepOnline")}
                   value={
@@ -157,11 +154,20 @@ const HomePage = () => {
                   }
                 />
                 <LoadingStatistic
-                  isLoading={false}
-                  title={t("pages.home.nanoTransactionFees")}
-                  tooltip={t("tooltips.nanoTransactionFees")}
-                  value={0}
+                  isLoading={!average}
+                  title={t("pages.home.avgConfirmationTime")}
+                  tooltip={t("tooltips.avgConfirmationTime")}
+                  value={new BigNumber(average).dividedBy(1000).toNumber()}
                 />
+
+                {!isSmallAndLower ? (
+                  <LoadingStatistic
+                    isLoading={false}
+                    title={t("pages.home.nanoTransactionFees")}
+                    tooltip={t("tooltips.nanoTransactionFees")}
+                    value={0}
+                  />
+                ) : null}
               </Col>
             </Row>
           </Card>
@@ -199,6 +205,14 @@ const HomePage = () => {
                   }
                   value={marketStatistics[TOTAL_CONFIRMATIONS_KEY_24H]}
                 />
+                {isSmallAndLower ? (
+                  <LoadingStatistic
+                    isLoading={false}
+                    title={t("pages.home.nanoTransactionFees")}
+                    tooltip={t("tooltips.nanoTransactionFees")}
+                    value={0}
+                  />
+                ) : null}
                 <LoadingStatistic
                   isLoading={isMarketStatisticsInitialLoading}
                   title={`${t(
@@ -237,7 +251,6 @@ const HomePage = () => {
                       <StatisticsChange
                         value={marketCapRank24h - marketCapRank}
                         isNumber
-                        isArrow
                       />
                     ) : null
                   }

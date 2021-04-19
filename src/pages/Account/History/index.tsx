@@ -66,7 +66,7 @@ const AccountHistory: React.FC = () => {
         <Title level={3}>
           {count} {t(`common.transaction${count !== "1" ? "s" : ""}`)}
         </Title>
-        {representative ? (
+        {representative && delegatorsCount ? (
           <Link to={`/account/${account}/delegators`}>
             <Button size="small" style={{ marginTop: "6px" }}>
               {t("pages.representatives.viewDelegators", {

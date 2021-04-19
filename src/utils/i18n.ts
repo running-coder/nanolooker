@@ -1,5 +1,6 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
+import capitalize from "lodash/capitalize";
 
 // Bundle language files
 import en from "./locales/en.json";
@@ -23,6 +24,10 @@ i18n.use(initReactI18next).init({
   debug: true,
   interpolation: {
     escapeValue: false, // not needed for react as it escapes by default
+    format: function (value, format, lng) {
+      if (format === "capitalize") return capitalize(value);
+      return value;
+    },
   },
 });
 
