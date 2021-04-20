@@ -1,5 +1,6 @@
 .DS_Store
 .env
+translateApiKey.json
 /node_modules
 /coverage
 /build

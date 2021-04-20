@@ -90,7 +90,8 @@
     "liveTransactions": "Activer les mises à jour en direct",
     "liveTransactionsDetailed": "Regardez les transactions en direct se déroulant sur le réseau Nano. Disponible sur la page d'accueil.",
     "filterTransactions": "Inclure les montants inférieurs à 1 NANO",
-    "filterTransactionsDetailed": "Incluez les petits montants à afficher dans le flux de transactions en direct sur la page d'accueil."
+    "filterTransactionsDetailed": "Incluez les petits montants à afficher dans le flux de transactions en direct sur la page d'accueil.",
+    "contribute": "Contribuer"
   },
   "menu": {
     "explore": "Explorer",

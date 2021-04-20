@@ -1,0 +1,271 @@
+{
+  "common": {
+    "blockExplorer": "ブロックエクスプローラー",
+    "account": "アカウント",
+    "block": "ブロック",
+    "representative": "代表",
+    "representatives": "代表者",
+    "principalRepresentative": "代表者",
+    "principalRepresentatives": "代表者",
+    "transaction": "トランザクション",
+    "transactions": "トランザクション",
+    "delegator": "委任者",
+    "delegators": "委任者",
+    "date": "日付",
+    "unknown": "わからない",
+    "balance": "残高",
+    "totalBalance": "総合収支",
+    "weight": "重量",
+    "notAvailable": "該当なし",
+    "continueReading": "読み続けてください",
+    "alias": "エイリアス",
+    "search": "探す",
+    "reset": "リセット",
+    "searchAlias": "検索エイリアス",
+    "noResults": "結果がありません",
+    "by": "沿って",
+    "online": "オンライン",
+    "offline": "オフライン",
+    "copied": "コピー",
+    "copy": "コピー",
+    "bookmark": "ブックマーク",
+    "bookmarks": "ブックマーク"
+  },
+  "nodeHealth": {
+    "nodeReloading": "Nanoノードがリロードしています",
+    "nodeReady": "ナノノードの準備ができました"
+  },
+  "transaction": {
+    "type": "タイプ",
+    "accountAndBlock": "アカウント/ブロック",
+    "send": "送信",
+    "receive": "受け取る",
+    "pending": "保留中",
+    "change": "変化する",
+    "open": "開いた",
+    "state": "状態",
+    "epoch": "時代",
+    "cps": "CPS",
+    "amount": "量"
+  },
+  "tooltips": {
+    "avgConfirmationTime": "平均確認時間は、ノードでローカルに計算されます。ノードが再起動された場合、または劣化した状態の場合、平均確認時間はネットワークの他の部分よりも長くなる可能性があります。",
+    "circulatingSupply": "流通しているコインの量。 Nanoは完全に分散されており、供給が増えることはありません。",
+    "nanoTransactionFees": "他の暗号通貨とは異なり、Nanoトランザクションは永久に無料です。",
+    "bitcoinTransactionFees": "この値はNANOネットワークに影響を与えず、比較のみを目的としています。これは、ビットコインユーザーがビットコインネットワークでトランザクションを受け入れるためにマイナーに支払っているトランザクション料金の合計を表します。",
+    "cps": "1秒あたりの確認。 NANOネットワークで確認されたブロック（送信または受信）の割合。これは、ノード上でローカルに最後の1分間にサンプリングされます。ノードが再起動された場合、または劣化した状態の場合、ノードが他のノードと同期および再接続している間、CPS値はネットワーク上の実際の平均よりも高いまたは低い可能性があります。",
+    "votingWeight": "プリンシパルレプレゼンタティブステータスを取得するには、{{minWeight}} NANO以上、またはそれに委任されたオンライン投票ウェイトの0.1％以上のアカウントが必要です。投票しているノードで構成されている場合、そのノードが生成する投票は、他のノードによってそれらを受信するノードに再ブロードキャストされ、ネットワークがより迅速にコンセンサスに到達するのに役立ちます。",
+    "pending": "資金を送信するブロックがネットワークによって公開および確認されたが、それらの資金を受信する一致するブロックがまだ送信または確認されていないトランザクション状態。",
+    "nakamotoCoefficient": "ナカモト係数は、ブロックチェーンまたは他の分散型システムの分散化を定量化する方法です。これは、少なくとも1つの重要なサブシステムを危険にさらすために必要なエンティティの数です。 Nanoの場合、主要な代表者からのオンライン投票の重みの50％以上が危険にさらされる必要があります。",
+    "representatives": "パフォーマンスを最適化するために、投票の重みが1000 NANOを超えるアカウントのみが考慮されますが、通常、投票の重みが0を超え、オンラインの投票の重みの0.1％未満のアカウントはすべて考慮されます。",
+    "principalRepresentatives": "プリンシパルレプレゼンタティブステータスを取得するには、{{principalRepresentativeMinWeight}} NANO以上、またはそれに委任されたオンライン投票ウェイトの0.1％以上のアカウントが必要です。投票しているノードで構成されている場合、そのノードが生成する投票は、他のノードによってそれらを受信するノードに再ブロードキャストされ、ネットワークがより迅速にコンセンサスに到達するのに役立ちます。",
+    "onlinePrincipalRepresentatives": "最近投票したオンライン代表アカウント。",
+    "lastTransaction": "{{totalAccounts}}アカウントのいずれかからの最後の送信トランザクション。",
+    "largeTransactions": "10,000NANO以上の送信トランザクションのみが1週間一時的に保存されます。",
+    "knownExchangeBalance": "分布図から{{knownExchangeList}}を除外します。これらのアカウントを組み合わせると、{{knownExchangeBalance}} NANOが保持されます",
+    "unchecked": "ダウンロードされたが、Nanoノードによってまだ処理されていないブロック（トランザクション）。ノードソフトウェアは、他のノードからすべてのボックをチェックされていないものとしてダウンロードし、それらを処理してブロックカウントに追加し、各アカウントのフロンティアブロックを確認してから、それらを固定済みとしてマークします。",
+    "cemented": "アカウントの確認の高さ（ノードデータベース内）を確認済みのトランザクションのより高いブロックの高さに設定することにより、特定のノードが確認済みのトランザクションをローカルで元に戻せないものとしてマークした場合。セメント固定はノードレベルの操作です。",
+    "unknownLastTransaction": "トランザクションの日付は2019年2月に導入されました。その日付より前は、トランザクション時間はノードにローカルで記録されていませんでした。最終取引日が不明な理由は、日付が記録される前、またはNanoLookerノードが稼働する前に確認されたためです。",
+    "confirmationHeight": "アカウントチェーンで確認された最も高い（最新の）ブロックを表す、ローカルノードデータベースに格納されている番号。ブロックの高さに関連します（ただし、異なります）。",
+    "blockHeight": "アカウントチェーン内のブロックの順序を表すローカル整数値。たとえば、アカウントの15番目のブロックのブロックの高さは15になります。確認の高さに関連します（ただし、これとは異なります）。",
+    "bookmarks": "{{type、capitalize}}ブックマークがデバイスに保存されます。エイリアスを指定することで、既知の{{type}}を管理できます。"
+  },
+  "search": {
+    "searchBy": "アドレス/ブロック/既知のアカウントで検索",
+    "noHistory": "検索履歴なし"
+  },
+  "preferences": {
+    "viewAll": "すべての設定を表示",
+    "darkMode": "ダークモード",
+    "darkModeDetailed": "ライトモードまたはダークモードに切り替えて、環境に応じてサイトのブラウジングエクスペリエンスを向上させます。",
+    "language": "言語",
+    "languageDetailed": "希望の言語を選択してください。 NanoLookerは、エクスプローラーの翻訳を改善するための貢献者を探しています。 <0>貢献</0>",
+    "watch": "他の暗号通貨を見る",
+    "watchSearch": "暗号通貨を検索する",
+    "watchDetailed": "トップ100の他の暗号通貨の価格を見てください。現在の市場価格と24時間の変化がトップバーに表示されます。ドラッグアンドドロップを使用して、選択範囲を並べ替えることもできます。",
+    "fiatCurrency": "法定通貨",
+    "fiatCurrencyDetailed": "法定紙幣は政府発行の通貨です。 Nanoの価格を比較するには、法定通貨を選択します。",
+    "natricons": "ナトリコン",
+    "natriconsDetailed": "Natriconsは、Nanoアドレスにとって親しみやすく親しみやすい顔です。近くにNanoアドレスがある場所ならどこでも、アカウントページでそれらを使用してください。",
+    "liveTransactions": "ライブアップデートを有効にする",
+    "liveTransactionsDetailed": "Nanoネットワークで発生するライブトランザクションを監視します。ホームページで入手できます。",
+    "filterTransactions": "1NANO未満の金額を含める",
+    "filterTransactionsDetailed": "ホームページのライブトランザクションフィードに表示される少量を含めます。",
+    "contribute": "助ける"
+  },
+  "menu": {
+    "explore": "見る",
+    "representatives": "代表者",
+    "developerFund": "開発者基金",
+    "knownAccounts": "既知のアカウント",
+    "largeTransactions": "大規模なトランザクション",
+    "distribution": "分布",
+    "exchangeTracker": "交換トラッカー",
+    "faucets": "蛇口",
+    "news": "ニュース",
+    "nodeStatus": "ノードステータス",
+    "whatIsNano": "ナノとは？",
+    "earnNano": "Nanoを獲得する",
+    "preferences": "環境設定"
+  },
+  "footer": {
+    "createdBy": "{{creator}}によって作成されました",
+    "donations": {
+      "donate": "寄付",
+      "title": "NanoLooker寄付アカウント"
+    }
+  },
+  "pages": {
+    "home": {
+      "network": "通信網",
+      "statistics": "統計",
+      "market": "市場",
+      "marketCapRank": "時価総額ランク",
+      "marketCap": "時価総額",
+      "circulatingSupply": "循環供給",
+      "latestBlock": "最新のブロック",
+      "principalRepOnline": "オンラインの主な代表者",
+      "ledgerSize": "元帳サイズ",
+      "last24Hours": "過去24時間",
+      "avgConfirmationTime": "平均確認時間（秒）",
+      "confirmedTransactions": "確認済みのトランザクション",
+      "nanoTransactionFees": "NANO取引手数料",
+      "exchangeVolume": "交換量",
+      "onChainVolume": "オンチェーンNANOボリューム",
+      "bitcoinTransactionFees": "鉱夫に支払われるビットコイン取引手数料",
+      "recentTransactions": "最近の取引",
+      "liveUpdatesDisabled": "ライブアップデートが無効",
+      "waitingForTransactions": "トランザクションを待っています",
+      "connectingToBlockchain": "NANOブロックチェーンに接続する",
+      "reconnectingToBlockchain": "切断され、NANOブロックチェーンに再接続されます"
+    },
+    "account": {
+      "votingWeight": "投票の重み",
+      "percentNetworkVotingWeight": "ネットワーク投票ウェイトの％",
+      "percentRepresentativeVotingWeight": "代表者の投票ウェイトの％",
+      "noRepresentative": "代表者なし",
+      "confirmationHeight": "確認高さ",
+      "lastTransaction": "最後のトランザクション",
+      "pendingTransactions": "保留中のトランザクション",
+      "loadMoreTransactions": "より多くのトランザクションをロードする",
+      "viewTransactions": "トランザクションを表示する",
+      "notOpenedYet": "このアカウントはまだ開設されていません",
+      "notOpenedYetReason": "アカウントアドレスは有効ですが、チェーンにブロックはまだ公開されていません。 NANOがこのアカウントに送信された場合でも、資金をポケットに入れるために対応するブロックを公開する必要があります。",
+      "missingAccount": "アカウントがありません",
+      "missingAccountInfo": "アカウントがURLで指定されていません。上部の検索バーを使用してアカウントを検索するか、URLの/ account /の後に追加します"
+    },
+    "block": {
+      "blockSubtype": "ブロックサブタイプ",
+      "confirmedStatus": "ブロックはネットワーク上で確認されます",
+      "pendingStatus": "ブロックはまだネットワーク上で確認されていません",
+      "receiver": "レシーバー",
+      "sender": "送信者",
+      "previousBlock": "前のブロック",
+      "height": "ブロックの高さ",
+      "signature": "署名",
+      "work": "作業",
+      "openAccountBlock": "このブロックはアカウントを開設しました",
+      "originalBlockContent": "元のブロックコンテンツ",
+      "missingBlock": "ブロックがありません",
+      "missingBlockInfo": "ブロックがURLで指定されていません。上部の検索バーを使用してブロックを検索するか、URLの/ block /の後に追加します",
+      "blockNotFound": "ブロックが見つかりません",
+      "blockNotFoundInfo": "リクエストしたブロックが見つかりません。ブロックがNanoネットワーク上に存在するが、ノードによってまだ認識されていない可能性があります。正しいブロックを検索していることを確認するか、後で再試行してください。"
+    },
+    "representatives": {
+      "voteDistribution": "投票の分配",
+      "nakamotoCoefficient": "Nakamoto coefficient",
+      "voteDistributionDescription": "視覚的に簡略化するために、主要な代表者のみが示されています",
+      "onlineRepresentatives": "オンライン担当者",
+      "onlinePrincipalRepresentatives": "オンライン校長代表",
+      "confirmationQuorum": "確認",
+      "principalRepresentativeMinWeight": "代表的な最小重量",
+      "onlineWrightQuorumPercent": "オンライン体重定足数パーセント",
+      "minimumOnlineWeight": "オンラインの最小重量",
+      "totalOnlineStake": "オンラインステークの合計",
+      "totalPeerStake": "ピアステークの合計",
+      "includeOfflineRepresentatives": "オフラインの代表者を含める",
+      "groupByEntities": "グループナノファンデーションエンティティ",
+      "viewDelegators": "{{count}}の委任者を表示する",
+      "loadAllRepresentatives": "すべての代表者をロードします"
+    },
+    "representative": {
+      "votingWeight": "代表的な投票の重み",
+      "noDelegatorsFound": "委任者が見つかりません"
+    },
+    "faucets": {
+      "description": "蛇口を使用すると、少量のNANOを無料で請求できます。これらの蛇口は、分散型ネットワーク上で世界中のNANOを瞬時に送受信することがいかに簡単であるかを体験するためのものです。"
+    },
+    "developerFund": {
+      "description": "19/11/25の時点で、開発者基金は、内部セキュリティポリシーと代表的な投票の重みの見直しに伴い、{{totalAccounts}}アカウントに分割されました。",
+      "lastTransaction": "最後のトランザクション",
+      "allTransactions": "すべての送信トランザクションを表示",
+      "originalDeveloperFund": "オリジナル開発者基金",
+      "originalDeveloperFundDescription": "Nano（以前のRaiBlocks）の配布は、2015年後半に開始して2017年10月に終了する手動キャプチャを解決することで実行されました。<0>Genesis</0> の量の約39％が配布され、残りの供給が <1>焦げた</1>。",
+      "totalAccounts": "{{totalAccounts}}合計アカウント",
+      "percentOfTotal": "循環供給の{{パーセント}}％"
+    },
+    "knownAccounts": {
+      "totalAccounts": "{{totalAccounts}}既知のアカウントの合計"
+    },
+    "largeTransactions": {
+      "description": "NANOブロックチェーンで発生する大規模なトランザクション。",
+      "latest": "最新のトランザクション",
+      "largest": "最大額"
+    },
+    "distribution": {
+      "title": "ナノ分布",
+      "executionDate": "前回の配布のコンパイルは <0>{{date}}</0> でした",
+      "summary": "合計 <0>{{i18nTotalAccounts}}</0> アカウントが <1>{{i18nTotalBalances}}</1> NANOを保持しています",
+      "summaryMinBalance": "残高が <0>0.001</0>未満のアカウントは除外されます",
+      "includeKnownExchanges": "既知の交換を含める",
+      "logScale": "対数目盛",
+      "dormantFunds": "休眠基金",
+      "dormantFundsExperiment": "これは、Nanoブロックチェーンでアクティブなアカウントの数を理解するための実験です。 {{totalAccounts}}アカウントごとに、ローカルノードでの最後のトランザクション日付が取得されます。各アカウントに含まれる残高と保留中の金額は、最後に取引された月のアクティブとしてマークされます。翌月、残高と保留中は休止としてマークされます。",
+      "availableSupply": "ナノ利用可能な供給",
+      "knownAccountBalances": "既知の口座残高",
+      "unknownDormantFunds": "不明な休眠資金",
+      "dormantFundsQuarterExample": "50個のNANOと50個の保留中のNANOを保持するアカウントは、6か月前（2四半期）に最後に取引され、残りの100個のNANOが次の四半期の合計に「休止」として追加されます。",
+      "dormantNano": "眠っているNANO",
+      "ofAvailableSupply": "利用可能な供給の"
+    },
+    "news": {
+      "allFeeds": "すべてのフィード",
+      "allAuthors": "すべての著者"
+    },
+    "status": {
+      "blockCount": "ブロック数",
+      "reload": "リロード",
+      "count": "カウント",
+      "unchecked": "未チェック",
+      "cemented": "セメント",
+      "ledger": "元帳",
+      "availableSupply": "利用可能な供給",
+      "nanoAccounts": "NANOアカウント",
+      "ledgerSize": "元帳サイズ",
+      "activeDifficulty": "アクティブな難易度",
+      "networkMinimum": "ネットワーク最小",
+      "networkCurrent": "ネットワーク電流",
+      "multiplier": "乗数",
+      "node": "ノード",
+      "version": "バージョン",
+      "uptime": "稼働時間",
+      "cpuUsage": "CPU使用率",
+      "memory": "記憶",
+      "peers": "ピア",
+      "connectedPeers": "接続されたピア",
+      "protocolVersion": "プロトコルバージョン{{protocolVersion}}"
+    },
+    "exchangeTracker": {
+      "description": "Nanoが取引されている最も人気のある取引所の口座残高を毎日取得します。この測定値は、ネットワーク上の動きや変動を分析するために使用できます。"
+    },
+    "preferences": {
+      "description": "すべてのセクションの設定を管理します。プリファレンスはブラウザに保存されます。データをクリアすると、プリファレンスはデフォルトに戻ります。",
+      "general": "一般設定",
+      "searchHistory": "検索履歴"
+    },
+    "bookmarks": {
+      "viewAll": "すべてのブックマークを表示",
+      "noBookmarksFound": "ブックマークが見つかりません"
+    }
+  }
+}

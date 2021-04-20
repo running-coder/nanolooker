@@ -1,0 +1,271 @@
+{
+  "common": {
+    "blockExplorer": "Blokkeer Explorer",
+    "account": "Account",
+    "block": "Blok",
+    "representative": "Vertegenwoordiger",
+    "representatives": "Vertegenwoordigers",
+    "principalRepresentative": "Hoofdvertegenwoordiger",
+    "principalRepresentatives": "Hoofdvertegenwoordigers",
+    "transaction": "Transactie",
+    "transactions": "Transacties",
+    "delegator": "Delegator",
+    "delegators": "Delegatoren",
+    "date": "Datum",
+    "unknown": "Onbekend",
+    "balance": "Balans",
+    "totalBalance": "Eindbalans",
+    "weight": "Gewicht",
+    "notAvailable": "Nvt",
+    "continueReading": "Lees verder",
+    "alias": "Alias",
+    "search": "Zoeken",
+    "reset": "Reset",
+    "searchAlias": "Zoek Alias",
+    "noResults": "Geen resultaten",
+    "by": "Door",
+    "online": "Online",
+    "offline": "Offline",
+    "copied": "Gekopieerd",
+    "copy": "Kopiëren",
+    "bookmark": "Bladwijzer",
+    "bookmarks": "Bladwijzers"
+  },
+  "nodeHealth": {
+    "nodeReloading": "Nano-knooppunt wordt opnieuw geladen",
+    "nodeReady": "Nano-node is klaar"
+  },
+  "transaction": {
+    "type": "Type",
+    "accountAndBlock": "Account / Blokkering",
+    "send": "Sturen",
+    "receive": "Te ontvangen",
+    "pending": "In afwachting",
+    "change": "Verandering",
+    "open": "Open",
+    "state": "Staat",
+    "epoch": "Tijdperk",
+    "cps": "CPS",
+    "amount": "Bedrag"
+  },
+  "tooltips": {
+    "avgConfirmationTime": "De gemiddelde bevestigingstijd wordt lokaal op het knooppunt berekend. Als het knooppunt opnieuw wordt opgestart of in slechte staat verkeert, kan de gemiddelde bevestigingstijd langer zijn dan de rest van het netwerk.",
+    "circulatingSupply": "Het aantal munten dat in omloop is. Nano is volledig gedistribueerd, het aanbod zal nooit toenemen.",
+    "nanoTransactionFees": "In tegenstelling tot andere cryptocurrencies zijn nano-transacties voor altijd zonder kosten.",
+    "bitcoinTransactionFees": "Deze waarde heeft geen invloed op het NANO-netwerk, het is uitsluitend ter vergelijking. Het vertegenwoordigt de som van de transactiekosten die de Bitcoin-gebruikers aan de miners betalen om hun transactie geaccepteerd te krijgen op het Bitcoin-netwerk.",
+    "cps": "Bevestigingen per seconde. Het aantal bevestigde blokken (verzenden of ontvangen) op het NANO-netwerk. Het wordt de laatste minuut lokaal op het knooppunt bemonsterd. Als het knooppunt opnieuw wordt opgestart of in een verslechterde toestand verkeert, kan de CPS-waarde hoger of lager zijn dan het werkelijke gemiddelde op het netwerk terwijl het knooppunt synchroniseert en opnieuw verbinding maakt met de andere knooppunten.",
+    "votingWeight": "Een account met een minimum van {{minWeight}} NANO of> = 0,1% van het online stemgewicht dat eraan is gedelegeerd, is vereist om de status van hoofdvertegenwoordiger te krijgen. Wanneer geconfigureerd op een knooppunt dat aan het stemmen is, worden de stemmen die het produceert opnieuw uitgezonden door andere knooppunten naar wie ze ontvangen, waardoor het netwerk sneller consensus kan bereiken.",
+    "pending": "Een transactiestatus waarbij een blok dat geld verzendt, is gepubliceerd en bevestigd door het netwerk, maar een overeenkomend blok dat dat geld ontvangt, nog niet is verzonden of bevestigd.",
+    "nakamotoCoefficient": "De Nakamoto-coëfficiënt is een manier om de decentralisatie van een blockchain of ander gedecentraliseerd systeem te kwantificeren. Het is het aantal entiteiten dat u nodig hebt om ten minste één essentieel subsysteem in gevaar te brengen. Voor Nano zou meer dan 50% van het online stemgewicht van hoofdvertegenwoordigers in gevaar moeten worden gebracht.",
+    "representatives": "Om de prestaties te optimaliseren, worden alleen accounts met een stemgewicht> = 1000 NANO in aanmerking genomen, maar normaal gesproken elke account met een stemgewicht> 0, maar <0,1% van het online stemgewicht.",
+    "principalRepresentatives": "Een account met een minimum van {{principalRepresentativeMinWeight}} NANO of> = 0,1% van het online stemgewicht dat eraan is gedelegeerd, is vereist om de status van hoofdvertegenwoordiger te krijgen. Wanneer geconfigureerd op een knooppunt dat aan het stemmen is, worden de stemmen die het produceert opnieuw uitgezonden door andere knooppunten naar wie ze ontvangen, waardoor het netwerk sneller consensus kan bereiken.",
+    "onlinePrincipalRepresentatives": "Online representatieve accounts die onlangs hebben gestemd.",
+    "lastTransaction": "Laatste verzonden transactie van een van de {{totalAccounts}} - accounts.",
+    "largeTransactions": "Alleen verstuurde transacties van 10.000 NANO of meer worden tijdelijk één week bewaard.",
+    "knownExchangeBalance": "Sluit {{knownExchangeList}} uit van het distributiegrafiek. Die accounts gecombineerd bevatten {{knownExchangeBalance}} NANO",
+    "unchecked": "Blokkeert (transacties) die zijn gedownload maar nog niet verwerkt door de Nano-node. De knooppuntsoftware downloadt alle blokken van andere knooppunten als ongecontroleerd, verwerkt ze en voegt toe aan het aantal blokken, bevestigt de grensblokken voor elk account en markeert ze vervolgens als gecementeerd.",
+    "cemented": "Wanneer een specifiek knooppunt een bevestigde transactie markeert als lokaal onomkeerbaar door de bevestigingshoogte van de account (in de knooppuntdatabase) in te stellen op de nu hogere blokhoogte van de bevestigde transactie. Cementeren is een bewerking op knooppuntniveau.",
+    "unknownLastTransaction": "In februari 2019 zijn transactiedata geïntroduceerd. Voorafgaand aan die datum werden de transactietijden niet lokaal op de nodes geregistreerd. De reden waarom de laatste transactiedatum onbekend is, is omdat deze werd bevestigd voordat de datums werden geregistreerd of voordat het NanoLooker-knooppunt in gebruik was.",
+    "confirmationHeight": "Een nummer dat is opgeslagen in de lokale knooppuntdatabase en dat het hoogste (meest recente) bevestigde blok in een accountketen vertegenwoordigt. Gerelateerd aan (maar verschillend van) blokhoogte.",
+    "blockHeight": "Een lokale integerwaarde die de volgorde van een blok in een accountketen vertegenwoordigt. Het 15e blok in een account heeft bijvoorbeeld een blokhoogte van 15. Gerelateerd aan (maar anders dan) bevestigingshoogte.",
+    "bookmarks": "{{type, capitalize}} bladwijzers worden op uw apparaat opgeslagen. U kunt uw bekende {{type}} 's beheren door ze aliassen te geven."
+  },
+  "search": {
+    "searchBy": "Zoeken op adres / blok / bekend account",
+    "noHistory": "Geen zoekgeschiedenis"
+  },
+  "preferences": {
+    "viewAll": "Bekijk alle voorkeuren",
+    "darkMode": "Donkere modus",
+    "darkModeDetailed": "Schakel over van de lichte of donkere modus om de browse-ervaring van uw site te verbeteren, afhankelijk van uw omgeving.",
+    "language": "Taal",
+    "languageDetailed": "Kies de gewenste taal. NanoLooker is op zoek naar bijdragers om de vertaling van de ontdekkingsreiziger te helpen verbeteren. <0> Draag bij </0>",
+    "watch": "Bekijk andere cryptocurrencies",
+    "watchSearch": "Zoek cryptocurrencies",
+    "watchDetailed": "Bekijk de prijs van andere cryptocurrencies in de top 100. De huidige marktprijzen en de 24-uurswijziging verschijnen in de bovenste balk. U kunt uw selectie ook opnieuw ordenen door middel van slepen en neerzetten.",
+    "fiatCurrency": "Fiat-valuta",
+    "fiatCurrencyDetailed": "Fiat-geld is een door de overheid uitgegeven valuta. Selecteer een fiat-valuta om de prijs van Nano te vergelijken.",
+    "natricons": "Natricons",
+    "natriconsDetailed": "Natricons zijn vriendelijke, bekende gezichten voor Nano-adressen. Gebruik ze op accountpagina's, overal waar een nano-adres in de buurt is.",
+    "liveTransactions": "Schakel live updates in",
+    "liveTransactionsDetailed": "Bekijk live transacties die plaatsvinden op het Nano-netwerk. Beschikbaar op de startpagina.",
+    "filterTransactions": "Omvat bedragen onder de 1 NANO",
+    "filterTransactionsDetailed": "Voeg kleine bedragen toe die moeten worden weergegeven in de live transactiefeed op de startpagina.",
+    "contribute": "Bijdragen"
+  },
+  "menu": {
+    "explore": "Verken",
+    "representatives": "Vertegenwoordigers",
+    "developerFund": "Ontwikkelaarsfonds",
+    "knownAccounts": "Bekende accounts",
+    "largeTransactions": "Grote transacties",
+    "distribution": "Distributie",
+    "exchangeTracker": "Exchange Tracker",
+    "faucets": "Kranen",
+    "news": "Nieuws",
+    "nodeStatus": "Knooppuntstatus",
+    "whatIsNano": "Wat is nano?",
+    "earnNano": "Verdien nano",
+    "preferences": "Voorkeuren"
+  },
+  "footer": {
+    "createdBy": "Gemaakt door {{creator}}",
+    "donations": {
+      "donate": "Doneer",
+      "title": "NanoLooker-donatieaccount"
+    }
+  },
+  "pages": {
+    "home": {
+      "network": "Netwerk",
+      "statistics": "Statistieken",
+      "market": "Markt",
+      "marketCapRank": "Marktkapitalisatie",
+      "marketCap": "Marktkapitalisatie",
+      "circulatingSupply": "Circulerend aanbod",
+      "latestBlock": "Laatste blok",
+      "principalRepOnline": "Hoofdvertegenwoordigers online",
+      "ledgerSize": "Ledger-grootte",
+      "last24Hours": "Afgelopen 24 uur",
+      "avgConfirmationTime": "Gem. bevestigingstijd (seconden)",
+      "confirmedTransactions": "Bevestigde transacties",
+      "nanoTransactionFees": "NANO-transactiekosten",
+      "exchangeVolume": "Uitwisselingsvolume",
+      "onChainVolume": "NANO-volume op de keten",
+      "bitcoinTransactionFees": "Bitcoin-transactiekosten betaald aan mijnwerkers",
+      "recentTransactions": "recente transacties",
+      "liveUpdatesDisabled": "Live updates uitgeschakeld",
+      "waitingForTransactions": "Wachten op transacties",
+      "connectingToBlockchain": "Verbinding maken met de NANO-blockchain",
+      "reconnectingToBlockchain": "Verbinding verbroken, opnieuw verbinding maken met de NANO-blockchain"
+    },
+    "account": {
+      "votingWeight": "Stemgewicht",
+      "percentNetworkVotingWeight": "% van het stemgewicht van het netwerk",
+      "percentRepresentativeVotingWeight": "% van het stemgewicht van de vertegenwoordiger",
+      "noRepresentative": "Geen vertegenwoordiger",
+      "confirmationHeight": "Bevestigingshoogte",
+      "lastTransaction": "Laatste transactie",
+      "pendingTransactions": "Wachtende Transacties",
+      "loadMoreTransactions": "Laad meer transacties",
+      "viewTransactions": "Bekijk transacties",
+      "notOpenedYet": "Dit account is nog niet geopend",
+      "notOpenedYetReason": "Hoewel het accountadres geldig is, zijn er nog geen blokken naar de keten gepubliceerd. Als NANO naar dit account is gestuurd, moet het nog steeds een overeenkomstig blok publiceren om het geld te storten.",
+      "missingAccount": "Account ontbreekt",
+      "missingAccountInfo": "Het account is niet gespecificeerd in de URL. Gebruik de zoekbalk bovenaan om naar een account te zoeken of voeg deze toe aan de URL achter / account /"
+    },
+    "block": {
+      "blockSubtype": "Blok subtype",
+      "confirmedStatus": "De blokkering wordt bevestigd op het netwerk",
+      "pendingStatus": "De blokkering is nog niet bevestigd op het netwerk",
+      "receiver": "Ontvanger",
+      "sender": "Afzender",
+      "previousBlock": "Vorig blok",
+      "height": "Blok hoogte",
+      "signature": "Handtekening",
+      "work": "Werk",
+      "openAccountBlock": "Deze blokkering heeft de rekening geopend",
+      "originalBlockContent": "Originele blokinhoud",
+      "missingBlock": "Ontbrekend blok",
+      "missingBlockInfo": "Het blok is niet gespecificeerd in de URL. Gebruik de zoekbalk bovenaan om naar een blok te zoeken of voeg het toe aan de URL na / block /",
+      "blockNotFound": "Blok niet gevonden",
+      "blockNotFoundInfo": "Het blok dat u heeft aangevraagd, is niet gevonden. Het is mogelijk dat het blok aanwezig is op het Nano-netwerk, maar nog niet gezien moet worden door het knooppunt. Zorg ervoor dat u naar het juiste blok zoekt of probeer het later opnieuw."
+    },
+    "representatives": {
+      "voteDistribution": "Stemverdeling",
+      "nakamotoCoefficient": "Nakamoto-coëfficiënt",
+      "voteDistributionDescription": "Voor visuele vereenvoudiging worden alleen hoofdvertegenwoordigers getoond",
+      "onlineRepresentatives": "Online vertegenwoordigers",
+      "onlinePrincipalRepresentatives": "Online hoofdvertegenwoordigers",
+      "confirmationQuorum": "De bevestiging",
+      "principalRepresentativeMinWeight": "Min. Gewicht hoofdvertegenwoordiger",
+      "onlineWrightQuorumPercent": "Percentage online gewichtsquorum",
+      "minimumOnlineWeight": "Minimaal online gewicht",
+      "totalOnlineStake": "Totale online inzet",
+      "totalPeerStake": "Totale peer-inzet",
+      "includeOfflineRepresentatives": "Voeg offline vertegenwoordigers toe",
+      "groupByEntities": "Group Nano Foundation-entiteiten",
+      "viewDelegators": "Bekijk {{count}} delegators",
+      "loadAllRepresentatives": "Laad alle vertegenwoordigers"
+    },
+    "representative": {
+      "votingWeight": "Representatief stemgewicht",
+      "noDelegatorsFound": "Geen delegators gevonden"
+    },
+    "faucets": {
+      "description": "Met kranen kunt u gratis kleine hoeveelheden NANO claimen. Met deze kranen kunt u ervaren hoe gemakkelijk het is om NANO direct over de hele wereld te verzenden en te ontvangen op een gedecentraliseerd netwerk."
+    },
+    "developerFund": {
+      "description": "Op 25-11-19 is het ontwikkelaarsfonds opgesplitst in {{totalAccounts}} - rekeningen na een herziening van het interne veiligheidsbeleid en representatieve stemgewichten.",
+      "lastTransaction": "Laatste transactie",
+      "allTransactions": "Bekijk alle verzonden transacties",
+      "originalDeveloperFund": "Oorspronkelijk ontwikkelaarsfonds",
+      "originalDeveloperFundDescription": "De distributie van Nano (voorheen RaiBlocks) werd uitgevoerd door het oplossen van handmatige captcha's, beginnend eind 2015 en eindigend in oktober 2017. De distributie stopte nadat ~ 39% van het <0> Genesis </0> -bedrag was verdeeld en de rest van het aanbod was <1> verbrand </1>.",
+      "totalAccounts": "{{totalAccounts}} Totaal aantal accounts",
+      "percentOfTotal": "{{percent}}% van het circulerende aanbod"
+    },
+    "knownAccounts": {
+      "totalAccounts": "{{totalAccounts}} totaal bekende accounts"
+    },
+    "largeTransactions": {
+      "description": "Grote transacties die plaatsvinden op de NANO-blockchain.",
+      "latest": "Laatste transactie",
+      "largest": "Grootste bedrag"
+    },
+    "distribution": {
+      "title": "Nano-distributie",
+      "executionDate": "De laatste distributie-compilatie was op <0> {{date}} </0>",
+      "summary": "Totaal van <0> {{i18nTotalAccounts}} </0> rekeningen hebben <1> {{i18nTotalBalances}} </1> NANO",
+      "summaryMinBalance": "Elke rekening met een saldo lager dan <0> 0,001 </0> wordt uitgesloten",
+      "includeKnownExchanges": "Inclusief bekende uitwisselingen",
+      "logScale": "Log schaal",
+      "dormantFunds": "Slapende fondsen",
+      "dormantFundsExperiment": "Dit is een experiment om te begrijpen hoeveel accounts er actief zijn op de Nano-blockchain. Voor elk van de {{totalAccounts}} - rekeningen wordt de laatste transactiedatum op het lokale knooppunt vastgelegd. Het saldo en de uitstaande bedragen die elke rekening bevat, wordt gemarkeerd als actief voor de maand waarin ze voor het laatst zijn afgehandeld. De volgende maand wordt het saldo en in behandeling gemarkeerd als slapend.",
+      "availableSupply": "Nano beschikbaar aanbod",
+      "knownAccountBalances": "Bekende rekeningsaldi",
+      "unknownDormantFunds": "Onbekende slapende fondsen",
+      "dormantFundsQuarterExample": "Een rekening met 50 NANO en 50 in afwachting van NANO heeft voor het laatst 6 maanden geleden (2 kwartalen) transacties uitgevoerd, een saldo van 100 NANO wordt als \"slapend\" toegevoegd aan het totaal van het volgende kwartaal.",
+      "dormantNano": "Slapen NANO",
+      "ofAvailableSupply": "van de beschikbare voorraad"
+    },
+    "news": {
+      "allFeeds": "Alle feeds",
+      "allAuthors": "Alle auteurs"
+    },
+    "status": {
+      "blockCount": "Blokkeertelling",
+      "reload": "Herlaad",
+      "count": "Tellen",
+      "unchecked": "Niet aangevinkt",
+      "cemented": "Gecementeerd",
+      "ledger": "Grootboek",
+      "availableSupply": "Beschikbaar aanbod",
+      "nanoAccounts": "NANO-accounts",
+      "ledgerSize": "Ledger-grootte",
+      "activeDifficulty": "Actieve moeilijkheidsgraad",
+      "networkMinimum": "Netwerkminimum",
+      "networkCurrent": "Netwerkstroom",
+      "multiplier": "Vermenigvuldiger",
+      "node": "Knooppunt",
+      "version": "Versie",
+      "uptime": "Uptime",
+      "cpuUsage": "CPU gebruik",
+      "memory": "Geheugen",
+      "peers": "Peers",
+      "connectedPeers": "Verbonden peers",
+      "protocolVersion": "Protocolversie {{protocolVersion}}"
+    },
+    "exchangeTracker": {
+      "description": "Elke dag wordt een opname gemaakt van de rekeningsaldi van de meest populaire beurzen waar Nano wordt verhandeld. Deze meting kan worden gebruikt om bewegingen en fluctuaties op het netwerk te analyseren."
+    },
+    "preferences": {
+      "description": "Beheer uw voorkeuren voor elke sectie. De voorkeuren worden in de browser opgeslagen, als u uw gegevens wist, worden uw voorkeuren teruggezet naar de standaardinstellingen.",
+      "general": "Algemene instellingen",
+      "searchHistory": "Zoek geschiedenis"
+    },
+    "bookmarks": {
+      "viewAll": "Bekijk alle bladwijzers",
+      "noBookmarksFound": "Geen bladwijzers gevonden"
+    }
+  }
+}

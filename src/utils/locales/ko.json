@@ -1,0 +1,271 @@
+{
+  "common": {
+    "blockExplorer": "블록 탐색기",
+    "account": "계정",
+    "block": "블록",
+    "representative": "대리인",
+    "representatives": "대표자",
+    "principalRepresentative": "대표 대표",
+    "principalRepresentatives": "대표 대표",
+    "transaction": "트랜잭션",
+    "transactions": "업무",
+    "delegator": "위임자",
+    "delegators": "위임자",
+    "date": "데이트",
+    "unknown": "알 수 없는",
+    "balance": "밸런스",
+    "totalBalance": "전체 균형",
+    "weight": "무게",
+    "notAvailable": "N / A",
+    "continueReading": "계속 읽기",
+    "alias": "별명",
+    "search": "검색",
+    "reset": "초기화",
+    "searchAlias": "별칭 검색",
+    "noResults": "결과 없음",
+    "by": "으로",
+    "online": "온라인",
+    "offline": "오프라인",
+    "copied": "복사 됨",
+    "copy": "부",
+    "bookmark": "서표",
+    "bookmarks": "북마크"
+  },
+  "nodeHealth": {
+    "nodeReloading": "나노 노드가 다시로드됩니다.",
+    "nodeReady": "나노 노드가 준비되었습니다."
+  },
+  "transaction": {
+    "type": "유형",
+    "accountAndBlock": "계정 / 차단",
+    "send": "보내다",
+    "receive": "받다",
+    "pending": "보류 중",
+    "change": "변화",
+    "open": "열다",
+    "state": "상태",
+    "epoch": "시대",
+    "cps": "CPS",
+    "amount": "양"
+  },
+  "tooltips": {
+    "avgConfirmationTime": "평균 확인 시간은 노드에서 로컬로 계산됩니다. 노드가 다시 시작되거나 성능이 저하 된 상태이면 평균 확인 시간이 나머지 네트워크보다 길 수 있습니다.",
+    "circulatingSupply": "유통중인 코인의 양. 나노는 완전히 분배되어 공급이 증가하지 않습니다.",
+    "nanoTransactionFees": "다른 암호 화폐와 달리 나노 거래는 영원히 수수료가 없습니다.",
+    "bitcoinTransactionFees": "이 값은 NANO 네트워크에 영향을주지 않으며 비교 목적으로 만 사용됩니다. 비트 코인 사용자가 비트 코인 네트워크에서 거래를 수락하기 위해 채굴 자에게 지불하는 거래 수수료의 합계를 나타냅니다.",
+    "cps": "초당 확인. NANO 네트워크에서 확인 된 블록 (송신 또는 수신)의 비율입니다. 마지막 순간에 노드에서 로컬로 샘플링됩니다. 노드가 다시 시작되거나 성능이 저하 된 상태이면 노드가 다른 노드와 동기화 및 다시 연결하는 동안 CPS 값이 네트워크의 실제 평균보다 높거나 낮을 수 있습니다.",
+    "votingWeight": "최소 {{minWeight}} NANO 또는 온라인 투표 가중치의> = 0.1 %가 위임 된 계정이 대표 대리인 자격을 얻으려면 필요합니다. 투표중인 노드에 구성되면 생성 된 투표는 다른 노드가이를 수신 한 사람에게 재방송하여 네트워크가보다 신속하게 합의에 도달하도록 돕습니다.",
+    "pending": "자금을 보내는 블록이 네트워크에 의해 게시되고 확인되었지만 해당 자금을받는 일치 블록이 아직 보내거나 확인되지 않은 거래 상태입니다.",
+    "nakamotoCoefficient": "Nakamoto 계수는 블록 체인 또는 기타 분산 시스템의 분산을 정량화하는 방법입니다. 하나 이상의 필수 하위 시스템을 손상시키는 데 필요한 엔티티의 수입니다. Nano의 경우 주요 대표자의 온라인 투표 가중치의 50 % 이상이 손상되어야합니다.",
+    "representatives": "성과를 최적화하기 위해 투표 가중치가> = 1000 NANO 인 계정 만 고려되지만 일반적으로 투표 가중치가 0보다 크지 만 온라인 투표 가중치의 0.1 % 미만인 모든 계정이 고려됩니다.",
+    "principalRepresentatives": "대표 대리인 자격을 얻으려면 최소 {{principalRepresentativeMinWeight}} NANO 또는 온라인 투표 가중치의 0.1 % 이상이 위임 된 계정이 필요합니다. 투표중인 노드에 구성되면 생성 된 투표는 다른 노드가이를 수신 한 사람에게 재방송하여 네트워크가보다 신속하게 합의에 도달하도록 돕습니다.",
+    "onlinePrincipalRepresentatives": "최근에 투표 한 온라인 대표 계정.",
+    "lastTransaction": "{{totalAccounts}} 계정에서 마지막으로 전송 한 거래입니다.",
+    "largeTransactions": "10,000 NANO 이상의 송금 거래 만 일주일 동안 일시적으로 저장됩니다.",
+    "knownExchangeBalance": "배포 차트에서 {{knownExchangeList}}를 제외합니다. 이러한 계정은 {{knownExchangeBalance}} NANO를 보유합니다.",
+    "unchecked": "다운로드되었지만 아직 Nano 노드에서 처리되지 않은 블록 (트랜잭션)입니다. 노드 소프트웨어는 다른 노드의 모든 보크를 확인되지 않은 상태로 다운로드하여 처리하고 블록 수에 추가하고 각 계정의 프론티어 블록을 확인한 다음이를 합착으로 표시합니다.",
+    "cemented": "특정 노드가 계정의 확인 높이 (노드 데이터베이스에서)를 확인 된 거래의 더 높은 블록 높이로 설정하여 확인 된 거래를 로컬에서 되돌릴 수없는 것으로 표시하는 경우. 접합은 노드 수준 작업입니다.",
+    "unknownLastTransaction": "거래 날짜는 2019 년 2 월에 도입되었습니다. 해당 날짜 이전에는 거래 시간이 노드에 로컬로 기록되지 않았습니다. 마지막 거래 날짜를 알 수없는 이유는 날짜가 기록되기 전이나 NanoLooker 노드가 서비스되기 전에 확인 되었기 때문입니다.",
+    "confirmationHeight": "계정 체인에서 가장 높은 (가장 최근) 확인 된 블록을 나타내는 로컬 노드 데이터베이스에 저장된 번호입니다. 블록 높이와 관련이 있습니다.",
+    "blockHeight": "계정 체인에서 블록의 순서를 나타내는 로컬 정수 값입니다. 예를 들어 계정의 15 번째 블록의 블록 높이는 15입니다. 확인 높이와 관련이 있습니다 (그러나 다른 경우).",
+    "bookmarks": "{{type, capitalize}} 북마크가 기기에 저장됩니다. 별칭을 제공하여 알려진 {{type}}을 관리 할 수 있습니다."
+  },
+  "search": {
+    "searchBy": "주소 / 차단 / 알려진 계정으로 검색",
+    "noHistory": "검색 기록 없음"
+  },
+  "preferences": {
+    "viewAll": "모든 환경 설정보기",
+    "darkMode": "다크 모드",
+    "darkModeDetailed": "환경에 따라 사이트 탐색 환경을 개선하려면 밝게 또는 어둡게 모드에서 전환하십시오.",
+    "language": "언어",
+    "languageDetailed": "원하는 언어를 선택하십시오. NanoLooker는 탐험가의 번역을 개선하는 데 도움을 줄 기여자를 찾고 있습니다. <0>기여</0>",
+    "watch": "다른 암호 화폐보기",
+    "watchSearch": "암호 화폐 검색",
+    "watchDetailed": "상위 100 개에 속하는 다른 암호 화폐의 가격을 확인하세요. 현재 시장 가격과 24 시간 변동이 상단 막대에 표시됩니다. 드래그 앤 드롭을 사용하여 선택 항목을 다시 정렬 할 수도 있습니다.",
+    "fiatCurrency": "피아트 통화",
+    "fiatCurrencyDetailed": "피아트 화폐는 정부 발행 화폐입니다. Nano의 가격을 비교하려면 법정 화폐를 선택하세요.",
+    "natricons": "나트 리콘",
+    "natriconsDetailed": "Natricons는 Nano 주소에 친숙하고 친숙한 얼굴입니다. 근처에 Nano 주소가있는 모든 곳에서 계정 페이지에서 사용하십시오.",
+    "liveTransactions": "라이브 업데이트 활성화",
+    "liveTransactionsDetailed": "Nano 네트워크에서 발생하는 실시간 거래를 확인하세요. 홈페이지에서 사용 가능합니다.",
+    "filterTransactions": "1 NANO 미만의 금액 포함",
+    "filterTransactionsDetailed": "홈페이지의 실시간 거래 피드에 표시 할 소량을 포함합니다.",
+    "contribute": "기여"
+  },
+  "menu": {
+    "explore": "탐색",
+    "representatives": "대표자",
+    "developerFund": "개발자 기금",
+    "knownAccounts": "알려진 계정",
+    "largeTransactions": "대규모 거래",
+    "distribution": "분포",
+    "exchangeTracker": "교환 추적기",
+    "faucets": "수도꼭지",
+    "news": "뉴스",
+    "nodeStatus": "노드 상태",
+    "whatIsNano": "나노 란?",
+    "earnNano": "나노 적립",
+    "preferences": "환경 설정"
+  },
+  "footer": {
+    "createdBy": "작성자 : {{creator}}",
+    "donations": {
+      "donate": "기부",
+      "title": "NanoLooker 기부 계정"
+    }
+  },
+  "pages": {
+    "home": {
+      "network": "회로망",
+      "statistics": "통계",
+      "market": "시장",
+      "marketCapRank": "시가 총액 순위",
+      "marketCap": "시가 총액",
+      "circulatingSupply": "유통 공급",
+      "latestBlock": "최신 블록",
+      "principalRepOnline": "온라인 대표 대표",
+      "ledgerSize": "원장 크기",
+      "last24Hours": "지난 24 시간",
+      "avgConfirmationTime": "평균 확인 시간 (초)",
+      "confirmedTransactions": "확인 된 거래",
+      "nanoTransactionFees": "NANO 거래 수수료",
+      "exchangeVolume": "거래량",
+      "onChainVolume": "온 체인 나노 볼륨",
+      "bitcoinTransactionFees": "채굴 자에게 지급되는 비트 코인 거래 수수료",
+      "recentTransactions": "최근 거래",
+      "liveUpdatesDisabled": "라이브 업데이트 비활성화",
+      "waitingForTransactions": "거래를 기다리는 중",
+      "connectingToBlockchain": "NANO 블록 체인에 연결",
+      "reconnectingToBlockchain": "연결 해제, NANO 블록 체인에 다시 연결"
+    },
+    "account": {
+      "votingWeight": "투표 가중치",
+      "percentNetworkVotingWeight": "네트워크 투표 가중치의 %",
+      "percentRepresentativeVotingWeight": "대표자 투표 가중치의 %",
+      "noRepresentative": "대리인 없음",
+      "confirmationHeight": "확인 높이",
+      "lastTransaction": "마지막 거래",
+      "pendingTransactions": "보류중인 거래",
+      "loadMoreTransactions": "더 많은 거래로드",
+      "viewTransactions": "거래보기",
+      "notOpenedYet": "이 계정은 아직 개설되지 않았습니다.",
+      "notOpenedYetReason": "계정 주소가 유효하지만 아직 체인에 게시 된 블록이 없습니다. NANO가이 계정으로 전송 된 경우 자금을 보관하려면 해당 블록을 게시해야합니다.",
+      "missingAccount": "누락 된 계정",
+      "missingAccountInfo": "계정이 URL에 지정되지 않았습니다. 계정을 검색하려면 상단 검색 창을 사용하거나 / account / 뒤의 URL에 추가하세요."
+    },
+    "block": {
+      "blockSubtype": "블록 하위 유형",
+      "confirmedStatus": "블록은 네트워크에서 확인됩니다.",
+      "pendingStatus": "블록은 네트워크에서 아직 확인되지 않았습니다.",
+      "receiver": "리시버",
+      "sender": "보내는 사람",
+      "previousBlock": "이전 블록",
+      "height": "블록 높이",
+      "signature": "서명",
+      "work": "작업",
+      "openAccountBlock": "이 블록은 계정을 열었습니다",
+      "originalBlockContent": "원본 블록 콘텐츠",
+      "missingBlock": "누락 된 블록",
+      "missingBlockInfo": "URL에 블록이 지정되지 않았습니다. 블록을 검색하려면 상단 검색 창을 사용하거나 / block / 뒤에 URL에 추가하세요.",
+      "blockNotFound": "블록을 찾을 수 없습니다.",
+      "blockNotFoundInfo": "요청하신 블록을 찾을 수 없습니다. 블록이 Nano 네트워크에 있지만 아직 노드에 표시되지 않았을 수 있습니다. 올바른 블록을 찾고 있는지 확인하거나 나중에 다시 시도하십시오."
+    },
+    "representatives": {
+      "voteDistribution": "투표 배포",
+      "nakamotoCoefficient": "Nakamoto coefficient",
+      "voteDistributionDescription": "시각적 단순화를 위해 주요 대표자 만 표시됩니다.",
+      "onlineRepresentatives": "온라인 담당자",
+      "onlinePrincipalRepresentatives": "온라인 대표 대표",
+      "confirmationQuorum": "확인",
+      "principalRepresentativeMinWeight": "대표 대표 최소 무게",
+      "onlineWrightQuorumPercent": "온라인 가중치 쿼럼 백분율",
+      "minimumOnlineWeight": "최소 온라인 무게",
+      "totalOnlineStake": "총 온라인 지분",
+      "totalPeerStake": "총 피어 지분",
+      "includeOfflineRepresentatives": "오프라인 담당자 포함",
+      "groupByEntities": "그룹 나노 재단 법인",
+      "viewDelegators": "위임자 {{count}} 명보기",
+      "loadAllRepresentatives": "모든 대표로드"
+    },
+    "representative": {
+      "votingWeight": "대표 투표 가중치",
+      "noDelegatorsFound": "위임자가 없습니다."
+    },
+    "faucets": {
+      "description": "수도꼭지를 사용하면 소량의 NANO를 무료로 청구 할 수 있습니다. 이 수도꼭지는 분산 형 네트워크에서 즉시 전 세계에 NANO를 보내고받는 것이 얼마나 쉬운 지 경험할 수 있도록합니다."
+    },
+    "developerFund": {
+      "description": "2019 년 11 월 25 일부터 개발자 기금은 내부 보안 정책 및 대표 투표 가중치를 검토 한 후 {{totalAccounts}} 계정으로 분할되었습니다.",
+      "lastTransaction": "마지막 거래",
+      "allTransactions": "모든 전송 거래보기",
+      "originalDeveloperFund": "원래 개발자 기금",
+      "originalDeveloperFundDescription": "Nano (이전 RaiBlocks)의 배포는 2015 년 말부터 2017 년 10 월까지 수동 캡차를 해결하여 수행되었습니다. <0>Genesis</0> 금액의 ~ 39 %가 배포되고 나머지 공급은 <1>탄</1>.",
+      "totalAccounts": "{{totalAccounts}} 총 계정",
+      "percentOfTotal": "유통 공급량의 {{percent}} %"
+    },
+    "knownAccounts": {
+      "totalAccounts": "{{totalAccounts}} 총 알려진 계정"
+    },
+    "largeTransactions": {
+      "description": "NANO 블록 체인에서 발생하는 대규모 거래.",
+      "latest": "최근 거래",
+      "largest": "최대 금액"
+    },
+    "distribution": {
+      "title": "나노 분포",
+      "executionDate": "마지막 배포 편집은 <0>{{date}}</0>에있었습니다.",
+      "summary": "총 <0>{{i18nTotalAccounts}}</0> 개의 계정이 <1>{{i18nTotalBalances}}</1> NANO를 보유하고 있습니다.",
+      "summaryMinBalance": "잔액이 <0>0.001</0>보다 낮은 모든 계정은 제외됩니다.",
+      "includeKnownExchanges": "알려진 교환 포함",
+      "logScale": "로그 스케일",
+      "dormantFunds": "휴면 기금",
+      "dormantFundsExperiment": "이것은 나노 블록 체인에서 얼마나 많은 계정이 활성 상태인지를 이해하는 실험입니다. 각 {{totalAccounts}} 계정에 대해 로컬 노드의 마지막 거래 날짜가 캡처됩니다. 각 계정에 포함 된 잔액 및 보류 금액은 마지막으로 거래 한 달에 대해 활성 상태로 표시됩니다. 다음 달에는 잔액 및 보류 상태가 휴면 상태로 표시됩니다.",
+      "availableSupply": "나노 공급 가능",
+      "knownAccountBalances": "알려진 계정 잔액",
+      "unknownDormantFunds": "알 수없는 휴면 자금",
+      "dormantFundsQuarterExample": "50 개의 NANO와 50 개의 보류중인 NANO를 보유한 계정은 6 개월 전에 (2 분기) 마지막으로 거래되었으며, 100 NANO의 잔액은 다음 분기의 합계에 \"휴면\"으로 추가됩니다.",
+      "dormantNano": "잠자는 나노",
+      "ofAvailableSupply": "사용 가능한 공급"
+    },
+    "news": {
+      "allFeeds": "모든 피드",
+      "allAuthors": "모든 저자"
+    },
+    "status": {
+      "blockCount": "블록 수",
+      "reload": "새로 고침",
+      "count": "카운트",
+      "unchecked": "선택하지 않음",
+      "cemented": "시멘트",
+      "ledger": "원장",
+      "availableSupply": "사용 가능한 공급",
+      "nanoAccounts": "NANO 계정",
+      "ledgerSize": "원장 크기",
+      "activeDifficulty": "활성 난이도",
+      "networkMinimum": "네트워크 최소",
+      "networkCurrent": "네트워크 전류",
+      "multiplier": "승수",
+      "node": "마디",
+      "version": "버전",
+      "uptime": "가동 시간",
+      "cpuUsage": "CPU 사용량",
+      "memory": "기억",
+      "peers": "동료",
+      "connectedPeers": "연결된 피어",
+      "protocolVersion": "프로토콜 버전 {{protocolVersion}}"
+    },
+    "exchangeTracker": {
+      "description": "Nano가 거래되는 가장 인기있는 거래소의 계정 잔액을 매일 캡처합니다. 이 측정은 네트워크의 움직임과 변동을 분석하는 데 사용할 수 있습니다."
+    },
+    "preferences": {
+      "description": "모든 섹션에 대한 기본 설정을 관리합니다. 기본 설정은 브라우저에 저장되며, 데이터를 지우면 기본 설정이 기본값으로 돌아갑니다.",
+      "general": "일반 설정",
+      "searchHistory": "검색 기록"
+    },
+    "bookmarks": {
+      "viewAll": "모든 북마크보기",
+      "noBookmarksFound": "북마크가 없습니다."
+    }
+  }
+}

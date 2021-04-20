@@ -1,0 +1,271 @@
+{
+  "common": {
+    "blockExplorer": "Block Explorer",
+    "account": "Konto",
+    "block": "Block",
+    "representative": "Vertreter",
+    "representatives": "Vertreter",
+    "principalRepresentative": "Hauptvertreter",
+    "principalRepresentatives": "Hauptvertreter",
+    "transaction": "Transaktion",
+    "transactions": "Transaktionen",
+    "delegator": "Delegator",
+    "delegators": "Delegatoren",
+    "date": "Datum",
+    "unknown": "Unbekannt",
+    "balance": "Balance",
+    "totalBalance": "Gesamtsaldo",
+    "weight": "Gewicht",
+    "notAvailable": "N / A",
+    "continueReading": "Weiterlesen",
+    "alias": "Alias",
+    "search": "Suche",
+    "reset": "Zurücksetzen",
+    "searchAlias": "Alias suchen",
+    "noResults": "Keine Ergebnisse",
+    "by": "Durch",
+    "online": "Online",
+    "offline": "Offline",
+    "copied": "Kopiert",
+    "copy": "Kopieren",
+    "bookmark": "Lesezeichen",
+    "bookmarks": "Lesezeichen"
+  },
+  "nodeHealth": {
+    "nodeReloading": "Der Nanoknoten wird neu geladen",
+    "nodeReady": "Der Nanoknoten ist bereit"
+  },
+  "transaction": {
+    "type": "Art",
+    "accountAndBlock": "Konto / Sperrung",
+    "send": "Senden",
+    "receive": "Erhalten",
+    "pending": "steht aus",
+    "change": "Veränderung",
+    "open": "Öffnen",
+    "state": "Zustand",
+    "epoch": "Epoche",
+    "cps": "CPS",
+    "amount": "Menge"
+  },
+  "tooltips": {
+    "avgConfirmationTime": "Die durchschnittliche Bestätigungszeit wird lokal auf dem Knoten berechnet. Wenn der Knoten neu gestartet wird oder sich in einem verschlechterten Zustand befindet, ist die durchschnittliche Bestätigungszeit möglicherweise höher als der Rest des Netzwerks.",
+    "circulatingSupply": "Die Anzahl der im Umlauf befindlichen Münzen. Nano ist voll verteilt, das Angebot wird nie steigen.",
+    "nanoTransactionFees": "Im Gegensatz zu anderen Kryptowährungen sind Nano-Transaktionen für immer gebührenfrei.",
+    "bitcoinTransactionFees": "Dieser Wert hat keine Auswirkungen auf das NANO-Netzwerk, sondern dient ausschließlich Vergleichszwecken. Dies ist die Summe der Transaktionsgebühren, die die Bitcoin-Benutzer an die Bergleute zahlen, um ihre Transaktion im Bitcoin-Netzwerk zu akzeptieren.",
+    "cps": "Bestätigungen pro Sekunde. Die Rate der bestätigten Blöcke (Senden oder Empfangen) im NANO-Netzwerk. Es wird in letzter Minute lokal auf dem Knoten abgetastet. Wenn der Knoten neu gestartet wird oder sich in einem verschlechterten Zustand befindet, ist der CPS-Wert möglicherweise höher oder niedriger als der tatsächliche Durchschnitt im Netzwerk, während der Knoten mit den anderen Knoten synchronisiert und erneut eine Verbindung herstellt.",
+    "votingWeight": "Ein Konto mit einem Minimum von {{minWeight}} NANO oder> = 0,1% des an ihn delegierten Online-Abstimmungsgewichts ist erforderlich, um den Status eines Hauptvertreters zu erhalten. Bei der Konfiguration auf einem Knoten, der abstimmt, werden die von ihm erzeugten Stimmen von anderen Knoten erneut an die Empfänger gesendet, damit das Netzwerk schneller zu einem Konsens kommt.",
+    "pending": "Ein Transaktionsstatus, in dem ein Block, der Geld sendet, vom Netzwerk veröffentlicht und bestätigt wurde, aber ein übereinstimmender Block, der diese Mittel empfängt, noch nicht gesendet oder bestätigt wurde.",
+    "nakamotoCoefficient": "Der Nakamoto-Koeffizient ist eine Möglichkeit, die Dezentralisierung einer Blockchain oder eines anderen dezentralen Systems zu quantifizieren. Dies ist die Anzahl der Entitäten, die Sie benötigen, um mindestens ein wesentliches Subsystem zu gefährden. Für Nano müssten mehr als 50% des Online-Abstimmungsgewichts von Hauptvertretern kompromittiert werden.",
+    "representatives": "Um die Leistung zu optimieren, werden nur Konten mit einem Abstimmungsgewicht von> = 1000 NANO berücksichtigt, normalerweise jedoch Konten mit einem Abstimmungsgewicht von> 0, aber <0,1% des Online-Abstimmungsgewichts.",
+    "principalRepresentatives": "Ein Konto mit einem Minimum von {{PrincipalRepresentativeMinWeight}} NANO oder> = 0,1% des an ihn delegierten Online-Abstimmungsgewichts ist erforderlich, um den Status eines Hauptvertreters zu erhalten. Bei der Konfiguration auf einem Knoten, der abstimmt, werden die von ihm erzeugten Stimmen von anderen Knoten erneut an die Empfänger gesendet, damit das Netzwerk schneller zu einem Konsens kommt.",
+    "onlinePrincipalRepresentatives": "Online-Repräsentantenkonten, die kürzlich abgestimmt haben.",
+    "lastTransaction": "Letzte Sendetransaktion von einem der {{totalAccounts}} Konten.",
+    "largeTransactions": "Nur Sendetransaktionen mit 10.000 NANO oder mehr werden vorübergehend für eine Woche gespeichert.",
+    "knownExchangeBalance": "Schließen Sie {{unknownExchangeList}} aus dem Verteilungsdiagramm aus. Diese Konten zusammen enthalten {{unknownExchangeBalance}} NANO",
+    "unchecked": "Blöcke (Transaktionen), die vom Nano-Knoten heruntergeladen, aber noch nicht verarbeitet wurden. Die Knotensoftware lädt alle Bocks von anderen Knoten als deaktiviert herunter, verarbeitet sie und erhöht die Blockanzahl, bestätigt die Grenzblöcke für jedes Konto und markiert sie dann als zementiert.",
+    "cemented": "Wenn ein bestimmter Knoten eine bestätigte Transaktion als lokal irreversibel markiert, setzen Sie die Bestätigungshöhe des Kontos (in der Knotendatenbank) auf die jetzt höhere Blockhöhe der bestätigten Transaktion. Das Zementieren ist eine Operation auf Knotenebene.",
+    "unknownLastTransaction": "Die Transaktionsdaten wurden im Februar 2019 eingeführt. Vor diesem Datum wurden die Transaktionszeiten nicht lokal auf den Knoten aufgezeichnet. Der Grund, warum das letzte Transaktionsdatum unbekannt ist, liegt darin, dass es bestätigt wurde, bevor die Daten aufgezeichnet wurden oder bevor der NanoLooker-Knoten in Betrieb war.",
+    "confirmationHeight": "Eine in der lokalen Knotendatenbank gespeicherte Nummer, die den höchsten (letzten) bestätigten Block in einer Kontokette darstellt. Bezogen auf (aber anders als) Blockhöhe.",
+    "blockHeight": "Ein lokaler ganzzahliger Wert, der die Reihenfolge eines Blocks in einer Kontokette darstellt. Zum Beispiel hätte der 15. Block in einem Konto eine Blockhöhe von 15. Bezogen auf die Bestätigungshöhe (unterscheidet sich jedoch von dieser).",
+    "bookmarks": "{{Typ, Großschreibung}} Lesezeichen werden auf Ihrem Gerät gespeichert. Sie können Ihre bekannten {{type}} s verwalten, indem Sie ihnen Aliase geben."
+  },
+  "search": {
+    "searchBy": "Suche nach Adresse / Block / Bekanntem Konto",
+    "noHistory": "Kein Suchverlauf"
+  },
+  "preferences": {
+    "viewAll": "Alle Einstellungen anzeigen",
+    "darkMode": "Dunkler Modus",
+    "darkModeDetailed": "Wechseln Sie vom Hell- oder Dunkelmodus, um das Surfen auf Ihrer Website je nach Umgebung zu verbessern.",
+    "language": "Sprache",
+    "languageDetailed": "Wählen Sie die gewünschte Sprache. NanoLooker sucht nach Mitwirkenden, um die Übersetzung des Explorers zu verbessern. <0> Beitrag </ 0>",
+    "watch": "Beobachten Sie andere Kryptowährungen",
+    "watchSearch": "Suche nach Kryptowährungen",
+    "watchDetailed": "Beobachten Sie den Preis anderer Kryptowährungen in den Top 100. Die aktuellen Marktpreise und die 24-Stunden-Änderung werden in der oberen Leiste angezeigt. Sie können Ihre Auswahl auch per Drag & Drop neu anordnen.",
+    "fiatCurrency": "Fiat Währung",
+    "fiatCurrencyDetailed": "Fiat-Geld ist eine von der Regierung ausgegebene Währung. Wählen Sie eine Fiat-Währung, um den Preis von Nano zu vergleichen.",
+    "natricons": "Natricons",
+    "natriconsDetailed": "Natricons sind ein freundliches, vertrautes Gesicht für Nano-Adressen. Verwenden Sie sie auf Kontoseiten, überall dort, wo sich eine Nano-Adresse in der Nähe befindet.",
+    "liveTransactions": "Aktivieren Sie Live-Updates",
+    "liveTransactionsDetailed": "Beobachten Sie Live-Transaktionen im Nano-Netzwerk. Verfügbar auf der Homepage.",
+    "filterTransactions": "Beträge unter 1 NANO einschließen",
+    "filterTransactionsDetailed": "Fügen Sie kleine Beträge hinzu, die im Live-Transaktions-Feed auf der Startseite angezeigt werden sollen.",
+    "contribute": "Beitragen"
+  },
+  "menu": {
+    "explore": "Erkunden",
+    "representatives": "Vertreter",
+    "developerFund": "Entwicklerfonds",
+    "knownAccounts": "Bekannte Konten",
+    "largeTransactions": "Große Transaktionen",
+    "distribution": "Verteilung",
+    "exchangeTracker": "Exchange Tracker",
+    "faucets": "Wasserhähne",
+    "news": "Nachrichten",
+    "nodeStatus": "Knotenstatus",
+    "whatIsNano": "Was ist Nano?",
+    "earnNano": "Verdiene Nano",
+    "preferences": "Einstellungen"
+  },
+  "footer": {
+    "createdBy": "Erstellt von {{Schöpfer}}",
+    "donations": {
+      "donate": "Spenden",
+      "title": "NanoLooker-Spendenkonto"
+    }
+  },
+  "pages": {
+    "home": {
+      "network": "Netzwerk",
+      "statistics": "Statistiken",
+      "market": "Markt",
+      "marketCapRank": "Marktkapitalisierungsrang",
+      "marketCap": "Marktkapitalisierung",
+      "circulatingSupply": "Umlaufversorgung",
+      "latestBlock": "Letzter Block",
+      "principalRepOnline": "Hauptvertreter Online",
+      "ledgerSize": "Hauptbuchgröße",
+      "last24Hours": "Letzte 24 Stunden",
+      "avgConfirmationTime": "Durchschn. Bestätigungszeit (Sekunden)",
+      "confirmedTransactions": "Bestätigte Transaktionen",
+      "nanoTransactionFees": "NANO-Transaktionsgebühren",
+      "exchangeVolume": "Volume austauschen",
+      "onChainVolume": "On-Chain-NANO-Volumen",
+      "bitcoinTransactionFees": "An Bergleute gezahlte Bitcoin-Transaktionsgebühren",
+      "recentTransactions": "kürzliche Transaktionen",
+      "liveUpdatesDisabled": "Live-Updates deaktiviert",
+      "waitingForTransactions": "Warten auf Transaktionen",
+      "connectingToBlockchain": "Verbindung zur NANO-Blockchain herstellen",
+      "reconnectingToBlockchain": "Verbindung getrennt, Verbindung zur NANO-Blockchain wiederhergestellt"
+    },
+    "account": {
+      "votingWeight": "Abstimmungsgewicht",
+      "percentNetworkVotingWeight": "% des Abstimmungsgewichts des Netzwerks",
+      "percentRepresentativeVotingWeight": "% des Stimmgewichts des Vertreters",
+      "noRepresentative": "Kein Vertreter",
+      "confirmationHeight": "Bestätigungshöhe",
+      "lastTransaction": "Letzte Transaktion",
+      "pendingTransactions": "ausstehende Transaktionen",
+      "loadMoreTransactions": "Laden Sie weitere Transaktionen",
+      "viewTransactions": "Transaktionen anzeigen",
+      "notOpenedYet": "Dieses Konto wurde noch nicht eröffnet",
+      "notOpenedYetReason": "Während die Kontoadresse gültig ist, wurden noch keine Blöcke in ihrer Kette veröffentlicht. Wenn NANO auf dieses Konto gesendet wurde, muss noch ein entsprechender Block veröffentlicht werden, um das Geld einzustecken.",
+      "missingAccount": "Fehlendes Konto",
+      "missingAccountInfo": "Das Konto ist nicht in der URL angegeben. Verwenden Sie die obere Suchleiste, um nach einem Konto zu suchen, oder fügen Sie es in der URL nach / account / hinzu."
+    },
+    "block": {
+      "blockSubtype": "Subtyp blockieren",
+      "confirmedStatus": "Der Block wird im Netzwerk bestätigt",
+      "pendingStatus": "Der Block ist im Netzwerk noch nicht bestätigt",
+      "receiver": "Empfänger",
+      "sender": "Absender",
+      "previousBlock": "Vorheriger Block",
+      "height": "Blockhöhe",
+      "signature": "Unterschrift",
+      "work": "Arbeit",
+      "openAccountBlock": "Dieser Block hat das Konto eröffnet",
+      "originalBlockContent": "Ursprünglicher Blockinhalt",
+      "missingBlock": "Fehlender Block",
+      "missingBlockInfo": "Der Block ist in der URL nicht angegeben. Verwenden Sie die obere Suchleiste, um nach einem Block zu suchen, oder hängen Sie ihn an die URL nach / block / an",
+      "blockNotFound": "Block nicht gefunden",
+      "blockNotFoundInfo": "Der von Ihnen angeforderte Block wurde nicht gefunden. Es ist möglich, dass der Block im Nano-Netzwerk vorhanden ist, aber vom Knoten noch nicht gesehen wurde. Stellen Sie sicher, dass Sie nach dem richtigen Block suchen, oder versuchen Sie es später erneut."
+    },
+    "representatives": {
+      "voteDistribution": "Stimmenverteilung",
+      "nakamotoCoefficient": "Nakamoto-Koeffizient",
+      "voteDistributionDescription": "Zur visuellen Vereinfachung werden nur Hauptvertreter angezeigt",
+      "onlineRepresentatives": "Online-Vertreter",
+      "onlinePrincipalRepresentatives": "Online-Hauptvertreter",
+      "confirmationQuorum": "Die Bestätigung",
+      "principalRepresentativeMinWeight": "Hauptvertreter Mindestgewicht",
+      "onlineWrightQuorumPercent": "Online-Gewichtsquorum in Prozent",
+      "minimumOnlineWeight": "Minimales Online-Gewicht",
+      "totalOnlineStake": "Gesamt-Online-Einsatz",
+      "totalPeerStake": "Total Peer Stake",
+      "includeOfflineRepresentatives": "Schließen Sie Offline-Vertreter ein",
+      "groupByEntities": "Unternehmen der Group Nano Foundation",
+      "viewDelegators": "{{Count}} Delegatoren anzeigen",
+      "loadAllRepresentatives": "Laden Sie alle Vertreter"
+    },
+    "representative": {
+      "votingWeight": "Repräsentatives Stimmgewicht",
+      "noDelegatorsFound": "Keine Delegatoren gefunden"
+    },
+    "faucets": {
+      "description": "Mit Wasserhähnen können Sie kleine Mengen NANO kostenlos anfordern. Mit diesen Wasserhähnen können Sie erleben, wie einfach es ist, NANO weltweit in einem dezentralen Netzwerk sofort zu senden und zu empfangen."
+    },
+    "developerFund": {
+      "description": "Ab dem 25.11.19 wurde der Entwicklerfonds nach einer Überprüfung der internen Sicherheitsrichtlinien und der repräsentativen Stimmgewichte in {{totalAccounts}} Konten aufgeteilt.",
+      "lastTransaction": "Letzte Transaktion",
+      "allTransactions": "Alle Sendetransaktionen anzeigen",
+      "originalDeveloperFund": "Ursprünglicher Entwicklerfonds",
+      "originalDeveloperFundDescription": "Die Verteilung von Nano (ehemals RaiBlocks) erfolgte durch Lösen manueller Captchas, die Ende 2015 endeten und im Oktober 2017 endeten. Die Verteilung wurde gestoppt, nachdem ~ 39% des Betrags von <0> Genesis </ 0> verteilt worden waren und der Rest des Angebots war <1> verbrannt </ 1>.",
+      "totalAccounts": "{{totalAccounts}} Total Accounts",
+      "percentOfTotal": "{{Prozent}}% des Umlaufangebots"
+    },
+    "knownAccounts": {
+      "totalAccounts": "{{totalAccounts}} Insgesamt bekannte Konten"
+    },
+    "largeTransactions": {
+      "description": "Große Transaktionen in der NANO-Blockchain.",
+      "latest": "Letzte Transaktion",
+      "largest": "Größte Menge"
+    },
+    "distribution": {
+      "title": "Nano Distribution",
+      "executionDate": "Die letzte Distributionskompilierung war am <0> {{Datum}} </ 0>",
+      "summary": "Insgesamt <0> {{i18nTotalAccounts}} </ 0> Konten halten <1> {{i18nTotalBalances}} </ 1> NANO",
+      "summaryMinBalance": "Jedes Konto mit einem Saldo unter <0> 0,001 </ 0> ist ausgeschlossen",
+      "includeKnownExchanges": "Bekannte Börsen einschließen",
+      "logScale": "Logarithmische Darstellung",
+      "dormantFunds": "Ruhende Fonds",
+      "dormantFundsExperiment": "Dies ist ein Experiment, um zu verstehen, wie viele Konten in der Nano-Blockchain aktiv sind. Für jedes der {{totalAccounts}} Konten wird das letzte Transaktionsdatum auf dem lokalen Knoten erfasst. Der Saldo und die ausstehenden Beträge, die jedes Konto enthält, werden für den Monat, in dem sie zuletzt getätigt wurden, als aktiv markiert. Im folgenden Monat werden der Restbetrag und die ausstehenden Beträge als ruhend markiert.",
+      "availableSupply": "Nano verfügbares Angebot",
+      "knownAccountBalances": "Bekannte Kontensalden",
+      "unknownDormantFunds": "Unbekannte ruhende Gelder",
+      "dormantFundsQuarterExample": "Ein Konto mit 50 NANO und 50 ausstehenden NANO wurde zuletzt vor 6 Monaten (2 Quartale) abgewickelt. Ein Saldo von 100 NANO wird als \"ruhend\" zur Gesamtsumme des folgenden Quartals hinzugefügt.",
+      "dormantNano": "Schlafen NANO",
+      "ofAvailableSupply": "des verfügbaren Angebots"
+    },
+    "news": {
+      "allFeeds": "Alle Feeds",
+      "allAuthors": "Alle Autoren"
+    },
+    "status": {
+      "blockCount": "Blockanzahl",
+      "reload": "Neu laden",
+      "count": "Anzahl",
+      "unchecked": "Deaktiviert",
+      "cemented": "Zementiert",
+      "ledger": "Hauptbuch",
+      "availableSupply": "Verfügbares Angebot",
+      "nanoAccounts": "NANO-Konten",
+      "ledgerSize": "Hauptbuchgröße",
+      "activeDifficulty": "Aktive Schwierigkeit",
+      "networkMinimum": "Netzwerkminimum",
+      "networkCurrent": "Netzwerkstrom",
+      "multiplier": "Multiplikator",
+      "node": "Knoten",
+      "version": "Ausführung",
+      "uptime": "Betriebszeit",
+      "cpuUsage": "CPU auslastung",
+      "memory": "Erinnerung",
+      "peers": "Gleichaltrigen",
+      "connectedPeers": "Verbundene Peers",
+      "protocolVersion": "Protokollversion {{protocolVersion}}"
+    },
+    "exchangeTracker": {
+      "description": "Jeden Tag wird eine Erfassung der Kontensalden der beliebtesten Börsen vorgenommen, an denen Nano gehandelt wird. Mit dieser Messung können Bewegungen und Schwankungen im Netzwerk analysiert werden."
+    },
+    "preferences": {
+      "description": "Verwalten Sie Ihre Einstellungen für jeden Abschnitt. Die Einstellungen werden im Browser gespeichert. Wenn Sie Ihre Daten löschen, werden Ihre Einstellungen auf die Standardeinstellungen zurückgesetzt.",
+      "general": "Allgemeine Einstellungen",
+      "searchHistory": "Suchverlauf"
+    },
+    "bookmarks": {
+      "viewAll": "Alle Lesezeichen anzeigen",
+      "noBookmarksFound": "Keine Lesezeichen gefunden"
+    }
+  }
+}

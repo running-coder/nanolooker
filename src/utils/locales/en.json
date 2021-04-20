@@ -90,7 +90,8 @@
     "liveTransactions": "Enable live updates",
     "liveTransactionsDetailed": "Watch live transactions happening on the Nano network. Available on the Home page.",
     "filterTransactions": "Include amounts under 1 NANO",
-    "filterTransactionsDetailed": "Include small amounts to be displayed in the live transactions feed on the Home page."
+    "filterTransactionsDetailed": "Include small amounts to be displayed in the live transactions feed on the Home page.",
+    "contribute": "Contribute"
   },
   "menu": {
     "explore": "Explore",

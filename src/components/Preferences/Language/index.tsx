@@ -2,20 +2,14 @@ import React from "react";
 import i18next from "i18next";
 import { Trans, useTranslation } from "react-i18next";
 import { Col, Row, Select, Typography } from "antd";
+import { LOCALSTORAGE_KEYS } from "api/contexts/Preferences";
 
 const { Option } = Select;
 const { Text } = Typography;
-
-export enum Language {
-  EN = "en",
-  FR = "fr",
-  PT = "pt",
-}
-
 interface Props {
   isDetailed?: boolean;
 }
-//https://github.com/running-coder/nanolooker/tree/master/src/utils/locales
+
 const LanguagePreferences: React.FC<Props> = ({ isDetailed }) => {
   const { t } = useTranslation();
 
@@ -34,11 +28,11 @@ const LanguagePreferences: React.FC<Props> = ({ isDetailed }) => {
               style={{ marginLeft: "12px" }}
             >
               <a
-                href="https://github.com/running-coder/nanolooker"
+                href="https://github.com/running-coder/nanolooker/tree/master/src/utils/locales"
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                Contribute
+                {t("preferences.contribute")}
               </a>
             </Trans>
           </Text>
@@ -50,12 +44,23 @@ const LanguagePreferences: React.FC<Props> = ({ isDetailed }) => {
           value={i18next.language}
           onChange={value => {
             i18next.changeLanguage(value);
-            localStorage.setItem("LANGUAGE", value);
+            localStorage.setItem(LOCALSTORAGE_KEYS.LANGUAGE, value);
           }}
+          style={{ minWidth: "140px" }}
         >
           <Option value="en">English</Option>
           <Option value="fr">Français</Option>
+          <Option value="es">Español</Option>
+          <Option value="ar">العربية</Option>
+          <Option value="de">Deutsch</Option>
+          <Option value="hi">हिन्दी</Option>
+          <Option value="it">Italiano</Option>
+          <Option value="ja">日本語</Option>
+          <Option value="ko">한국어</Option>
+          <Option value="nl">Nederlands</Option>
           <Option value="pt">Português</Option>
+          <Option value="ru">Pусский</Option>
+          <Option value="zh">中文</Option>
         </Select>
       </Col>
     </Row>

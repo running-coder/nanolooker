@@ -90,7 +90,8 @@
     "liveTransactions": "Habilitar atualizações ao vivo",
     "liveTransactionsDetailed": "Assista às transações ao vivo acontecendo na rede Nano. Disponível na página inicial.",
     "filterTransactions": "Inclui valores abaixo de 1 NANO",
-    "filterTransactionsDetailed": "Inclua pequenas quantias a serem exibidas no feed de transações ao vivo na página inicial."
+    "filterTransactionsDetailed": "Inclua pequenas quantias a serem exibidas no feed de transações ao vivo na página inicial.",
+    "contribute": "Contribuir"
   },
   "menu": {
     "explore": "Explorar",
