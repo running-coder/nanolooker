@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Card, Col, Row, Typography } from "antd";
+import { Card, Col, Empty, Row, Typography } from "antd";
 import { BookmarksContext } from "api/contexts/Bookmarks";
 import AccountHeader from "pages/Account/Header/Account";
 
@@ -30,7 +30,11 @@ const BookmarksPage: React.FC = () => {
         ) : (
           <Row>
             <Col xs={24} style={{ textAlign: "center" }}>
-              {t("pages.bookmarks.noBookmarksFound")}
+              <Empty
+                image={Empty.PRESENTED_IMAGE_SIMPLE}
+                description={t("pages.bookmarks.noBookmarksFound")}
+                style={{ padding: "12px" }}
+              />
             </Col>
           </Row>
         )}

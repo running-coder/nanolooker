@@ -1,5 +1,6 @@
 {
   "common": {
+    "blockExplorer": "Block Explorer",
     "account": "Conta",
     "block": "Quadra",
     "representative": "Representante",
@@ -55,6 +56,7 @@
     "cps": "Confirmações por segundo. A taxa de bloqueios confirmados (envio ou recebimento) na rede NANO. É amostrado no último minuto localmente no nó. Se o nó for reiniciado ou em uma condição degradada, o valor CPS pode ser maior ou menor do que a média real na rede enquanto o nó sincroniza e reconecta com os outros nós.",
     "votingWeight": "Uma conta com um mínimo de {{minWeight}} NANO ou >= 0,1% do peso do voto online delegado a ela é necessária para obter o status de Representante Principal. Quando configurado em um nó que está votando, os votos que ele produz serão retransmitidos por outros nós para quem os recebe, ajudando a rede a chegar a um consenso mais rapidamente.",
     "pending": "Um estado de transação em que um bloco de envio de fundos foi publicado e confirmado pela rede, mas um bloco correspondente que recebe esses fundos ainda não foi enviado ou confirmado.",
+    "nakamotoCoefficient": "O coeficiente de Nakamoto é uma forma de quantificar a descentralização de um blockchain ou outro sistema descentralizado. É o número de entidades de que você precisa para comprometer pelo menos um subsistema essencial. Para o Nano, mais de 50% do peso dos votos dos principais representantes teria que ser comprometido.",
     "representatives": "Para otimizar o desempenho, apenas contas com peso de voto >= 1000 NANO são consideradas, mas normalmente qualquer conta com peso de voto > 0, mas < 0,1% do peso de voto online.",
     "principalRepresentatives": "Uma conta com um mínimo de {{principalRepresentativeMinWeight}} NANO ou >= 0,1% do peso da votação online delegado a ela é necessária para obter o status de Representante Principal. Quando configurado em um nó que está votando, os votos por ele produzidos serão retransmitidos por outros nós para quem os recebe, ajudando a rede a chegar a um consenso mais rapidamente.",
     "onlinePrincipalRepresentatives": "Contas de representantes online que votaram recentemente.",
@@ -169,8 +171,9 @@
       "blockNotFoundInfo": "O bloqueio que você solicitou não foi encontrado. É possível que o bloco esteja presente na rede Nano, mas ainda não tenha sido visto pelo nó. Certifique-se de que está procurando o bloco correto ou tente novamente mais tarde."
     },
     "representatives": {
-      "votingDistribution": "Distribuição de votação",
-      "votingDistributionDescription": "Para simplificação visual, apenas os representantes principais são mostrados",
+      "voteDistribution": "Distribuição de votação",
+      "nakamotoCoefficient": "Coeficiente de Nakamoto",
+      "voteDistributionDescription": "Para simplificação visual, apenas os representantes principais são mostrados",
       "onlineRepresentatives": "Representantes online",
       "onlinePrincipalRepresentatives": "Representantes principais online",
       "confirmationQuorum": "Quorum de confirmação",
@@ -180,8 +183,9 @@
       "totalOnlineStake": "Aposta online total",
       "totalPeerStake": "Participação de pares total",
       "includeOfflineRepresentatives": "Incluir representantes offline",
-      "groupByEntities": "Group by entities",
-      "viewDelegators": "Ver {{count}} delegadores"
+      "groupByEntities": "Reagrupar entidades da Nano Foundation",
+      "viewDelegators": "Ver {{count}} delegadores",
+      "loadAllRepresentatives": "Carregar todos os representantes"
     },
     "representative": {
       "votingWeight": "Peso de voto representativo",
@@ -256,7 +260,6 @@
     "preferences": {
       "description": "Gerencie suas preferências para todas as seções. As preferências são armazenadas no navegador, se você limpar seus dados, suas preferências voltarão aos padrões.",
       "general": "Configurações Gerais",
-      "bookmarks": "Favoritos",
       "searchHistory": "Histórico de busca"
     },
     "bookmarks": {

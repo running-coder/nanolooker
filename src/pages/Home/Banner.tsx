@@ -50,7 +50,7 @@ const Banner: React.FC = () => {
             whiteSpace: "nowrap",
           }}
         >
-          Block Explorer
+          {t("common.blockExplorer")}
         </Title>
       </div>
 

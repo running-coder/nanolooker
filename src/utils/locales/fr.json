@@ -1,5 +1,6 @@
 {
   "common": {
+    "blockExplorer": "Explorateur de blocs",
     "account": "Compte",
     "block": "Bloc",
     "representative": "Représentant",
@@ -55,6 +56,7 @@
     "cps": "Confirmations par seconde. Le taux de blocs confirmés (envoi ou réception) sur le réseau NANO. Il est échantillonné au cours de la dernière minute localement sur le nœud. Si le nœud est redémarré ou dans un état dégradé, la valeur CPS peut être supérieure ou inférieure à la moyenne réelle sur le réseau pendant que le nœud se synchronise et se reconnecte avec les autres nœuds.",
     "votingWeight": "Un compte avec un minimum de {{minWeight}} NANO ou >= 0,1% du poids de vote en ligne qui lui est délégué est requis pour obtenir le statut de représentant principal. Lorsqu'ils sont configurés sur un nœud qui vote, les votes qu'il produit seront rediffusés par d'autres nœuds vers qui les reçoivent, ce qui permet au réseau d'atteindre un consensus plus rapidement.",
     "pending": "Un état de transaction où un bloc d'envoi de fonds a été publié et confirmé par le réseau, mais un bloc correspondant recevant ces fonds n'a pas encore été envoyé ou confirmé.",
+    "nakamotoCoefficient": "Le coefficient de Nakamoto est un moyen de quantifier la décentralisation d'une blockchain ou d'un autre système décentralisé. C'est le nombre d'entités dont vous avez besoin pour compromettre au moins un sous-système essentiel. Pour Nano, plus de 50% du poids des voix des principaux représentants devrait être compromis.",
     "representatives": "Pour optimiser les performances, seuls les comptes avec un poids de vote >= 1000 NANO sont considérés mais normalement tout compte avec un poids de vote> 0, mais <0,1% du poids de vote en ligne.",
     "principalRepresentatives": "Un compte avec un minimum de {{principalRepresentativeMinWeight}} NANO ou >= 0,1% du poids de vote en ligne qui lui est délégué est requis pour obtenir le statut de représentant principal. Lorsqu'ils sont configurés sur un nœud qui vote, les votes qu'il produit seront rediffusés par d'autres nœuds à qui les reçoivent, aidant le réseau à atteindre un consensus plus rapidement.",
     "onlinePrincipalRepresentatives": "Comptes de représentants en ligne qui ont voté récemment.",
@@ -169,8 +171,9 @@
       "blockNotFoundInfo": "Le bloc que vous avez demandé est introuvable. Il est possible que le bloc soit présent sur le réseau Nano mais n'ait pas encore été vu par le nœud. Assurez-vous que vous recherchez le bon bloc ou réessayez plus tard."
     },
     "representatives": {
-      "votingDistribution": "Répartition des votes",
-      "votingDistributionDescription": "Par souci de simplification visuelle, seuls les principaux représentants sont affichés",
+      "voteDistribution": "Répartition des votes",
+      "nakamotoCoefficient": "Coefficient de Nakamoto",
+      "voteDistributionDescription": "Par souci de simplification visuelle, seuls les principaux représentants sont affichés",
       "onlineRepresentatives": "Représentants en ligne",
       "onlinePrincipalRepresentatives": "Représentants principaux en ligne",
       "confirmationQuorum": "Quorum de confirmation",
@@ -180,8 +183,9 @@
       "totalOnlineStake": "Mise totale en ligne",
       "totalPeerStake": "Participation totale des pairs",
       "includeOfflineRepresentatives": "Inclure les représentants hors-ligne",
-      "groupByEntities": "Group by entities",
-      "viewDelegators": "Voir {{count}} délégants"
+      "groupByEntities": "Regrouper les entités de la Foundation Nano",
+      "viewDelegators": "Voir {{count}} délégants",
+      "loadAllRepresentatives": "Charger tous les représentants"
     },
     "representative": {
       "votingWeight": "Poids du vote du représentant",
@@ -256,7 +260,6 @@
     "preferences": {
       "description": "Gérez vos préférences pour chaque section. Les préférences sont stockées sur le navigateur, si vous effacez vos données, vos préférences seront rétablies par défaut.",
       "general": "Réglages généraux",
-      "bookmarks": "Signets",
       "searchHistory": "Historique des recherches"
     },
     "bookmarks": {

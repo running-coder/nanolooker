@@ -45,14 +45,6 @@ const PreferencesPage: React.FC = () => {
         <LiveTransactionsPreferences isDetailed />
         <FilterTransactionsPreferences isDetailed />
       </Card>
-      {/* 
-      <Card size="small" style={{ marginBottom: "12px" }}>
-        <Title level={4}>{t("pages.preferences.bookmarks")}</Title>
-      </Card> 
-      */}
-      {/* <Card size="small" style={{ marginBottom: "12px" }}>
-        <Title level={4}>{t("pages.preferences.searchHistory")}</Title>
-      </Card> */}
     </>
   );
 };

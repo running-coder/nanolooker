@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { Button, Card, Col, Row, Skeleton, Typography } from "antd";
+import { Button, Card, Col, Empty, Row, Skeleton, Typography } from "antd";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import BigNumber from "bignumber.js";
 import { AccountInfoContext } from "api/contexts/AccountInfo";
@@ -110,7 +110,11 @@ const Delegators: React.FC = () => {
         {!isDelegatorsLoading && !Object.keys(delegators).length ? (
           <Row>
             <Col xs={24} style={{ textAlign: "center" }}>
-              {t("pages.representative.noDelegatorsFound")}
+              <Empty
+                image={Empty.PRESENTED_IMAGE_SIMPLE}
+                description={t("pages.representative.noDelegatorsFound")}
+                style={{ padding: "12px" }}
+              />
             </Col>
           </Row>
         ) : null}
