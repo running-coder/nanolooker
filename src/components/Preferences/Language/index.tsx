@@ -28,7 +28,7 @@ const LanguagePreferences: React.FC<Props> = ({ isDetailed }) => {
               style={{ marginLeft: "12px" }}
             >
               <a
-                href="https://github.com/running-coder/nanolooker/tree/master/src/utils/locales"
+                href="https://github.com/running-coder/nanolooker/tree/master/src/i18n/locales"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -46,7 +46,7 @@ const LanguagePreferences: React.FC<Props> = ({ isDetailed }) => {
             i18next.changeLanguage(value);
             localStorage.setItem(LOCALSTORAGE_KEYS.LANGUAGE, value);
           }}
-          style={{ minWidth: "140px" }}
+          style={{ width: 120 }}
         >
           <Option value="en">English</Option>
           <Option value="fr">Français</Option>
@@ -60,6 +60,7 @@ const LanguagePreferences: React.FC<Props> = ({ isDetailed }) => {
           <Option value="nl">Nederlands</Option>
           <Option value="pt">Português</Option>
           <Option value="ru">Pусский</Option>
+          <Option value="tr">Türkçe</Option>
           <Option value="zh">中文</Option>
         </Select>
       </Col>

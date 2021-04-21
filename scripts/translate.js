@@ -6,12 +6,12 @@ const dot = require("dot-object");
 const { Translate } = require("@google-cloud/translate").v2;
 const omit = require("lodash/omit");
 
-const en = require("./locales/en.json");
+const en = require("../src/i18n/locales/en.json");
 
 const translate = new Translate();
 
 const target = yargs.argv.language;
-const targetPath = join(__dirname, `/locales/${target}.json`);
+const targetPath = join(__dirname, `..`, `/src/i18n/locales/${target}.json`);
 let sourceToTranslate = dot.dot(en);
 
 let targetToTranslate = {};

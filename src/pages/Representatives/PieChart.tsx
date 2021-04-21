@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Card, Col, Row, Skeleton, Switch, Tooltip, Typography } from "antd";
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import { Pie, PieConfig } from "@antv/g2plot";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import BigNumber from "bignumber.js";
 import forEach from "lodash/forEach";
 import orderBy from "lodash/orderBy";
@@ -33,6 +34,7 @@ const Representatives: React.FC<Props> = ({
   setIsGroupedByEntities,
 }) => {
   const { t } = useTranslation();
+  const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
   const { theme } = React.useContext(PreferencesContext);
   const {
     representatives,
@@ -41,12 +43,10 @@ const Representatives: React.FC<Props> = ({
   const [nakamotoCoefficient, setNakamotoCoefficient] = React.useState(
     [] as Representative[],
   );
-
   const [
     principalRepresentatives,
     setPrincipalRepresentatives,
   ] = React.useState([] as Representative[]);
-
   const {
     confirmationQuorum: {
       online_stake_total: onlineStakeTotal = 0,
@@ -163,6 +163,7 @@ const Representatives: React.FC<Props> = ({
               },
       },
       legend: {
+        visible: !isSmallAndLower,
         text: {
           formatter: text => {
             const [alias, account] = text.split(aliasSeparator);
@@ -224,12 +225,7 @@ const Representatives: React.FC<Props> = ({
   return (
     <>
       <Title level={3}>{t("pages.representatives.voteDistribution")}</Title>
-      <Card
-        size="small"
-        bordered={false}
-        style={{ marginBottom: "12px" }}
-        className="detail-layout"
-      >
+      <Card size="small" bordered={false} className="detail-layout">
         <Row gutter={6}>
           <Col xs={24} md={12}>
             {t("pages.representatives.includeOfflineRepresentatives")}

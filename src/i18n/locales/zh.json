@@ -29,7 +29,8 @@
     "copied": "复制的",
     "copy": "复制",
     "bookmark": "书签",
-    "bookmarks": "书签"
+    "bookmarks": "书签",
+    "ok": "好的"
   },
   "nodeHealth": {
     "nodeReloading": "纳米节点正在重新加载",

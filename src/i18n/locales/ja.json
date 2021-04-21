@@ -29,7 +29,8 @@
     "copied": "コピー",
     "copy": "コピー",
     "bookmark": "ブックマーク",
-    "bookmarks": "ブックマーク"
+    "bookmarks": "ブックマーク",
+    "ok": "OK"
   },
   "nodeHealth": {
     "nodeReloading": "Nanoノードがリロードしています",

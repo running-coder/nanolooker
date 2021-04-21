@@ -12,7 +12,7 @@
     "prettier:fix": "prettier --write \"{server,src}/**/*.{js,ts,tsx}\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "translate": "node src/utils/translate.js"
+    "translate": "node scripts/translate.js"
   },
   "proxy": "http://localhost:3010",
   "browserslist": {

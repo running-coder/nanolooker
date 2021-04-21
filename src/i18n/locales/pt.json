@@ -29,7 +29,8 @@
     "copied": "Copiado",
     "copy": "Cópia de",
     "bookmark": "Marca páginas",
-    "bookmarks": "Favoritos"
+    "bookmarks": "Favoritos",
+    "ok": "OK"
   },
   "nodeHealth": {
     "nodeReloading": "Nano node está recarregando",

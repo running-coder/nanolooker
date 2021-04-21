@@ -29,7 +29,8 @@
     "copied": "Gekopieerd",
     "copy": "Kopiëren",
     "bookmark": "Bladwijzer",
-    "bookmarks": "Bladwijzers"
+    "bookmarks": "Bladwijzers",
+    "ok": "OK"
   },
   "nodeHealth": {
     "nodeReloading": "Nano-knooppunt wordt opnieuw geladen",

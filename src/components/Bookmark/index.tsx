@@ -81,7 +81,7 @@ const Bookmark: React.FC<Props> = ({ type, bookmark, placement = "top" }) => {
                 setIsOpened(false);
               }}
             >
-              Ok
+              {t("common.ok")}
             </Button>
           </Space>
         </div>

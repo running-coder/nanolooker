@@ -12,6 +12,7 @@ import LanguagePreferences from "./Language";
 const Preferences: React.FC = () => {
   const { t } = useTranslation();
   const { theme } = React.useContext(PreferencesContext);
+  const [isOpen, setIsOpen] = React.useState(false);
   return (
     <Popover
       className={theme === Theme.DARK ? "theme-dark" : ""}
@@ -29,17 +30,23 @@ const Preferences: React.FC = () => {
           <FiatPreferences />
           <Row>
             <Col xs={24} style={{ textAlign: "right" }}>
-              <Link to="/preferences">{t("preferences.viewAll")}</Link>
+              <Link to="/preferences" onClick={() => setIsOpen(false)}>
+                {t("preferences.viewAll")}
+              </Link>
             </Col>
           </Row>
           <Row>
             <Col xs={24} style={{ textAlign: "right" }}>
-              <Link to="/bookmarks">{t("pages.bookmarks.viewAll")}</Link>
+              <Link to="/bookmarks" onClick={() => setIsOpen(false)}>
+                {t("pages.bookmarks.viewAll")}
+              </Link>
             </Col>
           </Row>
         </Card>
       }
       trigger="click"
+      visible={isOpen}
+      onVisibleChange={setIsOpen}
     >
       <SettingOutlined />
     </Popover>

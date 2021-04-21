@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link, useParams } from "react-router-dom";
 import { Button, Modal, Typography } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
@@ -17,6 +18,7 @@ interface QRCodeModalProps {
 const { Text } = Typography;
 
 const QRCodeModal = ({ header, account, children }: QRCodeModalProps) => {
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = React.useState(false);
   const [base64Image, setBase64Image] = React.useState<string>("");
   const { account: accountParam = "" } = useParams<PageParams>();
@@ -54,7 +56,7 @@ const QRCodeModal = ({ header, account, children }: QRCodeModalProps) => {
             type="primary"
             onClick={() => setIsVisible(false)}
           >
-            Ok
+            {t("common.ok")}
           </Button>,
         ]}
       >

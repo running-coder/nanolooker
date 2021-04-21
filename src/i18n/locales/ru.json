@@ -29,7 +29,8 @@
     "copied": "Скопировано",
     "copy": "Копировать",
     "bookmark": "Закладка",
-    "bookmarks": "Закладки"
+    "bookmarks": "Закладки",
+    "ok": "ОК"
   },
   "nodeHealth": {
     "nodeReloading": "Нано-узел перезагружается",

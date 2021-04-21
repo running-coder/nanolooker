@@ -29,7 +29,8 @@
     "copied": "Copiato",
     "copy": "copia",
     "bookmark": "Segnalibro",
-    "bookmarks": "Segnalibri"
+    "bookmarks": "Segnalibri",
+    "ok": "Ok"
   },
   "nodeHealth": {
     "nodeReloading": "Il nano nodo si sta ricaricando",

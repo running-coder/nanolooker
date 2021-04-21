@@ -1,0 +1,272 @@
+{
+  "common": {
+    "blockExplorer": "Blok Gezgini",
+    "account": "Hesap",
+    "block": "Blok",
+    "representative": "Temsilci",
+    "representatives": "Temsilciler",
+    "principalRepresentative": "Ana Temsilci",
+    "principalRepresentatives": "Ana Temsilciler",
+    "transaction": "İşlem",
+    "transactions": "İşlemler",
+    "delegator": "Yetki veren",
+    "delegators": "Yetkilendirenler",
+    "date": "Tarih (değiştir | kaynağı değiştir)",
+    "unknown": "Bilinmeyen",
+    "balance": "Denge",
+    "totalBalance": "Toplam Bakiye",
+    "weight": "Ağırlık",
+    "notAvailable": "Yok",
+    "continueReading": "okumaya devam et",
+    "alias": "Takma ad",
+    "search": "Arama",
+    "reset": "Sıfırla",
+    "searchAlias": "Takma Ad Ara",
+    "noResults": "Sonuç yok",
+    "by": "Tarafından",
+    "online": "İnternet üzerinden",
+    "offline": "Çevrimdışı",
+    "copied": "Kopyalandı",
+    "copy": "Kopyala",
+    "bookmark": "Yer imi",
+    "bookmarks": "Yer imleri",
+    "ok": "Tamam mı"
+  },
+  "nodeHealth": {
+    "nodeReloading": "Nano düğüm yeniden yükleniyor",
+    "nodeReady": "Nano düğümü hazır"
+  },
+  "transaction": {
+    "type": "Tür",
+    "accountAndBlock": "Hesap / Blok",
+    "send": "Gönder",
+    "receive": "Teslim almak",
+    "pending": "Bekliyor",
+    "change": "Değişiklik",
+    "open": "Açık",
+    "state": "Durum",
+    "epoch": "Dönem",
+    "cps": "CPS",
+    "amount": "Miktar"
+  },
+  "tooltips": {
+    "avgConfirmationTime": "Ortalama onay süresi, düğümde yerel olarak hesaplanır. Düğüm yeniden başlatılırsa veya düşürülmüş durumdaysa, ortalama onay süresi ağın geri kalanından daha yüksek olabilir.",
+    "circulatingSupply": "Dolaşımdaki bozuk para miktarı. Nano tamamen dağıtılmış durumda, arz asla artmayacak.",
+    "nanoTransactionFees": "Diğer kripto para birimlerinin aksine Nano işlemler sonsuza kadar ücretsizdir.",
+    "bitcoinTransactionFees": "Bu değerin NANO ağı üzerinde hiçbir etkisi yoktur, yalnızca karşılaştırma amaçlıdır. Bitcoin kullanıcılarının işlemlerinin Bitcoin ağında kabul edilmesini sağlamak için madencilere ödediği işlem ücretlerinin toplamını temsil eder.",
+    "cps": "Saniyedeki Onaylar. NANO ağında onaylanmış blokların (gönderme veya alma) oranı. Düğüm üzerinde yerel olarak son dakika boyunca örneklenir. Düğüm yeniden başlatılırsa veya düşürülmüş bir durumda ise, düğüm diğer düğümlerle eşitlenir ve yeniden bağlanırken CPS değeri ağdaki gerçek ortalamadan daha yüksek veya daha düşük olabilir.",
+    "votingWeight": "Asgari {{minWeight}} NANO veya kendisine devredilen çevrimiçi oy ağırlığının>% 0,1'i olan bir hesabın Ana Temsilci statüsünü alması gerekir. Oylama yapan bir düğümde yapılandırıldığında, ürettiği oylar onları alan diğer düğümler tarafından yeniden yayınlanır ve ağın fikir birliğine daha hızlı ulaşmasına yardımcı olur.",
+    "pending": "Bir blok gönderme fonunun yayınlandığı ve ağ tarafından onaylandığı, ancak bu fonları alan eşleşen bir bloğun henüz gönderilmediği veya onaylanmadığı bir işlem durumu.",
+    "nakamotoCoefficient": "Nakamoto katsayısı, bir blok zincirinin veya başka bir merkezi olmayan sistemin ademi merkeziyetini ölçmenin bir yoludur. En az bir temel alt sistemi tehlikeye atmanız gereken varlıkların sayısıdır. Nano için, ana temsilcilerin çevrimiçi oy ağırlığının% 50'sinden fazlasının tehlikeye atılması gerekiyor.",
+    "representatives": "Performansları optimize etmek için, yalnızca oylama ağırlığı> = 1000 NANO olan hesaplar dikkate alınır, ancak normalde> 0 oy ağırlığına sahip ancak çevrimiçi oylama ağırlığının <% 0,1'i olan herhangi bir hesap dikkate alınır.",
+    "principalRepresentatives": "Asgari {{principalRepresentativeMinWeight}} NANO veya kendisine devredilen çevrimiçi oy ağırlığının>% 0,1'i olan bir hesabın Ana Temsilci statüsünü alması gerekir. Oylama yapan bir düğümde yapılandırıldığında, ürettiği oylar onları alan diğer düğümler tarafından yeniden yayınlanır ve ağın fikir birliğine daha hızlı ulaşmasına yardımcı olur.",
+    "onlinePrincipalRepresentatives": "Yakın zamanda oy veren çevrimiçi temsilci hesapları.",
+    "lastTransaction": "Herhangi bir {{totalAccounts}} hesabından son gönderme işlemi.",
+    "largeTransactions": "Yalnızca 10.000 NANO veya daha fazla gönderme işlemi bir hafta süreyle geçici olarak kaydedilir.",
+    "knownExchangeBalance": "{{KnownExchangeList}} 'i dağıtım grafiğinden hariç tutun. Bu hesaplar birleşik tutuyor {{knownExchangeBalance}} NANO",
+    "unchecked": "İndirilmiş ancak henüz Nano düğümü tarafından işlenmemiş bloklar (işlemler). Düğüm yazılımı, diğer düğümlerdeki tüm engelleri kontrol edilmemiş olarak indirir, bunları işler ve blok sayısına ekler, her hesap için sınır bloklarını onaylar ve ardından bunları yapıştırılmış olarak işaretler.",
+    "cemented": "Belirli bir düğüm, hesabın onay yüksekliğini (düğüm veritabanında) onaylanan işlemin şimdi daha yüksek olan blok yüksekliğine ayarlayarak onaylanmış bir işlemi yerel olarak geri çevrilemez olarak işaretlediğinde. Çimentolama, düğüm düzeyinde bir işlemdir.",
+    "unknownLastTransaction": "İşlem tarihleri Şubat 2019'da tanıtıldı. Bu tarihten önce işlem saatleri düğümlere yerel olarak kaydedilmiyordu. Son işlem tarihinin bilinmemesinin nedeni, tarihler kaydedilmeden veya NanoLooker düğümü hizmete girmeden önce onaylanmış olmasıdır.",
+    "confirmationHeight": "Yerel düğüm veritabanında saklanan ve bir hesap zincirindeki en yüksek (en son) doğrulanmış bloğu temsil eden sayı. Blok yüksekliğiyle ilgili (ancak bundan farklı).",
+    "blockHeight": "Bir hesap zincirindeki bir bloğun sırasını temsil eden yerel bir tamsayı değeri. Örneğin, bir hesaptaki 15. bloğun blok yüksekliği 15 olacaktır. Onay yüksekliğiyle ilgili (ancak farklı).",
+    "bookmarks": "{{type, capitalize}} yer imleri cihazınıza kaydedilir. Bilinen {{type}} 'lerinizi onlara takma adlar vererek yönetebilirsiniz."
+  },
+  "search": {
+    "searchBy": "Adres / Blok / Bilinen Hesap ile Ara",
+    "noHistory": "Arama geçmişi yok"
+  },
+  "preferences": {
+    "viewAll": "Tüm tercihleri görüntüleyin",
+    "darkMode": "Karanlık mod",
+    "darkModeDetailed": "Ortamınıza bağlı olarak siteye göz atma deneyiminizi iyileştirmek için Açık veya Koyu moddan geçiş yapın.",
+    "language": "Dil",
+    "languageDetailed": "İstenilen dili seçin. NanoLooker, kaşifin çevirisini iyileştirmeye yardımcı olacak katkılar arıyor. <0> Katkıda bulunun </0>",
+    "watch": "Diğer kripto para birimlerini izleyin",
+    "watchSearch": "Kripto para birimlerinde ara",
+    "watchDetailed": "İlk 100'deki diğer kripto para birimlerinin fiyatını izleyin. Güncel piyasa fiyatları ve 24 saatlik değişim üst çubukta görünecektir. Ayrıca sürükle ve bırak yöntemiyle seçiminizi yeniden düzenleyebilirsiniz.",
+    "fiatCurrency": "Fiat para birimi",
+    "fiatCurrencyDetailed": "Fiat parası, devlet tarafından verilen para birimidir. Nano'nun fiyatını karşılaştırmak için bir itibari para birimi seçin.",
+    "natricons": "Natricons",
+    "natriconsDetailed": "Natricons, Nano adresleri için arkadaş canlısı ve tanıdık yüzlerdir. Bunları Hesap sayfalarında, yakınlarda bir Nano adres olan her yerde kullanın.",
+    "liveTransactions": "Canlı güncellemeleri etkinleştirin",
+    "liveTransactionsDetailed": "Nano ağında gerçekleşen canlı işlemleri izleyin. Ana sayfada mevcuttur.",
+    "filterTransactions": "1 NANO'nun altındaki tutarları dahil et",
+    "filterTransactionsDetailed": "Ana sayfadaki canlı işlemler akışında görüntülenecek küçük tutarları ekleyin.",
+    "contribute": "Katkıda bulunmak"
+  },
+  "menu": {
+    "explore": "keşfetmek",
+    "representatives": "Temsilciler",
+    "developerFund": "Geliştirici Fonu",
+    "knownAccounts": "Bilinen Hesaplar",
+    "largeTransactions": "Büyük İşlemler",
+    "distribution": "Dağıtım",
+    "exchangeTracker": "Exchange Tracker",
+    "faucets": "Musluklar",
+    "news": "Haberler",
+    "nodeStatus": "Düğüm Durumu",
+    "whatIsNano": "Nano nedir?",
+    "earnNano": "Nano Kazanın",
+    "preferences": "Tercihler"
+  },
+  "footer": {
+    "createdBy": "{{Creator}} tarafından oluşturuldu",
+    "donations": {
+      "donate": "Bağış yap",
+      "title": "NanoLooker bağış hesabı"
+    }
+  },
+  "pages": {
+    "home": {
+      "network": "Ağ",
+      "statistics": "İstatistik",
+      "market": "Market",
+      "marketCapRank": "Piyasa değeri sıralaması",
+      "marketCap": "Piyasa değeri",
+      "circulatingSupply": "Dolaşımdaki Arz",
+      "latestBlock": "En son blok",
+      "principalRepOnline": "Çevrimiçi Ana Temsilciler",
+      "ledgerSize": "Defter boyutu",
+      "last24Hours": "Son 24 saat",
+      "avgConfirmationTime": "Ort. onay süresi (saniye)",
+      "confirmedTransactions": "Onaylanmış işlemler",
+      "nanoTransactionFees": "NANO işlem ücretleri",
+      "exchangeVolume": "Değişim hacmi",
+      "onChainVolume": "Zincir üzerindeki NANO hacmi",
+      "bitcoinTransactionFees": "Madencilere ödenen Bitcoin işlem ücretleri",
+      "recentTransactions": "Son İşlemler",
+      "liveUpdatesDisabled": "Canlı güncellemeler devre dışı bırakıldı",
+      "waitingForTransactions": "İşlemler bekleniyor",
+      "connectingToBlockchain": "NANO blok zincirine bağlanma",
+      "reconnectingToBlockchain": "Bağlantı kesildi, NANO blok zincirine yeniden bağlanılıyor"
+    },
+    "account": {
+      "votingWeight": "Oy ağırlığı",
+      "percentNetworkVotingWeight": "ağ oylama ağırlığının yüzdesi",
+      "percentRepresentativeVotingWeight": "Temsilcinin oy ağırlığının yüzdesi",
+      "noRepresentative": "Temsilci Yok",
+      "confirmationHeight": "Onay yüksekliği",
+      "lastTransaction": "Son işlem",
+      "pendingTransactions": "bekleyen işlemler",
+      "loadMoreTransactions": "Daha fazla işlem yükle",
+      "viewTransactions": "İşlemleri görüntüleyin",
+      "notOpenedYet": "Bu hesap henüz açılmadı",
+      "notOpenedYetReason": "Hesap adresi geçerliyken, zincirinde henüz blok yayınlanmamıştır. NANO bu hesaba gönderilmişse, parayı cebe indirmek için yine de karşılık gelen bir blok yayınlaması gerekir.",
+      "missingAccount": "Eksik hesap",
+      "missingAccountInfo": "Hesap URL'de belirtilmemiştir. Bir hesabı aramak için üstteki arama çubuğunu kullanın veya URL'ye / account / sonrasına ekleyin."
+    },
+    "block": {
+      "blockSubtype": "Alt türü engelle",
+      "confirmedStatus": "Blok ağda onaylandı",
+      "pendingStatus": "Blok henüz ağda onaylanmadı",
+      "receiver": "Alıcı",
+      "sender": "Gönderen",
+      "previousBlock": "Önceki blok",
+      "height": "Blok yüksekliği",
+      "signature": "İmza",
+      "work": "İş",
+      "openAccountBlock": "Bu Blok hesabı açtı",
+      "originalBlockContent": "Orijinal Blok İçeriği",
+      "missingBlock": "Eksik blok",
+      "missingBlockInfo": "Blok URL'de belirtilmemiştir. Bir blok aramak için üstteki arama çubuğunu kullanın veya bunu URL'ye / block / sonrasına ekleyin.",
+      "blockNotFound": "Blok bulunamadı",
+      "blockNotFoundInfo": "İstediğiniz blok bulunamadı. Bloğun Nano ağında mevcut olması ancak düğüm tarafından henüz görülmemiş olması mümkündür. Doğru bloğu aradığınızdan emin olun veya daha sonra tekrar deneyin."
+    },
+    "representatives": {
+      "voteDistribution": "Oy dağıtımı",
+      "nakamotoCoefficient": "Nakamoto katsayısı",
+      "voteDistributionDescription": "Görsel basitleştirme için yalnızca ana temsilciler gösterilir",
+      "onlineRepresentatives": "Çevrimiçi Temsilciler",
+      "onlinePrincipalRepresentatives": "Çevrimiçi Ana Temsilciler",
+      "confirmationQuorum": "Doğrulama",
+      "principalRepresentativeMinWeight": "Ana Temsilci min. Ağırlık",
+      "onlineWrightQuorumPercent": "Çevrimiçi ağırlık yeter sayısı yüzdesi",
+      "minimumOnlineWeight": "Minimum çevrimiçi ağırlık",
+      "totalOnlineStake": "Toplam online bahis",
+      "totalPeerStake": "Toplam emsal hissesi",
+      "includeOfflineRepresentatives": "Çevrimdışı temsilcileri dahil et",
+      "groupByEntities": "Group Nano Foundation kuruluşları",
+      "viewDelegators": "{{Count}} yetki vereni görüntüle",
+      "loadAllRepresentatives": "Tüm temsilcileri yükle"
+    },
+    "representative": {
+      "votingWeight": "Temsilci oy ağırlığı",
+      "noDelegatorsFound": "Yetki veren bulunamadı"
+    },
+    "faucets": {
+      "description": "Musluklar, küçük miktarlarda NANO'yu ücretsiz olarak talep etmenize olanak tanır. Bu musluklar, merkezi olmayan bir ağ üzerinden anında dünya çapında NANO gönderip almanın ne kadar kolay olduğunu deneyimlemeniz içindir."
+    },
+    "developerFund": {
+      "description": "25.11.19 itibarıyla geliştirici fonu, dahili güvenlik politikası ve temsili oylama ağırlıklarının incelenmesinin ardından {{totalAccounts}} hesaplarına bölünmüştür.",
+      "lastTransaction": "Son işlem",
+      "allTransactions": "Tüm gönderme işlemlerini görüntüleyin",
+      "originalDeveloperFund": "Orijinal Geliştirici Fonu",
+      "originalDeveloperFundDescription": "Nano'nun (eski adıyla RaiBlocks) dağıtımı, 2015'in sonlarında başlayıp Ekim 2017'de sona eren manuel captcha'ları çözerek gerçekleştirildi. Dağıtım, <0> Genesis </0> miktarının ~% 39'u dağıtıldıktan ve geri kalan <1> yanmış </1>.",
+      "totalAccounts": "{{totalAccounts}} Toplam Hesap",
+      "percentOfTotal": "Dolaşan arzın% {{percent}} kadarı"
+    },
+    "knownAccounts": {
+      "totalAccounts": "{{totalAccounts}} Toplam Bilinen Hesaplar"
+    },
+    "largeTransactions": {
+      "description": "NANO blok zincirinde gerçekleşen büyük işlemler.",
+      "latest": "Son işlem",
+      "largest": "En büyük miktar"
+    },
+    "distribution": {
+      "title": "Nano Dağıtım",
+      "executionDate": "Son dağıtım derlemesi <0> {{date}} </0> tarihinde yapıldı",
+      "summary": "Toplam <0> {{i18nTotalAccounts}} </0> hesapta <1> {{i18nTotalBalances}} </1> NANO tutuyor",
+      "summaryMinBalance": "Bakiyesi <0> 0.001 </0> 'den düşük olan herhangi bir hesap hariç tutulur",
+      "includeKnownExchanges": "Bilinen değişimleri dahil et",
+      "logScale": "Günlük Ölçeği",
+      "dormantFunds": "Hareketsiz Fonlar",
+      "dormantFundsExperiment": "Bu, Nano blok zincirinde kaç hesabın aktif olduğunu anlamaya yönelik bir deneydir. {{TotalAccounts}} hesaplarının her biri için, yerel düğümdeki son işlem tarihi alınır. Her hesabın içerdiği bakiye ve bekleyen tutarlar, son işlem gördükleri ay için etkin olarak işaretlenir. Sonraki ay, bakiye ve bekleyen durum hareketsiz olarak işaretlenecek.",
+      "availableSupply": "Nano mevcut tedarik",
+      "knownAccountBalances": "Bilinen hesap bakiyeleri",
+      "unknownDormantFunds": "Bilinmeyen faal olmayan fonlar",
+      "dormantFundsQuarterExample": "50 NANO ve 50 bekleyen NANO tutan bir hesap en son 6 ay önce işlem görmüş (2 çeyrek), 100 NANO bakiyesi bir sonraki çeyreğin toplamına \"hareketsiz\" olarak eklenmiştir.",
+      "dormantNano": "NANO uyuyor",
+      "ofAvailableSupply": "mevcut arzın"
+    },
+    "news": {
+      "allFeeds": "Tüm Beslemeler",
+      "allAuthors": "Tüm Yazarlar"
+    },
+    "status": {
+      "blockCount": "Blok Sayısı",
+      "reload": "Tekrar yükle",
+      "count": "Miktar",
+      "unchecked": "Kontrol edilmedi",
+      "cemented": "Çimentolu",
+      "ledger": "Defter",
+      "availableSupply": "Mevcut tedarik",
+      "nanoAccounts": "NANO hesapları",
+      "ledgerSize": "Defter boyutu",
+      "activeDifficulty": "Aktif Zorluk",
+      "networkMinimum": "Ağ Minimum",
+      "networkCurrent": "Ağ Akımı",
+      "multiplier": "Çarpan",
+      "node": "Düğüm",
+      "version": "Versiyon",
+      "uptime": "Uptime",
+      "cpuUsage": "CPU kullanımı",
+      "memory": "Hafıza",
+      "peers": "Akranlar",
+      "connectedPeers": "Bağlı Eşler",
+      "protocolVersion": "Protokol Sürümü {{protocolVersion}}"
+    },
+    "exchangeTracker": {
+      "description": "Her gün, Nano'nun işlem gördüğü en popüler borsaların hesap bakiyelerinin bir kaydı alınır. Bu ölçüm, ağdaki hareketleri ve dalgalanmaları analiz etmek için kullanılabilir."
+    },
+    "preferences": {
+      "description": "Her bölüm için tercihlerinizi yönetin. Tercihler tarayıcıda saklanır, verilerinizi temizlerseniz tercihleriniz varsayılanlara geri döner.",
+      "general": "Genel Ayarlar",
+      "searchHistory": "Arama geçmişi"
+    },
+    "bookmarks": {
+      "viewAll": "Tüm yer imlerini görüntüleyin",
+      "noBookmarksFound": "Yer işareti bulunamadı"
+    }
+  }
+}

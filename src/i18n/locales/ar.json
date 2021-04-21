@@ -29,7 +29,8 @@
     "copied": "نسخ",
     "copy": "ينسخ",
     "bookmark": "المرجعية",
-    "bookmarks": "إشارات مرجعية"
+    "bookmarks": "إشارات مرجعية",
+    "ok": "نعم"
   },
   "nodeHealth": {
     "nodeReloading": "يتم إعادة تحميل عقدة النانو",

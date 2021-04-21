@@ -29,7 +29,8 @@
     "copied": "Copié",
     "copy": "Copier",
     "bookmark": "Signet",
-    "bookmarks": "Signets"
+    "bookmarks": "Signets",
+    "ok": "D'accord"
   },
   "nodeHealth": {
     "nodeReloading": "Le nœud Nano est en cours de rechargement",

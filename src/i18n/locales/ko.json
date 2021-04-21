@@ -29,7 +29,8 @@
     "copied": "복사 됨",
     "copy": "부",
     "bookmark": "서표",
-    "bookmarks": "북마크"
+    "bookmarks": "북마크",
+    "ok": "확인"
   },
   "nodeHealth": {
     "nodeReloading": "나노 노드가 다시로드됩니다.",

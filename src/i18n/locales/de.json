@@ -29,7 +29,8 @@
     "copied": "Kopiert",
     "copy": "Kopieren",
     "bookmark": "Lesezeichen",
-    "bookmarks": "Lesezeichen"
+    "bookmarks": "Lesezeichen",
+    "ok": "OK"
   },
   "nodeHealth": {
     "nodeReloading": "Der Nanoknoten wird neu geladen",
