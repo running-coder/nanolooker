@@ -48,6 +48,7 @@ Many of the most common languages are supported.
 - Español (es)
 - العربية (ar)
 - Deutsch (de)
+- فارسی (fa)
 - हिन्दी (hi)
 - Italiano (it)
 - 日本語 (ja)

@@ -4,6 +4,7 @@ import fr from "./locales/fr.json";
 import es from "./locales/es.json";
 import ar from "./locales/ar.json";
 import de from "./locales/de.json";
+import fa from "./locales/fa.json";
 import hi from "./locales/hi.json";
 import it from "./locales/it.json";
 import ja from "./locales/ja.json";
@@ -32,6 +33,9 @@ export const resources = {
   },
   hi: {
     translation: hi,
+  },
+  fa: {
+    translation: fa,
   },
   it: {
     translation: it,

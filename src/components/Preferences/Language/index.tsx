@@ -53,6 +53,7 @@ const LanguagePreferences: React.FC<Props> = ({ isDetailed }) => {
           <Option value="es">Español</Option>
           <Option value="ar">العربية</Option>
           <Option value="de">Deutsch</Option>
+          <Option value="fa">فارسی</Option>
           <Option value="hi">हिन्दी</Option>
           <Option value="it">Italiano</Option>
           <Option value="ja">日本語</Option>
