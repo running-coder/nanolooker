@@ -16,11 +16,11 @@ Nano makes money efficient for a more equal world — simple to pay with, easy t
 
 Copy the `.env` variables.
 
-```
-cp .template.env .env
+```bash
+cp .env.template .env
 ```
 
-```
+```env
 # NodeJS server port, default 3010
 SERVER_PORT=
 # Nano node RPC domain with port, default http://0.0.0.0:7076
@@ -33,18 +33,13 @@ SENTRY_DNS=
 GOOGLE_APPLICATION_CREDENTIALS=
 ```
 
-```
-# Install dependencies
-npm install
-# Start the Webserver
-npm start
-# On another tab, start the NodeJS server
-npm run start:server
-```
+- `npm install` - Install dependencies
+- `npm star` - Start the Webserver
+- `npm run start:server` - On another tab, start the NodeJS server
 
 ## Languages
 
-The language set in the Browser determines the language that NanoLooker will load and default to `en` if it's not in the supported list. Since most languages were generated using Google Translation API, some translations may be inaccurate. If you think some strings should be corrected open a PR.
+The language set in the Browser determines the language that NanoLooker will load and default to `en` if it's not in the supported list. Since most languages were generated using Google Translation API, some translations may be inaccurate.
 
 Many of the most common languages are supported.
 
@@ -62,6 +57,10 @@ Many of the most common languages are supported.
 - Pусский (ru)
 - Türkçe (tr)
 - 中文 (zh)
+
+### Contribution
+
+If you think some strings should be corrected open a PR with the corrections on the [language file](https://github.com/running-coder/nanolooker/tree/master/src/i18n/locales).
 
 ### Adding a new language or missing language keys
 
