@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Button, Space, Typography } from "antd";
 import {
+  CrownFilled,
   DollarOutlined,
   EuroOutlined,
   PayCircleOutlined,
@@ -62,6 +63,15 @@ const Banner: React.FC = () => {
         <Link to={"/what-is-nano"}>
           <Button ghost>{t("menu.whatIsNano")}</Button>
         </Link>
+
+        <Button
+          ghost
+          href="https://nanoroyale.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <CrownFilled style={{ color: "gold" }} />
+        </Button>
 
         <Button
           ghost
