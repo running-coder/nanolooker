@@ -4,9 +4,10 @@ const reverse = require("lodash/reverse");
 const { Sentry } = require("../sentry");
 const { rpc } = require("../rpc");
 const { DEVELOPER_FUND_ACCOUNTS } = require("../../src/knownAccounts.json");
+const { EXPIRE_1H } = require("../constants");
 
 const apiCache = new NodeCache({
-  stdTTL: 3600,
+  stdTTL: EXPIRE_1H,
   deleteOnExpire: true,
 });
 

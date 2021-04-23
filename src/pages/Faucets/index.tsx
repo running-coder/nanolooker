@@ -1,39 +1,39 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Card, Col, Row, Typography } from "antd";
 import { Link } from "react-router-dom";
+import { Card, Col, Row, Skeleton, Tooltip, Typography } from "antd";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import TimeAgo from "timeago-react";
+import { rpc } from "api/rpc";
+import { AccountHistory } from "api/hooks/use-account-history";
+import QuestionCircle from "components/QuestionCircle";
+import faucets from "./faucets.json";
 
 const { Title, Text } = Typography;
 
-const faucets = [
-  {
-    name: "nano-faucet",
-    account:
-      "nano_34prihdxwz3u4ps8qjnn14p7ujyewkoxkwyxm3u665it8rg5rdqw84qrypzk",
-    link: "https://nano-faucet.org/",
-  },
-  {
-    name: "FreeNanoFaucet",
-    account:
-      "nano_3kwppxjcggzs65fjh771ch6dbuic3xthsn5wsg6i5537jacw7m493ra8574x",
-    link: "https://www.freenanofaucet.com/",
-  },
-  {
-    name: "Apollo Faucet",
-    account:
-      "nano_1tyd79peyzk4bs5ok1enb633dqsrxou91k7y4zzo1oegw4s75bokmj1pey4s",
-    link: "https://twitter.com/ApolloNano/status/1365520666137481220",
-  },
-  {
-    name: "LuckyNano",
-    account:
-      "nano_1oenixj4qtpfcembga9kqwggkb87wooicfy5df8nhdywrjrrqxk7or4gz15b",
-    link: "https://luckynano.com/",
-  },
-];
-
 const FaucetsPage: React.FC = () => {
   const { t } = useTranslation();
+  const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
+  const [accountHistories, setAccountHistories] = React.useState(
+    [] as AccountHistory[],
+  );
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    Promise.all(
+      faucets.map(({ account }) =>
+        rpc("account_history", {
+          account,
+          count: 1,
+        }),
+      ),
+    ).then((histories: AccountHistory[]) => {
+      setAccountHistories(histories);
+      setIsLoading(false);
+    });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
@@ -47,30 +47,89 @@ const FaucetsPage: React.FC = () => {
         className="detail-layout"
         style={{ marginBottom: "12px" }}
       >
-        {faucets.map(({ name, account, link }) => (
-          <Row gutter={6} key={name}>
-            <Col xs={24} sm={6} xl={4}>
-              {name}
+        {!isSmallAndLower ? (
+          <Row gutter={6}>
+            <Col xs={24} sm={6} xl={4}></Col>
+            <Col xs={24} sm={4} xl={4}>
+              {t("pages.account.confirmationHeight")}
+              <Tooltip
+                placement="right"
+                title={t("tooltips.confirmationHeight")}
+              >
+                <QuestionCircle />
+              </Tooltip>
             </Col>
-            <Col xs={24} sm={18} xl={20}>
-              <Link
-                to={`/account/${account}`}
-                className="break-word color-normal"
-              >
-                {account}
-              </Link>
-              <br />
-              <a
-                href={link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="break-word"
-              >
-                {link}
-              </a>
+            <Col xs={24} sm={14} xl={16}>
+              {t("common.account")}
             </Col>
           </Row>
-        ))}
+        ) : null}
+        {faucets.map(({ name, account, link, byLink }) => {
+          const { height, local_timestamp: localTimestamp = 0 } =
+            accountHistories?.find(
+              ({ account: historyAccount }) => historyAccount === account,
+            )?.history[0] || {};
+
+          const modifiedTimestamp = Number(localTimestamp) * 1000;
+          return (
+            <Row gutter={6} key={name}>
+              <Col xs={24} sm={6} xl={4}>
+                {name}
+                {byLink ? (
+                  <>
+                    <br />
+                    {t("common.by")}{" "}
+                    <a href={byLink} target="_blank" rel="noopener noreferrer">
+                      {byLink}
+                    </a>
+                  </>
+                ) : null}
+              </Col>
+              <Col xs={24} sm={4} xl={4}>
+                <Skeleton loading={isLoading} active paragraph={false}>
+                  {isSmallAndLower ? (
+                    <>
+                      <Text
+                        style={{ fontSize: "12px" }}
+                        className="color-muted"
+                      >
+                        {t("pages.account.confirmationHeight")}
+                      </Text>{" "}
+                    </>
+                  ) : null}
+                  {height}
+                  <br />
+                  <Text style={{ fontSize: "12px" }} className="color-muted">
+                    {t("pages.account.lastTransaction")}
+                  </Text>{" "}
+                  <TimeAgo
+                    style={{ fontSize: "12px" }}
+                    className="color-muted"
+                    datetime={modifiedTimestamp}
+                    live={false}
+                  />
+                </Skeleton>
+              </Col>
+              <Col xs={24} sm={14} xl={16}>
+                <Link
+                  to={`/account/${account}`}
+                  className="break-word color-normal"
+                >
+                  {account}
+                </Link>
+                <br />
+                <a
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="break-word"
+                >
+                  {link}
+                </a>
+              </Col>
+            </Row>
+          );
+        })}
       </Card>
     </>
   );
