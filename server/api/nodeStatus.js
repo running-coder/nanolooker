@@ -4,13 +4,12 @@ const find = require("find-process");
 const pidusage = require("pidusage");
 const NodeCache = require("node-cache");
 const { Sentry } = require("../sentry");
+const { NODE_STATUS } = require("../constants");
 
 const apiCache = new NodeCache({
   stdTTL: 30,
   deleteOnExpire: true,
 });
-
-const NODE_STATUS = "NODE_STATUS";
 
 const getNodeStatus = async () => {
   let nodeStatus = apiCache.get(NODE_STATUS);

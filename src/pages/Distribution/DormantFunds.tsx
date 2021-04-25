@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { useTranslation } from "react-i18next";
 import find from "lodash/find";
 import { Card, Slider, Typography } from "antd";

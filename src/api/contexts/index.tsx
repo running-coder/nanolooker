@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import PreferencesProvider from "./Preferences";
 import MarketStatisticsProvider from "./MarketStatistics";
 import NodeStatusProvider from "./NodeStatus";

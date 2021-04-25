@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { BlockOutlined } from "@ant-design/icons";
 import { useParams } from "react-router-dom";
 import Copy from "components/Copy";

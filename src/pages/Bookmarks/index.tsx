@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Card, Col, Empty, Row, Typography } from "antd";
 import { BookmarksContext } from "api/contexts/Bookmarks";

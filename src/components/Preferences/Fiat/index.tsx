@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Col, Row, Select, Typography } from "antd";
 import { PreferencesContext, Fiat } from "api/contexts/Preferences";

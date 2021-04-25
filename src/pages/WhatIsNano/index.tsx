@@ -2,6 +2,7 @@ import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Card, Typography } from "antd";
+import { RedditOutlined } from "@ant-design/icons";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const { Title } = Typography;
@@ -18,12 +19,14 @@ const WhatIsNanoPage: React.FC = () => {
         size="small"
         bordered={false}
         className="what-is-nano-card"
-        style={{ fontSize: isSmallAndLower ? "14px" : "18px" }}
+        style={{
+          fontSize: isSmallAndLower ? "14px" : "18px",
+          paddingBottom: "24px",
+        }}
       >
         <Title level={2}>
           The basics of Nano — why you should be excited about it
         </Title>
-
         <span
           className="color-muted"
           style={{ display: "block", fontSize: "12px", marginBottom: "12px" }}
@@ -111,7 +114,8 @@ const WhatIsNanoPage: React.FC = () => {
           could be used for daily payments, by anyone in the world, without the
           emissions that come with Bitcoin.
         </p>
-        <blockquote>
+
+        <blockquote className="markdown color-muted">
           Nano makes money efficient for a more equal world — simple to pay
           with, easy to accept and open to all.
         </blockquote>
@@ -130,7 +134,6 @@ const WhatIsNanoPage: React.FC = () => {
             allowFullScreen
           ></iframe>
         </div>
-
         <p>
           As you can see in the video, Nano is borderless money. It’s completely
           feeless to send, and transfers instantly. It’s so energy efficient
@@ -176,7 +179,6 @@ const WhatIsNanoPage: React.FC = () => {
           </li>
           <li>Fill in your Nano_ address and hit send.</li>
         </ol>
-
         <p>
           That’s all! To really try it out I’d recommend getting a second wallet
           such as{" "}
@@ -201,11 +203,9 @@ const WhatIsNanoPage: React.FC = () => {
           </a>
           ), then sending some Nano from your first wallet to the second.
         </p>
-
         <Title level={3} style={{ marginTop: "18px" }}>
           So how does this work?
         </Title>
-
         <p>
           Nano is a cryptocurrency, but uses a different model than traditional
           cryptocurrencies such as Bitcoin. Rather than having one big
@@ -218,7 +218,16 @@ const WhatIsNanoPage: React.FC = () => {
           >
             Block Lattice
           </a>
-          . Rather than competing for space, users add blocks to their own chain
+          .
+        </p>
+        <img
+          alt="Nano uses a block-lattice"
+          src="/what-is-nano/nano-block-lattice.gif"
+          width="100%"
+          style={{ maxWidth: 700, margin: "18px 0" }}
+        />
+        <p>
+          Rather than competing for space, users add blocks to their own chain
           which are processed asynchronously, instantly. Due to this innovative
           model of adding blocks to the ledger, the network has no limit in
           terms of transactions or confirmations per second it can process. As
@@ -236,7 +245,6 @@ const WhatIsNanoPage: React.FC = () => {
             style={{ maxWidth: 600, marginTop: "18px" }}
           />
         </a>
-
         <Title level={3} style={{ marginTop: "18px" }}>
           So there’s no mining?
         </Title>
@@ -250,7 +258,6 @@ const WhatIsNanoPage: React.FC = () => {
           limited by internet connection latency (practically the speed of
           light).
         </p>
-
         <p>
           The lack of mining is also what makes Nano so incredibly energy
           efficient. In Bitcoin, miners essentially engage in a bidding war,
@@ -258,14 +265,12 @@ const WhatIsNanoPage: React.FC = () => {
           the one to add the next block to the chain. Nano does away with this
           competition, away with this energy waste, and focuses on efficiency.
         </p>
-
         <img
           alt="Nano is environmental friendly versus Bitcoin"
           src="/what-is-nano/nano-vs-bitcoin.png"
           width="100%"
           style={{ maxWidth: 600, marginTop: "18px" }}
         />
-
         <Title level={3} style={{ marginTop: "18px" }}>
           What’s the idea behind this?
         </Title>
@@ -278,7 +283,64 @@ const WhatIsNanoPage: React.FC = () => {
           Because there are no fees and there is no inflation, no money is lost
           when either storing value in Nano, or when using Nano.
         </p>
+        <Title level={3} style={{ marginTop: "18px" }}>
+          The gaming industry
+        </Title>
+        <p>
+          Enabling fast and instant micro transactions unlocks a world of
+          possibilities for game developers. Anything from a power-up store,
+          unlocks, new skins, rewards can be easily integrated with Nano.
+        </p>
 
+        <ul
+          style={{
+            width: "100%",
+
+            margin: "0 auto 18px auto",
+          }}
+        >
+          <li>
+            A{" "}
+            <a
+              href="https://assetstore.unity.com/packages/tools/integration/nano-190960"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Unity Nano Plugin
+            </a>{" "}
+            is available for free on the Unity store which unlocks 1.3 million
+            developers.
+          </li>
+
+          <li>
+            An{" "}
+            <a
+              href="https://github.com/wezrule/UE4NanoPlugin"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Unreal Engine 4 Plugin
+            </a>{" "}
+            is available. Unreal Engine is behind some of the most successful
+            games of all time; Fortnite, Street Fighter V, Borderlands and Final
+            Fantasy VII Remake just to name a few.
+          </li>
+        </ul>
+
+        <div
+          className={isSmallAndLower ? "video-wrapper" : ""}
+          style={{ margin: "12px 0" }}
+        >
+          <iframe
+            title="Nano Unreal Engine plugin integrated with the ActionRPG game"
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/gMtzOkaNnXc"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
         <Title level={3} style={{ marginTop: "18px" }}>
           So why hasn’t this taken off yet?
         </Title>
@@ -296,7 +358,6 @@ const WhatIsNanoPage: React.FC = () => {
           by saying that you spent so long reading this, you might as well try
           it out, for free!
         </p>
-
         <p>
           We Nano enthusiasts welcome anyone who wants to talk about Nano
           <br /> on{" "}
@@ -305,7 +366,7 @@ const WhatIsNanoPage: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Reddit
+            <RedditOutlined /> Reddit
           </a>{" "}
           and{" "}
           <a
@@ -318,18 +379,23 @@ const WhatIsNanoPage: React.FC = () => {
           .
         </p>
 
-        <a
-          href="https://medium.com/nanocurrency/why-you-should-take-your-nano-off-exchanges-for-yourself-the-network-and-nanos-value-b1890b01136c"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            alt="Nano is environmental friendly versus Bitcoin"
-            src="/what-is-nano/nano-decentralization.png"
-            width="100%"
-            style={{ maxWidth: 600, marginTop: "18px" }}
-          />
-        </a>
+        <blockquote className="markdown color-muted">
+          Nano's decentralization argument is strong because it's the{" "}
+          <strong>easiest</strong> and <strong>least risky</strong> system for
+          people to participate in consensus. From an economic standpoint
+          requiring <strong>capital expenditure</strong> and{" "}
+          <strong>giving monetary reward</strong> will result in economies of
+          scale trying to minimize capital cost and maximize return which{" "}
+          <strong>results in centralization.</strong> - Colin LeMahieu, Founder
+          of Nano
+        </blockquote>
+
+        <p>
+          Learn more on{" "}
+          <a href="https://nano.org" target="_blank" rel="noopener noreferrer">
+            https://nano.org/
+          </a>
+        </p>
       </Card>
     </>
   );

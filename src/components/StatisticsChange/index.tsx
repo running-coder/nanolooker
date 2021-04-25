@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import BigNumber from "bignumber.js";
 import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons";
 import { Colors } from "components/utils";

@@ -107,7 +107,9 @@
     "nodeStatus": "노드 상태",
     "whatIsNano": "나노 란?",
     "earnNano": "나노 적립",
-    "preferences": "환경 설정"
+    "preferences": "환경 설정",
+    "status": "상태",
+    "networkStatus": "네트워크 상태"
   },
   "footer": {
     "createdBy": "작성자 : {{creator}}",
@@ -254,7 +256,14 @@
       "memory": "기억",
       "peers": "동료",
       "connectedPeers": "연결된 피어",
-      "protocolVersion": "프로토콜 버전 {{protocolVersion}}"
+      "protocolVersion": "프로토콜 버전 {{protocolVersion}}",
+      "monitor": "감시 장치",
+      "stats": "통계",
+      "location": "위치",
+      "sync": "동조",
+      "ip": "IP",
+      "nodeMonitors": "노드 모니터",
+      "noMonitorFound": "모니터를 찾을 수 없습니다."
     },
     "exchangeTracker": {
       "description": "Nano가 거래되는 가장 인기있는 거래소의 계정 잔액을 매일 캡처합니다. 이 측정은 네트워크의 움직임과 변동을 분석하는 데 사용할 수 있습니다."

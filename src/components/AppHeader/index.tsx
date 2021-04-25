@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Col, Layout, Menu, Row } from "antd";
@@ -101,11 +101,23 @@ const AppHeader: React.FC = () => {
                 {t("menu.news")}
                 <Link to="/news" />
               </Menu.Item>
-              <Menu.Item key="status">
-                <DatabaseOutlined />
-                {t("menu.nodeStatus")}
-                <Link to="/status" />
-              </Menu.Item>
+              <SubMenu
+                title={
+                  <>
+                    <DatabaseOutlined />
+                    {t("menu.status")}
+                  </>
+                }
+              >
+                <Menu.Item key="node-status">
+                  {t("menu.nodeStatus")}
+                  <Link to="/node-status" />
+                </Menu.Item>
+                <Menu.Item key="network-status">
+                  {t("menu.networkStatus")}
+                  <Link to="/network-status" />
+                </Menu.Item>
+              </SubMenu>
             </Menu>
           </Col>
 

@@ -104,6 +104,8 @@
     "exchangeTracker": "Exchange Tracker",
     "faucets": "Faucets",
     "news": "News",
+    "status": "Status",
+    "networkStatus": "Network Status",
     "nodeStatus": "Node Status",
     "whatIsNano": "What is Nano ?",
     "earnNano": "Earn Nano",
@@ -254,7 +256,14 @@
       "memory": "Memory",
       "peers": "Peers",
       "connectedPeers": "Connected Peers",
-      "protocolVersion": "Protocol Version {{protocolVersion}}"
+      "protocolVersion": "Protocol Version {{protocolVersion}}",
+      "monitor": "Monitor",
+      "stats": "Stats",
+      "location": "Location",
+      "sync": "Sync",
+      "ip": "IP",
+      "nodeMonitors": "Node monitors",
+      "noMonitorFound": "No monitor found"
     },
     "exchangeTracker": {
       "description": "Every day a capture of the account balances of the most popular exchanges where Nano is traded is taken. This measurement can be used to analyze movements and fluctuations on the network."

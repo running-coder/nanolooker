@@ -107,7 +107,9 @@
     "nodeStatus": "Knotenstatus",
     "whatIsNano": "Was ist Nano?",
     "earnNano": "Verdiene Nano",
-    "preferences": "Einstellungen"
+    "preferences": "Einstellungen",
+    "status": "Status",
+    "networkStatus": "Netzwerkstatus"
   },
   "footer": {
     "createdBy": "Erstellt von {{Schöpfer}}",
@@ -254,7 +256,14 @@
       "memory": "Erinnerung",
       "peers": "Gleichaltrigen",
       "connectedPeers": "Verbundene Peers",
-      "protocolVersion": "Protokollversion {{protocolVersion}}"
+      "protocolVersion": "Protokollversion {{protocolVersion}}",
+      "monitor": "Monitor",
+      "stats": "Statistiken",
+      "location": "Ort",
+      "sync": "Synchronisieren",
+      "ip": "IP",
+      "nodeMonitors": "Knotenmonitore",
+      "noMonitorFound": "Kein Monitor gefunden"
     },
     "exchangeTracker": {
       "description": "Jeden Tag wird eine Erfassung der Kontensalden der beliebtesten Börsen vorgenommen, an denen Nano gehandelt wird. Mit dieser Messung können Bewegungen und Schwankungen im Netzwerk analysiert werden."

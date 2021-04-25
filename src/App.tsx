@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { Helmet } from "react-helmet";
 import { Route, Switch } from "react-router-dom";
 import { Layout } from "antd";
@@ -18,7 +18,8 @@ import KnownAccountsPage from "pages/KnownAccounts";
 import AccountPage from "pages/Account";
 import BlockPage from "pages/Block";
 import NewsPage from "pages/News";
-import StatusPage from "pages/Status";
+import NodeStatusPage from "pages/NodeStatus";
+import NetworkStatusPage from "pages/NetworkStatus";
 import EarnNanoPage from "pages/EarnNano";
 import WhatIsNanoPage from "pages/WhatIsNano";
 import PreferencesPage from "pages/Preferences";
@@ -68,7 +69,8 @@ const App: React.FC = () => {
             />
             <Route path="/block/:block?" component={BlockPage} />
             <Route path="/news/:feed?" component={NewsPage} />
-            <Route path="/status" component={StatusPage} />
+            <Route path="/node-status" component={NodeStatusPage} />
+            <Route path="/network-status" component={NetworkStatusPage} />
             <Route path="/earn-nano/:section?" component={EarnNanoPage} />
             <Route path="/what-is-nano" component={WhatIsNanoPage} />
             <Route path="/preferences" component={PreferencesPage} />

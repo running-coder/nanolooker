@@ -107,7 +107,9 @@
     "nodeStatus": "Status du nœud",
     "whatIsNano": "Qu'est-ce que Nano ?",
     "earnNano": "Gagner des Nano",
-    "preferences": "Préférences"
+    "preferences": "Préférences",
+    "status": "Statut",
+    "networkStatus": "L'état du réseau"
   },
   "footer": {
     "createdBy": "Créé par {{creator}}",
@@ -254,7 +256,14 @@
       "memory": "Mémoire",
       "peers": "Homologues",
       "connectedPeers": "Homologues connectés",
-      "protocolVersion": "Version du protocol {{protocolVersion}}"
+      "protocolVersion": "Version du protocol {{protocolVersion}}",
+      "monitor": "Surveiller",
+      "stats": "Statistiques",
+      "location": "Emplacement",
+      "sync": "Synchroniser",
+      "ip": "IP",
+      "nodeMonitors": "Moniteurs de nœuds",
+      "noMonitorFound": "Aucun moniteur trouvé"
     },
     "exchangeTracker": {
       "description": "Chaque jour, une capture du solde des comptes des plateformes d'échanges les plus populaires où Nano est négocié est pris. Cette mesure peut permettre d'analyser les mouvements et fluctuations sur le réseau."

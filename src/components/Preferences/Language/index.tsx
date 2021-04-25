@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import i18next from "i18next";
 import { Trans, useTranslation } from "react-i18next";
 import { Col, Row, Select, Typography } from "antd";

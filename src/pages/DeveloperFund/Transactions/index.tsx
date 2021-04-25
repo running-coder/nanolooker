@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { Typography } from "antd";
 import useDeveloperFundTransactions from "api/hooks/use-developer-fund-transactions";
 import TransactionsTable from "pages/Account/Transactions";

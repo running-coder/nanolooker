@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { AutoComplete, Col, Row, Typography } from "antd";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";

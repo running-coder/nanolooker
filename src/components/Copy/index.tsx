@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Button, Tooltip } from "antd";
 import { CheckCircleFilled, CopyOutlined, CopyFilled } from "@ant-design/icons";

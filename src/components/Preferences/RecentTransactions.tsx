@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { Card, Popover } from "antd";
 import { SettingOutlined } from "@ant-design/icons";
 import LiveTransactionsPreferences from "./LiveTransactions";

@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import qs from "qs";
 import { PreferencesContext, Fiat } from "./Preferences";
 

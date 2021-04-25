@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import find from "lodash/find";
 import { KNOWN_EXCHANGE_ACCOUNTS } from "../../knownAccounts.json";
 

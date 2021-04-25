@@ -107,7 +107,9 @@
     "nodeStatus": "Status do nó",
     "whatIsNano": "O que é o Nano ?",
     "earnNano": "Ganhe Nano",
-    "preferences": "Preferências"
+    "preferences": "Preferências",
+    "status": "Status",
+    "networkStatus": "Status da rede"
   },
   "footer": {
     "createdBy": "Criado por {{creator}}",
@@ -254,7 +256,14 @@
       "memory": "Memória",
       "peers": "Nós",
       "connectedPeers": "Nós conectados",
-      "protocolVersion": "Versão do protocolo {{protocolVersion}}"
+      "protocolVersion": "Versão do protocolo {{protocolVersion}}",
+      "monitor": "Monitor",
+      "stats": "Estatísticas",
+      "location": "Localização",
+      "sync": "Sincronizar",
+      "ip": "IP",
+      "nodeMonitors": "Monitores de nó",
+      "noMonitorFound": "Nenhum monitor encontrado"
     },
     "exchangeTracker": {
       "description": "Todos os dias é feita uma captura dos saldos das contas das bolsas mais populares onde o Nano é negociado. Esta medição pode ser usada para analisar movimentos e flutuações na rede."

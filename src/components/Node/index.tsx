@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Button, Card, Tooltip } from "antd";
 import { ReloadOutlined } from "@ant-design/icons";
@@ -73,9 +73,9 @@ const Node: React.FC = () => {
       <LoadingStatistic
         title={t("pages.status.memory")}
         value={`${new BigNumber(memory)
-          .dividedBy(1000e6)
+          .dividedBy(1e9)
           .toFormat(2)} / ${new BigNumber(total)
-          .dividedBy(1000e6)
+          .dividedBy(1e9)
           .toFormat(2)}`}
         suffix="GB"
         isLoading={isNodeStatusLoading}

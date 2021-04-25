@@ -107,7 +107,9 @@
     "nodeStatus": "नोड स्थिति",
     "whatIsNano": "नैनो क्या है?",
     "earnNano": "नैनो कमाओ",
-    "preferences": "पसंद"
+    "preferences": "पसंद",
+    "status": "स्थिति",
+    "networkStatus": "नेटवर्क की स्थिति"
   },
   "footer": {
     "createdBy": "{{Creator}} द्वारा बनाया गया",
@@ -254,7 +256,14 @@
       "memory": "स्मृति",
       "peers": "साथियों",
       "connectedPeers": "जुड़े हुए साथियों",
-      "protocolVersion": "प्रोटोकॉल संस्करण {{ProtocolVersion}}"
+      "protocolVersion": "प्रोटोकॉल संस्करण {{ProtocolVersion}}",
+      "monitor": "मॉनिटर",
+      "stats": "आँकड़े",
+      "location": "स्थान",
+      "sync": "सिंक",
+      "ip": "आईपी",
+      "nodeMonitors": "नोड मॉनिटर",
+      "noMonitorFound": "कोई मॉनिटर नहीं मिला"
     },
     "exchangeTracker": {
       "description": "हर दिन सबसे लोकप्रिय एक्सचेंजों के खाते में शेष राशि पर कब्जा कर लिया जाता है जहां नैनो का कारोबार होता है। इस माप का उपयोग नेटवर्क पर आंदोलनों और उतार-चढ़ाव का विश्लेषण करने के लिए किया जा सकता है।"

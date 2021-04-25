@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 
 const SEARCH_HISTORY_KEY: string = "SEARCH_HISTORY";
 const MAX_HISTORY = 10;

@@ -107,7 +107,9 @@
     "nodeStatus": "ノードステータス",
     "whatIsNano": "ナノとは？",
     "earnNano": "Nanoを獲得する",
-    "preferences": "環境設定"
+    "preferences": "環境設定",
+    "status": "状態",
+    "networkStatus": "ネットワークステータス"
   },
   "footer": {
     "createdBy": "{{creator}}によって作成されました",
@@ -254,7 +256,14 @@
       "memory": "記憶",
       "peers": "ピア",
       "connectedPeers": "接続されたピア",
-      "protocolVersion": "プロトコルバージョン{{protocolVersion}}"
+      "protocolVersion": "プロトコルバージョン{{protocolVersion}}",
+      "monitor": "モニター",
+      "stats": "統計",
+      "location": "ロケーション",
+      "sync": "同期",
+      "ip": "IP",
+      "nodeMonitors": "ノードモニター",
+      "noMonitorFound": "モニターが見つかりません"
     },
     "exchangeTracker": {
       "description": "Nanoが取引されている最も人気のある取引所の口座残高を毎日取得します。この測定値は、ネットワーク上の動きや変動を分析するために使用できます。"

@@ -107,7 +107,9 @@
     "nodeStatus": "节点状态",
     "whatIsNano": "什么是纳米？",
     "earnNano": "赚取纳米",
-    "preferences": "首选项"
+    "preferences": "首选项",
+    "status": "地位",
+    "networkStatus": "网络状态"
   },
   "footer": {
     "createdBy": "由{{creator}}创建",
@@ -254,7 +256,14 @@
       "memory": "记忆",
       "peers": "同行",
       "connectedPeers": "连接对等",
-      "protocolVersion": "协议版本{{protocolVersion}}"
+      "protocolVersion": "协议版本{{protocolVersion}}",
+      "monitor": "监视器",
+      "stats": "统计资料",
+      "location": "地点",
+      "sync": "同步",
+      "ip": "知识产权",
+      "nodeMonitors": "节点监视器",
+      "noMonitorFound": "找不到监视器"
     },
     "exchangeTracker": {
       "description": "每天都会记录Nano交易所在的最受欢迎交易所的账户余额。此度量可用于分析网络上的移动和波动。"

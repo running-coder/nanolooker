@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { QuestionCircleTwoTone, QuestionCircleFilled } from "@ant-design/icons";
 import { Theme, PreferencesContext } from "api/contexts/Preferences";
 import { Colors } from "components/utils";

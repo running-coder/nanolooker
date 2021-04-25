@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { Link } from "react-router-dom";
 import { Button, Row, Col } from "antd";
 import { WalletOutlined, QrcodeOutlined } from "@ant-design/icons";

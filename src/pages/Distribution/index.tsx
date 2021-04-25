@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { useTranslation, Trans } from "react-i18next";
 import { Card, Switch, Tooltip, Typography } from "antd";
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";

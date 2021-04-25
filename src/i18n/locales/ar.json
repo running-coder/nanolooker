@@ -107,7 +107,9 @@
     "nodeStatus": "حالة العقدة",
     "whatIsNano": "ما هو النانو؟",
     "earnNano": "اكسب نانو",
-    "preferences": "التفضيلات"
+    "preferences": "التفضيلات",
+    "status": "حالة",
+    "networkStatus": "حالة الشبكة"
   },
   "footer": {
     "createdBy": "تم إنشاؤه بواسطة {{creator}}",
@@ -254,7 +256,14 @@
       "memory": "ذاكرة",
       "peers": "الأقران",
       "connectedPeers": "الأقران المتصلون",
-      "protocolVersion": "إصدار البروتوكول {{protocolVersion}}"
+      "protocolVersion": "إصدار البروتوكول {{protocolVersion}}",
+      "monitor": "مراقب",
+      "stats": "احصائيات",
+      "location": "موقع",
+      "sync": "مزامنة",
+      "ip": "IP",
+      "nodeMonitors": "شاشات العقدة",
+      "noMonitorFound": "لم يتم العثور على شاشة"
     },
     "exchangeTracker": {
       "description": "كل يوم يتم الحصول على أرصدة حسابات أكثر البورصات شعبية حيث يتم تداول Nano. يمكن استخدام هذا القياس لتحليل الحركات والتقلبات على الشبكة."

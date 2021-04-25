@@ -107,7 +107,9 @@
     "nodeStatus": "وضعیت گره",
     "whatIsNano": "نانو چیست؟",
     "earnNano": "نانو بدست بیار",
-    "preferences": "اولویت ها"
+    "preferences": "اولویت ها",
+    "status": "وضعیت",
+    "networkStatus": "وضعیت شبکه"
   },
   "footer": {
     "createdBy": "ایجاد شده توسط {{سازنده}}",
@@ -254,7 +256,14 @@
       "memory": "حافظه",
       "peers": "همسالان",
       "connectedPeers": "همتایان متصل",
-      "protocolVersion": "نسخه پروتکل {{protocolVersion}}"
+      "protocolVersion": "نسخه پروتکل {{protocolVersion}}",
+      "monitor": "مانیتور کنید",
+      "stats": "آمار",
+      "location": "محل",
+      "sync": "همگام سازی",
+      "ip": "IP",
+      "nodeMonitors": "مانیتورهای گره",
+      "noMonitorFound": "هیچ مانیتور پیدا نشد"
     },
     "exchangeTracker": {
       "description": "هر روز از موجودی حساب محبوب ترین صرافی هایی که نانو در آن تجارت می شود گرفته می شود. از این اندازه گیری می توان برای تجزیه و تحلیل حرکات و نوسانات موجود در شبکه استفاده کرد."

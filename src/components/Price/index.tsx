@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { Skeleton } from "antd";
 import BigNumber from "bignumber.js";
 import {

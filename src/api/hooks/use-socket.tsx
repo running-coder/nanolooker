@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import find from "lodash/find";
 import BigNumber from "bignumber.js";
 import { rawToRai } from "components/utils";

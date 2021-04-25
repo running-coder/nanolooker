@@ -1,5 +1,6 @@
 require("dotenv").config();
 require("./cron/ws");
+require("./cron/networkStatus");
 require("./cron/marketCapRank");
 const { getDistributionData } = require("./cron/distribution");
 require("./ws");
@@ -32,6 +33,7 @@ const { getLargeTransactions } = require("./api/largeTransactions");
 const { getNodeStatus } = require("./api/nodeStatus");
 const { getKnownAccounts } = require("./api/knownAccounts");
 const { getDelegators, getAllDelegators } = require("./api/delegators");
+const { getNetworkStatus } = require("./api/networkStatus");
 
 const app = express();
 
@@ -135,6 +137,12 @@ app.get("/api/node-status", async (req, res) => {
   const { nodeStatus } = await getNodeStatus();
 
   return res.send(nodeStatus);
+});
+
+app.get("/api/network-status", async (req, res) => {
+  const networkStatus = await getNetworkStatus();
+
+  return res.send(networkStatus);
 });
 
 app.use(express.static(path.join(__dirname, "../dist")));

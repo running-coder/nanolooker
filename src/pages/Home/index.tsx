@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Card, Col, Row } from "antd";
 import BigNumber from "bignumber.js";
@@ -139,7 +139,7 @@ const HomePage = () => {
                   title={t("pages.home.ledgerSize")}
                   suffix="GB"
                   value={new BigNumber(ledgerSize)
-                    .dividedBy(1000e6)
+                    .dividedBy(1e9)
                     .toFormat(2)}
                 />
               </Col>

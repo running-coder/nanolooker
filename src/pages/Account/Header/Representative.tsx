@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Tag, Typography } from "antd";
 import { RepresentativesContext } from "api/contexts/Representatives";

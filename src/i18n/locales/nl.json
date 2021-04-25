@@ -107,7 +107,9 @@
     "nodeStatus": "Knooppuntstatus",
     "whatIsNano": "Wat is nano?",
     "earnNano": "Verdien nano",
-    "preferences": "Voorkeuren"
+    "preferences": "Voorkeuren",
+    "status": "Toestand",
+    "networkStatus": "Netwerk status"
   },
   "footer": {
     "createdBy": "Gemaakt door {{creator}}",
@@ -254,7 +256,14 @@
       "memory": "Geheugen",
       "peers": "Peers",
       "connectedPeers": "Verbonden peers",
-      "protocolVersion": "Protocolversie {{protocolVersion}}"
+      "protocolVersion": "Protocolversie {{protocolVersion}}",
+      "monitor": "Monitor",
+      "stats": "Statistieken",
+      "location": "Plaats",
+      "sync": "Synchroniseren",
+      "ip": "IK P",
+      "nodeMonitors": "Node-monitoren",
+      "noMonitorFound": "Geen monitor gevonden"
     },
     "exchangeTracker": {
       "description": "Elke dag wordt een opname gemaakt van de rekeningsaldi van de meest populaire beurzen waar Nano wordt verhandeld. Deze meting kan worden gebruikt om bewegingen en fluctuaties op het netwerk te analyseren."
