@@ -5,7 +5,11 @@ const { rawToRai } = require("../utils");
 const { rpc } = require("../rpc");
 const { nodeCache } = require("../cache");
 const { Sentry } = require("../sentry");
-const { KNOWN_ACCOUNTS, KNOWN_ACCOUNTS_BALANCE } = require("../constants");
+const {
+  KNOWN_ACCOUNTS,
+  KNOWN_ACCOUNTS_BALANCE,
+  EXPIRE_48H,
+} = require("../constants");
 
 const doKnownAccountsCron = async () => {
   let knownAccounts = [];
@@ -22,13 +26,23 @@ const doKnownAccountsCron = async () => {
   return knownAccounts;
 };
 
-const doKnownAccountsBalanceCron = async knownAccounts => {
+const doKnownAccountsBalanceCron = async () => {
   let knownAccountsBalance = [];
 
   try {
-    const accounts = knownAccounts.flatMap(({ account }) => [account]);
+    const knownAccounts = await (nodeCache.get(KNOWN_ACCOUNTS) ||
+      doKnownAccountsCron());
+    let accounts = knownAccounts.flatMap(({ account }) => [account]);
 
-    // @TODO put the low balance account (< 1NANO) on a 48h update rotation
+    let ignoredKnownAccountBalances =
+      nodeCache.get(`${KNOWN_ACCOUNTS_BALANCE}_IGNORED`) || [];
+
+    // Remove accounts with balance lower than 10 NANO for 48h
+    if (ignoredKnownAccountBalances.length) {
+      accounts = accounts.filter(
+        account => !ignoredKnownAccountBalances.includes(account),
+      );
+    }
 
     const { balances } =
       (await rpc("accounts_balances", {
@@ -57,7 +71,17 @@ const doKnownAccountsBalanceCron = async knownAccounts => {
           .filter(({ alias }) => !!alias)
       : [];
 
-    nodeCache.set(KNOWN_ACCOUNTS_BALANCE, knownAccounts);
+    ignoredKnownAccountBalances = knownAccountsBalance
+      .filter(({ total }) => total < 10)
+      .flatMap(({ account }) => [account]);
+
+    nodeCache.set(
+      `${KNOWN_ACCOUNTS_BALANCE}_IGNORED`,
+      ignoredKnownAccountBalances || [],
+      EXPIRE_48H,
+    );
+
+    nodeCache.set(KNOWN_ACCOUNTS_BALANCE, knownAccountsBalance);
   } catch (err) {
     console.log("Error", err);
     Sentry.captureException(err);
@@ -74,16 +98,15 @@ cron.schedule("*/5 * * * *", async () => {
   doKnownAccountsCron();
 });
 
-// Once per hour at minute 15
-// https://crontab.guru/#15_*_*_*_*
-cron.schedule("15 * * * *", async () => {
+// At every 15th minute.
+// https://crontab.guru/#*/15_*_*_*_*
+cron.schedule("*/15 * * * *", async () => {
   if (process.env.NODE_ENV !== "production") return;
 
   doKnownAccountsBalanceCron();
 });
 
 if (process.env.NODE_ENV === "production") {
-  // Only do this one, since it will do the other
   doKnownAccountsBalanceCron();
 }
 
