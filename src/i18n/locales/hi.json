@@ -262,7 +262,7 @@
       "location": "स्थान",
       "sync": "सिंक",
       "ip": "आईपी",
-      "nodeMonitors": "नोड मॉनिटर",
+      "nodeMonitors": "{{count}} नोड मॉनिटर",
       "noMonitorFound": "कोई मॉनिटर नहीं मिला"
     },
     "exchangeTracker": {

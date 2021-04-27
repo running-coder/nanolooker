@@ -2,17 +2,12 @@ const fs = require("fs");
 const os = require("os");
 const find = require("find-process");
 const pidusage = require("pidusage");
-const NodeCache = require("node-cache");
+const { nodeCache } = require("../cache");
 const { Sentry } = require("../sentry");
-const { NODE_STATUS } = require("../constants");
-
-const apiCache = new NodeCache({
-  stdTTL: 30,
-  deleteOnExpire: true,
-});
+const { NODE_STATUS, EXPIRE_1M } = require("../constants");
 
 const getNodeStatus = async () => {
-  let nodeStatus = apiCache.get(NODE_STATUS);
+  let nodeStatus = nodeCache.get(NODE_STATUS);
 
   if (!nodeStatus) {
     try {
@@ -35,7 +30,7 @@ const getNodeStatus = async () => {
         },
       };
 
-      apiCache.set(NODE_STATUS, nodeStatus);
+      nodeCache.set(NODE_STATUS, nodeStatus, EXPIRE_1M / 2);
     } catch (err) {
       console.log("Error", err);
       Sentry.captureException(err);

@@ -1,7 +1,7 @@
 const NodeCache = require("node-cache");
 
-const wsCache = new NodeCache();
+const nodeCache = new NodeCache();
 
 module.exports = {
-  wsCache,
+  nodeCache,
 };

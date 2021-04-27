@@ -262,7 +262,7 @@
       "location": "محل",
       "sync": "همگام سازی",
       "ip": "IP",
-      "nodeMonitors": "مانیتورهای گره",
+      "nodeMonitors": "{{count}} مانیتورهای گره",
       "noMonitorFound": "هیچ مانیتور پیدا نشد"
     },
     "exchangeTracker": {

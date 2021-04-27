@@ -2,15 +2,16 @@ require("dotenv").config();
 require("./cron/ws");
 require("./cron/networkStatus");
 require("./cron/marketCapRank");
-const { getDistributionData } = require("./cron/distribution");
+require("./cron/knownAccounts");
 require("./ws");
+const { getDistributionData } = require("./cron/distribution");
 const { getExchangeBalances } = require("./cron/exchangeTracker");
 const express = require("express");
 const cors = require("cors");
 const { rpc, allowedRpcMethods } = require("./rpc");
 const bodyParser = require("body-parser");
 const path = require("path");
-
+const { nodeCache } = require("./cache");
 const {
   TOTAL_CONFIRMATIONS_KEY_24H,
   TOTAL_NANO_VOLUME_KEY_24H,
@@ -18,7 +19,6 @@ const {
   TOTAL_NANO_VOLUME_KEY_48H,
   CONFIRMATIONS_PER_SECOND,
 } = require("./constants");
-const { wsCache } = require("./ws/cache");
 const {
   getBtcTransactionFees,
   TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H,
@@ -31,7 +31,10 @@ const {
 } = require("./api/developerFundTransactions");
 const { getLargeTransactions } = require("./api/largeTransactions");
 const { getNodeStatus } = require("./api/nodeStatus");
-const { getKnownAccounts } = require("./api/knownAccounts");
+const {
+  getKnownAccounts,
+  getKnownAccountsBalance,
+} = require("./api/knownAccounts");
 const { getDelegators, getAllDelegators } = require("./api/delegators");
 const { getNetworkStatus } = require("./api/networkStatus");
 
@@ -60,7 +63,7 @@ app.post("/api/rpc", async (req, res) => {
 });
 
 app.get("/api/confirmations-per-second", (req, res) => {
-  return res.send({ cps: wsCache.get(CONFIRMATIONS_PER_SECOND) });
+  return res.send({ cps: nodeCache.get(CONFIRMATIONS_PER_SECOND) });
 });
 
 app.get("/api/distribution", (req, res) => {
@@ -102,10 +105,10 @@ app.get("/api/developer-fund/transactions", async (req, res) => {
 });
 
 app.get("/api/market-statistics", async (req, res) => {
-  const cachedConfirmations24h = wsCache.get(TOTAL_CONFIRMATIONS_KEY_24H);
-  const cachedVolume24h = wsCache.get(TOTAL_NANO_VOLUME_KEY_24H);
-  const cachedConfirmations48h = wsCache.get(TOTAL_CONFIRMATIONS_KEY_48H);
-  const cachedVolume48h = wsCache.get(TOTAL_NANO_VOLUME_KEY_48H);
+  const cachedConfirmations24h = nodeCache.get(TOTAL_CONFIRMATIONS_KEY_24H);
+  const cachedVolume24h = nodeCache.get(TOTAL_NANO_VOLUME_KEY_24H);
+  const cachedConfirmations48h = nodeCache.get(TOTAL_CONFIRMATIONS_KEY_48H);
+  const cachedVolume48h = nodeCache.get(TOTAL_NANO_VOLUME_KEY_48H);
 
   const {
     btcTransactionFees24h,
@@ -128,9 +131,15 @@ app.get("/api/market-statistics", async (req, res) => {
 });
 
 app.get("/api/known-accounts", async (req, res) => {
-  const { knownAccounts } = await getKnownAccounts();
+  const knownAccounts = await getKnownAccounts();
 
   return res.send(knownAccounts);
+});
+
+app.get("/api/known-accounts-balance", async (req, res) => {
+  const knownAccountsBalance = await getKnownAccountsBalance();
+
+  return res.send(knownAccountsBalance);
 });
 
 app.get("/api/node-status", async (req, res) => {

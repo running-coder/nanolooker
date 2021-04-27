@@ -1,6 +1,6 @@
-const NodeCache = require("node-cache");
 const MongoClient = require("mongodb").MongoClient;
 const { Sentry } = require("../sentry");
+const { nodeCache } = require("../cache");
 const {
   MONGO_URL,
   MONGO_OPTIONS,
@@ -8,14 +8,9 @@ const {
   LARGE_TRANSACTIONS,
 } = require("../constants");
 
-const apiCache = new NodeCache({
-  stdTTL: 15,
-  deleteOnExpire: true,
-});
-
 const getLargeTransactions = async () => {
   let largeTransactions =
-    apiCache.get(LARGE_TRANSACTIONS) ||
+    nodeCache.get(LARGE_TRANSACTIONS) ||
     (await new Promise((resolve, reject) => {
       let db;
       try {
@@ -34,7 +29,7 @@ const getLargeTransactions = async () => {
               const transactions = values.map(
                 ({ value: [transaction] }) => transaction,
               );
-              apiCache.set(LARGE_TRANSACTIONS, transactions);
+              nodeCache.set(LARGE_TRANSACTIONS, transactions, 15);
               client.close();
               resolve(transactions);
             });
@@ -52,6 +47,5 @@ const getLargeTransactions = async () => {
 };
 
 module.exports = {
-  apiCache,
   getLargeTransactions,
 };

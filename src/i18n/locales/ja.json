@@ -262,7 +262,7 @@
       "location": "ロケーション",
       "sync": "同期",
       "ip": "IP",
-      "nodeMonitors": "ノードモニター",
+      "nodeMonitors": "{{count}} ノードモニター",
       "noMonitorFound": "モニターが見つかりません"
     },
     "exchangeTracker": {

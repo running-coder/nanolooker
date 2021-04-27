@@ -1,7 +1,7 @@
 const fetch = require("node-fetch");
-const NodeCache = require("node-cache");
 const MongoClient = require("mongodb").MongoClient;
 const { Sentry } = require("../sentry");
+const { nodeCache } = require("../cache");
 const {
   EXPIRE_1h,
   EXPIRE_24H,
@@ -16,11 +16,6 @@ const {
   SUPPORTED_CRYPTOCURRENCY,
 } = require("../constants");
 
-const apiCache = new NodeCache({
-  stdTTL: 15,
-  deleteOnExpire: true,
-});
-
 const DEFAULT_FIAT = "usd";
 
 const allowedFiats = ["usd", "cad", "eur", "gbp", "cny", "jpy"];
@@ -28,9 +23,9 @@ const allowedFiats = ["usd", "cad", "eur", "gbp", "cny", "jpy"];
 const getCoingeckoStats = async ({ fiat }) => {
   fiat = allowedFiats.includes(fiat) ? fiat : DEFAULT_FIAT;
 
-  let marketStats = apiCache.get(`${COINGECKO_MARKET_STATS}-${fiat}`);
-  let priceStats = apiCache.get(`${COINGECKO_PRICE_STATS}-${fiat}`);
-  let marketCapRank24h = apiCache.get(MARKET_CAP_RANK_24H);
+  let marketStats = nodeCache.get(`${COINGECKO_MARKET_STATS}-${fiat}`);
+  let priceStats = nodeCache.get(`${COINGECKO_PRICE_STATS}-${fiat}`);
+  let marketCapRank24h = nodeCache.get(MARKET_CAP_RANK_24H);
 
   const getMarketCapRank24h =
     marketCapRank24h ||
@@ -54,7 +49,7 @@ const getCoingeckoStats = async ({ fiat }) => {
               $orderby: { value: 1 },
             })
             .toArray((_err, [{ value } = {}] = []) => {
-              apiCache.set(MARKET_CAP_RANK_24H, value, EXPIRE_1h);
+              nodeCache.set(MARKET_CAP_RANK_24H, value, EXPIRE_1h);
               client.close();
               resolve(value);
             });
@@ -98,7 +93,7 @@ const getCoingeckoStats = async ({ fiat }) => {
           change24h,
         };
 
-        apiCache.set(`${COINGECKO_MARKET_STATS}-${fiat}`, marketStats);
+        nodeCache.set(`${COINGECKO_MARKET_STATS}-${fiat}`, marketStats, 15);
         resolve(marketStats);
       } catch (err) {
         console.log("Error", err);
@@ -117,7 +112,7 @@ const getCoingeckoStats = async ({ fiat }) => {
         );
         priceStats = await resPrices.json();
 
-        apiCache.set(`${COINGECKO_PRICE_STATS}-${fiat}`, priceStats);
+        nodeCache.set(`${COINGECKO_PRICE_STATS}-${fiat}`, priceStats, 15);
 
         resolve(priceStats);
       } catch (err) {
@@ -139,6 +134,5 @@ const getCoingeckoStats = async ({ fiat }) => {
 };
 
 module.exports = {
-  apiCache,
   getCoingeckoStats,
 };

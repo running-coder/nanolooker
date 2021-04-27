@@ -2,19 +2,14 @@ const fs = require("fs");
 const util = require("util");
 const { join } = require("path");
 // const rimraf = require("rimraf");
-const NodeCache = require("node-cache");
 const cron = require("node-cron");
+const { nodeCache } = require("../cache");
 const { Sentry } = require("../sentry");
 const { EXPIRE_24H, DELEGATORS, STATUS } = require("../constants");
 const { rawToRai } = require("../utils");
 const { rpc } = require("../rpc");
 const readdir = util.promisify(fs.readdir);
 const mkdir = util.promisify(fs.mkdir);
-
-const delegatorsCache = new NodeCache({
-  stdTTL: EXPIRE_24H,
-  deleteOnExpire: true,
-});
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -181,21 +176,21 @@ cron.schedule("0 2 * * 0", async () => {
 // reorderFiles();
 
 const getDelegatorsData = () => {
-  let delegators = delegatorsCache.get(DELEGATORS);
-  let status = delegatorsCache.get(STATUS);
+  let delegators = nodeCache.get(DELEGATORS);
+  let status = nodeCache.get(STATUS);
 
   if (!delegators) {
     delegators = fs.existsSync(DELEGATORS_PATH)
       ? JSON.parse(fs.readFileSync(DELEGATORS_PATH, "utf8"))
       : [];
-    delegatorsCache.set(DELEGATORS, delegators);
+    nodeCache.set(DELEGATORS, delegators, EXPIRE_24H);
   }
 
   if (!status) {
     status = fs.existsSync(STATUS_PATH)
       ? JSON.parse(fs.readFileSync(STATUS_PATH, "utf8"))
       : {};
-    delegatorsCache.set(STATUS, status);
+    nodeCache.set(STATUS, status, EXPIRE_24H);
   }
 
   return {

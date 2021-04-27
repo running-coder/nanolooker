@@ -262,7 +262,7 @@
       "location": "موقع",
       "sync": "مزامنة",
       "ip": "IP",
-      "nodeMonitors": "شاشات العقدة",
+      "nodeMonitors": "{{count}} شاشات العقدة",
       "noMonitorFound": "لم يتم العثور على شاشة"
     },
     "exchangeTracker": {

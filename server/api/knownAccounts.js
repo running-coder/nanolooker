@@ -1,64 +1,32 @@
-const fetch = require("node-fetch");
-const NodeCache = require("node-cache");
-const BigNumber = require("bignumber.js");
-const { rawToRai } = require("../utils");
-const { rpc } = require("../rpc");
-const { Sentry } = require("../sentry");
-
-const apiCache = new NodeCache({
-  stdTTL: 120,
-});
-
-const KNOWN_ACCOUNTS = "KNOWN_ACCOUNTS";
+const { nodeCache } = require("../cache");
+const { KNOWN_ACCOUNTS, KNOWN_ACCOUNTS_BALANCE } = require("../constants");
+const {
+  doKnownAccountsCron,
+  // doKnownAccountsBalanceCron,
+} = require("../cron/knownAccounts");
 
 const getKnownAccounts = async () => {
-  let knownAccounts = apiCache.get(KNOWN_ACCOUNTS);
-
+  let knownAccounts = nodeCache.get(KNOWN_ACCOUNTS);
   if (!knownAccounts) {
-    try {
-      const res = await fetch("https://mynano.ninja/api/accounts/aliases");
-      knownAccounts = await res.json();
-
-      const accounts = knownAccounts.flatMap(({ account }) => [account]);
-
-      const { balances } =
-        (await rpc("accounts_balances", {
-          accounts,
-        })) || {};
-
-      knownAccounts = balances
-        ? knownAccounts
-            .map(({ account, alias }) => ({
-              account,
-              alias,
-              balance: balances[account]
-                ? rawToRai(new BigNumber(balances[account].balance || 0))
-                : 0,
-              pending: balances[account]
-                ? rawToRai(new BigNumber(balances[account].pending || 0))
-                : 0,
-              total: balances[account]
-                ? rawToRai(
-                    new BigNumber(balances[account].balance || 0).plus(
-                      balances[account].pending || 0,
-                    ),
-                  )
-                : 0,
-            }))
-            .filter(({ alias }) => !!alias)
-        : [];
-
-      apiCache.set(KNOWN_ACCOUNTS, knownAccounts);
-    } catch (err) {
-      console.log("Error", err);
-      Sentry.captureException(err);
-    }
+    knownAccounts = await doKnownAccountsCron();
   }
+  return knownAccounts;
+};
 
-  return { knownAccounts };
+const getKnownAccountsBalance = async () => {
+  let knownAccountsBalance = nodeCache.get(KNOWN_ACCOUNTS_BALANCE) || [];
+
+  // Wait for cron to complete
+  // if (!knownAccountsBalance) {
+  //   const knownAccounts = await getKnownAccounts();
+  //   knownAccountsBalance = await doKnownAccountsBalanceCron(knownAccounts);
+  // }
+
+  return knownAccountsBalance;
 };
 
 module.exports = {
   getKnownAccounts,
+  getKnownAccountsBalance,
   KNOWN_ACCOUNTS,
 };

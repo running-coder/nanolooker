@@ -262,7 +262,7 @@
       "location": "Plaats",
       "sync": "Synchroniseren",
       "ip": "IK P",
-      "nodeMonitors": "Node-monitoren",
+      "nodeMonitors": "{{count}} Node-monitoren",
       "noMonitorFound": "Geen monitor gevonden"
     },
     "exchangeTracker": {

@@ -1,8 +1,8 @@
 const MongoClient = require("mongodb").MongoClient;
 const BigNumber = require("bignumber.js");
 const cron = require("node-cron");
+const { nodeCache } = require("../cache");
 const { Sentry } = require("../sentry");
-const { wsCache } = require("../ws/cache");
 
 const {
   MONGO_URL,
@@ -70,7 +70,7 @@ cron.schedule("*/3 * * * * *", async () => {
         { $group: { _id: null, confirmationsPerSecond: { $sum: "$value" } } },
       ])
       .toArray((_err, [{ confirmationsPerSecond = 0 } = {}] = []) => {
-        wsCache.set(
+        nodeCache.set(
           CONFIRMATIONS_PER_SECOND,
           new BigNumber(confirmationsPerSecond)
             .dividedBy(EXPIRE_1M)
@@ -99,7 +99,7 @@ cron.schedule("*/10 * * * * *", async () => {
         { $group: { _id: null, totalConfirmations: { $sum: "$value" } } },
       ])
       .toArray((_err, [{ totalConfirmations = 0 } = {}] = []) => {
-        wsCache.set(TOTAL_CONFIRMATIONS_KEY_24H, totalConfirmations);
+        nodeCache.set(TOTAL_CONFIRMATIONS_KEY_24H, totalConfirmations);
       });
 
     db.collection(TOTAL_CONFIRMATIONS_COLLECTION)
@@ -114,7 +114,7 @@ cron.schedule("*/10 * * * * *", async () => {
         { $group: { _id: null, totalConfirmations: { $sum: "$value" } } },
       ])
       .toArray((_err, [{ totalConfirmations = 0 } = {}] = []) => {
-        wsCache.set(TOTAL_CONFIRMATIONS_KEY_48H, totalConfirmations);
+        nodeCache.set(TOTAL_CONFIRMATIONS_KEY_48H, totalConfirmations);
       });
 
     db.collection(TOTAL_NANO_VOLUME_COLLECTION)
@@ -129,7 +129,7 @@ cron.schedule("*/10 * * * * *", async () => {
         { $group: { _id: null, totalNanoVolume: { $sum: "$value" } } },
       ])
       .toArray((_err, [{ totalNanoVolume = 0 } = {}] = []) => {
-        wsCache.set(TOTAL_NANO_VOLUME_KEY_24H, rawToRai(totalNanoVolume));
+        nodeCache.set(TOTAL_NANO_VOLUME_KEY_24H, rawToRai(totalNanoVolume));
       });
 
     db.collection(TOTAL_NANO_VOLUME_COLLECTION)
@@ -144,7 +144,7 @@ cron.schedule("*/10 * * * * *", async () => {
         { $group: { _id: null, totalNanoVolume: { $sum: "$value" } } },
       ])
       .toArray((_err, [{ totalNanoVolume = 0 } = {}] = []) => {
-        wsCache.set(TOTAL_NANO_VOLUME_KEY_48H, rawToRai(totalNanoVolume));
+        nodeCache.set(TOTAL_NANO_VOLUME_KEY_48H, rawToRai(totalNanoVolume));
       });
   } catch (err) {
     console.log("Error", err);

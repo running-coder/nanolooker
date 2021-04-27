@@ -1,13 +1,10 @@
-const NodeCache = require("node-cache");
+const { nodeCache } = require("../cache");
 const { NETWORK_STATUS } = require("../constants");
 
-const networkStatusCache = new NodeCache();
-
 const getNetworkStatus = () => {
-  return networkStatusCache.get(NETWORK_STATUS) || {};
+  return nodeCache.get(NETWORK_STATUS) || {};
 };
 
 module.exports = {
-  networkStatusCache,
   getNetworkStatus,
 };

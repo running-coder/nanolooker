@@ -1,7 +1,7 @@
 const cron = require("node-cron");
 const MongoClient = require("mongodb").MongoClient;
-const NodeCache = require("node-cache");
 const BigNumber = require("bignumber.js");
+const { nodeCache } = require("../cache");
 const { Sentry } = require("../sentry");
 const { rawToRai } = require("../utils");
 const { rpc } = require("../rpc");
@@ -13,8 +13,6 @@ const {
   EXCHANGE_BALANCES_COLLECTION,
 } = require("../constants");
 const accounts = require("../../src/exchanges.json");
-
-const exchangeBalancesCache = new NodeCache();
 
 let db;
 try {
@@ -169,9 +167,7 @@ const getAccountsHistory = async () => {
 };
 
 const getExchangeBalances = async () => {
-  let exchangeBalances = exchangeBalancesCache.get(
-    EXCHANGE_BALANCES_COLLECTION,
-  );
+  let exchangeBalances = nodeCache.get(EXCHANGE_BALANCES_COLLECTION);
   if (!exchangeBalances) {
     if (!db) {
       console.log("DB not available");
@@ -211,7 +207,7 @@ const getExchangeBalances = async () => {
         });
     });
 
-    exchangeBalancesCache.set(EXCHANGE_BALANCES_COLLECTION, exchangeBalances);
+    nodeCache.set(EXCHANGE_BALANCES_COLLECTION, exchangeBalances);
   }
 
   return exchangeBalances;
@@ -228,7 +224,7 @@ const doExchangeBalancesCron = () => {
   console.log("Starting doExchangeBalancesCron");
   try {
     getAccountsHistory();
-    exchangeBalancesCache.set(EXCHANGE_BALANCES_COLLECTION, null);
+    nodeCache.set(EXCHANGE_BALANCES_COLLECTION, null);
     getExchangeBalances();
   } catch (err) {
     console.log("Error", err);

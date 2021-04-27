@@ -262,7 +262,7 @@
       "location": "Localización",
       "sync": "Sincronizar",
       "ip": "IP",
-      "nodeMonitors": "Monitores de nodo",
+      "nodeMonitors": "{{count}} Monitores de nodo",
       "noMonitorFound": "No se encontró ningún monitor"
     },
     "exchangeTracker": {

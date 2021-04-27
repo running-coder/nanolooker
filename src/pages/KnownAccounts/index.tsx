@@ -4,20 +4,20 @@ import { Link } from "react-router-dom";
 import { Button, Input, Table, Typography } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import BigNumber from "bignumber.js";
-import { KnownAccountsContext } from "api/contexts/KnownAccounts";
+import useKnownAccountsBalance from "api/hooks/use-known-accounts-balance";
 
 const { Title } = Typography;
 
 const KnownAccountsPage: React.FC = () => {
   const { t } = useTranslation();
-  const { knownAccounts, isLoading } = React.useContext(KnownAccountsContext);
+  const { knownAccountsBalance, isLoading } = useKnownAccountsBalance();
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   return (
     <>
       <Title level={3}>
         {t("pages.knownAccounts.totalAccounts", {
-          totalAccounts: knownAccounts.length,
+          totalAccounts: knownAccountsBalance.length,
         })}
       </Title>
       <Table
@@ -135,7 +135,7 @@ const KnownAccountsPage: React.FC = () => {
             ),
           },
         ]}
-        dataSource={knownAccounts}
+        dataSource={knownAccountsBalance}
       />
     </>
   );

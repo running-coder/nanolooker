@@ -262,7 +262,7 @@
       "location": "Место расположения",
       "sync": "Синхронизировать",
       "ip": "IP",
-      "nodeMonitors": "Мониторы узлов",
+      "nodeMonitors": "{{count}} Мониторы узлов",
       "noMonitorFound": "Монитор не найден"
     },
     "exchangeTracker": {

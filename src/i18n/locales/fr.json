@@ -262,7 +262,7 @@
       "location": "Emplacement",
       "sync": "Synchroniser",
       "ip": "IP",
-      "nodeMonitors": "Moniteurs de nœuds",
+      "nodeMonitors": "{{count}} Moniteurs de nœuds",
       "noMonitorFound": "Aucun moniteur trouvé"
     },
     "exchangeTracker": {

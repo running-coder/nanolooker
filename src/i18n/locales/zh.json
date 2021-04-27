@@ -262,7 +262,7 @@
       "location": "地点",
       "sync": "同步",
       "ip": "知识产权",
-      "nodeMonitors": "节点监视器",
+      "nodeMonitors": "{{count}} 节点监视器",
       "noMonitorFound": "找不到监视器"
     },
     "exchangeTracker": {

@@ -1,9 +1,9 @@
 const cron = require("node-cron");
 const fetch = require("node-fetch");
 const { rpc } = require("../rpc");
+const { nodeCache } = require("../cache");
 const { Sentry } = require("../sentry");
-const { networkStatusCache } = require("../api/networkStatus");
-const { NETWORK_STATUS } = require("../constants");
+const { NETWORK_STATUS, EXPIRE_24H } = require("../constants");
 const monitorAliases = require("./monitorAliases.json");
 
 const PEER_IP_REGEX = /\[::ffff:([\d.]+)\]:[\d]+/;
@@ -84,7 +84,7 @@ const doNetworkStatusCron = async () => {
 
     // Store the nodes without monitor for 24h so the 5 minutes request doesn't pull them
     let skipMonitorCheck24h =
-      networkStatusCache.get(`${NETWORK_STATUS}_NO_MONITOR`) || [];
+      nodeCache.get(`${NETWORK_STATUS}_NO_MONITOR`) || [];
 
     peers = peers.filter(({ account, ip: rawIp }) => {
       const ip = monitorAliases[account] || rawIp;
@@ -117,16 +117,20 @@ const doNetworkStatusCron = async () => {
 
     results = results.filter(Boolean);
 
-    networkStatusCache.set(`${NETWORK_STATUS}_NO_MONITOR`, skipMonitorCheck24h);
-    networkStatusCache.set(NETWORK_STATUS, results);
+    nodeCache.set(
+      `${NETWORK_STATUS}_NO_MONITOR`,
+      skipMonitorCheck24h,
+      EXPIRE_24H,
+    );
+    nodeCache.set(NETWORK_STATUS, results);
   } catch (err) {
     Sentry.captureException(err);
   }
 };
 
-// https://crontab.guru/#*/5_*_*_*_*
-// “At every 5th minute.”
-cron.schedule("*/5 * * * *", () => {
+// https://crontab.guru/#*/10_*_*_*_*
+// “At every 10th minute.”
+cron.schedule("*/10 * * * *", () => {
   if (process.env.NODE_ENV !== "production") return;
 
   doNetworkStatusCron();

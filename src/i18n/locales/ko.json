@@ -262,7 +262,7 @@
       "location": "위치",
       "sync": "동조",
       "ip": "IP",
-      "nodeMonitors": "노드 모니터",
+      "nodeMonitors": "{{count}} 노드 모니터",
       "noMonitorFound": "모니터를 찾을 수 없습니다."
     },
     "exchangeTracker": {

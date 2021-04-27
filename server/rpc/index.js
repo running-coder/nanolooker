@@ -1,14 +1,12 @@
 const fetch = require("node-fetch");
-const NodeCache = require("node-cache");
 const {
   transformer: confirmation_quorum,
 } = require("./transformers/confirmationQuorum");
 const {
   transformer: representatives,
 } = require("./transformers/representatives");
+const { nodeCache } = require("../cache");
 const { Sentry } = require("../sentry");
-
-const rpcCache = new NodeCache();
 
 const transformers = {
   confirmation_quorum,
@@ -85,7 +83,7 @@ const rpc = async (action, params, isLimited) => {
   let cacheKey = cacheSettings[action] && getCacheKey(action, params);
 
   try {
-    json = cacheKey && rpcCache.get(cacheKey);
+    json = cacheKey && nodeCache.get(cacheKey);
 
     if (!json) {
       if (isLimited && limits[action]) {
@@ -114,7 +112,7 @@ const rpc = async (action, params, isLimited) => {
       }
 
       if (cacheKey) {
-        rpcCache.set(cacheKey, json, cacheSettings[action]);
+        nodeCache.set(cacheKey, json, cacheSettings[action]);
       }
     } else {
       console.log(`Cache found for: ${cacheKey}`);
@@ -128,5 +126,4 @@ const rpc = async (action, params, isLimited) => {
 };
 
 exports.rpc = rpc;
-exports.rpcCache = rpcCache;
 exports.allowedRpcMethods = allowedRpcMethods;

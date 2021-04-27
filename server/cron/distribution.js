@@ -2,13 +2,14 @@ const fs = require("fs");
 const util = require("util");
 const { join } = require("path");
 // const rimraf = require("rimraf");
-const NodeCache = require("node-cache");
 const cron = require("node-cron");
 const chunk = require("lodash/chunk");
 const BigNumber = require("bignumber.js");
+const { nodeCache } = require("../cache");
 const { Sentry } = require("../sentry");
 const {
   EXPIRE_24H,
+  EXPIRE_1W,
   DISTRIBUTION,
   DORMANT_FUNDS,
   KNOWN_EXCHANGES,
@@ -19,11 +20,6 @@ const { BURN_ACCOUNT } = require("../../src/knownAccounts.json");
 const { rpc } = require("../rpc");
 const readdir = util.promisify(fs.readdir);
 const mkdir = util.promisify(fs.mkdir);
-
-const distributionCache = new NodeCache({
-  stdTTL: EXPIRE_24H,
-  deleteOnExpire: true,
-});
 
 const { KNOWN_EXCHANGE_ACCOUNTS } = require("../../src/knownAccounts.json");
 
@@ -240,9 +236,9 @@ const doDistributionCron = async () => {
       `Distribution cron finished in ${(new Date() - startTime) / 1000}s`,
     );
 
-    distributionCache.set(DISTRIBUTION, distribution);
-    distributionCache.set(DORMANT_FUNDS, dormantFunds);
-    distributionCache.set(KNOWN_EXCHANGES, knownExchanges);
+    nodeCache.set(DISTRIBUTION, distribution, EXPIRE_1W);
+    nodeCache.set(DORMANT_FUNDS, dormantFunds, EXPIRE_1W);
+    nodeCache.set(KNOWN_EXCHANGES, knownExchanges, EXPIRE_24H);
 
     // rimraf(TMP_ACCOUNTS_PATH, () => {});
   } catch (err) {
@@ -270,37 +266,37 @@ if (
 }
 
 const getDistributionData = () => {
-  let distribution = distributionCache.get(DISTRIBUTION);
-  let dormantFunds = distributionCache.get(DORMANT_FUNDS);
-  let knownExchanges = distributionCache.get(KNOWN_EXCHANGES);
-  let status = distributionCache.get(STATUS);
+  let distribution = nodeCache.get(DISTRIBUTION);
+  let dormantFunds = nodeCache.get(DORMANT_FUNDS);
+  let knownExchanges = nodeCache.get(KNOWN_EXCHANGES);
+  let status = nodeCache.get(STATUS);
 
   if (!distribution) {
     distribution = fs.existsSync(DISTRIBUTION_PATH)
       ? JSON.parse(fs.readFileSync(DISTRIBUTION_PATH, "utf8"))
       : [];
-    distributionCache.set(DISTRIBUTION, distribution);
+    nodeCache.set(DISTRIBUTION, distribution, EXPIRE_1W);
   }
 
   if (!dormantFunds) {
     dormantFunds = fs.existsSync(DORMANT_FUNDS_PATH)
       ? JSON.parse(fs.readFileSync(DORMANT_FUNDS_PATH, "utf8"))
       : {};
-    distributionCache.set(DORMANT_FUNDS, dormantFunds);
+    nodeCache.set(DORMANT_FUNDS, dormantFunds, EXPIRE_1W);
   }
 
   if (!knownExchanges) {
     knownExchanges = fs.existsSync(KNOWN_EXCHANGES_PATH)
       ? JSON.parse(fs.readFileSync(KNOWN_EXCHANGES_PATH, "utf8"))
       : {};
-    distributionCache.set(KNOWN_EXCHANGES, knownExchanges);
+    nodeCache.set(KNOWN_EXCHANGES, knownExchanges, EXPIRE_24H);
   }
 
   if (!status) {
     status = fs.existsSync(STATUS_PATH)
       ? JSON.parse(fs.readFileSync(STATUS_PATH, "utf8"))
       : {};
-    distributionCache.set(STATUS, status);
+    nodeCache.set(STATUS, status, EXPIRE_1W);
   }
 
   return {

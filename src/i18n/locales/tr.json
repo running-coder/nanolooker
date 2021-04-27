@@ -262,7 +262,7 @@
       "location": "yer",
       "sync": "Senkronize et",
       "ip": "IP",
-      "nodeMonitors": "Düğüm monitörleri",
+      "nodeMonitors": "{{count}} Düğüm monitörleri",
       "noMonitorFound": "Monitör bulunamadı"
     },
     "exchangeTracker": {

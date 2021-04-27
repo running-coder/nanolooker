@@ -66,7 +66,11 @@ const NetworkStatusPage: React.FC = () => {
         style={{ marginBottom: "12px" }}
       ></Card> */}
 
-      <Title level={3}>{t("pages.status.nodeMonitors")}</Title>
+      <Title level={3}>
+        {t("pages.status.nodeMonitors", {
+          count: nodes.length,
+        })}
+      </Title>
       <Card
         size="small"
         bordered={false}
@@ -97,36 +101,51 @@ const NetworkStatusPage: React.FC = () => {
         ) : null}
 
         {isLoading
-          ? Array.from(Array(3).keys()).map(index => (
-              <Row gutter={6} key={index}>
-                <Col md={6}>
+          ? Array.from(Array(3).keys()).map(index =>
+              isMediumAndLower ? (
+                <Row gutter={6} key={index}>
                   <Skeleton loading={true} paragraph={false} active />
                   <Skeleton loading={true} paragraph={false} active />
-                </Col>
-                <Col md={4}>
-                  <Skeleton loading={true} paragraph={false} active />
-                  <Skeleton loading={true} paragraph={false} active />
-                  <Skeleton loading={true} paragraph={false} active />
-                </Col>
-                <Col md={4}>
-                  <Skeleton loading={true} paragraph={false} active />
-                  <Skeleton loading={true} paragraph={false} active />
-                  <Skeleton loading={true} paragraph={false} active />
-                </Col>
-                <Col md={2}>
-                  <Skeleton loading={true} paragraph={false} active />
-                </Col>
-                <Col md={4}>
-                  <Skeleton loading={true} paragraph={false} active />
-                  <Skeleton loading={true} paragraph={false} active />
-                  <Skeleton loading={true} paragraph={false} active />
-                </Col>
-                <Col md={4}>
-                  <Skeleton loading={true} paragraph={false} active />
-                  <Skeleton loading={true} paragraph={false} active />
-                </Col>
-              </Row>
-            ))
+                  <Col xs={12}>
+                    <Skeleton loading={true} paragraph={false} active />
+                    <Skeleton loading={true} paragraph={false} active />
+                  </Col>
+                  <Col xs={12}>
+                    <Skeleton loading={true} paragraph={false} active />
+                    <Skeleton loading={true} paragraph={false} active />
+                  </Col>
+                </Row>
+              ) : (
+                <Row gutter={6} key={index}>
+                  <Col md={6}>
+                    <Skeleton loading={true} paragraph={false} active />
+                    <Skeleton loading={true} paragraph={false} active />
+                  </Col>
+                  <Col md={4}>
+                    <Skeleton loading={true} paragraph={false} active />
+                    <Skeleton loading={true} paragraph={false} active />
+                    <Skeleton loading={true} paragraph={false} active />
+                  </Col>
+                  <Col md={4}>
+                    <Skeleton loading={true} paragraph={false} active />
+                    <Skeleton loading={true} paragraph={false} active />
+                    <Skeleton loading={true} paragraph={false} active />
+                  </Col>
+                  <Col md={2}>
+                    <Skeleton loading={true} paragraph={false} active />
+                  </Col>
+                  <Col md={4}>
+                    <Skeleton loading={true} paragraph={false} active />
+                    <Skeleton loading={true} paragraph={false} active />
+                    <Skeleton loading={true} paragraph={false} active />
+                  </Col>
+                  <Col md={4}>
+                    <Skeleton loading={true} paragraph={false} active />
+                    <Skeleton loading={true} paragraph={false} active />
+                  </Col>
+                </Row>
+              ),
+            )
           : null}
 
         {!isLoading && nodes.length
@@ -193,11 +212,6 @@ const NetworkStatusPage: React.FC = () => {
                             {t("pages.status.monitor")}
                           </Text>{" "}
                           {nodeMonitorVersion}
-                          <br />
-                          <Text className="color-muted">
-                            {t("pages.status.ip")}
-                          </Text>{" "}
-                          {ip}
                         </Col>
                         <Col xs={12} md={4}>
                           <Text className="color-muted">

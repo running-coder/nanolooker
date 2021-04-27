@@ -1,20 +1,15 @@
-const NodeCache = require("node-cache");
 const sortBy = require("lodash/sortBy");
 const reverse = require("lodash/reverse");
+const { nodeCache } = require("../cache");
 const { Sentry } = require("../sentry");
 const { rpc } = require("../rpc");
 const { DEVELOPER_FUND_ACCOUNTS } = require("../../src/knownAccounts.json");
 const { EXPIRE_1H } = require("../constants");
 
-const apiCache = new NodeCache({
-  stdTTL: EXPIRE_1H,
-  deleteOnExpire: true,
-});
-
 const DEVELOPER_FUND_TRANSACTIONS = "DEVELOPER_FUND_TRANSACTIONS";
 
 const getDeveloperFundTransactions = async () => {
-  let developerFundTransactions = apiCache.get(DEVELOPER_FUND_TRANSACTIONS);
+  let developerFundTransactions = nodeCache.get(DEVELOPER_FUND_TRANSACTIONS);
 
   if (!developerFundTransactions) {
     let accountsHistory = [];
@@ -53,7 +48,11 @@ const getDeveloperFundTransactions = async () => {
           sortBy(accountsHistory, ["local_timestamp"]),
         );
 
-        apiCache.set(DEVELOPER_FUND_TRANSACTIONS, developerFundTransactions);
+        nodeCache.set(
+          DEVELOPER_FUND_TRANSACTIONS,
+          developerFundTransactions,
+          EXPIRE_1H,
+        );
 
         return developerFundTransactions;
       },

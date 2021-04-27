@@ -1,11 +1,7 @@
 const fetch = require("node-fetch");
-const NodeCache = require("node-cache");
 const { Sentry } = require("../sentry");
-
-const apiCache = new NodeCache({
-  stdTTL: 3600,
-  deleteOnExpire: true,
-});
+const { nodeCache } = require("../cache");
+const { EXPIRE_1H } = require("../constants");
 
 const TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H =
   "TOTAL_BITCOIN_TRANSACTION_FEES_24H";
@@ -13,10 +9,10 @@ const TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H =
   "TOTAL_BITCOIN_TRANSACTION_FEES_48H";
 
 const getBtcTransactionFees = async () => {
-  let btcTransactionFees24h = apiCache.get(
+  let btcTransactionFees24h = nodeCache.get(
     TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H,
   );
-  let btcTransactionFees48h = apiCache.get(
+  let btcTransactionFees48h = nodeCache.get(
     TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H,
   );
 
@@ -30,13 +26,15 @@ const getBtcTransactionFees = async () => {
       btcTransactionFees24h = values.pop().y;
       btcTransactionFees48h = values.pop().y;
 
-      apiCache.set(
+      nodeCache.set(
         TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H,
         btcTransactionFees24h,
+        EXPIRE_1H,
       );
-      apiCache.set(
+      nodeCache.set(
         TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H,
         btcTransactionFees48h,
+        EXPIRE_1H,
       );
     } catch (err) {
       console.log("Error", err);
