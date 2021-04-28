@@ -187,7 +187,6 @@
       "totalOnlineStake": "Totale online inzet",
       "totalPeerStake": "Totale peer-inzet",
       "includeOfflineRepresentatives": "Voeg offline vertegenwoordigers toe",
-      "groupByEntities": "Group Nano Foundation-entiteiten",
       "viewDelegators": "Bekijk {{count}} delegators",
       "loadAllRepresentatives": "Laad alle vertegenwoordigers"
     },

@@ -187,7 +187,6 @@
       "totalOnlineStake": "オンラインステークの合計",
       "totalPeerStake": "ピアステークの合計",
       "includeOfflineRepresentatives": "オフラインの代表者を含める",
-      "groupByEntities": "グループナノファンデーションエンティティ",
       "viewDelegators": "{{count}}の委任者を表示する",
       "loadAllRepresentatives": "すべての代表者をロードします"
     },

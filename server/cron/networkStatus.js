@@ -109,7 +109,7 @@ const doNetworkStatusCron = async () => {
 
         return {
           account,
-          ip,
+          ip: rawIp,
           monitor,
         };
       }),

@@ -187,7 +187,6 @@
       "totalOnlineStake": "Puntata online totale",
       "totalPeerStake": "Peer stake totale",
       "includeOfflineRepresentatives": "Includere rappresentanti offline",
-      "groupByEntities": "Entità della Fondazione Gruppo Nano",
       "viewDelegators": "Visualizza {{count}} delegatori",
       "loadAllRepresentatives": "Carica tutti i rappresentanti"
     },

@@ -187,7 +187,6 @@
       "totalOnlineStake": "Общая онлайн-ставка",
       "totalPeerStake": "Общая доля сверстников",
       "includeOfflineRepresentatives": "Включите офлайновых представителей",
-      "groupByEntities": "Группы компаний Nano Foundation",
       "viewDelegators": "Просмотреть {{count}} делегатов",
       "loadAllRepresentatives": "Загрузить всех представителей"
     },

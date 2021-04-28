@@ -187,7 +187,6 @@
       "totalOnlineStake": "कुल ऑनलाइन हिस्सेदारी",
       "totalPeerStake": "कुल साथियों की हिस्सेदारी",
       "includeOfflineRepresentatives": "ऑफ़लाइन प्रतिनिधियों को शामिल करें",
-      "groupByEntities": "समूह नैनो फाउंडेशन संस्थाएं",
       "viewDelegators": "{{गणना}} प्रतिनिधि देखें",
       "loadAllRepresentatives": "सभी प्रतिनिधियों को लोड करें"
     },

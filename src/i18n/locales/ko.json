@@ -187,7 +187,6 @@
       "totalOnlineStake": "총 온라인 지분",
       "totalPeerStake": "총 피어 지분",
       "includeOfflineRepresentatives": "오프라인 담당자 포함",
-      "groupByEntities": "그룹 나노 재단 법인",
       "viewDelegators": "위임자 {{count}} 명보기",
       "loadAllRepresentatives": "모든 대표로드"
     },

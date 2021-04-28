@@ -187,7 +187,6 @@
       "totalOnlineStake": "Gesamt-Online-Einsatz",
       "totalPeerStake": "Total Peer Stake",
       "includeOfflineRepresentatives": "Schließen Sie Offline-Vertreter ein",
-      "groupByEntities": "Unternehmen der Group Nano Foundation",
       "viewDelegators": "{{Count}} Delegatoren anzeigen",
       "loadAllRepresentatives": "Laden Sie alle Vertreter"
     },

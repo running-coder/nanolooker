@@ -187,7 +187,6 @@
       "totalOnlineStake": "إجمالي الحصة عبر الإنترنت",
       "totalPeerStake": "إجمالي حصة الأقران",
       "includeOfflineRepresentatives": "تضمين الممثلين غير المتصلين بالإنترنت",
-      "groupByEntities": "مجموعة كيانات مؤسسة نانو",
       "viewDelegators": "عرض {{عدد}} مفوضين",
       "loadAllRepresentatives": "تحميل جميع الممثلين"
     },

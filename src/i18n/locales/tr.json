@@ -187,7 +187,6 @@
       "totalOnlineStake": "Toplam online bahis",
       "totalPeerStake": "Toplam emsal hissesi",
       "includeOfflineRepresentatives": "Çevrimdışı temsilcileri dahil et",
-      "groupByEntities": "Group Nano Foundation kuruluşları",
       "viewDelegators": "{{Count}} yetki vereni görüntüle",
       "loadAllRepresentatives": "Tüm temsilcileri yükle"
     },

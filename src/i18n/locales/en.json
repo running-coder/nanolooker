@@ -69,7 +69,8 @@
     "unknownLastTransaction": "Transaction dates were introduced in February 2019. Prior to that date, the transaction times were not recorded locally on the nodes. The reason why the last transaction date is unknown is because it was confirmed before the dates were recorded or before the NanoLooker node was in service.",
     "confirmationHeight": "A number stored in the local node database that represents the highest (most recent) confirmed block in an account chain. Related to (but different from) block height.",
     "blockHeight": "A local integer value that represents the order of a block in an account chain. For example, the 15th block in an account would have a block height of 15. Related to (but different from) confirmation height.",
-    "bookmarks": "{{type, capitalize}} bookmarks are saved on your device. You can manage your known {{type}}s by giving them aliases."
+    "bookmarks": "{{type, capitalize}} bookmarks are saved on your device. You can manage your known {{type}}s by giving them aliases.",
+    "groupByEntities": "Group Nano Foundation and Binance voting weight."
   },
   "search": {
     "searchBy": "Search by Address / Block / Known Account",
@@ -187,9 +188,9 @@
       "totalOnlineStake": "Total online stake",
       "totalPeerStake": "Total peer stake",
       "includeOfflineRepresentatives": "Include offline representatives",
-      "groupByEntities": "Group Nano Foundation entities",
       "viewDelegators": "View {{count}} delegators",
-      "loadAllRepresentatives": "Load all representatives"
+      "loadAllRepresentatives": "Load all representatives",
+      "groupByEntities": "Group entities"
     },
     "representative": {
       "votingWeight": "Representative voting weight",

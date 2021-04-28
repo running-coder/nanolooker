@@ -187,7 +187,6 @@
       "totalOnlineStake": "کل سهام آنلاین",
       "totalPeerStake": "کل سهام همتا",
       "includeOfflineRepresentatives": "نمایندگان آفلاین را وارد کنید",
-      "groupByEntities": "نهادهای بنیاد گروه نانو",
       "viewDelegators": "نمایندگان {{count}} را مشاهده کنید",
       "loadAllRepresentatives": "همه نمایندگان را بارگیری کنید"
     },

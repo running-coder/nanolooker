@@ -187,7 +187,6 @@
       "totalOnlineStake": "Apuesta total online",
       "totalPeerStake": "Participación total entre pares",
       "includeOfflineRepresentatives": "Incluir representantes fuera de línea",
-      "groupByEntities": "Entidades del Grupo Nano Foundation",
       "viewDelegators": "Ver {{count}} delegadores",
       "loadAllRepresentatives": "Cargar todos los representantes"
     },

@@ -187,7 +187,6 @@
       "totalOnlineStake": "在线总权益",
       "totalPeerStake": "同行权益总额",
       "includeOfflineRepresentatives": "包括离线代表",
-      "groupByEntities": "集团纳米基金会实体",
       "viewDelegators": "查看{{count}}个委托人",
       "loadAllRepresentatives": "载入所有代表"
     },

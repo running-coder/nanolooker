@@ -187,7 +187,6 @@
       "totalOnlineStake": "Mise totale en ligne",
       "totalPeerStake": "Participation totale des pairs",
       "includeOfflineRepresentatives": "Inclure les représentants hors-ligne",
-      "groupByEntities": "Regrouper les entités de la Foundation Nano",
       "viewDelegators": "Voir {{count}} délégants",
       "loadAllRepresentatives": "Charger tous les représentants"
     },

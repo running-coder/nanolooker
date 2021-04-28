@@ -245,6 +245,9 @@ const Representatives: React.FC<Props> = ({
         <Row gutter={6}>
           <Col xs={24} md={12}>
             {t("pages.representatives.groupByEntities")}
+            <Tooltip placement="right" title={t("tooltips.groupByEntities")}>
+              <QuestionCircle />
+            </Tooltip>
           </Col>
           <Col xs={24} md={12}>
             <Switch
