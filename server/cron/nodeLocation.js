@@ -1,16 +1,36 @@
 const cron = require("node-cron");
 const fetch = require("node-fetch");
+const chunk = require("lodash/chunk");
 const MongoClient = require("mongodb").MongoClient;
+const { rpc } = require("../rpc");
 const { nodeCache } = require("../cache");
 const { Sentry } = require("../sentry");
-const { getPeers } = require("./networkStatus");
 const {
   MONGO_DB,
   MONGO_URL,
   MONGO_OPTIONS,
-  REPRESENTATIVE_LOCATION,
+  NODE_LOCATION,
   EXPIRE_48H,
 } = require("../constants");
+
+const NODE_IP_REGEX = /\[::ffff:([\d.]+)\]:[\d]+/;
+
+// Get Representative peers (participating in the quorum)
+const getNodePeers = async () => {
+  let peers;
+  try {
+    const { peers: rawPeers } = await rpc("peers");
+
+    peers = Object.keys(rawPeers).map(rawIp => {
+      const [, ip] = rawIp.match(NODE_IP_REGEX);
+      return ip;
+    });
+  } catch (err) {
+    Sentry.captureException(err);
+  }
+
+  return peers;
+};
 
 let db;
 try {
@@ -21,7 +41,7 @@ try {
 
     db = client.db(MONGO_DB);
 
-    db.collection(REPRESENTATIVE_LOCATION).createIndex(
+    db.collection(NODE_LOCATION).createIndex(
       { createdAt: 1 },
       { expireAfterSeconds: EXPIRE_48H },
     );
@@ -31,7 +51,7 @@ try {
   Sentry.captureException(err);
 }
 
-const getRepresentativeLocation = async ip => {
+const getNodeLocation = async ip => {
   try {
     const res = await fetch(
       `https://ipapi.co/${ip}/json/?key=${process.env.IPAPI_KEY}`,
@@ -70,34 +90,43 @@ const getRepresentativeLocation = async ip => {
       org,
     };
   } catch (err) {
-    console.log(`${ip} has no monitor`);
+    console.log(`${ip} had no response`);
   }
 
   return {};
 };
 
-const doRepresentativeLocation = async () => {
-  console.log("Starting doRepresentativeLocation");
+const doNodeLocation = async () => {
+  console.log("Starting doNodeLocation");
 
   try {
-    let peers = await getPeers();
+    let peers = await getNodePeers();
+    let results = [];
 
-    const results = await Promise.all(
-      peers.map(async ({ account, ip }) => {
-        const location = await getRepresentativeLocation(ip);
+    const peersChunks = chunk(peers, 20);
 
-        return {
-          account,
-          ip,
-          location,
-        };
-      }),
-    );
+    for (let i = 0; i < peersChunks.length; i++) {
+      console.log(`Processing node location ${i + 1} of ${peersChunks.length}`);
+      const locationResults = await Promise.all(
+        peersChunks[i].map(async ip => {
+          const location = await getNodeLocation(ip);
 
-    db.collection(REPRESENTATIVE_LOCATION).remove();
-    db.collection(REPRESENTATIVE_LOCATION).insertMany(results);
+          return {
+            ip,
+            location,
+          };
+        }),
+      );
 
-    nodeCache.set(REPRESENTATIVE_LOCATION, results);
+      results = results.concat(locationResults);
+    }
+
+    db.collection(NODE_LOCATION).drop();
+    db.collection(NODE_LOCATION).insertMany(results);
+
+    nodeCache.set(NODE_LOCATION, results);
+
+    console.log("Done node location");
   } catch (err) {
     Sentry.captureException(err);
   }
@@ -108,5 +137,5 @@ const doRepresentativeLocation = async () => {
 cron.schedule("00 01,13 * * *", () => {
   if (process.env.NODE_ENV !== "production") return;
 
-  doRepresentativeLocation();
+  doNodeLocation();
 });

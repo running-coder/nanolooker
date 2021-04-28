@@ -6,9 +6,10 @@ const { Sentry } = require("../sentry");
 const { NETWORK_STATUS, EXPIRE_24H } = require("../constants");
 const monitorAliases = require("./monitorAliases.json");
 
-const PEER_IP_REGEX = /\[::ffff:([\d.]+)\]:[\d]+/;
+const NODE_IP_REGEX = /\[::ffff:([\d.]+)\]:[\d]+/;
 
-const getPeers = async () => {
+// Get Representative peers (participating in the quorum)
+const getConfirmationQuorumPeers = async () => {
   let peers;
   try {
     const { peers: rawPeers } = await rpc("confirmation_quorum", {
@@ -16,7 +17,7 @@ const getPeers = async () => {
     });
 
     peers = rawPeers.map(({ account, ip: rawIp }) => {
-      const [, ip] = rawIp.match(PEER_IP_REGEX);
+      const [, ip] = rawIp.match(NODE_IP_REGEX);
       return {
         account,
         ip,
@@ -80,7 +81,7 @@ const getPeerMonitor = async (ip, protocol = "http") => {
 const doNetworkStatusCron = async () => {
   console.log("Starting doPeersCron");
   try {
-    let peers = await getPeers();
+    let peers = await getConfirmationQuorumPeers();
 
     // Store the nodes without monitor for 24h so the 5 minutes request doesn't pull them
     let skipMonitorCheck24h =
@@ -104,7 +105,6 @@ const doNetworkStatusCron = async () => {
 
         if (!Object.keys(monitor).length) {
           skipMonitorCheck24h.push(ip);
-          return;
         }
 
         return {
@@ -139,7 +139,3 @@ cron.schedule("*/10 * * * *", () => {
 if (process.env.NODE_ENV === "production") {
   doNetworkStatusCron();
 }
-
-module.exports = {
-  getPeers,
-};

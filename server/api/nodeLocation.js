@@ -5,12 +5,12 @@ const {
   MONGO_URL,
   MONGO_OPTIONS,
   MONGO_DB,
-  REPRESENTATIVE_LOCATION,
+  NODE_LOCATION,
 } = require("../constants");
 
-const getRepresentativeLocation = async () => {
-  let representativeLocation =
-    nodeCache.get(REPRESENTATIVE_LOCATION) ||
+const getNodeLocation = async () => {
+  let nodeLocation =
+    nodeCache.get(NODE_LOCATION) ||
     (await new Promise((resolve, reject) => {
       let db;
       try {
@@ -20,12 +20,12 @@ const getRepresentativeLocation = async () => {
           }
           db = client.db(MONGO_DB);
 
-          db.collection(REPRESENTATIVE_LOCATION)
+          db.collection(NODE_LOCATION)
             .find({
               $query: {},
             })
             .toArray((_err, values = []) => {
-              nodeCache.set(REPRESENTATIVE_LOCATION, values);
+              nodeCache.set(NODE_LOCATION, values);
               client.close();
               resolve(values);
             });
@@ -37,9 +37,9 @@ const getRepresentativeLocation = async () => {
       }
     }));
 
-  return representativeLocation;
+  return nodeLocation;
 };
 
 module.exports = {
-  getRepresentativeLocation,
+  getNodeLocation,
 };

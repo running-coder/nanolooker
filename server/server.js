@@ -3,7 +3,7 @@ require("./cron/ws");
 require("./cron/networkStatus");
 require("./cron/marketCapRank");
 require("./cron/knownAccounts");
-require("./cron/representativeLocation");
+require("./cron/nodeLocation");
 require("./ws");
 const { getDistributionData } = require("./cron/distribution");
 const { getExchangeBalances } = require("./cron/exchangeTracker");
@@ -38,7 +38,7 @@ const {
 } = require("./api/knownAccounts");
 const { getDelegators, getAllDelegators } = require("./api/delegators");
 const { getNetworkStatus } = require("./api/networkStatus");
-const { getRepresentativeLocation } = require("./api/representativeLocation");
+const { getNodeLocation } = require("./api/nodeLocation");
 
 const app = express();
 
@@ -156,10 +156,10 @@ app.get("/api/network-status", async (req, res) => {
   return res.send(networkStatus);
 });
 
-app.get("/api/representative-location", async (req, res) => {
-  const representativeLocation = await getRepresentativeLocation();
+app.get("/api/node-location", async (req, res) => {
+  const nodeLocation = await getNodeLocation();
 
-  return res.send(representativeLocation);
+  return res.send(nodeLocation);
 });
 
 app.use(express.static(path.join(__dirname, "../dist")));
