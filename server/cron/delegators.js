@@ -12,9 +12,9 @@ const mkdir = util.promisify(fs.mkdir);
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-// const ROOT_FOLDER = join(__dirname, "../data/");
+const ROOT_FOLDER = join(__dirname, "../data/");
 const DELEGATORS_FOLDER = join(__dirname, "../data/delegators/");
-const DELEGATORS_PATH = join(DELEGATORS_FOLDER, "delegators.json");
+const DELEGATORS_PATH = join(ROOT_FOLDER, "delegators.json");
 const TMP_DELEGATORS_PATH = join(__dirname, "../data/tmp/delegators");
 const STATUS_PATH = join(DELEGATORS_FOLDER, "status.json");
 // Amounts below will be ignored
