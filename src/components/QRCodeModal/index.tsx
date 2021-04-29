@@ -87,7 +87,7 @@ const QRCodeModal = ({ header, account, children }: QRCodeModalProps) => {
               </Link>
             </div>
           ) : null}
-          <Text>{DONATION_ACCOUNT}</Text>
+          <Text>{account}</Text>
         </>
       </Modal>
     </>
