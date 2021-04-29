@@ -5,21 +5,20 @@ const { join } = require("path");
 const cron = require("node-cron");
 const { nodeCache } = require("../cache");
 const { Sentry } = require("../sentry");
-const { EXPIRE_24H, DELEGATORS, STATUS } = require("../constants");
+const { EXPIRE_1W, DELEGATORS } = require("../constants");
 const { rawToRai } = require("../utils");
 const { rpc } = require("../rpc");
-const readdir = util.promisify(fs.readdir);
 const mkdir = util.promisify(fs.mkdir);
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-const ROOT_FOLDER = join(__dirname, "../data/");
+// const ROOT_FOLDER = join(__dirname, "../data/");
 const DELEGATORS_FOLDER = join(__dirname, "../data/delegators/");
 const DELEGATORS_PATH = join(DELEGATORS_FOLDER, "delegators.json");
 const TMP_DELEGATORS_PATH = join(__dirname, "../data/tmp/delegators");
 const STATUS_PATH = join(DELEGATORS_FOLDER, "status.json");
 // Amounts below will be ignored
-const MIN_REPRESENTATIVE_WEIGHT = 1000;
+const MIN_REPRESENTATIVE_WEIGHT = 100000;
 const MIN_DELEGATOR_WEIGHT = 1;
 
 const getAccountDelegators = async () => {
@@ -35,9 +34,9 @@ const getAccountDelegators = async () => {
   for (let i = 0; i < filteredRepresentatives.length; i++) {
     const account = filteredRepresentatives[i].account;
 
-    // Skip, too many delegators (spam accounts?)
+    // Skip, too many delegators
     if (
-      account !==
+      account ===
       "nano_3arg3asgtigae3xckabaaewkx3bzsh7nwz7jkmjos79ihyaxwphhm6qgjps4"
     )
       continue;
@@ -74,16 +73,11 @@ const getAccountDelegators = async () => {
 
       allDelegators[account] = Object.keys(filteredDelegators).length;
       // Heavy, need to wait a bit before the next one
-      sleep(5000);
+      sleep(3000);
     }
   }
 
-  fs.writeFileSync(
-    `${ROOT_FOLDER}/delegators.json`,
-    JSON.stringify(allDelegators, null, 2),
-  );
-
-  return;
+  return allDelegators;
 };
 
 const doDelegatorsCron = async () => {
@@ -95,20 +89,20 @@ const doDelegatorsCron = async () => {
   try {
     const delegators = await getAccountDelegators();
 
-    // fs.writeFileSync(DELEGATORS_PATH, JSON.stringify(delegators, null, 2));
-    // fs.writeFileSync(
-    //   STATUS_PATH,
-    //   JSON.stringify(
-    //     {
-    //       executionTime: (new Date() - startTime) / 1000,
-    //       date: new Date(),
-    //     },
-    //     null,
-    //     2,
-    //   ),
-    // );
+    fs.writeFileSync(DELEGATORS_PATH, JSON.stringify(delegators, null, 2));
+    fs.writeFileSync(
+      STATUS_PATH,
+      JSON.stringify(
+        {
+          executionTime: (new Date() - startTime) / 1000,
+          date: new Date(),
+        },
+        null,
+        2,
+      ),
+    );
 
-    // delegatorsCache.set(DELEGATORS, delegators);
+    nodeCache.set(DELEGATORS, delegators, EXPIRE_1W);
   } catch (err) {
     console.log("Error", err);
     Sentry.captureException(err);
@@ -123,7 +117,7 @@ const doDelegatorsCron = async () => {
 // “At 02:00 on Sunday.”
 cron.schedule("0 2 * * 0", async () => {
   if (process.env.NODE_ENV !== "production") return;
-  // doDelegatorsCron();
+  doDelegatorsCron();
 });
 
 // if (
@@ -133,72 +127,3 @@ cron.schedule("0 2 * * 0", async () => {
 // ) {
 // doDelegatorsCron();
 // }
-
-// const reorderFiles = async () => {
-//   console.log("Reordering Delegators");
-//   const files = await readdir(DELEGATORS_FOLDER);
-
-//   console.log("~~~files", files);
-
-//   // const allDelegators = {};
-
-//   for (let i = 0; i < files.length; i++) {
-//     const delegators = JSON.parse(
-//       fs.readFileSync(`${DELEGATORS_FOLDER}/${files[i]}`, "utf8"),
-//     );
-
-//     const sortedDelegators = Object.fromEntries(
-//       Object.entries(delegators).sort((a, b) => b[1] - a[1]),
-//     );
-
-//     const trimmedDelegators = Object.fromEntries(
-//       Object.entries(sortedDelegators).slice(0, 100),
-//     );
-
-//     try {
-//       fs.writeFileSync(
-//         `${DELEGATORS_FOLDER}/${files[i]}`,
-//         JSON.stringify(trimmedDelegators, null, 2),
-//       );
-//     } catch (err) {
-//       console.log("~~~~err", err);
-//     }
-
-//     sleep(250);
-//   }
-
-//   // fs.writeFileSync(
-//   //   `${ROOT_FOLDER}/delegators.json`,
-//   //   JSON.stringify(allDelegators, null, 2),
-//   // );
-// };
-
-// reorderFiles();
-
-const getDelegatorsData = () => {
-  let delegators = nodeCache.get(DELEGATORS);
-  let status = nodeCache.get(STATUS);
-
-  if (!delegators) {
-    delegators = fs.existsSync(DELEGATORS_PATH)
-      ? JSON.parse(fs.readFileSync(DELEGATORS_PATH, "utf8"))
-      : [];
-    nodeCache.set(DELEGATORS, delegators, EXPIRE_24H);
-  }
-
-  if (!status) {
-    status = fs.existsSync(STATUS_PATH)
-      ? JSON.parse(fs.readFileSync(STATUS_PATH, "utf8"))
-      : {};
-    nodeCache.set(STATUS, status, EXPIRE_24H);
-  }
-
-  return {
-    status,
-    delegators,
-  };
-};
-
-module.exports = {
-  getDelegatorsData,
-};

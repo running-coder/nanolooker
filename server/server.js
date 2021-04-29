@@ -3,6 +3,7 @@ require("./cron/ws");
 require("./cron/networkStatus");
 require("./cron/marketCapRank");
 require("./cron/knownAccounts");
+require("./cron/delegators");
 require("./cron/nodeLocation");
 require("./ws");
 const { getDistributionData } = require("./cron/distribution");

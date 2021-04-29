@@ -15,7 +15,6 @@ const {
 
 const NODE_IP_REGEX = /\[::ffff:([\d.]+)\]:[\d]+/;
 
-// Get Representative peers (participating in the quorum)
 const getNodePeers = async () => {
   let peers;
   try {
