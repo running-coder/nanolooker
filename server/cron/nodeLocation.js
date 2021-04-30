@@ -18,11 +18,13 @@ const NODE_IP_REGEX = /\[::ffff:([\d.]+)\]:[\d]+/;
 const getNodePeers = async () => {
   let peers;
   try {
-    const { peers: rawPeers } = await rpc("peers");
+    const { peers: rawPeers } = await rpc("peers", {
+      peer_details: true,
+    });
 
-    peers = Object.keys(rawPeers).map(rawIp => {
+    peers = Object.entries(rawPeers).map(([rawIp, { node_id: nodeId }]) => {
       const [, ip] = rawIp.match(NODE_IP_REGEX);
-      return ip;
+      return { ip, rawIp, nodeId };
     });
   } catch (err) {
     Sentry.captureException(err);
@@ -107,11 +109,12 @@ const doNodeLocation = async () => {
     for (let i = 0; i < peersChunks.length; i++) {
       console.log(`Processing node location ${i + 1} of ${peersChunks.length}`);
       const locationResults = await Promise.all(
-        peersChunks[i].map(async ip => {
+        peersChunks[i].map(async ({ ip, ...rest }) => {
           const location = await getNodeLocation(ip);
 
           return {
             ip,
+            ...rest,
             location,
           };
         }),

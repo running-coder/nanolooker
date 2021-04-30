@@ -20,6 +20,7 @@ const getConfirmationQuorumPeers = async () => {
       const [, ip] = rawIp.match(NODE_IP_REGEX);
       return {
         account,
+        rawIp,
         ip,
       };
     });
