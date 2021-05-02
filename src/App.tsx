@@ -24,9 +24,11 @@ import EarnNanoPage from "pages/EarnNano";
 import WhatIsNanoPage from "pages/WhatIsNano";
 import PreferencesPage from "pages/Preferences";
 import BookmarksPage from "pages/Bookmarks";
-import useAnalytics from "hooks/use-analytics";
+import "components/utils/analytics";
 
 import "antd/dist/antd.css";
+import "leaflet/dist/leaflet.css";
+import "leaflet-extra-markers/dist/css/leaflet.extra-markers.min.css";
 import "./App.css";
 import "./Theme.css";
 
@@ -34,8 +36,6 @@ const { Content } = Layout;
 
 const App: React.FC = () => {
   const { theme } = React.useContext(PreferencesContext);
-
-  useAnalytics();
 
   return (
     <>

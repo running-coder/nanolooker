@@ -70,7 +70,7 @@
     "confirmationHeight": "A number stored in the local node database that represents the highest (most recent) confirmed block in an account chain. Related to (but different from) block height.",
     "blockHeight": "A local integer value that represents the order of a block in an account chain. For example, the 15th block in an account would have a block height of 15. Related to (but different from) confirmation height.",
     "bookmarks": "{{type, capitalize}} bookmarks are saved on your device. You can manage your known {{type}}s by giving them aliases.",
-    "groupByEntities": "Group Nano Foundation and Binance voting weight."
+    "groupByEntities": "Regroup all voting weight that is split into different principal representatives into single entities. For example an exchange can have multiple wallets and split their weight but in reality it can be counted as a single weight if the were to regroup it."
   },
   "search": {
     "searchBy": "Search by Address / Block / Known Account",
@@ -264,7 +264,9 @@
       "sync": "Sync",
       "ip": "IP",
       "nodeMonitors": "{{count}} Node Monitors",
-      "noMonitorFound": "No monitor found"
+      "nodeLocations": "{{count}} Node Locations",
+      "noMonitorFound": "No monitor found",
+      "viewAccount": "View account"
     },
     "exchangeTracker": {
       "description": "Every day a capture of the account balances of the most popular exchanges where Nano is traded is taken. This measurement can be used to analyze movements and fluctuations on the network."

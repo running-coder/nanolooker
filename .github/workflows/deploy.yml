@@ -17,6 +17,8 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Build static assets
+        env:
+          REACT_APP_GOOGLE_MEASUREMENT_ID: ${{ secrets.REACT_APP_GOOGLE_MEASUREMENT_ID }}
         run: |
           npm install
           npm run build

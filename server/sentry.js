@@ -5,6 +5,7 @@ Sentry.init({
 });
 
 process.on("uncaughtException", err => {
+  console.log('Error', err);
   Sentry.captureException(err);
 });
 

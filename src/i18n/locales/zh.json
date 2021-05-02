@@ -69,7 +69,8 @@
     "unknownLastTransaction": "交易日期于2019年2月引入。在此日期之前，交易时间未在节点上本地记录。上次交易日期未知的原因是，该日期在记录日期之前或在NanoLooker节点投入使用之前已得到确认。",
     "confirmationHeight": "存储在本地节点数据库中的数字，代表帐户链中已确认的最高（最新）区块。与块高有关（但不同于）。",
     "blockHeight": "一个局部整数值，表示帐户链中一个区块的顺序。例如，帐户中的第15个区块的区块高度为15。与确认高度相关（但不同于）。",
-    "bookmarks": "{{type，大写}}书签已保存在您的设备上。您可以通过为它们命名为别名来管理已知的{{type}}。"
+    "bookmarks": "{{type，大写}}书签已保存在您的设备上。您可以通过为它们命名为别名来管理已知的{{type}}。",
+    "groupByEntities": "将划分为不同主要代表的所有投票权重新组合为一个实体。例如，一个交易所可以有多个钱包并分摊它们的重量，但实际上，如果要重新分组，则可以算作一个单独的重量。"
   },
   "search": {
     "searchBy": "按地址/阻止/已知帐户搜索",
@@ -188,7 +189,8 @@
       "totalPeerStake": "同行权益总额",
       "includeOfflineRepresentatives": "包括离线代表",
       "viewDelegators": "查看{{count}}个委托人",
-      "loadAllRepresentatives": "载入所有代表"
+      "loadAllRepresentatives": "载入所有代表",
+      "groupByEntities": "集团实体"
     },
     "representative": {
       "votingWeight": "代表投票权",
@@ -262,7 +264,9 @@
       "sync": "同步",
       "ip": "知识产权",
       "nodeMonitors": "{{count}} 节点监视器",
-      "noMonitorFound": "找不到监视器"
+      "noMonitorFound": "找不到监视器",
+      "nodeLocations": "{{count}}个节点位置",
+      "viewAccount": "查看账户"
     },
     "exchangeTracker": {
       "description": "每天都会记录Nano交易所在的最受欢迎交易所的账户余额。此度量可用于分析网络上的移动和波动。"

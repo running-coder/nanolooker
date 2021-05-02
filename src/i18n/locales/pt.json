@@ -69,7 +69,8 @@
     "unknownLastTransaction": "As datas de transação foram introduzidas em fevereiro de 2019. Antes dessa data, os tempos de transação não eram registrados localmente nos nós. A razão pela qual a data da última transação é desconhecida é porque ela foi confirmada antes que as datas fossem registradas ou antes que o nó NanoLooker estivesse em serviço.",
     "confirmationHeight": "Um número armazenado no banco de dados do nó local que representa o bloco confirmado mais alto (mais recente) em uma cadeia de contas. Relacionado (mas diferente) da altura do bloco.",
     "blockHeight": "Um valor inteiro local que representa a ordem de um bloco em uma cadeia de contas. Por exemplo, o 15º bloco em uma conta teria uma altura de bloco de 15. Relacionado (mas diferente de) altura de confirmação.",
-    "bookmarks": "Os marcadores {{digite, capitalize}} são salvos em seu dispositivo. Você pode gerenciar seus {{type}} s conhecidos fornecendo-lhes aliases."
+    "bookmarks": "Os marcadores {{digite, capitalize}} são salvos em seu dispositivo. Você pode gerenciar seus {{type}} s conhecidos fornecendo-lhes aliases.",
+    "groupByEntities": "Reagrupe todo o peso do voto que é dividido em diferentes representantes principais em entidades únicas. Por exemplo, uma bolsa pode ter várias carteiras e dividir seu peso, mas na realidade pode ser contada como um único peso se reagrupá-la."
   },
   "search": {
     "searchBy": "Pesquisa por endereço / bloco",
@@ -188,7 +189,8 @@
       "totalPeerStake": "Participação de pares total",
       "includeOfflineRepresentatives": "Incluir representantes offline",
       "viewDelegators": "Ver {{count}} delegadores",
-      "loadAllRepresentatives": "Carregar todos os representantes"
+      "loadAllRepresentatives": "Carregar todos os representantes",
+      "groupByEntities": "Entidades de grupo"
     },
     "representative": {
       "votingWeight": "Peso de voto representativo",
@@ -262,7 +264,9 @@
       "sync": "Sincronizar",
       "ip": "IP",
       "nodeMonitors": "{{count}} Monitores de nó",
-      "noMonitorFound": "Nenhum monitor encontrado"
+      "noMonitorFound": "Nenhum monitor encontrado",
+      "nodeLocations": "{{count}} Localizações de nós",
+      "viewAccount": "Visualizar Conta"
     },
     "exchangeTracker": {
       "description": "Todos os dias é feita uma captura dos saldos das contas das bolsas mais populares onde o Nano é negociado. Esta medição pode ser usada para analisar movimentos e flutuações na rede."

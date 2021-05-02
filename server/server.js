@@ -1,10 +1,10 @@
 require("dotenv").config();
-require("./cron/ws");
-require("./cron/networkStatus");
 require("./cron/marketCapRank");
 require("./cron/knownAccounts");
 require("./cron/delegators");
-require("./cron/nodeLocation");
+require("./cron/nodeLocations");
+require("./cron/nodeMonitors");
+require("./cron/ws");
 require("./ws");
 const { getDistributionData } = require("./cron/distribution");
 const { getExchangeBalances } = require("./cron/exchangeTracker");
@@ -38,8 +38,8 @@ const {
   getKnownAccountsBalance,
 } = require("./api/knownAccounts");
 const { getDelegators, getAllDelegators } = require("./api/delegators");
-const { getNetworkStatus } = require("./api/networkStatus");
-const { getNodeLocation } = require("./api/nodeLocation");
+const { getNodeLocations } = require("./api/nodeLocations");
+const { getNodeMonitors } = require("./api/nodeMonitors");
 
 const app = express();
 
@@ -151,16 +151,16 @@ app.get("/api/node-status", async (req, res) => {
   return res.send(nodeStatus);
 });
 
-app.get("/api/network-status", async (req, res) => {
-  const networkStatus = await getNetworkStatus();
+app.get("/api/node-monitors", async (req, res) => {
+  const nodeMonitors = await getNodeMonitors();
 
-  return res.send(networkStatus);
+  return res.send(nodeMonitors);
 });
 
-app.get("/api/node-location", async (req, res) => {
-  const nodeLocation = await getNodeLocation();
+app.get("/api/node-locations", async (req, res) => {
+  const nodeLocations = await getNodeLocations();
 
-  return res.send(nodeLocation);
+  return res.send(nodeLocations);
 });
 
 app.use(express.static(path.join(__dirname, "../dist")));

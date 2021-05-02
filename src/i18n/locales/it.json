@@ -69,7 +69,8 @@
     "unknownLastTransaction": "Le date delle transazioni sono state introdotte nel febbraio 2019. Prima di quella data, i tempi delle transazioni non erano registrati localmente sui nodi. Il motivo per cui la data dell'ultima transazione è sconosciuta è perché è stata confermata prima che le date fossero registrate o prima che il nodo NanoLooker fosse in servizio.",
     "confirmationHeight": "Un numero memorizzato nel database del nodo locale che rappresenta il blocco confermato più alto (più recente) in una catena di account. Correlato a (ma diverso da) l'altezza del blocco.",
     "blockHeight": "Un valore intero locale che rappresenta l'ordine di un blocco in una catena di account. Ad esempio, il quindicesimo blocco in un account avrebbe un'altezza di blocco di 15. Correlato a (ma diverso da) altezza di conferma.",
-    "bookmarks": "I segnalibri {{type, capitalize}} vengono salvati sul tuo dispositivo. Puoi gestire i tuoi {{type}} noti assegnando loro degli alias."
+    "bookmarks": "I segnalibri {{type, capitalize}} vengono salvati sul tuo dispositivo. Puoi gestire i tuoi {{type}} noti assegnando loro degli alias.",
+    "groupByEntities": "Raggruppa tutto il peso di voto che è suddiviso in diversi rappresentanti principali in singole entità. Ad esempio uno scambio può avere più portafogli e dividerne il peso ma in realtà può essere conteggiato come un unico peso se lo raggruppassero."
   },
   "search": {
     "searchBy": "Cerca per indirizzo / blocco / account noto",
@@ -188,7 +189,8 @@
       "totalPeerStake": "Peer stake totale",
       "includeOfflineRepresentatives": "Includere rappresentanti offline",
       "viewDelegators": "Visualizza {{count}} delegatori",
-      "loadAllRepresentatives": "Carica tutti i rappresentanti"
+      "loadAllRepresentatives": "Carica tutti i rappresentanti",
+      "groupByEntities": "Entità del gruppo"
     },
     "representative": {
       "votingWeight": "Peso di voto rappresentativo",
@@ -262,7 +264,9 @@
       "sync": "Sincronizza",
       "ip": "IP",
       "nodeMonitors": "{{count}} Monitor dei nodi",
-      "noMonitorFound": "Nessun monitor trovato"
+      "noMonitorFound": "Nessun monitor trovato",
+      "nodeLocations": "{{count}} Posizioni dei nodi",
+      "viewAccount": "Vedere l'account"
     },
     "exchangeTracker": {
       "description": "Ogni giorno viene eseguita una cattura dei saldi dei conti delle borse più popolari in cui viene scambiato Nano. Questa misurazione può essere utilizzata per analizzare i movimenti e le fluttuazioni sulla rete."

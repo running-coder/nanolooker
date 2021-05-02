@@ -69,7 +69,8 @@
     "unknownLastTransaction": "Las fechas de transacción se introdujeron en febrero de 2019. Antes de esa fecha, los tiempos de transacción no se registraban localmente en los nodos. La razón por la que se desconoce la fecha de la última transacción es porque se confirmó antes de que se registraran las fechas o antes de que el nodo NanoLooker estuviera en servicio.",
     "confirmationHeight": "Un número almacenado en la base de datos del nodo local que representa el bloque confirmado más alto (más reciente) en una cadena de cuentas. Relacionado con (pero diferente) la altura del bloque.",
     "blockHeight": "Un valor entero local que representa el orden de un bloque en una cadena de cuentas. Por ejemplo, el bloque 15 de una cuenta tendría una altura de bloque de 15. Relacionado con (pero diferente) la altura de confirmación.",
-    "bookmarks": "Los marcadores {{type, capitalize}} se guardan en su dispositivo. Puede administrar sus {{type}} conocidos dándoles alias."
+    "bookmarks": "Los marcadores {{type, capitalize}} se guardan en su dispositivo. Puede administrar sus {{type}} conocidos dándoles alias.",
+    "groupByEntities": "Reagrupar todo el peso de los votos que se divide en diferentes representantes principales en entidades individuales. Por ejemplo, un intercambio puede tener múltiples billeteras y dividir su peso, pero en realidad se puede contar como un solo peso si lo reagruparan."
   },
   "search": {
     "searchBy": "Buscar por dirección / bloque / cuenta conocida",
@@ -188,7 +189,8 @@
       "totalPeerStake": "Participación total entre pares",
       "includeOfflineRepresentatives": "Incluir representantes fuera de línea",
       "viewDelegators": "Ver {{count}} delegadores",
-      "loadAllRepresentatives": "Cargar todos los representantes"
+      "loadAllRepresentatives": "Cargar todos los representantes",
+      "groupByEntities": "Entidades del grupo"
     },
     "representative": {
       "votingWeight": "Peso representativo de los votos",
@@ -262,7 +264,9 @@
       "sync": "Sincronizar",
       "ip": "IP",
       "nodeMonitors": "{{count}} Monitores de nodo",
-      "noMonitorFound": "No se encontró ningún monitor"
+      "noMonitorFound": "No se encontró ningún monitor",
+      "nodeLocations": "{{count}} Ubicaciones de nodos",
+      "viewAccount": "Ver cuenta"
     },
     "exchangeTracker": {
       "description": "Todos los días se toma una captura de los saldos de las cuentas de los intercambios más populares donde se negocia Nano. Esta medición se puede utilizar para analizar movimientos y fluctuaciones en la red."

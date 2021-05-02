@@ -69,7 +69,8 @@
     "unknownLastTransaction": "거래 날짜는 2019 년 2 월에 도입되었습니다. 해당 날짜 이전에는 거래 시간이 노드에 로컬로 기록되지 않았습니다. 마지막 거래 날짜를 알 수없는 이유는 날짜가 기록되기 전이나 NanoLooker 노드가 서비스되기 전에 확인 되었기 때문입니다.",
     "confirmationHeight": "계정 체인에서 가장 높은 (가장 최근) 확인 된 블록을 나타내는 로컬 노드 데이터베이스에 저장된 번호입니다. 블록 높이와 관련이 있습니다.",
     "blockHeight": "계정 체인에서 블록의 순서를 나타내는 로컬 정수 값입니다. 예를 들어 계정의 15 번째 블록의 블록 높이는 15입니다. 확인 높이와 관련이 있습니다 (그러나 다른 경우).",
-    "bookmarks": "{{type, capitalize}} 북마크가 기기에 저장됩니다. 별칭을 제공하여 알려진 {{type}}을 관리 할 수 있습니다."
+    "bookmarks": "{{type, capitalize}} 북마크가 기기에 저장됩니다. 별칭을 제공하여 알려진 {{type}}을 관리 할 수 있습니다.",
+    "groupByEntities": "다른 주요 대표로 분할 된 모든 투표 가중치를 단일 엔티티로 다시 그룹화합니다. 예를 들어 거래소는 여러 개의 지갑을 가지고 가중치를 분할 할 수 있지만 실제로는 재 그룹화 할 경우 단일 가중치로 계산 될 수 있습니다."
   },
   "search": {
     "searchBy": "주소 / 차단 / 알려진 계정으로 검색",
@@ -188,7 +189,8 @@
       "totalPeerStake": "총 피어 지분",
       "includeOfflineRepresentatives": "오프라인 담당자 포함",
       "viewDelegators": "위임자 {{count}} 명보기",
-      "loadAllRepresentatives": "모든 대표로드"
+      "loadAllRepresentatives": "모든 대표로드",
+      "groupByEntities": "그룹 엔티티"
     },
     "representative": {
       "votingWeight": "대표 투표 가중치",
@@ -262,7 +264,9 @@
       "sync": "동조",
       "ip": "IP",
       "nodeMonitors": "{{count}} 노드 모니터",
-      "noMonitorFound": "모니터를 찾을 수 없습니다."
+      "noMonitorFound": "모니터를 찾을 수 없습니다.",
+      "nodeLocations": "{{count}} 노드 위치",
+      "viewAccount": "계정보기"
     },
     "exchangeTracker": {
       "description": "Nano가 거래되는 가장 인기있는 거래소의 계정 잔액을 매일 캡처합니다. 이 측정은 네트워크의 움직임과 변동을 분석하는 데 사용할 수 있습니다."

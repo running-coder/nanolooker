@@ -5,12 +5,12 @@ const {
   MONGO_URL,
   MONGO_OPTIONS,
   MONGO_DB,
-  NODE_LOCATION,
+  NODE_LOCATIONS,
 } = require("../constants");
 
-const getNodeLocation = async () => {
-  let nodeLocation =
-    nodeCache.get(NODE_LOCATION) ||
+const getNodeLocations = async () => {
+  let nodeLocations =
+    nodeCache.get(NODE_LOCATIONS) ||
     (await new Promise((resolve, reject) => {
       let db;
       try {
@@ -20,12 +20,12 @@ const getNodeLocation = async () => {
           }
           db = client.db(MONGO_DB);
 
-          db.collection(NODE_LOCATION)
+          db.collection(NODE_LOCATIONS)
             .find({
               $query: {},
             })
             .toArray((_err, values = []) => {
-              nodeCache.set(NODE_LOCATION, values);
+              nodeCache.set(NODE_LOCATIONS, values);
               client.close();
               resolve(values);
             });
@@ -35,11 +35,12 @@ const getNodeLocation = async () => {
         Sentry.captureException(err);
         reject();
       }
-    }));
+    })) ||
+    [];
 
-  return nodeLocation;
+  return nodeLocations;
 };
 
 module.exports = {
-  getNodeLocation,
+  getNodeLocations,
 };

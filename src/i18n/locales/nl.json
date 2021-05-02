@@ -69,7 +69,8 @@
     "unknownLastTransaction": "In februari 2019 zijn transactiedata geïntroduceerd. Voorafgaand aan die datum werden de transactietijden niet lokaal op de nodes geregistreerd. De reden waarom de laatste transactiedatum onbekend is, is omdat deze werd bevestigd voordat de datums werden geregistreerd of voordat het NanoLooker-knooppunt in gebruik was.",
     "confirmationHeight": "Een nummer dat is opgeslagen in de lokale knooppuntdatabase en dat het hoogste (meest recente) bevestigde blok in een accountketen vertegenwoordigt. Gerelateerd aan (maar verschillend van) blokhoogte.",
     "blockHeight": "Een lokale integerwaarde die de volgorde van een blok in een accountketen vertegenwoordigt. Het 15e blok in een account heeft bijvoorbeeld een blokhoogte van 15. Gerelateerd aan (maar anders dan) bevestigingshoogte.",
-    "bookmarks": "{{type, capitalize}} bladwijzers worden op uw apparaat opgeslagen. U kunt uw bekende {{type}} 's beheren door ze aliassen te geven."
+    "bookmarks": "{{type, capitalize}} bladwijzers worden op uw apparaat opgeslagen. U kunt uw bekende {{type}} 's beheren door ze aliassen te geven.",
+    "groupByEntities": "Hergroepeer al het stemgewicht dat is opgesplitst in verschillende hoofdvertegenwoordigers in afzonderlijke entiteiten. Een beurs kan bijvoorbeeld meerdere portemonnees hebben en hun gewicht verdelen, maar in werkelijkheid kan het als een enkel gewicht worden geteld als ze het zouden hergroeperen."
   },
   "search": {
     "searchBy": "Zoeken op adres / blok / bekend account",
@@ -188,7 +189,8 @@
       "totalPeerStake": "Totale peer-inzet",
       "includeOfflineRepresentatives": "Voeg offline vertegenwoordigers toe",
       "viewDelegators": "Bekijk {{count}} delegators",
-      "loadAllRepresentatives": "Laad alle vertegenwoordigers"
+      "loadAllRepresentatives": "Laad alle vertegenwoordigers",
+      "groupByEntities": "Groepsentiteiten"
     },
     "representative": {
       "votingWeight": "Representatief stemgewicht",
@@ -262,7 +264,9 @@
       "sync": "Synchroniseren",
       "ip": "IK P",
       "nodeMonitors": "{{count}} Node-monitoren",
-      "noMonitorFound": "Geen monitor gevonden"
+      "noMonitorFound": "Geen monitor gevonden",
+      "nodeLocations": "{{count}} Knooppuntlocaties",
+      "viewAccount": "Bekijk account"
     },
     "exchangeTracker": {
       "description": "Elke dag wordt een opname gemaakt van de rekeningsaldi van de meest populaire beurzen waar Nano wordt verhandeld. Deze meting kan worden gebruikt om bewegingen en fluctuaties op het netwerk te analyseren."

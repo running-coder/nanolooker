@@ -9,7 +9,7 @@ const {
   MONGO_DB,
   MONGO_URL,
   MONGO_OPTIONS,
-  NODE_LOCATION,
+  NODE_LOCATIONS,
   EXPIRE_48H,
 } = require("../constants");
 
@@ -27,6 +27,7 @@ const getNodePeers = async () => {
       return { ip, rawIp, nodeId };
     });
   } catch (err) {
+    console.log("Error", err);
     Sentry.captureException(err);
   }
 
@@ -42,7 +43,7 @@ try {
 
     db = client.db(MONGO_DB);
 
-    db.collection(NODE_LOCATION).createIndex(
+    db.collection(NODE_LOCATIONS).createIndex(
       { createdAt: 1 },
       { expireAfterSeconds: EXPIRE_48H },
     );
@@ -97,8 +98,8 @@ const getNodeLocation = async ip => {
   return {};
 };
 
-const doNodeLocation = async () => {
-  console.log("Starting doNodeLocation");
+const doNodeLocations = async () => {
+  console.log("Starting doNodeLocations");
 
   try {
     let peers = await getNodePeers();
@@ -123,13 +124,14 @@ const doNodeLocation = async () => {
       results = results.concat(locationResults);
     }
 
-    db.collection(NODE_LOCATION).drop();
-    db.collection(NODE_LOCATION).insertMany(results);
+    db.collection(NODE_LOCATIONS).drop();
+    db.collection(NODE_LOCATIONS).insertMany(results);
 
-    nodeCache.set(NODE_LOCATION, results);
+    nodeCache.set(NODE_LOCATIONS, results);
 
     console.log("Done node location");
   } catch (err) {
+    console.log("Error", err);
     Sentry.captureException(err);
   }
 };
@@ -139,5 +141,9 @@ const doNodeLocation = async () => {
 cron.schedule("00 01,13 * * *", () => {
   if (process.env.NODE_ENV !== "production") return;
 
-  doNodeLocation();
+  doNodeLocations();
 });
+
+// rpc("telemetry", {
+//   raw: true,
+// }).then(telemetry => console.log("telemetry", telemetry));

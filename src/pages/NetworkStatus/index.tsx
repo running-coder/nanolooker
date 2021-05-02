@@ -9,10 +9,11 @@ import {
   RepresentativesContext,
 } from "api/contexts/Representatives";
 import { Theme, PreferencesContext } from "api/contexts/Preferences";
-import useNetworkStatus, { NetworkStatus } from "api/hooks/use-network-status";
+import useNodeMonitors, { NodeMonitor } from "api/hooks/use-node-monitors";
 import { TwoToneColors } from "components/utils";
+import NodeMap from "./NodeMap";
 
-interface Node extends NetworkStatus {}
+interface Node extends NodeMonitor {}
 interface Node extends Representative {}
 
 const { Text, Title } = Typography;
@@ -26,45 +27,40 @@ const NetworkStatusPage: React.FC = () => {
     isLoading: isRepresentativesLoading,
   } = React.useContext(RepresentativesContext);
   const { theme } = React.useContext(PreferencesContext);
-  const {
-    isLoading: isNetworkStatusLoading,
-    networkStatus,
-  } = useNetworkStatus();
+  const { isLoading: isNodeMonitorsLoading, nodeMonitors } = useNodeMonitors();
   const isMediumAndLower = !useMediaQuery("(min-width: 768px)");
 
   React.useEffect(() => {
-    if (isRepresentativesLoading || isNetworkStatusLoading) return;
+    if (isRepresentativesLoading || isNodeMonitorsLoading) return;
 
     try {
-      const nodes = networkStatus.map(node => {
-        const representative = representatives.find(
-          ({ account }) => account === node.account,
-        );
+      const nodes = nodeMonitors
+        .filter(({ monitor }) => !!Object.keys(monitor).length)
+        .map(node => {
+          const representative = representatives.find(
+            ({ account }) => account === node.account,
+          );
 
-        return {
-          ...node,
-          ...representative,
-        };
-      });
+          return {
+            ...node,
+            ...representative,
+          };
+        });
 
-      // @ts-ignore
       setNodes(nodes);
     } catch (err) {}
 
     setIsLoading(false);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isRepresentativesLoading, isNetworkStatusLoading]);
+  }, [isRepresentativesLoading, isNodeMonitorsLoading]);
 
   return (
     <>
-      {/* <Title level={3}>{t("menu.networkStatus")}</Title>
-      <Card
-        size="small"
-        bordered={false}
-        className="detail-layout"
-        style={{ marginBottom: "12px" }}
-      ></Card> */}
+      <NodeMap
+        nodeMonitors={nodeMonitors}
+        isNodeMonitorsLoading={isNodeMonitorsLoading}
+      />
 
       <Title level={3}>
         {t("pages.status.nodeMonitors", {
@@ -164,7 +160,6 @@ const NetworkStatusPage: React.FC = () => {
                   systemUptime = "",
                   usedMem = 0,
                   totalMem = 0,
-                  // nanoNodeName,
                   nodeLocation = "",
                   active_difficulty: { multiplier = "" } = {},
                   blockSync = 0,

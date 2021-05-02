@@ -69,7 +69,8 @@
     "unknownLastTransaction": "İşlem tarihleri Şubat 2019'da tanıtıldı. Bu tarihten önce işlem saatleri düğümlere yerel olarak kaydedilmiyordu. Son işlem tarihinin bilinmemesinin nedeni, tarihler kaydedilmeden veya NanoLooker düğümü hizmete girmeden önce onaylanmış olmasıdır.",
     "confirmationHeight": "Yerel düğüm veritabanında saklanan ve bir hesap zincirindeki en yüksek (en son) doğrulanmış bloğu temsil eden sayı. Blok yüksekliğiyle ilgili (ancak bundan farklı).",
     "blockHeight": "Bir hesap zincirindeki bir bloğun sırasını temsil eden yerel bir tamsayı değeri. Örneğin, bir hesaptaki 15. bloğun blok yüksekliği 15 olacaktır. Onay yüksekliğiyle ilgili (ancak farklı).",
-    "bookmarks": "{{type, capitalize}} yer imleri cihazınıza kaydedilir. Bilinen {{type}} 'lerinizi onlara takma adlar vererek yönetebilirsiniz."
+    "bookmarks": "{{type, capitalize}} yer imleri cihazınıza kaydedilir. Bilinen {{type}} 'lerinizi onlara takma adlar vererek yönetebilirsiniz.",
+    "groupByEntities": "Farklı ana temsilcilere bölünmüş tüm oy ağırlıklarını tek varlıklara yeniden gruplayın. Örneğin, bir borsa birden fazla cüzdana sahip olabilir ve ağırlıklarını paylaştırabilir, ancak gerçekte yeniden gruplandırılacaksa, tek bir ağırlık olarak sayılabilir."
   },
   "search": {
     "searchBy": "Adres / Blok / Bilinen Hesap ile Ara",
@@ -188,7 +189,8 @@
       "totalPeerStake": "Toplam emsal hissesi",
       "includeOfflineRepresentatives": "Çevrimdışı temsilcileri dahil et",
       "viewDelegators": "{{Count}} yetki vereni görüntüle",
-      "loadAllRepresentatives": "Tüm temsilcileri yükle"
+      "loadAllRepresentatives": "Tüm temsilcileri yükle",
+      "groupByEntities": "Grup varlıkları"
     },
     "representative": {
       "votingWeight": "Temsilci oy ağırlığı",
@@ -262,7 +264,9 @@
       "sync": "Senkronize et",
       "ip": "IP",
       "nodeMonitors": "{{count}} Düğüm monitörleri",
-      "noMonitorFound": "Monitör bulunamadı"
+      "noMonitorFound": "Monitör bulunamadı",
+      "nodeLocations": "{{count}} Düğüm Konumları",
+      "viewAccount": "Hesabı görüntüle"
     },
     "exchangeTracker": {
       "description": "Her gün, Nano'nun işlem gördüğü en popüler borsaların hesap bakiyelerinin bir kaydı alınır. Bu ölçüm, ağdaki hareketleri ve dalgalanmaları analiz etmek için kullanılabilir."

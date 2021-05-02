@@ -10,6 +10,7 @@ import {
 } from "@ant-design/icons";
 import { Theme, PreferencesContext, Fiat } from "api/contexts/Preferences";
 import Search from "components/Search";
+import { Tracker } from "components/utils/analytics";
 
 const { Title } = Typography;
 
@@ -68,6 +69,9 @@ const Banner: React.FC = () => {
           href="https://pasino.com/?user_id=18828"
           target="_blank"
           style={{ padding: "0 10px" }}
+          onClick={() => {
+            Tracker.ga4?.gtag("event", "SponsorPasino");
+          }}
         >
           <span
             className="anticon"
