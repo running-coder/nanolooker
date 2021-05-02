@@ -11,7 +11,7 @@ const getKnownAccounts = async () => {
 };
 
 const getKnownAccountsBalance = async () => {
-  let knownAccountsBalance = nodeCache.get(KNOWN_ACCOUNTS_BALANCE) || [];
+  const knownAccountsBalance = nodeCache.get(KNOWN_ACCOUNTS_BALANCE) || [];
 
   return knownAccountsBalance;
 };

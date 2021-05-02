@@ -40,6 +40,7 @@ const {
 const { getDelegators, getAllDelegators } = require("./api/delegators");
 const { getNodeLocations } = require("./api/nodeLocations");
 const { getNodeMonitors } = require("./api/nodeMonitors");
+const { getDelegatedEntity } = require("./api/delegatedEntity");
 
 const app = express();
 
@@ -161,6 +162,12 @@ app.get("/api/node-locations", async (req, res) => {
   const nodeLocations = await getNodeLocations();
 
   return res.send(nodeLocations);
+});
+
+app.get("/api/delegated-entity", async (req, res) => {
+  const delegatedEntity = await getDelegatedEntity();
+
+  return res.send(delegatedEntity);
 });
 
 app.use(express.static(path.join(__dirname, "../dist")));

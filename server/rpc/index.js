@@ -16,6 +16,7 @@ const transformers = {
 const allowedRpcMethods = [
   "account_history",
   "account_info",
+  "account_representative",
   "accounts_balances",
   "active_difficulty",
   "available_supply",
@@ -40,6 +41,7 @@ const allowedRpcMethods = [
 const cacheSettings = {
   account_history: 5,
   account_info: 5,
+  account_representative: 60,
   accounts_balances: 5,
   active_difficulty: 5,
   available_supply: 604800,

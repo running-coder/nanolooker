@@ -13,10 +13,20 @@ import {
   RepresentativesContext,
 } from "api/contexts/Representatives";
 import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
+import { KnownAccountsBalance } from "api/hooks/use-known-accounts-balance";
 import QuestionCircle from "components/QuestionCircle";
 import { rawToRai } from "components/utils";
 
 const { Text, Title } = Typography;
+
+const getDelegatedEntity = async (): Promise<any[] | undefined> => {
+  try {
+    const res = await fetch("/api/delegated-entity");
+    const json = await res.json();
+
+    return json;
+  } catch (err) {}
+};
 
 let representativesChart: any = null;
 
@@ -51,9 +61,14 @@ const Representatives: React.FC<Props> = ({
     confirmationQuorum: {
       online_stake_total: onlineStakeTotal = 0,
       peers_stake_total: peersStakeTotal = 0,
+      principal_representative_min_weight: principalRepresentativeMinWeight = 0,
     },
     isLoading: isConfirmationQuorumLoading,
   } = React.useContext(ConfirmationQuorumContext);
+
+  const [delegatedEntities, setDelegatedEntities] = React.useState<
+    undefined | KnownAccountsBalance[]
+  >();
 
   const representativesSkeletonProps = {
     active: true,
@@ -62,10 +77,17 @@ const Representatives: React.FC<Props> = ({
   };
 
   React.useEffect(() => {
+    getDelegatedEntity().then(delegatedEntities => {
+      setDelegatedEntities(delegatedEntities || []);
+    });
+  }, []);
+
+  React.useEffect(() => {
     if (
       isRepresentativesLoading ||
       isConfirmationQuorumLoading ||
-      !principalRepresentatives.length
+      !principalRepresentatives.length ||
+      !Array.isArray(delegatedEntities)
     )
       return;
 
@@ -81,28 +103,78 @@ const Representatives: React.FC<Props> = ({
       : principalRepresentatives.filter(({ isOnline }) => isOnline);
 
     if (isGroupedByEntities) {
-      let accumulatedWeight = 0;
+      // @TODO find a more scalable option
+      const groups: { [key: string]: number } = {
+        "Nano Foundation": 0,
+        Binance: 0,
+        Kraken: 0,
+        Huobi: 0,
+        Kucoin: 0,
+      };
+
+      // @ts-ignore added representative key
+      delegatedEntities.forEach(({ alias, account, representative, total }) => {
+        const accountIndex = filteredRepresentatives.findIndex(
+          ({ account: representativeAccount }) =>
+            representativeAccount === account,
+        );
+
+        const representativeIndex = filteredRepresentatives.findIndex(
+          ({ account }) => account === representative,
+        );
+
+        if (accountIndex > -1) {
+          filteredRepresentatives[accountIndex] = {
+            ...filteredRepresentatives[accountIndex],
+            weight: filteredRepresentatives[accountIndex].weight + total,
+          };
+        } else {
+          filteredRepresentatives.push({
+            alias,
+            account,
+            isOnline: true,
+            isPrincipal: true,
+            weight: total,
+          });
+        }
+
+        if (representativeIndex > -1) {
+          filteredRepresentatives[representativeIndex] = {
+            ...filteredRepresentatives[representativeIndex],
+            weight: filteredRepresentatives[representativeIndex].weight - total,
+          };
+        }
+      });
 
       filteredRepresentatives = filteredRepresentatives.filter(
         ({ alias, weight }) => {
-          const isNanoFoundation = alias?.startsWith("Nano Foundation");
-          if (isNanoFoundation) {
-            accumulatedWeight = new BigNumber(accumulatedWeight)
+          const group = alias
+            ? Object.keys(groups).find(group =>
+                alias.toLowerCase()?.includes(group.toLowerCase()),
+              )
+            : null;
+
+          if (group) {
+            groups[group] = new BigNumber(groups[group])
               .plus(weight)
               .toNumber();
           }
 
-          return !isNanoFoundation;
+          return !group;
         },
       );
 
-      filteredRepresentatives.push({
+      const groupedEntities = Object.entries(groups).map(([group, weight]) => ({
         account: "",
-        weight: accumulatedWeight,
+        weight: weight,
         isOnline: true,
         isPrincipal: true,
-        alias: "Nano Foundation",
-      });
+        alias: group,
+      }));
+
+      filteredRepresentatives = filteredRepresentatives
+        .concat(groupedEntities)
+        .filter(({ weight }) => weight >= principalRepresentativeMinWeight);
 
       filteredRepresentatives = orderBy(
         filteredRepresentatives,
@@ -206,6 +278,7 @@ const Representatives: React.FC<Props> = ({
     isConfirmationQuorumLoading,
     isIncludeOfflineRepresentatives,
     isGroupedByEntities,
+    delegatedEntities,
   ]);
 
   React.useEffect(() => {
