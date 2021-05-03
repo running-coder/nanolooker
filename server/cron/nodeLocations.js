@@ -143,7 +143,3 @@ cron.schedule("00 01,13 * * *", () => {
 
   doNodeLocations();
 });
-
-// rpc("telemetry", {
-//   raw: true,
-// }).then(telemetry => console.log("telemetry", telemetry));

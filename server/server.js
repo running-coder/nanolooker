@@ -4,6 +4,7 @@ require("./cron/knownAccounts");
 require("./cron/delegators");
 require("./cron/nodeLocations");
 require("./cron/nodeMonitors");
+require("./cron/telemetry");
 require("./cron/ws");
 require("./ws");
 const { getDistributionData } = require("./cron/distribution");
@@ -41,6 +42,7 @@ const { getDelegators, getAllDelegators } = require("./api/delegators");
 const { getNodeLocations } = require("./api/nodeLocations");
 const { getNodeMonitors } = require("./api/nodeMonitors");
 const { getDelegatedEntity } = require("./api/delegatedEntity");
+const { getTelemetry } = require("./api/telemetry");
 
 const app = express();
 
@@ -168,6 +170,12 @@ app.get("/api/delegated-entity", async (req, res) => {
   const delegatedEntity = await getDelegatedEntity();
 
   return res.send(delegatedEntity);
+});
+
+app.get("/api/telemetry", async (req, res) => {
+  const telemetry = await getTelemetry();
+
+  return res.send(telemetry);
 });
 
 app.use(express.static(path.join(__dirname, "../dist")));
