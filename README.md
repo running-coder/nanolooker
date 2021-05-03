@@ -69,3 +69,16 @@ If you think some strings should be corrected open a PR with the corrections on 
 - Add a file named `translate.json` at the root (same level as `package.json`) with your API credentials from Google
 - Link that file using its path inside the `.env` under the key `GOOGLE_APPLICATION_CREDENTIALS=translate.json`
 - run `npm run translate -- --language=LANGUAGE_CODE` where `LANGUAGE_CODE` is `ru`, `fr`, `es` or any new language supported by Google's API.
+
+## Special thanks
+
+### Donators
+
+Thanks for financially contributing to NanoLooker hosting and development.
+
+### Projects
+
+A few projects from the Nano community were really helpful for building NanoLooker
+
+- [My Nano Ninja](https://mynano.ninja/)
+- [NanoCrawler](https://nanocrawler.cc/)

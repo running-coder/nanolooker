@@ -295,7 +295,6 @@ const WhatIsNanoPage: React.FC = () => {
         <ul
           style={{
             width: "100%",
-
             margin: "0 auto 18px auto",
           }}
         >
@@ -308,8 +307,8 @@ const WhatIsNanoPage: React.FC = () => {
             >
               Unity Nano Plugin
             </a>{" "}
-            is available for free on the Unity store which unlocks 1.3 million
-            developers.
+            is now available for free on the Unity store, allowing any Unity
+            developer to easily implement Nano into their games.
           </li>
 
           <li>

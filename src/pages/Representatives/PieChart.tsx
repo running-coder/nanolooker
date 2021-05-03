@@ -15,7 +15,7 @@ import {
 import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
 import { KnownAccountsBalance } from "api/hooks/use-known-accounts-balance";
 import QuestionCircle from "components/QuestionCircle";
-import { rawToRai } from "components/utils";
+// import { rawToRai } from "components/utils";
 
 const { Text, Title } = Typography;
 
@@ -59,8 +59,8 @@ const Representatives: React.FC<Props> = ({
   ] = React.useState([] as Representative[]);
   const {
     confirmationQuorum: {
-      online_stake_total: onlineStakeTotal = 0,
-      peers_stake_total: peersStakeTotal = 0,
+      // online_stake_total: onlineStakeTotal = 0,
+      // peers_stake_total: peersStakeTotal = 0,
       principal_representative_min_weight: principalRepresentativeMinWeight = 0,
     },
     isLoading: isConfirmationQuorumLoading,
@@ -92,15 +92,16 @@ const Representatives: React.FC<Props> = ({
       return;
 
     const aliasSeparator = "|||";
-    const stake = new BigNumber(
-      rawToRai(
-        !isIncludeOfflineRepresentatives ? onlineStakeTotal : peersStakeTotal,
-      ),
-    ).toNumber();
+    // const stake = new BigNumber(rawToRai(onlineStakeTotal)).toNumber();
 
     let filteredRepresentatives = isIncludeOfflineRepresentatives
-      ? principalRepresentatives
-      : principalRepresentatives.filter(({ isOnline }) => isOnline);
+      ? [...principalRepresentatives]
+      : [...principalRepresentatives].filter(({ isOnline }) => isOnline);
+
+    let stake = 0;
+    forEach(filteredRepresentatives, representative => {
+      stake = new BigNumber(stake).plus(representative.weight).toNumber();
+    });
 
     if (isGroupedByEntities) {
       // @TODO find a more scalable option
@@ -185,9 +186,13 @@ const Representatives: React.FC<Props> = ({
 
     const nakamotoCoefficient: Representative[] = [];
     let nakamotoCoefficientWeight = 0;
+    let totalWeight = 0;
 
     forEach(filteredRepresentatives, representative => {
       const nextWeight = new BigNumber(nakamotoCoefficientWeight)
+        .plus(representative.weight)
+        .toNumber();
+      totalWeight = new BigNumber(totalWeight)
         .plus(representative.weight)
         .toNumber();
       const percent = new BigNumber(nextWeight)
@@ -286,6 +291,7 @@ const Representatives: React.FC<Props> = ({
     const filteredRepresentatives = representatives.filter(
       ({ isPrincipal }) => isPrincipal,
     );
+
     setPrincipalRepresentatives(filteredRepresentatives);
   }, [representatives, isRepresentativesLoading]);
 
@@ -300,10 +306,10 @@ const Representatives: React.FC<Props> = ({
       <Title level={3}>{t("pages.representatives.voteDistribution")}</Title>
       <Card size="small" bordered={false} className="detail-layout">
         <Row gutter={6}>
-          <Col xs={24} md={12}>
+          <Col xs={20} md={12}>
             {t("pages.representatives.includeOfflineRepresentatives")}
           </Col>
-          <Col xs={24} md={12}>
+          <Col xs={4} md={12}>
             <Switch
               disabled={isRepresentativesLoading}
               checkedChildren={<CheckOutlined />}
@@ -316,13 +322,13 @@ const Representatives: React.FC<Props> = ({
           </Col>
         </Row>
         <Row gutter={6}>
-          <Col xs={24} md={12}>
+          <Col xs={20} md={12}>
             {t("pages.representatives.groupByEntities")}
             <Tooltip placement="right" title={t("tooltips.groupByEntities")}>
               <QuestionCircle />
             </Tooltip>
           </Col>
-          <Col xs={24} md={12}>
+          <Col xs={4} md={12}>
             <Switch
               disabled={isRepresentativesLoading}
               checkedChildren={<CheckOutlined />}

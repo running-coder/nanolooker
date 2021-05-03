@@ -35,7 +35,7 @@ const Banner: React.FC = () => {
         style={{ display: "flex", alignItems: "center", marginBottom: "18px" }}
       >
         <img
-          alt="Nano block-lattice explorer"
+          alt="Nano block explorer"
           height="20px"
           src={`/nano-${theme === Theme.DARK ? "dark" : "light"}.png`}
           style={{ marginRight: "12px" }}
