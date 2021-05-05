@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet";
 import { Card, Typography } from "antd";
 import ThemePreference from "components/Preferences/Theme";
 import LanguagePreferences from "components/Preferences/Language";
@@ -16,6 +17,9 @@ const PreferencesPage: React.FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{t("menu.preferences")}</title>
+      </Helmet>
       <Title level={3}>{t("menu.preferences")}</Title>
       <Card
         size="small"

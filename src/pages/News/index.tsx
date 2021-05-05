@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet";
 import orderBy from "lodash/orderBy";
 import uniqBy from "lodash/uniqBy";
 import {
@@ -143,6 +144,9 @@ const NewsPage: React.FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{t("menu.news")}</title>
+      </Helmet>
       <Space style={{ marginBottom: "12px" }}>
         <Dropdown
           overlay={

@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
 import { Card, Typography } from "antd";
 import { BlocksInfoContext } from "api/contexts/BlocksInfo";
@@ -28,6 +29,11 @@ const BlockPage: React.FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>
+          {t("common.block")} {block}
+        </title>
+      </Helmet>
       <Title level={3}>{t("common.block")}</Title>
       {isValid ? <BlockDetails /> : null}
       {!isValid || !block ? (

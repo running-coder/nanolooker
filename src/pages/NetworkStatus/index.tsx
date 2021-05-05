@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { Card, Col, Empty, Row, Skeleton, Tag, Typography } from "antd";
 import BigNumber from "bignumber.js";
@@ -58,6 +59,9 @@ const NetworkStatusPage: React.FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{t("menu.networkStatus")}</title>
+      </Helmet>
       <NodeMap
         nodeMonitors={nodeMonitors}
         isNodeMonitorsLoading={isNodeMonitorsLoading}

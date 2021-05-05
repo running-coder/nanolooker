@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useTranslation, Trans } from "react-i18next";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { Button, Card, Col, Row, Skeleton, Tooltip, Typography } from "antd";
 import orderBy from "lodash/orderBy";
@@ -100,6 +101,9 @@ const DeveloperFund: React.FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{t("menu.developerFund")}</title>
+      </Helmet>
       <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]}>
         <Col xs={24} lg={12}>
           <Title level={3}>{t("menu.developerFund")}</Title>

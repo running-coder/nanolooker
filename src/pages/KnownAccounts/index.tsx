@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { Button, Input, Table, Typography } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
@@ -15,6 +16,9 @@ const KnownAccountsPage: React.FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{t("menu.knownAccounts")}</title>
+      </Helmet>
       <Title level={3}>
         {t("pages.knownAccounts.totalAccounts", {
           totalAccounts: knownAccountsBalance.length,

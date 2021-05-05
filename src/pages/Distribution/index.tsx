@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useTranslation, Trans } from "react-i18next";
+import { Helmet } from "react-helmet";
 import { Card, Switch, Tooltip, Typography } from "antd";
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import { StackedColumn, StackedColumnConfig } from "@antv/g2plot";
@@ -10,6 +11,7 @@ import useDistribution, { DistributionIndex } from "api/hooks/use-distribution";
 import DormantFunds from "./DormantFunds";
 import QuestionCircle from "components/QuestionCircle";
 import { intToString } from "components/utils";
+import TimeAgo from "timeago-react";
 
 const { Text, Title } = Typography;
 
@@ -196,13 +198,19 @@ const Distribution: React.FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{t("menu.distribution")}</title>
+      </Helmet>
       <Title level={3}>{t("pages.distribution.title")}</Title>
       <Card size="small">
         <div style={{ marginBottom: "12px" }}>
           <Text style={{ fontSize: "12px" }}>
-            <Trans i18nKey="common.executionDate">
-              <strong>{{ date }}</strong>
-            </Trans>
+            {t("common.executionTimeAgo")}{" "}
+            <TimeAgo
+              datetime={date}
+              live={false}
+              style={{ fontWeight: "bold" }}
+            />
           </Text>
           <br />
           <Text style={{ fontSize: "12px" }}>

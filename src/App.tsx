@@ -1,8 +1,10 @@
 import * as React from "react";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 import { Helmet } from "react-helmet";
 import { Route, Switch } from "react-router-dom";
 import { Layout } from "antd";
-import { PreferencesContext } from "api/contexts/Preferences";
+import { PreferencesContext, Theme } from "api/contexts/Preferences";
 import NodeHealth from "components/NodeHealth";
 import AppHeader from "components/AppHeader";
 import AppFooter from "components/AppFooter";
@@ -35,11 +37,23 @@ import "./Theme.css";
 const { Content } = Layout;
 
 const App: React.FC = () => {
+  const { t } = useTranslation();
   const { theme } = React.useContext(PreferencesContext);
 
   return (
     <>
-      <Helmet></Helmet>
+      <Helmet>
+        <html lang={i18next.language} />
+        <title>NanoLooker {t("common.blockExplorer")}</title>
+        <meta
+          name="description"
+          content="Block explorer of the Nano cryptocurrency"
+        />
+        <meta
+          name="theme-color"
+          content={theme === Theme.DARK ? "#131313" : "#eff2f5"}
+        />
+      </Helmet>
       <Layout
         style={{ minHeight: "100vh" }}
         className={theme ? `theme-${theme}` : undefined}

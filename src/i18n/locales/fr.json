@@ -118,7 +118,7 @@
     "earnNano": "Gagner des Nano",
     "preferences": "Préférences",
     "status": "Statut",
-    "networkStatus": "L'état du réseau"
+    "networkStatus": "État du réseau"
   },
   "footer": {
     "createdBy": "Créé par {{creator}}",

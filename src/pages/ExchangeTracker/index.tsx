@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet";
 import moment from "moment";
 import foreach from "lodash/forEach";
 import BigNumber from "bignumber.js";
@@ -185,6 +186,9 @@ const ExchangeTrackerPage: React.FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{t("menu.exchangeTracker")}</title>
+      </Helmet>
       <Title level={3}>{t("menu.exchangeTracker")}</Title>
 
       <Card size="small" bordered={false}>

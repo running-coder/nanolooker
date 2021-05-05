@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
 import { Card, Typography } from "antd";
 import { isValidAccountAddress } from "components/utils";
@@ -41,6 +42,11 @@ const AccountPage: React.FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>
+          {t("common.account")} {account}
+        </title>
+      </Helmet>
       <Title level={3}>{t("common.account")}</Title>
       {isValid && !isAccountInfoError ? <AccountDetails /> : null}
       {isValid && isAccountInfoError ? <AccountDetailsUnopened /> : null}

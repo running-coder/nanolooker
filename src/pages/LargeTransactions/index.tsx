@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet";
 import orderBy from "lodash/orderBy";
 import BigNumber from "bignumber.js";
 import { Button, Dropdown, Menu, Tooltip, Typography } from "antd";
@@ -65,6 +66,9 @@ const LargeTransactions: React.FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{t("menu.largeTransactions")}</title>
+      </Helmet>
       <Title level={3}>{t("menu.largeTransactions")}</Title>
 
       <div style={{ marginBottom: "12px" }}>

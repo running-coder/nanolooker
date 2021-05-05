@@ -105,7 +105,11 @@ const Telemetry: React.FC = () => {
           {date ? (
             <>
               {t("common.executionTimeAgo")}{" "}
-              <TimeAgo datetime={date} live={false} />
+              <TimeAgo
+                datetime={date}
+                live={false}
+                style={{ fontWeight: "bold" }}
+              />
             </>
           ) : null}
           {nodeCount ? (

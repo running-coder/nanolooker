@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { Card, Col, Row, Skeleton, Tooltip, Typography } from "antd";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -37,6 +38,9 @@ const FaucetsPage: React.FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{t("menu.faucets")}</title>
+      </Helmet>
       <Title level={3}>{t("menu.faucets")}</Title>
       <div style={{ marginBottom: "12px" }}>
         <Text>{t("pages.faucets.description")}</Text>

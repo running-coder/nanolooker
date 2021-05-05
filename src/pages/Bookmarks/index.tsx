@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet";
 import { Card, Col, Empty, Row, Typography } from "antd";
 import { BookmarksContext } from "api/contexts/Bookmarks";
 import AccountHeader from "pages/Account/Header/Account";
@@ -14,6 +15,9 @@ const BookmarksPage: React.FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{t("common.bookmarks")}</title>
+      </Helmet>
       <Title level={3}>{t("common.bookmarks")}</Title>
       <Card size="small" bordered={false} className="detail-layout">
         {hasAccountBookmarks ? (

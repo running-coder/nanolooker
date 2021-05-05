@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import {
   Button,
@@ -103,6 +104,9 @@ const Representatives = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{t("menu.representatives")}</title>
+      </Helmet>
       <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]}>
         <Col xs={24} md={12}>
           <PieChart
