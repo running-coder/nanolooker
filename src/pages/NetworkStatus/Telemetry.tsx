@@ -95,7 +95,12 @@ const Telemetry: React.FC = () => {
         </Dropdown>
       </div>
 
-      <Card size="small" bordered={false} className="detail-layout">
+      <Card
+        size="small"
+        bordered={false}
+        className="detail-layout"
+        style={{ marginBottom: "12px" }}
+      >
         <div style={{ marginBottom: "12px", fontSize: "12px" }}>
           {date ? (
             <>

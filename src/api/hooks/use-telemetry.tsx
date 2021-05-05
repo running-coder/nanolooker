@@ -51,8 +51,8 @@ const useTelemetry = (): Return => {
     if (!json || json.error) {
       setIsError(true);
     } else {
-      setTelemetry(json.telemetry);
-      setStatus(json.status);
+      setTelemetry(json.telemetry || {});
+      setStatus(json.status || {});
     }
 
     setIsLoading(false);
