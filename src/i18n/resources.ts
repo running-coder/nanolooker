@@ -13,6 +13,7 @@ import nl from "./locales/nl.json";
 import pt from "./locales/pt.json";
 import ru from "./locales/ru.json";
 import tr from "./locales/tr.json";
+import vi from "./locales/vi.json";
 import zh from "./locales/zh.json";
 
 export const resources = {
@@ -57,6 +58,9 @@ export const resources = {
   },
   tr: {
     translation: tr,
+  },
+  vi: {
+    translation: vi,
   },
   zh: {
     translation: zh,

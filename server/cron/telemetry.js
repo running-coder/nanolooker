@@ -162,8 +162,8 @@ const calculateAverage = (values, percentile, isInt = true) => {
   return isInt ? parseInt(median) : parseFloat(median);
 };
 
-// Once every 15 minutes
-// https://crontab.guru/#*/15_*_*_*_*
+// Once every 10 minutes
+// https://crontab.guru/#*/10_*_*_*_*
 cron.schedule("*/10 * * * *", async () => {
   if (process.env.NODE_ENV !== "production") return;
 
