@@ -2,7 +2,9 @@
   "common": {
     "blockExplorer": "ブロックエクスプローラー",
     "account": "アカウント",
+    "accounts": "アカウント",
     "block": "ブロック",
+    "blocks": "ブロック",
     "representative": "代表",
     "representatives": "代表者",
     "principalRepresentative": "代表者",
@@ -30,7 +32,9 @@
     "copy": "コピー",
     "bookmark": "ブックマーク",
     "bookmarks": "ブックマーク",
-    "ok": "OK"
+    "ok": "OK",
+    "executionDate": "最後のコンパイルは<0>{{date}}</0>でした",
+    "executionTimeAgo": "最後のコンパイルは"
   },
   "nodeHealth": {
     "nodeReloading": "Nanoノードがリロードしています",
@@ -70,7 +74,11 @@
     "confirmationHeight": "アカウントチェーンで確認された最も高い（最新の）ブロックを表す、ローカルノードデータベースに格納されている番号。ブロックの高さに関連します（ただし、異なります）。",
     "blockHeight": "アカウントチェーン内のブロックの順序を表すローカル整数値。たとえば、アカウントの15番目のブロックのブロックの高さは15になります。確認の高さに関連します（ただし、これとは異なります）。",
     "bookmarks": "{{type、capitalize}}ブックマークがデバイスに保存されます。エイリアスを指定することで、既知の{{type}}を管理できます。",
-    "groupByEntities": "異なる主要な代表者に分割されたすべての投票ウェイトを単一のエンティティに再グループ化します。たとえば、取引所は複数のウォレットを持ち、それらのウェイトを分割できますが、実際には、それを再グループ化した場合、単一のウェイトとしてカウントできます。"
+    "groupByEntities": "異なる主要な代表者に分割されたすべての投票ウェイトを単一のエンティティに再グループ化します。たとえば、取引所は複数のウォレットを持ち、それらのウェイトを分割できますが、実際には、それを再グループ化した場合、単一のウェイトとしてカウントできます。",
+    "telemetry": "ネットワーク上の他のノードからのメトリック。ネットワーク上のさまざまな状態を表すために、すべてのメトリックが収集され、平均化されます。 Pはパーセンタイルに対応し、p50は下位50％を除外して計算され、p95はさまざまな値の下位5％を除外して平均を計算します。",
+    "ledgerSize": "これまでのすべてのNanoトランザクションを保存するために必要なディスク容量の合計。元帳のサイズは、1000ではなく1024ベースで計算されます。",
+    "bandwidthCap": "Nanoノードは、帯域幅を調整して、送受信できるメッセージの量を制限できます。 0は無制限の帯域幅を意味します。",
+    "uptime": "ノードが最後に再起動されてからの時間。"
   },
   "search": {
     "searchBy": "アドレス/ブロック/既知のアカウントで検索",
@@ -218,7 +226,6 @@
     },
     "distribution": {
       "title": "ナノ分布",
-      "executionDate": "前回の配布のコンパイルは <0>{{date}}</0> でした",
       "summary": "合計 <0>{{i18nTotalAccounts}}</0> アカウントが <1>{{i18nTotalBalances}}</1> NANOを保持しています",
       "summaryMinBalance": "残高が <0>0.001</0>未満のアカウントは除外されます",
       "includeKnownExchanges": "既知の交換を含める",
@@ -237,14 +244,12 @@
       "allAuthors": "すべての著者"
     },
     "status": {
-      "blockCount": "ブロック数",
       "reload": "リロード",
       "count": "カウント",
       "unchecked": "未チェック",
       "cemented": "セメント",
       "ledger": "元帳",
       "availableSupply": "利用可能な供給",
-      "nanoAccounts": "NANOアカウント",
       "ledgerSize": "元帳サイズ",
       "activeDifficulty": "アクティブな難易度",
       "networkMinimum": "ネットワーク最小",
@@ -266,7 +271,12 @@
       "nodeMonitors": "{{count}} ノードモニター",
       "noMonitorFound": "モニターが見つかりません",
       "nodeLocations": "{{count}}ノードの場所",
-      "viewAccount": "アカウントをみる"
+      "viewAccount": "アカウントをみる",
+      "telemetry": "テレメトリー",
+      "bandwidthCap": "帯域幅の上限",
+      "nodeCount": "平均は、テレメトリが有効になっている<0> {{nodeCount}}</0>ノードから計算されます。",
+      "unlimitedBandwidthCap": "<0>{{unlimitedBandwidthCapCount}}</0>ノードには帯域幅の制限はありません。",
+      "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0>ノードの帯域幅制限は<1>{{limitedBandwidthCap}}</1>です。"
     },
     "exchangeTracker": {
       "description": "Nanoが取引されている最も人気のある取引所の口座残高を毎日取得します。この測定値は、ネットワーク上の動きや変動を分析するために使用できます。"

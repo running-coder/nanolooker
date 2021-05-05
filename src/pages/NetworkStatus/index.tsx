@@ -12,6 +12,7 @@ import { Theme, PreferencesContext } from "api/contexts/Preferences";
 import useNodeMonitors, { NodeMonitor } from "api/hooks/use-node-monitors";
 import { TwoToneColors } from "components/utils";
 import NodeMap from "./NodeMap";
+import Telemetry from "./Telemetry";
 
 interface Node extends NodeMonitor {}
 interface Node extends Representative {}
@@ -61,6 +62,8 @@ const NetworkStatusPage: React.FC = () => {
         nodeMonitors={nodeMonitors}
         isNodeMonitorsLoading={isNodeMonitorsLoading}
       />
+
+      <Telemetry />
 
       <Title level={3}>
         {t("pages.status.nodeMonitors", {

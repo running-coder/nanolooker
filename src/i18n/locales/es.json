@@ -2,7 +2,9 @@
   "common": {
     "blockExplorer": "Explorador de bloques",
     "account": "Cuenta",
+    "accounts": "Cuentas",
     "block": "Cuadra",
+    "blocks": "Bloques",
     "representative": "Representante",
     "representatives": "Representantes",
     "principalRepresentative": "Representante Principal",
@@ -30,7 +32,9 @@
     "copy": "Dupdo",
     "bookmark": "Marcador",
     "bookmarks": "Marcadores",
-    "ok": "OK"
+    "ok": "OK",
+    "executionDate": "La última compilación fue el <0>{{date}}</0>",
+    "executionTimeAgo": "La última compilación fue"
   },
   "nodeHealth": {
     "nodeReloading": "Nano nodo se está recargando",
@@ -70,7 +74,11 @@
     "confirmationHeight": "Un número almacenado en la base de datos del nodo local que representa el bloque confirmado más alto (más reciente) en una cadena de cuentas. Relacionado con (pero diferente) la altura del bloque.",
     "blockHeight": "Un valor entero local que representa el orden de un bloque en una cadena de cuentas. Por ejemplo, el bloque 15 de una cuenta tendría una altura de bloque de 15. Relacionado con (pero diferente) la altura de confirmación.",
     "bookmarks": "Los marcadores {{type, capitalize}} se guardan en su dispositivo. Puede administrar sus {{type}} conocidos dándoles alias.",
-    "groupByEntities": "Reagrupar todo el peso de los votos que se divide en diferentes representantes principales en entidades individuales. Por ejemplo, un intercambio puede tener múltiples billeteras y dividir su peso, pero en realidad se puede contar como un solo peso si lo reagruparan."
+    "groupByEntities": "Reagrupar todo el peso de los votos que se divide en diferentes representantes principales en entidades individuales. Por ejemplo, un intercambio puede tener múltiples billeteras y dividir su peso, pero en realidad se puede contar como un solo peso si lo reagruparan.",
+    "telemetry": "Métricas de otros nodos de la red. Todas las métricas se recopilan y promedian para representar diferentes estados de la red. P corresponde al percentil, p50 se calcula excluyendo el 50% inferior mientras que p95 excluye el 5% inferior de los diferentes valores para calcular el promedio.",
+    "ledgerSize": "La cantidad total de espacio en disco necesaria para almacenar todas las transacciones Nano hasta ahora. El tamaño del libro mayor se calcula en base 1024, no 1000.",
+    "bandwidthCap": "Los nano nodos pueden acelerar su ancho de banda para limitar la cantidad de mensajes que se pueden enviar o recibir. 0 significa ancho de banda ilimitado.",
+    "uptime": "Tiempo transcurrido desde la última vez que se reinició el nodo."
   },
   "search": {
     "searchBy": "Buscar por dirección / bloque / cuenta conocida",
@@ -218,8 +226,7 @@
     },
     "distribution": {
       "title": "Distribución nano",
-      "executionDate": "La última compilación de distribución fue el <0> {{date}} </0>",
-      "summary": "Un total de <0> {{i18nTotalAccounts}} </0> cuentas tienen <1> {{i18nTotalBalances}} </1> NANO",
+      "summary": "Un total de <0>{{i18nTotalAccounts}}</0> cuentas tienen <1>{{i18nTotalBalances}}</1> NANO",
       "summaryMinBalance": "Se excluye cualquier cuenta con un saldo inferior a <0> 0.001 </0>",
       "includeKnownExchanges": "Incluir intercambios conocidos",
       "logScale": "Escala logarítmica",
@@ -237,14 +244,12 @@
       "allAuthors": "Todos los Autores"
     },
     "status": {
-      "blockCount": "Recuento de bloques",
       "reload": "Recargar",
       "count": "Contar",
       "unchecked": "Desenfrenado",
       "cemented": "Cementado",
       "ledger": "Libro mayor",
       "availableSupply": "Suministro disponible",
-      "nanoAccounts": "Cuentas NANO",
       "ledgerSize": "Tamaño del libro mayor",
       "activeDifficulty": "Dificultad activa",
       "networkMinimum": "Mínimo de red",
@@ -266,7 +271,12 @@
       "nodeMonitors": "{{count}} Monitores de nodo",
       "noMonitorFound": "No se encontró ningún monitor",
       "nodeLocations": "{{count}} Ubicaciones de nodos",
-      "viewAccount": "Ver cuenta"
+      "viewAccount": "Ver cuenta",
+      "telemetry": "Telemetría",
+      "bandwidthCap": "Límite de ancho de banda",
+      "nodeCount": "El promedio se calcula a partir de <0>{{nodeCount}}</0> nodos con telemetría habilitada.",
+      "unlimitedBandwidthCap": "<0>{{unlimitedBandwidthCapCount}}</0> los nodos no tienen límite de ancho de banda.",
+      "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> los nodos tienen un límite de ancho de banda de <1>{{limitedBandwidthCap}}</1>."
     },
     "exchangeTracker": {
       "description": "Todos los días se toma una captura de los saldos de las cuentas de los intercambios más populares donde se negocia Nano. Esta medición se puede utilizar para analizar movimientos y fluctuaciones en la red."

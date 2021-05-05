@@ -2,7 +2,9 @@
   "common": {
     "blockExplorer": "Block Explorer",
     "account": "Account",
+    "accounts": "Accounts",
     "block": "Block",
+    "blocks": "Blocks",
     "representative": "Representative",
     "representatives": "Representatives",
     "principalRepresentative": "Principal Representative",
@@ -30,7 +32,9 @@
     "copy": "Copy",
     "bookmark": "Bookmark",
     "bookmarks": "Bookmarks",
-    "ok": "Ok"
+    "ok": "Ok",
+    "executionDate": "Last compilation was on <0>{{date}}</0>",
+    "executionTimeAgo": "Last compilation was"
   },
   "nodeHealth": {
     "nodeReloading": "Nano node is reloading",
@@ -70,7 +74,11 @@
     "confirmationHeight": "A number stored in the local node database that represents the highest (most recent) confirmed block in an account chain. Related to (but different from) block height.",
     "blockHeight": "A local integer value that represents the order of a block in an account chain. For example, the 15th block in an account would have a block height of 15. Related to (but different from) confirmation height.",
     "bookmarks": "{{type, capitalize}} bookmarks are saved on your device. You can manage your known {{type}}s by giving them aliases.",
-    "groupByEntities": "Regroup all voting weight that is split into different principal representatives into single entities. For example an exchange can have multiple wallets and split their weight but in reality it can be counted as a single weight if the were to regroup it."
+    "groupByEntities": "Regroup all voting weight that is split into different principal representatives into single entities. For example an exchange can have multiple wallets and split their weight but in reality it can be counted as a single weight if the were to regroup it.",
+    "telemetry": "Metrics from other nodes on the network. All the metrics are collected and averaged to represent different states on the network. P corresponds to percentile, p50 is calculated by excluding the bottom 50% while the p95 is excluding the bottom 5% of the different values to calculate the average.",
+    "ledgerSize": "The total amount of disk space required to store every Nano transactions up to now. The ledger size is calculated on 1024 base not 1000.",
+    "bandwidthCap": "Nano nodes are able to throttle their bandwidth to limit the amount of messages that can be sent or received. 0 means unlimited bandwidth.",
+    "uptime": "Time since the node was last rebooted."
   },
   "search": {
     "searchBy": "Search by Address / Block / Known Account",
@@ -218,7 +226,6 @@
     },
     "distribution": {
       "title": "Nano Distribution",
-      "executionDate": "Last distribution compilation was on <0>{{date}}</0>",
       "summary": "Total of <0>{{i18nTotalAccounts}}</0> accounts are holding <1>{{i18nTotalBalances}}</1> NANO",
       "summaryMinBalance": "Any account with a balance inferior to <0>0.001</0> is excluded",
       "includeKnownExchanges": "Include known exchanges",
@@ -237,14 +244,12 @@
       "allAuthors": "All Authors"
     },
     "status": {
-      "blockCount": "Block Count",
       "reload": "Reload",
       "count": "Count",
       "unchecked": "Unchecked",
       "cemented": "Cemented",
       "ledger": "Ledger",
       "availableSupply": "Available supply",
-      "nanoAccounts": "NANO accounts",
       "ledgerSize": "Ledger size",
       "activeDifficulty": "Active Difficulty",
       "networkMinimum": "Network Minimum",
@@ -266,7 +271,12 @@
       "nodeMonitors": "{{count}} Node Monitors",
       "nodeLocations": "{{count}} Node Locations",
       "noMonitorFound": "No monitor found",
-      "viewAccount": "View account"
+      "viewAccount": "View account",
+      "telemetry": "Telemetry",
+      "bandwidthCap": "Bandwidth Cap",
+      "nodeCount": "The average is calculated out of <0>{{nodeCount}}</0> nodes with telemetry enabled.",
+      "unlimitedBandwidthCap": "<0>{{unlimitedBandwidthCapCount}}</0> nodes have no bandwidth limit.",
+      "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> nodes have bandwidth limit of <1>{{limitedBandwidthCap}}</1>."
     },
     "exchangeTracker": {
       "description": "Every day a capture of the account balances of the most popular exchanges where Nano is traded is taken. This measurement can be used to analyze movements and fluctuations on the network."

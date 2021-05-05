@@ -200,7 +200,7 @@ const Distribution: React.FC = () => {
       <Card size="small">
         <div style={{ marginBottom: "12px" }}>
           <Text style={{ fontSize: "12px" }}>
-            <Trans i18nKey="pages.distribution.executionDate">
+            <Trans i18nKey="common.executionDate">
               <strong>{{ date }}</strong>
             </Trans>
           </Text>

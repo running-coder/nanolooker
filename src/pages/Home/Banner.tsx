@@ -61,7 +61,14 @@ const Banner: React.FC = () => {
 
       <Space>
         <Link to={"/what-is-nano"}>
-          <Button ghost>{t("menu.whatIsNano")}</Button>
+          <Button
+            ghost
+            onClick={() => {
+              Tracker.ga4?.gtag("event", "WhatIsNano");
+            }}
+          >
+            {t("menu.whatIsNano")}
+          </Button>
         </Link>
 
         <Button
@@ -104,6 +111,9 @@ const Banner: React.FC = () => {
           href="https://earn-nano.com/"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => {
+            Tracker.ga4?.gtag("event", "EarnNano");
+          }}
         >
           {[Fiat.CAD, Fiat.USD].includes(fiat) ? <DollarOutlined /> : null}
           {fiat === Fiat.EUR ? <EuroOutlined /> : null}

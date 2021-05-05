@@ -27,7 +27,9 @@ const getNodeLocations = async (): Promise<NodeLocation[] | undefined> => {
     const json = await res.json();
 
     return json;
-  } catch (err) {}
+  } catch (err) {
+    return [];
+  }
 };
 
 interface NodeLocation {

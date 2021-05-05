@@ -1,19 +1,24 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { Button, Card, Statistic, Skeleton, Tooltip } from "antd";
+import { Button, Card, Skeleton, Tooltip } from "antd";
 import { ReloadOutlined } from "@ant-design/icons";
 import { refreshActionDelay } from "components/utils";
 import { BlockCountContext } from "api/contexts/BlockCount";
-import QuestionCircle from "components/QuestionCircle";
+import LoadingStatistic from "components/LoadingStatistic";
 
 const POLL_INTERVAL = 1000 * 30;
 
 const BlockCount: React.FC = () => {
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = React.useState(false);
-  const { count, unchecked, cemented, getBlockCount } = React.useContext(
-    BlockCountContext,
-  );
+  const [isInitialLoading, setIsInitialLoading] = React.useState(true);
+  const {
+    count,
+    unchecked,
+    cemented,
+    getBlockCount,
+    isLoading: isBlockCountLoading,
+  } = React.useContext(BlockCountContext);
 
   const refreshBlockCount = async () => {
     setIsLoading(true);
@@ -34,12 +39,18 @@ const BlockCount: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  React.useEffect(() => {
+    if (!isBlockCountLoading) {
+      setIsInitialLoading(false);
+    }
+  }, [isBlockCountLoading]);
+
   const opacity = isLoading ? 0.5 : 1;
 
   return (
     <Card
       size="small"
-      title={t("pages.status.blockCount")}
+      title={t("common.blocks")}
       extra={
         <Tooltip title={t("pages.status.reload")}>
           <Button
@@ -53,33 +64,24 @@ const BlockCount: React.FC = () => {
       }
     >
       <Skeleton active loading={!count}>
-        <Statistic
+        <LoadingStatistic
           title={t("pages.status.count")}
           value={count}
+          isLoading={isInitialLoading}
           valueStyle={{ opacity }}
         />
-        <Statistic
-          title={
-            <>
-              {t("pages.status.unchecked")}
-              <Tooltip placement="right" title={t("tooltips.unchecked")}>
-                <QuestionCircle />
-              </Tooltip>
-            </>
-          }
+        <LoadingStatistic
+          isLoading={isInitialLoading}
+          title={t("pages.status.unchecked")}
+          tooltip={t("tooltips.unchecked")}
           value={unchecked}
           valueStyle={{ opacity }}
         />
-        <Statistic
-          title={
-            <>
-              {t("pages.status.cemented")}
-              <Tooltip placement="right" title={t("tooltips.cemented")}>
-                <QuestionCircle />
-              </Tooltip>
-            </>
-          }
+        <LoadingStatistic
+          title={t("pages.status.cemented")}
+          tooltip={t("tooltips.cemented")}
           value={cemented}
+          isLoading={isInitialLoading}
           valueStyle={{ opacity }}
         />
       </Skeleton>

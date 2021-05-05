@@ -2,7 +2,9 @@
   "common": {
     "blockExplorer": "블록 탐색기",
     "account": "계정",
+    "accounts": "계정",
     "block": "블록",
+    "blocks": "블록",
     "representative": "대리인",
     "representatives": "대표자",
     "principalRepresentative": "대표 대표",
@@ -30,7 +32,9 @@
     "copy": "부",
     "bookmark": "서표",
     "bookmarks": "북마크",
-    "ok": "확인"
+    "ok": "확인",
+    "executionDate": "마지막 편집은 <0>{{date}}</0>에있었습니다.",
+    "executionTimeAgo": "마지막 편집은"
   },
   "nodeHealth": {
     "nodeReloading": "나노 노드가 다시로드됩니다.",
@@ -70,7 +74,11 @@
     "confirmationHeight": "계정 체인에서 가장 높은 (가장 최근) 확인 된 블록을 나타내는 로컬 노드 데이터베이스에 저장된 번호입니다. 블록 높이와 관련이 있습니다.",
     "blockHeight": "계정 체인에서 블록의 순서를 나타내는 로컬 정수 값입니다. 예를 들어 계정의 15 번째 블록의 블록 높이는 15입니다. 확인 높이와 관련이 있습니다 (그러나 다른 경우).",
     "bookmarks": "{{type, capitalize}} 북마크가 기기에 저장됩니다. 별칭을 제공하여 알려진 {{type}}을 관리 할 수 있습니다.",
-    "groupByEntities": "다른 주요 대표로 분할 된 모든 투표 가중치를 단일 엔티티로 다시 그룹화합니다. 예를 들어 거래소는 여러 개의 지갑을 가지고 가중치를 분할 할 수 있지만 실제로는 재 그룹화 할 경우 단일 가중치로 계산 될 수 있습니다."
+    "groupByEntities": "다른 주요 대표로 분할 된 모든 투표 가중치를 단일 엔티티로 다시 그룹화합니다. 예를 들어 거래소는 여러 개의 지갑을 가지고 가중치를 분할 할 수 있지만 실제로는 재 그룹화 할 경우 단일 가중치로 계산 될 수 있습니다.",
+    "telemetry": "네트워크에있는 다른 노드의 메트릭. 모든 메트릭은 수집되고 평균화되어 네트워크의 다양한 상태를 나타냅니다. P는 백분위 수에 해당하고, p50은 하위 50 %를 제외하여 계산되는 반면 p95는 평균을 계산하기 위해 다른 값의 하위 5 %를 제외합니다.",
+    "ledgerSize": "지금까지 모든 Nano 트랜잭션을 저장하는 데 필요한 총 디스크 공간입니다. 원장 크기는 1000이 아닌 1024를 기준으로 계산됩니다.",
+    "bandwidthCap": "나노 노드는 보내고받을 수있는 메시지의 양을 제한하기 위해 대역폭을 조절할 수 있습니다. 0은 무제한 대역폭을 의미합니다.",
+    "uptime": "노드가 마지막으로 재부팅 된 이후의 시간입니다."
   },
   "search": {
     "searchBy": "주소 / 차단 / 알려진 계정으로 검색",
@@ -218,7 +226,6 @@
     },
     "distribution": {
       "title": "나노 분포",
-      "executionDate": "마지막 배포 편집은 <0>{{date}}</0>에있었습니다.",
       "summary": "총 <0>{{i18nTotalAccounts}}</0> 개의 계정이 <1>{{i18nTotalBalances}}</1> NANO를 보유하고 있습니다.",
       "summaryMinBalance": "잔액이 <0>0.001</0>보다 낮은 모든 계정은 제외됩니다.",
       "includeKnownExchanges": "알려진 교환 포함",
@@ -237,14 +244,12 @@
       "allAuthors": "모든 저자"
     },
     "status": {
-      "blockCount": "블록 수",
       "reload": "새로 고침",
       "count": "카운트",
       "unchecked": "선택하지 않음",
       "cemented": "시멘트",
       "ledger": "원장",
       "availableSupply": "사용 가능한 공급",
-      "nanoAccounts": "NANO 계정",
       "ledgerSize": "원장 크기",
       "activeDifficulty": "활성 난이도",
       "networkMinimum": "네트워크 최소",
@@ -266,7 +271,12 @@
       "nodeMonitors": "{{count}} 노드 모니터",
       "noMonitorFound": "모니터를 찾을 수 없습니다.",
       "nodeLocations": "{{count}} 노드 위치",
-      "viewAccount": "계정보기"
+      "viewAccount": "계정보기",
+      "telemetry": "원격 측정",
+      "bandwidthCap": "대역폭 한도",
+      "nodeCount": "평균은 원격 분석이 활성화 된 노드 <0> {{nodeCount}}</0> 개에서 계산됩니다.",
+      "unlimitedBandwidthCap": "<0>{{unlimitedBandwidthCapCount}}</0> 노드에는 대역폭 제한이 없습니다.",
+      "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> 노드의 대역폭 제한은 <1>{{limitedBandwidthCap}}</1>입니다."
     },
     "exchangeTracker": {
       "description": "Nano가 거래되는 가장 인기있는 거래소의 계정 잔액을 매일 캡처합니다. 이 측정은 네트워크의 움직임과 변동을 분석하는 데 사용할 수 있습니다."

@@ -2,7 +2,9 @@
   "common": {
     "blockExplorer": "Explorateur de blocs",
     "account": "Compte",
+    "accounts": "Comptes",
     "block": "Bloc",
+    "blocks": "Blocs",
     "representative": "Représentant",
     "representatives": "Représentants",
     "principalRepresentative": "Représentant Principal",
@@ -30,7 +32,9 @@
     "copy": "Copier",
     "bookmark": "Signet",
     "bookmarks": "Signets",
-    "ok": "D'accord"
+    "ok": "D'accord",
+    "executionDate": "La dernière compilation a eu lieu le <0>{{date}}</0>",
+    "executionTimeAgo": "La dernière compilation était"
   },
   "nodeHealth": {
     "nodeReloading": "Le nœud Nano est en cours de rechargement",
@@ -70,7 +74,11 @@
     "confirmationHeight": "Nombre stocké dans la base de données des nœuds locaux qui représente le bloc confirmé le plus élevé (le plus récent) d'une chaîne de comptes. Lié à (mais différent de) la hauteur du bloc.",
     "blockHeight": "Valeur entière locale qui représente l'ordre d'un bloc dans une chaîne de comptes. Par exemple, le 15e bloc d'un compte aurait une hauteur de bloc de 15. Lié à (mais différent de) la hauteur de confirmation.",
     "bookmarks": "Les {{type, capitalize}} favoris sont enregistrés sur votre appareil. Vous pouvez gérer vos {{type}} connus en leur donnant des alias.",
-    "groupByEntities": "Regroupez tous les votes qui sont divisés en différents représentants principaux en entités uniques. Par exemple, un échange peut avoir plusieurs portefeuilles et diviser leur poids, mais en réalité, il peut être compté comme un poids unique s'il devait le regrouper."
+    "groupByEntities": "Regroupez tous les votes qui sont divisés en différents représentants principaux en entités uniques. Par exemple, un échange peut avoir plusieurs portefeuilles et diviser leur poids, mais en réalité, il peut être compté comme un poids unique s'il devait le regrouper.",
+    "telemetry": "Mesures d'autres nœuds du réseau. Toutes les métriques sont collectées et moyennées pour représenter différents états sur le réseau. P correspond au centile, p50 est calculé en excluant les 50% inférieurs tandis que p95 exclut les 5% inférieurs des différentes valeurs pour calculer la moyenne.",
+    "ledgerSize": "La quantité totale d'espace disque nécessaire pour stocker toutes les transactions Nano jusqu'à présent. La taille du grand livre est calculée sur une base de 1024 et non sur 1000.",
+    "bandwidthCap": "Les nano nœuds peuvent limiter leur bande passante pour limiter la quantité de messages pouvant être envoyés ou reçus. 0 signifie une bande passante illimitée.",
+    "uptime": "Temps écoulé depuis le dernier redémarrage du nœud."
   },
   "search": {
     "searchBy": "Recherche par Address / Bloc",
@@ -218,7 +226,6 @@
     },
     "distribution": {
       "title": "Distribution de NANO",
-      "executionDate": "La dernière compilation de distribution était le <0>{{date}}</0>",
       "summary": "Un total de <0>{{i18nTotalAccounts}}</0> comptes détiennent <1>{{i18nTotalBalances}}</1> NANO",
       "summaryMinBalance": "Tout compte dont le solde est inférieur à <0>0,001</0> est exclu",
       "includeKnownExchanges": "Inclure les échanges connus",
@@ -237,14 +244,12 @@
       "allAuthors": "Tous les auteurs"
     },
     "status": {
-      "blockCount": "Nombre de blocs",
       "reload": "Recharger",
       "count": "Total",
       "unchecked": "Non vérifié",
       "cemented": "Cimenté",
       "ledger": "Registre",
       "availableSupply": "Approvisionnement disponible",
-      "nanoAccounts": "Comptes NANO",
       "ledgerSize": "Taille du grand livre",
       "activeDifficulty": "Difficulté active",
       "networkMinimum": "Difficulté minimum du réseau",
@@ -266,7 +271,12 @@
       "nodeMonitors": "{{count}} Moniteurs de nœuds",
       "noMonitorFound": "Aucun moniteur trouvé",
       "nodeLocations": "{{count}} Emplacements des nœuds",
-      "viewAccount": "Afficher le compte"
+      "viewAccount": "Afficher le compte",
+      "telemetry": "Télémétrie",
+      "bandwidthCap": "Limite de bande passante",
+      "nodeCount": "La moyenne est calculée à partir de <0>{{nodeCount}}</0> nœuds avec la télémétrie activée.",
+      "unlimitedBandwidthCap": "Les nœuds <0>{{unlimitedBandwidthCapCount}}</0> n'ont pas de limite de bande passante.",
+      "limitedBandwidthCap": "Les nœuds <0>{{limitedBandwidthCapCount}}</0> ont une limite de bande passante de <1>{{limitedBandwidthCap}}</1>."
     },
     "exchangeTracker": {
       "description": "Chaque jour, une capture du solde des comptes des plateformes d'échanges les plus populaires où Nano est négocié est pris. Cette mesure peut permettre d'analyser les mouvements et fluctuations sur le réseau."

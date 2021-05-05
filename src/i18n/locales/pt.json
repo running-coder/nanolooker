@@ -2,7 +2,9 @@
   "common": {
     "blockExplorer": "Block Explorer",
     "account": "Conta",
+    "accounts": "Contas",
     "block": "Quadra",
+    "blocks": "Blocos",
     "representative": "Representante",
     "representatives": "Representantes",
     "principalRepresentative": "Representante Principal",
@@ -30,7 +32,9 @@
     "copy": "Cópia de",
     "bookmark": "Marca páginas",
     "bookmarks": "Favoritos",
-    "ok": "OK"
+    "ok": "OK",
+    "executionDate": "A última compilação foi em <0>{{date}}</0>",
+    "executionTimeAgo": "A última compilação foi"
   },
   "nodeHealth": {
     "nodeReloading": "Nano node está recarregando",
@@ -70,7 +74,11 @@
     "confirmationHeight": "Um número armazenado no banco de dados do nó local que representa o bloco confirmado mais alto (mais recente) em uma cadeia de contas. Relacionado (mas diferente) da altura do bloco.",
     "blockHeight": "Um valor inteiro local que representa a ordem de um bloco em uma cadeia de contas. Por exemplo, o 15º bloco em uma conta teria uma altura de bloco de 15. Relacionado (mas diferente de) altura de confirmação.",
     "bookmarks": "Os marcadores {{digite, capitalize}} são salvos em seu dispositivo. Você pode gerenciar seus {{type}} s conhecidos fornecendo-lhes aliases.",
-    "groupByEntities": "Reagrupe todo o peso do voto que é dividido em diferentes representantes principais em entidades únicas. Por exemplo, uma bolsa pode ter várias carteiras e dividir seu peso, mas na realidade pode ser contada como um único peso se reagrupá-la."
+    "groupByEntities": "Reagrupe todo o peso do voto que é dividido em diferentes representantes principais em entidades únicas. Por exemplo, uma bolsa pode ter várias carteiras e dividir seu peso, mas na realidade pode ser contada como um único peso se reagrupá-la.",
+    "telemetry": "Métricas de outros nós da rede. Todas as métricas são coletadas e calculadas para representar diferentes estados na rede. P corresponde ao percentil, p50 é calculado excluindo os 50% inferiores, enquanto o p95 exclui os 5% inferiores dos diferentes valores para calcular a média.",
+    "ledgerSize": "A quantidade total de espaço em disco necessária para armazenar todas as transações do Nano até agora. O tamanho do razão é calculado com base em 1024 e não em 1000.",
+    "bandwidthCap": "Os nano nodes são capazes de limitar sua largura de banda para limitar a quantidade de mensagens que podem ser enviadas ou recebidas. 0 significa largura de banda ilimitada.",
+    "uptime": "Tempo desde a última reinicialização do nó."
   },
   "search": {
     "searchBy": "Pesquisa por endereço / bloco",
@@ -218,7 +226,6 @@
     },
     "distribution": {
       "title": "Nano Distribuição",
-      "executionDate": "A última compilação de distribuição foi em <0>{{date}}</0>",
       "summary": "Total de <0>{{i18nTotalAccounts}}</strong> contas com <1>{{i18nTotalBalances}}</1> NANO",
       "summaryMinBalance": "Qualquer conta com saldo inferior a <0>0,001</0> é excluída",
       "includeKnownExchanges": "Incluir trocas conhecidas",
@@ -237,14 +244,12 @@
       "allAuthors": "Todos os Autores"
     },
     "status": {
-      "blockCount": "Contagem de blocos",
       "reload": "Recarregar",
       "count": "Contar",
       "unchecked": "Não verificado",
       "cemented": "Cimentado",
       "ledger": "Ledger",
       "availableSupply": "Oferta disponível",
-      "nanoAccounts": "Contas NANO",
       "ledgerSize": "Tamanho do livro-razão",
       "activeDifficulty": "Dificuldade ativa",
       "networkMinimum": "Mínimo da rede",
@@ -266,7 +271,12 @@
       "nodeMonitors": "{{count}} Monitores de nó",
       "noMonitorFound": "Nenhum monitor encontrado",
       "nodeLocations": "{{count}} Localizações de nós",
-      "viewAccount": "Visualizar Conta"
+      "viewAccount": "Visualizar Conta",
+      "telemetry": "Telemetria",
+      "bandwidthCap": "Limite de largura de banda",
+      "nodeCount": "A média é calculada de <0>{{nodeCount}}</0> nós com telemetria habilitada.",
+      "unlimitedBandwidthCap": "Os nós <0>{{unlimitedBandwidthCapCount}}</0> não têm limite de largura de banda.",
+      "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> nós têm um limite de largura de banda de <1>{{limitedBandwidthCap}}</1>."
     },
     "exchangeTracker": {
       "description": "Todos os dias é feita uma captura dos saldos das contas das bolsas mais populares onde o Nano é negociado. Esta medição pode ser usada para analisar movimentos e flutuações na rede."

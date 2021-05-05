@@ -2,7 +2,9 @@
   "common": {
     "blockExplorer": "区块浏览器",
     "account": "帐户",
+    "accounts": "帐目",
     "block": "堵塞",
+    "blocks": "积木",
     "representative": "代表",
     "representatives": "代表",
     "principalRepresentative": "首席代表",
@@ -30,7 +32,9 @@
     "copy": "复制",
     "bookmark": "书签",
     "bookmarks": "书签",
-    "ok": "好的"
+    "ok": "好的",
+    "executionDate": "上次编译时间为 <0>{{date}}</0>",
+    "executionTimeAgo": "上次编译是"
   },
   "nodeHealth": {
     "nodeReloading": "纳米节点正在重新加载",
@@ -70,7 +74,11 @@
     "confirmationHeight": "存储在本地节点数据库中的数字，代表帐户链中已确认的最高（最新）区块。与块高有关（但不同于）。",
     "blockHeight": "一个局部整数值，表示帐户链中一个区块的顺序。例如，帐户中的第15个区块的区块高度为15。与确认高度相关（但不同于）。",
     "bookmarks": "{{type，大写}}书签已保存在您的设备上。您可以通过为它们命名为别名来管理已知的{{type}}。",
-    "groupByEntities": "将划分为不同主要代表的所有投票权重新组合为一个实体。例如，一个交易所可以有多个钱包并分摊它们的重量，但实际上，如果要重新分组，则可以算作一个单独的重量。"
+    "groupByEntities": "将划分为不同主要代表的所有投票权重新组合为一个实体。例如，一个交易所可以有多个钱包并分摊它们的重量，但实际上，如果要重新分组，则可以算作一个单独的重量。",
+    "telemetry": "来自网络上其他节点的度量。收集所有度量并取平均值，以表示网络上的不同状态。 P对应于百分位数，p50通过排除不同值的下限50％而p95排除不同值的下限5％来计算平均值。",
+    "ledgerSize": "到现在为止，存储每个Nano事务所需的磁盘空间总量。分类帐大小是基于1024而不是1000计算的。",
+    "bandwidthCap": "纳米节点能够调节其带宽，以限制可以发送或接收的消息量。 0表示无限带宽。",
+    "uptime": "自上次重新引导节点以来的时间。"
   },
   "search": {
     "searchBy": "按地址/阻止/已知帐户搜索",
@@ -218,7 +226,6 @@
     },
     "distribution": {
       "title": "纳米分布",
-      "executionDate": "上次发行版编译时间为 <0>{{date}}</0>",
       "summary": "共有 <0>{{i18nTotalAccounts}}</0> 个帐户持有 <1>{{i18nTotalBalances}}</1> NANO",
       "summaryMinBalance": "余额低于 <0>0.001</0> 的任何帐户均不包括在内",
       "includeKnownExchanges": "包括已知的交流",
@@ -237,14 +244,12 @@
       "allAuthors": "所有作者"
     },
     "status": {
-      "blockCount": "块数",
       "reload": "重装",
       "count": "数数",
       "unchecked": "未检查",
       "cemented": "胶合的",
       "ledger": "分类帐",
       "availableSupply": "可用供应",
-      "nanoAccounts": "NANO帐户",
       "ledgerSize": "分类帐大小",
       "activeDifficulty": "主动难度",
       "networkMinimum": "最低网络",
@@ -266,7 +271,12 @@
       "nodeMonitors": "{{count}} 节点监视器",
       "noMonitorFound": "找不到监视器",
       "nodeLocations": "{{count}}个节点位置",
-      "viewAccount": "查看账户"
+      "viewAccount": "查看账户",
+      "telemetry": "遥测",
+      "bandwidthCap": "带宽上限",
+      "nodeCount": "平均值是从启用了遥测功能的 <0>{{nodeCount}}</0> 个节点中计算出来的。",
+      "unlimitedBandwidthCap": "<0>{{unlimitedBandwidthCapCount}}</0> 个节点没有带宽限制。",
+      "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> 个节点的带宽限制为 <1>{{limitedBandwidthCap}}</1>。"
     },
     "exchangeTracker": {
       "description": "每天都会记录Nano交易所在的最受欢迎交易所的账户余额。此度量可用于分析网络上的移动和波动。"

@@ -23,6 +23,7 @@ import {
 } from "api/contexts/MarketStatistics";
 import LoadingStatistic from "components/LoadingStatistic";
 import StatisticsChange from "components/StatisticsChange";
+import { formatBytes } from "components/utils";
 import Banner from "./Banner";
 import RecentTransactions from "./RecentTransactions";
 
@@ -55,6 +56,9 @@ const HomePage = () => {
     nodeStatus: { ledgerSize },
     isLoading: isNodeStatusLoading,
   } = React.useContext(NodeStatusContext);
+  const [formattedLedgerSize, setFormattedLedgerSize] = React.useState(
+    formatBytes(0),
+  );
 
   const btcTransactionFees24h =
     marketStatistics[TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H] && btcCurrentPrice
@@ -111,6 +115,10 @@ const HomePage = () => {
       .toNumber();
   }
 
+  React.useEffect(() => {
+    setFormattedLedgerSize(formatBytes(ledgerSize));
+  }, [ledgerSize]);
+
   return (
     <>
       <Banner />
@@ -136,11 +144,10 @@ const HomePage = () => {
                 />
                 <LoadingStatistic
                   isLoading={isNodeStatusLoading}
+                  tooltip={t("tooltips.ledgerSize")}
                   title={t("pages.home.ledgerSize")}
-                  suffix="GB"
-                  value={new BigNumber(ledgerSize)
-                    .dividedBy(1e9)
-                    .toFormat(2)}
+                  suffix={formattedLedgerSize.suffix}
+                  value={new BigNumber(formattedLedgerSize.value).toFormat(2)}
                 />
               </Col>
               <Col xs={24} sm={12}>

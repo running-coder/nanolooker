@@ -2,7 +2,9 @@
   "common": {
     "blockExplorer": "Blok Gezgini",
     "account": "Hesap",
+    "accounts": "Hesaplar",
     "block": "Blok",
+    "blocks": "Bloklar",
     "representative": "Temsilci",
     "representatives": "Temsilciler",
     "principalRepresentative": "Ana Temsilci",
@@ -30,7 +32,9 @@
     "copy": "Kopyala",
     "bookmark": "Yer imi",
     "bookmarks": "Yer imleri",
-    "ok": "Tamam mı"
+    "ok": "Tamam mı",
+    "executionDate": "Son derleme <0>{{date}}</0> tarihinde yapıldı",
+    "executionTimeAgo": "Son derleme"
   },
   "nodeHealth": {
     "nodeReloading": "Nano düğüm yeniden yükleniyor",
@@ -70,7 +74,11 @@
     "confirmationHeight": "Yerel düğüm veritabanında saklanan ve bir hesap zincirindeki en yüksek (en son) doğrulanmış bloğu temsil eden sayı. Blok yüksekliğiyle ilgili (ancak bundan farklı).",
     "blockHeight": "Bir hesap zincirindeki bir bloğun sırasını temsil eden yerel bir tamsayı değeri. Örneğin, bir hesaptaki 15. bloğun blok yüksekliği 15 olacaktır. Onay yüksekliğiyle ilgili (ancak farklı).",
     "bookmarks": "{{type, capitalize}} yer imleri cihazınıza kaydedilir. Bilinen {{type}} 'lerinizi onlara takma adlar vererek yönetebilirsiniz.",
-    "groupByEntities": "Farklı ana temsilcilere bölünmüş tüm oy ağırlıklarını tek varlıklara yeniden gruplayın. Örneğin, bir borsa birden fazla cüzdana sahip olabilir ve ağırlıklarını paylaştırabilir, ancak gerçekte yeniden gruplandırılacaksa, tek bir ağırlık olarak sayılabilir."
+    "groupByEntities": "Farklı ana temsilcilere bölünmüş tüm oy ağırlıklarını tek varlıklara yeniden gruplayın. Örneğin, bir borsa birden fazla cüzdana sahip olabilir ve ağırlıklarını paylaştırabilir, ancak gerçekte yeniden gruplandırılacaksa, tek bir ağırlık olarak sayılabilir.",
+    "telemetry": "Ağdaki diğer düğümlerden metrikler. Ağdaki farklı durumları temsil etmek için tüm ölçümler toplanır ve ortalaması alınır. P yüzdeliğe karşılık gelir, p50, ortalamayı hesaplamak için farklı değerlerin alt% 5'ini hariç tutarken, alt% 50 hariç tutularak hesaplanır.",
+    "ledgerSize": "Şimdiye kadarki her Nano işlemini depolamak için gereken toplam disk alanı miktarı. Defter boyutu 1000 değil 1024 temel alınarak hesaplanır.",
+    "bandwidthCap": "Nano düğümler, gönderilebilen veya alınabilen mesajların miktarını sınırlamak için bant genişliğini kısabilir. 0, sınırsız bant genişliği anlamına gelir.",
+    "uptime": "Düğümün en son yeniden başlatılmasından bu yana geçen süre."
   },
   "search": {
     "searchBy": "Adres / Blok / Bilinen Hesap ile Ara",
@@ -218,8 +226,7 @@
     },
     "distribution": {
       "title": "Nano Dağıtım",
-      "executionDate": "Son dağıtım derlemesi <0> {{date}} </0> tarihinde yapıldı",
-      "summary": "Toplam <0> {{i18nTotalAccounts}} </0> hesapta <1> {{i18nTotalBalances}} </1> NANO tutuyor",
+      "summary": "Toplam <0>{{i18nTotalAccounts}}</0> hesapta <1>{{i18nTotalBalances}}</1> NANO tutuyor",
       "summaryMinBalance": "Bakiyesi <0> 0.001 </0> 'den düşük olan herhangi bir hesap hariç tutulur",
       "includeKnownExchanges": "Bilinen değişimleri dahil et",
       "logScale": "Günlük Ölçeği",
@@ -237,14 +244,12 @@
       "allAuthors": "Tüm Yazarlar"
     },
     "status": {
-      "blockCount": "Blok Sayısı",
       "reload": "Tekrar yükle",
       "count": "Miktar",
       "unchecked": "Kontrol edilmedi",
       "cemented": "Çimentolu",
       "ledger": "Defter",
       "availableSupply": "Mevcut tedarik",
-      "nanoAccounts": "NANO hesapları",
       "ledgerSize": "Defter boyutu",
       "activeDifficulty": "Aktif Zorluk",
       "networkMinimum": "Ağ Minimum",
@@ -266,7 +271,12 @@
       "nodeMonitors": "{{count}} Düğüm monitörleri",
       "noMonitorFound": "Monitör bulunamadı",
       "nodeLocations": "{{count}} Düğüm Konumları",
-      "viewAccount": "Hesabı görüntüle"
+      "viewAccount": "Hesabı görüntüle",
+      "telemetry": "Telemetri",
+      "bandwidthCap": "Bant Genişliği Sınırı",
+      "nodeCount": "Ortalama, telemetri etkinleştirilmiş <0>{{nodeCount}}</0> düğümlerinden hesaplanır.",
+      "unlimitedBandwidthCap": "<0>{{unlimitedBandwidthCapCount}}</0> düğümlerinin bant genişliği sınırı yoktur.",
+      "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> düğümlerinin bant genişliği sınırı <1>{{limitedBandwidthCap}}</1>."
     },
     "exchangeTracker": {
       "description": "Her gün, Nano'nun işlem gördüğü en popüler borsaların hesap bakiyelerinin bir kaydı alınır. Bu ölçüm, ağdaki hareketleri ve dalgalanmaları analiz etmek için kullanılabilir."

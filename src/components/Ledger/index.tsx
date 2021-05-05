@@ -6,6 +6,7 @@ import useAvailableSupply from "api/hooks/use-available-supply";
 import useFrontierCount from "api/hooks/use-frontier-count";
 import { NodeStatusContext } from "api/contexts/NodeStatus";
 import LoadingStatistic from "components/LoadingStatistic";
+import { formatBytes } from "components/utils";
 
 const Ledger: React.FC = () => {
   const { t } = useTranslation();
@@ -17,6 +18,13 @@ const Ledger: React.FC = () => {
     nodeStatus: { ledgerSize },
     isLoading: isNodeStatusLoading,
   } = React.useContext(NodeStatusContext);
+  const [formattedLedgerSize, setFormattedLedgerSize] = React.useState(
+    formatBytes(0),
+  );
+
+  React.useEffect(() => {
+    setFormattedLedgerSize(formatBytes(ledgerSize));
+  }, [ledgerSize]);
 
   return (
     <Card size="small" title={t("pages.status.ledger")}>
@@ -27,15 +35,16 @@ const Ledger: React.FC = () => {
       />
 
       <LoadingStatistic
-        title={t("pages.status.nanoAccounts")}
+        title={t("common.accounts")}
         value={frontierCount}
         isLoading={!frontierCount}
       />
 
       <LoadingStatistic
         title={t("pages.status.ledgerSize")}
-        value={new BigNumber(ledgerSize).dividedBy(1000e6).toFormat(2)}
-        suffix="GB"
+        tooltip={t("tooltips.ledgerSize")}
+        value={new BigNumber(formattedLedgerSize.value).toFormat(2)}
+        suffix={formattedLedgerSize.suffix}
         isLoading={isNodeStatusLoading}
       />
     </Card>

@@ -2,12 +2,16 @@ import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Button, Card, Tooltip } from "antd";
 import { ReloadOutlined } from "@ant-design/icons";
-import { secondsToTime, refreshActionDelay } from "components/utils";
+import BigNumber from "bignumber.js";
+import {
+  secondsToTime,
+  refreshActionDelay,
+  formatBytes,
+} from "components/utils";
 import { NodeStatusContext } from "api/contexts/NodeStatus";
 import useUptime from "api/hooks/use-uptime";
 import useVersion from "api/hooks/use-version";
 import LoadingStatistic from "components/LoadingStatistic";
-import BigNumber from "bignumber.js";
 
 const Node: React.FC = () => {
   const { t } = useTranslation();
@@ -26,6 +30,8 @@ const Node: React.FC = () => {
     getNodeStatus,
     isLoading: isNodeStatusLoading,
   } = React.useContext(NodeStatusContext);
+  const [formattedMemory, setFormattedMemory] = React.useState(formatBytes(0));
+  const [formattedTotal, setFormattedTotal] = React.useState(formatBytes(0));
 
   const refreshNode = async () => {
     setIsLoading(true);
@@ -34,6 +40,14 @@ const Node: React.FC = () => {
   };
 
   const opacity = isLoading ? 0.5 : 1;
+
+  React.useEffect(() => {
+    setFormattedMemory(formatBytes(memory));
+  }, [memory]);
+
+  React.useEffect(() => {
+    setFormattedTotal(formatBytes(total));
+  }, [total]);
 
   return (
     <Card
@@ -59,6 +73,7 @@ const Node: React.FC = () => {
       />
       <LoadingStatistic
         title={t("pages.status.uptime")}
+        tooltip={t("tooltips.uptime")}
         value={secondsToTime(seconds || 0)}
         isLoading={!node_vendor}
         valueStyle={{ opacity }}
@@ -72,12 +87,10 @@ const Node: React.FC = () => {
       />
       <LoadingStatistic
         title={t("pages.status.memory")}
-        value={`${new BigNumber(memory)
-          .dividedBy(1e9)
-          .toFormat(2)} / ${new BigNumber(total)
-          .dividedBy(1e9)
-          .toFormat(2)}`}
-        suffix="GB"
+        value={`${new BigNumber(formattedMemory.value).toFormat(
+          2,
+        )} / ${new BigNumber(formattedTotal.value).toFormat(2)}`}
+        suffix={formattedTotal.suffix}
         isLoading={isNodeStatusLoading}
         valueStyle={{ opacity }}
       />

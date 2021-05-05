@@ -2,7 +2,9 @@
   "common": {
     "blockExplorer": "Blokkeer Explorer",
     "account": "Account",
+    "accounts": "Accounts",
     "block": "Blok",
+    "blocks": "Blokken",
     "representative": "Vertegenwoordiger",
     "representatives": "Vertegenwoordigers",
     "principalRepresentative": "Hoofdvertegenwoordiger",
@@ -30,7 +32,9 @@
     "copy": "Kopiëren",
     "bookmark": "Bladwijzer",
     "bookmarks": "Bladwijzers",
-    "ok": "OK"
+    "ok": "OK",
+    "executionDate": "De laatste compilatie was op <0>{{date}}</0>",
+    "executionTimeAgo": "De laatste compilatie was"
   },
   "nodeHealth": {
     "nodeReloading": "Nano-knooppunt wordt opnieuw geladen",
@@ -70,7 +74,11 @@
     "confirmationHeight": "Een nummer dat is opgeslagen in de lokale knooppuntdatabase en dat het hoogste (meest recente) bevestigde blok in een accountketen vertegenwoordigt. Gerelateerd aan (maar verschillend van) blokhoogte.",
     "blockHeight": "Een lokale integerwaarde die de volgorde van een blok in een accountketen vertegenwoordigt. Het 15e blok in een account heeft bijvoorbeeld een blokhoogte van 15. Gerelateerd aan (maar anders dan) bevestigingshoogte.",
     "bookmarks": "{{type, capitalize}} bladwijzers worden op uw apparaat opgeslagen. U kunt uw bekende {{type}} 's beheren door ze aliassen te geven.",
-    "groupByEntities": "Hergroepeer al het stemgewicht dat is opgesplitst in verschillende hoofdvertegenwoordigers in afzonderlijke entiteiten. Een beurs kan bijvoorbeeld meerdere portemonnees hebben en hun gewicht verdelen, maar in werkelijkheid kan het als een enkel gewicht worden geteld als ze het zouden hergroeperen."
+    "groupByEntities": "Hergroepeer al het stemgewicht dat is opgesplitst in verschillende hoofdvertegenwoordigers in afzonderlijke entiteiten. Een beurs kan bijvoorbeeld meerdere portemonnees hebben en hun gewicht verdelen, maar in werkelijkheid kan het als een enkel gewicht worden geteld als ze het zouden hergroeperen.",
+    "telemetry": "Metrische gegevens van andere knooppunten op het netwerk. Alle statistieken worden verzameld en gemiddeld om verschillende statussen op het netwerk weer te geven. P komt overeen met percentiel, p50 wordt berekend door de onderste 50% uit te sluiten, terwijl de p95 de onderste 5% van de verschillende waarden uitsluit om het gemiddelde te berekenen.",
+    "ledgerSize": "De totale hoeveelheid schijfruimte die tot nu toe nodig is om alle Nano-transacties op te slaan. De grootboekgrootte wordt berekend op basis van 1024 en niet op basis van 1000.",
+    "bandwidthCap": "Nano-knooppunten kunnen hun bandbreedte beperken om het aantal berichten dat kan worden verzonden of ontvangen te beperken. 0 betekent onbeperkte bandbreedte.",
+    "uptime": "Tijd sinds het knooppunt voor het laatst opnieuw is opgestart."
   },
   "search": {
     "searchBy": "Zoeken op adres / blok / bekend account",
@@ -218,8 +226,7 @@
     },
     "distribution": {
       "title": "Nano-distributie",
-      "executionDate": "De laatste distributie-compilatie was op <0> {{date}} </0>",
-      "summary": "Totaal van <0> {{i18nTotalAccounts}} </0> rekeningen hebben <1> {{i18nTotalBalances}} </1> NANO",
+      "summary": "Totaal van <0>{{i18nTotalAccounts}}</0> rekeningen hebben <1>{{i18nTotalBalances}}</1> NANO",
       "summaryMinBalance": "Elke rekening met een saldo lager dan <0> 0,001 </0> wordt uitgesloten",
       "includeKnownExchanges": "Inclusief bekende uitwisselingen",
       "logScale": "Log schaal",
@@ -237,14 +244,12 @@
       "allAuthors": "Alle auteurs"
     },
     "status": {
-      "blockCount": "Blokkeertelling",
       "reload": "Herlaad",
       "count": "Tellen",
       "unchecked": "Niet aangevinkt",
       "cemented": "Gecementeerd",
       "ledger": "Grootboek",
       "availableSupply": "Beschikbaar aanbod",
-      "nanoAccounts": "NANO-accounts",
       "ledgerSize": "Ledger-grootte",
       "activeDifficulty": "Actieve moeilijkheidsgraad",
       "networkMinimum": "Netwerkminimum",
@@ -266,7 +271,12 @@
       "nodeMonitors": "{{count}} Node-monitoren",
       "noMonitorFound": "Geen monitor gevonden",
       "nodeLocations": "{{count}} Knooppuntlocaties",
-      "viewAccount": "Bekijk account"
+      "viewAccount": "Bekijk account",
+      "telemetry": "Telemetrie",
+      "bandwidthCap": "Bandbreedte Cap",
+      "nodeCount": "Het gemiddelde wordt berekend uit <0>{{nodeCount}}</0> knooppunten met telemetrie ingeschakeld.",
+      "unlimitedBandwidthCap": "<0>{{unlimitedBandwidthCapCount}}</0> knooppunten hebben geen bandbreedtelimiet.",
+      "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> knooppunten hebben een bandbreedtelimiet van <1>{{limitedBandwidthCap}}</1>."
     },
     "exchangeTracker": {
       "description": "Elke dag wordt een opname gemaakt van de rekeningsaldi van de meest populaire beurzen waar Nano wordt verhandeld. Deze meting kan worden gebruikt om bewegingen en fluctuaties op het netwerk te analyseren."

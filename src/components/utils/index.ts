@@ -150,3 +150,35 @@ export const toBoolean = (value: any) =>
     : typeof value === "number"
     ? value !== 0
     : !!value;
+
+type Suffix = "Bytes" | "KB" | "MB" | "GB" | "TB" | "PB" | "EB" | "ZB" | "YB";
+
+interface FormattedBytes {
+  value: number;
+  suffix: Suffix;
+}
+
+export const formatBytes = (bytes: number, decimals = 2): FormattedBytes => {
+  if (bytes === 0) return { value: 0, suffix: "Bytes" };
+
+  const k = 1024;
+  const dm = decimals < 0 ? 0 : decimals;
+  const sizes: Suffix[] = [
+    "Bytes",
+    "KB",
+    "MB",
+    "GB",
+    "TB",
+    "PB",
+    "EB",
+    "ZB",
+    "YB",
+  ];
+
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+  return {
+    value: parseFloat((bytes / Math.pow(k, i)).toFixed(dm)),
+    suffix: sizes[i],
+  };
+};
