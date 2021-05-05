@@ -198,7 +198,7 @@
       "includeOfflineRepresentatives": "ऑफ़लाइन प्रतिनिधियों को शामिल करें",
       "viewDelegators": "{{गणना}} प्रतिनिधि देखें",
       "loadAllRepresentatives": "सभी प्रतिनिधियों को लोड करें",
-      "groupByEntities": "समूह संस्थाएँ"
+      "groupByEntities": "संस्थाओं द्वारा समूह"
     },
     "representative": {
       "votingWeight": "प्रतिनिधि मतदान वजन",

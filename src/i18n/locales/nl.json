@@ -198,7 +198,7 @@
       "includeOfflineRepresentatives": "Voeg offline vertegenwoordigers toe",
       "viewDelegators": "Bekijk {{count}} delegators",
       "loadAllRepresentatives": "Laad alle vertegenwoordigers",
-      "groupByEntities": "Groepsentiteiten"
+      "groupByEntities": "Groeperen op entiteiten"
     },
     "representative": {
       "votingWeight": "Representatief stemgewicht",

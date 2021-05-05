@@ -198,7 +198,7 @@
       "includeOfflineRepresentatives": "نمایندگان آفلاین را وارد کنید",
       "viewDelegators": "نمایندگان {{count}} را مشاهده کنید",
       "loadAllRepresentatives": "همه نمایندگان را بارگیری کنید",
-      "groupByEntities": "نهادهای گروه"
+      "groupByEntities": "گروه بندی توسط نهادها"
     },
     "representative": {
       "votingWeight": "وزن رای نماینده",

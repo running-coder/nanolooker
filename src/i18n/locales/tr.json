@@ -198,7 +198,7 @@
       "includeOfflineRepresentatives": "Çevrimdışı temsilcileri dahil et",
       "viewDelegators": "{{Count}} yetki vereni görüntüle",
       "loadAllRepresentatives": "Tüm temsilcileri yükle",
-      "groupByEntities": "Grup varlıkları"
+      "groupByEntities": "Varlıklara göre gruplama"
     },
     "representative": {
       "votingWeight": "Temsilci oy ağırlığı",

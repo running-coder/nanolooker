@@ -198,7 +198,7 @@
       "includeOfflineRepresentatives": "Включите офлайновых представителей",
       "viewDelegators": "Просмотреть {{count}} делегатов",
       "loadAllRepresentatives": "Загрузить всех представителей",
-      "groupByEntities": "Группы компаний"
+      "groupByEntities": "Группировать по объектам"
     },
     "representative": {
       "votingWeight": "Представительский вес при голосовании",

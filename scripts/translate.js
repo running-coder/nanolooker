@@ -1,52 +1,81 @@
 require("dotenv").config();
 const fs = require("fs");
+const util = require("util");
+const readdir = util.promisify(fs.readdir);
 const { join } = require("path");
 const yargs = require("yargs");
 const dot = require("dot-object");
 const { Translate } = require("@google-cloud/translate").v2;
 const omit = require("lodash/omit");
 
-const en = require("../src/i18n/locales/en.json");
+const BASE_LOCALE = "en";
+const en = require(`../src/i18n/locales/${BASE_LOCALE}.json`);
 
 const translate = new Translate();
 
-const target = yargs.argv.language;
-const targetPath = join(__dirname, `..`, `/src/i18n/locales/${target}.json`);
-let sourceToTranslate = dot.dot(en);
-
-let targetToTranslate = {};
-
-if (fs.existsSync(targetPath)) {
-  const targetTranslations = JSON.parse(fs.readFileSync(targetPath, "utf8"));
-  targetToTranslate = dot.dot(targetTranslations);
-
-  sourceToTranslate = omit(sourceToTranslate, Object.keys(targetToTranslate));
-}
+const sourceToTranslate = dot.dot(en);
+const locale = yargs.argv.language;
+const localesFolder = join(__dirname, `..`, `/src/i18n/locales/`);
 
 async function translateSource() {
-  for (let i in sourceToTranslate) {
-    let [translations] = await translate.translate(
-      sourceToTranslate[i],
-      target,
-    );
-    translations = Array.isArray(translations) ? translations : [translations];
-    console.log(`Key: ${i}`);
+  const localeFiles = await readdir(localesFolder);
+  const locales = locale
+    ? [locale]
+    : localeFiles
+        .map(file => {
+          const [locale] =
+            /[a-z]{2}\.json/.test(file) && !file.startsWith(BASE_LOCALE)
+              ? file.split(".")
+              : [];
 
-    let translation = translations[0];
-    if (/<d\s?>/.test(translation)) {
-      // remove space with <0></0> Trans component
-      translation
-        .replace(/(<\d\s?>)\s?/g, "$1")
-        .replace(/\s?<\/\s?(\d)>/g, "</$1>");
+          return locale;
+        })
+        .filter(Boolean);
+
+  for (let y = 0; y < locales.length; y++) {
+    const targetPath = join(localesFolder, `${locales[y]}.json`);
+
+    let targetToTranslate = {};
+    let diffToTranslate = {};
+
+    if (fs.existsSync(targetPath)) {
+      const targetTranslations = JSON.parse(
+        fs.readFileSync(targetPath, "utf8"),
+      );
+
+      targetToTranslate = dot.dot(targetTranslations);
+      diffToTranslate = omit(sourceToTranslate, Object.keys(targetToTranslate));
     }
 
-    targetToTranslate[i] = translation;
-  }
+    // Nothing to translate comparing base to target
+    if (!Object.keys(diffToTranslate)) continue;
 
-  fs.writeFileSync(
-    targetPath,
-    JSON.stringify(dot.object(targetToTranslate), null, 2),
-  );
+    for (let i in diffToTranslate) {
+      let [translations] = await translate.translate(
+        diffToTranslate[i],
+        locales[y],
+      );
+      translations = Array.isArray(translations)
+        ? translations
+        : [translations];
+      console.log(`locale: ${locales[y]} Key: ${i}`);
+
+      let translation = translations[0];
+      if (/<d\s?>/.test(translation)) {
+        // remove space with <0></0> Trans component
+        translation
+          .replace(/(<\d\s?>)\s?/g, "$1")
+          .replace(/\s?<\/\s?(\d)>/g, "</$1>");
+      }
+
+      targetToTranslate[i] = translation;
+    }
+
+    fs.writeFileSync(
+      targetPath,
+      JSON.stringify(dot.object(targetToTranslate), null, 2),
+    );
+  }
 }
 
 translateSource();

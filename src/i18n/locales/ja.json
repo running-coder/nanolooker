@@ -198,7 +198,7 @@
       "includeOfflineRepresentatives": "オフラインの代表者を含める",
       "viewDelegators": "{{count}}の委任者を表示する",
       "loadAllRepresentatives": "すべての代表者をロードします",
-      "groupByEntities": "グループエンティティ"
+      "groupByEntities": "エンティティによるグループ化"
     },
     "representative": {
       "votingWeight": "代表的な投票の重み",

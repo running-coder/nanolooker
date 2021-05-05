@@ -198,7 +198,7 @@
       "includeOfflineRepresentatives": "Inclure les représentants hors-ligne",
       "viewDelegators": "Voir {{count}} délégants",
       "loadAllRepresentatives": "Charger tous les représentants",
-      "groupByEntities": "Entités du groupe"
+      "groupByEntities": "Regrouper par entités"
     },
     "representative": {
       "votingWeight": "Poids du vote du représentant",

@@ -198,7 +198,7 @@
       "includeOfflineRepresentatives": "Schließen Sie Offline-Vertreter ein",
       "viewDelegators": "{{Count}} Delegatoren anzeigen",
       "loadAllRepresentatives": "Laden Sie alle Vertreter",
-      "groupByEntities": "Gruppenentitäten"
+      "groupByEntities": "Nach Entitäten gruppieren"
     },
     "representative": {
       "votingWeight": "Repräsentatives Stimmgewicht",

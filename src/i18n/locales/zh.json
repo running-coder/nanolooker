@@ -198,7 +198,7 @@
       "includeOfflineRepresentatives": "包括离线代表",
       "viewDelegators": "查看{{count}}个委托人",
       "loadAllRepresentatives": "载入所有代表",
-      "groupByEntities": "集团实体"
+      "groupByEntities": "按实体分组"
     },
     "representative": {
       "votingWeight": "代表投票权",

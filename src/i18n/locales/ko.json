@@ -198,7 +198,7 @@
       "includeOfflineRepresentatives": "오프라인 담당자 포함",
       "viewDelegators": "위임자 {{count}} 명보기",
       "loadAllRepresentatives": "모든 대표로드",
-      "groupByEntities": "그룹 엔티티"
+      "groupByEntities": "항목별로 그룹화"
     },
     "representative": {
       "votingWeight": "대표 투표 가중치",

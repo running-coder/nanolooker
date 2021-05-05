@@ -198,7 +198,7 @@
       "includeOfflineRepresentatives": "Bao gồm các đại diện ngoại tuyến",
       "viewDelegators": "Xem {{count}} người ủy quyền",
       "loadAllRepresentatives": "Tải tất cả các đại diện",
-      "groupByEntities": "Nhóm thực thể"
+      "groupByEntities": "Nhóm theo thực thể"
     },
     "representative": {
       "votingWeight": "Trọng lượng biểu quyết đại diện",

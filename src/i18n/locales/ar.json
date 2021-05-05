@@ -198,7 +198,7 @@
       "includeOfflineRepresentatives": "تضمين الممثلين غير المتصلين بالإنترنت",
       "viewDelegators": "عرض {{عدد}} مفوضين",
       "loadAllRepresentatives": "تحميل جميع الممثلين",
-      "groupByEntities": "كيانات المجموعة"
+      "groupByEntities": "تجميع حسب الكيانات"
     },
     "representative": {
       "votingWeight": "وزن التصويت الممثل",
