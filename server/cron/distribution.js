@@ -247,23 +247,23 @@ const doDistributionCron = async () => {
   }
 };
 
-// https://crontab.guru/#15_5_*_*_2,5
-// “At 05:15 on Tuesday and Friday.”
-cron.schedule("15 5 * * 2,5", async () => {
-  // if (process.env.NODE_ENV !== "production") return;
+// https://crontab.guru/#15_5_*_*_2
+// “At 05:15 on Tuesday.”
+cron.schedule("15 5 * * 2", async () => {
+  if (process.env.NODE_ENV !== "production") return;
   // Disable cron until amounts are sorted out
-  // doDistributionCron();
+  doDistributionCron();
 });
 
-if (
-  process.env.NODE_ENV === "production" &&
-  !fs.existsSync(DISTRIBUTION_PATH) &&
-  !fs.existsSync(DORMANT_FUNDS_PATH) &&
-  !fs.existsSync(KNOWN_EXCHANGES_PATH) &&
-  !fs.existsSync(STATUS_PATH)
-) {
-  doDistributionCron();
-}
+// if (
+//   process.env.NODE_ENV === "production" &&
+//   !fs.existsSync(DISTRIBUTION_PATH) &&
+//   !fs.existsSync(DORMANT_FUNDS_PATH) &&
+//   !fs.existsSync(KNOWN_EXCHANGES_PATH) &&
+//   !fs.existsSync(STATUS_PATH)
+// ) {
+//   doDistributionCron();
+// }
 
 const getDistributionData = () => {
   let distribution = nodeCache.get(DISTRIBUTION);
