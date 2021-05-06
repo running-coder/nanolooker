@@ -16,7 +16,7 @@ const NodeStatusPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>{t("menu.nodeStatus")}</title>
+        <title>NanoLooker {t("menu.nodeStatus")}</title>
       </Helmet>
       <Title level={3}>{t("menu.nodeStatus")}</Title>
       <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]}>

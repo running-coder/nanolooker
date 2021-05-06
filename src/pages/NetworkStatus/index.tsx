@@ -60,7 +60,7 @@ const NetworkStatusPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>{t("menu.networkStatus")}</title>
+        <title>Nano {t("menu.networkStatus")}</title>
       </Helmet>
       <NodeMap
         nodeMonitors={nodeMonitors}

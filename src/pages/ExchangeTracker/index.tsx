@@ -187,7 +187,7 @@ const ExchangeTrackerPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>{t("menu.exchangeTracker")}</title>
+        <title>Nano {t("menu.exchangeTracker")}</title>
       </Helmet>
       <Title level={3}>{t("menu.exchangeTracker")}</Title>
 

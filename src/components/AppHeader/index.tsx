@@ -96,11 +96,13 @@ const AppHeader: React.FC = () => {
                   <Link to="/faucets" />
                 </Menu.Item>
               </SubMenu>
+
               <Menu.Item key="news">
                 <CalendarOutlined />
                 {t("menu.news")}
                 <Link to="/news" />
               </Menu.Item>
+
               <SubMenu
                 title={
                   <>

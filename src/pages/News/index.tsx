@@ -109,7 +109,9 @@ const NewsPage: React.FC = () => {
   const history = useHistory();
   const { feed = "" } = useParams<PageParams>();
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
-  const [posts, setPosts] = React.useState<any[]>(Array.from(Array(3).keys()));
+  const [posts, setPosts] = React.useState(
+    (Array.from(Array(3).keys()) as unknown) as MediumPost[],
+  );
   const [feedFilter, setFeedFilter] = React.useState<MEDIUM_FEEDS | string>(
     ALL,
   );
@@ -145,7 +147,7 @@ const NewsPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>{t("menu.news")}</title>
+        <title>Nano {t("menu.news")}</title>
       </Helmet>
       <Space style={{ marginBottom: "12px" }}>
         <Dropdown
@@ -188,60 +190,67 @@ const NewsPage: React.FC = () => {
             pubDate,
             author,
             link,
-            thumbnail,
+            thumbnail = "",
             descriptionShort,
             descriptionLong,
           },
           index,
-        ) => (
-          <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]} key={index}>
-            <Col xs={24} md={10} lg={8}>
-              <Card
-                bodyStyle={{
-                  padding: 0,
-                  minHeight: isLoading ? "180px" : "auto",
-                }}
-              >
-                <a href={link} target="_blank" rel="noopener noreferrer">
-                  <img src={thumbnail} alt={title} width="100%" />
-                </a>
-              </Card>
-            </Col>
-            <Col xs={24} md={14} lg={16}>
-              <Card size="small">
-                <Skeleton active loading={isLoading}>
-                  <Title level={4} style={{ marginBottom: 0 }}>
-                    {title}
-                  </Title>
-                  <span
-                    style={{
-                      display: "block",
-                      fontSize: "12px",
-                      marginBottom: "12px",
-                    }}
-                    className="color-muted"
-                  >
-                    {pubDate} {t("common.by")} {author}
-                  </span>
-                  <div
-                    dangerouslySetInnerHTML={{ __html: descriptionShort }}
-                  ></div>
-                  <div
-                    dangerouslySetInnerHTML={{ __html: descriptionLong }}
-                  ></div>
-                  <a
-                    href={link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ marginTop: "12px", display: "inline-block" }}
-                  >
-                    {t("common.continueReading")}
-                  </a>
-                </Skeleton>
-              </Card>
-            </Col>
-          </Row>
-        ),
+        ) => {
+          const hasThumbnail = !isLoading && !thumbnail.includes("stat?");
+          return (
+            <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]} key={index}>
+              <Col xs={24} md={10} lg={8}>
+                <Card
+                  bodyStyle={{
+                    padding: 0,
+                    minHeight: isLoading || !hasThumbnail ? "180px" : "auto",
+                  }}
+                >
+                  {hasThumbnail ? (
+                    <a href={link} target="_blank" rel="noopener noreferrer">
+                      <img src={thumbnail} alt={title} width="100%" />
+                    </a>
+                  ) : (
+                    <img alt="Nano news" src="/nano-news.png" width="100%" />
+                  )}
+                </Card>
+              </Col>
+              <Col xs={24} md={14} lg={16}>
+                <Card size="small">
+                  <Skeleton active loading={isLoading}>
+                    <Title level={4} style={{ marginBottom: 0 }}>
+                      {title}
+                    </Title>
+                    <span
+                      style={{
+                        display: "block",
+                        fontSize: "12px",
+                        marginBottom: "12px",
+                      }}
+                      className="color-muted"
+                    >
+                      {pubDate} {t("common.by")} {author}
+                    </span>
+                    <div
+                      dangerouslySetInnerHTML={{ __html: descriptionShort }}
+                    ></div>
+                    <div
+                      dangerouslySetInnerHTML={{ __html: descriptionLong }}
+                    ></div>
+                    <a
+                      href={link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ marginTop: "12px", display: "inline-block" }}
+                    >
+                      {t("common.continueReading")}
+                    </a>
+                  </Skeleton>
+                </Card>
+              </Col>
+            </Row>
+          );
+        },
       )}
 
       {!filteredPosts?.length ? (
