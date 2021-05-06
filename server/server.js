@@ -6,6 +6,7 @@ require("./cron/nodeLocations");
 require("./cron/nodeMonitors");
 require("./cron/telemetry");
 require("./cron/ws");
+require("./cron/coingeckoStats");
 require("./ws");
 const { getDistributionData } = require("./cron/distribution");
 const { getExchangeBalances } = require("./cron/exchangeTracker");
@@ -122,6 +123,7 @@ app.get("/api/market-statistics", async (req, res) => {
   } = await getBtcTransactionFees();
   const { marketStats, priceStats } = await getCoingeckoStats({
     fiat: req.query.fiat,
+    cryptocurrency: req.query.cryptocurrency,
   });
 
   return res.send({

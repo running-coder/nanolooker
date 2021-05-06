@@ -17,6 +17,8 @@ const getNextHour = () => {
   return date.getHours();
 };
 
+// https://crontab.guru/#*/20_*_*_*_*
+// At every 20th minute.
 cron.schedule("*/20 * * * *", async () => {
   let db;
   let mongoClient;

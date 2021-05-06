@@ -1,6 +1,6 @@
 import * as React from "react";
 import qs from "qs";
-import { PreferencesContext, Fiat } from "./Preferences";
+import { PreferencesContext } from "./Preferences";
 
 export const TOTAL_CONFIRMATIONS_KEY_24H = "TOTAL_CONFIRMATIONS_24H";
 export const TOTAL_NANO_VOLUME_KEY_24H = "TOTAL_NANO_VOLUME_24H";
@@ -74,16 +74,17 @@ const Provider: React.FC = ({ children }) => {
   const [isInitialLoading, setIsInitialLoading] = React.useState<boolean>(true);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [isError, setIsError] = React.useState<boolean>(false);
-  const { fiat } = React.useContext(PreferencesContext);
+  const { fiat, cryptocurrency } = React.useContext(PreferencesContext);
 
   const getMarketStatistics = async (fiat: string) => {
     clearTimeout(pollMarketStatisticsTimeout);
 
     setIsError(false);
     setIsLoading(true);
+
     try {
       const query = qs.stringify(
-        { ...(fiat !== Fiat.USD ? { fiat } : null) },
+        { fiat, cryptocurrency: !!cryptocurrency?.length },
         {
           addQueryPrefix: true,
         },
@@ -100,8 +101,17 @@ const Provider: React.FC = ({ children }) => {
 
     pollMarketStatisticsTimeout = window.setTimeout(() => {
       getMarketStatistics(fiat);
-    }, 7500);
+    }, 12000);
   };
+
+  React.useEffect(() => {
+    getMarketStatistics(fiat);
+
+    return () => {
+      clearTimeout(pollMarketStatisticsTimeout);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cryptocurrency]);
 
   React.useEffect(() => {
     function visibilityChange() {
@@ -112,11 +122,9 @@ const Provider: React.FC = ({ children }) => {
       }
     }
 
-    getMarketStatistics(fiat);
     window.addEventListener("visibilitychange", visibilityChange);
 
     return () => {
-      clearTimeout(pollMarketStatisticsTimeout);
       window.removeEventListener("visibilitychange", visibilityChange);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps

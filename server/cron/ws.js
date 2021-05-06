@@ -54,6 +54,7 @@ try {
   Sentry.captureException(err);
 }
 
+// Every 3 seconds
 cron.schedule("*/3 * * * * *", async () => {
   if (!db) return;
 

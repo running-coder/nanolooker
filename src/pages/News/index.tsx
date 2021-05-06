@@ -196,7 +196,10 @@ const NewsPage: React.FC = () => {
           },
           index,
         ) => {
-          const hasThumbnail = !isLoading && !thumbnail.includes("stat?");
+          const hasThumbnail =
+            /.+?\.(jpe?g|png|gif)$/.test(thumbnail) ||
+            thumbnail.startsWith("https://cdn-images");
+
           return (
             <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]} key={index}>
               <Col xs={24} md={10} lg={8}>
@@ -206,13 +209,18 @@ const NewsPage: React.FC = () => {
                     minHeight: isLoading || !hasThumbnail ? "180px" : "auto",
                   }}
                 >
-                  {hasThumbnail ? (
+                  {!isLoading && hasThumbnail ? (
                     <a href={link} target="_blank" rel="noopener noreferrer">
                       <img src={thumbnail} alt={title} width="100%" />
                     </a>
-                  ) : (
-                    <img alt="Nano news" src="/nano-news.png" width="100%" />
-                  )}
+                  ) : null}
+                  {!isLoading && !hasThumbnail ? (
+                    <img
+                      alt="Nano news"
+                      src="/nano-background.png"
+                      width="100%"
+                    />
+                  ) : null}
                 </Card>
               </Col>
               <Col xs={24} md={14} lg={16}>
