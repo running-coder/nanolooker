@@ -122,7 +122,7 @@ const HomePage = () => {
   return (
     <>
       <Banner />
-      <Row gutter={[{ xs: 6, sm: 12 }, 12]}>
+      <Row gutter={[12, 0]}>
         <Col
           xs={{ span: 24, order: 3 }}
           md={{ span: 12, order: 1 }}

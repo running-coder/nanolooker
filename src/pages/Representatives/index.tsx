@@ -107,7 +107,7 @@ const Representatives = () => {
       <Helmet>
         <title>Nano {t("menu.representatives")}</title>
       </Helmet>
-      <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]}>
+      <Row gutter={[12, 0]}>
         <Col xs={24} md={12}>
           <PieChart
             isIncludeOfflineRepresentatives={isIncludeOfflineRepresentatives}

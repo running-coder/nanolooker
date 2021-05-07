@@ -273,9 +273,7 @@ const Distribution: React.FC = () => {
         ></div>
       </Card>
 
-      <div style={{ margin: "12px 0" }}>
-        <DormantFunds data={data?.dormantFunds} />
-      </div>
+      <DormantFunds data={data?.dormantFunds} />
     </>
   );
 };

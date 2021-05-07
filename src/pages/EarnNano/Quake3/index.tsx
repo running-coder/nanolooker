@@ -22,7 +22,7 @@ const Quake3Page: React.FC = () => {
     <>
       <Title level={3}>NanoQuakeJS</Title>
 
-      <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]}>
+      <Row gutter={[12, 0]}>
         <Col xs={24} md={12}>
           <Card size="small" bordered={false} className="detail-layout">
             <Row gutter={6}>

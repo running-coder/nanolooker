@@ -56,7 +56,7 @@ const EarnNanoPage: React.FC = () => {
       {!section
         ? earnNanoList.map(
             ({ title, externalLink, thumbnail, description }, index) => (
-              <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]} key={index}>
+              <Row gutter={[12, 0]} key={index}>
                 <Col xs={24} md={10} lg={8}>
                   <Card
                     bodyStyle={{
