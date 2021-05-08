@@ -22,15 +22,9 @@
   padding: 8px 0;
 }
 
-/* .ant-col {
+.ant-col {
   flex-grow: 1;
-} */
-
-/* .ant-table-tbody
-  > tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)
-  > td {
-  background: #fafafa;
-} */
+}
 
 .ant-table-filter-column-title {
   padding: 8px;

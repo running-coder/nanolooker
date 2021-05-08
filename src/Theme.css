@@ -30,10 +30,6 @@ body .theme-dark {
   color: #e1e1e1;
 }
 
-/* .ant-menu {
-  background: transparent !important;
-} */
-
 .theme-dark .ant-dropdown-menu,
 .theme-dark .ant-menu-submenu-popup {
   -webkit-box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.48),
