@@ -50,6 +50,9 @@ export const resources = {
   nl: {
     translation: nl,
   },
+  pl: {
+    translation: pl,
+  },
   pt: {
     translation: pt,
   },

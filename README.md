@@ -54,6 +54,7 @@ Many of the most common languages are supported.
 - 日本語 (ja)
 - 한국어 (ko)
 - Nederlands (nl)
+- Język polski (pl)
 - Português (pt)
 - Pусский (ru)
 - Türkçe (tr)
