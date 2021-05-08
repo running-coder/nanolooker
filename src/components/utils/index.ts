@@ -44,7 +44,7 @@ export const refreshActionDelay = async (action: Function) => {
 
 export const rawToRai = (raw: string | number): number => {
   const value = new BigNumber(raw.toString());
-  return value.shiftedBy(30 * -1).toNumber();
+  return value.shiftedBy(29 * -1).toNumber();
 };
 
 export const raiToRaw = (rai: string | number): number => {
@@ -79,7 +79,7 @@ export const formatPublicAddress = (address: string): string => {
   return formattedAddress;
 };
 
-export const ACCOUNT_REGEX = /((nano|xrb)_)?(1|3)[1-9a-z]{59}/;
+export const ACCOUNT_REGEX = /((nano|xrb|ban)_)?(1|3)[1-9a-z]{59}/;
 export const BLOCK_REGEX = /[0-9A-F]{64}/;
 
 export const isValidAccountAddress = (address: string): boolean =>

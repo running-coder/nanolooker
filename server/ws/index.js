@@ -36,7 +36,7 @@ let accumulatedVolume = 0;
 let accumulatedLargeTransactionHashes = [];
 
 // https://github.com/cryptocode/nano-websocket-sample-nodejs/blob/master/index.js
-const ws = new ReconnectingWebSocket("wss://www.nanolooker.com/ws", [], {
+const ws = new ReconnectingWebSocket("wss://www.bananolooker.com/ws", [], {
   WebSocket: WS,
   connectionTimeout: 1000,
   maxRetries: 100000,
@@ -80,8 +80,8 @@ ws.onmessage = msg => {
   if (topic === "confirmation") {
     accumulatedConfirmations = accumulatedConfirmations + 1;
 
-    // 10,000 NANO
-    if (subtype === "send" && amount.length >= 35) {
+    // 100,000 BANANO
+    if (subtype === "send" && amount.length >= 36) {
       // Adding date because the message doesn't contain one
       message.timestamp = Date.now();
       accumulatedLargeTransactionHashes.push(message);

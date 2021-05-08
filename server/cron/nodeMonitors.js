@@ -5,7 +5,6 @@ const { nodeCache } = require("../cache");
 const { Sentry } = require("../sentry");
 const { rawToRai } = require("../utils");
 const { NODE_MONITORS, EXPIRE_24H } = require("../constants");
-const monitorAliases = require("./monitorAliases.json");
 
 const NODE_IP_REGEX = /\[::ffff:([\d.]+)\]:[\d]+/;
 
@@ -104,7 +103,7 @@ const doNodeMonitors = async () => {
 
     let results = await Promise.all(
       peers.map(async ({ account, ip, ...rest }) => {
-        const domain = monitorAliases[account] || ip;
+        const domain = ip;
 
         let monitor = await getNodeMonitor(domain);
 

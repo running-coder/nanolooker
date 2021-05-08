@@ -38,7 +38,7 @@ const Provider: React.FC = ({ children }) => {
     setIsError(false);
     setIsLoading(true);
 
-    const res = await fetch("https://www.nanolooker.com/api/node-status");
+    const res = await fetch("https://www.bananolooker.com/api/node-status");
     const json = await res.json();
 
     !json || json.error ? setIsError(true) : setNodeStatus(json);

@@ -105,7 +105,7 @@ export const PreferencesContext = React.createContext<Preferences>({
   filterTransactions: false,
   filterTransactionsRange: DEFAULT_UNITS,
   disableLiveTransactions: false,
-  natricons: false,
+  natricons: true,
   setTheme: () => {},
   addCryptocurrency: () => {},
   removeCryptocurrency: () => {},
@@ -142,7 +142,7 @@ const Provider: React.FC = ({ children }) => {
     ),
   );
   const [natricons, setNatricons] = React.useState<boolean>(
-    toBoolean(localStorage.getItem(LOCALSTORAGE_KEYS.NATRICONS)),
+    toBoolean(localStorage.getItem(LOCALSTORAGE_KEYS.NATRICONS) || true),
   );
 
   const addCryptocurrency = React.useCallback(

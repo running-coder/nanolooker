@@ -59,31 +59,31 @@
     "avgConfirmationTime": "평균 확인 시간은 노드에서 로컬로 계산됩니다. 노드가 다시 시작되거나 성능이 저하 된 상태이면 평균 확인 시간이 나머지 네트워크보다 길 수 있습니다.",
     "circulatingSupply": "유통중인 코인의 양. 나노는 완전히 분배되어 공급이 증가하지 않습니다.",
     "transactionFees": "다른 암호 화폐와 달리 나노 거래는 영원히 수수료가 없습니다.",
-    "bitcoinTransactionFees": "이 값은 NANO 네트워크에 영향을주지 않으며 비교 목적으로 만 사용됩니다. 비트 코인 사용자가 비트 코인 네트워크에서 거래를 수락하기 위해 채굴 자에게 지불하는 거래 수수료의 합계를 나타냅니다.",
-    "cps": "초당 확인. NANO 네트워크에서 확인 된 블록 (송신 또는 수신)의 비율입니다. 마지막 순간에 노드에서 로컬로 샘플링됩니다. 노드가 다시 시작되거나 성능이 저하 된 상태이면 노드가 다른 노드와 동기화 및 다시 연결하는 동안 CPS 값이 네트워크의 실제 평균보다 높거나 낮을 수 있습니다.",
-    "votingWeight": "최소 {{minWeight}} NANO 또는 온라인 투표 가중치의 >= 0.1 %가 위임 된 계정이 대표 대리인 자격을 얻으려면 필요합니다. 투표중인 노드에 구성되면 생성 된 투표는 다른 노드가이를 수신 한 사람에게 재방송하여 네트워크가보다 신속하게 합의에 도달하도록 돕습니다.",
+    "bitcoinTransactionFees": "이 값은 BANANO 네트워크에 영향을주지 않으며 비교 목적으로 만 사용됩니다. 비트 코인 사용자가 비트 코인 네트워크에서 거래를 수락하기 위해 채굴 자에게 지불하는 거래 수수료의 합계를 나타냅니다.",
+    "cps": "초당 확인. BANANO 네트워크에서 확인 된 블록 (송신 또는 수신)의 비율입니다. 마지막 순간에 노드에서 로컬로 샘플링됩니다. 노드가 다시 시작되거나 성능이 저하 된 상태이면 노드가 다른 노드와 동기화 및 다시 연결하는 동안 CPS 값이 네트워크의 실제 평균보다 높거나 낮을 수 있습니다.",
+    "votingWeight": "최소 {{minWeight}} BANANO 또는 온라인 투표 가중치의 >= 0.1 %가 위임 된 계정이 대표 대리인 자격을 얻으려면 필요합니다. 투표중인 노드에 구성되면 생성 된 투표는 다른 노드가이를 수신 한 사람에게 재방송하여 네트워크가보다 신속하게 합의에 도달하도록 돕습니다.",
     "pending": "자금을 보내는 블록이 네트워크에 의해 게시되고 확인되었지만 해당 자금을받는 일치 블록이 아직 보내거나 확인되지 않은 거래 상태입니다.",
-    "nakamotoCoefficient": "Nakamoto 계수는 블록 체인 또는 기타 분산 시스템의 분산을 정량화하는 방법입니다. 하나 이상의 필수 하위 시스템을 손상시키는 데 필요한 엔티티의 수입니다. Nano의 경우 주요 대표자의 온라인 투표 가중치의 {{onlineWeightQuorumPercent}}% 이상이 손상되어야합니다.",
-    "representatives": "성과를 최적화하기 위해 투표 가중치가 >= 1000 NANO 인 계정 만 고려되지만 일반적으로 투표 가중치가 0보다 크지 만 온라인 투표 가중치의 0.1 % 미만인 모든 계정이 고려됩니다.",
-    "principalRepresentatives": "대표 대리인 자격을 얻으려면 최소 {{principalRepresentativeMinWeight}} NANO 또는 온라인 투표 가중치의 0.1 % 이상이 위임 된 계정이 필요합니다. 투표중인 노드에 구성되면 생성 된 투표는 다른 노드가이를 수신 한 사람에게 재방송하여 네트워크가보다 신속하게 합의에 도달하도록 돕습니다.",
+    "nakamotoCoefficient": "Nakamoto 계수는 블록 체인 또는 기타 분산 시스템의 분산을 정량화하는 방법입니다. 하나 이상의 필수 하위 시스템을 손상시키는 데 필요한 엔티티의 수입니다. Banano의 경우 주요 대표자의 온라인 투표 가중치의 {{onlineWeightQuorumPercent}}% 이상이 손상되어야합니다.",
+    "representatives": "성과를 최적화하기 위해 투표 가중치가 >= 1000 BANANO 인 계정 만 고려되지만 일반적으로 투표 가중치가 0보다 크지 만 온라인 투표 가중치의 0.1 % 미만인 모든 계정이 고려됩니다.",
+    "principalRepresentatives": "대표 대리인 자격을 얻으려면 최소 {{principalRepresentativeMinWeight}} BANANO 또는 온라인 투표 가중치의 0.1 % 이상이 위임 된 계정이 필요합니다. 투표중인 노드에 구성되면 생성 된 투표는 다른 노드가이를 수신 한 사람에게 재방송하여 네트워크가보다 신속하게 합의에 도달하도록 돕습니다.",
     "onlinePrincipalRepresentatives": "최근에 투표 한 온라인 대표 계정.",
     "lastTransaction": "{{totalAccounts}} 계정에서 마지막으로 전송 한 거래입니다.",
-    "largeTransactions": "10,000 NANO 이상의 송금 거래 만 일주일 동안 일시적으로 저장됩니다.",
-    "knownExchangeBalance": "배포 차트에서 {{knownExchangeList}}를 제외합니다. 이러한 계정은 {{knownExchangeBalance}} NANO를 보유합니다.",
-    "unchecked": "다운로드되었지만 아직 Nano 노드에서 처리되지 않은 블록 (트랜잭션)입니다. 노드 소프트웨어는 다른 노드의 모든 보크를 확인되지 않은 상태로 다운로드하여 처리하고 블록 수에 추가하고 각 계정의 프론티어 블록을 확인한 다음이를 합착으로 표시합니다.",
+    "largeTransactions": "100,000 BANANO 이상의 송금 거래 만 일주일 동안 일시적으로 저장됩니다.",
+    "knownExchangeBalance": "배포 차트에서 {{knownExchangeList}}를 제외합니다. 이러한 계정은 {{knownExchangeBalance}} BANANO를 보유합니다.",
+    "unchecked": "다운로드되었지만 아직 Banano 노드에서 처리되지 않은 블록 (트랜잭션)입니다. 노드 소프트웨어는 다른 노드의 모든 보크를 확인되지 않은 상태로 다운로드하여 처리하고 블록 수에 추가하고 각 계정의 프론티어 블록을 확인한 다음이를 합착으로 표시합니다.",
     "cemented": "특정 노드가 계정의 확인 높이 (노드 데이터베이스에서)를 확인 된 거래의 더 높은 블록 높이로 설정하여 확인 된 거래를 로컬에서 되돌릴 수없는 것으로 표시하는 경우. 접합은 노드 수준 작업입니다.",
-    "unknownLastTransaction": "거래 날짜는 2019 년 2 월에 도입되었습니다. 해당 날짜 이전에는 거래 시간이 노드에 로컬로 기록되지 않았습니다. 마지막 거래 날짜를 알 수없는 이유는 날짜가 기록되기 전이나 NanoLooker 노드가 서비스되기 전에 확인 되었기 때문입니다.",
+    "unknownLastTransaction": "거래 날짜는 2019 년 2 월에 도입되었습니다. 해당 날짜 이전에는 거래 시간이 노드에 로컬로 기록되지 않았습니다. 마지막 거래 날짜를 알 수없는 이유는 날짜가 기록되기 전이나 BananoLooker 노드가 서비스되기 전에 확인 되었기 때문입니다.",
     "confirmationHeight": "계정 체인에서 가장 높은 (가장 최근) 확인 된 블록을 나타내는 로컬 노드 데이터베이스에 저장된 번호입니다. 블록 높이와 관련이 있습니다.",
     "blockHeight": "계정 체인에서 블록의 순서를 나타내는 로컬 정수 값입니다. 예를 들어 계정의 15 번째 블록의 블록 높이는 15입니다. 확인 높이와 관련이 있습니다 (그러나 다른 경우).",
     "bookmarks": "{{type, capitalize}} 북마크가 기기에 저장됩니다. 별칭을 제공하여 알려진 {{type}}을 관리 할 수 있습니다.",
     "groupByEntities": "다른 주요 대표로 분할 된 모든 투표 가중치를 단일 엔티티로 다시 그룹화합니다. 예를 들어 거래소는 여러 개의 지갑을 가지고 가중치를 분할 할 수 있지만 실제로는 재 그룹화 할 경우 단일 가중치로 계산 될 수 있습니다.",
     "telemetry": "네트워크에있는 다른 노드의 메트릭. 모든 메트릭은 수집되고 평균화되어 네트워크의 다양한 상태를 나타냅니다. P는 백분위 수에 해당하고, p50은 하위 50 %를 제외하여 계산되는 반면 p95는 평균을 계산하기 위해 다른 값의 하위 5 %를 제외합니다.",
-    "ledgerSize": "지금까지 모든 Nano 트랜잭션을 저장하는 데 필요한 총 디스크 공간입니다. 원장 크기는 1000이 아닌 1024를 기준으로 계산됩니다.",
+    "ledgerSize": "지금까지 모든 Banano 트랜잭션을 저장하는 데 필요한 총 디스크 공간입니다. 원장 크기는 1000이 아닌 1024를 기준으로 계산됩니다.",
     "bandwidthCap": "나노 노드는 보내고받을 수있는 메시지의 양을 제한하기 위해 대역폭을 조절할 수 있습니다. 0은 무제한 대역폭을 의미합니다.",
     "uptime": "노드가 마지막으로 재부팅 된 이후의 시간입니다.",
     "pendingTransactionCount": "보류중인 트랜잭션 수가 표시된 한도 인 {{count}}을 (를) 초과합니다.",
-    "mnano": "Mnano는 지갑, 거래소 및 서비스에서 사용되는 현재 표준 부서입니다. 1 NANO라고합니다.",
-    "versionsByWeight": "버전이 네트워크의 합의를 인수하려면 최소 {{onlineWeightMinimum}} NANO에서 온라인 투표 가중치의 67 %를 가져야합니다."
+    "mnano": "Mnano는 지갑, 거래소 및 서비스에서 사용되는 현재 표준 부서입니다. 1 BANANO라고합니다.",
+    "versionsByWeight": "버전이 네트워크의 합의를 인수하려면 최소 {{onlineWeightMinimum}} BANANO에서 온라인 투표 가중치의 67 %를 가져야합니다."
   },
   "search": {
     "searchBy": "주소 / 차단 / 알려진 계정으로 검색",
@@ -94,20 +94,20 @@
     "darkMode": "다크 모드",
     "darkModeDetailed": "환경에 따라 사이트 탐색 환경을 개선하려면 밝게 또는 어둡게 모드에서 전환하십시오.",
     "language": "언어",
-    "languageDetailed": "원하는 언어를 선택하십시오. NanoLooker는 탐험가의 번역을 개선하는 데 도움을 줄 기여자를 찾고 있습니다. <0>기여</0>",
+    "languageDetailed": "원하는 언어를 선택하십시오. BananoLooker는 탐험가의 번역을 개선하는 데 도움을 줄 기여자를 찾고 있습니다. <0>기여</0>",
     "watch": "다른 암호 화폐보기",
     "watchSearch": "암호 화폐 검색",
     "watchDetailed": "상위 100 개에 속하는 다른 암호 화폐의 가격을 확인하세요. 현재 시장 가격과 24 시간 변동이 상단 막대에 표시됩니다. 드래그 앤 드롭을 사용하여 선택 항목을 다시 정렬 할 수도 있습니다.",
     "fiatCurrency": "피아트 통화",
-    "fiatCurrencyDetailed": "피아트 화폐는 정부 발행 화폐입니다. Nano의 가격을 비교하려면 법정 화폐를 선택하세요.",
+    "fiatCurrencyDetailed": "피아트 화폐는 정부 발행 화폐입니다. Banano의 가격을 비교하려면 법정 화폐를 선택하세요.",
     "natricons": "나트 리콘",
-    "natriconsDetailed": "Natricons는 Nano 주소에 친숙하고 친숙한 얼굴입니다. 근처에 Nano 주소가있는 모든 곳에서 계정 페이지에서 사용하십시오.",
+    "natriconsDetailed": "Natricons는 Banano 주소에 친숙하고 친숙한 얼굴입니다. 근처에 Banano 주소가있는 모든 곳에서 계정 페이지에서 사용하십시오.",
     "liveTransactions": "라이브 업데이트 활성화",
-    "liveTransactionsDetailed": "Nano 네트워크에서 발생하는 실시간 거래를 확인하세요. 홈페이지에서 사용 가능합니다.",
+    "liveTransactionsDetailed": "Banano 네트워크에서 발생하는 실시간 거래를 확인하세요. 홈페이지에서 사용 가능합니다.",
     "contribute": "기여",
     "filterTransactionsRange": "금액 범위 포함",
     "filterTransactionsRangeDetailed": "사용자 지정 필터링 범위 설정",
-    "filterTransactions": "1 NANO 미만 금액 숨기기"
+    "filterTransactions": "1 BANANO 미만 금액 숨기기"
   },
   "menu": {
     "explore": "탐색",
@@ -120,8 +120,8 @@
     "faucets": "수도꼭지",
     "news": "뉴스",
     "nodeStatus": "노드 상태",
-    "whatIsNano": "나노 란?",
-    "earnNano": "나노 적립",
+    "whatIsBanano": "나노 란?",
+    "earnBanano": "나노 적립",
     "preferences": "환경 설정",
     "status": "상태",
     "networkStatus": "네트워크 상태"
@@ -130,7 +130,7 @@
     "createdBy": "작성자 : {{creator}}",
     "donations": {
       "donate": "기부",
-      "title": "NanoLooker 기부 계정"
+      "title": "BananoLooker 기부 계정"
     }
   },
   "pages": {
@@ -147,15 +147,15 @@
       "last24Hours": "지난 24 시간",
       "avgConfirmationTime": "평균 확인 시간 (초)",
       "confirmedTransactions": "확인 된 거래",
-      "transactionFees": "NANO 거래 수수료",
+      "transactionFees": "BANANO 거래 수수료",
       "exchangeVolume": "거래량",
       "onChainVolume": "온 체인 나노 볼륨",
       "bitcoinTransactionFees": "채굴 자에게 지급되는 비트 코인 거래 수수료",
       "recentTransactions": "최근 거래",
       "liveUpdatesDisabled": "라이브 업데이트 비활성화",
       "waitingForTransactions": "거래를 기다리는 중",
-      "connectingToBlockchain": "NANO 블록 체인에 연결",
-      "reconnectingToBlockchain": "연결 해제, NANO 블록 체인에 다시 연결"
+      "connectingToBlockchain": "BANANO 블록 체인에 연결",
+      "reconnectingToBlockchain": "연결 해제, BANANO 블록 체인에 다시 연결"
     },
     "account": {
       "votingWeight": "투표 가중치",
@@ -168,7 +168,7 @@
       "loadMoreTransactions": "더 많은 거래로드",
       "viewTransactions": "거래보기",
       "notOpenedYet": "이 계정은 아직 개설되지 않았습니다.",
-      "notOpenedYetReason": "계정 주소가 유효하지만 아직 체인에 게시 된 블록이 없습니다. NANO가이 계정으로 전송 된 경우 자금을 보관하려면 해당 블록을 게시해야합니다.",
+      "notOpenedYetReason": "계정 주소가 유효하지만 아직 체인에 게시 된 블록이 없습니다. BANANO가이 계정으로 전송 된 경우 자금을 보관하려면 해당 블록을 게시해야합니다.",
       "missingAccount": "누락 된 계정",
       "missingAccountInfo": "계정이 URL에 지정되지 않았습니다. 계정을 검색하려면 상단 검색 창을 사용하거나 /account/ 뒤의 URL에 추가하세요."
     },
@@ -187,7 +187,7 @@
       "missingBlock": "누락 된 블록",
       "missingBlockInfo": "URL에 블록이 지정되지 않았습니다. 블록을 검색하려면 상단 검색 창을 사용하거나 /block/ 뒤에 URL에 추가하세요.",
       "blockNotFound": "블록을 찾을 수 없습니다.",
-      "blockNotFoundInfo": "요청하신 블록을 찾을 수 없습니다. 블록이 Nano 네트워크에 있지만 아직 노드에 표시되지 않았을 수 있습니다. 올바른 블록을 찾고 있는지 확인하거나 나중에 다시 시도하십시오."
+      "blockNotFoundInfo": "요청하신 블록을 찾을 수 없습니다. 블록이 Banano 네트워크에 있지만 아직 노드에 표시되지 않았을 수 있습니다. 올바른 블록을 찾고 있는지 확인하거나 나중에 다시 시도하십시오."
     },
     "representatives": {
       "voteDistribution": "투표 배포",
@@ -211,14 +211,14 @@
       "noDelegatorsFound": "위임자가 없습니다."
     },
     "faucets": {
-      "description": "수도꼭지를 사용하면 소량의 NANO를 무료로 청구 할 수 있습니다. 이 수도꼭지는 분산 형 네트워크에서 즉시 전 세계에 NANO를 보내고받는 것이 얼마나 쉬운 지 경험할 수 있도록합니다."
+      "description": "수도꼭지를 사용하면 소량의 BANANO를 무료로 청구 할 수 있습니다. 이 수도꼭지는 분산 형 네트워크에서 즉시 전 세계에 BANANO를 보내고받는 것이 얼마나 쉬운 지 경험할 수 있도록합니다."
     },
     "developerFund": {
       "description": "2019 년 11 월 25 일부터 개발자 기금은 내부 보안 정책 및 대표 투표 가중치를 검토 한 후 {{totalAccounts}} 계정으로 분할되었습니다.",
       "lastTransaction": "마지막 거래",
       "allTransactions": "모든 전송 거래보기",
       "originalDeveloperFund": "원래 개발자 기금",
-      "originalDeveloperFundDescription": "Nano (이전 RaiBlocks)의 배포는 2015 년 말부터 2017 년 10 월까지 수동 캡차를 해결하여 수행되었습니다. <0>Genesis</0> 금액의 ~ 39 %가 배포되고 나머지 공급은 <1>탄</1>.",
+      "originalDeveloperFundDescription": "Banano (이전 RaiBlocks)의 배포는 2015 년 말부터 2017 년 10 월까지 수동 캡차를 해결하여 수행되었습니다. <0>Genesis</0> 금액의 ~ 39 %가 배포되고 나머지 공급은 <1>탄</1>.",
       "totalAccounts": "{{totalAccounts}} 총 계정",
       "percentOfTotal": "유통 공급량의 {{percent}} %"
     },
@@ -226,13 +226,13 @@
       "totalAccounts": "{{totalAccounts}} 총 알려진 계정"
     },
     "largeTransactions": {
-      "description": "NANO 블록 체인에서 발생하는 대규모 거래.",
+      "description": "BANANO 블록 체인에서 발생하는 대규모 거래.",
       "latest": "최근 거래",
       "largest": "최대 금액"
     },
     "distribution": {
       "title": "나노 분포",
-      "summary": "총 <0>{{i18nTotalAccounts}}</0> 개의 계정이 <1>{{i18nTotalBalances}}</1> NANO를 보유하고 있습니다.",
+      "summary": "총 <0>{{i18nTotalAccounts}}</0> 개의 계정이 <1>{{i18nTotalBalances}}</1> BANANO를 보유하고 있습니다.",
       "summaryMinBalance": "잔액이 <0>0.001</0>보다 낮은 모든 계정은 제외됩니다.",
       "includeKnownExchanges": "알려진 교환 포함",
       "logScale": "로그 스케일",
@@ -241,8 +241,8 @@
       "availableSupply": "나노 공급 가능",
       "knownAccountBalances": "알려진 계정 잔액",
       "unknownDormantFunds": "알 수없는 휴면 자금",
-      "dormantFundsQuarterExample": "50 개의 NANO와 50 개의 보류중인 NANO를 보유한 계정은 6 개월 전에 (2 분기) 마지막으로 거래되었으며, 100 NANO의 잔액은 다음 분기의 합계에 \"휴면\"으로 추가됩니다.",
-      "dormantNano": "잠자는 나노",
+      "dormantFundsQuarterExample": "50 개의 BANANO와 50 개의 보류중인 BANANO를 보유한 계정은 6 개월 전에 (2 분기) 마지막으로 거래되었으며, 100 BANANO의 잔액은 다음 분기의 합계에 \"휴면\"으로 추가됩니다.",
+      "dormantBanano": "잠자는 나노",
       "ofAvailableSupply": "사용 가능한 공급"
     },
     "news": {
@@ -284,11 +284,10 @@
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> 노드의 대역폭 제한은 <1>{{limitedBandwidthCap}}</1>입니다.",
       "nodeVersions": "노드 버전",
       "latestVersion": "최신 버전",
-      "database": "데이터 베이스",
-      "versionsByWeight": "투표 가중치 별 버전"
+      "database": "데이터 베이스"
     },
     "exchangeTracker": {
-      "description": "Nano가 거래되는 가장 인기있는 거래소의 계정 잔액을 매일 캡처합니다. 이 측정은 네트워크의 움직임과 변동을 분석하는 데 사용할 수 있습니다.",
+      "description": "Banano가 거래되는 가장 인기있는 거래소의 계정 잔액을 매일 캡처합니다. 이 측정은 네트워크의 움직임과 변동을 분석하는 데 사용할 수 있습니다.",
       "totalSelected": "선택한 거래소의 총 잔액"
     },
     "preferences": {

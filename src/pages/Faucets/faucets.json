@@ -1,28 +1,22 @@
 [
   {
-    "name": "nano-faucet",
-    "account": "nano_34prihdxwz3u4ps8qjnn14p7ujyewkoxkwyxm3u665it8rg5rdqw84qrypzk",
-    "link": "https://nano-faucet.org/"
+    "name": "BananoFaucet",
+    "account": "ban_1faucetjuiyuwnz94j4c7s393r95sk5ac7p5usthmxct816osgqh3qd1caet",
+    "link": "https://bananofaucet.cc/"
   },
   {
-    "name": "FreeNanoFaucet",
-    "account": "nano_3kwppxjcggzs65fjh771ch6dbuic3xthsn5wsg6i5537jacw7m493ra8574x",
-    "link": "https://www.freenanofaucet.com/"
+    "name": "MonkeyTalks",
+    "account": "ban_1monkeyt1x77a1rp9bwtthajb8odapbmnzpyt8357ac8a1bcron34i3r9y66",
+    "link": "https://monkeytalks.cc/"
   },
   {
-    "name": "Nendly Tor Faucet",
-    "byLink": "https://nendly.com/",
-    "account": "nano_135a4boekhir8btsobsarjd6qoo4tq5p88jqoqeehcsnix1ug9fzpcfjgnkc",
-    "link": "http://nendlyy5734pdfflygapdayez6dcorodcio72jwfvaux4fsrzyh7rzqd.onion/faucet/"
+    "name": "TNV Banano Faucet",
+    "account": "ban_3uf1gx114fqm9ppiwp3sw1mywzzr9d8uwhrw9e85zpgdt48eopruqnqpdb68",
+    "link": "https://banano-faucet.herokuapp.com/"
   },
   {
-    "name": "Apollo Faucet",
-    "account": "nano_1tyd79peyzk4bs5ok1enb633dqsrxou91k7y4zzo1oegw4s75bokmj1pey4s",
-    "link": "https://twitter.com/ApolloNano/status/1365520666137481220"
-  },
-  {
-    "name": "LuckyNano",
-    "account": "nano_1oenixj4qtpfcembga9kqwggkb87wooicfy5df8nhdywrjrrqxk7or4gz15b",
-    "link": "https://luckynano.com/"
+    "name": "Prussia's Banano Faucet",
+    "account": "ban_3346kkobb11qqpo17imgiybmwrgibr7yi34mwn5j6uywyke8f7fnfp94uyps",
+    "link": "https://faucet.prussia.dev/"
   }
 ]

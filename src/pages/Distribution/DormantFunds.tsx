@@ -97,17 +97,17 @@ const DormantFunds: React.FC<Props> = ({ data }) => {
               <li>
                 {t("pages.distribution.availableSupply")}:{" "}
                 <strong>
-                  {new BigNumber(availableSupply).toFormat()} NANO
+                  {new BigNumber(availableSupply).toFormat()} BAN\
                 </strong>
               </li>
               <li>
                 {t("pages.distribution.knownAccountBalances")}:{" "}
-                <strong>{new BigNumber(totalFunds).toFormat()} NANO</strong>
+                <strong>{new BigNumber(totalFunds).toFormat()} BAN</strong>
               </li>
               <li>
                 {t("pages.distribution.unknownDormantFunds")}:{" "}
                 <strong>
-                  {new BigNumber(unknownDormantFunds).toFormat()} NANO
+                  {new BigNumber(unknownDormantFunds).toFormat()} BAN
                 </strong>
               </li>
             </ul>
@@ -149,7 +149,7 @@ const DormantFunds: React.FC<Props> = ({ data }) => {
                 <div style={{ fontSize: "12px" }}>
                   <div>
                     <strong>{new BigNumber(totalDormant).toFormat(5)}</strong>{" "}
-                    {t("pages.distribution.dormantNano")}
+                    {t("pages.distribution.dormantBanano")}
                   </div>
                   <div>
                     <strong>{percentAvailableSupply}%</strong>{" "}

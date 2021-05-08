@@ -36,7 +36,7 @@ const TELEMETRY = "TELEMETRY";
 const MONGO_USER = process.env.MONGO_USER;
 const MONGO_PASSWORD = process.env.MONGO_PASSWORD;
 const MONGO_URL = `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@localhost:27017`;
-const MONGO_DB = "nanolooker";
+const MONGO_DB = "bananolooker";
 const MONGO_OPTIONS = {
   useNewUrlParser: true,
   useUnifiedTopology: true,

@@ -91,7 +91,7 @@ const Delegators: React.FC = () => {
                         display: "block",
                       }}
                     >
-                      {new BigNumber(weight).toFormat()} NANO
+                      {new BigNumber(weight).toFormat()} BAN
                     </span>
                   </Col>
                   <Col xs={24} sm={12} md={16} lg={18}>

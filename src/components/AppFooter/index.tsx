@@ -10,7 +10,7 @@ const { Text } = Typography;
 const { Footer } = Layout;
 
 export const DONATION_ACCOUNT =
-  "nano_1gxx3dbrprrh9ycf1p5wo9qgmftppg6z7688njum14aybjkaiweqmwpuu9py";
+  "ban_1gxx3dbrprrh9ycf1p5wo9qgmftppg6z7688njum14aybjkaiweqmwpuu9py";
 
 const AppFooter: React.FC = () => {
   const { t } = useTranslation();
@@ -23,11 +23,11 @@ const AppFooter: React.FC = () => {
     <Footer style={{ textAlign: "center" }}>
       <div>
         <a
-          href="https://github.com/running-coder/nanolooker"
+          href="https://github.com/running-coder/nanolooker/tree/bananolooker"
           rel="noopener noreferrer"
           target="_blank"
         >
-          <GithubOutlined /> NanoLooker
+          <GithubOutlined /> BananoLooker
         </a>{" "}
         ©{new Date().getFullYear()}{" "}
         {t("footer.createdBy", { creator: "RunningCoder" })}

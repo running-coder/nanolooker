@@ -27,7 +27,7 @@ const LanguagePreferences: React.FC<Props> = ({ isDetailed }) => {
             style={{ marginLeft: "12px" }}
           >
             <a
-              href="https://github.com/running-coder/nanolooker/tree/master/src/i18n/locales"
+              href="https://github.com/running-coder/nanolooker/tree/bananolooker/src/i18n/locales"
               rel="noopener noreferrer"
               target="_blank"
             >

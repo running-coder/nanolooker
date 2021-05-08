@@ -14,7 +14,7 @@ import {
 } from "api/contexts/Preferences";
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 import useAccountsBalances from "api/hooks/use-accounts-balances";
-import useAvailableSupply from "api/hooks/use-available-supply";
+// import useAvailableSupply from "api/hooks/use-available-supply";
 import useDeveloperAccountFund from "api/hooks/use-developer-fund-transactions";
 import QuestionCircle from "components/QuestionCircle";
 import LoadingStatistic from "components/LoadingStatistic";
@@ -22,9 +22,6 @@ import { rawToRai, timestampToDate } from "components/utils";
 import {
   GENESIS_ACCOUNT,
   DEVELOPER_FUND_ACCOUNTS,
-  ORIGINAL_DEVELOPER_FUND_BLOCK,
-  ORIGINAL_DEVELOPER_FUND_BURN_BLOCK,
-  ORIGINAL_DEVELOPER_FUND_ACCOUNT,
 } from "../../knownAccounts.json";
 
 const DEVELOPER_FUND_CHANGE_LINK =
@@ -51,7 +48,7 @@ const DeveloperFund: React.FC = () => {
     accountsBalances,
     isLoading: isAccountsBalancesLoading,
   } = useAccountsBalances(DEVELOPER_FUND_ACCOUNTS);
-  const { availableSupply } = useAvailableSupply();
+  // const { availableSupply } = useAvailableSupply();
   const { developerFundTransactions } = useDeveloperAccountFund();
   const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
 
@@ -102,7 +99,7 @@ const DeveloperFund: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Nano {t("menu.developerFund")}</title>
+        <title>Banano {t("menu.developerFund")}</title>
       </Helmet>
       <Row gutter={[12, 0]}>
         <Col xs={24} lg={12}>
@@ -139,7 +136,7 @@ const DeveloperFund: React.FC = () => {
               <Col xs={24} sm={18}>
                 <LoadingStatistic
                   isLoading={skeletonProps.loading}
-                  suffix="NANO"
+                  suffix="BAN"
                   value={totalBalance}
                 />
                 <Skeleton {...skeletonProps}>
@@ -171,7 +168,7 @@ const DeveloperFund: React.FC = () => {
                   loading={!lastTransactionAmount}
                   paragraph={false}
                 >
-                  {lastTransactionAmount} NANO
+                  {lastTransactionAmount} BAN
                   <br />
                 </Skeleton>
                 <Skeleton
@@ -214,9 +211,6 @@ const DeveloperFund: React.FC = () => {
             >
               <Trans i18nKey="pages.developerFund.originalDeveloperFundDescription">
                 <Link to={`/account/${GENESIS_ACCOUNT}`}>Genesis</Link>
-                <Link
-                  to={`/block/${ORIGINAL_DEVELOPER_FUND_BURN_BLOCK}`}
-                ></Link>
               </Trans>
               <br />
               <a
@@ -229,7 +223,7 @@ const DeveloperFund: React.FC = () => {
               </a>
             </div>
 
-            <Row gutter={6}>
+            {/* <Row gutter={6}>
               <Col xs={24} sm={6}>
                 {t("common.account")}
               </Col>
@@ -241,34 +235,7 @@ const DeveloperFund: React.FC = () => {
                   {ORIGINAL_DEVELOPER_FUND_ACCOUNT}
                 </Link>
               </Col>
-            </Row>
-            <Row gutter={6}>
-              <Col xs={24} sm={6}>
-                {t("common.balance")}
-              </Col>
-              <Col xs={24} sm={18}>
-                {new BigNumber("7000000").toFormat()} NANO
-                <br />
-                {t("pages.developerFund.percentOfTotal", {
-                  percent: new BigNumber(7000000 * 100)
-                    .dividedBy(availableSupply)
-                    .toFormat(2),
-                })}
-              </Col>
-            </Row>
-            <Row gutter={6}>
-              <Col xs={24} sm={6}>
-                {t("common.block")}
-              </Col>
-              <Col xs={24} sm={18}>
-                <Link
-                  to={`/block/${ORIGINAL_DEVELOPER_FUND_BLOCK}`}
-                  className="break-word"
-                >
-                  {ORIGINAL_DEVELOPER_FUND_BLOCK}
-                </Link>
-              </Col>
-            </Row>
+            </Row> */}
           </Card>
         </Col>
       </Row>
@@ -304,7 +271,7 @@ const DeveloperFund: React.FC = () => {
                   display: "block",
                 }}
               >
-                {balance} NANO
+                {balance} BAN
               </span>
             </Col>
             <Col sm={14} md={14} xl={18}>

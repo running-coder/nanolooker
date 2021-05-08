@@ -217,7 +217,7 @@ const TransactionsTable = ({
                       {["receive", "open"].includes(transactionType) ? "+" : ""}
                       {subtype === "send" ? "-" : ""}
                       {amount
-                        ? `${new BigNumber(rawToRai(amount)).toFormat()} NANO`
+                        ? `${new BigNumber(rawToRai(amount)).toFormat()} BAN`
                         : ""}
                     </Text>
                   </Col>

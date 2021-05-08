@@ -105,7 +105,7 @@ const Representatives = () => {
   return (
     <>
       <Helmet>
-        <title>Nano {t("menu.representatives")}</title>
+        <title>Banano {t("menu.representatives")}</title>
       </Helmet>
       <Row gutter={[12, 0]}>
         <Col xs={24} md={12}>
@@ -213,7 +213,7 @@ const Representatives = () => {
               <Col xs={24} sm={16}>
                 <Skeleton {...confirmationQuorumSkeletonProps}>
                   {new BigNumber(principalRepresentativeMinWeight).toFormat()}{" "}
-                  NANO
+                  BAN
                 </Skeleton>
               </Col>
             </Row>
@@ -234,7 +234,7 @@ const Representatives = () => {
               <Col xs={24} sm={16}>
                 {" "}
                 <Skeleton {...confirmationQuorumSkeletonProps}>
-                  {new BigNumber(rawToRai(onlineWeightMinimum)).toFormat()} NANO
+                  {new BigNumber(rawToRai(onlineWeightMinimum)).toFormat()} BAN
                 </Skeleton>
               </Col>
             </Row>
@@ -244,7 +244,7 @@ const Representatives = () => {
               </Col>
               <Col xs={24} sm={16}>
                 <Skeleton {...confirmationQuorumSkeletonProps}>
-                  {new BigNumber(rawToRai(onlineStakeTotal)).toFormat(0)} NANO
+                  {new BigNumber(rawToRai(onlineStakeTotal)).toFormat(0)} BAN
                 </Skeleton>
               </Col>
             </Row>
@@ -254,7 +254,7 @@ const Representatives = () => {
               </Col>
               <Col xs={24} sm={16}>
                 <Skeleton {...confirmationQuorumSkeletonProps}>
-                  {new BigNumber(rawToRai(peersStakeTotal)).toFormat(0)} NANO
+                  {new BigNumber(rawToRai(peersStakeTotal)).toFormat(0)} BAN
                 </Skeleton>
               </Col>
             </Row>
@@ -332,7 +332,7 @@ const Representatives = () => {
                           display: "block",
                         }}
                       >
-                        {weight} NANO
+                        {weight} BAN
                       </span>
 
                       {isPrincipal ? (

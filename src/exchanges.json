@@ -1,46 +1,78 @@
 [
   {
-    "name": "Binance Hot Wallet",
-    "account": "nano_3jwrszth46rk1mu7rmb4rhm54us8yg1gw3ipodftqtikf5yqdyr7471nsg1k"
+    "name": "Atomars Hot Wallet",
+    "account": "ban_36e1qnwo5faf7uapp6gbzzmzt3bgz6a93txuukmr45pmodcy4q7pwaray1u9"
   },
   {
-    "name": "Binance US Hot Wallet",
-    "account": "nano_17oc98sqccfqqfah8jggkziu8i6ar8biq7syxqcd6e1sagje11gts88gfj95"
+    "name": "GJ Hot Wallet",
+    "account": "ban_1fxc48dynhbjb69uuyue4bsfuymxick8js14synwznduy61g6i9esdeasmem"
   },
   {
-    "name": "Binance Cold Wallet",
-    "account": "nano_3x4ui45q1cw8hydmfdn4ec5ijsdqi4ryp14g4ayh71jcdkwmddrq7ca9xzn9"
+    "name": "Banroulettecom Hot Wallet",
+    "account": "ban_16tduo1cu9ydp8ris3o5w4rm96myqics5o8tjw8s13ja8owba6xfpwc8399r"
   },
   {
-    "name": "Binance Cold Wallet #2",
-    "account": "nano_14cuejfpr58epnpxenirusimsrbwxbecin7a3izq1injptecc31qsjwquoe6"
+    "name": "Ataix Hot Wallet",
+    "account": "ban_1gooj14qko1u6md87aga9c53nf4iphyt1ua7x3kq1wnkdh49u5mndqygbr1q"
   },
   {
-    "name": "Kraken Hot Wallet",
-    "account": "nano_3cpz7oh9qr5b7obbcb5867omqf8esix4sdd5w6mh8kkknamjgbnwrimxsaaf"
+    "name": "Unnamed Hot Wallet",
+    "account": "ban_16bfuppfebtmgh1t8ktpk4eq4dyz5m1ztxesznagd916jzk8b87qity3habz"
   },
   {
-    "name": "KuCoin Hot Wallet",
-    "account": "nano_3hua6a116y4jmbeaf63zi6mn8gf5s4n3eyxa3q4m5ibabi6pmegfubky3wpi"
+    "name": "qtrade Hot Wallet",
+    "account": "ban_3yafcjcq79cjfm4wio5db6drffmf61jh8cosoijmg3eppzmbxb4kej8t3dze"
   },
   {
-    "name": "KuCoin Cold Wallet",
-    "account": "nano_1c3nz77f3t5bz346je4bwtcfxgfnp6habs9to4utfeuhjfpxdhkd593kn5gn"
+    "name": "vitex Hot Wallet",
+    "account": "ban_1bujgzb69qr4owkcm3qu35mb843qtwnx4zf8q3myjw1dui7br5k87k84e54d"
   },
   {
-    "name": "Huobi Hot Wallet",
-    "account": "nano_1oxho99gkeczaweapwfkoqq465c1apr4fq5qmnmrwb3u5cjebq5rctqqikhf"
+    "name": "Bitmesh Hot Wallet",
+    "account": "ban_1gtkt1ekpazojhxwnym9ur61cz4w7n8yez5yq81id6cb8k63bhwx7axhtsxx"
   },
   {
-    "name": "Huobi Cold Wallet",
-    "account": "nano_1kiw5p5kfsypbf5cjhrmbkq5xjrufhjawaz1i691yw4tfsn14ssjx64orfdb"
+    "name": "Citex Hot Wallet",
+    "account": "ban_3wwd51yoxeafubpn84gy7tje7yw6ccqcach9m4yfn46sf15itnysap9dd1xc"
   },
   {
-    "name": "Huobi Hot Wallet #2",
-    "account": "nano_3jyt9ye4yerydg91twwgxo7edke84a7cbjtomq4bg7uh5anqwiture4h1saa"
+    "name": "Qbtc Hot Wallet",
+    "account": "ban_3w6yatruhkxgu4bhx1d8zggpwafrq3z7xyrqchuw8h5xa9aqhnrj7mi79mtu"
+  },
+  {
+    "name": "Txbit Hot Wallet",
+    "account": "ban_3x1o69xsppjb1d9owsn8x6uqr8a1ttpitsu3yya7iyimaboqhb9urb8x61y8"
   },
   {
     "name": "Mercatox Cold Wallet",
-    "account": "nano_1e3t7fh57qozn1fkcdzatypygbcoxs9r3ku9tsqx69fn5za4fqfjrihf5w7c"
+    "account": "ban_31dhbgirwzd3ce7naor6o94woefws9hpxu4q8uxm1bz98w89zqpfks5rk3ad"
+  },
+  {
+    "name": "Mercatox Hot Wallet",
+    "account": "ban_3k76rawffjm79qedoc54nhk3edkq5makoyp73b1t6q6j9yjeq633q1xck9g8"
+  },
+  {
+    "name": "Bananobet Hot Wallet",
+    "account": "ban_1banbet955hwemgsqrb8afycd3nykaqaxsn7iaydcctfrwi3rbb36y17fbcb"
+  },
+  {
+    "name": "Nanogames Hot Wallet",
+    "account": "ban_1w5q77ocgfrjn6sqwudfuygtomwyij8ijes3y5g8kaydxsf8f4jpz4n9q9a3"
+  },
+  {
+    "name": "Bananoroyale Hot Wallet",
+    "account": "ban_3iejwmk1n3fqdntwcgudhmddo9bpwa8jzx6g361iq6rzbsrzonekmdus9yj5"
+  },
+  {
+    "name": "Nanotrade Hot Wallet",
+    "account": "ban_1oaocnrcaystcdtaae6woh381wftyg4k7bespu19m5w18ze699refhyzu6bo"
+  },
+  {
+    "name": "Coinex Deposits",
+    "account": "ban_1nrcne47secz1hnm9syepdoob7t1r4xrhdzih3zohb1c3z178edd7b6ygc4x"
+  },
+  {
+    "name": "Banswap Deposits",
+    "account": "ban_3a1dokzzuc334kpsedakxz5hw4cauexjori8spcf7pninujry43dxkbam4o6"
   }
 ]

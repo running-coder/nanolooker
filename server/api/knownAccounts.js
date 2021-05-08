@@ -1,12 +1,9 @@
 const { nodeCache } = require("../cache");
 const { KNOWN_ACCOUNTS, KNOWN_ACCOUNTS_BALANCE } = require("../constants");
-const { doKnownAccountsCron } = require("../cron/knownAccounts");
 
 const getKnownAccounts = async () => {
-  let knownAccounts = nodeCache.get(KNOWN_ACCOUNTS);
-  if (!knownAccounts) {
-    knownAccounts = await doKnownAccountsCron();
-  }
+  const knownAccounts = nodeCache.get(KNOWN_ACCOUNTS) || [];
+
   return knownAccounts;
 };
 

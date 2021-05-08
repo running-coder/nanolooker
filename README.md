@@ -1,16 +1,25 @@
-# NanoLooker
+# BananoLooker
 
-![image](https://user-images.githubusercontent.com/19352322/115473119-212dff00-a209-11eb-922c-ba37838318f6.png)
+## What is Banano ?
 
-## What is Nano ?
-
-The goal of Nano is to create an efficient cryptocurrency, one that could be used for daily payments, by anyone in the world, without the emissions that come with Bitcoin.
-Nano makes money efficient for a more equal world — simple to pay with, easy to accept and open to all.
-
-- Nano is a fee-less cryptocurrency, making it practical and inclusive for everyone in the world.
-- Without relying on mining, printing or minting, Nano is sustainable digital money.
-- Every Nano is distributed, making it a deflationary currency.
-- Instant and secure, a transaction is fully confirmed on the network under 1 second.
+BANANO was forked in April 2018 from NANO. BANANO offers instant,
+feeless and rich in potassium 🍌 transactions, thanks to the fact that
+BANANO developers (several of them having being involved in NANO
+itself) have kept big portions of the original code unchanged to keep
+cross-chain compatibility between existing code libraries. However,
+they have fined-tuned some parameters, such as Proof of Work
+requirements and currency units. While the focus for now is on having
+an ongoing free and fair distribution, BANANO is also experimenting
+with feature additions such as a privacy layer (Camo BANANO), on-chain
+messaging (MonkeyTalks) and more. In context of distribution, we aim
+to use our meanwhile ready-to-strike infrastructure with easy-to-use
+mobile wallets (Kalium) and tipbots on several major social media
+platforms to onboard normies and crypto-noobs who have no idea yet
+what a cryptocurrency is. We also might do IRL airdrops at some point.
+Of note, key here is to make the start with crypto as easy as
+possible, use a fun attitude and gamification to get new users started
+without all the usual hassle, and then educate them to handle crypto
+in general in a responsible way.
 
 ## Install
 
@@ -23,7 +32,7 @@ cp .env.template .env
 ```env
 # NodeJS server port, default 3010
 SERVER_PORT=
-# Nano node RPC domain with port, default http://0.0.0.0:7076
+# Banano node RPC domain with port, default http://0.0.0.0:7072
 RPC_DOMAIN=
 # Used to get the ledger size given the nano node installation folder, default /nano/Nano
 NODE_FOLDER=
@@ -39,7 +48,7 @@ GOOGLE_APPLICATION_CREDENTIALS=
 
 ## Languages
 
-The language set in the Browser determines the language that NanoLooker will load and default to `en` if it's not in the supported list. Since most languages were generated using Google Translation API, some translations may be inaccurate.
+The language set in the Browser determines the language that BananoLooker will load and default to `en` if it's not in the supported list. Since most languages were generated using Google Translation API, some translations may be inaccurate.
 
 Many of the most common languages are supported.
 
@@ -63,7 +72,7 @@ Many of the most common languages are supported.
 
 ### Contribution
 
-If you think some strings should be corrected open a PR with the corrections on the [language file](https://github.com/running-coder/nanolooker/tree/master/src/i18n/locales).
+If you think some strings should be corrected open a PR with the corrections on the [language file](https://github.com/running-coder/nanolooker/tree/bananolooker/src/i18n/locales).
 
 ### Adding a new language or missing language keys
 
@@ -77,11 +86,4 @@ If you think some strings should be corrected open a PR with the corrections on 
 
 ### Donators
 
-Thanks for financially contributing to NanoLooker hosting and development.
-
-### Projects
-
-A few projects from the Nano community were really helpful for building NanoLooker
-
-- [My Nano Ninja](https://mynano.ninja/)
-- [NanoCrawler](https://nanocrawler.cc/)
+Thanks for financially contributing to BananoLooker hosting and development.

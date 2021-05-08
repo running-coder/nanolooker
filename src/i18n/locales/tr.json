@@ -39,8 +39,8 @@
     "nodes": "Düğümler"
   },
   "nodeHealth": {
-    "nodeReloading": "Nano düğüm yeniden yükleniyor",
-    "nodeReady": "Nano düğümü hazır"
+    "nodeReloading": "Banano düğüm yeniden yükleniyor",
+    "nodeReady": "Banano düğümü hazır"
   },
   "transaction": {
     "type": "Tür",
@@ -57,33 +57,33 @@
   },
   "tooltips": {
     "avgConfirmationTime": "Ortalama onay süresi, düğümde yerel olarak hesaplanır. Düğüm yeniden başlatılırsa veya düşürülmüş durumdaysa, ortalama onay süresi ağın geri kalanından daha yüksek olabilir.",
-    "circulatingSupply": "Dolaşımdaki bozuk para miktarı. Nano tamamen dağıtılmış durumda, arz asla artmayacak.",
-    "transactionFees": "Diğer kripto para birimlerinin aksine Nano işlemler sonsuza kadar ücretsizdir.",
-    "bitcoinTransactionFees": "Bu değerin NANO ağı üzerinde hiçbir etkisi yoktur, yalnızca karşılaştırma amaçlıdır. Bitcoin kullanıcılarının işlemlerinin Bitcoin ağında kabul edilmesini sağlamak için madencilere ödediği işlem ücretlerinin toplamını temsil eder.",
-    "cps": "Saniyedeki Onaylar. NANO ağında onaylanmış blokların (gönderme veya alma) oranı. Düğüm üzerinde yerel olarak son dakika boyunca örneklenir. Düğüm yeniden başlatılırsa veya düşürülmüş bir durumda ise, düğüm diğer düğümlerle eşitlenir ve yeniden bağlanırken CPS değeri ağdaki gerçek ortalamadan daha yüksek veya daha düşük olabilir.",
-    "votingWeight": "Asgari {{minWeight}} NANO veya kendisine devredilen çevrimiçi oy ağırlığının>% 0,1'i olan bir hesabın Ana Temsilci statüsünü alması gerekir. Oylama yapan bir düğümde yapılandırıldığında, ürettiği oylar onları alan diğer düğümler tarafından yeniden yayınlanır ve ağın fikir birliğine daha hızlı ulaşmasına yardımcı olur.",
+    "circulatingSupply": "Dolaşımdaki bozuk para miktarı. Banano tamamen dağıtılmış durumda, arz asla artmayacak.",
+    "transactionFees": "Diğer kripto para birimlerinin aksine Banano işlemler sonsuza kadar ücretsizdir.",
+    "bitcoinTransactionFees": "Bu değerin BANANO ağı üzerinde hiçbir etkisi yoktur, yalnızca karşılaştırma amaçlıdır. Bitcoin kullanıcılarının işlemlerinin Bitcoin ağında kabul edilmesini sağlamak için madencilere ödediği işlem ücretlerinin toplamını temsil eder.",
+    "cps": "Saniyedeki Onaylar. BANANO ağında onaylanmış blokların (gönderme veya alma) oranı. Düğüm üzerinde yerel olarak son dakika boyunca örneklenir. Düğüm yeniden başlatılırsa veya düşürülmüş bir durumda ise, düğüm diğer düğümlerle eşitlenir ve yeniden bağlanırken CPS değeri ağdaki gerçek ortalamadan daha yüksek veya daha düşük olabilir.",
+    "votingWeight": "Asgari {{minWeight}} BANANO veya kendisine devredilen çevrimiçi oy ağırlığının>% 0,1'i olan bir hesabın Ana Temsilci statüsünü alması gerekir. Oylama yapan bir düğümde yapılandırıldığında, ürettiği oylar onları alan diğer düğümler tarafından yeniden yayınlanır ve ağın fikir birliğine daha hızlı ulaşmasına yardımcı olur.",
     "pending": "Bir blok gönderme fonunun yayınlandığı ve ağ tarafından onaylandığı, ancak bu fonları alan eşleşen bir bloğun henüz gönderilmediği veya onaylanmadığı bir işlem durumu.",
-    "nakamotoCoefficient": "Nakamoto katsayısı, bir blok zincirinin veya başka bir merkezi olmayan sistemin ademi merkeziyetini ölçmenin bir yoludur. En az bir temel alt sistemi tehlikeye atmanız gereken varlıkların sayısıdır. Nano için, ana temsilcilerin çevrimiçi oy ağırlığının% {{onlineWeightQuorumPercent}}% sinden fazlasının tehlikeye atılması gerekiyor.",
-    "representatives": "Performansları optimize etmek için, yalnızca oylama ağırlığı >= 1000 NANO olan hesaplar dikkate alınır, ancak normalde> 0 oy ağırlığına sahip ancak çevrimiçi oylama ağırlığının <% 0,1'i olan herhangi bir hesap dikkate alınır.",
-    "principalRepresentatives": "Asgari {{principalRepresentativeMinWeight}} NANO veya kendisine devredilen çevrimiçi oy ağırlığının>% 0,1'i olan bir hesabın Ana Temsilci statüsünü alması gerekir. Oylama yapan bir düğümde yapılandırıldığında, ürettiği oylar onları alan diğer düğümler tarafından yeniden yayınlanır ve ağın fikir birliğine daha hızlı ulaşmasına yardımcı olur.",
+    "nakamotoCoefficient": "Nakamoto katsayısı, bir blok zincirinin veya başka bir merkezi olmayan sistemin ademi merkeziyetini ölçmenin bir yoludur. En az bir temel alt sistemi tehlikeye atmanız gereken varlıkların sayısıdır. Banano için, ana temsilcilerin çevrimiçi oy ağırlığının% {{onlineWeightQuorumPercent}}% sinden fazlasının tehlikeye atılması gerekiyor.",
+    "representatives": "Performansları optimize etmek için, yalnızca oylama ağırlığı >= 1000 BANANO olan hesaplar dikkate alınır, ancak normalde> 0 oy ağırlığına sahip ancak çevrimiçi oylama ağırlığının <% 0,1'i olan herhangi bir hesap dikkate alınır.",
+    "principalRepresentatives": "Asgari {{principalRepresentativeMinWeight}} BANANO veya kendisine devredilen çevrimiçi oy ağırlığının>% 0,1'i olan bir hesabın Ana Temsilci statüsünü alması gerekir. Oylama yapan bir düğümde yapılandırıldığında, ürettiği oylar onları alan diğer düğümler tarafından yeniden yayınlanır ve ağın fikir birliğine daha hızlı ulaşmasına yardımcı olur.",
     "onlinePrincipalRepresentatives": "Yakın zamanda oy veren çevrimiçi temsilci hesapları.",
     "lastTransaction": "Herhangi bir {{totalAccounts}} hesabından son gönderme işlemi.",
-    "largeTransactions": "Yalnızca 10.000 NANO veya daha fazla gönderme işlemi bir hafta süreyle geçici olarak kaydedilir.",
-    "knownExchangeBalance": "{{knownExchangeList}} 'i dağıtım grafiğinden hariç tutun. Bu hesaplar birleşik tutuyor {{knownExchangeBalance}} NANO",
-    "unchecked": "İndirilmiş ancak henüz Nano düğümü tarafından işlenmemiş bloklar (işlemler). Düğüm yazılımı, diğer düğümlerdeki tüm engelleri kontrol edilmemiş olarak indirir, bunları işler ve blok sayısına ekler, her hesap için sınır bloklarını onaylar ve ardından bunları yapıştırılmış olarak işaretler.",
+    "largeTransactions": "Yalnızca 100,000 BANANO veya daha fazla gönderme işlemi bir hafta süreyle geçici olarak kaydedilir.",
+    "knownExchangeBalance": "{{knownExchangeList}} 'i dağıtım grafiğinden hariç tutun. Bu hesaplar birleşik tutuyor {{knownExchangeBalance}} BANANO",
+    "unchecked": "İndirilmiş ancak henüz Banano düğümü tarafından işlenmemiş bloklar (işlemler). Düğüm yazılımı, diğer düğümlerdeki tüm engelleri kontrol edilmemiş olarak indirir, bunları işler ve blok sayısına ekler, her hesap için sınır bloklarını onaylar ve ardından bunları yapıştırılmış olarak işaretler.",
     "cemented": "Belirli bir düğüm, hesabın onay yüksekliğini (düğüm veritabanında) onaylanan işlemin şimdi daha yüksek olan blok yüksekliğine ayarlayarak onaylanmış bir işlemi yerel olarak geri çevrilemez olarak işaretlediğinde. Çimentolama, düğüm düzeyinde bir işlemdir.",
-    "unknownLastTransaction": "İşlem tarihleri Şubat 2019'da tanıtıldı. Bu tarihten önce işlem saatleri düğümlere yerel olarak kaydedilmiyordu. Son işlem tarihinin bilinmemesinin nedeni, tarihler kaydedilmeden veya NanoLooker düğümü hizmete girmeden önce onaylanmış olmasıdır.",
+    "unknownLastTransaction": "İşlem tarihleri Şubat 2019'da tanıtıldı. Bu tarihten önce işlem saatleri düğümlere yerel olarak kaydedilmiyordu. Son işlem tarihinin bilinmemesinin nedeni, tarihler kaydedilmeden veya BananoLooker düğümü hizmete girmeden önce onaylanmış olmasıdır.",
     "confirmationHeight": "Yerel düğüm veritabanında saklanan ve bir hesap zincirindeki en yüksek (en son) doğrulanmış bloğu temsil eden sayı. Blok yüksekliğiyle ilgili (ancak bundan farklı).",
     "blockHeight": "Bir hesap zincirindeki bir bloğun sırasını temsil eden yerel bir tamsayı değeri. Örneğin, bir hesaptaki 15. bloğun blok yüksekliği 15 olacaktır. Onay yüksekliğiyle ilgili (ancak farklı).",
     "bookmarks": "{{type, capitalize}} yer imleri cihazınıza kaydedilir. Bilinen {{type}} 'lerinizi onlara takma adlar vererek yönetebilirsiniz.",
     "groupByEntities": "Farklı ana temsilcilere bölünmüş tüm oy ağırlıklarını tek varlıklara yeniden gruplayın. Örneğin, bir borsa birden fazla cüzdana sahip olabilir ve ağırlıklarını paylaştırabilir, ancak gerçekte yeniden gruplandırılacaksa, tek bir ağırlık olarak sayılabilir.",
     "telemetry": "Ağdaki diğer düğümlerden metrikler. Ağdaki farklı durumları temsil etmek için tüm ölçümler toplanır ve ortalaması alınır. P yüzdeliğe karşılık gelir, p50, ortalamayı hesaplamak için farklı değerlerin alt% 5'ini hariç tutarken, alt% 50 hariç tutularak hesaplanır.",
-    "ledgerSize": "Şimdiye kadarki her Nano işlemini depolamak için gereken toplam disk alanı miktarı. Defter boyutu 1000 değil 1024 temel alınarak hesaplanır.",
-    "bandwidthCap": "Nano düğümler, gönderilebilen veya alınabilen mesajların miktarını sınırlamak için bant genişliğini kısabilir. 0, sınırsız bant genişliği anlamına gelir.",
+    "ledgerSize": "Şimdiye kadarki her Banano işlemini depolamak için gereken toplam disk alanı miktarı. Defter boyutu 1000 değil 1024 temel alınarak hesaplanır.",
+    "bandwidthCap": "Banano düğümler, gönderilebilen veya alınabilen mesajların miktarını sınırlamak için bant genişliğini kısabilir. 0, sınırsız bant genişliği anlamına gelir.",
     "uptime": "Düğümün en son yeniden başlatılmasından bu yana geçen süre.",
     "pendingTransactionCount": "Bekleyen işlemlerin sayısı, görüntülenen {{count}} sınırını aşıyor.",
-    "mnano": "Mnano, cüzdanlarda, borsalarda ve hizmetlerde kullanılan mevcut standart bölümdür. 1 NANO olarak anılır.",
-    "versionsByWeight": "Bir sürümün ağın fikir birliğini devralması için, minimum {{onlineWeightMinimum}} NANO'dan çevrimiçi oy ağırlığının% 67'sine sahip olması gerekir."
+    "mnano": "Mnano, cüzdanlarda, borsalarda ve hizmetlerde kullanılan mevcut standart bölümdür. 1 BANANO olarak anılır.",
+    "versionsByWeight": "Bir sürümün ağın fikir birliğini devralması için, minimum {{onlineWeightMinimum}} BANANO'dan çevrimiçi oy ağırlığının% 67'sine sahip olması gerekir."
   },
   "search": {
     "searchBy": "Adres / Blok / Bilinen Hesap ile Ara",
@@ -94,20 +94,20 @@
     "darkMode": "Karanlık mod",
     "darkModeDetailed": "Ortamınıza bağlı olarak siteye göz atma deneyiminizi iyileştirmek için Açık veya Koyu moddan geçiş yapın.",
     "language": "Dil",
-    "languageDetailed": "İstenilen dili seçin. NanoLooker, kaşifin çevirisini iyileştirmeye yardımcı olacak katkılar arıyor. <0> Katkıda bulunun </0>",
+    "languageDetailed": "İstenilen dili seçin. BananoLooker, kaşifin çevirisini iyileştirmeye yardımcı olacak katkılar arıyor. <0> Katkıda bulunun </0>",
     "watch": "Diğer kripto para birimlerini izleyin",
     "watchSearch": "Kripto para birimlerinde ara",
     "watchDetailed": "İlk 100'deki diğer kripto para birimlerinin fiyatını izleyin. Güncel piyasa fiyatları ve 24 saatlik değişim üst çubukta görünecektir. Ayrıca sürükle ve bırak yöntemiyle seçiminizi yeniden düzenleyebilirsiniz.",
     "fiatCurrency": "Fiat para birimi",
-    "fiatCurrencyDetailed": "Fiat parası, devlet tarafından verilen para birimidir. Nano'nun fiyatını karşılaştırmak için bir itibari para birimi seçin.",
+    "fiatCurrencyDetailed": "Fiat parası, devlet tarafından verilen para birimidir. Banano'nun fiyatını karşılaştırmak için bir itibari para birimi seçin.",
     "natricons": "Natricons",
-    "natriconsDetailed": "Natricons, Nano adresleri için arkadaş canlısı ve tanıdık yüzlerdir. Bunları Hesap sayfalarında, yakınlarda bir Nano adres olan her yerde kullanın.",
+    "natriconsDetailed": "Natricons, Banano adresleri için arkadaş canlısı ve tanıdık yüzlerdir. Bunları Hesap sayfalarında, yakınlarda bir Banano adres olan her yerde kullanın.",
     "liveTransactions": "Canlı güncellemeleri etkinleştirin",
-    "liveTransactionsDetailed": "Nano ağında gerçekleşen canlı işlemleri izleyin. Ana sayfada mevcuttur.",
+    "liveTransactionsDetailed": "Banano ağında gerçekleşen canlı işlemleri izleyin. Ana sayfada mevcuttur.",
     "contribute": "Katkıda bulunmak",
     "filterTransactionsRange": "Miktar aralıklarını dahil edin",
     "filterTransactionsRangeDetailed": "Özel bir filtreleme aralığı ayarlayın",
-    "filterTransactions": "1 NANO'nun altındaki tutarları gizle"
+    "filterTransactions": "1 BANANO'nun altındaki tutarları gizle"
   },
   "menu": {
     "explore": "keşfetmek",
@@ -120,8 +120,8 @@
     "faucets": "Musluklar",
     "news": "Haberler",
     "nodeStatus": "Düğüm Durumu",
-    "whatIsNano": "Nano nedir?",
-    "earnNano": "Nano Kazanın",
+    "whatIsBanano": "Banano nedir?",
+    "earnBanano": "Banano Kazanın",
     "preferences": "Tercihler",
     "status": "Durum",
     "networkStatus": "Ağ durumu"
@@ -130,7 +130,7 @@
     "createdBy": "{{creator}} tarafından oluşturuldu",
     "donations": {
       "donate": "Bağış yap",
-      "title": "NanoLooker bağış hesabı"
+      "title": "BananoLooker bağış hesabı"
     }
   },
   "pages": {
@@ -147,15 +147,15 @@
       "last24Hours": "Son 24 saat",
       "avgConfirmationTime": "Ort. onay süresi (saniye)",
       "confirmedTransactions": "Onaylanmış işlemler",
-      "transactionFees": "NANO işlem ücretleri",
+      "transactionFees": "BANANO işlem ücretleri",
       "exchangeVolume": "Değişim hacmi",
-      "onChainVolume": "Zincir üzerindeki NANO hacmi",
+      "onChainVolume": "Zincir üzerindeki BANANO hacmi",
       "bitcoinTransactionFees": "Madencilere ödenen Bitcoin işlem ücretleri",
       "recentTransactions": "Son İşlemler",
       "liveUpdatesDisabled": "Canlı güncellemeler devre dışı bırakıldı",
       "waitingForTransactions": "İşlemler bekleniyor",
-      "connectingToBlockchain": "NANO blok zincirine bağlanma",
-      "reconnectingToBlockchain": "Bağlantı kesildi, NANO blok zincirine yeniden bağlanılıyor"
+      "connectingToBlockchain": "BANANO blok zincirine bağlanma",
+      "reconnectingToBlockchain": "Bağlantı kesildi, BANANO blok zincirine yeniden bağlanılıyor"
     },
     "account": {
       "votingWeight": "Oy ağırlığı",
@@ -168,7 +168,7 @@
       "loadMoreTransactions": "Daha fazla işlem yükle",
       "viewTransactions": "İşlemleri görüntüleyin",
       "notOpenedYet": "Bu hesap henüz açılmadı",
-      "notOpenedYetReason": "Hesap adresi geçerliyken, zincirinde henüz blok yayınlanmamıştır. NANO bu hesaba gönderilmişse, parayı cebe indirmek için yine de karşılık gelen bir blok yayınlaması gerekir.",
+      "notOpenedYetReason": "Hesap adresi geçerliyken, zincirinde henüz blok yayınlanmamıştır. BANANO bu hesaba gönderilmişse, parayı cebe indirmek için yine de karşılık gelen bir blok yayınlaması gerekir.",
       "missingAccount": "Eksik hesap",
       "missingAccountInfo": "Hesap URL'de belirtilmemiştir. Bir hesabı aramak için üstteki arama çubuğunu kullanın veya URL'ye /account/ sonrasına ekleyin."
     },
@@ -187,7 +187,7 @@
       "missingBlock": "Eksik blok",
       "missingBlockInfo": "Blok URL'de belirtilmemiştir. Bir blok aramak için üstteki arama çubuğunu kullanın veya bunu URL'ye /block/ sonrasına ekleyin.",
       "blockNotFound": "Blok bulunamadı",
-      "blockNotFoundInfo": "İstediğiniz blok bulunamadı. Bloğun Nano ağında mevcut olması ancak düğüm tarafından henüz görülmemiş olması mümkündür. Doğru bloğu aradığınızdan emin olun veya daha sonra tekrar deneyin."
+      "blockNotFoundInfo": "İstediğiniz blok bulunamadı. Bloğun Banano ağında mevcut olması ancak düğüm tarafından henüz görülmemiş olması mümkündür. Doğru bloğu aradığınızdan emin olun veya daha sonra tekrar deneyin."
     },
     "representatives": {
       "voteDistribution": "Oy dağıtımı",
@@ -211,14 +211,14 @@
       "noDelegatorsFound": "Yetki veren bulunamadı"
     },
     "faucets": {
-      "description": "Musluklar, küçük miktarlarda NANO'yu ücretsiz olarak talep etmenize olanak tanır. Bu musluklar, merkezi olmayan bir ağ üzerinden anında dünya çapında NANO gönderip almanın ne kadar kolay olduğunu deneyimlemeniz içindir."
+      "description": "Musluklar, küçük miktarlarda BANANO'yu ücretsiz olarak talep etmenize olanak tanır. Bu musluklar, merkezi olmayan bir ağ üzerinden anında dünya çapında BANANO gönderip almanın ne kadar kolay olduğunu deneyimlemeniz içindir."
     },
     "developerFund": {
       "description": "25.11.19 itibarıyla geliştirici fonu, dahili güvenlik politikası ve temsili oylama ağırlıklarının incelenmesinin ardından {{totalAccounts}} hesaplarına bölünmüştür.",
       "lastTransaction": "Son işlem",
       "allTransactions": "Tüm gönderme işlemlerini görüntüleyin",
       "originalDeveloperFund": "Orijinal Geliştirici Fonu",
-      "originalDeveloperFundDescription": "Nano'nun (eski adıyla RaiBlocks) dağıtımı, 2015'in sonlarında başlayıp Ekim 2017'de sona eren manuel captcha'ları çözerek gerçekleştirildi. Dağıtım, <0> Genesis </0> miktarının ~% 39'u dağıtıldıktan ve geri kalan <1> yanmış </1>.",
+      "originalDeveloperFundDescription": "Banano'nun (eski adıyla RaiBlocks) dağıtımı, 2015'in sonlarında başlayıp Ekim 2017'de sona eren manuel captcha'ları çözerek gerçekleştirildi. Dağıtım, <0> Genesis </0> miktarının ~% 39'u dağıtıldıktan ve geri kalan <1> yanmış </1>.",
       "totalAccounts": "{{totalAccounts}} Toplam Hesap",
       "percentOfTotal": "Dolaşan arzın% {{percent}} kadarı"
     },
@@ -226,23 +226,23 @@
       "totalAccounts": "{{totalAccounts}} Toplam Bilinen Hesaplar"
     },
     "largeTransactions": {
-      "description": "NANO blok zincirinde gerçekleşen büyük işlemler.",
+      "description": "BANANO blok zincirinde gerçekleşen büyük işlemler.",
       "latest": "Son işlem",
       "largest": "En büyük miktar"
     },
     "distribution": {
-      "title": "Nano Dağıtım",
-      "summary": "Toplam <0>{{i18nTotalAccounts}}</0> hesapta <1>{{i18nTotalBalances}}</1> NANO tutuyor",
+      "title": "Banano Dağıtım",
+      "summary": "Toplam <0>{{i18nTotalAccounts}}</0> hesapta <1>{{i18nTotalBalances}}</1> BANANO tutuyor",
       "summaryMinBalance": "Bakiyesi <0>0.001</0> 'den düşük olan herhangi bir hesap hariç tutulur",
       "includeKnownExchanges": "Bilinen değişimleri dahil et",
       "logScale": "Günlük Ölçeği",
       "dormantFunds": "Hareketsiz Fonlar",
-      "dormantFundsExperiment": "Bu, Nano blok zincirinde kaç hesabın aktif olduğunu anlamaya yönelik bir deneydir. {{totalAccounts}} hesaplarının her biri için, yerel düğümdeki son işlem tarihi alınır. Her hesabın içerdiği bakiye ve bekleyen tutarlar, son işlem gördükleri ay için etkin olarak işaretlenir. Sonraki ay, bakiye ve bekleyen durum hareketsiz olarak işaretlenecek.",
-      "availableSupply": "Nano mevcut tedarik",
+      "dormantFundsExperiment": "Bu, Banano blok zincirinde kaç hesabın aktif olduğunu anlamaya yönelik bir deneydir. {{totalAccounts}} hesaplarının her biri için, yerel düğümdeki son işlem tarihi alınır. Her hesabın içerdiği bakiye ve bekleyen tutarlar, son işlem gördükleri ay için etkin olarak işaretlenir. Sonraki ay, bakiye ve bekleyen durum hareketsiz olarak işaretlenecek.",
+      "availableSupply": "Banano mevcut tedarik",
       "knownAccountBalances": "Bilinen hesap bakiyeleri",
       "unknownDormantFunds": "Bilinmeyen faal olmayan fonlar",
-      "dormantFundsQuarterExample": "50 NANO ve 50 bekleyen NANO tutan bir hesap en son 6 ay önce işlem görmüş (2 çeyrek), 100 NANO bakiyesi bir sonraki çeyreğin toplamına \"hareketsiz\" olarak eklenmiştir.",
-      "dormantNano": "NANO uyuyor",
+      "dormantFundsQuarterExample": "50 BANANO ve 50 bekleyen BANANO tutan bir hesap en son 6 ay önce işlem görmüş (2 çeyrek), 100 BANANO bakiyesi bir sonraki çeyreğin toplamına \"hareketsiz\" olarak eklenmiştir.",
+      "dormantBanano": "BANANO uyuyor",
       "ofAvailableSupply": "mevcut arzın"
     },
     "news": {
@@ -284,11 +284,10 @@
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> düğümlerinin bant genişliği sınırı <1>{{limitedBandwidthCap}}</1>.",
       "nodeVersions": "Düğüm sürümleri",
       "latestVersion": "En son sürüm",
-      "database": "Veri tabanı",
-      "versionsByWeight": "Oy ağırlığına göre sürümler"
+      "database": "Veri tabanı"
     },
     "exchangeTracker": {
-      "description": "Her gün, Nano'nun işlem gördüğü en popüler borsaların hesap bakiyelerinin bir kaydı alınır. Bu ölçüm, ağdaki hareketleri ve dalgalanmaları analiz etmek için kullanılabilir.",
+      "description": "Her gün, Banano'nun işlem gördüğü en popüler borsaların hesap bakiyelerinin bir kaydı alınır. Bu ölçüm, ağdaki hareketleri ve dalgalanmaları analiz etmek için kullanılabilir.",
       "totalSelected": "Seçilen borsaların toplam bakiyesi"
     },
     "preferences": {

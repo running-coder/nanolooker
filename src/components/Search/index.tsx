@@ -53,10 +53,14 @@ const Search = ({ isHome = false }) => {
           let account = value.toLowerCase();
 
           if (!account.includes("_")) {
-            account = `nano_${account}`;
+            account = `ban_${account}`;
             setSearchValue(account);
-          } else if (account.startsWith("xrb_")) {
-            account = account.replace("xrb_", "nano_");
+          } else if (
+            account.startsWith("nano_") ||
+            account.startsWith("xrb_")
+          ) {
+            // @TODO open modal to select NL or BNL
+            account = `ban_${account.split("_")[1]}`;
             setSearchValue(account);
           }
           addSearchHistory(account);

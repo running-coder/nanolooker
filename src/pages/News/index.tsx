@@ -25,11 +25,8 @@ const removeHtmlTags = (html: string): string =>
   html.replace(/<[\s\S]+?\/?>/g, "");
 
 enum MEDIUM_FEEDS {
-  NANO_CURRENCY = "nanocurrency",
-  NANO_CENTER = "the-nano-center",
-  NANO_EDUCATION = "nano-education",
-  SENATUS = "@senatusspqr",
-  JOOHANSSON = "@nanojson",
+  BANANO_CURRENCY = "@bananocurrency",
+  DEIV = "@deiv",
 }
 
 const AUTHORS: string[] = [];
@@ -147,7 +144,7 @@ const NewsPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Nano {t("menu.news")}</title>
+        <title>Banano {t("menu.news")}</title>
       </Helmet>
       <Space style={{ marginBottom: "12px" }}>
         <Dropdown
@@ -216,7 +213,7 @@ const NewsPage: React.FC = () => {
                   ) : null}
                   {!isLoading && !hasThumbnail ? (
                     <img
-                      alt="Nano news"
+                      alt="Banano news"
                       src="/nano-background.png"
                       width="100%"
                     />
