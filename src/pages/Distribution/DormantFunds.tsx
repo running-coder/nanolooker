@@ -81,7 +81,9 @@ const DormantFunds: React.FC<Props> = ({ data }) => {
 
   return (
     <>
-      <Title level={3}>{t("pages.distribution.dormantFunds")}</Title>
+      <Title level={3}>
+        {t("pages.distribution.dormantFunds")}
+      </Title>
       <Card size="small">
         <div style={{ marginBottom: "12px" }}>
           <Text style={{ fontSize: "12px" }}>

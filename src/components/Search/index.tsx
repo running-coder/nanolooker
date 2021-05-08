@@ -6,6 +6,7 @@ import {
   WalletOutlined,
   BlockOutlined,
   HistoryOutlined,
+  SearchOutlined,
 } from "@ant-design/icons";
 import {
   isValidAccountAddress,
@@ -19,8 +20,6 @@ import useSearch from "./hooks/use-search";
 import useSearchHistory from "./hooks/use-search-history";
 import { Theme, PreferencesContext } from "api/contexts/Preferences";
 import { KnownAccount, KnownAccountsContext } from "api/contexts/KnownAccounts";
-
-const { Search: SearchAnt } = Input;
 
 const Search = ({ isHome = false }) => {
   const { t } = useTranslation();
@@ -114,62 +113,65 @@ const Search = ({ isHome = false }) => {
       }}
       value={searchValue}
     >
-      <SearchAnt
+      <Input
         ref={searchRef}
         allowClear
         suffix={
-          <Dropdown
-            key="search-history-dropdown"
-            overlayStyle={{ zIndex: 1050 }}
-            overlayClassName={theme === Theme.DARK ? "theme-dark" : ""}
-            overlay={
-              <Menu>
-                {!searchHistory.length ? (
-                  <Menu.Item disabled>{t("search.noHistory")}</Menu.Item>
-                ) : (
-                  searchHistory.map(history => (
-                    <Menu.Item
-                      onClick={() => setSearchValue(history)}
-                      key={history}
-                    >
-                      <div
-                        className="color-normal"
-                        style={{ display: "flex", alignItems: "flex-start" }}
+          <>
+            <Dropdown
+              key="search-history-dropdown"
+              overlayStyle={{ zIndex: 1050 }}
+              overlayClassName={theme === Theme.DARK ? "theme-dark" : ""}
+              overlay={
+                <Menu>
+                  {!searchHistory.length ? (
+                    <Menu.Item disabled>{t("search.noHistory")}</Menu.Item>
+                  ) : (
+                    searchHistory.map(history => (
+                      <Menu.Item
+                        onClick={() => setSearchValue(history)}
+                        key={history}
                       >
-                        <div>
-                          {isValidAccountAddress(history) ? (
-                            <WalletOutlined />
-                          ) : (
-                            <BlockOutlined />
-                          )}
-                        </div>
                         <div
-                          className="break-word"
-                          style={{ margin: "0 6px", whiteSpace: "normal" }}
+                          className="color-normal"
+                          style={{ display: "flex", alignItems: "flex-start" }}
                         >
-                          {history}
+                          <div>
+                            {isValidAccountAddress(history) ? (
+                              <WalletOutlined />
+                            ) : (
+                              <BlockOutlined />
+                            )}
+                          </div>
+                          <div
+                            className="break-word"
+                            style={{ margin: "0 6px", whiteSpace: "normal" }}
+                          >
+                            {history}
+                          </div>
+                          <DeleteButton
+                            onClick={(e: Event) => {
+                              e.stopPropagation();
+                              removeSearchHistory(history);
+                            }}
+                          />
                         </div>
-                        <DeleteButton
-                          onClick={(e: Event) => {
-                            e.stopPropagation();
-                            removeSearchHistory(history);
-                          }}
-                        />
-                      </div>
-                    </Menu.Item>
-                  ))
-                )}
-              </Menu>
-            }
-            placement="bottomRight"
-          >
-            <HistoryOutlined
-              className="search-history-icon"
-              style={{ padding: "6px", marginRight: "6px" }}
-            />
-          </Dropdown>
+                      </Menu.Item>
+                    ))
+                  )}
+                </Menu>
+              }
+              placement="bottomRight"
+            >
+              <HistoryOutlined
+                className="search-history-icon"
+                style={{ padding: "6px", marginRight: "6px" }}
+              />
+            </Dropdown>
+            <SearchOutlined />
+          </>
         }
-        className={isError ? "has-error" : ""}
+        className={`ant-input-search ${isError ? "has-error" : ""}`}
         placeholder={t("search.searchBy")}
         onFocus={() => setIsExpanded(true)}
         onBlur={() => setIsExpanded(isHome || false)}
@@ -189,9 +191,6 @@ const Search = ({ isHome = false }) => {
               setSearchValue(hash);
             }
           }
-        }}
-        onSearch={value => {
-          value !== searchValue ? setSearchValue(value) : validateSearch(value);
         }}
         size={isHome ? "large" : "middle"}
       />

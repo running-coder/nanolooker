@@ -19,7 +19,7 @@ const NodeStatusPage: React.FC = () => {
         <title>NanoLooker {t("menu.nodeStatus")}</title>
       </Helmet>
       <Title level={3}>{t("menu.nodeStatus")}</Title>
-      <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]}>
+      <Row gutter={[12, 0]}>
         <Col xs={24} sm={12} lg={8}>
           <BlockCount />
         </Col>

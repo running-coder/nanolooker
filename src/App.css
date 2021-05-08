@@ -26,12 +26,6 @@
   flex-grow: 1;
 }
 
-.ant-table-tbody
-  > tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)
-  > td {
-  background: #fafafa;
-}
-
 .ant-table-filter-column-title {
   padding: 8px;
 }
@@ -99,15 +93,6 @@ a:hover {
 .part2 {
   direction: rtl;
   margin-left: -30px;
-}
-
-.end {
-  flex-grow: 1;
-}
-
-.mid {
-  width: 30px;
-  flex-shrink: 10;
 }
 
 .isloading-skeleton-width {
@@ -290,24 +275,6 @@ a:hover {
   margin-top: -1px;
 }
 
-.transaction-card .ant-spin-nested-loading {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 2;
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-.transaction-card .ant-row:not(:last-child) {
-  border-bottom: solid 1px #f0f0f0;
-}
-
-.transaction-card .row-pagination {
-  padding-top: 6px;
-}
-
 .ant-tag.tag-send,
 .ant-tag.tag-offline {
   color: #e04576;
@@ -405,14 +372,6 @@ h4.ant-typography {
   border: none;
 }
 
-.search-history-icon {
-  color: rgba(0, 0, 0, 0.45);
-}
-
-.search-history-icon:hover {
-  color: rgba(0, 0, 0, 0.85);
-}
-
 .what-is-nano-card {
   text-align: center;
 }
@@ -465,4 +424,73 @@ h4.ant-typography {
 
 .options-wrapper .ant-col .ant-btn .anticon {
   margin-top: 2px;
+}
+
+body,
+.ant-card,
+.ant-menu,
+.ant-input,
+.ant-timeline,
+.ant-typography,
+.ant-dropdown-menu-item,
+.ant-dropdown-menu-submenu-title,
+.ant-select-item,
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.anticon-search,
+.search-history-icon {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.anticon-search:hover,
+.search-history-icon:hover {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.ant-statistic-content-value-decimal {
+  font-size: 16px;
+}
+
+.ant-statistic-content-suffix {
+  margin-left: 4px;
+  font-size: 16px;
+}
+
+.transaction-card .ant-spin-nested-loading {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.transaction-card .ant-row:not(:last-child) {
+  border-bottom: solid 1px #f0f0f0;
+}
+
+.transaction-card .ant-row.row-header {
+  padding-top: 0;
+}
+
+.transaction-card .ant-row {
+  padding: 6px 0;
+}
+
+.transaction-card .ant-row.row-pagination {
+  padding-bottom: 0;
+  padding-top: 12px;
+}
+
+.ant-card {
+  margin-bottom: 12px;
+}
+
+.ant-menu-item,
+.ant-menu-submenu:not(.ant-menu-submenu-popup) {
+  margin: 0 6px !important;
+  padding: 0 18px 0 12px !important;
 }

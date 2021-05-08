@@ -104,7 +104,7 @@ const DeveloperFund: React.FC = () => {
       <Helmet>
         <title>Nano {t("menu.developerFund")}</title>
       </Helmet>
-      <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]}>
+      <Row gutter={[12, 0]}>
         <Col xs={24} lg={12}>
           <Title level={3}>{t("menu.developerFund")}</Title>
           <Card size="small" bordered={false} className="detail-layout">
