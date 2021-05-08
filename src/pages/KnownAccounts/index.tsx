@@ -17,7 +17,7 @@ const KnownAccountsPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Nano {t("menu.knownAccounts")}</title>
+        <title>Banano {t("menu.knownAccounts")}</title>
       </Helmet>
       <Title level={3}>
         {t("pages.knownAccounts.totalAccounts", {
@@ -41,7 +41,7 @@ const KnownAccountsPage: React.FC = () => {
             },
             render: (text: string) => (
               <span className="break-word">
-                {new BigNumber(text).toFormat()} NANO
+                {new BigNumber(text).toFormat()} BAN
               </span>
             ),
           },

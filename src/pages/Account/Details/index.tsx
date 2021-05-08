@@ -153,7 +153,7 @@ const AccountDetails: React.FC = () => {
           <Col xs={24} sm={16} md={18}>
             <LoadingStatistic
               isLoading={skeletonProps.loading}
-              suffix="NANO"
+              suffix="BAN"
               value={balance >= 1 ? balance : new BigNumber(balance).toFormat()}
             />
             <Skeleton {...skeletonProps}>
@@ -276,7 +276,7 @@ const AccountDetails: React.FC = () => {
               </Tooltip>
             </Col>
             <Col xs={24} sm={16} md={18}>
-              <Skeleton {...skeletonProps}>{balancePending} NANO</Skeleton>
+              <Skeleton {...skeletonProps}>{balancePending} BAN</Skeleton>
             </Col>
           </Row>
         ) : null}

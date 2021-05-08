@@ -1,9 +1,8 @@
-name: Deploy
-
+name: Deploy BananoLooker
 on:
   push:
     branches:
-      - master
+      - bananolooker
 
 jobs:
   build:
@@ -21,7 +20,7 @@ jobs:
 
       - name: Build static assets
         env:
-          REACT_APP_GOOGLE_MEASUREMENT_ID: ${{ secrets.REACT_APP_GOOGLE_MEASUREMENT_ID }}
+          REACT_APP_GOOGLE_MEASUREMENT_ID: ${{ secrets.REACT_APP_GOOGLE_MEASUREMENT_ID_BAN }}
         run: |
           npm install
           npm run build
@@ -31,7 +30,7 @@ jobs:
         with:
           switches: -avzr --delete --exclude=".env" --exclude="server/data/"
           path: "."
-          remote_path: /var/www/www.nanolooker.com
-          remote_host: ${{ secrets.DO_HOST }}
-          remote_user: ${{ secrets.DO_USERNAME }}
-          remote_key: ${{ secrets.DO_SSHKEY }}
+          remote_path: /var/www/www.bananolooker.com
+          remote_host: ${{ secrets.DO_HOST_BAN }}
+          remote_user: ${{ secrets.DO_USERNAME_BAN }}
+          remote_key: ${{ secrets.DO_SSHKEY_BAN }}

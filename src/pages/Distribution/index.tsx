@@ -11,7 +11,7 @@ import BigNumber from "bignumber.js";
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 import useDistribution, { DistributionIndex } from "api/hooks/use-distribution";
 import RichList from "./RichList";
-import DormantFunds from "./DormantFunds";
+// import DormantFunds from "./DormantFunds";
 import QuestionCircle from "components/QuestionCircle";
 import { intToString } from "components/utils";
 import TimeAgo from "timeago-react";
@@ -23,7 +23,6 @@ const { Text, Title } = Typography;
 // All have been distributed, notes on distribution process...
 
 const distributionMap = [
-  "0.001 - <1",
   "1 - <10",
   "10 - <100",
   "100 - <1K",
@@ -32,6 +31,8 @@ const distributionMap = [
   "100K - <1M",
   "1M - <10M",
   "10M - <100M",
+  "100M - <1B",
+  "1B - <10B",
 ];
 
 let distributionChart: any = null;
@@ -70,7 +71,7 @@ const Distribution: React.FC = () => {
     let knownExchangeDistribution: DistributionIndex[] = [];
     if (!isIncludeExchanges) {
       Object.values(data.knownExchanges).forEach(balance => {
-        let index = balance >= 1 ? `${Math.floor(balance)}`.length : 0;
+        let index = `${Math.floor(balance)}`.length - 1;
 
         knownExchangeDistribution[index] = {
           accounts: (knownExchangeDistribution[index]?.accounts || 0) + 1,
@@ -200,7 +201,7 @@ const Distribution: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Nano {t("menu.distribution")}</title>
+        <title>Banano {t("menu.distribution")}</title>
       </Helmet>
       <Title level={3}>{t("pages.distribution.title")}</Title>
       <Card size="small">
@@ -272,7 +273,7 @@ const Distribution: React.FC = () => {
 
       <RichList />
 
-      <DormantFunds data={data?.dormantFunds} />
+      {/* <DormantFunds data={data?.dormantFunds} /> */}
     </>
   );
 };

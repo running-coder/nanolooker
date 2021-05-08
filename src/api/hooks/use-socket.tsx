@@ -119,7 +119,7 @@ const useSocket = () => {
   const connect = React.useCallback(() => {
     isForcedClosed = false;
     setIsConnected(false);
-    ws = new WebSocket("wss://www.nanolooker.com/ws");
+    ws = new WebSocket("wss://www.bananolooker.com/ws");
 
     ws.onopen = () => {
       setIsError(false);

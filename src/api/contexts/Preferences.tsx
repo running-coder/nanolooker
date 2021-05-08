@@ -52,12 +52,6 @@ interface Preferences {
   setDisableLiveTransactions: Function;
   natricons: boolean;
   setNatricons: Function;
-  nanoQuakeJSUsername: null | string;
-  setNanoQuakeJSUsername: Function;
-  nanoQuakeJSAccount: null | string;
-  setNanoQuakeJSAccount: Function;
-  nanoQuakeJSServer: null | string;
-  setNanoQuakeJSServer: Function;
 }
 
 export enum LOCALSTORAGE_KEYS {
@@ -115,10 +109,7 @@ export const PreferencesContext = React.createContext<Preferences>({
   filterTransactions: false,
   filterTransactionsRange: DEFAULT_UNITS,
   disableLiveTransactions: false,
-  natricons: false,
-  nanoQuakeJSUsername: null,
-  nanoQuakeJSAccount: null,
-  nanoQuakeJSServer: null,
+  natricons: true,
   setTheme: () => {},
   addCryptocurrency: () => {},
   removeCryptocurrency: () => {},
@@ -128,9 +119,6 @@ export const PreferencesContext = React.createContext<Preferences>({
   setFilterTransactionsRange: () => {},
   setDisableLiveTransactions: () => {},
   setNatricons: () => {},
-  setNanoQuakeJSUsername: () => {},
-  setNanoQuakeJSAccount: () => {},
-  setNanoQuakeJSServer: () => {},
 });
 
 const Provider: React.FC = ({ children }) => {
@@ -158,16 +146,7 @@ const Provider: React.FC = ({ children }) => {
     ),
   );
   const [natricons, setNatricons] = React.useState<boolean>(
-    toBoolean(localStorage.getItem(LOCALSTORAGE_KEYS.NATRICONS)),
-  );
-  const [nanoQuakeJSUsername, setNanoQuakeJSUsername] = React.useState(
-    localStorage.getItem(LOCALSTORAGE_KEYS.NANOQUAKEJS_USERNAME),
-  );
-  const [nanoQuakeJSAccount, setNanoQuakeJSAccount] = React.useState(
-    localStorage.getItem(LOCALSTORAGE_KEYS.NANOQUAKEJS_ACCOUNT),
-  );
-  const [nanoQuakeJSServer, setNanoQuakeJSServer] = React.useState(
-    localStorage.getItem(LOCALSTORAGE_KEYS.NANOQUAKEJS_SERVER),
+    toBoolean(localStorage.getItem(LOCALSTORAGE_KEYS.NATRICONS) || true),
   );
 
   const addCryptocurrency = React.useCallback(
@@ -248,21 +227,6 @@ const Provider: React.FC = ({ children }) => {
     setNatricons(newValue);
   };
 
-  const setLocalstorageNanoQuakeJSUsername = (newValue: string) => {
-    localStorage.setItem(LOCALSTORAGE_KEYS.NANOQUAKEJS_USERNAME, `${newValue}`);
-    setNanoQuakeJSUsername(newValue);
-  };
-
-  const setLocalstorageNanoQuakeJSAccount = (newValue: string) => {
-    localStorage.setItem(LOCALSTORAGE_KEYS.NANOQUAKEJS_ACCOUNT, `${newValue}`);
-    setNanoQuakeJSAccount(newValue);
-  };
-
-  const setLocalstorageNanoQuakeJSServer = (newValue: string) => {
-    localStorage.setItem(LOCALSTORAGE_KEYS.NANOQUAKEJS_SERVER, `${newValue}`);
-    setNanoQuakeJSServer(newValue);
-  };
-
   return (
     <PreferencesContext.Provider
       value={{
@@ -273,9 +237,6 @@ const Provider: React.FC = ({ children }) => {
         filterTransactionsRange,
         disableLiveTransactions,
         natricons,
-        nanoQuakeJSUsername,
-        nanoQuakeJSAccount,
-        nanoQuakeJSServer,
         setTheme: setLocalstorageTheme,
         addCryptocurrency,
         removeCryptocurrency,
@@ -285,9 +246,6 @@ const Provider: React.FC = ({ children }) => {
         setFilterTransactionsRange: setLocalstorageFilterTransactionsRange,
         setDisableLiveTransactions: setLocalstorageDisableLiveTransactions,
         setNatricons: setLocalstorageNatricons,
-        setNanoQuakeJSUsername: setLocalstorageNanoQuakeJSUsername,
-        setNanoQuakeJSAccount: setLocalstorageNanoQuakeJSAccount,
-        setNanoQuakeJSServer: setLocalstorageNanoQuakeJSServer,
       }}
     >
       {children}

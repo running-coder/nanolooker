@@ -11,6 +11,10 @@ interface Supply {
   rawAvailableSupply: number;
   availableSupply: number;
 }
+export interface Return extends Supply {
+  isLoading: boolean;
+  isError: boolean;
+}
 
 const useAvailableSupply = (): Return => {
   const [availableSupply, setAvailableSupply] = React.useState({} as Supply);
@@ -18,6 +22,7 @@ const useAvailableSupply = (): Return => {
   const [isError, setIsError] = React.useState(false);
 
   const getAvailableSupply = async () => {
+    setIsLoading(true);
     setIsLoading(true);
     try {
       const json = await rpc("available_supply");

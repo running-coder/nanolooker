@@ -14,7 +14,6 @@ import DeveloperFundPage from "pages/DeveloperFund";
 import DeveloperFundTransactionsPage from "pages/DeveloperFund/Transactions";
 import DistributionPage from "pages/Distribution";
 import ExchangeTrackerPage from "pages/ExchangeTracker";
-import FaucetsPage from "pages/Faucets";
 import LargeTransactionsPage from "pages/LargeTransactions";
 import KnownAccountsPage from "pages/KnownAccounts";
 import AccountPage from "pages/Account";
@@ -22,7 +21,7 @@ import BlockPage from "pages/Block";
 import NewsPage from "pages/News";
 import NodeStatusPage from "pages/NodeStatus";
 import NetworkStatusPage from "pages/NetworkStatus";
-import WhatIsNanoPage from "pages/WhatIsNano";
+import WhatIsBananoPage from "pages/WhatIsBanano";
 import PreferencesPage from "pages/Preferences";
 import BookmarksPage from "pages/Bookmarks";
 import NanoQuakeJSPage from "pages/NanoQuakeJS";
@@ -44,10 +43,10 @@ const App: React.FC = () => {
     <>
       <Helmet>
         <html lang={i18next.language} />
-        <title>NanoLooker {t("common.blockExplorer")}</title>
+        <title>BananoLooker {t("common.blockExplorer")}</title>
         <meta
           name="description"
-          content="Block explorer of the Nano cryptocurrency"
+          content="Block explorer of the Banano cryptocurrency"
         />
         <meta
           name="theme-color"
@@ -72,7 +71,6 @@ const App: React.FC = () => {
             <Route path="/known-accounts" component={KnownAccountsPage} />
             <Route path="/distribution" component={DistributionPage} />
             <Route path="/exchange-tracker" component={ExchangeTrackerPage} />
-            <Route path="/faucets" component={FaucetsPage} />
             <Route
               path="/large-transactions/:sortBy?"
               component={LargeTransactionsPage}
@@ -85,7 +83,7 @@ const App: React.FC = () => {
             <Route path="/news/:feed?" component={NewsPage} />
             <Route path="/node-status" component={NodeStatusPage} />
             <Route path="/network-status" component={NetworkStatusPage} />
-            <Route path="/what-is-nano" component={WhatIsNanoPage} />
+            <Route path="/what-is-banano" component={WhatIsBananoPage} />
             <Route path="/preferences" component={PreferencesPage} />
             <Route path="/bookmarks" component={BookmarksPage} />
             <Route path="/nanoquakejs" component={NanoQuakeJSPage} />

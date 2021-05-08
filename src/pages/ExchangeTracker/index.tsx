@@ -201,7 +201,7 @@ const ExchangeTrackerPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Nano {t("menu.exchangeTracker")}</title>
+        <title>Banano {t("menu.exchangeTracker")}</title>
       </Helmet>
       <Title level={3}>{t("menu.exchangeTracker")}</Title>
 

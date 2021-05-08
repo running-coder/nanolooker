@@ -20,12 +20,14 @@ const {
   STATUS,
 } = require("../constants");
 const { rawToRai } = require("../utils");
-const { BURN_ACCOUNT } = require("../../src/knownAccounts.json");
 const { rpc } = require("../rpc");
 const readdir = util.promisify(fs.readdir);
 const mkdir = util.promisify(fs.mkdir);
 
-const { KNOWN_EXCHANGE_ACCOUNTS } = require("../../src/knownAccounts.json");
+const {
+  KNOWN_EXCHANGE_ACCOUNTS,
+  BURN_ACCOUNT,
+} = require("../../src/knownAccounts.json");
 
 const DATA_ROOT_PATH = join(__dirname, "../data");
 const TMP_ACCOUNTS_PATH = join(DATA_ROOT_PATH, "/tmp/account");
@@ -36,7 +38,7 @@ const KNOWN_EXCHANGES_PATH = join(DATA_ROOT_PATH, "knownExchanges.json");
 const STATUS_PATH = join(DATA_ROOT_PATH, "/status.json");
 
 // Balance + pending below this amount will be ignored
-const MIN_TOTAL = 0.001;
+const MIN_TOTAL = 1;
 const MIN_DELEGATOR_TOTAL = 1;
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
@@ -45,8 +47,9 @@ const getAccounts = async () => {
   const { count } = await rpc("frontier_count");
 
   let currentAccountCount = 0;
-  let nextAccount = BURN_ACCOUNT;
-  let steps = 500000;
+  let nextAccount =
+    "ban_1111111111111111111111111111111111111111111111111111hifc8npp";
+  let steps = 50000;
   let nextCount = 0;
 
   let currentPage = 0;
@@ -76,7 +79,10 @@ const getAccounts = async () => {
         JSON.stringify(currentFrontiers, null, 2),
       );
       currentPage += 1;
+    } else {
+      break;
     }
+    await sleep(5000);
   }
 };
 
@@ -102,7 +108,6 @@ const getKnownExchanges = async () => {
 
 const getDistribution = async () => {
   // Distribution pattern
-  // 0.001 - <1
   // 1 - <10
   // 10 - <100
   // 100 - <1000
@@ -111,7 +116,9 @@ const getDistribution = async () => {
   // 100,000 - <1,000,000
   // 1,000,000 - <10,000,000
   // 10,000,000 - <100,000,000
-  const distribution = Array.from({ length: 9 }, () => ({
+  // 100,000,000 - <1,000,000,000
+  // 1,000,000,000 - <10,000,000,000
+  const distribution = Array.from({ length: 10 }, () => ({
     accounts: 0,
     balance: 0,
   }));
@@ -133,7 +140,7 @@ const getDistribution = async () => {
     const accounts = JSON.parse(
       fs.readFileSync(`${TMP_ACCOUNTS_PATH}/${tmpAccountFiles[y]}`, "utf8"),
     );
-    const balancesChunks = chunk(accounts, 5000);
+    const balancesChunks = chunk(accounts, 1000);
 
     for (let i = 0; i < balancesChunks.length; i++) {
       let { balances } = await rpc("accounts_balances", {
@@ -159,7 +166,7 @@ const getDistribution = async () => {
 
             richList[account] = total;
 
-            const index = total >= 1 ? `${parseInt(total)}`.length : 0;
+            const index = `${parseInt(total)}`.length - 1;
 
             // Add the account as part of the Distribution
             distribution[index] = {
@@ -236,7 +243,7 @@ const getDistribution = async () => {
       redisClient.zadd(`${REDIS_RICH_LIST}_TMP`, ...richListData);
 
       // @TODO check if can remove the sleep now that the node is a bit more powerful
-      await sleep(100);
+      await sleep(5000);
     }
   }
 
@@ -281,7 +288,8 @@ const doDistributionCron = async () => {
     nodeCache.set(KNOWN_EXCHANGES, knownExchanges, EXPIRE_24H);
 
     // @NOTE manual add for now
-    redisClient.zadd(`${REDIS_RICH_LIST}_TMP`, 207035873.510723, BURN_ACCOUNT);
+    // @TODO Add Banano burn account total
+    // redisClient.zadd(`${REDIS_RICH_LIST}_TMP`, 207035873.510723, BURN_ACCOUNT);
     redisClient.rename(`${REDIS_RICH_LIST}_TMP`, REDIS_RICH_LIST);
 
     // Replace previously generated delegators by new ones
@@ -317,7 +325,7 @@ const doDistributionCron = async () => {
 cron.schedule("15 5 * * 2", async () => {
   if (process.env.NODE_ENV !== "production") return;
   // Disable cron until amounts are sorted out
-  doDistributionCron();
+  // doDistributionCron();
 });
 
 // if (

@@ -41,8 +41,8 @@
     "comingSoon": "Binnenkort beschikbaar"
   },
   "nodeHealth": {
-    "nodeReloading": "Nano node wordt opnieuw geladen",
-    "nodeReady": "Nano node is klaar"
+    "nodeReloading": "Banano node wordt opnieuw geladen",
+    "nodeReady": "Banano node is klaar"
   },
   "transaction": {
     "type": "Type",
@@ -59,34 +59,34 @@
   },
   "tooltips": {
     "avgConfirmationTime": "De gemiddelde bevestigingstijd wordt lokaal op de node berekend. Als de node opnieuw wordt opgestart of in slechte staat verkeert, kan de gemiddelde bevestigingstijd langer zijn dan die van de rest van het netwerk.",
-    "circulatingSupply": "Het aantal munten dat in omloop is. Nano is volledig gedistribueerd, het aantal munten in omloop zal nooit toenemen.",
+    "circulatingSupply": "Het aantal munten dat in omloop is. Banano is volledig gedistribueerd, het aantal munten in omloop zal nooit toenemen.",
     "transactionFees": "In tegenstelling tot andere cryptovaluta zijn nano transacties voor altijd kostenloos.",
-    "bitcoinTransactionFees": "Deze waarde heeft geen invloed op het NANO netwerk, het is uitsluitend ter vergelijking. Het vertegenwoordigt de som van de transactiekosten die Bitcoin gebruikers aan de miners betalen om hun transactie geaccepteerd te krijgen op het Bitcoin netwerk.",
-    "cps": "Aantal bevestigingen per seconde. Het aantal bevestigde blocks (verzenden of ontvangen) op het NANO netwerk. Het wordt elke minuut lokaal op de node gesampled. Als de node opnieuw wordt opgestart of in een verslechterde toestand verkeert, kan de CPS waarde hoger of lager zijn dan het werkelijke gemiddelde op het netwerk terwijl de node synchroniseert en opnieuw verbinding maakt met de andere nodes.",
-    "votingWeight": "Een account met een minimum van {{minWeight}} NANO of >= 0,1% van het online stemgewicht eraan gedelegeerd, is vereist om de status van hoofdvertegenwoordiger te krijgen. Indien geconfigureerd op een stemmende node, worden de stemmen die de node genereert opnieuw uitgezonden door andere nodes die de stemmen ontvangen, waardoor het netwerk sneller consensus kan bereiken.",
+    "bitcoinTransactionFees": "Deze waarde heeft geen invloed op het BANANO netwerk, het is uitsluitend ter vergelijking. Het vertegenwoordigt de som van de transactiekosten die Bitcoin gebruikers aan de miners betalen om hun transactie geaccepteerd te krijgen op het Bitcoin netwerk.",
+    "cps": "Aantal bevestigingen per seconde. Het aantal bevestigde blocks (verzenden of ontvangen) op het BANANO netwerk. Het wordt elke minuut lokaal op de node gesampled. Als de node opnieuw wordt opgestart of in een verslechterde toestand verkeert, kan de CPS waarde hoger of lager zijn dan het werkelijke gemiddelde op het netwerk terwijl de node synchroniseert en opnieuw verbinding maakt met de andere nodes.",
+    "votingWeight": "Een account met een minimum van {{minWeight}} BANANO of >= 0,1% van het online stemgewicht eraan gedelegeerd, is vereist om de status van hoofdvertegenwoordiger te krijgen. Indien geconfigureerd op een stemmende node, worden de stemmen die de node genereert opnieuw uitgezonden door andere nodes die de stemmen ontvangen, waardoor het netwerk sneller consensus kan bereiken.",
     "pending": "Een transactiestatus waarbij een block dat geld verzendt, is gepubliceerd en bevestigd door het netwerk, maar een overeenkomend block dat het geld ontvangt, nog niet is verzonden of bevestigd.",
-    "nakamotoCoefficient": "De Nakamoto-coëfficiënt is een manier om de decentralisatie van een cryptovaluta of ander gedecentraliseerd systeem te kwantificeren. Het is het aantal entiteiten dat nodig is hebt om ten minste één essentieel subsysteem in gevaar te brengen. Voor Nano zou meer dan {{onlineWeightQuorumPercent}}% van het online stemgewicht van hoofdvertegenwoordigers in gevaar moeten worden gebracht.",
-    "representatives": "Om de prestaties te optimaliseren, worden alleen accounts met een stemgewicht >= 1000 NANO in aanmerking genomen; maar normaal gesproken elke account met een stemgewicht > 0, maar < 0,1% van het online stemgewicht.",
-    "principalRepresentatives": "Een account met een minimum van {{principalRepresentativeMinWeight}} NANO of >= 0,1% van het online stemgewicht eraan gedelegeerd, is vereist om de status van hoofdvertegenwoordiger te krijgen. Indien geconfigureerd op een stemmende node, worden de stemmen die de node genereert opnieuw uitgezonden door andere nodes die de stemmen ontvangen, waardoor het netwerk sneller consensus kan bereiken.",
+    "nakamotoCoefficient": "De Nakamoto-coëfficiënt is een manier om de decentralisatie van een cryptovaluta of ander gedecentraliseerd systeem te kwantificeren. Het is het aantal entiteiten dat nodig is hebt om ten minste één essentieel subsysteem in gevaar te brengen. Voor Banano zou meer dan {{onlineWeightQuorumPercent}}% van het online stemgewicht van hoofdvertegenwoordigers in gevaar moeten worden gebracht.",
+    "representatives": "Om de prestaties te optimaliseren, worden alleen accounts met een stemgewicht >= 1000 BANANO in aanmerking genomen; maar normaal gesproken elke account met een stemgewicht > 0, maar < 0,1% van het online stemgewicht.",
+    "principalRepresentatives": "Een account met een minimum van {{principalRepresentativeMinWeight}} BANANO of >= 0,1% van het online stemgewicht eraan gedelegeerd, is vereist om de status van hoofdvertegenwoordiger te krijgen. Indien geconfigureerd op een stemmende node, worden de stemmen die de node genereert opnieuw uitgezonden door andere nodes die de stemmen ontvangen, waardoor het netwerk sneller consensus kan bereiken.",
     "onlinePrincipalRepresentatives": "Online hoofdvertegenwoordiger accounts die onlangs hebben gestemd.",
     "lastTransaction": "Laatste verzonden transactie van één van de {{totalAccounts}} - accounts.",
-    "largeTransactions": "Alleen verstuurde transacties van 10.000 NANO of meer worden tijdelijk één week bewaard.",
-    "knownExchangeBalance": "Sluit {{knownExchangeList}} uit van het distributiegrafiek. Die accounts gecombineerd bevatten {{knownExchangeBalance}} NANO",
-    "unchecked": "Blocks (transacties) die zijn gedownload maar nog niet verwerkt door de Nano node. De node software downloadt alle blockken van andere nodes als ongecontroleerd, verwerkt ze en voegt toe aan het aantal blockken, bevestigt de grensblockken voor elk account en markeert ze vervolgens als gecementeerd.",
+    "largeTransactions": "Alleen verstuurde transacties van 10.000 BANANO of meer worden tijdelijk één week bewaard.",
+    "knownExchangeBalance": "Sluit {{knownExchangeList}} uit van het distributiegrafiek. Die accounts gecombineerd bevatten {{knownExchangeBalance}} BANANO",
+    "unchecked": "Blocks (transacties) die zijn gedownload maar nog niet verwerkt door de Banano node. De node software downloadt alle blockken van andere nodes als ongecontroleerd, verwerkt ze en voegt toe aan het aantal blockken, bevestigt de grensblockken voor elk account en markeert ze vervolgens als gecementeerd.",
     "cemented": "Wanneer een specifieke node een bevestigde transactie markeert als lokaal onomkeerbaar door de bevestigingshoogte van de account (in de node database) in te stellen op de nu hogere blockhoogte van de bevestigde transactie. Cementeren is een bewerking op node niveau.",
-    "unknownLastTransaction": "In februari 2019 zijn transactiedata geïntroduceerd. Voorafgaand aan die datum werden de transactietijden niet lokaal op de nodes geregistreerd. De reden waarom de laatste transactiedatum onbekend is, is omdat deze werd bevestigd voordat de datums werden geregistreerd of voordat de NanoLooker node in gebruik was.",
+    "unknownLastTransaction": "In februari 2019 zijn transactiedata geïntroduceerd. Voorafgaand aan die datum werden de transactietijden niet lokaal op de nodes geregistreerd. De reden waarom de laatste transactiedatum onbekend is, is omdat deze werd bevestigd voordat de datums werden geregistreerd of voordat de BananoLooker node in gebruik was.",
     "confirmationHeight": "Een nummer dat is opgeslagen in de lokale node database en dat het hoogste (meest recente) bevestigde block in een accountketen vertegenwoordigt. Gerelateerd aan (maar verschillend van) blockhoogte.",
     "blockHeight": "Een lokale integerwaarde die de volgorde van een block in een accountketen vertegenwoordigt. Het 15e block in een account heeft bijvoorbeeld een blockhoogte van 15. Gerelateerd aan (maar anders dan) bevestigingshoogte.",
     "bookmarks": "{{type, capitalize}} bladwijzers worden op uw apparaat opgeslagen. U kunt uw bekende {{type}}s beheren door ze aliassen te geven.",
     "groupByEntities": "Groepeer al het stemgewicht dat is opgesplitst in verschillende hoofdvertegenwoordigers in afzonderlijke entiteiten. Een exchange kan bijvoorbeeld meerdere portemonnees hebben en hun gewicht verdelen, maar in werkelijkheid kan het als een enkel gewicht worden geteld als ze het zouden hergroeperen.",
     "telemetry": "Metrische gegevens van andere nodes op het netwerk. Alle statistieken worden verzameld en gemiddeld om verschillende statussen op het netwerk weer te geven. P komt overeen met percentiel, p50 wordt berekend door de onderste 50% uit te sluiten, terwijl de p95 de onderste 5% van de verschillende waarden uitsluit om het gemiddelde te berekenen.",
-    "ledgerSize": "De totale hoeveelheid schijfruimte die tot nu toe nodig is om alle Nano transacties op te slaan. De databasegrootte wordt uitgedrukt in binaire groottes (mebibyte) in plaats van decimaal (megabyte).",
-    "bandwidthCap": "Nano nodes kunnen hun bandbreedte beperken om het aantal berichten dat kan worden verzonden of ontvangen te beperken. 0 staat voor een onbeperkte bandbreedte.",
+    "ledgerSize": "De totale hoeveelheid schijfruimte die tot nu toe nodig is om alle Banano transacties op te slaan. De databasegrootte wordt uitgedrukt in binaire groottes (mebibyte) in plaats van decimaal (megabyte).",
+    "bandwidthCap": "Banano nodes kunnen hun bandbreedte beperken om het aantal berichten dat kan worden verzonden of ontvangen te beperken. 0 staat voor een onbeperkte bandbreedte.",
     "uptime": "Tijd sinds de node voor het laatst opnieuw is opgestart.",
     "pendingTransactionCount": "Het aantal lopende transacties overschrijdt de weergavelimiet van {{count}}.",
-    "mnano": "Mnano is de huidige standaarddivisie die wordt gebruikt in portefeuilles, beurzen en services. Het wordt 1 NANO genoemd.",
-    "versionsByWeight": "Om een versie de consensus van het netwerk te laten overnemen, moet deze {{onlineWeightQuorumPercent}}% van het online stemgewicht hebben van minimaal {{onlineWeightMinimum}} NANO.",
-    "onChainVolume": "De som van alle NANO-transacties die op het netwerk zijn bevestigd. Als gebruiker A 1 NANO verzendt en gebruiker B 1 NANO op dezelfde dag ontvangt, wordt 2 NANO toegevoegd aan het dagelijkse volume omdat er 2 transacties zijn uitgezonden en bevestigd, een verzenden en een ontvangen."
+    "mnano": "Mnano is de huidige standaarddivisie die wordt gebruikt in portefeuilles, beurzen en services. Het wordt 1 BANANO genoemd.",
+    "versionsByWeight": "Om een versie de consensus van het netwerk te laten overnemen, moet deze {{onlineWeightQuorumPercent}}% van het online stemgewicht hebben van minimaal {{onlineWeightMinimum}} BANANO.",
+    "onChainVolume": "De som van alle BANANO-transacties die op het netwerk zijn bevestigd. Als gebruiker A 1 BANANO verzendt en gebruiker B 1 BANANO op dezelfde dag ontvangt, wordt 2 BANANO toegevoegd aan het dagelijkse volume omdat er 2 transacties zijn uitgezonden en bevestigd, een verzenden en een ontvangen."
   },
   "search": {
     "searchBy": "Zoeken op adres / block / bekend account",
@@ -97,20 +97,20 @@
     "darkMode": "Donkere modus",
     "darkModeDetailed": "Schakel over van de lichte of donkere modus om de browse-ervaring te verbeteren, afhankelijk van uw omgeving.",
     "language": "Taal",
-    "languageDetailed": "Kies de gewenste taal. NanoLooker zoekt vrijwilligers om de vertaling van de block explorer te verbeteren. <0> Draag een steentje bij! </0>",
+    "languageDetailed": "Kies de gewenste taal. BananoLooker zoekt vrijwilligers om de vertaling van de block explorer te verbeteren. <0> Draag een steentje bij! </0>",
     "watch": "Bekijk andere cryptovaluta",
     "watchSearch": "Zoek cryptovaluta",
     "watchDetailed": "Bekijk de prijs van andere cryptovaluta in de top 100. De huidige marktprijzen en de 24-uurswijziging verschijnen in de bovenste balk. U kunt uw selectie ook herordenen door middel van slepen.",
     "fiatCurrency": "Fiat valuta",
-    "fiatCurrencyDetailed": "Fiat geld is een door de overheid uitgegeven valuta. Selecteer een fiat valuta om de prijs van Nano mee te vergelijken.",
+    "fiatCurrencyDetailed": "Fiat geld is een door de overheid uitgegeven valuta. Selecteer een fiat valuta om de prijs van Banano mee te vergelijken.",
     "natricons": "Natricons",
-    "natriconsDetailed": "Natricons zijn vriendelijke, bekende gezichten voor Nano adressen. Gebruik ze op accountpaginas en overal waar een nano adres te zien is.",
+    "natriconsDetailed": "Natricons zijn vriendelijke, bekende gezichten voor Banano adressen. Gebruik ze op accountpaginas en overal waar een nano adres te zien is.",
     "liveTransactions": "Schakel live updates in",
-    "liveTransactionsDetailed": "Bekijk live transacties die plaatsvinden op het Nano netwerk. Beschikbaar op de startpagina.",
+    "liveTransactionsDetailed": "Bekijk live transacties die plaatsvinden op het Banano netwerk. Beschikbaar op de startpagina.",
     "contribute": "Draag bij",
     "filterTransactionsRange": "Voeg bedragbereiken toe",
     "filterTransactionsRangeDetailed": "Stel een aangepast filterbereik in",
-    "filterTransactions": "Verberg bedragen onder 1 NANO"
+    "filterTransactions": "Verberg bedragen onder 1 BANANO"
   },
   "menu": {
     "explore": "Verken",
@@ -123,8 +123,8 @@
     "faucets": "Uitgiftepunten",
     "news": "Nieuws",
     "nodeStatus": "Node status",
-    "whatIsNano": "Wat is nano?",
-    "earnNano": "Verdien nano",
+    "whatIsBanano": "Wat is nano?",
+    "earnBanano": "Verdien nano",
     "preferences": "Voorkeuren",
     "status": "Status",
     "networkStatus": "Netwerk status"
@@ -133,7 +133,7 @@
     "createdBy": "Gemaakt door {{creator}}",
     "donations": {
       "donate": "Doneer",
-      "title": "NanoLooker donatieaccount"
+      "title": "BananoLooker donatieaccount"
     }
   },
   "pages": {
@@ -150,15 +150,15 @@
       "last24Hours": "Afgelopen 24 uur",
       "avgConfirmationTime": "Gem. bevestigingstijd (seconden)",
       "confirmedTransactions": "Bevestigde transacties",
-      "transactionFees": "NANO transactiekosten",
+      "transactionFees": "BANANO transactiekosten",
       "exchangeVolume": "Exchange volume",
-      "onChainVolume": "NANO volume",
+      "onChainVolume": "BANANO volume",
       "bitcoinTransactionFees": "Bitcoin transactiekosten betaald aan miners",
       "recentTransactions": "Recente transacties",
       "liveUpdatesDisabled": "Live updates uitgeschakeld",
       "waitingForTransactions": "Wachten op transacties",
-      "connectingToBlockchain": "Verbinding maken met het NANO netwerk",
-      "reconnectingToBlockchain": "Verbinding verbroken, opnieuw verbinding maken met het NANO netwerk"
+      "connectingToBlockchain": "Verbinding maken met het BANANO netwerk",
+      "reconnectingToBlockchain": "Verbinding verbroken, opnieuw verbinding maken met het BANANO netwerk"
     },
     "account": {
       "votingWeight": "Stemgewicht",
@@ -171,7 +171,7 @@
       "loadMoreTransactions": "Laadt meer transacties",
       "viewTransactions": "Bekijk transacties",
       "notOpenedYet": "Dit account is nog niet geopend",
-      "notOpenedYetReason": "Hoewel het accountadres geldig is, zijn er nog geen blocks naar het netwerk gepubliceerd. Als er NANO naar dit account is gestuurd, moet er nog een overeenkomstig ontvangst block worden gepubliceerd om het geld te ontvangen.",
+      "notOpenedYetReason": "Hoewel het accountadres geldig is, zijn er nog geen blocks naar het netwerk gepubliceerd. Als er BANANO naar dit account is gestuurd, moet er nog een overeenkomstig ontvangst block worden gepubliceerd om het geld te ontvangen.",
       "missingAccount": "Account ontbreekt",
       "missingAccountInfo": "Het account is niet gespecificeerd in de URL. Gebruik de zoekbalk bovenaan om naar een account te zoeken of voeg deze toe aan de URL achter /account/"
     },
@@ -190,7 +190,7 @@
       "missingBlock": "Ontbrekend block",
       "missingBlockInfo": "Het block is niet gespecificeerd in de URL. Gebruik de zoekbalk bovenaan om naar een block te zoeken of voeg het toe aan de URL na /block/",
       "blockNotFound": "Block niet gevonden",
-      "blockNotFoundInfo": "Het block dat u heeft aangevraagd, is niet gevonden. Het is mogelijk dat het block aanwezig is op het Nano netwerk, maar nog gezien moet worden door de node. Zorg ervoor dat u naar het juiste block zoekt of probeer het later opnieuw."
+      "blockNotFoundInfo": "Het block dat u heeft aangevraagd, is niet gevonden. Het is mogelijk dat het block aanwezig is op het Banano netwerk, maar nog gezien moet worden door de node. Zorg ervoor dat u naar het juiste block zoekt of probeer het later opnieuw."
     },
     "representatives": {
       "voteDistribution": "Stemverdeling",
@@ -214,14 +214,14 @@
       "noDelegatorsFound": "Geen delegerenden gevonden"
     },
     "faucets": {
-      "description": "Met uitgiftepunten kunt u gratis kleine hoeveelheden NANO claimen. Met deze uitgiftepunten kunt u ervaren hoe gemakkelijk het is om NANO direct over de hele wereld te verzenden en te ontvangen op een gedecentraliseerd netwerk."
+      "description": "Met uitgiftepunten kunt u gratis kleine hoeveelheden BANANO claimen. Met deze uitgiftepunten kunt u ervaren hoe gemakkelijk het is om BANANO direct over de hele wereld te verzenden en te ontvangen op een gedecentraliseerd netwerk."
     },
     "developerFund": {
       "description": "Op 25-11-19 is het ontwikkelaarsfonds opgesplitst in {{totalAccounts}} - accounts na een herziening van het interne veiligheidsbeleid en stemgewichten van vertegenwoordigers.",
       "lastTransaction": "Laatste transactie",
       "allTransactions": "Bekijk alle transacties",
       "originalDeveloperFund": "Oorspronkelijk ontwikkelaarsfonds",
-      "originalDeveloperFundDescription": "De distributie van Nano (voorheen RaiBlocks) werd uitgevoerd door het oplossen van handmatige captchas, beginnend eind 2015 en eindigend in oktober 2017. De distributie stopte nadat ~ 39% van het <0> Genesis </0>-bedrag was verdeeld en de rest van het aanbod was <1> vernietigd </1>.",
+      "originalDeveloperFundDescription": "De distributie van Banano (voorheen RaiBlocks) werd uitgevoerd door het oplossen van handmatige captchas, beginnend eind 2015 en eindigend in oktober 2017. De distributie stopte nadat ~ 39% van het <0> Genesis </0>-bedrag was verdeeld en de rest van het aanbod was <1> vernietigd </1>.",
       "totalAccounts": "{{totalAccounts}} Totaal aantal accounts",
       "percentOfTotal": "{{percent}}% van het aantal munten in circulatie"
     },
@@ -229,23 +229,23 @@
       "totalAccounts": "{{totalAccounts}} totaal aantal bekende accounts"
     },
     "largeTransactions": {
-      "description": "Grote transacties die plaatsvinden op het NANO netwerk.",
+      "description": "Grote transacties die plaatsvinden op het BANANO netwerk.",
       "latest": "Nieuwste transactie",
       "largest": "Grootste bedrag"
     },
     "distribution": {
-      "title": "Nano distributie",
-      "summary": "Totaal van <0>{{i18nTotalAccounts}}</0> accounts hebben <1>{{i18nTotalBalances}}</1> NANO",
+      "title": "Banano distributie",
+      "summary": "Totaal van <0>{{i18nTotalAccounts}}</0> accounts hebben <1>{{i18nTotalBalances}}</1> BANANO",
       "summaryMinBalance": "Elk account met een saldo lager dan <0>0,001</0> wordt uitgesloten",
       "includeKnownExchanges": "Inclusief bekende exchanges",
       "logScale": "Log schaal",
       "dormantFunds": "Latente gelden",
-      "dormantFundsExperiment": "Dit is een experiment om te begrijpen hoeveel accounts er actief zijn op het Nano netwerk. Voor elk van de {{totalAccounts}} - accounts wordt de laatste transactiedatum op de lokale node vastgelegd. Het saldo en de uitstaande bedragen die elk account bevat, wordt gemarkeerd als actief voor de maand waarin ze voor het laatst zijn afgehandeld. De volgende maand worden het saldo en de uitstaande bedragen gemarkeerd als latent.",
+      "dormantFundsExperiment": "Dit is een experiment om te begrijpen hoeveel accounts er actief zijn op het Banano netwerk. Voor elk van de {{totalAccounts}} - accounts wordt de laatste transactiedatum op de lokale node vastgelegd. Het saldo en de uitstaande bedragen die elk account bevat, wordt gemarkeerd als actief voor de maand waarin ze voor het laatst zijn afgehandeld. De volgende maand worden het saldo en de uitstaande bedragen gemarkeerd als latent.",
       "availableSupply": "Beschikbaar aantal nano",
       "knownAccountBalances": "Bekende account saldo's",
       "unknownDormantFunds": "Onbekende latente gelden",
-      "dormantFundsQuarterExample": "Een account met 50 NANO en 50 NANO in afwachting heeft voor het laatst 6 maanden geleden (2 kwartalen) transacties uitgevoerd, een saldo van 100 NANO wordt als \"latent\" toegevoegd aan het totaal van het volgende kwartaal.",
-      "dormantNano": "Latente NANO",
+      "dormantFundsQuarterExample": "Een account met 50 BANANO en 50 BANANO in afwachting heeft voor het laatst 6 maanden geleden (2 kwartalen) transacties uitgevoerd, een saldo van 100 BANANO wordt als \"latent\" toegevoegd aan het totaal van het volgende kwartaal.",
+      "dormantBanano": "Latente BANANO",
       "ofAvailableSupply": "van de beschikbare voorraad"
     },
     "news": {
@@ -287,11 +287,10 @@
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> nodes hebben een bandbreedtelimiet van <1>{{limitedBandwidthCap}}</1>.",
       "nodeVersions": "Node versies",
       "latestVersion": "Nieuwste versie",
-      "database": "Database",
-      "versionsByWeight": "Versies gegroepeerd op stemgewicht"
+      "database": "Database"
     },
     "exchangeTracker": {
-      "description": "Elke dag wordt een opname gemaakt van de accountsaldo's van de meest populaire exchanges waar Nano wordt verhandeld. Deze meting kan worden gebruikt om bewegingen en fluctuaties op het netwerk te analyseren.",
+      "description": "Elke dag wordt een opname gemaakt van de accountsaldo's van de meest populaire exchanges waar Banano wordt verhandeld. Deze meting kan worden gebruikt om bewegingen en fluctuaties op het netwerk te analyseren.",
       "totalSelected": "Totaal saldo van geselecteerde beurzen"
     },
     "preferences": {
@@ -317,9 +316,9 @@
       "registerNote": "De gebruikersnaam en het account worden opgeslagen in de browsergegevens.",
       "invalidAccount": "Ongeldig account",
       "playersOnline": "Spelers online",
-      "welcomeTitle": "Spring in de Arena en word in NANO betaald voor je Frags!",
+      "welcomeTitle": "Spring in de Arena en word in BANANO betaald voor je Frags!",
       "welcomeDescription": "Welkom in de Arena, waar hooggeplaatste krijgers worden omgevormd tot slappe brij. Zonder elk greintje gezond verstand en elk spoor van twijfel achter je te laten, stort je je op een podium van schrijnende landschappen en versluierde afgronden. Je nieuwe omgeving wijst je af met lavaputten en atmosferische gevaren terwijl legioenen vijanden je omsingelen en de darmreactie testen die je hier in de eerste plaats bracht. Je nieuwe mantra: vechten of klaar zijn.",
-      "welcomeDescription2": "Speel het bestverkochte first-person shooter-spel uit 1999 met je vrienden en andere spelers over de hele wereld en verdien NANO door elkaar te belazeren!",
+      "welcomeDescription2": "Speel het bestverkochte first-person shooter-spel uit 1999 met je vrienden en andere spelers over de hele wereld en verdien BANANO door elkaar te belazeren!",
       "gameplay": "Gameplay",
       "registerErrorUsername": "Gebruikersnaam is al in gebruik voor een ander adres",
       "playNanoquakejs": "Speel NanoQuakeJS",

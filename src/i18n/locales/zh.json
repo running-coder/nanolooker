@@ -60,33 +60,33 @@
   "tooltips": {
     "avgConfirmationTime": "平均确认时间在节点上本地计算。如果节点重新启动或处于降级状态，则平均确认时间可能会高于网络的其余部分。",
     "circulatingSupply": "流通中的硬币数量。纳米是完全分布的，供应将永远不会增加。",
-    "transactionFees": "与其他任何加密货币不同，Nano交易永远是免费的。",
-    "bitcoinTransactionFees": "该值对NANO网络没有影响，仅用于比较目的。它代表了比特币用户支付给矿工以使其交易在比特币网络上接受的交易费用总和。",
-    "cps": "每秒确认数。在NANO网络上已确认的块（发送或接收）的速率。它是在节点上本地的最后一分钟采样的。如果节点重新启动或处于降级状态，则当该节点同步并与其他节点重新连接时，CPS值可能会高于或低于网络上的实际平均值。",
-    "votingWeight": "必须拥有至少{{minWeight}} NANO或委托给它的在线投票权重的== 0.1％以上的帐户，才能获得首席代表身份。在进行投票的节点上进行配置时，其产生的投票将被其他节点重新广播给接收投票的节点，从而帮助网络更快地达成共识。",
+    "transactionFees": "与其他任何加密货币不同，Banano交易永远是免费的。",
+    "bitcoinTransactionFees": "该值对BANANO网络没有影响，仅用于比较目的。它代表了比特币用户支付给矿工以使其交易在比特币网络上接受的交易费用总和。",
+    "cps": "每秒确认数。在BANANO网络上已确认的块（发送或接收）的速率。它是在节点上本地的最后一分钟采样的。如果节点重新启动或处于降级状态，则当该节点同步并与其他节点重新连接时，CPS值可能会高于或低于网络上的实际平均值。",
+    "votingWeight": "必须拥有至少{{minWeight}} BANANO或委托给它的在线投票权重的== 0.1％以上的帐户，才能获得首席代表身份。在进行投票的节点上进行配置时，其产生的投票将被其他节点重新广播给接收投票的节点，从而帮助网络更快地达成共识。",
     "pending": "交易状态，其中发送资金的区块已由网络发布并确认，但尚未发送或确认接收这些资金的匹配区块。",
-    "nakamotoCoefficient": "Nakamoto系数是一种量化区块链或其他去中心化系统去中心化的方法。这是您至少要折衷一个基本子系统所需的实体数量。对于Nano，必须折衷主要代表的在线投票权的 {{onlineWeightQuorumPercent}}% 以上。",
-    "representatives": "为了优化性能，仅考虑投票权重 >= 1000 NANO的帐户，但通常考虑任何投票权重> 0，但<在线投票权重的0.1％的帐户。",
-    "principalRepresentatives": "必须拥有至少{{principalRepresentativeMinWeight}} NANO或委托给其的在线投票权重的== 0.1％以上的帐户才能获得“首席代表”身份。在进行投票的节点上进行配置时，其产生的投票将被其他节点重新广播给接收投票的节点，从而帮助网络更快地达成共识。",
+    "nakamotoCoefficient": "Nakamoto系数是一种量化区块链或其他去中心化系统去中心化的方法。这是您至少要折衷一个基本子系统所需的实体数量。对于Banano，必须折衷主要代表的在线投票权的 {{onlineWeightQuorumPercent}}% 以上。",
+    "representatives": "为了优化性能，仅考虑投票权重 >= 1000 BANANO的帐户，但通常考虑任何投票权重> 0，但<在线投票权重的0.1％的帐户。",
+    "principalRepresentatives": "必须拥有至少{{principalRepresentativeMinWeight}} BANANO或委托给其的在线投票权重的== 0.1％以上的帐户才能获得“首席代表”身份。在进行投票的节点上进行配置时，其产生的投票将被其他节点重新广播给接收投票的节点，从而帮助网络更快地达成共识。",
     "onlinePrincipalRepresentatives": "最近投票的在线代表帐户。",
     "lastTransaction": "来自任何{{totalAccounts}}个帐户的上次发送交易。",
-    "largeTransactions": "仅发送10,000 NANO或更多的交易会暂时保存一周。",
-    "knownExchangeBalance": "从分布图中排除{{knownExchangeList}}。这些帐户合计持有{{knownExchangeBalance}} NANO",
-    "unchecked": "Nano节点已下载但尚未处理的块（事务）。节点软件将未经检查的其他节点的所有块下载，对其进行处理并添加到块计数中，确认每个帐户的边界块，然后将其标记为固定。",
+    "largeTransactions": "仅发送100,000 BANANO或更多的交易会暂时保存一周。",
+    "knownExchangeBalance": "从分布图中排除{{knownExchangeList}}。这些帐户合计持有{{knownExchangeBalance}} BANANO",
+    "unchecked": "Banano节点已下载但尚未处理的块（事务）。节点软件将未经检查的其他节点的所有块下载，对其进行处理并添加到块计数中，确认每个帐户的边界块，然后将其标记为固定。",
     "cemented": "通过将帐户的确认高度（在节点数据库中）设置为现在已确认交易的更高区块高度，当特定节点将已确认交易标记为本地不可逆时。固井是节点级别的操作。",
-    "unknownLastTransaction": "交易日期于2019年2月引入。在此日期之前，交易时间未在节点上本地记录。上次交易日期未知的原因是，该日期在记录日期之前或在NanoLooker节点投入使用之前已得到确认。",
+    "unknownLastTransaction": "交易日期于2019年2月引入。在此日期之前，交易时间未在节点上本地记录。上次交易日期未知的原因是，该日期在记录日期之前或在BananoLooker节点投入使用之前已得到确认。",
     "confirmationHeight": "存储在本地节点数据库中的数字，代表帐户链中已确认的最高（最新）区块。与块高有关（但不同于）。",
     "blockHeight": "一个局部整数值，表示帐户链中一个区块的顺序。例如，帐户中的第15个区块的区块高度为15。与确认高度相关（但不同于）。",
     "bookmarks": "{{type，capitalize}}书签已保存在您的设备上。您可以通过为它们命名为别名来管理已知的{{type}}。",
     "groupByEntities": "将划分为不同主要代表的所有投票权重新组合为一个实体。例如，一个交易所可以有多个钱包并分摊它们的重量，但实际上，如果要重新分组，则可以算作一个单独的重量。",
     "telemetry": "来自网络上其他节点的度量。收集所有度量并取平均值，以表示网络上的不同状态。 P对应于百分位数，p50通过排除不同值的下限50％而p95排除不同值的下限5％来计算平均值。",
-    "ledgerSize": "到现在为止，存储每个Nano事务所需的磁盘空间总量。分类帐大小是基于1024而不是1000计算的。",
+    "ledgerSize": "到现在为止，存储每个Banano事务所需的磁盘空间总量。分类帐大小是基于1024而不是1000计算的。",
     "bandwidthCap": "纳米节点能够调节其带宽，以限制可以发送或接收的消息量。 0表示无限带宽。",
     "uptime": "自上次重新引导节点以来的时间。",
     "pendingTransactionCount": "待处理的交易数量超过了显示的限制{{count}}。",
-    "mnano": "Mnano是目前用于钱包，交易所和服务的标准部门。它被称为1 NANO。",
-    "versionsByWeight": "为了使版本能够取代网络的共识，它需要至少具有{{onlineWeightMinimum}} NANO的67％的在线投票权。",
-    "onChainVolume": "网络上已确认的所有 NANO 交易的总和。如果用户 A 发送 1 个 NANO，用户 B 在同一天收到 1 个 NANO，那么每天的交易量会增加 2 个 NANO，因为 2 个交易被广播和确认，一个发送和一个接收。"
+    "mnano": "Mnano是目前用于钱包，交易所和服务的标准部门。它被称为1 BANANO。",
+    "versionsByWeight": "为了使版本能够取代网络的共识，它需要至少具有{{onlineWeightMinimum}} BANANO的67％的在线投票权。",
+    "onChainVolume": "网络上已确认的所有 BANANO 交易的总和。如果用户 A 发送 1 个 BANANO，用户 B 在同一天收到 1 个 BANANO，那么每天的交易量会增加 2 个 BANANO，因为 2 个交易被广播和确认，一个发送和一个接收。"
   },
   "search": {
     "searchBy": "按地址/阻止/已知帐户搜索",
@@ -97,20 +97,20 @@
     "darkMode": "暗模式",
     "darkModeDetailed": "从亮或暗模式切换，以根据您的环境改善您的网站浏览体验。",
     "language": "语",
-    "languageDetailed": "选择所需的语言。 NanoLooker正在寻找有助于改善资源管理器翻译的人员。 <0>贡献</0>",
+    "languageDetailed": "选择所需的语言。 BananoLooker正在寻找有助于改善资源管理器翻译的人员。 <0>贡献</0>",
     "watch": "观看其他加密货币",
     "watchSearch": "搜索加密货币",
     "watchDetailed": "在前100个中观察其他加密货币的价格。当前市场价格和24小时变化将显示在顶部栏中。您也可以使用拖放来重新排序选择。",
     "fiatCurrency": "法定货币",
-    "fiatCurrencyDetailed": "法定货币是政府发行的货币。选择一种法定货币以比较Nano的价格。",
+    "fiatCurrencyDetailed": "法定货币是政府发行的货币。选择一种法定货币以比较Banano的价格。",
     "natricons": "纳克顿",
-    "natriconsDetailed": "Natricons是Nano地址的友好而熟悉的面孔。在附近有Nano地址的任何地方，在“帐户”页面上使用它们。",
+    "natriconsDetailed": "Natricons是Banano地址的友好而熟悉的面孔。在附近有Banano地址的任何地方，在“帐户”页面上使用它们。",
     "liveTransactions": "启用实时更新",
-    "liveTransactionsDetailed": "观看Nano网络上发生的实时交易。在主页上可用。",
+    "liveTransactionsDetailed": "观看Banano网络上发生的实时交易。在主页上可用。",
     "contribute": "贡献",
     "filterTransactionsRange": "包括金额范围",
     "filterTransactionsRangeDetailed": "设置自定义过滤范围",
-    "filterTransactions": "隐藏低于1 NANO的金额"
+    "filterTransactions": "隐藏低于1 BANANO的金额"
   },
   "menu": {
     "explore": "探索",
@@ -123,8 +123,8 @@
     "faucets": "水龙头",
     "news": "消息",
     "nodeStatus": "节点状态",
-    "whatIsNano": "什么是纳米？",
-    "earnNano": "赚取纳米",
+    "whatIsBanano": "什么是纳米？",
+    "earnBanano": "赚取纳米",
     "preferences": "首选项",
     "status": "地位",
     "networkStatus": "网络状态"
@@ -133,7 +133,7 @@
     "createdBy": "由{{creator}}创建",
     "donations": {
       "donate": "捐",
-      "title": "NanoLooker捐赠帐户"
+      "title": "BananoLooker捐赠帐户"
     }
   },
   "pages": {
@@ -150,15 +150,15 @@
       "last24Hours": "最近24小时",
       "avgConfirmationTime": "平均确认时间（秒）",
       "confirmedTransactions": "确认交易",
-      "transactionFees": "NANO交易费",
+      "transactionFees": "BANANO交易费",
       "exchangeVolume": "交易量",
-      "onChainVolume": "链上NANO量",
+      "onChainVolume": "链上BANANO量",
       "bitcoinTransactionFees": "支付给矿工的比特币交易费",
       "recentTransactions": "最近交易",
       "liveUpdatesDisabled": "实时更新已禁用",
       "waitingForTransactions": "等待交易",
-      "connectingToBlockchain": "连接到NANO区块链",
-      "reconnectingToBlockchain": "断开连接，重新连接到NANO区块链"
+      "connectingToBlockchain": "连接到BANANO区块链",
+      "reconnectingToBlockchain": "断开连接，重新连接到BANANO区块链"
     },
     "account": {
       "votingWeight": "投票权重",
@@ -171,7 +171,7 @@
       "loadMoreTransactions": "加载更多交易",
       "viewTransactions": "查看交易",
       "notOpenedYet": "此帐户尚未打开",
-      "notOpenedYetReason": "帐户地址有效时，尚未将任何块发布到其链中。如果NANO已发送到该帐户，它仍需要发布相应的块以将资金放入口袋。",
+      "notOpenedYetReason": "帐户地址有效时，尚未将任何块发布到其链中。如果BANANO已发送到该帐户，它仍需要发布相应的块以将资金放入口袋。",
       "missingAccount": "帐户遗失",
       "missingAccountInfo": "未在URL中指定帐户。使用顶部的搜索栏搜索帐户，或将其附加在 /account/ 之后的URL中"
     },
@@ -190,7 +190,7 @@
       "missingBlock": "丢失的块",
       "missingBlockInfo": "URL中未指定该块。使用顶部搜索栏搜索块或将其附加在 /block/ 之后的URL中",
       "blockNotFound": "找不到区块",
-      "blockNotFoundInfo": "找不到您要求的封锁。该块可能存在于Nano网络上，但尚未被节点看到。确保您正在搜索正确的块，或者稍后再试。"
+      "blockNotFoundInfo": "找不到您要求的封锁。该块可能存在于Banano网络上，但尚未被节点看到。确保您正在搜索正确的块，或者稍后再试。"
     },
     "representatives": {
       "voteDistribution": "投票分配",
@@ -214,14 +214,14 @@
       "noDelegatorsFound": "找不到代表"
     },
     "faucets": {
-      "description": "水龙头可让您免费索取少量NANO。这些水龙头让您体验在分散的网络上即时在全球范围内发送和接收NANO的过程是多么容易。"
+      "description": "水龙头可让您免费索取少量BANANO。这些水龙头让您体验在分散的网络上即时在全球范围内发送和接收BANANO的过程是多么容易。"
     },
     "developerFund": {
       "description": "在审查内部安全政策和代表投票权重之后，自19/25/19起，开发人员基金已分为{{totalAccounts}}个帐户。",
       "lastTransaction": "最后交易",
       "allTransactions": "查看所有发送交易",
       "originalDeveloperFund": "原始开发者基金",
-      "originalDeveloperFundDescription": "Nano（以前的RaiBlocks）的分配是通过解决2015年末至2017年10月结束的人工验证码进行的。在分配了 <0>Genesis</0> 数量的〜39％之后，分配停止了，其余的则是 <1>被烧</1>。",
+      "originalDeveloperFundDescription": "Banano（以前的RaiBlocks）的分配是通过解决2015年末至2017年10月结束的人工验证码进行的。在分配了 <0>Genesis</0> 数量的〜39％之后，分配停止了，其余的则是 <1>被烧</1>。",
       "totalAccounts": "{{totalAccounts}}个帐户总数",
       "percentOfTotal": "循环供应量的{{percent}}％"
     },
@@ -229,23 +229,23 @@
       "totalAccounts": "{{totalAccounts}}个已知帐户总数"
     },
     "largeTransactions": {
-      "description": "在NANO区块链上发生的大笔交易。",
+      "description": "在BANANO区块链上发生的大笔交易。",
       "latest": "最新交易",
       "largest": "最大数量"
     },
     "distribution": {
       "title": "纳米分布",
-      "summary": "共有 <0>{{i18nTotalAccounts}}</0> 个帐户持有 <1>{{i18nTotalBalances}}</1> NANO",
+      "summary": "共有 <0>{{i18nTotalAccounts}}</0> 个帐户持有 <1>{{i18nTotalBalances}}</1> BANANO",
       "summaryMinBalance": "余额低于 <0>0.001</0> 的任何帐户均不包括在内",
       "includeKnownExchanges": "包括已知的交流",
       "logScale": "对数刻度",
       "dormantFunds": "休眠基金",
-      "dormantFundsExperiment": "这是一个实验，旨在了解Nano区块链上有多少个帐户处于活动状态。对于每个{{totalAccounts}}个帐户，都会捕获本地节点上的最后交易日期。每个帐户包含的余额和待处理金额在上次交易的月份被标记为有效。下个月，余额和待处理项将被标记为休眠状态。",
+      "dormantFundsExperiment": "这是一个实验，旨在了解Banano区块链上有多少个帐户处于活动状态。对于每个{{totalAccounts}}个帐户，都会捕获本地节点上的最后交易日期。每个帐户包含的余额和待处理金额在上次交易的月份被标记为有效。下个月，余额和待处理项将被标记为休眠状态。",
       "availableSupply": "纳米可用供应",
       "knownAccountBalances": "已知账户余额",
       "unknownDormantFunds": "未知的休眠资金",
-      "dormantFundsQuarterExample": "拥有50个NANO和50个未决NANO的帐户最近一次交易是在6个月前（2个季度），余额100个NANO作为“休眠”添加到了下一个季度的总数中。",
-      "dormantNano": "睡觉的NANO",
+      "dormantFundsQuarterExample": "拥有50个BANANO和50个未决BANANO的帐户最近一次交易是在6个月前（2个季度），余额100个BANANO作为“休眠”添加到了下一个季度的总数中。",
+      "dormantBanano": "睡觉的BANANO",
       "ofAvailableSupply": "可用供应量"
     },
     "news": {
@@ -287,11 +287,10 @@
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> 个节点的带宽限制为 <1>{{limitedBandwidthCap}}</1>。",
       "nodeVersions": "节点版本",
       "latestVersion": "最新版本",
-      "database": "数据库",
-      "versionsByWeight": "投票权版本"
+      "database": "数据库"
     },
     "exchangeTracker": {
-      "description": "每天都会记录Nano交易所在的最受欢迎交易所的账户余额。此度量可用于分析网络上的移动和波动。",
+      "description": "每天都会记录Banano交易所在的最受欢迎交易所的账户余额。此度量可用于分析网络上的移动和波动。",
       "totalSelected": "所选交易所的总余额"
     },
     "preferences": {
@@ -317,9 +316,9 @@
       "registerNote": "用户名和帐户存储在浏览器数据中。",
       "invalidAccount": "无效账户",
       "playersOnline": "在线玩家",
-      "welcomeTitle": "进入竞技场并为您的 Frag 获得 NANO 报酬！",
+      "welcomeTitle": "进入竞技场并为您的 Frag 获得 BANANO 报酬！",
       "welcomeDescription": "欢迎来到竞技场，在那里高级战士会变成没有骨气的糊状物。抛弃每一分常识和任何怀疑，你冲进了一个令人痛苦的风景和隐藏的深渊的舞台。你的新环境会以熔岩坑和大气危害拒绝你，因为大量敌人围绕着你，测试最初将你带到这里的直觉反应。你的新口头禅：战斗或结束。",
-      "welcomeDescription2": "与您的朋友和世界各地的其他玩家一起玩 1999 年最畅销的第一人称射击游戏，通过互相打架赚取 NANO！",
+      "welcomeDescription2": "与您的朋友和世界各地的其他玩家一起玩 1999 年最畅销的第一人称射击游戏，通过互相打架赚取 BANANO！",
       "gameplay": "游戏玩法",
       "registerErrorUsername": "用户名已被用于其他地址",
       "playNanoquakejs": "玩 NanoQuakeJS",
