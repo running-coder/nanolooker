@@ -26,7 +26,7 @@ SERVER_PORT=
 # Nano node RPC domain with port, default http://0.0.0.0:7076
 RPC_DOMAIN=
 # Used to get the ledger size given the nano node installation folder, default /nano/Nano
-NANO_FOLDER=
+NODE_FOLDER=
 # Error logging (optional)
 SENTRY_DNS=
 # Translations (optional)

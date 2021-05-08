@@ -372,19 +372,19 @@ h4.ant-typography {
   border: none;
 }
 
-.what-is-nano-card {
+.what-is-card {
   text-align: center;
 }
 
-.what-is-nano-card p,
-.what-is-nano-card blockquote,
-.what-is-nano-card ul {
+.what-is-card p,
+.what-is-card blockquote,
+.what-is-card ul {
   max-width: 800px;
   margin: 0 auto;
   text-align: left;
 }
 
-.what-is-nano-card blockquote {
+.what-is-card blockquote {
   margin: 1em 0;
   padding-left: 0.8em;
   font-size: 16px;
@@ -392,12 +392,12 @@ h4.ant-typography {
   display: inline-block;
 }
 
-.what-is-nano-card .video-wrapper {
+.what-is-card .video-wrapper {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */
   height: 0;
 }
-.what-is-nano-card .video-wrapper iframe {
+.what-is-card .video-wrapper iframe {
   position: absolute;
   top: 0;
   left: 0;

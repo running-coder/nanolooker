@@ -9,8 +9,8 @@ const {
   MONGO_OPTIONS,
   MONGO_DB,
   COINGECKO_MARKET_STATS,
+  COINGECKO_ALL_PRICE_STATS,
   COINGECKO_PRICE_STATS,
-  COINGECKO_NANO_PRICE_STATS,
   MARKET_CAP_RANK_24H,
   MARKET_CAP_RANK_COLLECTION,
 } = require("../constants");
@@ -25,8 +25,8 @@ const getCoingeckoStats = async ({ fiat, cryptocurrency }) => {
   let marketStats = nodeCache.get(`${COINGECKO_MARKET_STATS}-${fiat}`);
   let priceStats =
     cryptocurrency === "true"
-      ? nodeCache.get(`${COINGECKO_PRICE_STATS}-${fiat}`)
-      : nodeCache.get(`${COINGECKO_NANO_PRICE_STATS}-${fiat}`);
+      ? nodeCache.get(`${COINGECKO_ALL_PRICE_STATS}-${fiat}`)
+      : nodeCache.get(`${COINGECKO_PRICE_STATS}-${fiat}`);
 
   let marketCapRank24h = nodeCache.get(MARKET_CAP_RANK_24H);
 

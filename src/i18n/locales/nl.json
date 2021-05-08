@@ -56,7 +56,7 @@
   "tooltips": {
     "avgConfirmationTime": "De gemiddelde bevestigingstijd wordt lokaal op het knooppunt berekend. Als het knooppunt opnieuw wordt opgestart of in slechte staat verkeert, kan de gemiddelde bevestigingstijd langer zijn dan de rest van het netwerk.",
     "circulatingSupply": "Het aantal munten dat in omloop is. Nano is volledig gedistribueerd, het aanbod zal nooit toenemen.",
-    "nanoTransactionFees": "In tegenstelling tot andere cryptocurrencies zijn nano-transacties voor altijd zonder kosten.",
+    "transactionFees": "In tegenstelling tot andere cryptocurrencies zijn nano-transacties voor altijd zonder kosten.",
     "bitcoinTransactionFees": "Deze waarde heeft geen invloed op het NANO-netwerk, het is uitsluitend ter vergelijking. Het vertegenwoordigt de som van de transactiekosten die de Bitcoin-gebruikers aan de miners betalen om hun transactie geaccepteerd te krijgen op het Bitcoin-netwerk.",
     "cps": "Bevestigingen per seconde. Het aantal bevestigde blokken (verzenden of ontvangen) op het NANO-netwerk. Het wordt de laatste minuut lokaal op het knooppunt bemonsterd. Als het knooppunt opnieuw wordt opgestart of in een verslechterde toestand verkeert, kan de CPS-waarde hoger of lager zijn dan het werkelijke gemiddelde op het netwerk terwijl het knooppunt synchroniseert en opnieuw verbinding maakt met de andere knooppunten.",
     "votingWeight": "Een account met een minimum van {{minWeight}} NANO of >= 0,1% van het online stemgewicht dat eraan is gedelegeerd, is vereist om de status van hoofdvertegenwoordiger te krijgen. Wanneer geconfigureerd op een knooppunt dat aan het stemmen is, worden de stemmen die het produceert opnieuw uitgezonden door andere knooppunten naar wie ze ontvangen, waardoor het netwerk sneller consensus kan bereiken.",
@@ -141,7 +141,7 @@
       "last24Hours": "Afgelopen 24 uur",
       "avgConfirmationTime": "Gem. bevestigingstijd (seconden)",
       "confirmedTransactions": "Bevestigde transacties",
-      "nanoTransactionFees": "NANO-transactiekosten",
+      "transactionFees": "NANO-transactiekosten",
       "exchangeVolume": "Uitwisselingsvolume",
       "onChainVolume": "NANO-volume op de keten",
       "bitcoinTransactionFees": "Bitcoin-transactiekosten betaald aan mijnwerkers",

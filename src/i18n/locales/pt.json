@@ -56,7 +56,7 @@
   "tooltips": {
     "avgConfirmationTime": "O tempo médio de confirmação é calculado localmente no nó. Se o nó for reiniciado ou em condição degradada, o tempo médio de confirmação pode ser maior do que o resto da rede.",
     "circulatingSupply": "A quantidade de moedas em circulação. Nano é totalmente distribuído, a oferta nunca aumentará.",
-    "nanoTransactionFees": "Ao contrário de qualquer outra criptomoeda, as transações Nano são gratuitas, para sempre.",
+    "transactionFees": "Ao contrário de qualquer outra criptomoeda, as transações Nano são gratuitas, para sempre.",
     "bitcoinTransactionFees": "Este valor não tem impacto na rede NANO, é apenas para fins de comparação. Representa a soma das taxas de transação que os usuários de Bitcoin estão pagando aos mineiros para que suas transações sejam aceitas na rede Bitcoin.",
     "cps": "Confirmações por segundo. A taxa de bloqueios confirmados (envio ou recebimento) na rede NANO. É amostrado no último minuto localmente no nó. Se o nó for reiniciado ou em uma condição degradada, o valor CPS pode ser maior ou menor do que a média real na rede enquanto o nó sincroniza e reconecta com os outros nós.",
     "votingWeight": "Uma conta com um mínimo de {{minWeight}} NANO ou >= 0,1% do peso do voto online delegado a ela é necessária para obter o status de Representante Principal. Quando configurado em um nó que está votando, os votos que ele produz serão retransmitidos por outros nós para quem os recebe, ajudando a rede a chegar a um consenso mais rapidamente.",
@@ -141,7 +141,7 @@
       "last24Hours": "Últimas 24 horas",
       "avgConfirmationTime": "Média tempo de confirmação (segundos)",
       "confirmedTransactions": "Transações confirmadas",
-      "nanoTransactionFees": "Taxas de transação NANO",
+      "transactionFees": "Taxas de transação NANO",
       "exchangeVolume": "Volume de troca",
       "onChainVolume": "Volume NANO na cadeia",
       "bitcoinTransactionFees": "Taxas de transação de Bitcoin pagas a mineradores",

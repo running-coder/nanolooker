@@ -56,7 +56,7 @@
   "tooltips": {
     "avgConfirmationTime": "Le temps moyen de confirmation est calculé localement sur le nœud. Si le nœud est redémarré ou dans un état dégradé, le temps de confirmation moyen peut être supérieur à celui du reste du réseau.",
     "circulatingSupply": "La quantité de pièces en circulation. Nano est entièrement distribué, l'offre n'augmentera jamais.",
-    "nanoTransactionFees": "Contrairement à toutes les autres crypto-monnaies, les transactions Nano sont sans frais, pour toujours.",
+    "transactionFees": "Contrairement à toutes les autres crypto-monnaies, les transactions Nano sont sans frais, pour toujours.",
     "bitcoinTransactionFees": "Cette valeur n'a aucun impact sur le réseau NANO, c'est uniquement à des fins de comparaison. Il représente la somme des frais de transaction que les utilisateurs de Bitcoin paient aux mineurs pour que leur transaction soit acceptée sur le réseau Bitcoin.",
     "cps": "Confirmations par seconde. Le taux de blocs confirmés (envoi ou réception) sur le réseau NANO. Il est échantillonné au cours de la dernière minute localement sur le nœud. Si le nœud est redémarré ou dans un état dégradé, la valeur CPS peut être supérieure ou inférieure à la moyenne réelle sur le réseau pendant que le nœud se synchronise et se reconnecte avec les autres nœuds.",
     "votingWeight": "Un compte avec un minimum de {{minWeight}} NANO ou >= 0,1% du poids de vote en ligne qui lui est délégué est requis pour obtenir le statut de représentant principal. Lorsqu'ils sont configurés sur un nœud qui vote, les votes qu'il produit seront rediffusés par d'autres nœuds vers qui les reçoivent, ce qui permet au réseau d'atteindre un consensus plus rapidement.",
@@ -141,7 +141,7 @@
       "last24Hours": "Dernières 24 heures",
       "avgConfirmationTime": "Temps de confirmation moyen (secondes)",
       "confirmedTransactions": "Transactions confirmés",
-      "nanoTransactionFees": "Frais de transaction NANO",
+      "transactionFees": "Frais de transaction NANO",
       "exchangeVolume": "Volume des échanges",
       "onChainVolume": "Volume sur la chaîne NANO",
       "bitcoinTransactionFees": "Frais de transaction Bitcoin payés aux mineurs",

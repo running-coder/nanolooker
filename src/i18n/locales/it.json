@@ -56,7 +56,7 @@
   "tooltips": {
     "avgConfirmationTime": "Il tempo medio di conferma viene calcolato localmente sul nodo. Se il nodo viene riavviato o in condizioni degradate, il tempo medio di conferma potrebbe essere superiore al resto della rete.",
     "circulatingSupply": "La quantità di monete in circolazione. Nano è completamente distribuito, l'offerta non aumenterà mai.",
-    "nanoTransactionFees": "A differenza di qualsiasi altra criptovaluta, le transazioni Nano sono senza commissioni, per sempre.",
+    "transactionFees": "A differenza di qualsiasi altra criptovaluta, le transazioni Nano sono senza commissioni, per sempre.",
     "bitcoinTransactionFees": "Questo valore non ha alcun impatto sulla rete NANO, è esclusivamente a scopo di confronto. Rappresenta la somma delle commissioni di transazione che gli utenti Bitcoin pagano ai minatori per far accettare la loro transazione sulla rete Bitcoin.",
     "cps": "Conferme al secondo. Il tasso di blocchi confermati (invio o ricezione) sulla rete NANO. Viene campionato nell'ultimo minuto localmente sul nodo. Se il nodo viene riavviato o in una condizione degradata, il valore CPS potrebbe essere superiore o inferiore alla media effettiva sulla rete mentre il nodo si sincronizza e si riconnette con gli altri nodi.",
     "votingWeight": "Per ottenere lo stato di Rappresentante principale è necessario un account con un minimo di {{minWeight}} NANO o >= 0,1% del peso di voto online ad esso delegato. Quando configurato su un nodo che sta votando, i voti che produce verranno ritrasmessi dagli altri nodi a chi li riceve, aiutando la rete a raggiungere più velocemente il consenso.",
@@ -141,7 +141,7 @@
       "last24Hours": "Ultime 24 ore",
       "avgConfirmationTime": "Media tempo di conferma (secondi)",
       "confirmedTransactions": "Transazioni confermate",
-      "nanoTransactionFees": "Commissioni di transazione NANO",
+      "transactionFees": "Commissioni di transazione NANO",
       "exchangeVolume": "Volume di scambio",
       "onChainVolume": "Volume NANO sulla catena",
       "bitcoinTransactionFees": "Commissioni di transazione Bitcoin pagate ai minatori",

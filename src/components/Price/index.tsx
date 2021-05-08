@@ -20,14 +20,14 @@ const Price = () => {
     loading: isInitialLoading,
   };
 
-  const nanoCryptocurrency = SupportedCryptocurrency.find(
+  const defaultCryptocurrency = SupportedCryptocurrency.find(
     ({ symbol }) => symbol === "nano",
   ) as CryptocurrencyPriceProps;
 
   return (
     <>
       <Skeleton {...skeletonProps}>
-        <CryptocurrencyPrice {...nanoCryptocurrency} />
+        <CryptocurrencyPrice {...defaultCryptocurrency} />
 
         {cryptocurrency.map(symbol => {
           const crypto = SupportedCryptocurrency.find(
@@ -99,7 +99,12 @@ const CryptocurrencyPrice = ({
       <StatisticsChange
         value={price24hChange}
         isPercent
-        suffix={symbol === "nano" && price24hChange >= 50 ? "🥦" : null}
+        suffix={
+          <>
+            {symbol === "nano" && price24hChange >= 50 ? "🥦" : null}
+            {symbol === "banano" && price24hChange >= 50 ? "🍌" : null}
+          </>
+        }
       />
     </div>
   );

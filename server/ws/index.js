@@ -7,7 +7,7 @@ const {
   MONGO_DB,
   MONGO_OPTIONS,
   TOTAL_CONFIRMATIONS_COLLECTION,
-  TOTAL_NANO_VOLUME_COLLECTION,
+  TOTAL_VOLUME_COLLECTION,
   LARGE_TRANSACTIONS,
   CONFIRMATIONS_PER_SECOND,
 } = require("../constants");
@@ -118,7 +118,7 @@ function updateDb() {
     }
 
     if (accumulatedVolume) {
-      db.collection(TOTAL_NANO_VOLUME_COLLECTION).insertOne({
+      db.collection(TOTAL_VOLUME_COLLECTION).insertOne({
         value: accumulatedVolume,
         createdAt: new Date(),
       });

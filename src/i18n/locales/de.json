@@ -56,7 +56,7 @@
   "tooltips": {
     "avgConfirmationTime": "Die durchschnittliche Bestätigungszeit wird lokal auf dem Knoten berechnet. Wenn der Knoten neu gestartet wird oder sich in einem verschlechterten Zustand befindet, ist die durchschnittliche Bestätigungszeit möglicherweise höher als der Rest des Netzwerks.",
     "circulatingSupply": "Die Anzahl der im Umlauf befindlichen Münzen. Nano ist voll verteilt, das Angebot wird nie steigen.",
-    "nanoTransactionFees": "Im Gegensatz zu anderen Kryptowährungen sind Nano-Transaktionen für immer gebührenfrei.",
+    "transactionFees": "Im Gegensatz zu anderen Kryptowährungen sind Nano-Transaktionen für immer gebührenfrei.",
     "bitcoinTransactionFees": "Dieser Wert hat keine Auswirkungen auf das NANO-Netzwerk, sondern dient ausschließlich Vergleichszwecken. Dies ist die Summe der Transaktionsgebühren, die die Bitcoin-Benutzer an die Bergleute zahlen, um ihre Transaktion im Bitcoin-Netzwerk zu akzeptieren.",
     "cps": "Bestätigungen pro Sekunde. Die Rate der bestätigten Blöcke (Senden oder Empfangen) im NANO-Netzwerk. Es wird in letzter Minute lokal auf dem Knoten abgetastet. Wenn der Knoten neu gestartet wird oder sich in einem verschlechterten Zustand befindet, ist der CPS-Wert möglicherweise höher oder niedriger als der tatsächliche Durchschnitt im Netzwerk, während der Knoten mit den anderen Knoten synchronisiert und erneut eine Verbindung herstellt.",
     "votingWeight": "Ein Konto mit einem Minimum von {{minWeight}} NANO oder >= 0,1% des an ihn delegierten Online-Abstimmungsgewichts ist erforderlich, um den Status eines Hauptvertreters zu erhalten. Bei der Konfiguration auf einem Knoten, der abstimmt, werden die von ihm erzeugten Stimmen von anderen Knoten erneut an die Empfänger gesendet, damit das Netzwerk schneller zu einem Konsens kommt.",
@@ -141,7 +141,7 @@
       "last24Hours": "Letzte 24 Stunden",
       "avgConfirmationTime": "Durchschn. Bestätigungszeit (Sekunden)",
       "confirmedTransactions": "Bestätigte Transaktionen",
-      "nanoTransactionFees": "NANO-Transaktionsgebühren",
+      "transactionFees": "NANO-Transaktionsgebühren",
       "exchangeVolume": "Volume austauschen",
       "onChainVolume": "On-Chain-NANO-Volumen",
       "bitcoinTransactionFees": "An Bergleute gezahlte Bitcoin-Transaktionsgebühren",

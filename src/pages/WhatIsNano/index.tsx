@@ -22,7 +22,7 @@ const WhatIsNanoPage: React.FC = () => {
       <Card
         size="small"
         bordered={false}
-        className="what-is-nano-card"
+        className="what-is-card"
         style={{
           fontSize: isSmallAndLower ? "14px" : "18px",
           paddingBottom: "24px",

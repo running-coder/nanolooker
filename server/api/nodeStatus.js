@@ -14,7 +14,7 @@ const getNodeStatus = async () => {
       const [{ pid }] = await find("name", "nano_node");
       const { cpu, memory, elapsed } = await pidusage(pid);
       const { size: ledgerSize } = fs.statSync(
-        `${process.env.NANO_FOLDER}/data.ldb`,
+        `${process.env.NODE_FOLDER}/data.ldb`,
       );
 
       nodeStatus = {

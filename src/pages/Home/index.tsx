@@ -14,12 +14,12 @@ import { RepresentativesContext } from "api/contexts/Representatives";
 import { NodeStatusContext } from "api/contexts/NodeStatus";
 import {
   MarketStatisticsContext,
-  TOTAL_CONFIRMATIONS_KEY_24H,
-  TOTAL_CONFIRMATIONS_KEY_48H,
-  TOTAL_NANO_VOLUME_KEY_24H,
-  TOTAL_NANO_VOLUME_KEY_48H,
-  TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H,
-  TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H,
+  TOTAL_CONFIRMATIONS_24H,
+  TOTAL_CONFIRMATIONS_48H,
+  TOTAL_VOLUME_24H,
+  TOTAL_VOLUME_48H,
+  BITCOIN_TOTAL_TRANSACTION_FEES_24H,
+  BITCOIN_TOTAL_TRANSACTION_FEES_48H,
 } from "api/contexts/MarketStatistics";
 import LoadingStatistic from "components/LoadingStatistic";
 import StatisticsChange from "components/StatisticsChange";
@@ -61,16 +61,16 @@ const HomePage = () => {
   );
 
   const btcTransactionFees24h =
-    marketStatistics[TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H] && btcCurrentPrice
-      ? new BigNumber(marketStatistics[TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H])
+    marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_24H] && btcCurrentPrice
+      ? new BigNumber(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_24H])
           .times(btcCurrentPrice)
           .toFixed(CurrencyDecimal?.[fiat])
       : 0;
 
   const btcTransactionFeesChange24h = btcTransactionFees24h
-    ? new BigNumber(marketStatistics[TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H])
-        .minus(marketStatistics[TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H])
-        .dividedBy(marketStatistics[TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H])
+    ? new BigNumber(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_24H])
+        .minus(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_48H])
+        .dividedBy(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_48H])
         .times(100)
         .toNumber()
     : 0;
@@ -78,16 +78,16 @@ const HomePage = () => {
   let onChainVolume48hAgo = 0;
   let onChainVolumeChange24h = 0;
   if (
-    marketStatistics[TOTAL_NANO_VOLUME_KEY_24H] &&
-    marketStatistics[TOTAL_NANO_VOLUME_KEY_48H]
+    marketStatistics[TOTAL_VOLUME_24H] &&
+    marketStatistics[TOTAL_VOLUME_48H]
   ) {
     onChainVolume48hAgo = new BigNumber(
-      marketStatistics[TOTAL_NANO_VOLUME_KEY_48H],
+      marketStatistics[TOTAL_VOLUME_48H],
     )
-      .minus(marketStatistics[TOTAL_NANO_VOLUME_KEY_24H])
+      .minus(marketStatistics[TOTAL_VOLUME_24H])
       .toNumber();
     onChainVolumeChange24h = new BigNumber(
-      marketStatistics[TOTAL_NANO_VOLUME_KEY_24H],
+      marketStatistics[TOTAL_VOLUME_24H],
     )
       .minus(onChainVolume48hAgo)
       .dividedBy(onChainVolume48hAgo)
@@ -98,16 +98,16 @@ const HomePage = () => {
   let totalConfirmations48hAgo = 0;
   let confirmationChange24h = 0;
   if (
-    marketStatistics[TOTAL_CONFIRMATIONS_KEY_24H] &&
-    marketStatistics[TOTAL_CONFIRMATIONS_KEY_48H]
+    marketStatistics[TOTAL_CONFIRMATIONS_24H] &&
+    marketStatistics[TOTAL_CONFIRMATIONS_48H]
   ) {
     totalConfirmations48hAgo = new BigNumber(
-      marketStatistics[TOTAL_CONFIRMATIONS_KEY_48H],
+      marketStatistics[TOTAL_CONFIRMATIONS_48H],
     )
-      .minus(marketStatistics[TOTAL_CONFIRMATIONS_KEY_24H])
+      .minus(marketStatistics[TOTAL_CONFIRMATIONS_24H])
       .toNumber();
     confirmationChange24h = new BigNumber(
-      marketStatistics[TOTAL_CONFIRMATIONS_KEY_24H],
+      marketStatistics[TOTAL_CONFIRMATIONS_24H],
     )
       .minus(totalConfirmations48hAgo)
       .dividedBy(totalConfirmations48hAgo)
@@ -170,8 +170,8 @@ const HomePage = () => {
                 {!isSmallAndLower ? (
                   <LoadingStatistic
                     isLoading={false}
-                    title={t("pages.home.nanoTransactionFees")}
-                    tooltip={t("tooltips.nanoTransactionFees")}
+                    title={t("pages.home.transactionFees")}
+                    tooltip={t("tooltips.transactionFees")}
                     value={0}
                   />
                 ) : null}
@@ -199,7 +199,7 @@ const HomePage = () => {
                     />
                   }
                   value={new BigNumber(
-                    marketStatistics[TOTAL_NANO_VOLUME_KEY_24H],
+                    marketStatistics[TOTAL_VOLUME_24H],
                   )
                     .decimalPlaces(5)
                     .toNumber()}
@@ -210,13 +210,13 @@ const HomePage = () => {
                   suffix={
                     <StatisticsChange value={confirmationChange24h} isPercent />
                   }
-                  value={marketStatistics[TOTAL_CONFIRMATIONS_KEY_24H]}
+                  value={marketStatistics[TOTAL_CONFIRMATIONS_24H]}
                 />
                 {isSmallAndLower ? (
                   <LoadingStatistic
                     isLoading={false}
-                    title={t("pages.home.nanoTransactionFees")}
-                    tooltip={t("tooltips.nanoTransactionFees")}
+                    title={t("pages.home.transactionFees")}
+                    tooltip={t("tooltips.transactionFees")}
                     value={0}
                   />
                 ) : null}

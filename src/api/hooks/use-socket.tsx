@@ -31,7 +31,7 @@ const useSocket = () => {
     Transaction[]
   >([]);
   const {
-    hideTransactionsUnderOneNano,
+    hideTransactionsUnderOne,
     disableLiveTransactions,
   } = React.useContext(PreferencesContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
@@ -76,7 +76,7 @@ const useSocket = () => {
     if (!ws) return;
     ws.onmessage = onMessage;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hideTransactionsUnderOneNano]);
+  }, [hideTransactionsUnderOne]);
 
   const onMessage = React.useCallback(
     (msg: MessageEvent) => {
@@ -85,7 +85,7 @@ const useSocket = () => {
 
         if (topic === Topic.CONFIRMATION) {
           if (
-            hideTransactionsUnderOneNano &&
+            hideTransactionsUnderOne &&
             ["send", "receive"].includes(message.block.subtype) &&
             new BigNumber(rawToRai(message.amount)).toNumber() < 1
           ) {
@@ -109,7 +109,7 @@ const useSocket = () => {
         // silence error
       }
     },
-    [hideTransactionsUnderOneNano, knownAccounts],
+    [hideTransactionsUnderOne, knownAccounts],
   );
 
   const connect = React.useCallback(() => {

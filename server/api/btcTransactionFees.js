@@ -3,17 +3,17 @@ const { Sentry } = require("../sentry");
 const { nodeCache } = require("../cache");
 const { EXPIRE_1H } = require("../constants");
 
-const TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H =
-  "TOTAL_BITCOIN_TRANSACTION_FEES_24H";
-const TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H =
-  "TOTAL_BITCOIN_TRANSACTION_FEES_48H";
+const BITCOIN_TOTAL_TRANSACTION_FEES_24H =
+  "BITCOIN_TOTAL_TRANSACTION_FEES_24H";
+const BITCOIN_TOTAL_TRANSACTION_FEES_48H =
+  "BITCOIN_TOTAL_TRANSACTION_FEES_48H";
 
 const getBtcTransactionFees = async () => {
   let btcTransactionFees24h = nodeCache.get(
-    TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H,
+    BITCOIN_TOTAL_TRANSACTION_FEES_24H,
   );
   let btcTransactionFees48h = nodeCache.get(
-    TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H,
+    BITCOIN_TOTAL_TRANSACTION_FEES_48H,
   );
 
   if (!btcTransactionFees24h || btcTransactionFees48h) {
@@ -27,12 +27,12 @@ const getBtcTransactionFees = async () => {
       btcTransactionFees48h = values.pop().y;
 
       nodeCache.set(
-        TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H,
+        BITCOIN_TOTAL_TRANSACTION_FEES_24H,
         btcTransactionFees24h,
         EXPIRE_1H,
       );
       nodeCache.set(
-        TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H,
+        BITCOIN_TOTAL_TRANSACTION_FEES_48H,
         btcTransactionFees48h,
         EXPIRE_1H,
       );
@@ -47,6 +47,6 @@ const getBtcTransactionFees = async () => {
 
 module.exports = {
   getBtcTransactionFees,
-  TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H,
-  TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H,
+  BITCOIN_TOTAL_TRANSACTION_FEES_24H,
+  BITCOIN_TOTAL_TRANSACTION_FEES_48H,
 };

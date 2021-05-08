@@ -29,7 +29,6 @@ const useSearchHistory = (): UseSearchHistoryReturn => {
     (value: string) => {
       if (searchHistory.includes(value)) return;
 
-      // @TODO: check for nano/xrb prefix
       const newSearchHistory = [value]
         .concat(searchHistory)
         .slice(0, MAX_HISTORY);

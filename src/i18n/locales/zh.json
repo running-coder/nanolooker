@@ -56,7 +56,7 @@
   "tooltips": {
     "avgConfirmationTime": "平均确认时间在节点上本地计算。如果节点重新启动或处于降级状态，则平均确认时间可能会高于网络的其余部分。",
     "circulatingSupply": "流通中的硬币数量。纳米是完全分布的，供应将永远不会增加。",
-    "nanoTransactionFees": "与其他任何加密货币不同，Nano交易永远是免费的。",
+    "transactionFees": "与其他任何加密货币不同，Nano交易永远是免费的。",
     "bitcoinTransactionFees": "该值对NANO网络没有影响，仅用于比较目的。它代表了比特币用户支付给矿工以使其交易在比特币网络上接受的交易费用总和。",
     "cps": "每秒确认数。在NANO网络上已确认的块（发送或接收）的速率。它是在节点上本地的最后一分钟采样的。如果节点重新启动或处于降级状态，则当该节点同步并与其他节点重新连接时，CPS值可能会高于或低于网络上的实际平均值。",
     "votingWeight": "必须拥有至少{{minWeight}} NANO或委托给它的在线投票权重的== 0.1％以上的帐户，才能获得首席代表身份。在进行投票的节点上进行配置时，其产生的投票将被其他节点重新广播给接收投票的节点，从而帮助网络更快地达成共识。",
@@ -141,7 +141,7 @@
       "last24Hours": "最近24小时",
       "avgConfirmationTime": "平均确认时间（秒）",
       "confirmedTransactions": "确认交易",
-      "nanoTransactionFees": "NANO交易费",
+      "transactionFees": "NANO交易费",
       "exchangeVolume": "交易量",
       "onChainVolume": "链上NANO量",
       "bitcoinTransactionFees": "支付给矿工的比特币交易费",

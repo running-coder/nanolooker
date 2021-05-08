@@ -13,8 +13,8 @@ interface Props {
 const FilterTransactionsPreferences: React.FC<Props> = ({ isDetailed }) => {
   const { t } = useTranslation();
   const {
-    hideTransactionsUnderOneNano,
-    setHideTransactionsUnderOneNano,
+    hideTransactionsUnderOne,
+    setHideTransactionsUnderOne,
   } = React.useContext(PreferencesContext);
 
   return (
@@ -35,9 +35,9 @@ const FilterTransactionsPreferences: React.FC<Props> = ({ isDetailed }) => {
           checkedChildren={<CheckOutlined />}
           unCheckedChildren={<CloseOutlined />}
           onChange={(checked: boolean) => {
-            setHideTransactionsUnderOneNano(!checked);
+            setHideTransactionsUnderOne(!checked);
           }}
-          checked={!hideTransactionsUnderOneNano}
+          checked={!hideTransactionsUnderOne}
         />
       </Col>
     </Row>

@@ -4,8 +4,8 @@ const { Sentry } = require("../sentry");
 const { nodeCache } = require("../cache");
 const {
   COINGECKO_MARKET_STATS,
+  COINGECKO_ALL_PRICE_STATS,
   COINGECKO_PRICE_STATS,
-  COINGECKO_NANO_PRICE_STATS,
   SUPPORTED_CRYPTOCURRENCY,
 } = require("../constants");
 
@@ -21,8 +21,8 @@ const getPriceStats = async () => {
       );
       const json = await resPrices.json();
 
-      nodeCache.set(`${COINGECKO_PRICE_STATS}-${fiat}`, json);
-      nodeCache.set(`${COINGECKO_NANO_PRICE_STATS}-${fiat}`, {
+      nodeCache.set(`${COINGECKO_ALL_PRICE_STATS}-${fiat}`, json);
+      nodeCache.set(`${COINGECKO_PRICE_STATS}-${fiat}`, {
         bitcoin: json.bitcoin,
         nano: json.nano,
       });

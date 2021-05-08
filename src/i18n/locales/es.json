@@ -56,7 +56,7 @@
   "tooltips": {
     "avgConfirmationTime": "El tiempo medio de confirmación se calcula localmente en el nodo. Si el nodo se reinicia o se degrada, el tiempo medio de confirmación puede ser mayor que el del resto de la red.",
     "circulatingSupply": "La cantidad de monedas que hay en circulación. Nano está completamente distribuido, la oferta nunca aumentará.",
-    "nanoTransactionFees": "A diferencia de otras criptomonedas, las nano transacciones son gratuitas para siempre.",
+    "transactionFees": "A diferencia de otras criptomonedas, las nano transacciones son gratuitas para siempre.",
     "bitcoinTransactionFees": "Este valor no tiene ningún impacto en la red NANO, es únicamente con fines comparativos. Representa la suma de las tarifas de transacción que los usuarios de Bitcoin pagan a los mineros para que su transacción sea aceptada en la red de Bitcoin.",
     "cps": "Confirmaciones por segundo. La tasa de bloques confirmados (enviar o recibir) en la red NANO. Se muestrea en el último minuto localmente en el nodo. Si el nodo se reinicia o se degrada, el valor de CPS puede ser mayor o menor que el promedio real en la red mientras el nodo se sincroniza y se vuelve a conectar con los otros nodos.",
     "votingWeight": "Se requiere una cuenta con un mínimo de {{minWeight}} NANO o >= 0.1% del peso de la votación en línea delegado para obtener el estado de Representante Principal. Cuando se configura en un nodo que está votando, los votos que produce serán retransmitidos por otros nodos a quienes los reciben, lo que ayuda a la red a llegar a un consenso más rápidamente.",
@@ -141,7 +141,7 @@
       "last24Hours": "Últimas 24 horas",
       "avgConfirmationTime": "Promedio tiempo de confirmación (segundos)",
       "confirmedTransactions": "Transacciones confirmadas",
-      "nanoTransactionFees": "Tarifas de transacción NANO",
+      "transactionFees": "Tarifas de transacción NANO",
       "exchangeVolume": "Volumen de intercambio",
       "onChainVolume": "Volumen NANO en cadena",
       "bitcoinTransactionFees": "Tarifas de transacción de Bitcoin pagadas a los mineros",

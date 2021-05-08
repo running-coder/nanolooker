@@ -56,7 +56,7 @@
   "tooltips": {
     "avgConfirmationTime": "Ortalama onay süresi, düğümde yerel olarak hesaplanır. Düğüm yeniden başlatılırsa veya düşürülmüş durumdaysa, ortalama onay süresi ağın geri kalanından daha yüksek olabilir.",
     "circulatingSupply": "Dolaşımdaki bozuk para miktarı. Nano tamamen dağıtılmış durumda, arz asla artmayacak.",
-    "nanoTransactionFees": "Diğer kripto para birimlerinin aksine Nano işlemler sonsuza kadar ücretsizdir.",
+    "transactionFees": "Diğer kripto para birimlerinin aksine Nano işlemler sonsuza kadar ücretsizdir.",
     "bitcoinTransactionFees": "Bu değerin NANO ağı üzerinde hiçbir etkisi yoktur, yalnızca karşılaştırma amaçlıdır. Bitcoin kullanıcılarının işlemlerinin Bitcoin ağında kabul edilmesini sağlamak için madencilere ödediği işlem ücretlerinin toplamını temsil eder.",
     "cps": "Saniyedeki Onaylar. NANO ağında onaylanmış blokların (gönderme veya alma) oranı. Düğüm üzerinde yerel olarak son dakika boyunca örneklenir. Düğüm yeniden başlatılırsa veya düşürülmüş bir durumda ise, düğüm diğer düğümlerle eşitlenir ve yeniden bağlanırken CPS değeri ağdaki gerçek ortalamadan daha yüksek veya daha düşük olabilir.",
     "votingWeight": "Asgari {{minWeight}} NANO veya kendisine devredilen çevrimiçi oy ağırlığının>% 0,1'i olan bir hesabın Ana Temsilci statüsünü alması gerekir. Oylama yapan bir düğümde yapılandırıldığında, ürettiği oylar onları alan diğer düğümler tarafından yeniden yayınlanır ve ağın fikir birliğine daha hızlı ulaşmasına yardımcı olur.",
@@ -141,7 +141,7 @@
       "last24Hours": "Son 24 saat",
       "avgConfirmationTime": "Ort. onay süresi (saniye)",
       "confirmedTransactions": "Onaylanmış işlemler",
-      "nanoTransactionFees": "NANO işlem ücretleri",
+      "transactionFees": "NANO işlem ücretleri",
       "exchangeVolume": "Değişim hacmi",
       "onChainVolume": "Zincir üzerindeki NANO hacmi",
       "bitcoinTransactionFees": "Madencilere ödenen Bitcoin işlem ücretleri",

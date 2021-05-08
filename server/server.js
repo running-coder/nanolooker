@@ -17,16 +17,16 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const { nodeCache } = require("./cache");
 const {
-  TOTAL_CONFIRMATIONS_KEY_24H,
-  TOTAL_NANO_VOLUME_KEY_24H,
-  TOTAL_CONFIRMATIONS_KEY_48H,
-  TOTAL_NANO_VOLUME_KEY_48H,
+  TOTAL_CONFIRMATIONS_24H,
+  TOTAL_VOLUME_24H,
+  TOTAL_CONFIRMATIONS_48H,
+  TOTAL_VOLUME_48H,
   CONFIRMATIONS_PER_SECOND,
 } = require("./constants");
 const {
   getBtcTransactionFees,
-  TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H,
-  TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H,
+  BITCOIN_TOTAL_TRANSACTION_FEES_24H,
+  BITCOIN_TOTAL_TRANSACTION_FEES_48H,
 } = require("./api/btcTransactionFees");
 
 const { getCoingeckoStats } = require("./api/coingeckoStats");
@@ -112,10 +112,10 @@ app.get("/api/developer-fund/transactions", async (req, res) => {
 });
 
 app.get("/api/market-statistics", async (req, res) => {
-  const cachedConfirmations24h = nodeCache.get(TOTAL_CONFIRMATIONS_KEY_24H);
-  const cachedVolume24h = nodeCache.get(TOTAL_NANO_VOLUME_KEY_24H);
-  const cachedConfirmations48h = nodeCache.get(TOTAL_CONFIRMATIONS_KEY_48H);
-  const cachedVolume48h = nodeCache.get(TOTAL_NANO_VOLUME_KEY_48H);
+  const cachedConfirmations24h = nodeCache.get(TOTAL_CONFIRMATIONS_24H);
+  const cachedVolume24h = nodeCache.get(TOTAL_VOLUME_24H);
+  const cachedConfirmations48h = nodeCache.get(TOTAL_CONFIRMATIONS_48H);
+  const cachedVolume48h = nodeCache.get(TOTAL_VOLUME_48H);
 
   const {
     btcTransactionFees24h,
@@ -127,12 +127,12 @@ app.get("/api/market-statistics", async (req, res) => {
   });
 
   return res.send({
-    [TOTAL_CONFIRMATIONS_KEY_24H]: cachedConfirmations24h,
-    [TOTAL_NANO_VOLUME_KEY_24H]: cachedVolume24h,
-    [TOTAL_CONFIRMATIONS_KEY_48H]: cachedConfirmations48h,
-    [TOTAL_NANO_VOLUME_KEY_48H]: cachedVolume48h,
-    [TOTAL_BITCOIN_TRANSACTION_FEES_KEY_24H]: btcTransactionFees24h,
-    [TOTAL_BITCOIN_TRANSACTION_FEES_KEY_48H]: btcTransactionFees48h,
+    [TOTAL_CONFIRMATIONS_24H]: cachedConfirmations24h,
+    [TOTAL_VOLUME_24H]: cachedVolume24h,
+    [TOTAL_CONFIRMATIONS_48H]: cachedConfirmations48h,
+    [TOTAL_VOLUME_48H]: cachedVolume48h,
+    [BITCOIN_TOTAL_TRANSACTION_FEES_24H]: btcTransactionFees24h,
+    [BITCOIN_TOTAL_TRANSACTION_FEES_48H]: btcTransactionFees48h,
     ...marketStats,
     priceStats,
   });

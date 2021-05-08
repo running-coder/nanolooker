@@ -39,13 +39,13 @@ interface Preferences {
   cryptocurrency: string[];
   fiat: Fiat;
   setTheme: Function;
-  hideTransactionsUnderOneNano: boolean;
+  hideTransactionsUnderOne: boolean;
   disableLiveTransactions: boolean;
   addCryptocurrency: Function;
   removeCryptocurrency: Function;
   reorderCryptocurrency: Function;
   setFiat: Function;
-  setHideTransactionsUnderOneNano: Function;
+  setHideTransactionsUnderOne: Function;
   setDisableLiveTransactions: Function;
   natricons: boolean;
   setNatricons: Function;
@@ -55,7 +55,7 @@ export enum LOCALSTORAGE_KEYS {
   THEME = "THEME",
   CRYPTOCURRENCY = "CRYPTOCURRENCY",
   FIAT = "FIAT",
-  HIDE_TRANSACTIONS_UNDER_ONE_NANO = "HIDE_TRANSACTIONS_UNDER_ONE_NANO",
+  HIDE_TRANSACTIONS_UNDER_ONE = "HIDE_TRANSACTIONS_UNDER_ONE",
   DISABLE_LIVE_TRANSACTIONS = "DISABLE_LIVE_TRANSACTIONS",
   NATRICONS = "NATRICONS",
   LANGUAGE = "LANGUAGE",
@@ -78,7 +78,7 @@ export const PreferencesContext = React.createContext<Preferences>({
   theme: Theme.LIGHT,
   cryptocurrency: [],
   fiat: Fiat.USD,
-  hideTransactionsUnderOneNano: false,
+  hideTransactionsUnderOne: false,
   disableLiveTransactions: false,
   natricons: false,
   setTheme: () => {},
@@ -86,7 +86,7 @@ export const PreferencesContext = React.createContext<Preferences>({
   removeCryptocurrency: () => {},
   reorderCryptocurrency: () => {},
   setFiat: () => {},
-  setHideTransactionsUnderOneNano: () => {},
+  setHideTransactionsUnderOne: () => {},
   setDisableLiveTransactions: () => {},
   setNatricons: () => {},
 });
@@ -102,11 +102,11 @@ const Provider: React.FC = ({ children }) => {
     (localStorage.getItem(LOCALSTORAGE_KEYS.FIAT) as Fiat) || Fiat.USD,
   );
   const [
-    hideTransactionsUnderOneNano,
-    setHideTransactionsUnderOneNano,
+    hideTransactionsUnderOne,
+    setHideTransactionsUnderOne,
   ] = React.useState<boolean>(
     toBoolean(
-      localStorage.getItem(LOCALSTORAGE_KEYS.HIDE_TRANSACTIONS_UNDER_ONE_NANO),
+      localStorage.getItem(LOCALSTORAGE_KEYS.HIDE_TRANSACTIONS_UNDER_ONE),
     ),
   );
   const [
@@ -171,12 +171,12 @@ const Provider: React.FC = ({ children }) => {
     setFiat(newValue);
   };
 
-  const setLocalstorageHideTransactionsUnderOneNano = (newValue: boolean) => {
+  const setLocalstorageHideTransactionsUnderOne = (newValue: boolean) => {
     localStorage.setItem(
-      LOCALSTORAGE_KEYS.HIDE_TRANSACTIONS_UNDER_ONE_NANO,
+      LOCALSTORAGE_KEYS.HIDE_TRANSACTIONS_UNDER_ONE,
       `${newValue}`,
     );
-    setHideTransactionsUnderOneNano(newValue);
+    setHideTransactionsUnderOne(newValue);
   };
 
   const setLocalstorageDisableLiveTransactions = (newValue: boolean) => {
@@ -198,7 +198,7 @@ const Provider: React.FC = ({ children }) => {
         theme,
         cryptocurrency,
         fiat,
-        hideTransactionsUnderOneNano,
+        hideTransactionsUnderOne,
         disableLiveTransactions,
         natricons,
         setTheme: setLocalstorageTheme,
@@ -206,7 +206,7 @@ const Provider: React.FC = ({ children }) => {
         removeCryptocurrency,
         reorderCryptocurrency,
         setFiat: setLocalstorageFiat,
-        setHideTransactionsUnderOneNano: setLocalstorageHideTransactionsUnderOneNano,
+        setHideTransactionsUnderOne: setLocalstorageHideTransactionsUnderOne,
         setDisableLiveTransactions: setLocalstorageDisableLiveTransactions,
         setNatricons: setLocalstorageNatricons,
       }}
