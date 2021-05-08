@@ -14,7 +14,7 @@ const LanguagePreferences: React.FC<Props> = ({ isDetailed }) => {
   const { t } = useTranslation();
 
   return (
-    <Row>
+    <Row style={{ alignItems: !isDetailed ? "center" : "flex-start" }}>
       <Col xs={isDetailed ? 24 : undefined}>
         <Text className={isDetailed ? "preference-detailed-title" : ""}>
           {t("preferences.language")}
@@ -39,7 +39,11 @@ const LanguagePreferences: React.FC<Props> = ({ isDetailed }) => {
         </Col>
       ) : null}
 
-      <Col xs={isDetailed ? 8 : undefined} style={{ textAlign: "right" }}>
+      <Col
+        xs={isDetailed ? 8 : undefined}
+        style={{ textAlign: "right" }}
+        flex="auto"
+      >
         <Select
           value={i18next.language}
           onChange={value => {

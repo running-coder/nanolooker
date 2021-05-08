@@ -101,15 +101,6 @@ a:hover {
   margin-left: -30px;
 }
 
-/* .end {
-  flex-grow: 1;
-} */
-
-.mid {
-  width: 30px;
-  flex-shrink: 10;
-}
-
 .isloading-skeleton-width {
   width: 50%;
 }
@@ -387,14 +378,6 @@ h4.ant-typography {
   border: none;
 }
 
-.search-history-icon {
-  color: rgba(0, 0, 0, 0.45);
-}
-
-.search-history-icon:hover {
-  color: rgba(0, 0, 0, 0.85);
-}
-
 .what-is-nano-card {
   text-align: center;
 }
@@ -434,10 +417,10 @@ h4.ant-typography {
   max-height: 60px;
 }
 
-/* .options-wrapper .ant-col {
+.options-wrapper .ant-col {
   flex-grow: initial;
   margin: 2px 0;
-} */
+}
 
 .options-wrapper .ant-col .ant-btn {
   display: flex;
@@ -449,12 +432,27 @@ h4.ant-typography {
   margin-top: 2px;
 }
 
+body,
 .ant-card,
-/* .ant-btn, */
+.ant-menu,
+.ant-input,
+.ant-timeline,
 .ant-typography,
 .ant-dropdown-menu-item,
-.ant-dropdown-menu-submenu-title {
+.ant-dropdown-menu-submenu-title,
+.ant-select-item,
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
   color: rgba(0, 0, 0, 0.65);
+}
+
+.anticon-search,
+.search-history-icon {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.anticon-search:hover,
+.search-history-icon:hover {
+  color: rgba(0, 0, 0, 0.85);
 }
 
 .ant-statistic-content-value-decimal {
@@ -495,4 +493,10 @@ h4.ant-typography {
 
 .ant-card {
   margin-bottom: 12px;
+}
+
+.ant-menu-item,
+.ant-menu-submenu:not(.ant-menu-submenu-popup) {
+  margin: 0 6px !important;
+  padding: 0 18px 0 12px !important;
 }

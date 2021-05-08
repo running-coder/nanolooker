@@ -30,9 +30,9 @@ body .theme-dark {
   color: #e1e1e1;
 }
 
-.ant-menu {
+/* .ant-menu {
   background: transparent !important;
-}
+} */
 
 .theme-dark .ant-dropdown-menu,
 .theme-dark .ant-menu-submenu-popup {
@@ -53,7 +53,7 @@ body .theme-dark {
 
 .theme-dark .ant-menu {
   color: #e1e1e1;
-  background: #1e1e1e;
+  background: #121212;
 }
 
 .theme-dark .ant-menu.ant-menu-sub {

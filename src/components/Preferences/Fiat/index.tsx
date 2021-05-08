@@ -19,7 +19,7 @@ const FiatPreferences: React.FC<Props> = ({ isDetailed }) => {
   );
 
   return (
-    <Row>
+    <Row style={{ alignItems: !isDetailed ? "center" : "flex-start" }}>
       <Col xs={isDetailed ? 24 : 18}>
         <Text className={isDetailed ? "preference-detailed-title" : ""}>
           {t("preferences.fiatCurrency")}
