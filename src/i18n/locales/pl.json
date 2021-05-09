@@ -22,7 +22,7 @@
     "continueReading": "Kontynuuj czytanie",
     "alias": "Alias",
     "search": "Szukaj",
-    "reset": "Resetowanie",
+    "reset": "Resetuj",
     "searchAlias": "Wyszukaj alias",
     "noResults": "Brak wyników",
     "by": "Przez",
@@ -32,33 +32,33 @@
     "copy": "Kopiuj",
     "bookmark": "Zakładka",
     "bookmarks": "Zakładki",
-    "ok": "Dobrze",
+    "ok": "ok",
     "executionDate": "Ostatnia kompilacja miała miejsce <0>{{date}}</0>",
     "executionTimeAgo": "Ostatnia kompilacja to"
   },
   "nodeHealth": {
-    "nodeReloading": "Węzeł Nano jest przeładowywany",
-    "nodeReady": "Węzeł Nano jest gotowy"
+    "nodeReloading": "Nano Node jest przeładowywana",
+    "nodeReady": "Nano Node jest gotowa"
   },
   "transaction": {
     "type": "Rodzaj",
     "accountAndBlock": "Konto / Zablokuj",
-    "send": "Wysłać",
-    "receive": "Otrzymać",
-    "pending": "W oczekiwaniu",
+    "send": "Wysłanie",
+    "receive": "Otrzymanie",
+    "pending": "Oczekiwanie...",
     "change": "Zmiana",
     "open": "otwarty",
     "state": "Stan",
-    "epoch": "Epoka",
-    "cps": "CPS",
+    "epoch": "Epoch",
+    "cps": "PNS",
     "amount": "Ilość"
   },
   "tooltips": {
-    "avgConfirmationTime": "Średni czas potwierdzenia jest obliczany lokalnie w węźle. Jeśli węzeł zostanie zrestartowany lub w stanie zdegradowanym, średni czas potwierdzenia może być dłuższy niż w pozostałej części sieci.",
+    "avgConfirmationTime": "Średni czas potwierdzenia jest obliczany lokalnie w Nano Node. Jeśli Nano Node zostanie zrestartowany lub w stanie zdegradowanym, średni czas potwierdzenia może być dłuższy niż w pozostałej części sieci.",
     "circulatingSupply": "Liczba monet znajdujących się w obiegu. Nano jest w pełni dystrybuowane, podaż nigdy nie wzrośnie.",
-    "transactionFees": "W przeciwieństwie do innych kryptowalut transakcje Nano są zawsze bez opłat.",
+    "nanoTransactionFees": "W przeciwieństwie do innych kryptowalut transakcje Nano są zawsze bez opłat.",
     "bitcoinTransactionFees": "Wartość ta nie ma wpływu na sieć NANO, służy wyłącznie do celów porównawczych. Reprezentuje sumę opłat transakcyjnych, które użytkownicy Bitcoin płacą górnikom, aby ich transakcja została zaakceptowana w sieci Bitcoin.",
-    "cps": "Potwierdzenia na sekundę. Liczba potwierdzonych bloków (wysyłanie lub odbieranie) w sieci NANO. Jest próbkowany lokalnie w węźle w ciągu ostatniej minuty. Jeśli węzeł zostanie zrestartowany lub w złym stanie, wartość CPS może być wyższa lub niższa od rzeczywistej średniej w sieci, podczas gdy węzeł synchronizuje się i ponownie łączy z innymi węzłami.",
+    "cps": "Potwierdzenia na sekundę. Liczba potwierdzonych bloków (wysyłanie lub odbieranie) w sieci NANO. Jest próbkowany lokalnie w Nano Node w ciągu ostatniej minuty. Jeśli węzeł zostanie zrestartowany lub w złym stanie, wartość CPS może być wyższa lub niższa od rzeczywistej średniej w sieci, podczas gdy węzeł synchronizuje się i ponownie łączy z innymi węzłami.",
     "votingWeight": "Aby uzyskać status głównego przedstawiciela, wymagane jest konto z co najmniej {{minWeight}} NANO lub >= 0,1% oddelegowanej wagi głosowania online. Po skonfigurowaniu na węźle, który głosuje, głosy, które generuje, będą ponownie transmitowane przez inne węzły, które je otrzymują, pomagając sieci szybciej osiągnąć konsensus.",
     "pending": "Stan transakcji, w którym blok wysyłający środki został opublikowany i potwierdzony przez sieć, ale pasujący blok otrzymujący te środki nie został jeszcze wysłany ani potwierdzony.",
     "nakamotoCoefficient": "Współczynnik Nakamoto jest sposobem kwantyfikacji decentralizacji łańcucha bloków lub innego zdecentralizowanego systemu. Jest to liczba jednostek potrzebnych do skompromitowania co najmniej jednego podstawowego podsystemu. W przypadku Nano ponad 50% głosów w głosowaniu online głównych przedstawicieli musiałoby zostać naruszone.",
@@ -68,7 +68,7 @@
     "lastTransaction": "Ostatnia transakcja wysłana z dowolnego z kont {{totalAccounts}}.",
     "largeTransactions": "Tylko transakcje wysyłania 10 000 NANO lub więcej są tymczasowo zapisywane na jeden tydzień.",
     "knownExchangeBalance": "Wyklucz {{knownExchangeList}} z wykresu dystrybucji. Te konta łącznie posiadają {{knownExchangeBalance}} NANO",
-    "unchecked": "Bloki (transakcje), które zostały pobrane, ale nie zostały jeszcze przetworzone przez węzeł Nano. Oprogramowanie węzła pobiera wszystkie blokady z innych węzłów jako niezaznaczone, przetwarza je i dodaje do liczby bloków, potwierdza bloki graniczne dla każdego konta, a następnie oznacza je jako zacementowane.",
+    "unchecked": "Bloki (transakcje), które zostały pobrane, ale nie zostały jeszcze przetworzone przez Node Nano. Oprogramowanie węzła pobiera wszystkie blokady z innych węzłów jako niezaznaczone, przetwarza je i dodaje do liczby bloków, potwierdza bloki graniczne dla każdego konta, a następnie oznacza je jako zacementowane.",
     "cemented": "Gdy określony węzeł oznacza potwierdzoną transakcję jako lokalnie nieodwracalną, ustawiając wysokość potwierdzenia konta (w bazie danych węzłów) na wyższą teraz wysokość bloku potwierdzonej transakcji. Cementowanie jest operacją na poziomie węzła.",
     "unknownLastTransaction": "Daty transakcji zostały wprowadzone w lutym 2019 r. Przed tą datą czasy transakcji nie były rejestrowane lokalnie na węzłach. Powodem, dla którego data ostatniej transakcji jest nieznana, jest to, że została potwierdzona przed zapisaniem dat lub przed uruchomieniem węzła NanoLooker.",
     "confirmationHeight": "Liczba przechowywana w bazie danych węzłów lokalnych, która reprezentuje najwyższy (najnowszy) potwierdzony blok w łańcuchu kont. Związane z (ale różniące się od) wysokości bloku.",
@@ -77,8 +77,8 @@
     "groupByEntities": "Przegrupuj wszystkie wagi głosów, które są podzielone na różnych głównych przedstawicieli w pojedyncze jednostki. Na przykład giełda może mieć wiele portfeli i podzielić ich wagę, ale w rzeczywistości można ją policzyć jako jedną wagę, jeśli miałyby ją przegrupować.",
     "telemetry": "Metryki z innych węzłów w sieci. Wszystkie metryki są zbierane i uśredniane, aby przedstawić różne stany w sieci. P odpowiada percentylowi, p50 jest obliczane poprzez wykluczenie dolnych 50%, podczas gdy p95 wyklucza dolne 5% różnych wartości w celu obliczenia średniej.",
     "ledgerSize": "Całkowita ilość miejsca na dysku wymagana do przechowywania wszystkich dotychczasowych transakcji Nano. Rozmiar księgi jest obliczany na podstawie 1024, a nie 1000.",
-    "bandwidthCap": "Węzły nano mogą ograniczać przepustowość, aby ograniczyć liczbę wiadomości, które mogą być wysyłane lub odbierane. 0 oznacza nieograniczoną przepustowość.",
-    "uptime": "Czas od ostatniego restartu węzła."
+    "bandwidthCap": "Nano Node mogą ograniczać przepustowość, aby ograniczyć liczbę wiadomości, które mogą być wysyłane lub odbierane. 0 oznacza nieograniczoną przepustowość.",
+    "uptime": "Czas od ostatniego restartu Nano Node."
   },
   "search": {
     "searchBy": "Wyszukaj według adresu / bloku / znanego konta",
@@ -89,33 +89,33 @@
     "darkMode": "Tryb ciemny",
     "darkModeDetailed": "Przełącz się z trybu jasnego lub ciemnego, aby usprawnić przeglądanie witryny w zależności od środowiska.",
     "language": "Język",
-    "languageDetailed": "Wybierz żądany język. NanoLooker szuka współpracowników, którzy pomogą ulepszyć tłumaczenie eksploratora. <0>Przekaż</0>",
+    "languageDetailed": "Wybierz żądany język. NanoLooker szuka ludzi, którzy pomogą ulepszyć tłumaczenie eksploratora. <0>Przekaż</0>",
     "watch": "Obserwuj inne kryptowaluty",
     "watchSearch": "Szukaj kryptowalut",
     "watchDetailed": "Obserwuj ceny innych kryptowalut w pierwszej setce. Aktualne ceny rynkowe i zmiany w ciągu 24 godzin pojawią się na górnym pasku. Możesz również zmienić kolejność wyboru, korzystając z metody przeciągnij i upuść.",
-    "fiatCurrency": "Waluta Fiata",
+    "fiatCurrency": "Waluta Fiat",
     "fiatCurrencyDetailed": "Pieniądz fiat jest walutą emitowaną przez rząd. Wybierz walutę fiducjarną, aby porównać cenę Nano.",
-    "natricons": "Natricons",
-    "natriconsDetailed": "Natriconi są przyjazną, znajomą twarzą dla adresów Nano. Używaj ich na stronach konta, wszędzie tam, gdzie w pobliżu znajduje się adres Nano.",
+    "natricons": "Natricony",
+    "natriconsDetailed": "Natricony są przyjazną, znajomą twarzą dla adresów Nano. Używaj ich na stronach konta, wszędzie tam, gdzie w pobliżu znajduje się adres Nano.",
     "liveTransactions": "Włącz aktualizacje na żywo",
     "liveTransactionsDetailed": "Oglądaj transakcje na żywo zachodzące w sieci Nano. Dostępne na stronie głównej.",
     "filterTransactions": "Uwzględnij kwoty poniżej 1 NANO",
     "filterTransactionsDetailed": "Uwzględnij niewielkie kwoty, które mają być wyświetlane w kanale transakcji na żywo na stronie głównej.",
-    "contribute": "Przyczynić się"
+    "contribute": "Pomóż rozwinąć Nanolooker"
   },
   "menu": {
-    "explore": "Badać",
+    "explore": "Przeglądaj",
     "representatives": "Przedstawiciele",
     "developerFund": "Fundusz deweloperów",
     "knownAccounts": "Znane konta",
     "largeTransactions": "Duże transakcje",
     "distribution": "Dystrybucja",
-    "exchangeTracker": "Exchange Tracker",
-    "faucets": "Krany",
+    "exchangeTracker": "Eksplorator Giełd",
+    "faucets": "Krany Nano",
     "news": "Aktualności",
     "status": "Status",
     "networkStatus": "Status sieci",
-    "nodeStatus": "Stan węzła",
+    "nodeStatus": "Stan Nano node",
     "whatIsNano": "Co to jest Nano?",
     "earnNano": "Zarabiaj Nano",
     "preferences": "Preferencje"
@@ -123,7 +123,7 @@
   "footer": {
     "createdBy": "Utworzone przez: {{creator}}",
     "donations": {
-      "donate": "Podarować",
+      "donate": "Daj Dotację",
       "title": "Konto darowizn NanoLooker"
     }
   },
@@ -162,7 +162,7 @@
       "loadMoreTransactions": "Załaduj więcej transakcji",
       "viewTransactions": "Wyświetl transakcje",
       "notOpenedYet": "To konto nie zostało jeszcze otwarte",
-      "notOpenedYetReason": "Chociaż adres konta jest prawidłowy, żadne bloki nie zostały jeszcze opublikowane w jego łańcuchu. Jeśli NANO zostało wysłane na to konto, nadal musi opublikować odpowiedni blok, aby zgarnąć środki.",
+      "notOpenedYetReason": "Chociaż adres konta jest prawidłowy, żadne bloki nie zostały jeszcze opublikowane w jego łańcuchu. Jeśli NANO zostało wysłane na to konto, nadal musi opublikować odpowiedni blok, aby zdobyć środki.",
       "missingAccount": "Brakujące konto",
       "missingAccountInfo": "Konto nie jest określone w adresie URL. Użyj górnego paska wyszukiwania do wyszukania konta lub dołącz go do adresu URL po / account /"
     },
@@ -202,15 +202,15 @@
     },
     "representative": {
       "votingWeight": "Reprezentatywna waga głosów",
-      "noDelegatorsFound": "Nie znaleziono delegatów"
+      "noDelegatorsFound": "Nie znaleziono delegatorów"
     },
     "faucets": {
-      "description": "Dzięki kranom możesz bezpłatnie odebrać niewielkie ilości NANO. Dzięki tym bateriom możesz przekonać się, jak łatwo jest błyskawicznie wysyłać i odbierać NANO na całym świecie w zdecentralizowanej sieci."
+      "description": "Dzięki kranom możesz bezpłatnie odebrać niewielkie ilości NANO. Dzięki tym sumom możesz przekonać się, jak łatwo jest błyskawicznie wysyłać i odbierać NANO na całym świecie w zdecentralizowanej sieci."
     },
     "developerFund": {
       "description": "Od 25.11.19 fundusz deweloperski został podzielony na konta {{totalAccounts}} w wyniku przeglądu wewnętrznej polityki bezpieczeństwa i reprezentatywnych wag głosów.",
       "lastTransaction": "Ostatnia transakcja",
-      "allTransactions": "Wyświetl wszystkie transakcje wysyłania",
+      "allTransactions": "Wyświetl wszystkie wysłane transakcje",
       "originalDeveloperFund": "Pierwotny fundusz deweloperów",
       "originalDeveloperFundDescription": "Dystrybucja Nano (dawniej RaiBlocks) została przeprowadzona poprzez rozwiązywanie ręcznych captcha od końca 2015 roku do października 2017 roku. <1>spalony</1>.",
       "totalAccounts": "Łączna liczba kont: {{totalAccounts}}",
@@ -225,7 +225,7 @@
       "largest": "Największa kwota"
     },
     "distribution": {
-      "title": "Dystrybucja nano",
+      "title": "Dystrybucja NANO",
       "summary": "Ogółem <0>{{i18nTotalAccounts}}</0> rachunków zawiera <1>{{i18nTotalBalances}}</1> NANO",
       "summaryMinBalance": "Każde konto z saldem poniżej <0>0,001</0> jest wykluczone",
       "includeKnownExchanges": "Uwzględnij znane giełdy",
@@ -244,12 +244,12 @@
       "allAuthors": "Wszyscy autorzy"
     },
     "status": {
-      "reload": "Przeładować",
-      "count": "Liczyć",
-      "unchecked": "Niepowstrzymany",
+      "reload": "Przeładuj",
+      "count": "Licz",
+      "unchecked": "Niesprawdzony",
       "cemented": "Cementowane",
       "ledger": "Księga główna",
-      "availableSupply": "Dostępna dostawa",
+      "availableSupply": "Aktualna dostępna ilość NANO w sieci",
       "ledgerSize": "Rozmiar księgi",
       "activeDifficulty": "Aktywna trudność",
       "networkMinimum": "Minimum sieci",

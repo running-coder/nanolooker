@@ -17,6 +17,15 @@ const doKnownAccountsCron = async () => {
     const res = await fetch("https://mynano.ninja/api/accounts/aliases");
     knownAccounts = (await res.json()) || [];
 
+    // Custom known-account list
+    knownAccounts = knownAccounts.concat([
+      {
+        alias: "imalfect",
+        account:
+          "nano_3sq7fi6tx9h3h7p3h9oe1ppqq3jkd98yx6txymcuorwbbctymtezsf8ay351",
+      },
+    ]);
+
     nodeCache.set(KNOWN_ACCOUNTS, knownAccounts);
   } catch (err) {
     console.log("Error", err);
