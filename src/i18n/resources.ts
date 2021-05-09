@@ -10,6 +10,7 @@ import it from "./locales/it.json";
 import ja from "./locales/ja.json";
 import ko from "./locales/ko.json";
 import nl from "./locales/nl.json";
+import pl from "./locales/pl.json";
 import pt from "./locales/pt.json";
 import ru from "./locales/ru.json";
 import tr from "./locales/tr.json";
@@ -49,6 +50,9 @@ export const resources = {
   },
   nl: {
     translation: nl,
+  },
+  pl: {
+    translation: pl,
   },
   pt: {
     translation: pt,

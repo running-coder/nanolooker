@@ -35,17 +35,14 @@ async function translateSource() {
   for (let y = 0; y < locales.length; y++) {
     const targetPath = join(localesFolder, `${locales[y]}.json`);
 
+    const targetTranslations = fs.existsSync(targetPath)
+      ? JSON.parse(fs.readFileSync(targetPath, "utf8"))
+      : {};
     let targetToTranslate = {};
     let diffToTranslate = {};
 
-    if (fs.existsSync(targetPath)) {
-      const targetTranslations = JSON.parse(
-        fs.readFileSync(targetPath, "utf8"),
-      );
-
-      targetToTranslate = dot.dot(targetTranslations);
-      diffToTranslate = omit(sourceToTranslate, Object.keys(targetToTranslate));
-    }
+    targetToTranslate = dot.dot(targetTranslations);
+    diffToTranslate = omit(sourceToTranslate, Object.keys(targetToTranslate));
 
     // Nothing to translate comparing base to target
     if (!Object.keys(diffToTranslate)) continue;
