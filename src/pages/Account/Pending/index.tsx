@@ -18,6 +18,7 @@ interface PendingHistoryBlock extends PendingBlock {
   account: string;
   subtype: Subtype;
   sorting: boolean;
+  local_timestamp: String;
 }
 
 const PENDING_MIN_THRESHOLD = new BigNumber(raiToRaw(0.000001)).toFixed();
@@ -46,9 +47,10 @@ const AccountPendingHistory: React.FC = () => {
   if (totalPending) {
     pendingHistory = Object.entries(blocks).map(
       // @ts-ignore
-      ([block, { amount, source }]): PendingHistoryBlock => ({
+      ([block, { amount, source, local_timestamp }]): PendingHistoryBlock => ({
         hash: block,
         amount,
+		local_timestamp,
         account: source,
         subtype: "pending",
         sorting: true,
