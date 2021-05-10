@@ -122,7 +122,7 @@
     "preferences": "Sở thích"
   },
   "footer": {
-    "createdBy": "Tạo bởi {{create}}",
+    "createdBy": "Tạo bởi {{creator}}",
     "donations": {
       "donate": "Quyên góp",
       "title": "Tài khoản quyên góp NanoLooker"
@@ -215,7 +215,7 @@
       "originalDeveloperFund": "Quỹ nhà phát triển ban đầu",
       "originalDeveloperFundDescription": "Việc phân phối Nano (trước đây là RaiBlocks) được thực hiện thông qua việc giải các hình ảnh xác thực thủ công bắt đầu từ cuối năm 2015 và kết thúc vào tháng 10 năm 2017. Việc phân phối đã dừng lại sau khi ~ 39% lượng <0>Genesis</0> được phân phối và phần còn lại của nguồn cung cấp <1>bị cháy</1>.",
       "totalAccounts": "{{totalAccounts}} Tổng số tài khoản",
-      "percentOfTotal": "{{phần trăm}}% nguồn cung lưu hành"
+      "percentOfTotal": "{{percent}}% nguồn cung lưu hành"
     },
     "knownAccounts": {
       "totalAccounts": "{{totalAccounts}} Tổng số tài khoản đã biết"

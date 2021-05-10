@@ -122,7 +122,7 @@
     "networkStatus": "وضعیت شبکه"
   },
   "footer": {
-    "createdBy": "ایجاد شده توسط {{سازنده}}",
+    "createdBy": "ایجاد شده توسط {{creator}}",
     "donations": {
       "donate": "اهدا کنید",
       "title": "حساب اهدای NanoLooker"
@@ -215,7 +215,7 @@
       "originalDeveloperFund": "صندوق توسعه دهنده اصلی",
       "originalDeveloperFundDescription": "توزیع نانو (RaiBlocks سابق) از طریق حل دستی گرفتن از اواخر سال 2015 و پایان آن در اکتبر 2017 انجام شد. توزیع پس از توزیع٪ 39٪ از مقدار <0> پیدایش </ 0> متوقف شد و مابقی تأمین کالا انجام شد <1> سوخته </ 1>",
       "totalAccounts": "{{totalAccounts}} کل حساب ها",
-      "percentOfTotal": "{{درصد}}٪ از میزان عرضه در گردش"
+      "percentOfTotal": "{{percent}}٪ از میزان عرضه در گردش"
     },
     "knownAccounts": {
       "totalAccounts": "{{totalAccounts}} مجموع حسابهای شناخته شده"

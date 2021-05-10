@@ -67,7 +67,7 @@
     "onlinePrincipalRepresentatives": "Yakın zamanda oy veren çevrimiçi temsilci hesapları.",
     "lastTransaction": "Herhangi bir {{totalAccounts}} hesabından son gönderme işlemi.",
     "largeTransactions": "Yalnızca 10.000 NANO veya daha fazla gönderme işlemi bir hafta süreyle geçici olarak kaydedilir.",
-    "knownExchangeBalance": "{{KnownExchangeList}} 'i dağıtım grafiğinden hariç tutun. Bu hesaplar birleşik tutuyor {{knownExchangeBalance}} NANO",
+    "knownExchangeBalance": "{{knownExchangeList}} 'i dağıtım grafiğinden hariç tutun. Bu hesaplar birleşik tutuyor {{knownExchangeBalance}} NANO",
     "unchecked": "İndirilmiş ancak henüz Nano düğümü tarafından işlenmemiş bloklar (işlemler). Düğüm yazılımı, diğer düğümlerdeki tüm engelleri kontrol edilmemiş olarak indirir, bunları işler ve blok sayısına ekler, her hesap için sınır bloklarını onaylar ve ardından bunları yapıştırılmış olarak işaretler.",
     "cemented": "Belirli bir düğüm, hesabın onay yüksekliğini (düğüm veritabanında) onaylanan işlemin şimdi daha yüksek olan blok yüksekliğine ayarlayarak onaylanmış bir işlemi yerel olarak geri çevrilemez olarak işaretlediğinde. Çimentolama, düğüm düzeyinde bir işlemdir.",
     "unknownLastTransaction": "İşlem tarihleri Şubat 2019'da tanıtıldı. Bu tarihten önce işlem saatleri düğümlere yerel olarak kaydedilmiyordu. Son işlem tarihinin bilinmemesinin nedeni, tarihler kaydedilmeden veya NanoLooker düğümü hizmete girmeden önce onaylanmış olmasıdır.",
@@ -122,7 +122,7 @@
     "networkStatus": "Ağ durumu"
   },
   "footer": {
-    "createdBy": "{{Creator}} tarafından oluşturuldu",
+    "createdBy": "{{creator}} tarafından oluşturuldu",
     "donations": {
       "donate": "Bağış yap",
       "title": "NanoLooker bağış hesabı"
@@ -197,7 +197,7 @@
       "totalOnlineStake": "Toplam online bahis",
       "totalPeerStake": "Toplam emsal hissesi",
       "includeOfflineRepresentatives": "Çevrimdışı temsilcileri dahil et",
-      "viewDelegators": "{{Count}} yetki vereni görüntüle",
+      "viewDelegators": "{{count}} yetki vereni görüntüle",
       "loadAllRepresentatives": "Tüm temsilcileri yükle",
       "groupByEntities": "Varlıklara göre gruplama"
     },
@@ -232,7 +232,7 @@
       "includeKnownExchanges": "Bilinen değişimleri dahil et",
       "logScale": "Günlük Ölçeği",
       "dormantFunds": "Hareketsiz Fonlar",
-      "dormantFundsExperiment": "Bu, Nano blok zincirinde kaç hesabın aktif olduğunu anlamaya yönelik bir deneydir. {{TotalAccounts}} hesaplarının her biri için, yerel düğümdeki son işlem tarihi alınır. Her hesabın içerdiği bakiye ve bekleyen tutarlar, son işlem gördükleri ay için etkin olarak işaretlenir. Sonraki ay, bakiye ve bekleyen durum hareketsiz olarak işaretlenecek.",
+      "dormantFundsExperiment": "Bu, Nano blok zincirinde kaç hesabın aktif olduğunu anlamaya yönelik bir deneydir. {{totalAccounts}} hesaplarının her biri için, yerel düğümdeki son işlem tarihi alınır. Her hesabın içerdiği bakiye ve bekleyen tutarlar, son işlem gördükleri ay için etkin olarak işaretlenir. Sonraki ay, bakiye ve bekleyen durum hareketsiz olarak işaretlenecek.",
       "availableSupply": "Nano mevcut tedarik",
       "knownAccountBalances": "Bilinen hesap bakiyeleri",
       "unknownDormantFunds": "Bilinmeyen faal olmayan fonlar",

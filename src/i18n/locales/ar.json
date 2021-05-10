@@ -79,7 +79,7 @@
     "ledgerSize": "إجمالي مساحة القرص المطلوبة لتخزين كل معاملات Nano حتى الآن. يتم حساب حجم دفتر الأستاذ على أساس 1024 أساس وليس 1000.",
     "bandwidthCap": "يمكن لعقد النانو خنق النطاق الترددي الخاص بها للحد من كمية الرسائل التي يمكن إرسالها أو استلامها. 0 يعني عرض نطاق غير محدود.",
     "uptime": "الوقت المنقضي منذ آخر إعادة تشغيل للعقدة.",
-    "pendingTransactionCount": "يتجاوز عدد المعاملات المعلقة الحد المعروض وهو {{عدد}}."
+    "pendingTransactionCount": "يتجاوز عدد المعاملات المعلقة الحد المعروض وهو  {{count}}."
   },
   "search": {
     "searchBy": "البحث بالعنوان / الحظر / الحساب المعروف",
@@ -197,7 +197,7 @@
       "totalOnlineStake": "إجمالي الحصة عبر الإنترنت",
       "totalPeerStake": "إجمالي حصة الأقران",
       "includeOfflineRepresentatives": "تضمين الممثلين غير المتصلين بالإنترنت",
-      "viewDelegators": "عرض {{عدد}} مفوضين",
+      "viewDelegators": "عرض  {{count}} مفوضين",
       "loadAllRepresentatives": "تحميل جميع الممثلين",
       "groupByEntities": "تجميع حسب الكيانات"
     },
@@ -271,13 +271,13 @@
       "ip": "IP",
       "nodeMonitors": "{{count}} شاشات العقدة",
       "noMonitorFound": "لم يتم العثور على شاشة",
-      "nodeLocations": "{{عدد}} مواقع العقدة",
+      "nodeLocations": "{{count}} مواقع العقدة",
       "viewAccount": "عرض الحساب",
       "telemetry": "القياس عن بعد",
       "bandwidthCap": "الحد الأقصى لعرض النطاق الترددي",
       "nodeCount": "يتم حساب المتوسط من <0> {{nodeCount}} </0> من العقد مع تمكين القياس عن بعد.",
-      "unlimitedBandwidthCap": "<0> {{unlimitedBandwidthCapCount}} </0> العقد ليس لها حد للنطاق الترددي.",
-      "limitedBandwidthCap": "<0> {{limitedBandwidthCapCount}} </0> العقد لها حد النطاق الترددي <1> {{limitedBandwidthCap}} </1>."
+      "unlimitedBandwidthCap": "<0>{{unlimitedBandwidthCapCount}}</0> العقد ليس لها حد للنطاق الترددي.",
+      "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> العقد لها حد النطاق الترددي <1> {{limitedBandwidthCap}} </1>."
     },
     "exchangeTracker": {
       "description": "كل يوم يتم الحصول على أرصدة حسابات أكثر البورصات شعبية حيث يتم تداول Nano. يمكن استخدام هذا القياس لتحليل الحركات والتقلبات على الشبكة."
