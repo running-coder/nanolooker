@@ -122,7 +122,7 @@ const TransactionsTable = ({
               }`;
               // When transaction is a representative change, the account is the representative
               const account =
-                subtype === "change" ? representative : historyAccount;
+                transactionType === "change" ? representative : historyAccount;
               const knownAccount =
                 account &&
                 knownAccounts.find(

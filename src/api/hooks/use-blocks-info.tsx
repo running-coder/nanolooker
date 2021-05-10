@@ -20,11 +20,6 @@ interface Response {
   blocks: BlocksInfo;
 }
 
-export interface PendingBlock {
-  amount: string;
-  source?: string;
-}
-
 export interface Return {
   blocks: Response;
   isLoading: boolean;
