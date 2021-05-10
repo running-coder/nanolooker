@@ -25,7 +25,7 @@ const PENDING_MIN_THRESHOLD = new BigNumber(raiToRaw(0.0001)).toFixed();
 
 const AccountPendingHistory: React.FC = () => {
   const { t } = useTranslation();
-  const { account } = React.useContext(AccountInfoContext);
+  const { account, accountInfo } = React.useContext(AccountInfoContext);
   const {
     pending: { blocks = {} } = {},
     isLoading: isAccountHistoryLoading,
@@ -67,7 +67,7 @@ const AccountPendingHistory: React.FC = () => {
     setHashes(hashes?.slice(start, start + TRANSACTIONS_PER_PAGE));
   }, [blocks, start]);
 
-  return pendingHistory ? (
+  return parseFloat(accountInfo?.pending) ? (
     <>
       <Title level={3}>
         {isAccountHistoryLoading ? "" : pendingHistory?.length}{" "}
@@ -81,7 +81,7 @@ const AccountPendingHistory: React.FC = () => {
         showPaginate={showPaginate}
         pageSize={TRANSACTIONS_PER_PAGE}
         currentPage={currentPage}
-        totalPages={pendingHistory.length}
+        totalPages={pendingHistory?.length}
         setCurrentPage={setCurrentPage}
       />
     </>

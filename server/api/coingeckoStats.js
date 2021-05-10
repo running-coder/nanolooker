@@ -60,7 +60,7 @@ const getCoingeckoStats = async ({ fiat, cryptocurrency }) => {
       } catch (err) {
         console.log("Error", err);
         Sentry.captureException(err);
-        reject();
+        resolve();
       }
     });
 

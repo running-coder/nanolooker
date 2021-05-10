@@ -34,6 +34,7 @@ const HomePage = () => {
   const {
     marketStatistics,
     isInitialLoading: isMarketStatisticsInitialLoading,
+    isError: isMarketStatisticsError,
   } = React.useContext(MarketStatisticsContext);
   const {
     marketCapRank,
@@ -81,14 +82,10 @@ const HomePage = () => {
     marketStatistics[TOTAL_VOLUME_24H] &&
     marketStatistics[TOTAL_VOLUME_48H]
   ) {
-    onChainVolume48hAgo = new BigNumber(
-      marketStatistics[TOTAL_VOLUME_48H],
-    )
+    onChainVolume48hAgo = new BigNumber(marketStatistics[TOTAL_VOLUME_48H])
       .minus(marketStatistics[TOTAL_VOLUME_24H])
       .toNumber();
-    onChainVolumeChange24h = new BigNumber(
-      marketStatistics[TOTAL_VOLUME_24H],
-    )
+    onChainVolumeChange24h = new BigNumber(marketStatistics[TOTAL_VOLUME_24H])
       .minus(onChainVolume48hAgo)
       .dividedBy(onChainVolume48hAgo)
       .times(100)
@@ -137,7 +134,9 @@ const HomePage = () => {
                   value={count}
                 />
                 <LoadingStatistic
-                  isLoading={isMarketStatisticsInitialLoading}
+                  isLoading={
+                    isMarketStatisticsInitialLoading || isMarketStatisticsError
+                  }
                   title={t("pages.home.circulatingSupply")}
                   tooltip={t("tooltips.circulatingSupply")}
                   value={new BigNumber(circulatingSupply).toNumber()}
@@ -190,7 +189,9 @@ const HomePage = () => {
             <Row gutter={6}>
               <Col xs={24}>
                 <LoadingStatistic
-                  isLoading={isMarketStatisticsInitialLoading}
+                  isLoading={
+                    isMarketStatisticsInitialLoading || isMarketStatisticsError
+                  }
                   title={t("pages.home.onChainVolume")}
                   suffix={
                     <StatisticsChange
@@ -198,14 +199,14 @@ const HomePage = () => {
                       isPercent
                     />
                   }
-                  value={new BigNumber(
-                    marketStatistics[TOTAL_VOLUME_24H],
-                  )
+                  value={new BigNumber(marketStatistics[TOTAL_VOLUME_24H])
                     .decimalPlaces(5)
                     .toNumber()}
                 />
                 <LoadingStatistic
-                  isLoading={isMarketStatisticsInitialLoading}
+                  isLoading={
+                    isMarketStatisticsInitialLoading || isMarketStatisticsError
+                  }
                   title={t("pages.home.confirmedTransactions")}
                   suffix={
                     <StatisticsChange value={confirmationChange24h} isPercent />
@@ -221,7 +222,9 @@ const HomePage = () => {
                   />
                 ) : null}
                 <LoadingStatistic
-                  isLoading={isMarketStatisticsInitialLoading}
+                  isLoading={
+                    isMarketStatisticsInitialLoading || isMarketStatisticsError
+                  }
                   title={`${t(
                     "pages.home.bitcoinTransactionFees",
                   )} (${fiat.toUpperCase()})`}
@@ -250,7 +253,9 @@ const HomePage = () => {
             <Row gutter={6}>
               <Col xs={24}>
                 <LoadingStatistic
-                  isLoading={isMarketStatisticsInitialLoading}
+                  isLoading={
+                    isMarketStatisticsInitialLoading || isMarketStatisticsError
+                  }
                   title={t("pages.home.marketCapRank")}
                   prefix="#"
                   suffix={
@@ -264,7 +269,9 @@ const HomePage = () => {
                   value={`${marketCapRank}`}
                 />
                 <LoadingStatistic
-                  isLoading={isMarketStatisticsInitialLoading}
+                  isLoading={
+                    isMarketStatisticsInitialLoading || isMarketStatisticsError
+                  }
                   title={`${t("pages.home.marketCap")} (${fiat.toUpperCase()})`}
                   prefix={CurrencySymbol?.[fiat]}
                   suffix={
@@ -276,7 +283,9 @@ const HomePage = () => {
                   value={`${new BigNumber(marketCap).toNumber()}`}
                 />
                 <LoadingStatistic
-                  isLoading={isMarketStatisticsInitialLoading}
+                  isLoading={
+                    isMarketStatisticsInitialLoading || isMarketStatisticsError
+                  }
                   title={`${t(
                     "pages.home.exchangeVolume",
                   )} (${fiat.toUpperCase()})`}

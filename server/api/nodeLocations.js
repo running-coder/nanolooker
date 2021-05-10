@@ -33,7 +33,7 @@ const getNodeLocations = async () => {
       } catch (err) {
         console.log("Error", err);
         Sentry.captureException(err);
-        reject();
+        resolve([]);
       }
     })) ||
     [];

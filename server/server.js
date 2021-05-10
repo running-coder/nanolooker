@@ -190,6 +190,7 @@ app.get("*", (req, res, next) => {
   }
 });
 
-app.listen(process.env.SERVER_PORT);
+const server = app.listen(process.env.SERVER_PORT);
+server.timeout = 10000;
 
 console.log(`Server started on http://localhost:${process.env.SERVER_PORT}`);
