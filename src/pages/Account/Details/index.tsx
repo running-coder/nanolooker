@@ -280,8 +280,10 @@ const AccountDetails: React.FC = () => {
             <Skeleton {...skeletonProps} loading={isAccountHistoryLoading}>
               {modifiedTimestamp ? (
                 <>
-                  <TimeAgo datetime={modifiedTimestamp} live={false} /> (
-                  {timestampToDate(modifiedTimestamp)})
+                  {timestampToDate(modifiedTimestamp)}{" "}
+                  <span className="color-muted" style={{ fontSize: "12px" }}>
+                    (<TimeAgo datetime={modifiedTimestamp} live={false} />)
+                  </span>
                 </>
               ) : (
                 <>

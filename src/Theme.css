@@ -196,7 +196,16 @@ body .theme-dark {
 
 .theme-dark .ant-pagination-prev a,
 .theme-dark .ant-pagination-next a,
-.theme-dark .ant-pagination-item a {
+.theme-dark .ant-pagination-item a,
+.theme-dark
+  .ant-pagination-jump-prev
+  .ant-pagination-item-container
+  .ant-pagination-item-ellipsis,
+.theme-dark
+  .ant-pagination-jump-next
+  .ant-pagination-item-container
+  .ant-pagination-item-ellipsis,
+.theme-dark .ant-pagination-item-link {
   color: #e1e1e1;
 }
 

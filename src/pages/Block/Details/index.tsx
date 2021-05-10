@@ -13,6 +13,7 @@ import {
 } from "antd";
 import { CheckCircleOutlined, SyncOutlined } from "@ant-design/icons";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import TimeAgo from "timeago-react";
 import BigNumber from "bignumber.js";
 import {
   Theme,
@@ -341,7 +342,10 @@ const BlockDetails: React.FC = () => {
                   {t("common.date")}
                 </Col>
                 <Col xs={24} sm={18} xl={20}>
-                  {timestampToDate(modifiedTimestamp)}
+                  {timestampToDate(modifiedTimestamp)}{" "}
+                  <span className="color-muted" style={{ fontSize: "12px" }}>
+                    (<TimeAgo datetime={modifiedTimestamp} live={false} />)
+                  </span>
                 </Col>
               </Row>
             ) : null}

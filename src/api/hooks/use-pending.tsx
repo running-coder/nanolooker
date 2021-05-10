@@ -34,12 +34,17 @@ const usePending = (account: string, params: Params): Return => {
     setIsError(false);
     setIsLoading(true);
 
-    const json = await rpc("pending", {
-      account,
-      ...params,
-    });
+    try {
+      const json = await rpc("pending", {
+        account,
+        ...params,
+      });
 
-    !json || json.error ? setIsError(true) : setPending(json);
+      !json || json.error ? setIsError(true) : setPending(json);
+    } catch (err) {
+      setIsError(true);
+    }
+
     setIsLoading(false);
   };
 
