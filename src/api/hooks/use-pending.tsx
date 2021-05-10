@@ -34,28 +34,17 @@ const usePending = (account: string, params: Params): Return => {
     setIsError(false);
     setIsLoading(true);
 
-    var pending_blocks = await rpc("pending", {
-      account,
-      ...params,
-    });
-	
-	if (!pending_blocks.error) {
-		var pending_list = Object.keys(pending_blocks.blocks);
-		const pending_info = await rpc("blocks_info", {
-			hashes: pending_list
-		});
-		if (pending_info.error) {
-			pending_blocks.error = true;
-		} else {
-			var pending_blocks_info = pending_info.blocks;
-			for (var pending_block in pending_blocks_info) {
-				var local_timestamp = pending_blocks_info[pending_block].local_timestamp;
-				pending_blocks.blocks[pending_block].local_timestamp = local_timestamp;
-			}
-		}
-	}
+    try {
+      const json = await rpc("pending", {
+        account,
+        ...params,
+      });
 
-    !pending_blocks || pending_blocks.error ? setIsError(true) : setPending(pending_blocks);
+      !json || json.error ? setIsError(true) : setPending(json);
+    } catch (err) {
+      setIsError(true);
+    }
+
     setIsLoading(false);
   };
 

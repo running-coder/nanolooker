@@ -68,7 +68,7 @@ const limits = {
     accounts: 50,
   },
   blocks_info: {
-    hashes: 1,
+    hashes: 5,
   },
 };
 
