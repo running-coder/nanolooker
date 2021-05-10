@@ -78,7 +78,8 @@
     "telemetry": "Metriken von anderen Knoten im Netzwerk. Alle Metriken werden gesammelt und gemittelt, um verschiedene Zustände im Netzwerk darzustellen. P entspricht dem Perzentil, p50 wird berechnet, indem die unteren 50% ausgeschlossen werden, während p95 die unteren 5% der verschiedenen Werte ausschließt, um den Durchschnitt zu berechnen.",
     "ledgerSize": "Die Gesamtmenge an Speicherplatz, die bisher zum Speichern aller Nano-Transaktionen erforderlich ist. Die Hauptbuchgröße wird auf 1024 Basis berechnet, nicht auf 1000.",
     "bandwidthCap": "Nano-Knoten können ihre Bandbreite drosseln, um die Anzahl der Nachrichten zu begrenzen, die gesendet oder empfangen werden können. 0 bedeutet unbegrenzte Bandbreite.",
-    "uptime": "Zeit seit dem letzten Neustart des Knotens."
+    "uptime": "Zeit seit dem letzten Neustart des Knotens.",
+    "pendingTransactionCount": "Die Anzahl der ausstehenden Transaktionen überschreitet das angezeigte Limit von {{count}}."
   },
   "search": {
     "searchBy": "Suche nach Adresse / Block / Bekanntem Konto",

@@ -78,7 +78,8 @@
     "telemetry": "Metrische gegevens van andere knooppunten op het netwerk. Alle statistieken worden verzameld en gemiddeld om verschillende statussen op het netwerk weer te geven. P komt overeen met percentiel, p50 wordt berekend door de onderste 50% uit te sluiten, terwijl de p95 de onderste 5% van de verschillende waarden uitsluit om het gemiddelde te berekenen.",
     "ledgerSize": "De totale hoeveelheid schijfruimte die tot nu toe nodig is om alle Nano-transacties op te slaan. De grootboekgrootte wordt berekend op basis van 1024 en niet op basis van 1000.",
     "bandwidthCap": "Nano-knooppunten kunnen hun bandbreedte beperken om het aantal berichten dat kan worden verzonden of ontvangen te beperken. 0 betekent onbeperkte bandbreedte.",
-    "uptime": "Tijd sinds het knooppunt voor het laatst opnieuw is opgestart."
+    "uptime": "Tijd sinds het knooppunt voor het laatst opnieuw is opgestart.",
+    "pendingTransactionCount": "Het aantal lopende transacties overschrijdt de weergegeven limiet van {{count}}."
   },
   "search": {
     "searchBy": "Zoeken op adres / blok / bekend account",

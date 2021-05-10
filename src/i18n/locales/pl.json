@@ -56,7 +56,7 @@
   "tooltips": {
     "avgConfirmationTime": "Średni czas potwierdzenia jest obliczany lokalnie w Nano Node. Jeśli Nano Node zostanie zrestartowany lub w stanie zdegradowanym, średni czas potwierdzenia może być dłuższy niż w pozostałej części sieci.",
     "circulatingSupply": "Liczba monet znajdujących się w obiegu. Nano jest w pełni dystrybuowane, podaż nigdy nie wzrośnie.",
-    "nanoTransactionFees": "W przeciwieństwie do innych kryptowalut transakcje Nano są zawsze bez opłat.",
+    "transactionFees": "W przeciwieństwie do innych kryptowalut transakcje Nano są zawsze bez opłat.",
     "bitcoinTransactionFees": "Wartość ta nie ma wpływu na sieć NANO, służy wyłącznie do celów porównawczych. Reprezentuje sumę opłat transakcyjnych, które użytkownicy Bitcoin płacą górnikom, aby ich transakcja została zaakceptowana w sieci Bitcoin.",
     "cps": "Potwierdzenia na sekundę. Liczba potwierdzonych bloków (wysyłanie lub odbieranie) w sieci NANO. Jest próbkowany lokalnie w Nano Node w ciągu ostatniej minuty. Jeśli węzeł zostanie zrestartowany lub w złym stanie, wartość CPS może być wyższa lub niższa od rzeczywistej średniej w sieci, podczas gdy węzeł synchronizuje się i ponownie łączy z innymi węzłami.",
     "votingWeight": "Aby uzyskać status głównego przedstawiciela, wymagane jest konto z co najmniej {{minWeight}} NANO lub >= 0,1% oddelegowanej wagi głosowania online. Po skonfigurowaniu na węźle, który głosuje, głosy, które generuje, będą ponownie transmitowane przez inne węzły, które je otrzymują, pomagając sieci szybciej osiągnąć konsensus.",
@@ -78,7 +78,8 @@
     "telemetry": "Metryki z innych węzłów w sieci. Wszystkie metryki są zbierane i uśredniane, aby przedstawić różne stany w sieci. P odpowiada percentylowi, p50 jest obliczane poprzez wykluczenie dolnych 50%, podczas gdy p95 wyklucza dolne 5% różnych wartości w celu obliczenia średniej.",
     "ledgerSize": "Całkowita ilość miejsca na dysku wymagana do przechowywania wszystkich dotychczasowych transakcji Nano. Rozmiar księgi jest obliczany na podstawie 1024, a nie 1000.",
     "bandwidthCap": "Nano Node mogą ograniczać przepustowość, aby ograniczyć liczbę wiadomości, które mogą być wysyłane lub odbierane. 0 oznacza nieograniczoną przepustowość.",
-    "uptime": "Czas od ostatniego restartu Nano Node."
+    "uptime": "Czas od ostatniego restartu Nano Node.",
+    "pendingTransactionCount": "Liczba oczekujących transakcji przekracza wyświetlany limit {{count}}."
   },
   "search": {
     "searchBy": "Wyszukaj według adresu / bloku / znanego konta",
@@ -141,7 +142,7 @@
       "last24Hours": "Ostatnie 24 godziny",
       "avgConfirmationTime": "Śr. czas potwierdzenia (sekundy)",
       "confirmedTransactions": "Potwierdzone transakcje",
-      "nanoTransactionFees": "Opłaty transakcyjne NANO",
+      "transactionFees": "Opłaty transakcyjne NANO",
       "exchangeVolume": "Wolumen wymiany",
       "onChainVolume": "Objętość NANO w łańcuchu",
       "bitcoinTransactionFees": "Opłaty transakcyjne Bitcoin płacone górnikom",

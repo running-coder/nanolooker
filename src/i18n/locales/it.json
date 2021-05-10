@@ -78,7 +78,8 @@
     "telemetry": "Metriche da altri nodi sulla rete. Tutte le metriche vengono raccolte e calcolate in media per rappresentare i diversi stati sulla rete. P corrisponde al percentile, p50 viene calcolato escludendo il 50% inferiore mentre p95 esclude il 5% inferiore dei diversi valori per calcolare la media.",
     "ledgerSize": "La quantità totale di spazio su disco richiesta per memorizzare ogni transazione Nano fino ad ora. La dimensione del libro mastro è calcolata su 1024 base non 1000.",
     "bandwidthCap": "I nano nodi sono in grado di limitare la larghezza di banda per limitare la quantità di messaggi che possono essere inviati o ricevuti. 0 significa larghezza di banda illimitata.",
-    "uptime": "Tempo trascorso dall'ultimo riavvio del nodo."
+    "uptime": "Tempo trascorso dall'ultimo riavvio del nodo.",
+    "pendingTransactionCount": "Il numero di transazioni in sospeso supera il limite visualizzato di {{count}}."
   },
   "search": {
     "searchBy": "Cerca per indirizzo / blocco / account noto",

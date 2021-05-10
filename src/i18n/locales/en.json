@@ -78,7 +78,8 @@
     "telemetry": "Metrics from other nodes on the network. All the metrics are collected and averaged to represent different states on the network. P corresponds to percentile, p50 is calculated by excluding the bottom 50% while the p95 is excluding the bottom 5% of the different values to calculate the average.",
     "ledgerSize": "The total amount of disk space required to store every Nano transactions up to now. The ledger size is calculated on 1024 base not 1000.",
     "bandwidthCap": "Nano nodes are able to throttle their bandwidth to limit the amount of messages that can be sent or received. 0 means unlimited bandwidth.",
-    "uptime": "Time since the node was last rebooted."
+    "uptime": "Time since the node was last rebooted.",
+    "pendingTransactionCount": "The number of pending transactions exceeds the displayed limit of {{count}}."
   },
   "search": {
     "searchBy": "Search by Address / Block / Known Account",

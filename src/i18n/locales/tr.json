@@ -78,7 +78,8 @@
     "telemetry": "Ağdaki diğer düğümlerden metrikler. Ağdaki farklı durumları temsil etmek için tüm ölçümler toplanır ve ortalaması alınır. P yüzdeliğe karşılık gelir, p50, ortalamayı hesaplamak için farklı değerlerin alt% 5'ini hariç tutarken, alt% 50 hariç tutularak hesaplanır.",
     "ledgerSize": "Şimdiye kadarki her Nano işlemini depolamak için gereken toplam disk alanı miktarı. Defter boyutu 1000 değil 1024 temel alınarak hesaplanır.",
     "bandwidthCap": "Nano düğümler, gönderilebilen veya alınabilen mesajların miktarını sınırlamak için bant genişliğini kısabilir. 0, sınırsız bant genişliği anlamına gelir.",
-    "uptime": "Düğümün en son yeniden başlatılmasından bu yana geçen süre."
+    "uptime": "Düğümün en son yeniden başlatılmasından bu yana geçen süre.",
+    "pendingTransactionCount": "Bekleyen işlemlerin sayısı, görüntülenen {{count}} sınırını aşıyor."
   },
   "search": {
     "searchBy": "Adres / Blok / Bilinen Hesap ile Ara",

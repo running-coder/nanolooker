@@ -78,7 +78,8 @@
     "telemetry": "Số liệu từ các nút khác trên mạng. Tất cả các số liệu được thu thập và tính trung bình để đại diện cho các trạng thái khác nhau trên mạng. P tương ứng với phần trăm, p50 được tính bằng cách loại trừ 50% dưới cùng trong khi p95 loại trừ 5% dưới cùng của các giá trị khác nhau để tính giá trị trung bình.",
     "ledgerSize": "Tổng dung lượng ổ đĩa cần thiết để lưu trữ mọi giao dịch Nano cho đến nay. Kích thước sổ cái được tính trên cơ sở 1024 chứ không phải 1000.",
     "bandwidthCap": "Các nút nano có thể điều chỉnh băng thông của chúng để giới hạn số lượng tin nhắn có thể được gửi hoặc nhận. 0 có nghĩa là băng thông không giới hạn.",
-    "uptime": "Thời gian kể từ khi nút được khởi động lại lần cuối."
+    "uptime": "Thời gian kể từ khi nút được khởi động lại lần cuối.",
+    "pendingTransactionCount": "Số lượng giao dịch đang chờ xử lý vượt quá giới hạn được hiển thị là {{count}}."
   },
   "search": {
     "searchBy": "Tìm kiếm theo Địa chỉ / Khối / Tài khoản Đã biết",

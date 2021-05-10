@@ -1,16 +1,17 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { Typography } from "antd";
+import { Tooltip, Typography } from "antd";
+import { ExclamationCircleTwoTone } from "@ant-design/icons";
 import BigNumber from "bignumber.js";
 import usePending, { PendingBlock } from "api/hooks/use-pending";
 import useBlocksInfo from "api/hooks/use-blocks-info";
 import { AccountInfoContext } from "api/contexts/AccountInfo";
 import TransactionsTable from "pages/Account/Transactions";
-import { raiToRaw } from "components/utils";
+import { raiToRaw, rawToRai } from "components/utils";
 
 import type { Subtype } from "types/transaction";
 
-const MAX_PENDING_TRANSACTIONS = 1000;
+const MAX_PENDING_TRANSACTIONS = 50;
 const TRANSACTIONS_PER_PAGE = 5;
 const { Title } = Typography;
 
@@ -21,7 +22,7 @@ interface PendingHistoryBlock extends PendingBlock {
   local_timestamp: String;
 }
 
-const PENDING_MIN_THRESHOLD = new BigNumber(raiToRaw(0.0001)).toFixed();
+const PENDING_MIN_THRESHOLD = 0.0001;
 
 const AccountPendingHistory: React.FC = () => {
   const { t } = useTranslation();
@@ -33,7 +34,7 @@ const AccountPendingHistory: React.FC = () => {
     count: String(MAX_PENDING_TRANSACTIONS),
     sorting: true,
     source: true,
-    threshold: PENDING_MIN_THRESHOLD,
+    threshold: new BigNumber(raiToRaw(PENDING_MIN_THRESHOLD)).toFixed(),
     include_only_confirmed: true,
   });
   const [hashes, setHashes] = React.useState<string[]>([]);
@@ -67,12 +68,34 @@ const AccountPendingHistory: React.FC = () => {
     setHashes(hashes?.slice(start, start + TRANSACTIONS_PER_PAGE));
   }, [blocks, start]);
 
-  return parseFloat(accountInfo?.pending) ? (
+  const accountPending = accountInfo?.pending
+    ? new BigNumber(rawToRai(accountInfo?.pending)).toNumber()
+    : 0;
+
+  return accountPending > PENDING_MIN_THRESHOLD ? (
     <>
-      <Title level={3}>
-        {isAccountHistoryLoading ? "" : pendingHistory?.length}{" "}
-        {t("pages.account.pendingTransactions")}
-      </Title>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "baseline",
+        }}
+      >
+        <Title level={3}>
+          {isAccountHistoryLoading ? "" : pendingHistory?.length}{" "}
+          {t("pages.account.pendingTransactions")}
+        </Title>
+
+        {pendingHistory?.length === MAX_PENDING_TRANSACTIONS ? (
+          <Tooltip
+            placement="right"
+            title={t("tooltips.pendingTransactionCount", {
+              count: MAX_PENDING_TRANSACTIONS,
+            })}
+          >
+            <ExclamationCircleTwoTone twoToneColor={"orange"} />
+          </Tooltip>
+        ) : null}
+      </div>
 
       <TransactionsTable
         data={data}

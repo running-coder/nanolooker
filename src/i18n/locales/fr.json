@@ -78,7 +78,8 @@
     "telemetry": "Mesures d'autres nœuds du réseau. Toutes les métriques sont collectées et moyennées pour représenter différents états sur le réseau. P correspond au centile, p50 est calculé en excluant les 50% inférieurs tandis que p95 exclut les 5% inférieurs des différentes valeurs pour calculer la moyenne.",
     "ledgerSize": "La quantité totale d'espace disque nécessaire pour stocker toutes les transactions Nano jusqu'à présent. La taille du grand livre est calculée sur une base de 1024 et non sur 1000.",
     "bandwidthCap": "Les nano nœuds peuvent limiter leur bande passante pour limiter la quantité de messages pouvant être envoyés ou reçus. 0 signifie une bande passante illimitée.",
-    "uptime": "Temps écoulé depuis le dernier redémarrage du nœud."
+    "uptime": "Temps écoulé depuis le dernier redémarrage du nœud.",
+    "pendingTransactionCount": "Le nombre de transactions en attente dépasse la limite affichée de {{count}}."
   },
   "search": {
     "searchBy": "Recherche par Address / Bloc",

@@ -78,7 +78,8 @@
     "telemetry": "Métricas de outros nós da rede. Todas as métricas são coletadas e calculadas para representar diferentes estados na rede. P corresponde ao percentil, p50 é calculado excluindo os 50% inferiores, enquanto o p95 exclui os 5% inferiores dos diferentes valores para calcular a média.",
     "ledgerSize": "A quantidade total de espaço em disco necessária para armazenar todas as transações do Nano até agora. O tamanho do razão é calculado com base em 1024 e não em 1000.",
     "bandwidthCap": "Os nano nodes são capazes de limitar sua largura de banda para limitar a quantidade de mensagens que podem ser enviadas ou recebidas. 0 significa largura de banda ilimitada.",
-    "uptime": "Tempo desde a última reinicialização do nó."
+    "uptime": "Tempo desde a última reinicialização do nó.",
+    "pendingTransactionCount": "O número de transações pendentes excede o limite exibido de {{contagem}}."
   },
   "search": {
     "searchBy": "Pesquisa por endereço / bloco",

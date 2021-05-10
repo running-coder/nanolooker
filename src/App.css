@@ -339,7 +339,8 @@ a:hover {
   margin-top: 4px;
 }
 
-.anticon.anticon-question-circle {
+.anticon.anticon-question-circle,
+.anticon.anticon-exclamation-circle {
   margin-left: 6px;
   font-size: 14px !important;
 }
