@@ -31,7 +31,9 @@ const CONFIRMATIONS_PER_SECOND = "CONFIRMATIONS_PER_SECOND";
 const NODE_LOCATIONS = "NODE_LOCATIONS";
 const NODE_MONITORS = "NODE_MONITORS";
 const TELEMETRY = "TELEMETRY";
-const MONGO_URL = "mongodb://localhost:27017";
+const MONGO_USER = process.env.MONGO_USER;
+const MONGO_PASSWORD = process.env.MONGO_PASSWORD;
+const MONGO_URL = `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@localhost:27017`;
 const MONGO_DB = "nanolooker";
 const MONGO_OPTIONS = {
   useNewUrlParser: true,
