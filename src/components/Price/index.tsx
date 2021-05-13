@@ -101,8 +101,8 @@ const CryptocurrencyPrice = ({
         isPercent
         suffix={
           <>
-            {symbol === "nano" && price24hChange >= 50 ? "🥦" : null}
-            {symbol === "banano" && price24hChange >= 50 ? "🍌" : null}
+            {symbol === "nano" && price24hChange >= 35 ? "🥦" : null}
+            {symbol === "banano" && price24hChange >= 35 ? "🍌" : null}
           </>
         }
       />

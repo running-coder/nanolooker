@@ -37,6 +37,7 @@ const Banner: React.FC = () => {
           alignItems: "center",
           marginBottom: "18px",
           flexWrap: "wrap",
+          width: "100%",
           justifyContent: "center",
         }}
       >

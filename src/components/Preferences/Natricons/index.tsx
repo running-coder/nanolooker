@@ -16,7 +16,7 @@ const NatriconsPreferences: React.FC<Props> = ({ isDetailed }) => {
   const { t } = useTranslation();
   const [account] = React.useState(
     DEVELOPER_FUND_ACCOUNTS[
-      Math.floor(Math.random() * DEVELOPER_FUND_ACCOUNTS.length - 1)
+      Math.floor(Math.random() * DEVELOPER_FUND_ACCOUNTS.length)
     ],
   );
   const { natricons, setNatricons } = React.useContext(PreferencesContext);
