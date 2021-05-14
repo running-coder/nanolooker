@@ -76,8 +76,8 @@ const getMarketStats = async () => {
   }
 };
 
-// Every 25 seconds
-cron.schedule("*/25 * * * * *", async () => {
+// Every 30 seconds
+cron.schedule("*/30 * * * * *", async () => {
   getPriceStats();
   getMarketStats();
 });

@@ -78,10 +78,9 @@ const Provider: React.FC = ({ children }) => {
 
   const getMarketStatistics = async (fiat: string) => {
     clearTimeout(pollMarketStatisticsTimeout);
+    let isError = false;
 
-    setIsError(false);
     setIsLoading(true);
-
     try {
       const query = qs.stringify(
         { fiat, cryptocurrency: !!cryptocurrency?.length },
@@ -92,16 +91,24 @@ const Provider: React.FC = ({ children }) => {
       const res = await fetch(`/api/market-statistics${query}`);
       const json = await res.json();
 
-      !json || json.error ? setIsError(true) : setMarketStatistics(json);
+      if (!json || json.error) {
+        isError = true;
+      } else {
+        setMarketStatistics(json);
+      }
     } catch (e) {
-      setIsError(true);
+      isError = true;
     }
     setIsInitialLoading(false);
     setIsLoading(false);
+    setIsError(isError);
 
-    pollMarketStatisticsTimeout = window.setTimeout(() => {
-      getMarketStatistics(fiat);
-    }, 25000);
+    pollMarketStatisticsTimeout = window.setTimeout(
+      () => {
+        getMarketStatistics(fiat);
+      },
+      isError ? 5000 : 25000,
+    );
   };
 
   React.useEffect(() => {

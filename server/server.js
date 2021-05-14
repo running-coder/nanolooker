@@ -7,6 +7,7 @@ require("./cron/nodeMonitors");
 require("./cron/telemetry");
 require("./cron/ws");
 require("./cron/coingeckoStats");
+require("./cron/btcTransactionFees");
 require("./ws");
 const { getDistributionData } = require("./cron/distribution");
 const { getExchangeBalances } = require("./cron/exchangeTracker");
