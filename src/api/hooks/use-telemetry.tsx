@@ -8,6 +8,7 @@ export enum Percentiles {
 
 export interface Return {
   telemetry: { [key in Percentiles]: Telemetry };
+  versions: { [key: string]: string };
   status: Status;
   isLoading: boolean;
   isError: boolean;
@@ -37,6 +38,7 @@ interface BandwidthCapGroup {
 
 const useTelemetry = (): Return => {
   const [telemetry, setTelemetry] = React.useState({} as Return["telemetry"]);
+  const [versions, setVersions] = React.useState({} as Return["versions"]);
   const [status, setStatus] = React.useState({} as Return["status"]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [isError, setIsError] = React.useState(false);
@@ -52,6 +54,7 @@ const useTelemetry = (): Return => {
       setIsError(true);
     } else {
       setTelemetry(json.telemetry || {});
+      setVersions(json.versions || {});
       setStatus(json.status || {});
     }
 
@@ -62,7 +65,7 @@ const useTelemetry = (): Return => {
     getTelemetry();
   }, []);
 
-  return { telemetry, status, isLoading, isError };
+  return { telemetry, versions, status, isLoading, isError };
 };
 
 export default useTelemetry;

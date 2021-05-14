@@ -277,7 +277,8 @@
       "bandwidthCap": "帯域幅の上限",
       "nodeCount": "平均は、テレメトリが有効になっている<0> {{nodeCount}}</0>ノードから計算されます。",
       "unlimitedBandwidthCap": "<0>{{unlimitedBandwidthCapCount}}</0>ノードには帯域幅の制限はありません。",
-      "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0>ノードの帯域幅制限は<1>{{limitedBandwidthCap}}</1>です。"
+      "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0>ノードの帯域幅制限は<1>{{limitedBandwidthCap}}</1>です。",
+      "nodeVersions": "ノードバージョン"
     },
     "exchangeTracker": {
       "description": "Nanoが取引されている最も人気のある取引所の口座残高を毎日取得します。この測定値は、ネットワーク上の動きや変動を分析するために使用できます。"

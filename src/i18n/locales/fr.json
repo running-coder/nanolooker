@@ -277,7 +277,8 @@
       "bandwidthCap": "Limite de bande passante",
       "nodeCount": "La moyenne est calculée à partir de <0>{{nodeCount}}</0> nœuds avec la télémétrie activée.",
       "unlimitedBandwidthCap": "Les nœuds <0>{{unlimitedBandwidthCapCount}}</0> n'ont pas de limite de bande passante.",
-      "limitedBandwidthCap": "Les nœuds <0>{{limitedBandwidthCapCount}}</0> ont une limite de bande passante de <1>{{limitedBandwidthCap}}</1>."
+      "limitedBandwidthCap": "Les nœuds <0>{{limitedBandwidthCapCount}}</0> ont une limite de bande passante de <1>{{limitedBandwidthCap}}</1>.",
+      "nodeVersions": "Versions des nœuds"
     },
     "exchangeTracker": {
       "description": "Chaque jour, une capture du solde des comptes des plateformes d'échanges les plus populaires où Nano est négocié est pris. Cette mesure peut permettre d'analyser les mouvements et fluctuations sur le réseau."

@@ -277,7 +277,8 @@
       "bandwidthCap": "Limite di larghezza di banda",
       "nodeCount": "La media viene calcolata su <0>{{nodeCount}}</0> nodi con telemetria abilitata.",
       "unlimitedBandwidthCap": "I nodi <0>{{unlimitedBandwidthCapCount}}</0> non hanno limiti di larghezza di banda.",
-      "limitedBandwidthCap": "I nodi <0>{{limitedBandwidthCapCount}}</0> hanno un limite di larghezza di banda di <1>{{limitedBandwidthCap}}</1>."
+      "limitedBandwidthCap": "I nodi <0>{{limitedBandwidthCapCount}}</0> hanno un limite di larghezza di banda di <1>{{limitedBandwidthCap}}</1>.",
+      "nodeVersions": "Versioni dei nodi"
     },
     "exchangeTracker": {
       "description": "Ogni giorno viene eseguita una cattura dei saldi dei conti delle borse più popolari in cui viene scambiato Nano. Questa misurazione può essere utilizzata per analizzare i movimenti e le fluttuazioni sulla rete."

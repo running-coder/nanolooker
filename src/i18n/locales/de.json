@@ -277,7 +277,8 @@
       "bandwidthCap": "Bandbreitenbeschränkung",
       "nodeCount": "Der Durchschnitt wird aus <0>{{nodeCount}} </0> Knoten mit aktivierter Telemetrie berechnet.",
       "unlimitedBandwidthCap": "<0>{{unlimitedBandwidthCapCount}}</0> Knoten haben keine Bandbreitenbeschränkung.",
-      "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> Knoten haben eine Bandbreitenbeschränkung von <1>{{limitedBandwidthCap}}</1>."
+      "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> Knoten haben eine Bandbreitenbeschränkung von <1>{{limitedBandwidthCap}}</1>.",
+      "nodeVersions": "Knotenversionen"
     },
     "exchangeTracker": {
       "description": "Jeden Tag wird eine Erfassung der Kontensalden der beliebtesten Börsen vorgenommen, an denen Nano gehandelt wird. Mit dieser Messung können Bewegungen und Schwankungen im Netzwerk analysiert werden."

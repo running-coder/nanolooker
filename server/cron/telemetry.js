@@ -40,6 +40,8 @@ const calculatePercentiles = metrics => {
     p100: {},
   };
 
+  const versions = {};
+
   const status = {
     nodeCount: metrics.length,
     date: Date.now(),
@@ -60,6 +62,18 @@ const calculatePercentiles = metrics => {
     peerCount.push(metric.peer_count);
     uptime.push(metric.uptime);
     activeDifficulty.push(metric.active_difficulty);
+
+    const {
+      major_version: major,
+      minor_version: minor,
+      patch_version: patch,
+    } = metric;
+    const version = `${major}.${minor}.${patch}`;
+    if (!versions[version]) {
+      versions[version] = 1;
+    } else {
+      versions[version] += 1;
+    }
   });
 
   activeDifficulty = activeDifficulty.map(difficulty =>
@@ -150,7 +164,7 @@ const calculatePercentiles = metrics => {
     false,
   );
 
-  return { telemetry: percentiles, status };
+  return { telemetry: percentiles, versions, status };
 };
 
 const calculateAverage = (values, percentile, isInt = true) => {

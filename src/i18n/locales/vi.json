@@ -277,7 +277,8 @@
       "bandwidthCap": "Giới hạn băng thông",
       "nodeCount": "Giá trị trung bình được tính trên các nút <0>{{nodeCount}}</0> có bật tính năng đo từ xa.",
       "unlimitedBandwidthCap": "Các nút <0>{{mitedBandwidthCapCount}}</0> không có giới hạn băng thông.",
-      "limitedBandwidthCap": "Các nút <0>{{limitedBandwidthCapCount}}</0> có giới hạn băng thông là <1>{{limitedBandwidthCap}}</1>."
+      "limitedBandwidthCap": "Các nút <0>{{limitedBandwidthCapCount}}</0> có giới hạn băng thông là <1>{{limitedBandwidthCap}}</1>.",
+      "nodeVersions": "Phiên bản nút"
     },
     "exchangeTracker": {
       "description": "Mỗi ngày, việc nắm bắt số dư tài khoản của các sàn giao dịch phổ biến nhất nơi Nano được giao dịch sẽ được thực hiện. Phép đo này có thể được sử dụng để phân tích các chuyển động và dao động trên mạng."

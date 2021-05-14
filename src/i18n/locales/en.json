@@ -277,7 +277,8 @@
       "bandwidthCap": "Bandwidth Cap",
       "nodeCount": "The average is calculated out of <0>{{nodeCount}}</0> nodes with telemetry enabled.",
       "unlimitedBandwidthCap": "<0>{{unlimitedBandwidthCapCount}}</0> nodes have no bandwidth limit.",
-      "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> nodes have bandwidth limit of <1>{{limitedBandwidthCap}}</1>."
+      "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> nodes have bandwidth limit of <1>{{limitedBandwidthCap}}</1>.",
+      "nodeVersions": "Node versions"
     },
     "exchangeTracker": {
       "description": "Every day a capture of the account balances of the most popular exchanges where Nano is traded is taken. This measurement can be used to analyze movements and fluctuations on the network."

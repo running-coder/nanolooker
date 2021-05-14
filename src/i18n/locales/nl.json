@@ -277,7 +277,8 @@
       "bandwidthCap": "Bandbreedte Cap",
       "nodeCount": "Het gemiddelde wordt berekend uit <0>{{nodeCount}}</0> knooppunten met telemetrie ingeschakeld.",
       "unlimitedBandwidthCap": "<0>{{unlimitedBandwidthCapCount}}</0> knooppunten hebben geen bandbreedtelimiet.",
-      "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> knooppunten hebben een bandbreedtelimiet van <1>{{limitedBandwidthCap}}</1>."
+      "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> knooppunten hebben een bandbreedtelimiet van <1>{{limitedBandwidthCap}}</1>.",
+      "nodeVersions": "Knooppuntversies"
     },
     "exchangeTracker": {
       "description": "Elke dag wordt een opname gemaakt van de rekeningsaldi van de meest populaire beurzen waar Nano wordt verhandeld. Deze meting kan worden gebruikt om bewegingen en fluctuaties op het netwerk te analyseren."
