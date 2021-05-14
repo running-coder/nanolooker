@@ -101,7 +101,7 @@ const Provider: React.FC = ({ children }) => {
 
     pollMarketStatisticsTimeout = window.setTimeout(() => {
       getMarketStatistics(fiat);
-    }, 12000);
+    }, 25000);
   };
 
   React.useEffect(() => {

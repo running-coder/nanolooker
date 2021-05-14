@@ -12,10 +12,12 @@ const {
 const allowedFiats = ["usd", "cad", "eur", "gbp", "cny", "jpy"];
 
 const getPriceStats = async () => {
+  let res;
   try {
     const ids = SUPPORTED_CRYPTOCURRENCY.map(({ id }) => id).join(",");
 
-    allowedFiats.forEach(async fiat => {
+    for (let i = 0; i < allowedFiats.length; i++) {
+      const fiat = allowedFiats[i];
       const resPrices = await fetch(
         `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=${fiat}&include_24hr_change=true`,
       );
@@ -26,17 +28,19 @@ const getPriceStats = async () => {
         bitcoin: json.bitcoin,
         nano: json.nano,
       });
-    });
+    }
   } catch (err) {
     console.log("Error", err);
-    Sentry.captureException(err);
+    Sentry.captureException(err, { extra: { res } });
   }
 };
 
 const getMarketStats = async () => {
+  let res;
   try {
-    allowedFiats.forEach(async fiat => {
-      const res = await fetch(
+    for (let i = 0; i < allowedFiats.length; i++) {
+      const fiat = allowedFiats[i];
+      res = await fetch(
         "https://api.coingecko.com/api/v3/coins/nano?localization=false&tickers=false&market_data=true&community_data=true&developer_data=true&sparkline=true",
       );
 
@@ -65,15 +69,15 @@ const getMarketStats = async () => {
       };
 
       nodeCache.set(`${COINGECKO_MARKET_STATS}-${fiat}`, marketStats);
-    });
+    }
   } catch (err) {
     console.log("Error", err);
-    Sentry.captureException(err);
+    Sentry.captureException(err, { extra: { res } });
   }
 };
 
-// Every 15 seconds
-cron.schedule("*/15 * * * * *", async () => {
+// Every 25 seconds
+cron.schedule("*/25 * * * * *", async () => {
   getPriceStats();
   getMarketStats();
 });
