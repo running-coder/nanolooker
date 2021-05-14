@@ -34,7 +34,9 @@
     "bookmarks": "북마크",
     "ok": "확인",
     "executionDate": "마지막 편집은 <0>{{date}}</0>에있었습니다.",
-    "executionTimeAgo": "마지막 편집은"
+    "executionTimeAgo": "마지막 편집은",
+    "node": "마디",
+    "nodes": "노드"
   },
   "nodeHealth": {
     "nodeReloading": "나노 노드가 다시로드됩니다.",
@@ -256,7 +258,6 @@
       "networkMinimum": "네트워크 최소",
       "networkCurrent": "네트워크 전류",
       "multiplier": "승수",
-      "node": "마디",
       "version": "버전",
       "uptime": "가동 시간",
       "cpuUsage": "CPU 사용량",
@@ -278,7 +279,8 @@
       "nodeCount": "평균은 원격 분석이 활성화 된 노드 <0> {{nodeCount}}</0> 개에서 계산됩니다.",
       "unlimitedBandwidthCap": "<0>{{unlimitedBandwidthCapCount}}</0> 노드에는 대역폭 제한이 없습니다.",
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> 노드의 대역폭 제한은 <1>{{limitedBandwidthCap}}</1>입니다.",
-      "nodeVersions": "노드 버전"
+      "nodeVersions": "노드 버전",
+      "latestVersion": "최신 버전"
     },
     "exchangeTracker": {
       "description": "Nano가 거래되는 가장 인기있는 거래소의 계정 잔액을 매일 캡처합니다. 이 측정은 네트워크의 움직임과 변동을 분석하는 데 사용할 수 있습니다."

@@ -2,6 +2,7 @@ import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Card, Skeleton, Typography } from "antd";
 import { Pie, PieConfig } from "@antv/g2plot";
+import orderBy from "lodash/orderBy";
 import { Theme, PreferencesContext } from "api/contexts/Preferences";
 
 const { Title } = Typography;
@@ -19,18 +20,30 @@ const Representatives: React.FC<Props> = ({ versions }) => {
   React.useEffect(() => {
     if (!Object.keys(versions).length) return;
 
-    const config: PieConfig = {
-      padding: -18,
-      data: Object.entries(versions).map(([version, value]) => ({
+    const data = orderBy(
+      Object.entries(versions).map(([version, value]) => ({
         version,
         value,
       })),
+      ["version"],
+      ["desc"],
+    );
+
+    const config: PieConfig = {
+      padding: -12,
+      data,
       angleField: "value",
       colorField: "version",
       radius: 0.8,
       label: {
         visible: true,
         type: "outer",
+        // @ts-ignore
+        formatter: (text, item, index) => {
+          return `${item._origin.version}${
+            index === 0 ? ` (${t("pages.status.latestVersion")})` : ""
+          }`;
+        },
         style:
           theme === Theme.DARK
             ? {
@@ -43,7 +56,17 @@ const Representatives: React.FC<Props> = ({ versions }) => {
               },
       },
       legend: {
-        visible: true,
+        visible: false,
+      },
+      tooltip: {
+        showTitle: false,
+        // @ts-ignore
+        formatter: (value, version) => {
+          return {
+            name: version,
+            value: `${value} ${t("common.nodes")}`,
+          };
+        },
       },
       interactions: [{ type: "element-active" }],
     };

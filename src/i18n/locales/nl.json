@@ -34,7 +34,9 @@
     "bookmarks": "Bladwijzers",
     "ok": "OK",
     "executionDate": "De laatste compilatie was op <0>{{date}}</0>",
-    "executionTimeAgo": "De laatste compilatie was"
+    "executionTimeAgo": "De laatste compilatie was",
+    "node": "Knooppunt",
+    "nodes": "Knooppunten"
   },
   "nodeHealth": {
     "nodeReloading": "Nano-knooppunt wordt opnieuw geladen",
@@ -256,7 +258,6 @@
       "networkMinimum": "Netwerkminimum",
       "networkCurrent": "Netwerkstroom",
       "multiplier": "Vermenigvuldiger",
-      "node": "Knooppunt",
       "version": "Versie",
       "uptime": "Uptime",
       "cpuUsage": "CPU gebruik",
@@ -278,7 +279,8 @@
       "nodeCount": "Het gemiddelde wordt berekend uit <0>{{nodeCount}}</0> knooppunten met telemetrie ingeschakeld.",
       "unlimitedBandwidthCap": "<0>{{unlimitedBandwidthCapCount}}</0> knooppunten hebben geen bandbreedtelimiet.",
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> knooppunten hebben een bandbreedtelimiet van <1>{{limitedBandwidthCap}}</1>.",
-      "nodeVersions": "Knooppuntversies"
+      "nodeVersions": "Knooppuntversies",
+      "latestVersion": "Laatste versie"
     },
     "exchangeTracker": {
       "description": "Elke dag wordt een opname gemaakt van de rekeningsaldi van de meest populaire beurzen waar Nano wordt verhandeld. Deze meting kan worden gebruikt om bewegingen en fluctuaties op het netwerk te analyseren."

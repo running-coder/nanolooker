@@ -95,7 +95,7 @@ const NetworkStatusPage: React.FC = () => {
               <Text className="color-muted">{t("pages.status.peers")}</Text>
             </Col>
             <Col md={4}>
-              <Text className="color-muted">{t("pages.status.node")}</Text>
+              <Text className="color-muted">{t("common.node")}</Text>
             </Col>
             <Col md={4}>
               <Text className="color-muted">{t("pages.status.stats")}</Text>

@@ -34,7 +34,9 @@
     "bookmarks": "Favoritos",
     "ok": "OK",
     "executionDate": "A última compilação foi em <0>{{date}}</0>",
-    "executionTimeAgo": "A última compilação foi"
+    "executionTimeAgo": "A última compilação foi",
+    "node": "Nó",
+    "nodes": "Nós"
   },
   "nodeHealth": {
     "nodeReloading": "Nano node está recarregando",
@@ -256,7 +258,6 @@
       "networkMinimum": "Mínimo da rede",
       "networkCurrent": "Rede atual",
       "multiplier": "Multiplicador",
-      "node": "Nó",
       "version": "Versão",
       "uptime": "Tempo de atividade",
       "cpuUsage": "Utilização do CPU",
@@ -278,7 +279,8 @@
       "nodeCount": "A média é calculada de <0>{{nodeCount}}</0> nós com telemetria habilitada.",
       "unlimitedBandwidthCap": "Os nós <0>{{unlimitedBandwidthCapCount}}</0> não têm limite de largura de banda.",
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> nós têm um limite de largura de banda de <1>{{limitedBandwidthCap}}</1>.",
-      "nodeVersions": "Versões de nó"
+      "nodeVersions": "Versões de nó",
+      "latestVersion": "Última versão"
     },
     "exchangeTracker": {
       "description": "Todos os dias é feita uma captura dos saldos das contas das bolsas mais populares onde o Nano é negociado. Esta medição pode ser usada para analisar movimentos e flutuações na rede."

@@ -34,7 +34,9 @@
     "bookmarks": "نشانک ها",
     "ok": "خوب",
     "executionDate": "آخرین گردآوری <0> {{date}} </0> بود",
-    "executionTimeAgo": "آخرین مجموعه بود"
+    "executionTimeAgo": "آخرین مجموعه بود",
+    "node": "گره",
+    "nodes": "گره ها"
   },
   "nodeHealth": {
     "nodeReloading": "گره نانو در حال بارگیری مجدد است",
@@ -256,7 +258,6 @@
       "networkMinimum": "حداقل شبکه",
       "networkCurrent": "جریان شبکه",
       "multiplier": "ضرب",
-      "node": "گره",
       "version": "نسخه",
       "uptime": "وقت بالا",
       "cpuUsage": "میزان استفاده از پردازنده",
@@ -278,7 +279,8 @@
       "nodeCount": "میانگین از گره های <0> {{nodeCount}}</0> با دورسنجی فعال شده محاسبه می شود.",
       "unlimitedBandwidthCap": "<0>{{unlimitedBandwidthCapCount}}</0> گره ها محدودیت پهنای باند ندارند.",
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> گره ها محدودیت پهنای باند <1> {{limitedBandwidthCap}}</1> را دارند.",
-      "nodeVersions": "نسخه های گره"
+      "nodeVersions": "نسخه های گره",
+      "latestVersion": "آخرین نسخه"
     },
     "exchangeTracker": {
       "description": "هر روز از موجودی حساب محبوب ترین صرافی هایی که نانو در آن تجارت می شود گرفته می شود. از این اندازه گیری می توان برای تجزیه و تحلیل حرکات و نوسانات موجود در شبکه استفاده کرد."

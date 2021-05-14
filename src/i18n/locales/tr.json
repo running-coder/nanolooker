@@ -34,7 +34,9 @@
     "bookmarks": "Yer imleri",
     "ok": "Tamam mı",
     "executionDate": "Son derleme <0>{{date}}</0> tarihinde yapıldı",
-    "executionTimeAgo": "Son derleme"
+    "executionTimeAgo": "Son derleme",
+    "node": "Düğüm",
+    "nodes": "Düğümler"
   },
   "nodeHealth": {
     "nodeReloading": "Nano düğüm yeniden yükleniyor",
@@ -256,7 +258,6 @@
       "networkMinimum": "Ağ Minimum",
       "networkCurrent": "Ağ Akımı",
       "multiplier": "Çarpan",
-      "node": "Düğüm",
       "version": "Versiyon",
       "uptime": "Uptime",
       "cpuUsage": "CPU kullanımı",
@@ -278,7 +279,8 @@
       "nodeCount": "Ortalama, telemetri etkinleştirilmiş <0>{{nodeCount}}</0> düğümlerinden hesaplanır.",
       "unlimitedBandwidthCap": "<0>{{unlimitedBandwidthCapCount}}</0> düğümlerinin bant genişliği sınırı yoktur.",
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> düğümlerinin bant genişliği sınırı <1>{{limitedBandwidthCap}}</1>.",
-      "nodeVersions": "Düğüm sürümleri"
+      "nodeVersions": "Düğüm sürümleri",
+      "latestVersion": "En son sürüm"
     },
     "exchangeTracker": {
       "description": "Her gün, Nano'nun işlem gördüğü en popüler borsaların hesap bakiyelerinin bir kaydı alınır. Bu ölçüm, ağdaki hareketleri ve dalgalanmaları analiz etmek için kullanılabilir."

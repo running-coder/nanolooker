@@ -34,7 +34,9 @@
     "bookmarks": "Signets",
     "ok": "D'accord",
     "executionDate": "La dernière compilation a eu lieu le <0>{{date}}</0>",
-    "executionTimeAgo": "La dernière compilation était"
+    "executionTimeAgo": "La dernière compilation était",
+    "node": "Nœud",
+    "nodes": "Nœuds"
   },
   "nodeHealth": {
     "nodeReloading": "Le nœud Nano est en cours de rechargement",
@@ -256,7 +258,6 @@
       "networkMinimum": "Difficulté minimum du réseau",
       "networkCurrent": "Difficulté actuellle sur le réseau",
       "multiplier": "Multiplicateur",
-      "node": "Nœud",
       "version": "Version",
       "uptime": "Disponibilité",
       "cpuUsage": "L'utilisation du processeur",
@@ -278,7 +279,8 @@
       "nodeCount": "La moyenne est calculée à partir de <0>{{nodeCount}}</0> nœuds avec la télémétrie activée.",
       "unlimitedBandwidthCap": "Les nœuds <0>{{unlimitedBandwidthCapCount}}</0> n'ont pas de limite de bande passante.",
       "limitedBandwidthCap": "Les nœuds <0>{{limitedBandwidthCapCount}}</0> ont une limite de bande passante de <1>{{limitedBandwidthCap}}</1>.",
-      "nodeVersions": "Versions des nœuds"
+      "nodeVersions": "Versions des nœuds",
+      "latestVersion": "Dernière version"
     },
     "exchangeTracker": {
       "description": "Chaque jour, une capture du solde des comptes des plateformes d'échanges les plus populaires où Nano est négocié est pris. Cette mesure peut permettre d'analyser les mouvements et fluctuations sur le réseau."

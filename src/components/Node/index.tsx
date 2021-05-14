@@ -52,7 +52,7 @@ const Node: React.FC = () => {
   return (
     <Card
       size="small"
-      title={t("pages.status.node")}
+      title={t("common.node")}
       extra={
         <Tooltip title={t("pages.status.reload")}>
           <Button

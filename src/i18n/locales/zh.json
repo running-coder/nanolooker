@@ -34,7 +34,9 @@
     "bookmarks": "书签",
     "ok": "好的",
     "executionDate": "上次编译时间为 <0>{{date}}</0>",
-    "executionTimeAgo": "上次编译是"
+    "executionTimeAgo": "上次编译是",
+    "node": "节点",
+    "nodes": "节点数"
   },
   "nodeHealth": {
     "nodeReloading": "纳米节点正在重新加载",
@@ -256,7 +258,6 @@
       "networkMinimum": "最低网络",
       "networkCurrent": "网络电流",
       "multiplier": "乘数",
-      "node": "节点",
       "version": "版本",
       "uptime": "正常运行时间",
       "cpuUsage": "CPU使用率",
@@ -278,7 +279,8 @@
       "nodeCount": "平均值是从启用了遥测功能的 <0>{{nodeCount}}</0> 个节点中计算出来的。",
       "unlimitedBandwidthCap": "<0>{{unlimitedBandwidthCapCount}}</0> 个节点没有带宽限制。",
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> 个节点的带宽限制为 <1>{{limitedBandwidthCap}}</1>。",
-      "nodeVersions": "节点版本"
+      "nodeVersions": "节点版本",
+      "latestVersion": "最新版本"
     },
     "exchangeTracker": {
       "description": "每天都会记录Nano交易所在的最受欢迎交易所的账户余额。此度量可用于分析网络上的移动和波动。"

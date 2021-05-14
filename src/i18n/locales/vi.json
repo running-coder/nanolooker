@@ -34,7 +34,9 @@
     "bookmarks": "Dấu trang",
     "ok": "Đồng ý",
     "executionDate": "Lần biên dịch cuối cùng vào <0>{{date}}</0>",
-    "executionTimeAgo": "Lần biên dịch cuối cùng là"
+    "executionTimeAgo": "Lần biên dịch cuối cùng là",
+    "node": "Nút",
+    "nodes": "Điểm giao"
   },
   "nodeHealth": {
     "nodeReloading": "Nút nano đang tải lại",
@@ -256,7 +258,6 @@
       "networkMinimum": "Mạng tối thiểu",
       "networkCurrent": "Mạng hiện tại",
       "multiplier": "Hệ số nhân",
-      "node": "Nút",
       "version": "Phiên bản",
       "uptime": "Thời gian hoạt động",
       "cpuUsage": "Sử dụng CPU",
@@ -278,7 +279,8 @@
       "nodeCount": "Giá trị trung bình được tính trên các nút <0>{{nodeCount}}</0> có bật tính năng đo từ xa.",
       "unlimitedBandwidthCap": "Các nút <0>{{mitedBandwidthCapCount}}</0> không có giới hạn băng thông.",
       "limitedBandwidthCap": "Các nút <0>{{limitedBandwidthCapCount}}</0> có giới hạn băng thông là <1>{{limitedBandwidthCap}}</1>.",
-      "nodeVersions": "Phiên bản nút"
+      "nodeVersions": "Phiên bản nút",
+      "latestVersion": "Phiên bản mới nhất"
     },
     "exchangeTracker": {
       "description": "Mỗi ngày, việc nắm bắt số dư tài khoản của các sàn giao dịch phổ biến nhất nơi Nano được giao dịch sẽ được thực hiện. Phép đo này có thể được sử dụng để phân tích các chuyển động và dao động trên mạng."

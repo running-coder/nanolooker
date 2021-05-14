@@ -34,7 +34,9 @@
     "bookmarks": "बुकमार्क",
     "ok": "ठीक है",
     "executionDate": "अंतिम संकलन <0>{{date}}</0> पर था",
-    "executionTimeAgo": "अंतिम संकलन था"
+    "executionTimeAgo": "अंतिम संकलन था",
+    "node": "नोड",
+    "nodes": "नोड्स"
   },
   "nodeHealth": {
     "nodeReloading": "नैनो नोड पुनः लोड हो रहा है",
@@ -256,7 +258,6 @@
       "networkMinimum": "नेटवर्क न्यूनतम",
       "networkCurrent": "नेटवर्क करंट",
       "multiplier": "गुणक",
-      "node": "नोड",
       "version": "संस्करण",
       "uptime": "अपटाइम",
       "cpuUsage": "सि पि यु का उपयोग",
@@ -278,7 +279,8 @@
       "nodeCount": "औसत की गणना <0>{{nodeCount}}</0> से की जाती है, जिसमें टेलीमेट्री सक्षम है।",
       "unlimitedBandwidthCap": "<0>{{unlimitedBandwidthCapCount}}</0> नोड्स की कोई बैंडविड्थ सीमा नहीं है।",
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> नोड्स की बैंडविड्थ सीमा <1>{{limitedBandwidthCap}}</1> है।",
-      "nodeVersions": "नोड संस्करण"
+      "nodeVersions": "नोड संस्करण",
+      "latestVersion": "नवीनतम संस्करण"
     },
     "exchangeTracker": {
       "description": "हर दिन सबसे लोकप्रिय एक्सचेंजों के खाते में शेष राशि पर कब्जा कर लिया जाता है जहां नैनो का कारोबार होता है। इस माप का उपयोग नेटवर्क पर आंदोलनों और उतार-चढ़ाव का विश्लेषण करने के लिए किया जा सकता है।"

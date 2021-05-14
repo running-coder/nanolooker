@@ -34,7 +34,9 @@
     "bookmarks": "Закладки",
     "ok": "ОК",
     "executionDate": "Последняя компиляция была <0>{{date}}</0>",
-    "executionTimeAgo": "Последняя компиляция была"
+    "executionTimeAgo": "Последняя компиляция была",
+    "node": "Узел",
+    "nodes": "Узлы"
   },
   "nodeHealth": {
     "nodeReloading": "Нано-узел перезагружается",
@@ -256,7 +258,6 @@
       "networkMinimum": "Сеть Минимум",
       "networkCurrent": "Сетевой ток",
       "multiplier": "Множитель",
-      "node": "Узел",
       "version": "Версия",
       "uptime": "Время безотказной работы",
       "cpuUsage": "Использование процессора",
@@ -278,7 +279,8 @@
       "nodeCount": "Среднее значение рассчитывается для узлов <0>{{nodeCount}}</0> с включенной телеметрией.",
       "unlimitedBandwidthCap": "Узлы <0>{{unlimitedBandwidthCapCount}}</0> не имеют ограничения полосы пропускания.",
       "limitedBandwidthCap": "Узлы <0>{{limitedBandwidthCapCount}}</0> имеют ограничение полосы пропускания <1>{{limitedBandwidthCap}}</1>.",
-      "nodeVersions": "Версии узлов"
+      "nodeVersions": "Версии узлов",
+      "latestVersion": "Последняя версия"
     },
     "exchangeTracker": {
       "description": "Ежедневно производится сбор данных об остатках на счетах самых популярных бирж, на которых торгуют Nano. Это измерение можно использовать для анализа движений и колебаний в сети."

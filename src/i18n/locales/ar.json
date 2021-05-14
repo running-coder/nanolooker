@@ -34,7 +34,9 @@
     "bookmarks": "إشارات مرجعية",
     "ok": "نعم",
     "executionDate": "التجميع الأخير كان في <0> {{date}} </0>",
-    "executionTimeAgo": "التجميع الأخير كان"
+    "executionTimeAgo": "التجميع الأخير كان",
+    "node": "العقدة",
+    "nodes": "العقد"
   },
   "nodeHealth": {
     "nodeReloading": "يتم إعادة تحميل عقدة النانو",
@@ -256,7 +258,6 @@
       "networkMinimum": "الحد الأدنى للشبكة",
       "networkCurrent": "تيار الشبكة",
       "multiplier": "المضاعف",
-      "node": "العقدة",
       "version": "إصدار",
       "uptime": "مدة التشغيل",
       "cpuUsage": "استخدام المعالج",
@@ -278,7 +279,8 @@
       "nodeCount": "يتم حساب المتوسط من <0> {{nodeCount}} </0> من العقد مع تمكين القياس عن بعد.",
       "unlimitedBandwidthCap": "<0>{{unlimitedBandwidthCapCount}}</0> العقد ليس لها حد للنطاق الترددي.",
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> العقد لها حد النطاق الترددي <1> {{limitedBandwidthCap}} </1>.",
-      "nodeVersions": "إصدارات العقدة"
+      "nodeVersions": "إصدارات العقدة",
+      "latestVersion": "احدث اصدار"
     },
     "exchangeTracker": {
       "description": "كل يوم يتم الحصول على أرصدة حسابات أكثر البورصات شعبية حيث يتم تداول Nano. يمكن استخدام هذا القياس لتحليل الحركات والتقلبات على الشبكة."

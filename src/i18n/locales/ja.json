@@ -34,7 +34,9 @@
     "bookmarks": "ブックマーク",
     "ok": "OK",
     "executionDate": "最後のコンパイルは<0>{{date}}</0>でした",
-    "executionTimeAgo": "最後のコンパイルは"
+    "executionTimeAgo": "最後のコンパイルは",
+    "node": "ノード",
+    "nodes": "ノード"
   },
   "nodeHealth": {
     "nodeReloading": "Nanoノードがリロードしています",
@@ -256,7 +258,6 @@
       "networkMinimum": "ネットワーク最小",
       "networkCurrent": "ネットワーク電流",
       "multiplier": "乗数",
-      "node": "ノード",
       "version": "バージョン",
       "uptime": "稼働時間",
       "cpuUsage": "CPU使用率",
@@ -278,7 +279,8 @@
       "nodeCount": "平均は、テレメトリが有効になっている<0> {{nodeCount}}</0>ノードから計算されます。",
       "unlimitedBandwidthCap": "<0>{{unlimitedBandwidthCapCount}}</0>ノードには帯域幅の制限はありません。",
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0>ノードの帯域幅制限は<1>{{limitedBandwidthCap}}</1>です。",
-      "nodeVersions": "ノードバージョン"
+      "nodeVersions": "ノードバージョン",
+      "latestVersion": "最新バージョン"
     },
     "exchangeTracker": {
       "description": "Nanoが取引されている最も人気のある取引所の口座残高を毎日取得します。この測定値は、ネットワーク上の動きや変動を分析するために使用できます。"
