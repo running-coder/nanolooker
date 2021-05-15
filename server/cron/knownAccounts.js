@@ -1,6 +1,7 @@
 const fetch = require("node-fetch");
 const cron = require("node-cron");
 const BigNumber = require("bignumber.js");
+const { doDelegatedEntitiesCron } = require("./delegatedEntity");
 const { rawToRai } = require("../utils");
 const { rpc } = require("../rpc");
 const { nodeCache } = require("../cache");
@@ -116,7 +117,10 @@ cron.schedule("*/15 * * * *", async () => {
 });
 
 if (process.env.NODE_ENV === "production") {
-  doKnownAccountsBalanceCron();
+  setImmediate(async () => {
+    await doKnownAccountsBalanceCron();
+    doDelegatedEntitiesCron();
+  });
 }
 
 module.exports = {

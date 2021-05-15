@@ -1,6 +1,7 @@
 require("dotenv").config();
 require("./cron/marketCapRank");
 require("./cron/knownAccounts");
+require("./cron/delegatedEntity");
 require("./cron/delegators");
 require("./cron/nodeLocations");
 require("./cron/nodeMonitors");

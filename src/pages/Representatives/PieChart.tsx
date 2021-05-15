@@ -66,9 +66,9 @@ const Representatives: React.FC<Props> = ({
     isLoading: isConfirmationQuorumLoading,
   } = React.useContext(ConfirmationQuorumContext);
 
-  const [delegatedEntities, setDelegatedEntities] = React.useState<
-    undefined | KnownAccountsBalance[]
-  >();
+  const [delegatedEntities, setDelegatedEntities] = React.useState(
+    [] as KnownAccountsBalance[],
+  );
 
   const representativesSkeletonProps = {
     active: true,
@@ -103,7 +103,7 @@ const Representatives: React.FC<Props> = ({
       stake = new BigNumber(stake).plus(representative.weight).toNumber();
     });
 
-    if (isGroupedByEntities) {
+    if (isGroupedByEntities && delegatedEntities.length) {
       // @TODO find a more scalable option
       const groups: { [key: string]: number } = {
         "Nano Foundation": 0,
@@ -330,13 +330,16 @@ const Representatives: React.FC<Props> = ({
           </Col>
           <Col xs={4} md={12}>
             <Switch
-              disabled={isRepresentativesLoading}
+              disabled={isRepresentativesLoading || !delegatedEntities.length}
               checkedChildren={<CheckOutlined />}
               unCheckedChildren={<CloseOutlined />}
               onChange={(checked: boolean) => {
                 setIsGroupedByEntities(checked);
               }}
-              defaultChecked={isGroupedByEntities}
+              checked={
+                // Ensure the API returns delegatedEntities to enable the switch
+                delegatedEntities.length ? isGroupedByEntities : false
+              }
             />
           </Col>
         </Row>
