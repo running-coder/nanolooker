@@ -9,8 +9,10 @@ import {
   Pagination,
   Row,
   Tag,
+  Tooltip,
   Typography,
 } from "antd";
+import { SyncOutlined } from "@ant-design/icons";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import TimeAgo from "timeago-react";
 import BigNumber from "bignumber.js";
@@ -112,6 +114,7 @@ const TransactionsTable = ({
                 amount,
                 representative,
                 hash,
+                confirmed,
                 local_timestamp: localTimestamp,
               }: History,
               index: number,
@@ -138,7 +141,6 @@ const TransactionsTable = ({
                   justify="space-between"
                   align="middle"
                   gutter={[12, 12]}
-                  // gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]}
                 >
                   <Col
                     xs={natricons ? 12 : 24}
@@ -147,14 +149,26 @@ const TransactionsTable = ({
                     className="gutter-row"
                     span={6}
                   >
-                    <Tag
-                      // @ts-ignore
-                      color={TwoToneColors[themeColor]}
-                      style={{ textTransform: "capitalize" }}
-                      className={`tag-${subtype || type}`}
+                    <Tooltip
+                      placement="right"
+                      title={t(
+                        `pages.block.${
+                          confirmed === false ? "pending" : "confirmed"
+                        }Status`,
+                      )}
                     >
-                      {t(`transaction.${transactionType}`)}
-                    </Tag>
+                      <Tag
+                        // @ts-ignore
+                        color={TwoToneColors[themeColor]}
+                        style={{ textTransform: "capitalize" }}
+                        className={`tag-${subtype || type}`}
+                        icon={
+                          confirmed === false ? <SyncOutlined spin /> : null
+                        }
+                      >
+                        {t(`transaction.${transactionType}`)}
+                      </Tag>
+                    </Tooltip>
                   </Col>
                   {natricons ? (
                     <Col xs={12} md={2} style={{ textAlign: "right" }}>

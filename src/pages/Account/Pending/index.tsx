@@ -7,7 +7,7 @@ import usePending, { PendingBlock } from "api/hooks/use-pending";
 import useBlocksInfo from "api/hooks/use-blocks-info";
 import { AccountInfoContext } from "api/contexts/AccountInfo";
 import TransactionsTable from "pages/Account/Transactions";
-import { raiToRaw, rawToRai } from "components/utils";
+import { raiToRaw, rawToRai, toBoolean } from "components/utils";
 
 import type { Subtype } from "types/transaction";
 
@@ -19,6 +19,7 @@ interface PendingHistoryBlock extends PendingBlock {
   hash: string;
   account: string;
   subtype: Subtype;
+  confirmed: boolean;
   local_timestamp: String;
 }
 
@@ -35,7 +36,7 @@ const AccountPendingHistory: React.FC = () => {
     sorting: true,
     source: true,
     threshold: new BigNumber(raiToRaw(PENDING_MIN_THRESHOLD)).toFixed(),
-    include_only_confirmed: true,
+    include_only_confirmed: false,
   });
   const [hashes, setHashes] = React.useState<string[]>([]);
   const { blocks: blocksInfo } = useBlocksInfo(hashes);
@@ -53,6 +54,7 @@ const AccountPendingHistory: React.FC = () => {
         hash: block,
         amount,
         local_timestamp: blocksInfo.blocks?.[block]?.local_timestamp,
+        confirmed: toBoolean(blocksInfo.blocks?.[block]?.confirmed),
         account: source,
         subtype: "pending",
       }),

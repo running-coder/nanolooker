@@ -10,6 +10,7 @@ export interface History {
   representative: string;
   account: string;
   amount: string;
+  confirmed: string | boolean;
   local_timestamp: string;
   height: string;
   hash: string;
