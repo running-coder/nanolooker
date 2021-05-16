@@ -6,9 +6,14 @@ export enum Percentiles {
   P100 = "p100",
 }
 
+export interface Version {
+  weight: number;
+  count: number;
+}
+
 export interface Return {
   telemetry: { [key in Percentiles]: Telemetry };
-  versions: { [key: string]: string };
+  versions: { [key: string]: Version };
   status: Status;
   isLoading: boolean;
   isError: boolean;

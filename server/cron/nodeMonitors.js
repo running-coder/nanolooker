@@ -150,3 +150,7 @@ cron.schedule("*/10 * * * *", () => {
 if (process.env.NODE_ENV === "production") {
   doNodeMonitors();
 }
+
+module.exports = {
+  getConfirmationQuorumPeers,
+};

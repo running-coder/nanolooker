@@ -281,7 +281,9 @@
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> nodes have bandwidth limit of <1>{{limitedBandwidthCap}}</1>.",
       "nodeVersions": "Node versions",
       "latestVersion": "Latest version",
-      "database": "Database"
+      "database": "Database",
+      "versionsByWeight": "Versions by voting weight",
+      "versionsByWeightDescription": "For a version to be taking over the network's consensus, it needs to have {{onlineWeightQuorumPercent}}% of the online voting weight from a minimum of {{onlineWeightMinimum}} NANO."
     },
     "exchangeTracker": {
       "description": "Every day a capture of the account balances of the most popular exchanges where Nano is traded is taken. This measurement can be used to analyze movements and fluctuations on the network."

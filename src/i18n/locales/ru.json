@@ -281,7 +281,9 @@
       "limitedBandwidthCap": "Узлы <0>{{limitedBandwidthCapCount}}</0> имеют ограничение полосы пропускания <1>{{limitedBandwidthCap}}</1>.",
       "nodeVersions": "Версии узлов",
       "latestVersion": "Последняя версия",
-      "database": "База данных"
+      "database": "База данных",
+      "versionsByWeight": "Версии по весу голосования",
+      "versionsByWeightDescription": "Чтобы версия приняла консенсус в сети, она должна иметь {{onlineWeightQuorumPercent}}% веса онлайн-голосования от как минимум {{onlineWeightMinimum}} NANO."
     },
     "exchangeTracker": {
       "description": "Ежедневно производится сбор данных об остатках на счетах самых популярных бирж, на которых торгуют Nano. Это измерение можно использовать для анализа движений и колебаний в сети."

@@ -281,7 +281,9 @@
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0>ノードの帯域幅制限は<1>{{limitedBandwidthCap}}</1>です。",
       "nodeVersions": "ノードバージョン",
       "latestVersion": "最新バージョン",
-      "database": "データベース"
+      "database": "データベース",
+      "versionsByWeight": "投票ウェイトによるバージョン",
+      "versionsByWeightDescription": "ネットワークのコンセンサスを引き継ぐバージョンの場合、最小の{{onlineWeightMinimum}} NANOからのオンライン投票の重みの67％が必要です。"
     },
     "exchangeTracker": {
       "description": "Nanoが取引されている最も人気のある取引所の口座残高を毎日取得します。この測定値は、ネットワーク上の動きや変動を分析するために使用できます。"

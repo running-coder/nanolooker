@@ -281,7 +281,9 @@
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> العقد لها حد النطاق الترددي <1> {{limitedBandwidthCap}} </1>.",
       "nodeVersions": "إصدارات العقدة",
       "latestVersion": "احدث اصدار",
-      "database": "قاعدة البيانات"
+      "database": "قاعدة البيانات",
+      "versionsByWeight": "الإصدارات من خلال وزن التصويت",
+      "versionsByWeightDescription": "لكي يستحوذ الإصدار على إجماع الشبكة ، يجب أن يحصل على 67٪ من وزن التصويت عبر الإنترنت من الحد الأدنى من {{onlineWeightMinimum}} NANO."
     },
     "exchangeTracker": {
       "description": "كل يوم يتم الحصول على أرصدة حسابات أكثر البورصات شعبية حيث يتم تداول Nano. يمكن استخدام هذا القياس لتحليل الحركات والتقلبات على الشبكة."

@@ -281,7 +281,9 @@
       "limitedBandwidthCap": "Les nœuds <0>{{limitedBandwidthCapCount}}</0> ont une limite de bande passante de <1>{{limitedBandwidthCap}}</1>.",
       "nodeVersions": "Versions des nœuds",
       "latestVersion": "Dernière version",
-      "database": "Base de données"
+      "database": "Base de données",
+      "versionsByWeight": "Versions par poids de vote",
+      "versionsByWeightDescription": "Pour qu'une version reprenne le consensus du réseau, elle doit avoir {{onlineWeightQuorumPercent}}% du poids du vote en ligne sur un minimum de {{onlineWeightMinimum}} NANO."
     },
     "exchangeTracker": {
       "description": "Chaque jour, une capture du solde des comptes des plateformes d'échanges les plus populaires où Nano est négocié est pris. Cette mesure peut permettre d'analyser les mouvements et fluctuations sur le réseau."

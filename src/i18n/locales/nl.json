@@ -281,7 +281,9 @@
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> knooppunten hebben een bandbreedtelimiet van <1>{{limitedBandwidthCap}}</1>.",
       "nodeVersions": "Knooppuntversies",
       "latestVersion": "Laatste versie",
-      "database": "Database"
+      "database": "Database",
+      "versionsByWeight": "Versies op stemgewicht",
+      "versionsByWeightDescription": "Om een versie de consensus van het netwerk over te nemen, moet deze {{onlineWeightQuorumPercent}}% van het online stemgewicht hebben van minimaal {{onlineWeightMinimum}} NANO."
     },
     "exchangeTracker": {
       "description": "Elke dag wordt een opname gemaakt van de rekeningsaldi van de meest populaire beurzen waar Nano wordt verhandeld. Deze meting kan worden gebruikt om bewegingen en fluctuaties op het netwerk te analyseren."

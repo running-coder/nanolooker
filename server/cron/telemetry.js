@@ -3,6 +3,7 @@ const { rpc } = require("../rpc");
 const { nodeCache } = require("../cache");
 const { Sentry } = require("../sentry");
 const { TELEMETRY } = require("../constants");
+const { getConfirmationQuorumPeers } = require("./nodeMonitors");
 
 const BASE_DIFFICULTY = 0xfffffff800000000;
 
@@ -15,7 +16,9 @@ const doTelemetryCron = async () => {
       raw: true,
     });
 
-    const percentiles = calculatePercentiles(metrics);
+    const peers = await getConfirmationQuorumPeers();
+
+    const percentiles = calculatePercentiles(metrics, peers);
 
     nodeCache.set(TELEMETRY, percentiles);
   } catch (err) {
@@ -24,7 +27,7 @@ const doTelemetryCron = async () => {
   }
 };
 
-const calculatePercentiles = metrics => {
+const calculatePercentiles = (metrics, peers) => {
   const blockCount = [];
   const cementedCount = [];
   const uncheckedCount = [];
@@ -69,10 +72,17 @@ const calculatePercentiles = metrics => {
       patch_version: patch,
     } = metric;
     const version = `${major}.${minor}.${patch}`;
+
+    const metricsRawIp = `[${metric.address}]:${metric.port}`;
+
+    const { weight = 0 } =
+      peers.find(({ rawIp }) => metricsRawIp === rawIp) || {};
+
     if (!versions[version]) {
-      versions[version] = 1;
+      versions[version] = { weight, count: 1 };
     } else {
-      versions[version] += 1;
+      versions[version].weight += weight;
+      versions[version].count += 1;
     }
   });
 
@@ -184,6 +194,6 @@ cron.schedule("*/10 * * * *", async () => {
   doTelemetryCron();
 });
 
-// if (process.env.NODE_ENV === "production") {
-doTelemetryCron();
-// }
+if (process.env.NODE_ENV === "production") {
+  doTelemetryCron();
+}

@@ -281,7 +281,9 @@
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> گره ها محدودیت پهنای باند <1> {{limitedBandwidthCap}}</1> را دارند.",
       "nodeVersions": "نسخه های گره",
       "latestVersion": "آخرین نسخه",
-      "database": "پایگاه داده"
+      "database": "پایگاه داده",
+      "versionsByWeight": "نسخه ها با وزن رأی دادن",
+      "versionsByWeightDescription": "برای اینکه یک نسخه از اجماع شبکه پذیرفته شود ، باید 67٪ از وزن رای گیری آنلاین را از حداقل {{onlineWeightMinimum}} NANO داشته باشد."
     },
     "exchangeTracker": {
       "description": "هر روز از موجودی حساب محبوب ترین صرافی هایی که نانو در آن تجارت می شود گرفته می شود. از این اندازه گیری می توان برای تجزیه و تحلیل حرکات و نوسانات موجود در شبکه استفاده کرد."

@@ -281,7 +281,9 @@
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> Knoten haben eine Bandbreitenbeschränkung von <1>{{limitedBandwidthCap}}</1>.",
       "nodeVersions": "Knotenversionen",
       "latestVersion": "Letzte Version",
-      "database": "Datenbank"
+      "database": "Datenbank",
+      "versionsByWeight": "Versionen nach Wahlgewicht",
+      "versionsByWeightDescription": "Damit eine Version den Konsens des Netzwerks übernimmt, muss sie {{onlineWeightQuorumPercent}}% des Online-Abstimmungsgewichts von mindestens {{onlineWeightMinimum}} NANO haben."
     },
     "exchangeTracker": {
       "description": "Jeden Tag wird eine Erfassung der Kontensalden der beliebtesten Börsen vorgenommen, an denen Nano gehandelt wird. Mit dieser Messung können Bewegungen und Schwankungen im Netzwerk analysiert werden."
