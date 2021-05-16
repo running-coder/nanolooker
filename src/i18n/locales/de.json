@@ -280,7 +280,8 @@
       "unlimitedBandwidthCap": "<0>{{unlimitedBandwidthCapCount}}</0> Knoten haben keine Bandbreitenbeschränkung.",
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> Knoten haben eine Bandbreitenbeschränkung von <1>{{limitedBandwidthCap}}</1>.",
       "nodeVersions": "Knotenversionen",
-      "latestVersion": "Letzte Version"
+      "latestVersion": "Letzte Version",
+      "database": "Datenbank"
     },
     "exchangeTracker": {
       "description": "Jeden Tag wird eine Erfassung der Kontensalden der beliebtesten Börsen vorgenommen, an denen Nano gehandelt wird. Mit dieser Messung können Bewegungen und Schwankungen im Netzwerk analysiert werden."

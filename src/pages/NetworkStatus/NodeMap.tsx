@@ -118,10 +118,10 @@ const Markers = React.memo(({ nodes }: { nodes: NodeLocation[] }) => {
 
 interface Props {
   nodeMonitors: NodeMonitor[] | null;
-  isNodeMonitorsLoading: boolean;
+  isLoading: boolean;
 }
 
-const NodeMap: React.FC<Props> = ({ nodeMonitors, isNodeMonitorsLoading }) => {
+const NodeMap: React.FC<Props> = ({ nodeMonitors, isLoading }) => {
   const { t } = useTranslation();
   const [nodes, setNodes] = React.useState([] as NodeLocation[]);
   const { knownAccounts, isLoading: isKnownAccountsLoading } = React.useContext(
@@ -129,7 +129,7 @@ const NodeMap: React.FC<Props> = ({ nodeMonitors, isNodeMonitorsLoading }) => {
   );
 
   React.useEffect(() => {
-    if (isKnownAccountsLoading || isNodeMonitorsLoading) return;
+    if (isKnownAccountsLoading || isLoading) return;
 
     getNodeLocations().then(nodeLocations => {
       const nodes = nodeLocations?.map(nodeLocation => {
@@ -150,7 +150,7 @@ const NodeMap: React.FC<Props> = ({ nodeMonitors, isNodeMonitorsLoading }) => {
       setNodes(nodes);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isNodeMonitorsLoading, isKnownAccountsLoading]);
+  }, [isLoading, isKnownAccountsLoading]);
 
   return (
     <>

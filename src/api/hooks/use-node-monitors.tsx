@@ -31,6 +31,7 @@ interface Monitor {
   uncheckedBlocks: number;
   usedMem: number;
   version: string;
+  storeVersion: string;
 }
 
 const useNodeMonitors = (): Return => {

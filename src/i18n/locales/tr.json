@@ -280,7 +280,8 @@
       "unlimitedBandwidthCap": "<0>{{unlimitedBandwidthCapCount}}</0> düğümlerinin bant genişliği sınırı yoktur.",
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> düğümlerinin bant genişliği sınırı <1>{{limitedBandwidthCap}}</1>.",
       "nodeVersions": "Düğüm sürümleri",
-      "latestVersion": "En son sürüm"
+      "latestVersion": "En son sürüm",
+      "database": "Veri tabanı"
     },
     "exchangeTracker": {
       "description": "Her gün, Nano'nun işlem gördüğü en popüler borsaların hesap bakiyelerinin bir kaydı alınır. Bu ölçüm, ağdaki hareketleri ve dalgalanmaları analiz etmek için kullanılabilir."

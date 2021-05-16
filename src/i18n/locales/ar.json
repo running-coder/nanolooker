@@ -280,7 +280,8 @@
       "unlimitedBandwidthCap": "<0>{{unlimitedBandwidthCapCount}}</0> العقد ليس لها حد للنطاق الترددي.",
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> العقد لها حد النطاق الترددي <1> {{limitedBandwidthCap}} </1>.",
       "nodeVersions": "إصدارات العقدة",
-      "latestVersion": "احدث اصدار"
+      "latestVersion": "احدث اصدار",
+      "database": "قاعدة البيانات"
     },
     "exchangeTracker": {
       "description": "كل يوم يتم الحصول على أرصدة حسابات أكثر البورصات شعبية حيث يتم تداول Nano. يمكن استخدام هذا القياس لتحليل الحركات والتقلبات على الشبكة."

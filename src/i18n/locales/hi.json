@@ -280,7 +280,8 @@
       "unlimitedBandwidthCap": "<0>{{unlimitedBandwidthCapCount}}</0> नोड्स की कोई बैंडविड्थ सीमा नहीं है।",
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> नोड्स की बैंडविड्थ सीमा <1>{{limitedBandwidthCap}}</1> है।",
       "nodeVersions": "नोड संस्करण",
-      "latestVersion": "नवीनतम संस्करण"
+      "latestVersion": "नवीनतम संस्करण",
+      "database": "डेटाबेस"
     },
     "exchangeTracker": {
       "description": "हर दिन सबसे लोकप्रिय एक्सचेंजों के खाते में शेष राशि पर कब्जा कर लिया जाता है जहां नैनो का कारोबार होता है। इस माप का उपयोग नेटवर्क पर आंदोलनों और उतार-चढ़ाव का विश्लेषण करने के लिए किया जा सकता है।"

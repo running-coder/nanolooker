@@ -280,7 +280,8 @@
       "unlimitedBandwidthCap": "<0>{{unlimitedBandwidthCapCount}}</0> 个节点没有带宽限制。",
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> 个节点的带宽限制为 <1>{{limitedBandwidthCap}}</1>。",
       "nodeVersions": "节点版本",
-      "latestVersion": "最新版本"
+      "latestVersion": "最新版本",
+      "database": "数据库"
     },
     "exchangeTracker": {
       "description": "每天都会记录Nano交易所在的最受欢迎交易所的账户余额。此度量可用于分析网络上的移动和波动。"

@@ -40,9 +40,7 @@ const Representatives: React.FC<Props> = ({ versions }) => {
         type: "outer",
         // @ts-ignore
         formatter: (text, item, index) => {
-          return `${item._origin.version}${
-            index === 0 ? ` (${t("pages.status.latestVersion")})` : ""
-          }`;
+          return `${item._origin.version}`;
         },
         style:
           theme === Theme.DARK

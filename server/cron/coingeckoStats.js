@@ -9,15 +9,16 @@ const {
   SUPPORTED_CRYPTOCURRENCY,
 } = require("../constants");
 
-const allowedFiats = ["usd", "cad", "eur", "gbp", "cny", "jpy"];
+const defaultFiats = ["usd"];
+const secondaryFiats = ["cad", "eur", "gbp", "cny", "jpy"];
 
-const getPriceStats = async () => {
+const getPriceStats = async fiats => {
   let res;
   try {
     const ids = SUPPORTED_CRYPTOCURRENCY.map(({ id }) => id).join(",");
 
-    for (let i = 0; i < allowedFiats.length; i++) {
-      const fiat = allowedFiats[i];
+    for (let i = 0; i < fiats.length; i++) {
+      const fiat = fiats[i];
       const resPrices = await fetch(
         `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=${fiat}&include_24hr_change=true`,
       );
@@ -35,11 +36,11 @@ const getPriceStats = async () => {
   }
 };
 
-const getMarketStats = async () => {
+const getMarketStats = async fiats => {
   let res;
   try {
-    for (let i = 0; i < allowedFiats.length; i++) {
-      const fiat = allowedFiats[i];
+    for (let i = 0; i < fiats.length; i++) {
+      const fiat = fiats[i];
       res = await fetch(
         "https://api.coingecko.com/api/v3/coins/nano?localization=false&tickers=false&market_data=true&community_data=true&developer_data=true&sparkline=true",
       );
@@ -78,9 +79,21 @@ const getMarketStats = async () => {
 
 // Every 30 seconds
 cron.schedule("*/30 * * * * *", async () => {
-  getPriceStats();
-  getMarketStats();
+  getPriceStats(defaultFiats);
+  getMarketStats(defaultFiats);
 });
 
-getPriceStats();
-getMarketStats();
+// https://crontab.guru/#*/2_*_*_*_*
+// At every 2nd minute.
+cron.schedule("*/2 * * * *", async () => {
+  getPriceStats(secondaryFiats);
+  getMarketStats(secondaryFiats);
+});
+
+getPriceStats(defaultFiats);
+getMarketStats(defaultFiats);
+
+if (process.env.NODE_ENV === "production") {
+  getPriceStats(secondaryFiats);
+  getMarketStats(secondaryFiats);
+}

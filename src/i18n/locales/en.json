@@ -280,7 +280,8 @@
       "unlimitedBandwidthCap": "<0>{{unlimitedBandwidthCapCount}}</0> nodes have no bandwidth limit.",
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> nodes have bandwidth limit of <1>{{limitedBandwidthCap}}</1>.",
       "nodeVersions": "Node versions",
-      "latestVersion": "Latest version"
+      "latestVersion": "Latest version",
+      "database": "Database"
     },
     "exchangeTracker": {
       "description": "Every day a capture of the account balances of the most popular exchanges where Nano is traded is taken. This measurement can be used to analyze movements and fluctuations on the network."

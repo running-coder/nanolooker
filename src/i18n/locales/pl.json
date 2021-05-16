@@ -280,7 +280,8 @@
       "unlimitedBandwidthCap": "Węzły <0>{{unlimitedBandwidthCapCount}}</0> nie mają limitu przepustowości.",
       "limitedBandwidthCap": "Węzły <0>{{limitedBandwidthCapCount}}</0> mają limit przepustowości <1>{{limitedBandwidthCap}}</1>.",
       "nodeVersions": "Wersje węzłów",
-      "latestVersion": "Ostatnia wersja"
+      "latestVersion": "Ostatnia wersja",
+      "database": "Baza danych"
     },
     "exchangeTracker": {
       "description": "Codziennie zbierane są salda kont najpopularniejszych giełd, na których handluje się Nano. Pomiar ten można wykorzystać do analizy ruchów i fluktuacji w sieci."

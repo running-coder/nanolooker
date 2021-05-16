@@ -280,7 +280,8 @@
       "unlimitedBandwidthCap": "Os nós <0>{{unlimitedBandwidthCapCount}}</0> não têm limite de largura de banda.",
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> nós têm um limite de largura de banda de <1>{{limitedBandwidthCap}}</1>.",
       "nodeVersions": "Versões de nó",
-      "latestVersion": "Última versão"
+      "latestVersion": "Última versão",
+      "database": "Base de dados"
     },
     "exchangeTracker": {
       "description": "Todos os dias é feita uma captura dos saldos das contas das bolsas mais populares onde o Nano é negociado. Esta medição pode ser usada para analisar movimentos e flutuações na rede."

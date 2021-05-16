@@ -265,7 +265,7 @@
       "peers": "Homologues",
       "connectedPeers": "Homologues connectés",
       "protocolVersion": "Version du protocol {{protocolVersion}}",
-      "monitor": "Surveiller",
+      "monitor": "Moniteur",
       "stats": "Statistiques",
       "location": "Emplacement",
       "sync": "Synchroniser",
@@ -280,7 +280,8 @@
       "unlimitedBandwidthCap": "Les nœuds <0>{{unlimitedBandwidthCapCount}}</0> n'ont pas de limite de bande passante.",
       "limitedBandwidthCap": "Les nœuds <0>{{limitedBandwidthCapCount}}</0> ont une limite de bande passante de <1>{{limitedBandwidthCap}}</1>.",
       "nodeVersions": "Versions des nœuds",
-      "latestVersion": "Dernière version"
+      "latestVersion": "Dernière version",
+      "database": "Base de données"
     },
     "exchangeTracker": {
       "description": "Chaque jour, une capture du solde des comptes des plateformes d'échanges les plus populaires où Nano est négocié est pris. Cette mesure peut permettre d'analyser les mouvements et fluctuations sur le réseau."

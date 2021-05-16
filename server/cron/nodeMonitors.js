@@ -45,6 +45,7 @@ const getNodeMonitor = async (ip, protocol = "http") => {
 
     const {
       version,
+      store_vendor: storeVersion,
       nodeMonitorVersion,
       currentBlock,
       uncheckedBlocks,
@@ -63,6 +64,7 @@ const getNodeMonitor = async (ip, protocol = "http") => {
 
     return {
       version,
+      storeVersion,
       nodeMonitorVersion,
       currentBlock,
       uncheckedBlocks,

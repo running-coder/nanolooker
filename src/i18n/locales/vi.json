@@ -280,7 +280,8 @@
       "unlimitedBandwidthCap": "Các nút <0>{{mitedBandwidthCapCount}}</0> không có giới hạn băng thông.",
       "limitedBandwidthCap": "Các nút <0>{{limitedBandwidthCapCount}}</0> có giới hạn băng thông là <1>{{limitedBandwidthCap}}</1>.",
       "nodeVersions": "Phiên bản nút",
-      "latestVersion": "Phiên bản mới nhất"
+      "latestVersion": "Phiên bản mới nhất",
+      "database": "Cơ sở dữ liệu"
     },
     "exchangeTracker": {
       "description": "Mỗi ngày, việc nắm bắt số dư tài khoản của các sàn giao dịch phổ biến nhất nơi Nano được giao dịch sẽ được thực hiện. Phép đo này có thể được sử dụng để phân tích các chuyển động và dao động trên mạng."
