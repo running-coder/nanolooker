@@ -59,9 +59,8 @@ const Representatives: React.FC<Props> = ({
   ] = React.useState([] as Representative[]);
   const {
     confirmationQuorum: {
-      // online_stake_total: onlineStakeTotal = 0,
-      // peers_stake_total: peersStakeTotal = 0,
       principal_representative_min_weight: principalRepresentativeMinWeight = 0,
+      online_weight_quorum_percent: onlineWeightQuorumPercent,
     },
     isLoading: isConfirmationQuorumLoading,
   } = React.useContext(ConfirmationQuorumContext);
@@ -203,7 +202,7 @@ const Representatives: React.FC<Props> = ({
       nakamotoCoefficientWeight = nextWeight;
       nakamotoCoefficient.push(representative);
 
-      if (percent > 50) {
+      if (percent > parseInt(onlineWeightQuorumPercent)) {
         return false;
       }
     });
@@ -348,7 +347,9 @@ const Representatives: React.FC<Props> = ({
             {t("pages.representatives.nakamotoCoefficient")}
             <Tooltip
               placement="right"
-              title={t("tooltips.nakamotoCoefficient")}
+              title={t("tooltips.nakamotoCoefficient", {
+                onlineWeightQuorumPercent,
+              })}
             >
               <QuestionCircle />
             </Tooltip>
