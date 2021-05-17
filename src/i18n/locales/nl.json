@@ -1,6 +1,6 @@
 {
   "common": {
-    "blockExplorer": "block Explorer",
+    "blockExplorer": "Block Explorer",
     "account": "Account",
     "accounts": "Accounts",
     "block": "Block",
@@ -148,7 +148,7 @@
       "exchangeVolume": "Exchange volume",
       "onChainVolume": "NANO volume",
       "bitcoinTransactionFees": "Bitcoin transactiekosten betaald aan miners",
-      "recentTransactions": "recente transacties",
+      "recentTransactions": "Recente transacties",
       "liveUpdatesDisabled": "Live updates uitgeschakeld",
       "waitingForTransactions": "Wachten op transacties",
       "connectingToBlockchain": "Verbinding maken met het NANO netwerk",
@@ -176,14 +176,14 @@
       "receiver": "Ontvanger",
       "sender": "Afzender",
       "previousBlock": "Vorig block",
-      "height": "blockhoogte",
+      "height": "Blockhoogte",
       "signature": "Handtekening",
       "work": "Werk",
       "openAccountBlock": "Dit block heeft de account geopend",
       "originalBlockContent": "Ruwe blockinhoud",
       "missingBlock": "Ontbrekend block",
       "missingBlockInfo": "Het block is niet gespecificeerd in de URL. Gebruik de zoekbalk bovenaan om naar een block te zoeken of voeg het toe aan de URL na / block /",
-      "blockNotFound": "block niet gevonden",
+      "blockNotFound": "Block niet gevonden",
       "blockNotFoundInfo": "Het block dat u heeft aangevraagd, is niet gevonden. Het is mogelijk dat het block aanwezig is op het Nano netwerk, maar nog gezien moet worden door de node. Zorg ervoor dat u naar het juiste block zoekt of probeer het later opnieuw."
     },
     "representatives": {
@@ -253,7 +253,7 @@
       "cemented": "Gecementeerd",
       "ledger": "Database",
       "availableSupply": "Beschikbaar aanbod",
-      "ledgerSize": "database-grootte",
+      "ledgerSize": "Database-grootte",
       "activeDifficulty": "Huidige moeilijkheidsgraad",
       "networkMinimum": "Netwerk minimum",
       "networkCurrent": "Netwerk huidig",
