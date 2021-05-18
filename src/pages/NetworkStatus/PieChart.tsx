@@ -88,7 +88,7 @@ const Representatives: React.FC<Props> = ({ versions }) => {
           return {
             name: version,
             value: isVersionByWeight
-              ? `${new BigNumber(value).toFormat(2)} NANO, ${new BigNumber(
+              ? `${new BigNumber(value).toFormat(2)} NANO - ${new BigNumber(
                   value,
                 )
                   .times(100)

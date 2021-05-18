@@ -55,6 +55,9 @@ const Search = ({ isHome = false }) => {
           if (!account.includes("_")) {
             account = `nano_${account}`;
             setSearchValue(account);
+          } else if (account.startsWith("xrb_")) {
+            account = account.replace("xrb_", "nano_");
+            setSearchValue(account);
           }
           addSearchHistory(account);
           history.push(`/account/${account}`);
@@ -110,6 +113,23 @@ const Search = ({ isHome = false }) => {
       onSelect={validateSearch}
       onChange={value => {
         setSearchValue(value);
+      }}
+      // @ts-ignore
+      onPaste={e => {
+        e.preventDefault();
+
+        // @ts-ignore
+        const paste = (e.clipboardData || window.clipboardData).getData("text");
+
+        const account = getAccountAddressFromText(paste);
+        if (account) {
+          setSearchValue(account);
+        } else {
+          const hash = getAccountBlockHashFromText(paste);
+          if (hash) {
+            setSearchValue(hash);
+          }
+        }
       }}
       value={searchValue}
     >
@@ -175,23 +195,6 @@ const Search = ({ isHome = false }) => {
         placeholder={t("search.searchBy")}
         onFocus={() => setIsExpanded(true)}
         onBlur={() => setIsExpanded(isHome || false)}
-        onPaste={e => {
-          e.preventDefault();
-
-          // @ts-ignore
-          const paste = (e.clipboardData || window.clipboardData).getData(
-            "text",
-          );
-          const account = getAccountAddressFromText(paste);
-          if (account) {
-            setSearchValue(account);
-          } else {
-            const hash = getAccountBlockHashFromText(paste);
-            if (hash) {
-              setSearchValue(hash);
-            }
-          }
-        }}
         size={isHome ? "large" : "middle"}
       />
     </AutoComplete>
