@@ -167,7 +167,7 @@
       "notOpenedYet": "To konto nie zostało jeszcze otwarte",
       "notOpenedYetReason": "Chociaż adres konta jest prawidłowy, żadne bloki nie zostały jeszcze opublikowane w jego łańcuchu. Jeśli NANO zostało wysłane na to konto, nadal musi opublikować odpowiedni blok, aby zdobyć środki.",
       "missingAccount": "Brakujące konto",
-      "missingAccountInfo": "Konto nie jest określone w adresie URL. Użyj górnego paska wyszukiwania do wyszukania konta lub dołącz go do adresu URL po / account /"
+      "missingAccountInfo": "Konto nie jest określone w adresie URL. Użyj górnego paska wyszukiwania do wyszukania konta lub dołącz go do adresu URL po /account/"
     },
     "block": {
       "blockSubtype": "Podtyp blokowy",
@@ -182,7 +182,7 @@
       "openAccountBlock": "Ten blok otworzył konto",
       "originalBlockContent": "Oryginalna zawartość bloku",
       "missingBlock": "Brakujący blok",
-      "missingBlockInfo": "Blok nie jest określony w adresie URL. Użyj górnego paska wyszukiwania, aby wyszukać blok lub dołącz go do adresu URL po / block /",
+      "missingBlockInfo": "Blok nie jest określony w adresie URL. Użyj górnego paska wyszukiwania, aby wyszukać blok lub dołącz go do adresu URL po /block/",
       "blockNotFound": "Nie znaleziono bloku",
       "blockNotFoundInfo": "Nie znaleziono żądanego bloku. Możliwe, że blok jest obecny w sieci Nano, ale nie został jeszcze zauważony przez węzeł. Upewnij się, że szukasz odpowiedniego bloku lub spróbuj ponownie później."
     },

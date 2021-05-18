@@ -167,7 +167,7 @@
       "notOpenedYet": "このアカウントはまだ開設されていません",
       "notOpenedYetReason": "アカウントアドレスは有効ですが、チェーンにブロックはまだ公開されていません。 NANOがこのアカウントに送信された場合でも、資金をポケットに入れるために対応するブロックを公開する必要があります。",
       "missingAccount": "アカウントがありません",
-      "missingAccountInfo": "アカウントがURLで指定されていません。上部の検索バーを使用してアカウントを検索するか、URLの/ account /の後に追加します"
+      "missingAccountInfo": "アカウントがURLで指定されていません。上部の検索バーを使用してアカウントを検索するか、URLの /account/ の後に追加します"
     },
     "block": {
       "blockSubtype": "ブロックサブタイプ",
@@ -182,7 +182,7 @@
       "openAccountBlock": "このブロックはアカウントを開設しました",
       "originalBlockContent": "元のブロックコンテンツ",
       "missingBlock": "ブロックがありません",
-      "missingBlockInfo": "ブロックがURLで指定されていません。上部の検索バーを使用してブロックを検索するか、URLの/ block /の後に追加します",
+      "missingBlockInfo": "ブロックがURLで指定されていません。上部の検索バーを使用してブロックを検索するか、URLの /block/ の後に追加します",
       "blockNotFound": "ブロックが見つかりません",
       "blockNotFoundInfo": "リクエストしたブロックが見つかりません。ブロックがNanoネットワーク上に存在するが、ノードによってまだ認識されていない可能性があります。正しいブロックを検索していることを確認するか、後で再試行してください。"
     },

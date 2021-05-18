@@ -167,7 +167,7 @@
       "notOpenedYet": "Bu hesap henüz açılmadı",
       "notOpenedYetReason": "Hesap adresi geçerliyken, zincirinde henüz blok yayınlanmamıştır. NANO bu hesaba gönderilmişse, parayı cebe indirmek için yine de karşılık gelen bir blok yayınlaması gerekir.",
       "missingAccount": "Eksik hesap",
-      "missingAccountInfo": "Hesap URL'de belirtilmemiştir. Bir hesabı aramak için üstteki arama çubuğunu kullanın veya URL'ye / account / sonrasına ekleyin."
+      "missingAccountInfo": "Hesap URL'de belirtilmemiştir. Bir hesabı aramak için üstteki arama çubuğunu kullanın veya URL'ye /account/ sonrasına ekleyin."
     },
     "block": {
       "blockSubtype": "Alt türü engelle",
@@ -182,7 +182,7 @@
       "openAccountBlock": "Bu Blok hesabı açtı",
       "originalBlockContent": "Orijinal Blok İçeriği",
       "missingBlock": "Eksik blok",
-      "missingBlockInfo": "Blok URL'de belirtilmemiştir. Bir blok aramak için üstteki arama çubuğunu kullanın veya bunu URL'ye / block / sonrasına ekleyin.",
+      "missingBlockInfo": "Blok URL'de belirtilmemiştir. Bir blok aramak için üstteki arama çubuğunu kullanın veya bunu URL'ye /block/ sonrasına ekleyin.",
       "blockNotFound": "Blok bulunamadı",
       "blockNotFoundInfo": "İstediğiniz blok bulunamadı. Bloğun Nano ağında mevcut olması ancak düğüm tarafından henüz görülmemiş olması mümkündür. Doğru bloğu aradığınızdan emin olun veya daha sonra tekrar deneyin."
     },

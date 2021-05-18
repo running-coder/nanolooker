@@ -167,7 +167,7 @@
       "notOpenedYet": "此帐户尚未打开",
       "notOpenedYetReason": "帐户地址有效时，尚未将任何块发布到其链中。如果NANO已发送到该帐户，它仍需要发布相应的块以将资金放入口袋。",
       "missingAccount": "帐户遗失",
-      "missingAccountInfo": "未在URL中指定帐户。使用顶部的搜索栏搜索帐户，或将其附加在/ account /之后的URL中"
+      "missingAccountInfo": "未在URL中指定帐户。使用顶部的搜索栏搜索帐户，或将其附加在 /account/ 之后的URL中"
     },
     "block": {
       "blockSubtype": "块子类型",
@@ -182,7 +182,7 @@
       "openAccountBlock": "这个区块开了账户",
       "originalBlockContent": "原始图块内容",
       "missingBlock": "丢失的块",
-      "missingBlockInfo": "URL中未指定该块。使用顶部搜索栏搜索块或将其附加在/ block /之后的URL中",
+      "missingBlockInfo": "URL中未指定该块。使用顶部搜索栏搜索块或将其附加在 /block/ 之后的URL中",
       "blockNotFound": "找不到区块",
       "blockNotFoundInfo": "找不到您要求的封锁。该块可能存在于Nano网络上，但尚未被节点看到。确保您正在搜索正确的块，或者稍后再试。"
     },

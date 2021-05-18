@@ -167,7 +167,7 @@
       "notOpenedYet": "Tài khoản này chưa được mở",
       "notOpenedYetReason": "Mặc dù địa chỉ tài khoản hợp lệ, nhưng chưa có khối nào được xuất bản vào chuỗi của nó. Nếu NANO đã được gửi đến tài khoản này, nó vẫn cần xuất bản một khối tương ứng để bỏ túi tiền.",
       "missingAccount": "Thiếu tài khoản",
-      "missingAccountInfo": "Tài khoản không được chỉ định trong URL. Sử dụng thanh tìm kiếm trên cùng để tìm kiếm tài khoản hoặc thêm tài khoản vào URL sau / account /"
+      "missingAccountInfo": "Tài khoản không được chỉ định trong URL. Sử dụng thanh tìm kiếm trên cùng để tìm kiếm tài khoản hoặc thêm tài khoản vào URL sau /account/"
     },
     "block": {
       "blockSubtype": "Block con",
@@ -182,7 +182,7 @@
       "openAccountBlock": "Khối này đã mở tài khoản",
       "originalBlockContent": "Nội dung khối gốc",
       "missingBlock": "Thiếu khối",
-      "missingBlockInfo": "Khối không được chỉ định trong URL. Sử dụng thanh tìm kiếm trên cùng để tìm kiếm một khối hoặc thêm khối đó vào URL sau / block /",
+      "missingBlockInfo": "Khối không được chỉ định trong URL. Sử dụng thanh tìm kiếm trên cùng để tìm kiếm một khối hoặc thêm khối đó vào URL sau /block/",
       "blockNotFound": "Không tìm thấy khối",
       "blockNotFoundInfo": "Không tìm thấy khối bạn yêu cầu. Có thể khối hiện diện trên mạng Nano nhưng nút vẫn chưa được nhìn thấy. Đảm bảo rằng bạn đang tìm kiếm đúng khối hoặc thử lại sau."
     },

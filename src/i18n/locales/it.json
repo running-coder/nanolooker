@@ -167,7 +167,7 @@
       "notOpenedYet": "Questo account non è stato ancora aperto",
       "notOpenedYetReason": "Sebbene l'indirizzo dell'account sia valido, nessun blocco è stato ancora pubblicato nella sua catena. Se NANO è stato inviato a questo account, deve comunque pubblicare un blocco corrispondente per intascare i fondi.",
       "missingAccount": "Account mancante",
-      "missingAccountInfo": "L'account non è specificato nell'URL. Usa la barra di ricerca in alto per cercare un account o aggiungilo nell'URL dopo / account /"
+      "missingAccountInfo": "L'account non è specificato nell'URL. Usa la barra di ricerca in alto per cercare un account o aggiungilo nell'URL dopo /account/"
     },
     "block": {
       "blockSubtype": "Sottotipo di blocco",
@@ -182,7 +182,7 @@
       "openAccountBlock": "Questo blocco ha aperto l'account",
       "originalBlockContent": "Contenuto del blocco originale",
       "missingBlock": "Blocco mancante",
-      "missingBlockInfo": "Il blocco non è specificato nell'URL. Usa la barra di ricerca in alto per cercare un blocco o aggiungilo nell'URL dopo / block /",
+      "missingBlockInfo": "Il blocco non è specificato nell'URL. Usa la barra di ricerca in alto per cercare un blocco o aggiungilo nell'URL dopo /block/",
       "blockNotFound": "Blocco non trovato",
       "blockNotFoundInfo": "Il blocco richiesto non è stato trovato. È possibile che il blocco sia presente sulla rete Nano ma non sia ancora stato visto dal nodo. Assicurati di cercare il blocco corretto o riprova più tardi."
     },

@@ -167,7 +167,7 @@
       "notOpenedYet": "이 계정은 아직 개설되지 않았습니다.",
       "notOpenedYetReason": "계정 주소가 유효하지만 아직 체인에 게시 된 블록이 없습니다. NANO가이 계정으로 전송 된 경우 자금을 보관하려면 해당 블록을 게시해야합니다.",
       "missingAccount": "누락 된 계정",
-      "missingAccountInfo": "계정이 URL에 지정되지 않았습니다. 계정을 검색하려면 상단 검색 창을 사용하거나 / account / 뒤의 URL에 추가하세요."
+      "missingAccountInfo": "계정이 URL에 지정되지 않았습니다. 계정을 검색하려면 상단 검색 창을 사용하거나 /account/ 뒤의 URL에 추가하세요."
     },
     "block": {
       "blockSubtype": "블록 하위 유형",
@@ -182,7 +182,7 @@
       "openAccountBlock": "이 블록은 계정을 열었습니다",
       "originalBlockContent": "원본 블록 콘텐츠",
       "missingBlock": "누락 된 블록",
-      "missingBlockInfo": "URL에 블록이 지정되지 않았습니다. 블록을 검색하려면 상단 검색 창을 사용하거나 / block / 뒤에 URL에 추가하세요.",
+      "missingBlockInfo": "URL에 블록이 지정되지 않았습니다. 블록을 검색하려면 상단 검색 창을 사용하거나 /block/ 뒤에 URL에 추가하세요.",
       "blockNotFound": "블록을 찾을 수 없습니다.",
       "blockNotFoundInfo": "요청하신 블록을 찾을 수 없습니다. 블록이 Nano 네트워크에 있지만 아직 노드에 표시되지 않았을 수 있습니다. 올바른 블록을 찾고 있는지 확인하거나 나중에 다시 시도하십시오."
     },
