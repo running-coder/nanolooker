@@ -36,25 +36,22 @@ const useSocket = () => {
   } = React.useContext(PreferencesContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
 
-  React.useEffect(() => {
-    function visibilityChange() {
-      if (document.visibilityState !== "visible") {
-        isForcedClosed = true;
-        ws?.close();
-      } else if (!document.getElementById("live-transactions-disabled")) {
-        isForcedClosed = false;
-        connect();
-      }
+  const visibilityChange = React.useCallback(() => {
+    if (document.visibilityState !== "visible") {
+      isForcedClosed = true;
+      ws?.close();
+    } else if (!document.getElementById("live-transactions-disabled")) {
+      isForcedClosed = false;
+      connect();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hideTransactionsUnderOne]);
 
+  React.useEffect(() => {
     isMounted = true;
-    window.addEventListener("visibilitychange", visibilityChange);
-
     return () => {
       isMounted = false;
-      window.removeEventListener("visibilitychange", visibilityChange);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   React.useEffect(() => {
@@ -75,6 +72,11 @@ const useSocket = () => {
   React.useEffect(() => {
     if (!ws) return;
     ws.onmessage = onMessage;
+    window.removeEventListener("visibilitychange", visibilityChange);
+    window.addEventListener("visibilitychange", visibilityChange);
+    return () => {
+      window.removeEventListener("visibilitychange", visibilityChange);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hideTransactionsUnderOne]);
 
