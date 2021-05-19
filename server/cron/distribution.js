@@ -23,12 +23,13 @@ const mkdir = util.promisify(fs.mkdir);
 
 const { KNOWN_EXCHANGE_ACCOUNTS } = require("../../src/knownAccounts.json");
 
-const TMP_ACCOUNTS_PATH = join(__dirname, "../data/tmp/account");
-const DISTRIBUTION_PATH = join(__dirname, "../data/distribution.json");
-const TMP_DISTRIBUTION_PATH = join(__dirname, "../data/tmp/distribution");
-const DORMANT_FUNDS_PATH = join(__dirname, "../data/dormantFunds.json");
-const KNOWN_EXCHANGES_PATH = join(__dirname, "../data/knownExchanges.json");
-const STATUS_PATH = join(__dirname, "../data/status.json");
+const DATA_ROOT_PATH = join(__dirname, "../data");
+const TMP_ACCOUNTS_PATH = join(DATA_ROOT_PATH, "/tmp/account");
+const DISTRIBUTION_PATH = join(DATA_ROOT_PATH, "/distribution.json");
+const TMP_DISTRIBUTION_PATH = join(DATA_ROOT_PATH, "/tmp/distribution");
+const DORMANT_FUNDS_PATH = join(DATA_ROOT_PATH, "/dormantFunds.json");
+const KNOWN_EXCHANGES_PATH = join(DATA_ROOT_PATH, "knownExchanges.json");
+const STATUS_PATH = join(DATA_ROOT_PATH, "/status.json");
 // Balance + pending below this amount will be ignored
 const MIN_TOTAL = 0.001;
 
@@ -174,9 +175,20 @@ const getDistribution = async () => {
             );
 
             if (!result) return;
-            const modifiedTimestamp = result.local_timestamp;
 
-            const date = new Date(parseFloat(modifiedTimestamp) * 1000);
+            // if (
+            //   result.subtype === "change" &&
+            //   parseFloat(result.local_timestamp) >=
+            //     Math.floor(Date.now() / 1000) - 3600 * 24 * 2 &&
+            //   history[1].subtype === "epoch"
+            // ) {
+            //   [].push({
+            //     account,
+            //     balance: total,
+            //   });
+            // }
+
+            const date = new Date(parseFloat(result.local_timestamp) * 1000);
 
             const year = date.getFullYear();
             const month = date.getMonth();
