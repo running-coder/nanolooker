@@ -126,6 +126,9 @@ const useSocket = () => {
       const confirmation_subscription = {
         action: "subscribe",
         topic: Topic.CONFIRMATION,
+        options: {
+          confirmation_type: "active_quorum",
+        },
       };
 
       ws?.send(JSON.stringify(confirmation_subscription));

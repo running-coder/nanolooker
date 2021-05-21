@@ -49,6 +49,9 @@ ws.onopen = () => {
   const subscription = {
     action: "subscribe",
     topic: "confirmation",
+    options: {
+      confirmation_type: "active_quorum",
+    },
   };
   ws.send(JSON.stringify(subscription));
 
