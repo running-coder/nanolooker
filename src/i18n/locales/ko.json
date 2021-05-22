@@ -214,11 +214,9 @@
       "description": "수도꼭지를 사용하면 소량의 BANANO를 무료로 청구 할 수 있습니다. 이 수도꼭지는 분산 형 네트워크에서 즉시 전 세계에 BANANO를 보내고받는 것이 얼마나 쉬운 지 경험할 수 있도록합니다."
     },
     "developerFund": {
-      "description": "2019 년 11 월 25 일부터 개발자 기금은 내부 보안 정책 및 대표 투표 가중치를 검토 한 후 {{totalAccounts}} 계정으로 분할되었습니다.",
+      "description": "개발자 자금은 {{count}} 계정으로 분할됩니다. 이 기금은 Banano 개발, 커뮤니티 프로젝트 및 <0>Folding @ Home</0> 보상을 지원합니다.",
       "lastTransaction": "마지막 거래",
       "allTransactions": "모든 전송 거래보기",
-      "originalDeveloperFund": "원래 개발자 기금",
-      "originalDeveloperFundDescription": "Banano (이전 RaiBlocks)의 배포는 2015 년 말부터 2017 년 10 월까지 수동 캡차를 해결하여 수행되었습니다. <0>Genesis</0> 금액의 ~ 39 %가 배포되고 나머지 공급은 <1>탄</1>.",
       "totalAccounts": "{{totalAccounts}} 총 계정",
       "percentOfTotal": "유통 공급량의 {{percent}} %"
     },

@@ -214,11 +214,9 @@
       "description": "水龙头可让您免费索取少量BANANO。这些水龙头让您体验在分散的网络上即时在全球范围内发送和接收BANANO的过程是多么容易。"
     },
     "developerFund": {
-      "description": "在审查内部安全政策和代表投票权重之后，自19/25/19起，开发人员基金已分为{{totalAccounts}}个帐户。",
+      "description": "开发者资金分为{{count}}个帐户。该基金用于支持Banano开发，社区项目和<0>Folding @ Home</0>奖励。",
       "lastTransaction": "最后交易",
       "allTransactions": "查看所有发送交易",
-      "originalDeveloperFund": "原始开发者基金",
-      "originalDeveloperFundDescription": "Banano（以前的RaiBlocks）的分配是通过解决2015年末至2017年10月结束的人工验证码进行的。在分配了 <0>Genesis</0> 数量的〜39％之后，分配停止了，其余的则是 <1>被烧</1>。",
       "totalAccounts": "{{totalAccounts}}个帐户总数",
       "percentOfTotal": "循环供应量的{{percent}}％"
     },

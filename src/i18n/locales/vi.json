@@ -214,11 +214,9 @@
       "description": "Vòi cho phép bạn yêu cầu một lượng nhỏ BANANO miễn phí. Các vòi này giúp bạn trải nghiệm việc gửi và nhận BANANO trên toàn thế giới ngay lập tức trên mạng phi tập trung dễ dàng như thế nào."
     },
     "developerFund": {
-      "description": "Kể từ ngày 25/11/19, quỹ nhà phát triển đã được chia thành các tài khoản {{totalAccounts}} sau khi xem xét lại chính sách bảo mật nội bộ và trọng số biểu quyết đại diện.",
+      "description": "Quỹ nhà phát triển được chia thành {{count}} tài khoản. Quỹ hỗ trợ phát triển Banano, các dự án cộng đồng và phần thưởng <0>Folding @ Home</0>.",
       "lastTransaction": "Giao dịch cuối cùng",
       "allTransactions": "Xem tất cả các giao dịch gửi",
-      "originalDeveloperFund": "Quỹ nhà phát triển ban đầu",
-      "originalDeveloperFundDescription": "Việc phân phối Banano (trước đây là RaiBlocks) được thực hiện thông qua việc giải các hình ảnh xác thực thủ công bắt đầu từ cuối năm 2015 và kết thúc vào tháng 10 năm 2017. Việc phân phối đã dừng lại sau khi ~ 39% lượng <0>Genesis</0> được phân phối và phần còn lại của nguồn cung cấp <1>bị cháy</1>.",
       "totalAccounts": "{{totalAccounts}} Tổng số tài khoản",
       "percentOfTotal": "{{percent}}% nguồn cung lưu hành"
     },

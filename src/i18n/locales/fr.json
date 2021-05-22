@@ -214,11 +214,9 @@
       "description": "Les robitets (Faucets) vous permet de réclamer gratuitement de petites quantités de BANANO. Ces robinets vous permettent de découvrir à quel point il est facile d'envoyer et de recevoir des BANANO à travers le monde instantanément sur un réseau décentralisé."
     },
     "developerFund": {
-      "description": "À partir du 25/11/19, le fonds de développement a été divisé en {{totalAccounts}} comptes suite à un examen de la politique de sécurité interne et des poids de vote représentatifs.",
+      "description": "Le fonds du développeur est divisé en {{count}} comptes. Le fonds soutient le développement de Banano, les projets communautaires et les récompenses <0>Folding @ Home</0>.",
       "lastTransaction": "Dernière transaction",
       "allTransactions": "Afficher toutes les transactions d'envoi",
-      "originalDeveloperFund": "Fonds d'origine pour les développeurs",
-      "originalDeveloperFundDescription": "La distribution de Banano (anciennement RaiBlocks) a été effectuée en résolvant les captchas manuels à partir de fin 2015 et se terminant en octobre 2017. La distribution s'est arrêtée après ~ 39% du montant de <0>Genèse</0> a été distribué et le reste de l'approvisionnement a été <1>brûlé</1>.",
       "totalAccounts": "{{totalAccounts}} Comptes au total",
       "percentOfTotal": "{{percent}}% des BANANO en circulation"
     },

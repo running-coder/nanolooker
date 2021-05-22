@@ -214,13 +214,11 @@
       "description": "蛇口を使用すると、少量のBANANOを無料で請求できます。これらの蛇口は、分散型ネットワーク上で世界中のBANANOを瞬時に送受信することがいかに簡単であるかを体験するためのものです。"
     },
     "developerFund": {
-      "description": "19/11/25の時点で、開発者基金は、内部セキュリティポリシーと代表的な投票の重みの見直しに伴い、{{totalAccounts}}アカウントに分割されました。",
+      "description": "開発者基金は{{count}}アカウントに分割されます。この基金は、バナナの開発、コミュニティプロジェクト、<0>Folding @ Home</0> の報酬をサポートしています。",
       "lastTransaction": "最後のトランザクション",
       "allTransactions": "すべての送信トランザクションを表示",
-      "originalDeveloperFund": "オリジナル開発者基金",
-      "originalDeveloperFundDescription": "Banano（以前のRaiBlocks）の配布は、2015年後半に開始して2017年10月に終了する手動キャプチャを解決することで実行されました。<0>Genesis</0> の量の約39％が配布され、残りの供給が <1>焦げた</1>。",
       "totalAccounts": "{{totalAccounts}}合計アカウント",
-      "percentOfTotal": "循環供給の{{パーセント}}％"
+      "percentOfTotal": "循環供給の{{パーセント}}％" 
     },
     "knownAccounts": {
       "totalAccounts": "{{totalAccounts}}既知のアカウントの合計"

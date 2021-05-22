@@ -19,15 +19,7 @@ import useDeveloperAccountFund from "api/hooks/use-developer-fund-transactions";
 import QuestionCircle from "components/QuestionCircle";
 import LoadingStatistic from "components/LoadingStatistic";
 import { rawToRai, timestampToDate } from "components/utils";
-import {
-  GENESIS_ACCOUNT,
-  DEVELOPER_FUND_ACCOUNTS,
-} from "../../knownAccounts.json";
-
-const DEVELOPER_FUND_CHANGE_LINK =
-  "https://medium.com/nanocurrency/announcement-changes-to-nano-foundation-development-fund-account-43f8f340a841";
-const DEVELOPER_FUND_ORIGINAL_LINK =
-  "https://docs.nano.org/protocol-design/distribution-and-units/#distribution";
+import { DEVELOPER_FUND_ACCOUNTS } from "../../knownAccounts.json";
 
 const { Title } = Typography;
 
@@ -112,21 +104,19 @@ const DeveloperFund: React.FC = () => {
                 marginBottom: "12px",
               }}
             >
-              {t("pages.developerFund.description", {
-                totalAccounts: data.length,
-              })}
-              <br />
-              <a
-                style={{
-                  display: "inline-block",
-                  marginTop: "12px",
-                }}
-                href={DEVELOPER_FUND_CHANGE_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Trans
+                i18nKey="pages.developerFund.description"
+                // @ts-ignore
+                count={data.length}
               >
-                {t("common.continueReading")}
-              </a>
+                <a
+                  href="https://stats.foldingathome.org/team/234980"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Folding@Home
+                </a>
+              </Trans>
             </div>
 
             <Row gutter={6}>
@@ -144,7 +134,6 @@ const DeveloperFund: React.FC = () => {
                 </Skeleton>
               </Col>
             </Row>
-
             <Row gutter={6}>
               <Col xs={24} sm={6}>
                 {t("pages.developerFund.lastTransaction")}
@@ -195,47 +184,6 @@ const DeveloperFund: React.FC = () => {
                 </Link>
               </Col>
             </Row>
-          </Card>
-        </Col>
-        <Col xs={24} lg={12}>
-          <Title level={3}>
-            {t("pages.developerFund.originalDeveloperFund")}
-          </Title>
-          <Card size="small" bordered={false} className="detail-layout">
-            <div
-              className="divider"
-              style={{
-                paddingBottom: "6px",
-                marginBottom: "12px",
-              }}
-            >
-              <Trans i18nKey="pages.developerFund.originalDeveloperFundDescription">
-                <Link to={`/account/${GENESIS_ACCOUNT}`}>Genesis</Link>
-              </Trans>
-              <br />
-              <a
-                style={{ display: "inline-block", marginTop: "12px" }}
-                href={DEVELOPER_FUND_ORIGINAL_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {t("common.continueReading")}
-              </a>
-            </div>
-
-            {/* <Row gutter={6}>
-              <Col xs={24} sm={6}>
-                {t("common.account")}
-              </Col>
-              <Col xs={24} sm={18}>
-                <Link
-                  to={`/account/${ORIGINAL_DEVELOPER_FUND_ACCOUNT}`}
-                  className="break-word"
-                >
-                  {ORIGINAL_DEVELOPER_FUND_ACCOUNT}
-                </Link>
-              </Col>
-            </Row> */}
           </Card>
         </Col>
       </Row>

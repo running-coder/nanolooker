@@ -214,11 +214,9 @@
       "description": "Mit Facuets können Sie kleine Mengen BANANO kostenlos anfordern. Mit diesen Faucets können Sie selbst herausfinden, wie einfach es ist, BANANO weltweit in einem dezentralen Netzwerk sofort zu senden und zu empfangen."
     },
     "developerFund": {
-      "description": "Ab dem 25.11.19 wurde der Entwicklerfonds nach einer Überprüfung der internen Sicherheitsrichtlinien und der repräsentativen Stimmgewichte in {{totalAccounts}} Konten aufgeteilt.",
+      "description": "Der Entwicklerfonds wird in {{count}} Konten aufgeteilt. Der Fonds unterstützt die Banano-Entwicklung, Community-Projekte und <0>Folding @ Home</0> -Prämien.",
       "lastTransaction": "Letzte Transaktion",
       "allTransactions": "Alle Sendetransaktionen anzeigen",
-      "originalDeveloperFund": "Ursprünglicher Entwicklerfonds",
-      "originalDeveloperFundDescription": "Die Verteilung von Banano (ehemals RaiBlocks) erfolgte durch Lösen manueller Captchas, die Ende 2015 endeten und im Oktober 2017 endeten. Die Verteilung wurde gestoppt, nachdem ~ 39% des Betrags von <0>Genesis</0> verteilt worden waren und der Rest des Angebots war <1>verbrannt</1>.",
       "totalAccounts": "{{totalAccounts}} Konten insgesamt",
       "percentOfTotal": "{{percent}}% des Umlaufangebots"
     },
