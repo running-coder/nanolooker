@@ -121,6 +121,16 @@ const Banner: React.FC = () => {
           </div>
         </Button>
 
+        <Button
+          ghost
+          href="https://bananolooker.com"
+          onClick={() => {
+            Tracker.ga4?.gtag("event", "GoToBananoLooker");
+          }}
+        >
+          <img alt="Go to BananoLooker" src={`/banano.svg`} height="12px" />
+        </Button>
+
         {/* <Button
           ghost
           href="https://earn-nano.com/"
