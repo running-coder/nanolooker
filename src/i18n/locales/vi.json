@@ -59,7 +59,6 @@
     "avgConfirmationTime": "Thời gian xác nhận trung bình được tính cục bộ trên nút. Nếu nút được khởi động lại hoặc trong tình trạng xuống cấp, thời gian xác nhận trung bình có thể cao hơn phần còn lại của mạng.",
     "circulatingSupply": "Số lượng tiền xu đang lưu hành. Banano được phân phối đầy đủ, nguồn cung sẽ không bao giờ tăng.",
     "transactionFees": "Không giống như bất kỳ loại tiền điện tử nào khác, các giao dịch Banano không mất phí, mãi mãi.",
-    "bitcoinTransactionFees": "Giá trị này không ảnh hưởng đến mạng BANANO, nó chỉ nhằm mục đích so sánh. Nó đại diện cho tổng phí giao dịch mà người dùng Bitcoin phải trả cho các thợ đào để giao dịch của họ được chấp nhận trên mạng Bitcoin.",
     "cps": "Xác nhận mỗi giây. Tỷ lệ khối được xác nhận (gửi hoặc nhận) trên mạng BANANO. Nó được lấy mẫu cục bộ vào phút cuối cùng trên nút. Nếu nút được khởi động lại hoặc trong tình trạng xuống cấp, giá trị CPS có thể cao hơn hoặc thấp hơn mức trung bình thực tế trên mạng trong khi nút đồng bộ hóa và kết nối lại với các nút khác.",
     "votingWeight": "Tài khoản có tối thiểu {{minWeight}} BANANO hoặc >= 0,1% trọng số biểu quyết trực tuyến được ủy quyền để có được trạng thái Đại diện chính. Khi được định cấu hình trên một nút đang bỏ phiếu, các phiếu mà nó tạo ra sẽ được các nút khác phát lại cho những người nhận được chúng, giúp mạng đạt được sự đồng thuận nhanh hơn.",
     "pending": "Trạng thái giao dịch trong đó một khối gửi tiền đã được mạng công bố và xác nhận, nhưng khối phù hợp nhận các khoản tiền đó vẫn chưa được gửi hoặc xác nhận.",
@@ -83,7 +82,7 @@
     "uptime": "Thời gian kể từ khi nút được khởi động lại lần cuối.",
     "pendingTransactionCount": "Số lượng giao dịch đang chờ xử lý vượt quá giới hạn được hiển thị là {{count}}.",
     "mnano": "Mnano là bộ phận tiêu chuẩn hiện tại được sử dụng trong ví, trên các sàn giao dịch và dịch vụ. Nó được gọi là 1 BANANO.",
-    "versionsByWeight": "Để một phiên bản chiếm được sự đồng thuận của mạng, phiên bản đó cần có {{onlineWeightQuorumPercent}}% trọng lượng bỏ phiếu trực tuyến từ tối thiểu là {{onlineWeightMinimum}} BANANO."
+    "oneBanEqualsOneDoge": "So sánh thú vị với chuỗi anh em doge meme coin của chúng tôi, nếu vốn hóa thị trường của Banano sẽ bằng với Doge."
   },
   "search": {
     "searchBy": "Tìm kiếm theo Địa chỉ / Khối / Tài khoản Đã biết",
@@ -150,12 +149,12 @@
       "transactionFees": "Phí giao dịch BANANO",
       "exchangeVolume": "Khối lượng trao đổi",
       "onChainVolume": "Khối lượng BANANO trên dây chuyền",
-      "bitcoinTransactionFees": "Phí giao dịch bitcoin trả cho thợ đào",
       "recentTransactions": "Giao dịch gần đây",
       "liveUpdatesDisabled": "Cập nhật trực tiếp bị vô hiệu hóa",
       "waitingForTransactions": "Chờ giao dịch",
       "connectingToBlockchain": "Kết nối với chuỗi khối BANANO",
-      "reconnectingToBlockchain": "Đã ngắt kết nối, đang kết nối lại với chuỗi khối BANANO"
+      "reconnectingToBlockchain": "Đã ngắt kết nối, đang kết nối lại với chuỗi khối BANANO",
+      "oneBanEqualsOneDoge": "Nếu 1 Cấm = 1 Doge thì sao?"
     },
     "account": {
       "votingWeight": "Số phiếu bầu",

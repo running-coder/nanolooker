@@ -59,7 +59,6 @@
     "avgConfirmationTime": "Il tempo medio di conferma viene calcolato localmente sul nodo. Se il nodo viene riavviato o in condizioni degradate, il tempo medio di conferma potrebbe essere superiore al resto della rete.",
     "circulatingSupply": "La quantità di monete in circolazione. Banano è completamente distribuito, l'offerta non aumenterà mai.",
     "transactionFees": "A differenza di qualsiasi altra criptovaluta, le transazioni Banano sono senza commissioni, per sempre.",
-    "bitcoinTransactionFees": "Questo valore non ha alcun impatto sulla rete BANANO, è esclusivamente a scopo di confronto. Rappresenta la somma delle commissioni di transazione che gli utenti Bitcoin pagano ai minatori per far accettare la loro transazione sulla rete Bitcoin.",
     "cps": "Conferme al secondo. Il tasso di blocchi confermati (invio o ricezione) sulla rete BANANO. Viene campionato nell'ultimo minuto localmente sul nodo. Se il nodo viene riavviato o in una condizione degradata, il valore CPS potrebbe essere superiore o inferiore alla media effettiva sulla rete mentre il nodo si sincronizza e si riconnette con gli altri nodi.",
     "votingWeight": "Per ottenere lo stato di Rappresentante principale è necessario un account con un minimo di {{minWeight}} BANANO o >= 0,1% del peso di voto online ad esso delegato. Quando configurato su un nodo che sta votando, i voti che produce verranno ritrasmessi dagli altri nodi a chi li riceve, aiutando la rete a raggiungere più velocemente il consenso.",
     "pending": "Uno stato di transazione in cui un blocco che invia fondi è stato pubblicato e confermato dalla rete, ma un blocco corrispondente che riceve tali fondi non è stato ancora inviato o confermato.",
@@ -83,7 +82,7 @@
     "uptime": "Tempo trascorso dall'ultimo riavvio del nodo.",
     "pendingTransactionCount": "Il numero di transazioni in sospeso supera il limite visualizzato di {{count}}.",
     "mnano": "Mnano è l'attuale divisione standard utilizzata nei portafogli, negli scambi e nei servizi. È indicato come 1 BANANO.",
-    "versionsByWeight": "Affinché una versione abbia il consenso della rete, deve avere il {{onlineWeightQuorumPercent}}% del peso del voto online da un minimo di {{onlineWeightMinimum}} BANANO."
+    "oneBanEqualsOneDoge": "Divertente il confronto con il nostro doge meme coin catena fratello, se la capitalizzazione di mercato di Banano fosse uguale a quella di Doge."
   },
   "search": {
     "searchBy": "Cerca per indirizzo / blocco / account noto",
@@ -150,12 +149,12 @@
       "transactionFees": "Commissioni di transazione BANANO",
       "exchangeVolume": "Volume di scambio",
       "onChainVolume": "Volume BANANO sulla catena",
-      "bitcoinTransactionFees": "Commissioni di transazione Bitcoin pagate ai minatori",
       "recentTransactions": "Le transazioni recenti",
       "liveUpdatesDisabled": "Aggiornamenti live disabilitati",
       "waitingForTransactions": "In attesa di transazioni",
       "connectingToBlockchain": "Connessione alla blockchain BANANO",
-      "reconnectingToBlockchain": "Disconnesso, ricollegandosi alla blockchain BANANO"
+      "reconnectingToBlockchain": "Disconnesso, ricollegandosi alla blockchain BANANO",
+      "oneBanEqualsOneDoge": "E se 1 Ban = 1 Doge?"
     },
     "account": {
       "votingWeight": "Peso di voto",

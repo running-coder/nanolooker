@@ -6,18 +6,12 @@ export const TOTAL_CONFIRMATIONS_24H = "TOTAL_CONFIRMATIONS_24H";
 export const TOTAL_VOLUME_24H = "TOTAL_VOLUME_24H";
 export const TOTAL_CONFIRMATIONS_48H = "TOTAL_CONFIRMATIONS_48H";
 export const TOTAL_VOLUME_48H = "TOTAL_VOLUME_48H";
-export const BITCOIN_TOTAL_TRANSACTION_FEES_24H =
-  "BITCOIN_TOTAL_TRANSACTION_FEES_24H";
-export const BITCOIN_TOTAL_TRANSACTION_FEES_48H =
-  "BITCOIN_TOTAL_TRANSACTION_FEES_48H";
 
 export interface Response {
   [TOTAL_CONFIRMATIONS_24H]: number;
   [TOTAL_VOLUME_24H]: number;
   [TOTAL_CONFIRMATIONS_48H]: number;
   [TOTAL_VOLUME_48H]: number;
-  [BITCOIN_TOTAL_TRANSACTION_FEES_24H]: number;
-  [BITCOIN_TOTAL_TRANSACTION_FEES_48H]: number;
   marketCapRank: number;
   marketCapRank24h: number;
   marketCap: number;
@@ -28,6 +22,7 @@ export interface Response {
   totalSupply: number;
   circulatingSupply: number;
   priceStats: any;
+  dogeMarketStats: any;
 }
 
 export interface Context {
@@ -47,8 +42,6 @@ export const MarketStatisticsContext = React.createContext<Context>({
     [TOTAL_VOLUME_24H]: 0,
     [TOTAL_CONFIRMATIONS_48H]: 0,
     [TOTAL_VOLUME_48H]: 0,
-    [BITCOIN_TOTAL_TRANSACTION_FEES_24H]: 0,
-    [BITCOIN_TOTAL_TRANSACTION_FEES_48H]: 0,
     marketCapRank: 0,
     marketCapRank24h: 0,
     marketCap: 0,
@@ -59,6 +52,7 @@ export const MarketStatisticsContext = React.createContext<Context>({
     totalSupply: 0,
     circulatingSupply: 0,
     priceStats: {},
+    dogeMarketStats: {}
   },
   getMarketStatistics: () => {},
   setIsInitialLoading: () => {},

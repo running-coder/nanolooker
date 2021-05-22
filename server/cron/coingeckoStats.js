@@ -4,6 +4,7 @@ const { Sentry } = require("../sentry");
 const { nodeCache } = require("../cache");
 const {
   COINGECKO_MARKET_STATS,
+  COINGECKO_DOGE_MARKET_STATS,
   COINGECKO_ALL_PRICE_STATS,
   COINGECKO_PRICE_STATS,
   SUPPORTED_CRYPTOCURRENCY,
@@ -77,23 +78,58 @@ const getMarketStats = async fiats => {
   }
 };
 
-// Every 30 seconds
-cron.schedule("*/30 * * * * *", async () => {
+const getDogeMarketStats = async fiats => {
+  let res;
+  try {
+    for (let i = 0; i < fiats.length; i++) {
+      const fiat = fiats[i];
+      res = await fetch(
+        "https://api.coingecko.com/api/v3/coins/dogecoin?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false",
+      );
+
+      const {
+        market_cap_rank: marketCapRank,
+        market_data: {
+          market_cap: { [fiat]: marketCap },
+          current_price: { [fiat]: currentPrice },
+          circulating_supply: circulatingSupply,
+        },
+      } = await res.json();
+
+      const marketStats = {
+        marketCapRank,
+        marketCap,
+        circulatingSupply,
+        currentPrice,
+      };
+
+      nodeCache.set(`${COINGECKO_DOGE_MARKET_STATS}-${fiat}`, marketStats);
+    }
+  } catch (err) {
+    console.log("Error", err);
+    Sentry.captureException(err, { extra: { res } });
+  }
+};
+
+// Every 50 seconds
+cron.schedule("*/50 * * * * *", async () => {
   getPriceStats(defaultFiats);
   getMarketStats(defaultFiats);
 });
 
-// https://crontab.guru/#*/2_*_*_*_*
-// At every 2nd minute.
-cron.schedule("*/2 * * * *", async () => {
+// https://crontab.guru/#*/3_*_*_*_*
+// At every 3nd minute.
+cron.schedule("*/3 * * * *", async () => {
   getPriceStats(secondaryFiats);
   getMarketStats(secondaryFiats);
 });
 
 getPriceStats(defaultFiats);
 getMarketStats(defaultFiats);
+getDogeMarketStats(defaultFiats);
 
 if (process.env.NODE_ENV === "production") {
   getPriceStats(secondaryFiats);
   getMarketStats(secondaryFiats);
+  getDogeMarketStats(secondaryFiats);
 }

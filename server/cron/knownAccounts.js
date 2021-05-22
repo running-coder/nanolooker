@@ -6,7 +6,15 @@ const { rpc } = require("../rpc");
 const { nodeCache } = require("../cache");
 const { Sentry } = require("../sentry");
 const { KNOWN_ACCOUNTS, KNOWN_ACCOUNTS_BALANCE } = require("../constants");
-const knownAccounts = require("../known-accounts.json");
+let knownAccounts = require("../known-accounts.json");
+
+// Custom known-account list
+knownAccounts = knownAccounts.concat([
+  {
+    alias: "BananoLooker Donations",
+    account: "ban_1gxx3dbrprrh9ycf1p5wo9qgmftppg6z7688njum14aybjkaiweqmwpuu9py",
+  },
+]);
 
 const doKnownAccountsBalanceCron = async () => {
   let knownAccountsBalance = [];

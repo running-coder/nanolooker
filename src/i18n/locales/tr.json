@@ -59,7 +59,6 @@
     "avgConfirmationTime": "Ortalama onay süresi, düğümde yerel olarak hesaplanır. Düğüm yeniden başlatılırsa veya düşürülmüş durumdaysa, ortalama onay süresi ağın geri kalanından daha yüksek olabilir.",
     "circulatingSupply": "Dolaşımdaki bozuk para miktarı. Banano tamamen dağıtılmış durumda, arz asla artmayacak.",
     "transactionFees": "Diğer kripto para birimlerinin aksine Banano işlemler sonsuza kadar ücretsizdir.",
-    "bitcoinTransactionFees": "Bu değerin BANANO ağı üzerinde hiçbir etkisi yoktur, yalnızca karşılaştırma amaçlıdır. Bitcoin kullanıcılarının işlemlerinin Bitcoin ağında kabul edilmesini sağlamak için madencilere ödediği işlem ücretlerinin toplamını temsil eder.",
     "cps": "Saniyedeki Onaylar. BANANO ağında onaylanmış blokların (gönderme veya alma) oranı. Düğüm üzerinde yerel olarak son dakika boyunca örneklenir. Düğüm yeniden başlatılırsa veya düşürülmüş bir durumda ise, düğüm diğer düğümlerle eşitlenir ve yeniden bağlanırken CPS değeri ağdaki gerçek ortalamadan daha yüksek veya daha düşük olabilir.",
     "votingWeight": "Asgari {{minWeight}} BANANO veya kendisine devredilen çevrimiçi oy ağırlığının>% 0,1'i olan bir hesabın Ana Temsilci statüsünü alması gerekir. Oylama yapan bir düğümde yapılandırıldığında, ürettiği oylar onları alan diğer düğümler tarafından yeniden yayınlanır ve ağın fikir birliğine daha hızlı ulaşmasına yardımcı olur.",
     "pending": "Bir blok gönderme fonunun yayınlandığı ve ağ tarafından onaylandığı, ancak bu fonları alan eşleşen bir bloğun henüz gönderilmediği veya onaylanmadığı bir işlem durumu.",
@@ -83,7 +82,7 @@
     "uptime": "Düğümün en son yeniden başlatılmasından bu yana geçen süre.",
     "pendingTransactionCount": "Bekleyen işlemlerin sayısı, görüntülenen {{count}} sınırını aşıyor.",
     "mnano": "Mnano, cüzdanlarda, borsalarda ve hizmetlerde kullanılan mevcut standart bölümdür. 1 BANANO olarak anılır.",
-    "versionsByWeight": "Bir sürümün ağın fikir birliğini devralması için, minimum {{onlineWeightMinimum}} BANANO'dan çevrimiçi oy ağırlığının% 67'sine sahip olması gerekir."
+    "oneBanEqualsOneDoge": "Banano'nun piyasa değeri Doge'ninki ile eşit olsaydı, doge meme madeni para kardeş zincirimizle eğlenceli bir karşılaştırma."
   },
   "search": {
     "searchBy": "Adres / Blok / Bilinen Hesap ile Ara",
@@ -150,12 +149,12 @@
       "transactionFees": "BANANO işlem ücretleri",
       "exchangeVolume": "Değişim hacmi",
       "onChainVolume": "Zincir üzerindeki BANANO hacmi",
-      "bitcoinTransactionFees": "Madencilere ödenen Bitcoin işlem ücretleri",
       "recentTransactions": "Son İşlemler",
       "liveUpdatesDisabled": "Canlı güncellemeler devre dışı bırakıldı",
       "waitingForTransactions": "İşlemler bekleniyor",
       "connectingToBlockchain": "BANANO blok zincirine bağlanma",
-      "reconnectingToBlockchain": "Bağlantı kesildi, BANANO blok zincirine yeniden bağlanılıyor"
+      "reconnectingToBlockchain": "Bağlantı kesildi, BANANO blok zincirine yeniden bağlanılıyor",
+      "oneBanEqualsOneDoge": "Ya 1 Yasak = 1 Doge?"
     },
     "account": {
       "votingWeight": "Oy ağırlığı",
