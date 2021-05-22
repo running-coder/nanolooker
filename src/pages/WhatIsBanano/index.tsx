@@ -45,6 +45,17 @@ const WhatIsBananoPage: React.FC = () => {
           without all the usual hassle, and then educate them to handle crypto
           in general in a responsible way.
         </p>
+
+        <p>
+          Learn more on{" "}
+          <a
+            href="https://banano.cc/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://banano.cc/
+          </a>
+        </p>
       </Card>
     </>
   );

@@ -9,6 +9,7 @@ const {
   MONGO_OPTIONS,
   MONGO_DB,
   COINGECKO_MARKET_STATS,
+  COINGECKO_DOGE_MARKET_STATS,
   COINGECKO_ALL_PRICE_STATS,
   COINGECKO_PRICE_STATS,
   MARKET_CAP_RANK_24H,
@@ -23,6 +24,7 @@ const getCoingeckoStats = async ({ fiat, cryptocurrency }) => {
   fiat = allowedFiats.includes(fiat) ? fiat : DEFAULT_FIAT;
 
   let marketStats = nodeCache.get(`${COINGECKO_MARKET_STATS}-${fiat}`);
+  let dogeMarketStats = nodeCache.get(`${COINGECKO_DOGE_MARKET_STATS}-${fiat}`);
   let priceStats =
     cryptocurrency === "true"
       ? nodeCache.get(`${COINGECKO_ALL_PRICE_STATS}-${fiat}`)
@@ -71,7 +73,10 @@ const getCoingeckoStats = async ({ fiat, cryptocurrency }) => {
   ]);
 
   return {
-    marketStats: Object.assign(marketStats, { marketCapRank24h }),
+    marketStats: Object.assign(marketStats, {
+      marketCapRank24h,
+    }),
+    dogeMarketStats,
     priceStats,
   };
 };

@@ -132,11 +132,13 @@ const getDistribution = async () => {
 
   await mkdir(`${TMP_DISTRIBUTION_PATH}`, { recursive: true });
 
-  await getAccounts();
+  // await getAccounts();
 
   const tmpAccountFiles = await readdir(TMP_ACCOUNTS_PATH);
 
   for (let y = 0; y < tmpAccountFiles.length; y++) {
+    if (/^[0-4]/.test(tmpAccountFiles[y])) continue; // skip 0-3.json
+
     const accounts = JSON.parse(
       fs.readFileSync(`${TMP_ACCOUNTS_PATH}/${tmpAccountFiles[y]}`, "utf8"),
     );
@@ -205,18 +207,6 @@ const getDistribution = async () => {
 
             if (!result) return;
 
-            // if (
-            //   result.subtype === "change" &&
-            //   parseFloat(result.local_timestamp) >=
-            //     Math.floor(Date.now() / 1000) - 3600 * 24 * 2 &&
-            //   history[1].subtype === "epoch"
-            // ) {
-            //   [].push({
-            //     account,
-            //     balance: total,
-            //   });
-            // }
-
             const date = new Date(parseFloat(result.local_timestamp) * 1000);
 
             const year = date.getFullYear();
@@ -243,7 +233,7 @@ const getDistribution = async () => {
       redisClient.zadd(`${REDIS_RICH_LIST}_TMP`, ...richListData);
 
       // @TODO check if can remove the sleep now that the node is a bit more powerful
-      await sleep(5000);
+      await sleep(7000);
     }
   }
 

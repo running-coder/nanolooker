@@ -8,7 +8,6 @@ require("./cron/nodeMonitors");
 require("./cron/telemetry");
 require("./cron/ws");
 require("./cron/coingeckoStats");
-require("./cron/btcTransactionFees");
 require("./ws");
 const { getDistributionData } = require("./cron/distribution");
 const { getExchangeBalances } = require("./cron/exchangeTracker");
@@ -26,11 +25,6 @@ const {
   TOTAL_VOLUME_48H,
   CONFIRMATIONS_PER_SECOND,
 } = require("./constants");
-const {
-  getBtcTransactionFees,
-  BITCOIN_TOTAL_TRANSACTION_FEES_24H,
-  BITCOIN_TOTAL_TRANSACTION_FEES_48H,
-} = require("./api/btcTransactionFees");
 
 const { getCoingeckoStats } = require("./api/coingeckoStats");
 const {
@@ -124,11 +118,7 @@ app.get("/api/market-statistics", async (req, res) => {
   const cachedConfirmations48h = nodeCache.get(TOTAL_CONFIRMATIONS_48H);
   const cachedVolume48h = nodeCache.get(TOTAL_VOLUME_48H);
 
-  const {
-    btcTransactionFees24h,
-    btcTransactionFees48h,
-  } = await getBtcTransactionFees();
-  const { marketStats, priceStats } = await getCoingeckoStats({
+  const { marketStats, dogeMarketStats, priceStats } = await getCoingeckoStats({
     fiat: req.query.fiat,
     cryptocurrency: req.query.cryptocurrency,
   });
@@ -138,10 +128,9 @@ app.get("/api/market-statistics", async (req, res) => {
     [TOTAL_VOLUME_24H]: cachedVolume24h,
     [TOTAL_CONFIRMATIONS_48H]: cachedConfirmations48h,
     [TOTAL_VOLUME_48H]: cachedVolume48h,
-    [BITCOIN_TOTAL_TRANSACTION_FEES_24H]: btcTransactionFees24h,
-    [BITCOIN_TOTAL_TRANSACTION_FEES_48H]: btcTransactionFees48h,
     ...marketStats,
     priceStats,
+    dogeMarketStats,
   });
 });
 

@@ -61,7 +61,6 @@
     "avgConfirmationTime": "平均確認時間は、ノードでローカルに計算されます。ノードが再起動された場合、または劣化した状態の場合、平均確認時間はネットワークの他の部分よりも長くなる可能性があります。",
     "circulatingSupply": "流通しているコインの量。 Bananoは完全に分散されており、供給が増えることはありません。",
     "transactionFees": "他の暗号通貨とは異なり、Bananoトランザクションは永久に無料です。",
-    "bitcoinTransactionFees": "この値はBANANOネットワークに影響を与えず、比較のみを目的としています。これは、ビットコインユーザーがビットコインネットワークでトランザクションを受け入れるためにマイナーに支払っているトランザクション料金の合計を表します。",
     "cps": "1秒あたりの確認。 BANANOネットワークで確認されたブロック（送信または受信）の割合。これは、ノード上でローカルに最後の1分間にサンプリングされます。ノードが再起動された場合、または劣化した状態の場合、ノードが他のノードと同期および再接続している間、CPS値はネットワーク上の実際の平均よりも高いまたは低い可能性があります。",
     "votingWeight": "プリンシパルレプレゼンタティブステータスを取得するには、{{minWeight}} BANANO以上、またはそれに委任されたオンライン投票ウェイトの0.1％以上のアカウントが必要です。投票しているノードで構成されている場合、そのノードが生成する投票は、他のノードによってそれらを受信するノードに再ブロードキャストされ、ネットワークがより迅速にコンセンサスに到達するのに役立ちます。",
     "pending": "資金を送信するブロックがネットワークによって公開および確認されたが、それらの資金を受信する一致するブロックがまだ送信または確認されていないトランザクション状態。",
@@ -86,7 +85,8 @@
     "pendingTransactionCount": "保留中のトランザクションの数が、表示されている制限の{{count}}を超えています。",
     "mnano": "Mnanoは、ウォレット、取引所、サービスで使用されている現在の標準部門です。 1NANOと呼ばれます。",
     "versionsByWeight": "ネットワークのコンセンサスを引き継ぐバージョンの場合、最小の{{onlineWeightMinimum}} BANANOからのオンライン投票の重みの67％が必要です。",
-    "onChainVolume": "ネットワーク上で確認されたすべての BANANO トランザクションの合計。ユーザー A が同じ日に 1 つの BANANO を送信し、ユーザー B が 1 つの BANANO を受信した場合、2 つのトランザクションがブロードキャストおよび確認されたため、1 日のボリュームに 2 つの BANANO が追加されます。"
+    "onChainVolume": "ネットワーク上で確認されたすべての BANANO トランザクションの合計。ユーザー A が同じ日に 1 つの BANANO を送信し、ユーザー B が 1 つの BANANO を受信した場合、2 つのトランザクションがブロードキャストおよび確認されたため、1 日のボリュームに 2 つの BANANO が追加されます。",
+    "oneBanEqualsOneDoge": "Bananoの時価総額がDogeの時価総額と等しい場合、私たちのドージミームコインブラザーチェーンとの楽しい比較。"
   },
   "search": {
     "searchBy": "アドレス/ブロック/既知のアカウントで検索",
@@ -153,12 +153,12 @@
       "transactionFees": "BANANO取引手数料",
       "exchangeVolume": "交換量",
       "onChainVolume": "オンチェーンBANANOボリューム",
-      "bitcoinTransactionFees": "鉱夫に支払われるビットコイン取引手数料",
       "recentTransactions": "最近の取引",
       "liveUpdatesDisabled": "ライブアップデートが無効",
       "waitingForTransactions": "トランザクションを待っています",
       "connectingToBlockchain": "BANANOブロックチェーンに接続する",
-      "reconnectingToBlockchain": "切断され、BANANOブロックチェーンに再接続されます"
+      "reconnectingToBlockchain": "切断され、BANANOブロックチェーンに再接続されます",
+      "oneBanEqualsOneDoge": "1禁止= 1ドージの場合はどうなりますか？"
     },
     "account": {
       "votingWeight": "投票の重み",
@@ -221,7 +221,7 @@
       "lastTransaction": "最後のトランザクション",
       "allTransactions": "すべての送信トランザクションを表示",
       "totalAccounts": "{{totalAccounts}}合計アカウント",
-      "percentOfTotal": "循環供給の{{パーセント}}％" 
+      "percentOfTotal": "循環供給の{{パーセント}}％"
     },
     "knownAccounts": {
       "totalAccounts": "{{totalAccounts}}既知のアカウントの合計"

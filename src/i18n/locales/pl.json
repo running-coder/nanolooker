@@ -61,7 +61,6 @@
     "avgConfirmationTime": "Średni czas potwierdzenia jest obliczany lokalnie w Banano Node. Jeśli Banano Node zostanie zrestartowany lub w stanie zdegradowanym, średni czas potwierdzenia może być dłuższy niż w pozostałej części sieci.",
     "circulatingSupply": "Liczba monet znajdujących się w obiegu. Banano jest w pełni dystrybuowane, podaż nigdy nie wzrośnie.",
     "transactionFees": "W przeciwieństwie do innych kryptowalut transakcje Banano są zawsze bez opłat.",
-    "bitcoinTransactionFees": "Wartość ta nie ma wpływu na sieć BANANO, służy wyłącznie do celów porównawczych. Reprezentuje sumę opłat transakcyjnych, które użytkownicy Bitcoin płacą górnikom, aby ich transakcja została zaakceptowana w sieci Bitcoin.",
     "cps": "Potwierdzenia na sekundę. Liczba potwierdzonych bloków (wysyłanie lub odbieranie) w sieci BANANO. Jest próbkowany lokalnie w Banano Node w ciągu ostatniej minuty. Jeśli węzeł zostanie zrestartowany lub w złym stanie, wartość CPS może być wyższa lub niższa od rzeczywistej średniej w sieci, podczas gdy węzeł synchronizuje się i ponownie łączy z innymi węzłami.",
     "votingWeight": "Aby uzyskać status głównego przedstawiciela, wymagane jest konto z co najmniej {{minWeight}} BANANO lub >= 0,1% oddelegowanej wagi głosowania online. Po skonfigurowaniu na węźle, który głosuje, głosy, które generuje, będą ponownie transmitowane przez inne węzły, które je otrzymują, pomagając sieci szybciej osiągnąć konsensus.",
     "pending": "Stan transakcji, w którym blok wysyłający środki został opublikowany i potwierdzony przez sieć, ale pasujący blok otrzymujący te środki nie został jeszcze wysłany ani potwierdzony.",
@@ -86,7 +85,8 @@
     "pendingTransactionCount": "Liczba oczekujących transakcji przekracza wyświetlany limit {{count}}.",
     "mnano": "Mnano to obecny standardowy podział stosowany w portfelach, giełdach i usługach. Nazywa się 1 BANANO.",
     "versionsByWeight": "Aby wersja przejęła konsensus sieci, musi mieć {{onlineWeightQuorumPercent}}% głosów online z co najmniej {{onlineWeightMinimum}} BANANO.",
-    "onChainVolume": "Suma wszystkich transakcji BANANO, które zostały potwierdzone w sieci. Jeśli użytkownik A wyśle 1 BANANO, a użytkownik B otrzyma 1 BANANO tego samego dnia, 2 BANANO zostaną dodane do dziennego wolumenu, ponieważ 2 transakcje zostały wyemitowane i potwierdzone, wysłanie i odbiór."
+    "onChainVolume": "Suma wszystkich transakcji BANANO, które zostały potwierdzone w sieci. Jeśli użytkownik A wyśle 1 BANANO, a użytkownik B otrzyma 1 BANANO tego samego dnia, 2 BANANO zostaną dodane do dziennego wolumenu, ponieważ 2 transakcje zostały wyemitowane i potwierdzone, wysłanie i odbiór.",
+    "oneBanEqualsOneDoge": "Zabawne porównanie z naszym łańcuchem braci doge memów, jeśli kapitalizacja rynkowa Banano byłaby równa kapitalizacji Doge."
   },
   "search": {
     "searchBy": "Wyszukaj według adresu / bloku / znanego konta",
@@ -153,12 +153,12 @@
       "transactionFees": "Opłaty transakcyjne BANANO",
       "exchangeVolume": "Wolumen wymiany",
       "onChainVolume": "Objętość BANANO w łańcuchu",
-      "bitcoinTransactionFees": "Opłaty transakcyjne Bitcoin płacone górnikom",
       "recentTransactions": "ostatnie tranzakcje",
       "liveUpdatesDisabled": "Aktualizacje na żywo wyłączone",
       "waitingForTransactions": "Czekam na transakcje",
       "connectingToBlockchain": "Łączenie się z blockchainem BANANO",
-      "reconnectingToBlockchain": "Rozłączono, ponownie łączę się z łańcuchem bloków BANANO"
+      "reconnectingToBlockchain": "Rozłączono, ponownie łączę się z łańcuchem bloków BANANO",
+      "oneBanEqualsOneDoge": "A co jeśli 1 ban = 1 doż?"
     },
     "account": {
       "votingWeight": "Waga głosowania",

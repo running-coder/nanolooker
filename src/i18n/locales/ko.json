@@ -61,7 +61,6 @@
     "avgConfirmationTime": "평균 확인 시간은 노드에서 로컬로 계산됩니다. 노드가 다시 시작되거나 성능이 저하 된 상태이면 평균 확인 시간이 나머지 네트워크보다 길 수 있습니다.",
     "circulatingSupply": "유통중인 코인의 양. 나노는 완전히 분배되어 공급이 증가하지 않습니다.",
     "transactionFees": "다른 암호 화폐와 달리 나노 거래는 영원히 수수료가 없습니다.",
-    "bitcoinTransactionFees": "이 값은 BANANO 네트워크에 영향을주지 않으며 비교 목적으로 만 사용됩니다. 비트 코인 사용자가 비트 코인 네트워크에서 거래를 수락하기 위해 채굴 자에게 지불하는 거래 수수료의 합계를 나타냅니다.",
     "cps": "초당 확인. BANANO 네트워크에서 확인 된 블록 (송신 또는 수신)의 비율입니다. 마지막 순간에 노드에서 로컬로 샘플링됩니다. 노드가 다시 시작되거나 성능이 저하 된 상태이면 노드가 다른 노드와 동기화 및 다시 연결하는 동안 CPS 값이 네트워크의 실제 평균보다 높거나 낮을 수 있습니다.",
     "votingWeight": "최소 {{minWeight}} BANANO 또는 온라인 투표 가중치의 >= 0.1 %가 위임 된 계정이 대표 대리인 자격을 얻으려면 필요합니다. 투표중인 노드에 구성되면 생성 된 투표는 다른 노드가이를 수신 한 사람에게 재방송하여 네트워크가보다 신속하게 합의에 도달하도록 돕습니다.",
     "pending": "자금을 보내는 블록이 네트워크에 의해 게시되고 확인되었지만 해당 자금을받는 일치 블록이 아직 보내거나 확인되지 않은 거래 상태입니다.",
@@ -86,7 +85,8 @@
     "pendingTransactionCount": "보류중인 트랜잭션 수가 표시된 한도 인 {{count}}을 (를) 초과합니다.",
     "mnano": "Mnano는 지갑, 거래소 및 서비스에서 사용되는 현재 표준 부서입니다. 1 BANANO라고합니다.",
     "versionsByWeight": "버전이 네트워크의 합의를 인수하려면 최소 {{onlineWeightMinimum}} BANANO에서 온라인 투표 가중치의 67 %를 가져야합니다.",
-    "onChainVolume": "네트워크에서 확인 된 모든 BANANO 거래의 합계입니다. 사용자 A가 1 개의 BANANO를 전송하고 사용자 B가 같은 날에 1 개의 BANANO를 받으면 2 개의 트랜잭션이 브로드 캐스트되고 확인되었으므로 전송 및 수신 1 개로 일일 볼륨에 2 개의 BANANO가 추가됩니다."
+    "onChainVolume": "네트워크에서 확인 된 모든 BANANO 거래의 합계입니다. 사용자 A가 1 개의 BANANO를 전송하고 사용자 B가 같은 날에 1 개의 BANANO를 받으면 2 개의 트랜잭션이 브로드 캐스트되고 확인되었으므로 전송 및 수신 1 개로 일일 볼륨에 2 개의 BANANO가 추가됩니다.",
+    "oneBanEqualsOneDoge": "Banano의 시가 총액이 Doge의 시가 총액과 같으면 총독 밈 동전 형제 체인과의 재미있는 비교."
   },
   "search": {
     "searchBy": "주소 / 차단 / 알려진 계정으로 검색",
@@ -153,12 +153,12 @@
       "transactionFees": "BANANO 거래 수수료",
       "exchangeVolume": "거래량",
       "onChainVolume": "온 체인 나노 볼륨",
-      "bitcoinTransactionFees": "채굴 자에게 지급되는 비트 코인 거래 수수료",
       "recentTransactions": "최근 거래",
       "liveUpdatesDisabled": "라이브 업데이트 비활성화",
       "waitingForTransactions": "거래를 기다리는 중",
       "connectingToBlockchain": "BANANO 블록 체인에 연결",
-      "reconnectingToBlockchain": "연결 해제, BANANO 블록 체인에 다시 연결"
+      "reconnectingToBlockchain": "연결 해제, BANANO 블록 체인에 다시 연결",
+      "oneBanEqualsOneDoge": "1 Ban = 1 Doge이면 어떨까요?"
     },
     "account": {
       "votingWeight": "투표 가중치",

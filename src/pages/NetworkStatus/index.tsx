@@ -9,7 +9,7 @@ import {
 
 import useNodeMonitors, { NodeMonitor } from "api/hooks/use-node-monitors";
 import NodeMap from "./NodeMap";
-import Telemetry from "./Telemetry";
+// import Telemetry from "./Telemetry";
 import NodeMonitors from "./NodeMonitors";
 
 export interface Node extends NodeMonitor {}
@@ -57,7 +57,7 @@ const NetworkStatusPage: React.FC = () => {
       </Helmet>
       <NodeMap nodeMonitors={nodes} isLoading={isLoading} />
 
-      <Telemetry />
+      {/* <Telemetry /> */}
 
       <NodeMonitors nodeMonitors={nodes} isLoading={isLoading} />
     </>

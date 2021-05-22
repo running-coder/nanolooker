@@ -7,7 +7,7 @@ import useAvailableSupply from "api/hooks/use-available-supply";
 import {
   PreferencesContext,
   CurrencySymbol,
-  CurrencyDecimal,
+  // CurrencyDecimal,
 } from "api/contexts/Preferences";
 import { BlockCountContext } from "api/contexts/BlockCount";
 import { ConfirmationHistoryContext } from "api/contexts/ConfirmationHistory";
@@ -19,8 +19,6 @@ import {
   TOTAL_CONFIRMATIONS_48H,
   TOTAL_VOLUME_24H,
   TOTAL_VOLUME_48H,
-  BITCOIN_TOTAL_TRANSACTION_FEES_24H,
-  BITCOIN_TOTAL_TRANSACTION_FEES_48H,
 } from "api/contexts/MarketStatistics";
 import LoadingStatistic from "components/LoadingStatistic";
 import StatisticsChange from "components/StatisticsChange";
@@ -44,10 +42,19 @@ const HomePage = () => {
     marketCap,
     marketCapChangePercentage24h,
     volume24h,
-    priceStats: { bitcoin: { [fiat]: btcCurrentPrice = 0 } } = {
-      bitcoin: { [fiat]: 0 },
-    },
+    currentPrice,
+    // circulatingSupply,
+    // priceStats,
+    dogeMarketStats = {},
   } = marketStatistics;
+
+  const marketCapDifference = new BigNumber(dogeMarketStats.marketCap)
+    .dividedBy(marketCap)
+    .toNumber();
+
+  const oneBanOneDoge = new BigNumber(marketCapDifference)
+    .times(currentPrice)
+    .toFormat(2);
 
   const { count } = React.useContext(BlockCountContext);
   const { confirmation_stats: { average = 0 } = {} } = React.useContext(
@@ -61,21 +68,6 @@ const HomePage = () => {
   const [formattedLedgerSize, setFormattedLedgerSize] = React.useState(
     formatBytes(0),
   );
-
-  const btcTransactionFees24h =
-    marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_24H] && btcCurrentPrice
-      ? new BigNumber(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_24H])
-          .times(btcCurrentPrice)
-          .toFixed(CurrencyDecimal?.[fiat])
-      : 0;
-
-  const btcTransactionFeesChange24h = btcTransactionFees24h
-    ? new BigNumber(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_24H])
-        .minus(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_48H])
-        .dividedBy(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_48H])
-        .times(100)
-        .toNumber()
-    : 0;
 
   let onChainVolume48hAgo = 0;
   let onChainVolumeChange24h = 0;
@@ -191,7 +183,9 @@ const HomePage = () => {
               <Col xs={24}>
                 <LoadingStatistic
                   isLoading={
-                    isMarketStatisticsInitialLoading || isMarketStatisticsError || !onChainVolumeChange24h
+                    isMarketStatisticsInitialLoading ||
+                    isMarketStatisticsError ||
+                    !onChainVolumeChange24h
                   }
                   tooltip={t("tooltips.onChainVolume")}
                   title={t("pages.home.onChainVolume")}
@@ -207,7 +201,9 @@ const HomePage = () => {
                 />
                 <LoadingStatistic
                   isLoading={
-                    isMarketStatisticsInitialLoading || isMarketStatisticsError || !confirmationChange24h
+                    isMarketStatisticsInitialLoading ||
+                    isMarketStatisticsError ||
+                    !confirmationChange24h
                   }
                   title={t("pages.home.confirmedTransactions")}
                   suffix={
@@ -228,17 +224,11 @@ const HomePage = () => {
                     isMarketStatisticsInitialLoading || isMarketStatisticsError
                   }
                   title={`${t(
-                    "pages.home.bitcoinTransactionFees",
+                    "pages.home.oneBanEqualsOneDoge",
                   )} (${fiat.toUpperCase()})`}
-                  tooltip={t("tooltips.bitcoinTransactionFees")}
+                  tooltip={t("tooltips.oneBanEqualsOneDoge")}
                   prefix={CurrencySymbol?.[fiat]}
-                  value={btcTransactionFees24h}
-                  suffix={
-                    <StatisticsChange
-                      value={btcTransactionFeesChange24h}
-                      isPercent
-                    />
-                  }
+                  value={oneBanOneDoge}
                 />
               </Col>
             </Row>
