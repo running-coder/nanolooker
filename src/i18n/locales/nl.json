@@ -217,11 +217,9 @@
       "description": "Met uitgiftepunten kunt u gratis kleine hoeveelheden BANANO claimen. Met deze uitgiftepunten kunt u ervaren hoe gemakkelijk het is om BANANO direct over de hele wereld te verzenden en te ontvangen op een gedecentraliseerd netwerk."
     },
     "developerFund": {
-      "description": "Op 25-11-19 is het ontwikkelaarsfonds opgesplitst in {{totalAccounts}} - accounts na een herziening van het interne veiligheidsbeleid en stemgewichten van vertegenwoordigers.",
+      "description": "Het ontwikkelaarsfonds is opgesplitst in {{count}} rekeningen. Het fonds ondersteunt de Banano-ontwikkeling, gemeenschapsprojecten en <0>Folding @ Home</0> -beloningen.",
       "lastTransaction": "Laatste transactie",
       "allTransactions": "Bekijk alle transacties",
-      "originalDeveloperFund": "Oorspronkelijk ontwikkelaarsfonds",
-      "originalDeveloperFundDescription": "De distributie van Banano (voorheen RaiBlocks) werd uitgevoerd door het oplossen van handmatige captchas, beginnend eind 2015 en eindigend in oktober 2017. De distributie stopte nadat ~ 39% van het <0> Genesis </0>-bedrag was verdeeld en de rest van het aanbod was <1> vernietigd </1>.",
       "totalAccounts": "{{totalAccounts}} Totaal aantal accounts",
       "percentOfTotal": "{{percent}}% van het aantal munten in circulatie"
     },

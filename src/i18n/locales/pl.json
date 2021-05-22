@@ -217,11 +217,9 @@
       "description": "Dzięki kranom możesz bezpłatnie odebrać niewielkie ilości BANANO. Dzięki tym sumom możesz przekonać się, jak łatwo jest błyskawicznie wysyłać i odbierać BANANO na całym świecie w zdecentralizowanej sieci."
     },
     "developerFund": {
-      "description": "Od 25.11.19 fundusz deweloperski został podzielony na konta {{totalAccounts}} w wyniku przeglądu wewnętrznej polityki bezpieczeństwa i reprezentatywnych wag głosów.",
+      "description": "Fundusz deweloperski jest podzielony na {{count}} konta. Fundusz wspiera rozwój Banano, projekty społecznościowe i nagrody <0>Folding @ Home</0>.",
       "lastTransaction": "Ostatnia transakcja",
       "allTransactions": "Wyświetl wszystkie wysłane transakcje",
-      "originalDeveloperFund": "Pierwotny fundusz deweloperów",
-      "originalDeveloperFundDescription": "Dystrybucja Banano (dawniej RaiBlocks) została przeprowadzona poprzez rozwiązywanie ręcznych captcha od końca 2015 roku do października 2017 roku. <1>spalony</1>.",
       "totalAccounts": "Łączna liczba kont: {{totalAccounts}}",
       "percentOfTotal": "{{percent}}% krążącej podaży"
     },

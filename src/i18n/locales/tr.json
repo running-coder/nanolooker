@@ -217,11 +217,9 @@
       "description": "Musluklar, küçük miktarlarda BANANO'yu ücretsiz olarak talep etmenize olanak tanır. Bu musluklar, merkezi olmayan bir ağ üzerinden anında dünya çapında BANANO gönderip almanın ne kadar kolay olduğunu deneyimlemeniz içindir."
     },
     "developerFund": {
-      "description": "25.11.19 itibarıyla geliştirici fonu, dahili güvenlik politikası ve temsili oylama ağırlıklarının incelenmesinin ardından {{totalAccounts}} hesaplarına bölünmüştür.",
+      "description": "Geliştirici fonu, {{count}} hesaba bölünmüştür. Fon, Banano gelişimini, topluluk projelerini ve <0>Folding @ Home</0> ödüllerini destekler.",
       "lastTransaction": "Son işlem",
       "allTransactions": "Tüm gönderme işlemlerini görüntüleyin",
-      "originalDeveloperFund": "Orijinal Geliştirici Fonu",
-      "originalDeveloperFundDescription": "Banano'nun (eski adıyla RaiBlocks) dağıtımı, 2015'in sonlarında başlayıp Ekim 2017'de sona eren manuel captcha'ları çözerek gerçekleştirildi. Dağıtım, <0> Genesis </0> miktarının ~% 39'u dağıtıldıktan ve geri kalan <1> yanmış </1>.",
       "totalAccounts": "{{totalAccounts}} Toplam Hesap",
       "percentOfTotal": "Dolaşan arzın% {{percent}} kadarı"
     },

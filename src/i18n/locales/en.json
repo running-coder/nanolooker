@@ -218,11 +218,9 @@
       "description": "Faucets allows you to claim small amounts of BANANO for free. These faucets are for you to experience how easy it is to send and receive BANANO across the world instantly on a decentralized network."
     },
     "developerFund": {
-      "description": "As of 11/25/19 the developer fund has been split up into {{totalAccounts}} accounts following a review of internal security policy and representative voting weights.",
+      "description": "The developer fund is split up into {{count}} accounts. The fund supports the Banano development, community projects and <0>Folding @ Home</0> rewards.",
       "lastTransaction": "Last transaction",
       "allTransactions": "View all send transactions",
-      "originalDeveloperFund": "Original Developer Fund",
-      "originalDeveloperFundDescription": "The distribution of Banano (formerly RaiBlocks) was performed through solving manual captchas starting in late 2015 and ending in October 2017. Distribution stopped after ~39% of the <0>Genesis</0> amount was distributed and the rest of the supply was <1>burnt</1>.",
       "totalAccounts": "{{totalAccounts}} Total Accounts",
       "percentOfTotal": "{{percent}}%  of the circulating supply"
     },
