@@ -22,6 +22,7 @@ import BlockPage from "pages/Block";
 import NewsPage from "pages/News";
 import NodeStatusPage from "pages/NodeStatus";
 import NetworkStatusPage from "pages/NetworkStatus";
+import BucketsPage from "pages/Buckets";
 import WhatIsNanoPage from "pages/WhatIsNano";
 import PreferencesPage from "pages/Preferences";
 import BookmarksPage from "pages/Bookmarks";
@@ -84,6 +85,7 @@ const App: React.FC = () => {
             <Route path="/news/:feed?" component={NewsPage} />
             <Route path="/node-status" component={NodeStatusPage} />
             <Route path="/network-status" component={NetworkStatusPage} />
+            <Route path="/buckets" component={BucketsPage} />
             <Route path="/what-is-nano" component={WhatIsNanoPage} />
             <Route path="/preferences" component={PreferencesPage} />
             <Route path="/bookmarks" component={BookmarksPage} />

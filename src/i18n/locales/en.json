@@ -121,7 +121,8 @@
     "nodeStatus": "Node Status",
     "whatIsNano": "What is Nano ?",
     "earnNano": "Earn Nano",
-    "preferences": "Preferences"
+    "preferences": "Preferences",
+    "buckets": "Buckets"
   },
   "footer": {
     "createdBy": "Created by {{creator}}",
@@ -296,6 +297,9 @@
     "bookmarks": {
       "viewAll": "View all bookmarks",
       "noBookmarksFound": "No bookmarks found"
+    },
+    "buckets": {
+      "description": "As of v22, transactions are assigned to 129 buckets ordered by a combination of time and balance to determine election prioritization. Technical details can be found at <0>{{link}}</0>."
     }
   }
 }

@@ -119,6 +119,10 @@ const AppHeader: React.FC = () => {
                   {t("menu.networkStatus")}
                   <Link to="/network-status" />
                 </Menu.Item>
+                <Menu.Item key="buckets">
+                  {t("menu.buckets")}
+                  <Link to="/buckets" />
+                </Menu.Item>
               </SubMenu>
             </Menu>
           </Col>
