@@ -1,7 +1,5 @@
 import * as React from "react";
 import find from "lodash/find";
-import BigNumber from "bignumber.js";
-import { rawToRai } from "components/utils";
 import { PreferencesContext } from "api/contexts/Preferences";
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 
@@ -31,7 +29,8 @@ const useSocket = () => {
     Transaction[]
   >([]);
   const {
-    hideTransactionsUnderOne,
+    filterTransactions,
+    filterTransactionsRange,
     disableLiveTransactions,
   } = React.useContext(PreferencesContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
@@ -45,7 +44,7 @@ const useSocket = () => {
       connect();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hideTransactionsUnderOne]);
+  }, [filterTransactions]);
 
   React.useEffect(() => {
     isMounted = true;
@@ -78,7 +77,7 @@ const useSocket = () => {
       window.removeEventListener("visibilitychange", visibilityChange);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hideTransactionsUnderOne]);
+  }, [filterTransactions]);
 
   const onMessage = React.useCallback(
     (msg: MessageEvent) => {
@@ -87,9 +86,10 @@ const useSocket = () => {
 
         if (topic === Topic.CONFIRMATION) {
           if (
-            hideTransactionsUnderOne &&
+            filterTransactions &&
             ["send", "receive"].includes(message.block.subtype) &&
-            new BigNumber(rawToRai(message.amount)).toNumber() < 1
+            (Number(message.amount) > filterTransactionsRange[0] ||
+              Number(message.amount) < filterTransactionsRange[1])
           ) {
             return;
           }
@@ -111,7 +111,9 @@ const useSocket = () => {
         // silence error
       }
     },
-    [hideTransactionsUnderOne, knownAccounts],
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [filterTransactions, knownAccounts],
   );
 
   const connect = React.useCallback(() => {

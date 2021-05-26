@@ -81,7 +81,8 @@
     "ledgerSize": "La quantità totale di spazio su disco richiesta per memorizzare ogni transazione Nano fino ad ora. La dimensione del libro mastro è calcolata su 1024 base non 1000.",
     "bandwidthCap": "I nano nodi sono in grado di limitare la larghezza di banda per limitare la quantità di messaggi che possono essere inviati o ricevuti. 0 significa larghezza di banda illimitata.",
     "uptime": "Tempo trascorso dall'ultimo riavvio del nodo.",
-    "pendingTransactionCount": "Il numero di transazioni in sospeso supera il limite visualizzato di {{count}}."
+    "pendingTransactionCount": "Il numero di transazioni in sospeso supera il limite visualizzato di {{count}}.",
+    "mnano": "Mnano è l'attuale divisione standard utilizzata nei portafogli, negli scambi e nei servizi. È indicato come 1 NANO."
   },
   "search": {
     "searchBy": "Cerca per indirizzo / blocco / account noto",
@@ -102,9 +103,10 @@
     "natriconsDetailed": "Le Natricon sono un volto familiare e amichevole per gli indirizzi Nano. Usali nelle pagine dell'account, ovunque ci sia un indirizzo Nano nelle vicinanze.",
     "liveTransactions": "Abilita aggiornamenti in tempo reale",
     "liveTransactionsDetailed": "Guarda le transazioni in tempo reale che avvengono sulla rete Nano. Disponibile nella Home page.",
-    "filterTransactions": "Includere importi inferiori a 1 NANO",
-    "filterTransactionsDetailed": "Includere piccoli importi da visualizzare nel feed delle transazioni in tempo reale nella home page.",
-    "contribute": "Contribuire"
+    "contribute": "Contribuire",
+    "filterTransactionsRange": "Includi intervalli di importo",
+    "filterTransactionsRangeDetailed": "Imposta un intervallo di filtraggio personalizzato",
+    "filterTransactions": "Nascondi importi inferiori a 1 NANO"
   },
   "menu": {
     "explore": "Esplorare",
@@ -291,7 +293,10 @@
     "preferences": {
       "description": "Gestisci le tue preferenze per ogni sezione. Le preferenze vengono memorizzate nel browser, se cancelli i tuoi dati le tue preferenze torneranno ai valori predefiniti.",
       "general": "Impostazioni generali",
-      "searchHistory": "Cronologia delle ricerche"
+      "searchHistory": "Cronologia delle ricerche",
+      "filterTransactionsRange": "Personalizza il filtraggio degli importi delle transazioni",
+      "filterTransactionsRangeDetailed": "Scegli di visualizzare solo le transazioni in entrata entro un determinato intervallo minimo / massimo dell'importo inviato o ricevuto.",
+      "noLimit": "Senza limiti"
     },
     "bookmarks": {
       "viewAll": "Visualizza tutti i segnalibri",

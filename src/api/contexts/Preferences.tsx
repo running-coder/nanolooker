@@ -1,5 +1,6 @@
 import * as React from "react";
 import { toBoolean } from "components/utils";
+import { DEFAULT_UNITS } from "components/Preferences/FilterTransactions/utils";
 
 export enum Theme {
   LIGHT = "light",
@@ -39,13 +40,15 @@ interface Preferences {
   cryptocurrency: string[];
   fiat: Fiat;
   setTheme: Function;
-  hideTransactionsUnderOne: boolean;
+  filterTransactions: boolean;
+  filterTransactionsRange: [number, number];
   disableLiveTransactions: boolean;
   addCryptocurrency: Function;
   removeCryptocurrency: Function;
   reorderCryptocurrency: Function;
   setFiat: Function;
-  setHideTransactionsUnderOne: Function;
+  setFilterTransactions: Function;
+  setFilterTransactionsRange: Function;
   setDisableLiveTransactions: Function;
   natricons: boolean;
   setNatricons: Function;
@@ -55,7 +58,8 @@ export enum LOCALSTORAGE_KEYS {
   THEME = "THEME",
   CRYPTOCURRENCY = "CRYPTOCURRENCY",
   FIAT = "FIAT",
-  HIDE_TRANSACTIONS_UNDER_ONE = "HIDE_TRANSACTIONS_UNDER_ONE",
+  FILTER_TRANSACTIONS = "FILTER_TRANSACTIONS",
+  FILTER_TRANSACTIONS_RANGE = "FILTER_TRANSACTIONS_RANGE",
   DISABLE_LIVE_TRANSACTIONS = "DISABLE_LIVE_TRANSACTIONS",
   NATRICONS = "NATRICONS",
   LANGUAGE = "LANGUAGE",
@@ -74,11 +78,32 @@ const getCryptocurrency = (): string[] => {
   return preferences || [];
 };
 
+const getFilterTransactionsRange = (): [number, number] => {
+  let preferences;
+  try {
+    preferences = JSON.parse(
+      window.localStorage.getItem(
+        LOCALSTORAGE_KEYS.FILTER_TRANSACTIONS_RANGE,
+      ) || "",
+    );
+  } catch (_e) {}
+
+  if (preferences?.length === 2) {
+    if (preferences[0] === null) {
+      preferences[0] = Infinity;
+    }
+    return preferences;
+  }
+
+  return DEFAULT_UNITS;
+};
+
 export const PreferencesContext = React.createContext<Preferences>({
   theme: Theme.LIGHT,
   cryptocurrency: [],
   fiat: Fiat.USD,
-  hideTransactionsUnderOne: false,
+  filterTransactions: false,
+  filterTransactionsRange: DEFAULT_UNITS,
   disableLiveTransactions: false,
   natricons: false,
   setTheme: () => {},
@@ -86,7 +111,8 @@ export const PreferencesContext = React.createContext<Preferences>({
   removeCryptocurrency: () => {},
   reorderCryptocurrency: () => {},
   setFiat: () => {},
-  setHideTransactionsUnderOne: () => {},
+  setFilterTransactions: () => {},
+  setFilterTransactionsRange: () => {},
   setDisableLiveTransactions: () => {},
   setNatricons: () => {},
 });
@@ -101,13 +127,11 @@ const Provider: React.FC = ({ children }) => {
   const [fiat, setFiat] = React.useState<Fiat>(
     (localStorage.getItem(LOCALSTORAGE_KEYS.FIAT) as Fiat) || Fiat.USD,
   );
-  const [
-    hideTransactionsUnderOne,
-    setHideTransactionsUnderOne,
-  ] = React.useState<boolean>(
-    toBoolean(
-      localStorage.getItem(LOCALSTORAGE_KEYS.HIDE_TRANSACTIONS_UNDER_ONE),
-    ),
+  const [filterTransactions, setFilterTransactions] = React.useState<boolean>(
+    toBoolean(localStorage.getItem(LOCALSTORAGE_KEYS.FILTER_TRANSACTIONS)),
+  );
+  const [filterTransactionsRange, setFilterTransactionsRange] = React.useState(
+    getFilterTransactionsRange(),
   );
   const [
     disableLiveTransactions,
@@ -171,12 +195,19 @@ const Provider: React.FC = ({ children }) => {
     setFiat(newValue);
   };
 
-  const setLocalstorageHideTransactionsUnderOne = (newValue: boolean) => {
+  const setLocalstorageFilterTransactions = (newValue: boolean) => {
+    localStorage.setItem(LOCALSTORAGE_KEYS.FILTER_TRANSACTIONS, `${newValue}`);
+    setFilterTransactions(newValue);
+  };
+
+  const setLocalstorageFilterTransactionsRange = (
+    newValue: [number, number],
+  ) => {
     localStorage.setItem(
-      LOCALSTORAGE_KEYS.HIDE_TRANSACTIONS_UNDER_ONE,
-      `${newValue}`,
+      LOCALSTORAGE_KEYS.FILTER_TRANSACTIONS_RANGE,
+      JSON.stringify(newValue),
     );
-    setHideTransactionsUnderOne(newValue);
+    setFilterTransactionsRange(newValue);
   };
 
   const setLocalstorageDisableLiveTransactions = (newValue: boolean) => {
@@ -198,7 +229,8 @@ const Provider: React.FC = ({ children }) => {
         theme,
         cryptocurrency,
         fiat,
-        hideTransactionsUnderOne,
+        filterTransactions,
+        filterTransactionsRange,
         disableLiveTransactions,
         natricons,
         setTheme: setLocalstorageTheme,
@@ -206,7 +238,8 @@ const Provider: React.FC = ({ children }) => {
         removeCryptocurrency,
         reorderCryptocurrency,
         setFiat: setLocalstorageFiat,
-        setHideTransactionsUnderOne: setLocalstorageHideTransactionsUnderOne,
+        setFilterTransactions: setLocalstorageFilterTransactions,
+        setFilterTransactionsRange: setLocalstorageFilterTransactionsRange,
         setDisableLiveTransactions: setLocalstorageDisableLiveTransactions,
         setNatricons: setLocalstorageNatricons,
       }}

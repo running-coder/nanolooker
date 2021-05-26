@@ -68,7 +68,7 @@ const Peers: React.FC = () => {
         title={t("pages.status.connectedPeers")}
         value={count}
         isLoading={isPeersLoading}
-        valueStyle={{ opacity }}
+        style={{ opacity }}
       />
       <LoadingStatistic
         title={t("pages.status.protocolVersion", {
@@ -77,7 +77,7 @@ const Peers: React.FC = () => {
         value={percentProtocolVersion}
         suffix="%"
         isLoading={isPeersLoading}
-        valueStyle={{ opacity }}
+        style={{ opacity }}
       />
     </Card>
   );

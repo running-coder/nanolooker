@@ -27,7 +27,9 @@ const FiatPreferences: React.FC<Props> = ({ isDetailed }) => {
       </Col>
       {isDetailed ? (
         <Col xs={18}>
-          <Text>{t("preferences.fiatCurrencyDetailed")}</Text>
+          <Text className="color-muted">
+            {t("preferences.fiatCurrencyDetailed")}
+          </Text>
         </Col>
       ) : null}
 

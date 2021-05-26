@@ -44,17 +44,17 @@ const ActiveDifficulty: React.FC = () => {
         <Statistic
           title={t("pages.status.networkMinimum")}
           value={network_minimum}
-          valueStyle={{ opacity }}
+          style={{ opacity }}
         />
         <Statistic
           title={t("pages.status.networkCurrent")}
           value={network_current}
-          valueStyle={{ opacity }}
+          style={{ opacity }}
         />
         <Statistic
           title={t("pages.status.multiplier")}
           value={multiplier}
-          valueStyle={{ opacity }}
+          style={{ opacity }}
         />
       </Skeleton>
     </Card>

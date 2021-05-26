@@ -7,7 +7,9 @@ export interface UseUptimeReturn {
 let confirmationsPerSecondTimeout: number | undefined;
 
 const useConfirmationsPerSecond = (): UseUptimeReturn => {
-  const [confirmationsPerSecond, setConfirmationsPerSecond] = React.useState();
+  const [confirmationsPerSecond, setConfirmationsPerSecond] = React.useState<
+    string | undefined
+  >();
 
   const getConfirmationsPerSecond = async () => {
     clearTimeout(confirmationsPerSecondTimeout);

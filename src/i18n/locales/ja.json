@@ -81,7 +81,8 @@
     "ledgerSize": "これまでのすべてのNanoトランザクションを保存するために必要なディスク容量の合計。元帳のサイズは、1000ではなく1024ベースで計算されます。",
     "bandwidthCap": "Nanoノードは、帯域幅を調整して、送受信できるメッセージの量を制限できます。 0は無制限の帯域幅を意味します。",
     "uptime": "ノードが最後に再起動されてからの時間。",
-    "pendingTransactionCount": "保留中のトランザクションの数が、表示されている制限の{{count}}を超えています。"
+    "pendingTransactionCount": "保留中のトランザクションの数が、表示されている制限の{{count}}を超えています。",
+    "mnano": "Mnanoは、ウォレット、取引所、サービスで使用されている現在の標準部門です。 1NANOと呼ばれます。"
   },
   "search": {
     "searchBy": "アドレス/ブロック/既知のアカウントで検索",
@@ -102,9 +103,10 @@
     "natriconsDetailed": "Natriconsは、Nanoアドレスにとって親しみやすく親しみやすい顔です。近くにNanoアドレスがある場所ならどこでも、アカウントページでそれらを使用してください。",
     "liveTransactions": "ライブアップデートを有効にする",
     "liveTransactionsDetailed": "Nanoネットワークで発生するライブトランザクションを監視します。ホームページで入手できます。",
-    "filterTransactions": "1NANO未満の金額を含める",
-    "filterTransactionsDetailed": "ホームページのライブトランザクションフィードに表示される少量を含めます。",
-    "contribute": "助ける"
+    "contribute": "助ける",
+    "filterTransactionsRange": "金額範囲を含める",
+    "filterTransactionsRangeDetailed": "カスタムフィルタリング範囲を設定する",
+    "filterTransactions": "1NANO未満の金額を非表示"
   },
   "menu": {
     "explore": "見る",
@@ -291,7 +293,10 @@
     "preferences": {
       "description": "すべてのセクションの設定を管理します。プリファレンスはブラウザに保存されます。データをクリアすると、プリファレンスはデフォルトに戻ります。",
       "general": "一般設定",
-      "searchHistory": "検索履歴"
+      "searchHistory": "検索履歴",
+      "filterTransactionsRange": "取引金額のフィルタリングをカスタマイズする",
+      "filterTransactionsRangeDetailed": "送信または受信された金額の特定の最小/最大範囲内の着信トランザクションのみを表示するように選択します。",
+      "noLimit": "制限なし"
     },
     "bookmarks": {
       "viewAll": "すべてのブックマークを表示",

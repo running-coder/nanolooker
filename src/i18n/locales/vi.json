@@ -81,7 +81,8 @@
     "ledgerSize": "Tổng dung lượng ổ đĩa cần thiết để lưu trữ mọi giao dịch Nano cho đến nay. Kích thước sổ cái được tính trên cơ sở 1024 chứ không phải 1000.",
     "bandwidthCap": "Các nút nano có thể điều chỉnh băng thông của chúng để giới hạn số lượng tin nhắn có thể được gửi hoặc nhận. 0 có nghĩa là băng thông không giới hạn.",
     "uptime": "Thời gian kể từ khi nút được khởi động lại lần cuối.",
-    "pendingTransactionCount": "Số lượng giao dịch đang chờ xử lý vượt quá giới hạn được hiển thị là {{count}}."
+    "pendingTransactionCount": "Số lượng giao dịch đang chờ xử lý vượt quá giới hạn được hiển thị là {{count}}.",
+    "mnano": "Mnano là bộ phận tiêu chuẩn hiện tại được sử dụng trong ví, trên các sàn giao dịch và dịch vụ. Nó được gọi là 1 NANO."
   },
   "search": {
     "searchBy": "Tìm kiếm theo Địa chỉ / Khối / Tài khoản Đã biết",
@@ -102,9 +103,10 @@
     "natriconsDetailed": "Natricons là gương mặt thân thiện, quen thuộc đối với các địa chỉ Nano. Sử dụng chúng trên các trang Tài khoản, bất cứ nơi nào có địa chỉ Nano gần đó.",
     "liveTransactions": "Bật cập nhật trực tiếp",
     "liveTransactionsDetailed": "Xem các giao dịch trực tiếp diễn ra trên mạng Nano. Có sẵn trên Trang chủ.",
-    "filterTransactions": "Bao gồm số tiền dưới 1 NANO",
-    "filterTransactionsDetailed": "Bao gồm các số tiền nhỏ sẽ được hiển thị trong nguồn cấp dữ liệu giao dịch trực tiếp trên Trang chủ.",
-    "contribute": "Góp phần"
+    "contribute": "Góp phần",
+    "filterTransactionsRange": "Bao gồm các phạm vi số tiền",
+    "filterTransactionsRangeDetailed": "Đặt phạm vi lọc tùy chỉnh",
+    "filterTransactions": "Ẩn số tiền dưới 1 NANO"
   },
   "menu": {
     "explore": "Khám phá",
@@ -291,7 +293,10 @@
     "preferences": {
       "description": "Quản lý tùy chọn của bạn cho mọi phần. Các tùy chọn được lưu trữ trên trình duyệt, nếu bạn xóa dữ liệu của mình, tùy chọn của bạn sẽ trở lại mặc định.",
       "general": "Cài đặt chung",
-      "searchHistory": "Lịch sử tìm kiếm"
+      "searchHistory": "Lịch sử tìm kiếm",
+      "filterTransactionsRange": "Tùy chỉnh lọc số tiền giao dịch",
+      "filterTransactionsRangeDetailed": "Chọn chỉ hiển thị các giao dịch đến trong một phạm vi tối thiểu / tối đa nhất định của số tiền đã gửi hoặc đã nhận.",
+      "noLimit": "Không giới hạn"
     },
     "bookmarks": {
       "viewAll": "Xem tất cả các dấu trang",

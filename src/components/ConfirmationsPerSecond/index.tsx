@@ -1,8 +1,8 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { Statistic, Tooltip } from "antd";
-import QuestionCircle from "components/QuestionCircle";
+import { Skeleton, Statistic, Tooltip } from "antd";
 import useConfirmationsPerSecond from "api/hooks/use-confirmations-per-second";
+import QuestionCircle from "components/QuestionCircle";
 
 const ConfirmationsPerSecond = () => {
   const { t } = useTranslation();
@@ -10,11 +10,15 @@ const ConfirmationsPerSecond = () => {
 
   return confirmationsPerSecond ? (
     <div className="cps-container">
-      <Statistic
-        suffix={t("transaction.cps")}
-        value={confirmationsPerSecond}
-        style={{ display: "inline-block" }}
-      ></Statistic>
+      {!confirmationsPerSecond || !parseFloat(confirmationsPerSecond) ? (
+        <Skeleton paragraph={false} active />
+      ) : (
+        <Statistic
+          suffix={t("transaction.cps")}
+          value={confirmationsPerSecond}
+          style={{ display: "inline-block" }}
+        />
+      )}
       <Tooltip placement="right" title={t("tooltips.cps")}>
         <QuestionCircle />
       </Tooltip>

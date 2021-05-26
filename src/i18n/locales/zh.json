@@ -81,7 +81,8 @@
     "ledgerSize": "到现在为止，存储每个Nano事务所需的磁盘空间总量。分类帐大小是基于1024而不是1000计算的。",
     "bandwidthCap": "纳米节点能够调节其带宽，以限制可以发送或接收的消息量。 0表示无限带宽。",
     "uptime": "自上次重新引导节点以来的时间。",
-    "pendingTransactionCount": "待处理的交易数量超过了显示的限制{{count}}。"
+    "pendingTransactionCount": "待处理的交易数量超过了显示的限制{{count}}。",
+    "mnano": "Mnano是目前用于钱包，交易所和服务的标准部门。它被称为1 NANO。"
   },
   "search": {
     "searchBy": "按地址/阻止/已知帐户搜索",
@@ -102,9 +103,10 @@
     "natriconsDetailed": "Natricons是Nano地址的友好而熟悉的面孔。在附近有Nano地址的任何地方，在“帐户”页面上使用它们。",
     "liveTransactions": "启用实时更新",
     "liveTransactionsDetailed": "观看Nano网络上发生的实时交易。在主页上可用。",
-    "filterTransactions": "包括1 NANO下的金额",
-    "filterTransactionsDetailed": "包括少量要显示在主页上的实时交易源中的金额。",
-    "contribute": "贡献"
+    "contribute": "贡献",
+    "filterTransactionsRange": "包括金额范围",
+    "filterTransactionsRangeDetailed": "设置自定义过滤范围",
+    "filterTransactions": "隐藏低于1 NANO的金额"
   },
   "menu": {
     "explore": "探索",
@@ -291,7 +293,10 @@
     "preferences": {
       "description": "管理每个部分的首选项。首选项存储在浏览器中，如果您清除数据，则首选项将恢复为默认值。",
       "general": "常规设置",
-      "searchHistory": "搜索历史记录"
+      "searchHistory": "搜索历史记录",
+      "filterTransactionsRange": "自定义交易金额过滤",
+      "filterTransactionsRangeDetailed": "选择仅显示在已发送或已接收金额的特定最小/最大范围内的传入交易。",
+      "noLimit": "没有限制"
     },
     "bookmarks": {
       "viewAll": "查看所有书签",

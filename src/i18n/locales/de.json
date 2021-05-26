@@ -81,7 +81,8 @@
     "ledgerSize": "Die Gesamtmenge an Speicherplatz, die bisher zum Speichern aller Nano-Transaktionen erforderlich ist. Die Hauptbuchgröße wird auf 1024-Basis berechnet, nicht auf 1000.",
     "bandwidthCap": "Nano-Knoten können ihre Bandbreite drosseln, um die Anzahl der Nachrichten zu begrenzen, die gesendet oder empfangen werden können. 0 bedeutet unbegrenzte Bandbreite.",
     "uptime": "Zeit seit dem letzten Neustart des Knotens.",
-    "pendingTransactionCount": "Die Anzahl der ausstehenden Transaktionen überschreitet das angezeigte Limit von {{count}}."
+    "pendingTransactionCount": "Die Anzahl der ausstehenden Transaktionen überschreitet das angezeigte Limit von {{count}}.",
+    "mnano": "Mnano ist die derzeitige Standardabteilung für Brieftaschen, Börsen und Dienstleistungen. Es wird als 1 NANO bezeichnet."
   },
   "search": {
     "searchBy": "Suche nach Adresse / Block / Bekanntem Konto",
@@ -102,9 +103,10 @@
     "natriconsDetailed": "Natricons sind ein freundliches, vertrautes Gesicht für Nano-Adressen. Verwenden Sie sie auf Kontoseiten, überall dort, wo sich eine Nano-Adresse in der Nähe befindet.",
     "liveTransactions": "Aktivieren Sie Live-Updates",
     "liveTransactionsDetailed": "Beobachten Sie Live-Transaktionen im Nano-Netzwerk. Verfügbar auf der Homepage.",
-    "filterTransactions": "Beträge unter 1 NANO einschließen",
-    "filterTransactionsDetailed": "Fügen Sie kleine Beträge hinzu, die im Live-Transaktions-Feed auf der Startseite angezeigt werden sollen.",
-    "contribute": "Beitragen"
+    "contribute": "Beitragen",
+    "filterTransactionsRange": "Mengenbereiche einschließen",
+    "filterTransactionsRangeDetailed": "Legen Sie einen benutzerdefinierten Filterbereich fest",
+    "filterTransactions": "Verstecke Beträge unter 1 NANO"
   },
   "menu": {
     "explore": "Erkunden",
@@ -291,7 +293,10 @@
     "preferences": {
       "description": "Verwalten Sie Ihre Einstellungen für jeden Abschnitt. Die Einstellungen werden im Browser gespeichert. Wenn Sie Ihre Daten löschen, werden Ihre Einstellungen auf die Standardeinstellungen zurückgesetzt.",
       "general": "Allgemeine Einstellungen",
-      "searchHistory": "Suchverlauf"
+      "searchHistory": "Suchverlauf",
+      "filterTransactionsRange": "Passen Sie die Filterung der Transaktionsbeträge an",
+      "filterTransactionsRangeDetailed": "Wählen Sie diese Option, um eingehende Transaktionen nur innerhalb eines bestimmten Min / Max-Bereichs des gesendeten oder empfangenen Betrags anzuzeigen.",
+      "noLimit": "Keine Begrenzung"
     },
     "bookmarks": {
       "viewAll": "Alle Lesezeichen anzeigen",

@@ -9,7 +9,7 @@ interface LoadingStatisticProps {
   value: any;
   prefix?: string | React.ReactNode;
   suffix?: string | React.ReactNode;
-  valueStyle?: any;
+  style?: any;
 }
 
 const LoadingStatistic = ({

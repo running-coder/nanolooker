@@ -69,21 +69,21 @@ const Node: React.FC = () => {
         title={t("pages.status.version")}
         value={node_vendor}
         isLoading={!node_vendor}
-        valueStyle={{ opacity }}
+        style={{ opacity }}
       />
       <LoadingStatistic
         title={t("pages.status.uptime")}
         tooltip={t("tooltips.uptime")}
         value={secondsToTime(seconds || 0)}
         isLoading={!node_vendor}
-        valueStyle={{ opacity }}
+        style={{ opacity }}
       />
       <LoadingStatistic
         title={t("pages.status.cpuUsage")}
         value={new BigNumber(cpu).decimalPlaces(2).toNumber()}
         suffix="%"
         isLoading={isNodeStatusLoading}
-        valueStyle={{ opacity }}
+        style={{ opacity }}
       />
       <LoadingStatistic
         title={t("pages.status.memory")}
@@ -92,7 +92,7 @@ const Node: React.FC = () => {
         )} / ${new BigNumber(formattedTotal.value).toFormat(2)}`}
         suffix={formattedTotal.suffix}
         isLoading={isNodeStatusLoading}
-        valueStyle={{ opacity }}
+        style={{ opacity }}
       />
     </Card>
   );

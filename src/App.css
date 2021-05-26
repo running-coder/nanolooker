@@ -128,8 +128,18 @@ a:hover {
 }
 
 .cps-container {
-  text-align: left;
   margin-bottom: 3px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.cps-container .ant-skeleton {
+  width: 80px;
+}
+
+.cps-container .ant-skeleton-title {
+  margin: 12px 0;
 }
 
 @media (min-width: 768px) {
@@ -146,7 +156,7 @@ a:hover {
   }
 
   .cps-container {
-    text-align: center;
+    justify-content: center;
   }
 
   .ant-timeline .right .ant-timeline-item-content {
@@ -308,7 +318,6 @@ a:hover {
 .preference-detailed-title {
   display: block;
   font-size: 16px;
-  font-weight: bold;
   margin-bottom: 6px;
 }
 

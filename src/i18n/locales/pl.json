@@ -81,7 +81,8 @@
     "ledgerSize": "Całkowita ilość miejsca na dysku wymagana do przechowywania wszystkich dotychczasowych transakcji Nano. Rozmiar księgi jest obliczany na podstawie 1024, a nie 1000.",
     "bandwidthCap": "Nano Node mogą ograniczać przepustowość, aby ograniczyć liczbę wiadomości, które mogą być wysyłane lub odbierane. 0 oznacza nieograniczoną przepustowość.",
     "uptime": "Czas od ostatniego restartu Nano Node.",
-    "pendingTransactionCount": "Liczba oczekujących transakcji przekracza wyświetlany limit {{count}}."
+    "pendingTransactionCount": "Liczba oczekujących transakcji przekracza wyświetlany limit {{count}}.",
+    "mnano": "Mnano to obecny standardowy podział stosowany w portfelach, giełdach i usługach. Nazywa się 1 NANO."
   },
   "search": {
     "searchBy": "Wyszukaj według adresu / bloku / znanego konta",
@@ -102,9 +103,10 @@
     "natriconsDetailed": "Natricony są przyjazną, znajomą twarzą dla adresów Nano. Używaj ich na stronach konta, wszędzie tam, gdzie w pobliżu znajduje się adres Nano.",
     "liveTransactions": "Włącz aktualizacje na żywo",
     "liveTransactionsDetailed": "Oglądaj transakcje na żywo zachodzące w sieci Nano. Dostępne na stronie głównej.",
-    "filterTransactions": "Uwzględnij kwoty poniżej 1 NANO",
-    "filterTransactionsDetailed": "Uwzględnij niewielkie kwoty, które mają być wyświetlane w kanale transakcji na żywo na stronie głównej.",
-    "contribute": "Pomóż rozwinąć Nanolooker"
+    "contribute": "Pomóż rozwinąć Nanolooker",
+    "filterTransactionsRange": "Uwzględnij zakresy kwot",
+    "filterTransactionsRangeDetailed": "Ustaw niestandardowy zakres filtrowania",
+    "filterTransactions": "Ukryj kwoty poniżej 1 NANO"
   },
   "menu": {
     "explore": "Przeglądaj",
@@ -291,7 +293,10 @@
     "preferences": {
       "description": "Zarządzaj preferencjami dla każdej sekcji. Preferencje są przechowywane w przeglądarce, jeśli wyczyścisz swoje dane, przywrócone zostaną ustawienia domyślne.",
       "general": "Ustawienia główne",
-      "searchHistory": "Historia wyszukiwania"
+      "searchHistory": "Historia wyszukiwania",
+      "filterTransactionsRange": "Dostosuj filtrowanie kwot transakcji",
+      "filterTransactionsRangeDetailed": "Wybierz wyświetlanie tylko transakcji przychodzących z określonego zakresu min./maks. Kwoty wysłanej lub odebranej.",
+      "noLimit": "Bez limitu"
     },
     "bookmarks": {
       "viewAll": "Wyświetl wszystkie zakładki",

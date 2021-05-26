@@ -81,7 +81,8 @@
     "ledgerSize": "지금까지 모든 Nano 트랜잭션을 저장하는 데 필요한 총 디스크 공간입니다. 원장 크기는 1000이 아닌 1024를 기준으로 계산됩니다.",
     "bandwidthCap": "나노 노드는 보내고받을 수있는 메시지의 양을 제한하기 위해 대역폭을 조절할 수 있습니다. 0은 무제한 대역폭을 의미합니다.",
     "uptime": "노드가 마지막으로 재부팅 된 이후의 시간입니다.",
-    "pendingTransactionCount": "보류중인 트랜잭션 수가 표시된 한도 인 {{count}}을 (를) 초과합니다."
+    "pendingTransactionCount": "보류중인 트랜잭션 수가 표시된 한도 인 {{count}}을 (를) 초과합니다.",
+    "mnano": "Mnano는 지갑, 거래소 및 서비스에서 사용되는 현재 표준 부서입니다. 1 NANO라고합니다."
   },
   "search": {
     "searchBy": "주소 / 차단 / 알려진 계정으로 검색",
@@ -102,9 +103,10 @@
     "natriconsDetailed": "Natricons는 Nano 주소에 친숙하고 친숙한 얼굴입니다. 근처에 Nano 주소가있는 모든 곳에서 계정 페이지에서 사용하십시오.",
     "liveTransactions": "라이브 업데이트 활성화",
     "liveTransactionsDetailed": "Nano 네트워크에서 발생하는 실시간 거래를 확인하세요. 홈페이지에서 사용 가능합니다.",
-    "filterTransactions": "1 NANO 미만의 금액 포함",
-    "filterTransactionsDetailed": "홈페이지의 실시간 거래 피드에 표시 할 소량을 포함합니다.",
-    "contribute": "기여"
+    "contribute": "기여",
+    "filterTransactionsRange": "금액 범위 포함",
+    "filterTransactionsRangeDetailed": "사용자 지정 필터링 범위 설정",
+    "filterTransactions": "1 NANO 미만 금액 숨기기"
   },
   "menu": {
     "explore": "탐색",
@@ -291,7 +293,10 @@
     "preferences": {
       "description": "모든 섹션에 대한 기본 설정을 관리합니다. 기본 설정은 브라우저에 저장되며, 데이터를 지우면 기본 설정이 기본값으로 돌아갑니다.",
       "general": "일반 설정",
-      "searchHistory": "검색 기록"
+      "searchHistory": "검색 기록",
+      "filterTransactionsRange": "거래 금액 필터링 사용자 지정",
+      "filterTransactionsRangeDetailed": "전송 또는 수신 금액의 특정 최소 / 최대 범위 내에서만 수신 거래를 표시하도록 선택합니다.",
+      "noLimit": "제한 없음"
     },
     "bookmarks": {
       "viewAll": "모든 북마크보기",

@@ -81,7 +81,8 @@
     "ledgerSize": "La cantidad total de espacio en disco necesaria para almacenar todas las transacciones Nano hasta ahora. El tamaño del libro mayor se calcula en base 1024, no 1000.",
     "bandwidthCap": "Los nano nodos pueden acelerar su ancho de banda para limitar la cantidad de mensajes que se pueden enviar o recibir. 0 significa ancho de banda ilimitado.",
     "uptime": "Tiempo transcurrido desde la última vez que se reinició el nodo.",
-    "pendingTransactionCount": "El número de transacciones pendientes supera el límite mostrado de {{count}}."
+    "pendingTransactionCount": "El número de transacciones pendientes supera el límite mostrado de {{count}}.",
+    "mnano": "Mnano es la división estándar actual utilizada en billeteras, intercambios y servicios. Se denomina 1 NANO."
   },
   "search": {
     "searchBy": "Buscar por dirección / bloque / cuenta conocida",
@@ -102,9 +103,10 @@
     "natriconsDetailed": "Los natricones son una cara amigable y familiar para las direcciones Nano. Úselos en las páginas de la cuenta, en cualquier lugar donde haya una dirección Nano cercana.",
     "liveTransactions": "Habilitar actualizaciones en vivo",
     "liveTransactionsDetailed": "Vea las transacciones en vivo que ocurren en la red Nano. Disponible en la página de inicio.",
-    "filterTransactions": "Incluir cantidades inferiores a 1 NANO",
-    "filterTransactionsDetailed": "Incluya pequeñas cantidades para que se muestren en el feed de transacciones en vivo en la página de inicio.",
-    "contribute": "Contribuir"
+    "contribute": "Contribuir",
+    "filterTransactionsRange": "Incluya rangos de cantidad",
+    "filterTransactionsRangeDetailed": "Establecer un rango de filtrado personalizado",
+    "filterTransactions": "Ocultar importes inferiores a 1 NANO"
   },
   "menu": {
     "explore": "Explorar",
@@ -291,7 +293,10 @@
     "preferences": {
       "description": "Administre sus preferencias para cada sección. Las preferencias se almacenan en el navegador; si borra sus datos, sus preferencias volverán a ser las predeterminadas.",
       "general": "Configuración general",
-      "searchHistory": "Buscar Historia"
+      "searchHistory": "Buscar Historia",
+      "filterTransactionsRange": "Personalizar el filtrado de montos de transacciones",
+      "filterTransactionsRangeDetailed": "Elija mostrar solo las transacciones entrantes dentro de un cierto rango mínimo / máximo de la cantidad enviada o recibida.",
+      "noLimit": "no limit"
     },
     "bookmarks": {
       "viewAll": "Ver todos los marcadores",

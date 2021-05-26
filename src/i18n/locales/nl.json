@@ -81,7 +81,8 @@
     "ledgerSize": "De totale hoeveelheid schijfruimte die tot nu toe nodig is om alle Nano transacties op te slaan. De databasegrootte wordt uitgedrukt in binaire groottes (mebibyte) in plaats van decimaal (megabyte).",
     "bandwidthCap": "Nano nodes kunnen hun bandbreedte beperken om het aantal berichten dat kan worden verzonden of ontvangen te beperken. 0 staat voor een onbeperkte bandbreedte.",
     "uptime": "Tijd sinds de node voor het laatst opnieuw is opgestart.",
-    "pendingTransactionCount": "Het aantal lopende transacties overschrijdt de weergavelimiet van {{count}}."
+    "pendingTransactionCount": "Het aantal lopende transacties overschrijdt de weergavelimiet van {{count}}.",
+    "mnano": "Mnano is de huidige standaarddivisie die wordt gebruikt in portefeuilles, beurzen en services. Het wordt 1 NANO genoemd."
   },
   "search": {
     "searchBy": "Zoeken op adres / block / bekend account",
@@ -102,9 +103,10 @@
     "natriconsDetailed": "Natricons zijn vriendelijke, bekende gezichten voor Nano adressen. Gebruik ze op accountpaginas en overal waar een nano adres te zien is.",
     "liveTransactions": "Schakel live updates in",
     "liveTransactionsDetailed": "Bekijk live transacties die plaatsvinden op het Nano netwerk. Beschikbaar op de startpagina.",
-    "filterTransactions": "Laat bedragen onder de 1 NANO zien",
-    "filterTransactionsDetailed": "Laat kleine bedragen zien in de live transactiefeed op de startpagina.",
-    "contribute": "Draag bij"
+    "contribute": "Draag bij",
+    "filterTransactionsRange": "Voeg bedragbereiken toe",
+    "filterTransactionsRangeDetailed": "Stel een aangepast filterbereik in",
+    "filterTransactions": "Verberg bedragen onder 1 NANO"
   },
   "menu": {
     "explore": "Verken",
@@ -291,7 +293,10 @@
     "preferences": {
       "description": "Beheer uw voorkeuren voor elke sectie. De voorkeuren worden in de browser opgeslagen, als u uw gegevens wist, worden uw voorkeuren teruggezet naar de standaardinstellingen.",
       "general": "Algemene instellingen",
-      "searchHistory": "Zoekgeschiedenis"
+      "searchHistory": "Zoekgeschiedenis",
+      "filterTransactionsRange": "Pas het filteren van transactiebedragen aan",
+      "filterTransactionsRangeDetailed": "Kies ervoor om alleen inkomende transacties weer te geven binnen een bepaald min / max bereik van het verzonden of ontvangen bedrag.",
+      "noLimit": "Geen limiet"
     },
     "bookmarks": {
       "viewAll": "Bekijk alle bladwijzers",

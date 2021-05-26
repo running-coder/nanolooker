@@ -40,7 +40,9 @@ const NatriconsPreferences: React.FC<Props> = ({ isDetailed }) => {
         </Col>
         {isDetailed ? (
           <Col xs={18}>
-            <Text>{t("preferences.natriconsDetailed")}</Text>
+            <Text className="color-muted">
+              {t("preferences.natriconsDetailed")}
+            </Text>
           </Col>
         ) : null}
 

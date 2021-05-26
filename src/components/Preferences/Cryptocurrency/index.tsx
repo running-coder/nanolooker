@@ -84,7 +84,7 @@ const CryptocurrencyPreferences: React.FC<Props> = ({ isDetailed }) => {
       </Col>
       {isDetailed ? (
         <Col xs={24} style={{ marginBottom: "6px" }}>
-          <Text>{t("preferences.watchDetailed")}</Text>
+          <Text className="color-muted">{t("preferences.watchDetailed")}</Text>
         </Col>
       ) : null}
 

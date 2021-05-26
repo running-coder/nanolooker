@@ -81,7 +81,8 @@
     "ledgerSize": "Şimdiye kadarki her Nano işlemini depolamak için gereken toplam disk alanı miktarı. Defter boyutu 1000 değil 1024 temel alınarak hesaplanır.",
     "bandwidthCap": "Nano düğümler, gönderilebilen veya alınabilen mesajların miktarını sınırlamak için bant genişliğini kısabilir. 0, sınırsız bant genişliği anlamına gelir.",
     "uptime": "Düğümün en son yeniden başlatılmasından bu yana geçen süre.",
-    "pendingTransactionCount": "Bekleyen işlemlerin sayısı, görüntülenen {{count}} sınırını aşıyor."
+    "pendingTransactionCount": "Bekleyen işlemlerin sayısı, görüntülenen {{count}} sınırını aşıyor.",
+    "mnano": "Mnano, cüzdanlarda, borsalarda ve hizmetlerde kullanılan mevcut standart bölümdür. 1 NANO olarak anılır."
   },
   "search": {
     "searchBy": "Adres / Blok / Bilinen Hesap ile Ara",
@@ -102,9 +103,10 @@
     "natriconsDetailed": "Natricons, Nano adresleri için arkadaş canlısı ve tanıdık yüzlerdir. Bunları Hesap sayfalarında, yakınlarda bir Nano adres olan her yerde kullanın.",
     "liveTransactions": "Canlı güncellemeleri etkinleştirin",
     "liveTransactionsDetailed": "Nano ağında gerçekleşen canlı işlemleri izleyin. Ana sayfada mevcuttur.",
-    "filterTransactions": "1 NANO'nun altındaki tutarları dahil et",
-    "filterTransactionsDetailed": "Ana sayfadaki canlı işlemler akışında görüntülenecek küçük tutarları ekleyin.",
-    "contribute": "Katkıda bulunmak"
+    "contribute": "Katkıda bulunmak",
+    "filterTransactionsRange": "Miktar aralıklarını dahil edin",
+    "filterTransactionsRangeDetailed": "Özel bir filtreleme aralığı ayarlayın",
+    "filterTransactions": "1 NANO'nun altındaki tutarları gizle"
   },
   "menu": {
     "explore": "keşfetmek",
@@ -291,7 +293,10 @@
     "preferences": {
       "description": "Her bölüm için tercihlerinizi yönetin. Tercihler tarayıcıda saklanır, verilerinizi temizlerseniz tercihleriniz varsayılanlara geri döner.",
       "general": "Genel Ayarlar",
-      "searchHistory": "Arama geçmişi"
+      "searchHistory": "Arama geçmişi",
+      "filterTransactionsRange": "İşlem tutarlarını filtrelemeyi özelleştirin",
+      "filterTransactionsRangeDetailed": "Yalnızca gönderilen veya alınan miktarın belirli bir min / maks aralığında gelen işlemleri görüntülemeyi seçin.",
+      "noLimit": "Limit yok"
     },
     "bookmarks": {
       "viewAll": "Tüm yer imlerini görüntüleyin",

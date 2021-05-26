@@ -81,7 +81,8 @@
     "ledgerSize": "A quantidade total de espaço em disco necessária para armazenar todas as transações da Nano até agora. O tamanho da ledger é calculado com base em 1024 e não em 1000.",
     "bandwidthCap": "Os bós da nano são capazes de limitar sua banda larga para limitar a quantidade de mensagens que podem ser enviadas ou recebidas. 0 significa banda larga ilimitada.",
     "uptime": "Tempo desde a última reinicialização do nó.",
-    "pendingTransactionCount": "O número de transações pendentes excede o limite exibido de {{count}}."
+    "pendingTransactionCount": "O número de transações pendentes excede o limite exibido de {{count}}.",
+    "mnano": "Mnano é a divisão padrão atual usada em carteiras, bolsas e serviços. É referido como 1 NANO."
   },
   "search": {
     "searchBy": "Pesquisar por endereço / bloco",
@@ -102,9 +103,10 @@
     "natriconsDetailed": "Natricons são um rosto amigável e familiar para endereços Nano. Use-os nas páginas da conta, em qualquer lugar onde haja um endereço Nano nas proximidades.",
     "liveTransactions": "Habilitar atualizações ao vivo",
     "liveTransactionsDetailed": "Assista às transações ao vivo acontecendo na rede Nano. Disponível na página inicial.",
-    "filterTransactions": "Inclui valores abaixo de 1 NANO",
-    "filterTransactionsDetailed": "Inclua pequenas quantias a serem exibidas no feed de transações ao vivo na página inicial.",
-    "contribute": "Contribuir"
+    "contribute": "Contribuir",
+    "filterTransactionsRange": "Incluir intervalos de valores",
+    "filterTransactionsRangeDetailed": "Defina um intervalo de filtragem personalizado",
+    "filterTransactions": "Ocultar valores abaixo de 1 NANO"
   },
   "menu": {
     "explore": "Explorar",
@@ -291,7 +293,10 @@
     "preferences": {
       "description": "Gerencie suas preferências para todas as seções. As preferências são armazenadas no navegador, se você limpar seus dados, suas preferências voltarão ao padrão.",
       "general": "Configurações Gerais",
-      "searchHistory": "Histórico de busca"
+      "searchHistory": "Histórico de busca",
+      "filterTransactionsRange": "Personalize a filtragem de valores de transação",
+      "filterTransactionsRangeDetailed": "Escolha exibir apenas as transações recebidas dentro de um determinado intervalo mínimo / máximo da quantia enviada ou recebida.",
+      "noLimit": "Sem limite"
     },
     "bookmarks": {
       "viewAll": "Ver todos os favoritos",

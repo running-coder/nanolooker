@@ -81,7 +81,8 @@
     "ledgerSize": "La quantité totale d'espace disque nécessaire pour stocker toutes les transactions Nano jusqu'à présent. La taille du grand livre est calculée sur une base de 1024 et non sur 1000.",
     "bandwidthCap": "Les nano nœuds peuvent limiter leur bande passante pour limiter la quantité de messages pouvant être envoyés ou reçus. 0 signifie une bande passante illimitée.",
     "uptime": "Temps écoulé depuis le dernier redémarrage du nœud.",
-    "pendingTransactionCount": "Le nombre de transactions en attente dépasse la limite affichée de {{count}}."
+    "pendingTransactionCount": "Le nombre de transactions en attente dépasse la limite affichée de {{count}}.",
+    "mnano": "Mnano est la division standard actuelle utilisée dans les portefeuilles, sur les échanges et les services. Il est appelé 1 NANO."
   },
   "search": {
     "searchBy": "Recherche par Address / Bloc",
@@ -102,9 +103,10 @@
     "natriconsDetailed": "Les Natricons sont un visage amical et familier pour les adresses Nano. Utilisez-les sur les pages de compte, partout où il y a une adresse Nano à proximité.",
     "liveTransactions": "Activer les mises à jour en direct",
     "liveTransactionsDetailed": "Regardez les transactions en direct se déroulant sur le réseau Nano. Disponible sur la page d'accueil.",
-    "filterTransactions": "Inclure les montants inférieurs à 1 NANO",
-    "filterTransactionsDetailed": "Incluez les petits montants à afficher dans le flux de transactions en direct sur la page d'accueil.",
-    "contribute": "Contribuer"
+    "contribute": "Contribuer",
+    "filterTransactionsRange": "Inclure les fourchettes de montants",
+    "filterTransactionsRangeDetailed": "Définir une plage de filtrage personnalisée",
+    "filterTransactions": "Masquer les montants inférieurs à 1 NANO"
   },
   "menu": {
     "explore": "Explorer",
@@ -291,7 +293,10 @@
     "preferences": {
       "description": "Gérez vos préférences pour chaque section. Les préférences sont stockées sur le navigateur, si vous effacez vos données, vos préférences seront rétablies par défaut.",
       "general": "Réglages généraux",
-      "searchHistory": "Historique des recherches"
+      "searchHistory": "Historique des recherches",
+      "filterTransactionsRange": "Personnaliser le filtrage des montants des transactions",
+      "filterTransactionsRangeDetailed": "Choisissez d'afficher uniquement les transactions entrantes dans une certaine plage min / max du montant envoyé ou reçu.",
+      "noLimit": "Sans limites"
     },
     "bookmarks": {
       "viewAll": "Afficher tous les signets",

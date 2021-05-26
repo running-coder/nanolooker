@@ -22,7 +22,7 @@ const LanguagePreferences: React.FC<Props> = ({ isDetailed }) => {
       </Col>
       {isDetailed ? (
         <Col xs={16}>
-          <Text>
+          <Text className="color-muted">
             <Trans
               i18nKey="preferences.languageDetailed"
               style={{ marginLeft: "12px" }}

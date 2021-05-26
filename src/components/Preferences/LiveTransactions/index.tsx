@@ -26,7 +26,9 @@ const LivePreference: React.FC<Props> = ({ isDetailed }) => {
       </Col>
       {isDetailed ? (
         <Col xs={18}>
-          <Text>{t("preferences.liveTransactionsDetailed")}</Text>
+          <Text className="color-muted">
+            {t("preferences.liveTransactionsDetailed")}
+          </Text>
         </Col>
       ) : null}
 

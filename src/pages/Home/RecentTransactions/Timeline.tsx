@@ -21,7 +21,7 @@ const RecentTransactions: React.FC<Props> = ({ recentTransactions }) => {
   const history = useHistory();
   const {
     theme,
-    hideTransactionsUnderOne,
+    filterTransactions,
     disableLiveTransactions,
   } = React.useContext(PreferencesContext);
   const isMediumAndLower = !useMediaQuery("(min-width: 768px)");
@@ -73,7 +73,7 @@ const RecentTransactions: React.FC<Props> = ({ recentTransactions }) => {
                 />
               </div>
               {alias ? <div className="color-important">{alias}</div> : null}
-              {hideTransactionsUnderOne || disableLiveTransactions ? (
+              {filterTransactions || disableLiveTransactions ? (
                 <>
                   <Link to={`/account/${account}`} className="color-normal">
                     {account}

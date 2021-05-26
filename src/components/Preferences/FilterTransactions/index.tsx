@@ -1,8 +1,11 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { Col, Row, Switch, Typography } from "antd";
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
+import isEqual from "lodash/isEqual";
 import { PreferencesContext } from "api/contexts/Preferences";
+import { units, DEFAULT_UNITS } from "./utils";
 
 const { Text } = Typography;
 
@@ -13,34 +16,52 @@ interface Props {
 const FilterTransactionsPreferences: React.FC<Props> = ({ isDetailed }) => {
   const { t } = useTranslation();
   const {
-    hideTransactionsUnderOne,
-    setHideTransactionsUnderOne,
+    filterTransactions,
+    filterTransactionsRange,
+    setFilterTransactions,
   } = React.useContext(PreferencesContext);
 
-  return (
-    <Row>
-      <Col xs={isDetailed ? 24 : 18}>
-        <Text className={isDetailed ? "preference-detailed-title" : ""}>
-          {t("preferences.filterTransactions")}
-        </Text>
-      </Col>
-      {isDetailed ? (
-        <Col xs={18}>
-          <Text>{t("preferences.filterTransactionsDetailed")}</Text>
-        </Col>
-      ) : null}
+  const range = `${
+    units.find(({ raw }) => raw === filterTransactionsRange[1])?.display
+  } - ${
+    units.find(({ raw }) => raw === filterTransactionsRange[0])?.display ||
+    t("pages.preferences.noLimit")
+  }`;
 
-      <Col xs={6} style={{ textAlign: "right" }}>
-        <Switch
-          checkedChildren={<CheckOutlined />}
-          unCheckedChildren={<CloseOutlined />}
-          onChange={(checked: boolean) => {
-            setHideTransactionsUnderOne(!checked);
-          }}
-          checked={!hideTransactionsUnderOne}
-        />
-      </Col>
-    </Row>
+  return (
+    <>
+      <Row>
+        <Col xs={18}>
+          <Text style={{ whiteSpace: "nowrap", paddingRight: "18px" }}>
+            {isEqual(filterTransactionsRange, DEFAULT_UNITS) ? (
+              t("preferences.filterTransactions")
+            ) : (
+              <>
+                {t("preferences.filterTransactionsRange")}
+                <br />
+                <strong>{range}</strong>
+              </>
+            )}
+          </Text>
+
+          <br />
+          <Link to="/preferences" style={{ whiteSpace: "nowrap" }}>
+            {t("preferences.filterTransactionsRangeDetailed")}
+          </Link>
+        </Col>
+
+        <Col xs={6} style={{ textAlign: "right" }}>
+          <Switch
+            checkedChildren={<CheckOutlined />}
+            unCheckedChildren={<CloseOutlined />}
+            onChange={(checked: boolean) => {
+              setFilterTransactions(checked);
+            }}
+            checked={filterTransactions}
+          />
+        </Col>
+      </Row>
+    </>
   );
 };
 

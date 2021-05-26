@@ -81,7 +81,8 @@
     "ledgerSize": "The total amount of disk space required to store every Nano transactions up to now. The ledger size is calculated on 1024 base not 1000.",
     "bandwidthCap": "Nano nodes are able to throttle their bandwidth to limit the amount of messages that can be sent or received. 0 means unlimited bandwidth.",
     "uptime": "Time since the node was last rebooted.",
-    "pendingTransactionCount": "The number of pending transactions exceeds the displayed limit of {{count}}."
+    "pendingTransactionCount": "The number of pending transactions exceeds the displayed limit of {{count}}.",
+    "mnano": "Mnano is the current standard division used in wallets, on exchanges and services. It is referred as 1 NANO."
   },
   "search": {
     "searchBy": "Search by Address / Block / Known Account",
@@ -102,8 +103,9 @@
     "natriconsDetailed": "Natricons are friendly, familiar face for Nano addresses. Use them on Account pages, anywhere there is a Nano address nearby.",
     "liveTransactions": "Enable live updates",
     "liveTransactionsDetailed": "Watch live transactions happening on the Nano network. Available on the Home page.",
-    "filterTransactions": "Include amounts under 1 NANO",
-    "filterTransactionsDetailed": "Include small amounts to be displayed in the live transactions feed on the Home page.",
+    "filterTransactions": "Hide amounts under 1 NANO",
+    "filterTransactionsRange": "Include amount ranges",
+    "filterTransactionsRangeDetailed": "Set a custom filtering range",
     "contribute": "Contribute"
   },
   "menu": {
@@ -291,7 +293,10 @@
     "preferences": {
       "description": "Manage your preferences for every sections. The preferences are stored on the browser, if you clear your data your preferences will be back to defaults.",
       "general": "General settings",
-      "searchHistory": "Search history"
+      "searchHistory": "Search history",
+      "filterTransactionsRange": "Customize transaction amounts filtering",
+      "filterTransactionsRangeDetailed": "Choose to only display incoming transactions within a certain min / max range of the sent or received amount.",
+      "noLimit": "No limit"
     },
     "bookmarks": {
       "viewAll": "View all bookmarks",

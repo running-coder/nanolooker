@@ -8,7 +8,7 @@ import CryptocurrencyPreferences from "components/Preferences/Cryptocurrency";
 import FiatPreferences from "components/Preferences/Fiat";
 import NatriconsPreferences from "components/Preferences/Natricons";
 import LiveTransactionsPreferences from "components/Preferences/LiveTransactions";
-import FilterTransactionsPreferences from "components/Preferences/FilterTransactions";
+import FilterTransactionsRangePreferences from "components/Preferences/FilterTransactions/Range";
 
 const { Title } = Typography;
 
@@ -47,7 +47,7 @@ const PreferencesPage: React.FC = () => {
       >
         <Title level={4}>{t("pages.home.recentTransactions")}</Title>
         <LiveTransactionsPreferences isDetailed />
-        <FilterTransactionsPreferences isDetailed />
+        <FilterTransactionsRangePreferences isDetailed />
       </Card>
     </>
   );
