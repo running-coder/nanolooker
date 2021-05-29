@@ -1,4 +1,5 @@
 import * as React from "react";
+import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import { Link, useHistory } from "react-router-dom";
 import { Tag, Timeline, Typography } from "antd";
@@ -64,6 +65,7 @@ const RecentTransactions: React.FC<Props> = ({ recentTransactions }) => {
                   </Text>
                 ) : null}
                 <TimeAgo
+                  locale={i18next.language}
                   datetime={timestamp}
                   live={true}
                   className="timeline-timeago color-muted"

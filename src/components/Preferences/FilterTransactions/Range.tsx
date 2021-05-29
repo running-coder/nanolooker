@@ -58,9 +58,7 @@ const FilterTransactionsRangePreferences: React.FC<Props> = ({
       </Col>
 
       <Col xs={18}>
-        <Text className="color-muted">
-          {t("pages.preferences.filterTransactionsRangeDetailed")}
-        </Text>
+        <Text>{t("pages.preferences.filterTransactionsRangeDetailed")}</Text>
       </Col>
 
       <Col xs={6} style={{ textAlign: "right" }}>
@@ -75,6 +73,7 @@ const FilterTransactionsRangePreferences: React.FC<Props> = ({
       </Col>
       <Col xs={22} push={1}>
         <Slider
+          style={{ marginTop: "18px" }}
           disabled={!filterTransactions}
           dots
           reverse

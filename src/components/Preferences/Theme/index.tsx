@@ -23,9 +23,7 @@ const ThemePreference: React.FC<Props> = ({ isDetailed }) => {
       </Col>
       {isDetailed ? (
         <Col xs={18}>
-          <Text className="color-muted">
-            {t("preferences.darkModeDetailed")}
-          </Text>
+          <Text>{t("preferences.darkModeDetailed")}</Text>
         </Col>
       ) : null}
 

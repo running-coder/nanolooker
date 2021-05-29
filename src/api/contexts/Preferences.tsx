@@ -78,7 +78,7 @@ const getCryptocurrency = (): string[] => {
   return preferences || [];
 };
 
-const getFilterTransactionsRange = (): [number, number] => {
+export const getFilterTransactionsRange = (): [number, number] => {
   let preferences;
   try {
     preferences = JSON.parse(

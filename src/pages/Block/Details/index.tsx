@@ -1,4 +1,5 @@
 import * as React from "react";
+import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Card, Col, Row, Skeleton, Tag, Tooltip, Typography } from "antd";
@@ -308,7 +309,13 @@ const BlockDetails: React.FC = () => {
                 <Col xs={24} sm={18} xl={20}>
                   {timestampToDate(modifiedTimestamp)}{" "}
                   <span className="color-muted" style={{ fontSize: "12px" }}>
-                    (<TimeAgo datetime={modifiedTimestamp} live={false} />)
+                    (
+                    <TimeAgo
+                      locale={i18next.language}
+                      datetime={modifiedTimestamp}
+                      live={false}
+                    />
+                    )
                   </span>
                 </Col>
               </Row>

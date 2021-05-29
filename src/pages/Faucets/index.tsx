@@ -1,4 +1,5 @@
 import * as React from "react";
+import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
@@ -107,6 +108,7 @@ const FaucetsPage: React.FC = () => {
                     {t("pages.account.lastTransaction")}
                   </Text>{" "}
                   <TimeAgo
+                    locale={i18next.language}
                     style={{ fontSize: "12px" }}
                     className="color-muted"
                     datetime={modifiedTimestamp}

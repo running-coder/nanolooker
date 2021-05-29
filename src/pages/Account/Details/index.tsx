@@ -1,4 +1,5 @@
 import React, { ReactElement } from "react";
+import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import { Link, useParams } from "react-router-dom";
 import { Card, Col, Row, Skeleton, Tag, Tooltip } from "antd";
@@ -282,7 +283,13 @@ const AccountDetails: React.FC = () => {
                 <>
                   {timestampToDate(modifiedTimestamp)}{" "}
                   <span className="color-muted" style={{ fontSize: "12px" }}>
-                    (<TimeAgo datetime={modifiedTimestamp} live={false} />)
+                    (
+                    <TimeAgo
+                      datetime={modifiedTimestamp}
+                      live={false}
+                      locale={i18next.language}
+                    />
+                    )
                   </span>
                 </>
               ) : (

@@ -22,20 +22,18 @@ const LanguagePreferences: React.FC<Props> = ({ isDetailed }) => {
       </Col>
       {isDetailed ? (
         <Col xs={16}>
-          <Text className="color-muted">
-            <Trans
-              i18nKey="preferences.languageDetailed"
-              style={{ marginLeft: "12px" }}
+          <Trans
+            i18nKey="preferences.languageDetailed"
+            style={{ marginLeft: "12px" }}
+          >
+            <a
+              href="https://github.com/running-coder/nanolooker/tree/master/src/i18n/locales"
+              rel="noopener noreferrer"
+              target="_blank"
             >
-              <a
-                href="https://github.com/running-coder/nanolooker/tree/master/src/i18n/locales"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                {t("preferences.contribute")}
-              </a>
-            </Trans>
-          </Text>
+              {t("preferences.contribute")}
+            </a>
+          </Trans>
         </Col>
       ) : null}
 

@@ -1,4 +1,5 @@
 import * as React from "react";
+import i18next from "i18next";
 import { useTranslation, Trans } from "react-i18next";
 import {
   Button,
@@ -109,6 +110,7 @@ const Telemetry: React.FC = () => {
               <>
                 {t("common.executionTimeAgo")}{" "}
                 <TimeAgo
+                  locale={i18next.language}
                   datetime={date}
                   live={false}
                   style={{ fontWeight: "bold" }}

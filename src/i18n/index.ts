@@ -4,6 +4,11 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import capitalize from "lodash/capitalize";
 import { LOCALSTORAGE_KEYS } from "api/contexts/Preferences";
 import { resources } from "./resources";
+import { registerTimeago } from "./timeago";
+
+i18n.on("languageChanged", language => {
+  registerTimeago(language);
+});
 
 i18n
   .use(initReactI18next)

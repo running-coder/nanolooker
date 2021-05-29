@@ -1,4 +1,5 @@
 import * as React from "react";
+import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import {
@@ -228,6 +229,7 @@ const TransactionsTable = ({
                         {String(modifiedDate.getDate()).padStart(2, "0")}
                         <br />
                         <TimeAgo
+                          locale={i18next.language}
                           style={{ fontSize: "12px" }}
                           className="color-muted"
                           datetime={modifiedTimestamp}

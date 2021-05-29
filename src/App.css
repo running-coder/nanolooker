@@ -319,6 +319,7 @@ a:hover {
   display: block;
   font-size: 16px;
   margin-bottom: 6px;
+  font-weight: bold;
 }
 
 .detail-layout .ant-row + .ant-row {
