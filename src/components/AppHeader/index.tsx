@@ -20,7 +20,6 @@ const AppHeader: React.FC = () => {
   const [activeMenu, setActiveMenu] = React.useState<string>("");
   const history = useHistory();
   const { pathname } = useLocation();
-  // const isHomePage = pathname === "/";
 
   React.useEffect(() => {
     const key = pathname.replace(/\/?([^/]+)/, "$1");

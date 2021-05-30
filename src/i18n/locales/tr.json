@@ -82,7 +82,8 @@
     "bandwidthCap": "Nano düğümler, gönderilebilen veya alınabilen mesajların miktarını sınırlamak için bant genişliğini kısabilir. 0, sınırsız bant genişliği anlamına gelir.",
     "uptime": "Düğümün en son yeniden başlatılmasından bu yana geçen süre.",
     "pendingTransactionCount": "Bekleyen işlemlerin sayısı, görüntülenen {{count}} sınırını aşıyor.",
-    "mnano": "Mnano, cüzdanlarda, borsalarda ve hizmetlerde kullanılan mevcut standart bölümdür. 1 NANO olarak anılır."
+    "mnano": "Mnano, cüzdanlarda, borsalarda ve hizmetlerde kullanılan mevcut standart bölümdür. 1 NANO olarak anılır.",
+    "versionsByWeight": "Bir sürümün ağın fikir birliğini devralması için, minimum {{onlineWeightMinimum}} NANO'dan çevrimiçi oy ağırlığının% 67'sine sahip olması gerekir."
   },
   "search": {
     "searchBy": "Adres / Blok / Bilinen Hesap ile Ara",
@@ -284,8 +285,7 @@
       "nodeVersions": "Düğüm sürümleri",
       "latestVersion": "En son sürüm",
       "database": "Veri tabanı",
-      "versionsByWeight": "Oy ağırlığına göre sürümler",
-      "versionsByWeightDescription": "Bir sürümün ağın fikir birliğini devralması için, minimum {{onlineWeightMinimum}} NANO'dan çevrimiçi oy ağırlığının% 67'sine sahip olması gerekir."
+      "versionsByWeight": "Oy ağırlığına göre sürümler"
     },
     "exchangeTracker": {
       "description": "Her gün, Nano'nun işlem gördüğü en popüler borsaların hesap bakiyelerinin bir kaydı alınır. Bu ölçüm, ağdaki hareketleri ve dalgalanmaları analiz etmek için kullanılabilir."

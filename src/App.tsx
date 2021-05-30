@@ -25,6 +25,7 @@ import NetworkStatusPage from "pages/NetworkStatus";
 import WhatIsNanoPage from "pages/WhatIsNano";
 import PreferencesPage from "pages/Preferences";
 import BookmarksPage from "pages/Bookmarks";
+import NanoQuakeJSPage from "pages/NanoQuakeJS";
 import "components/utils/analytics";
 
 import "antd/dist/antd.css";
@@ -87,6 +88,7 @@ const App: React.FC = () => {
             <Route path="/what-is-nano" component={WhatIsNanoPage} />
             <Route path="/preferences" component={PreferencesPage} />
             <Route path="/bookmarks" component={BookmarksPage} />
+            <Route path="/nanoquakejs" component={NanoQuakeJSPage} />
           </Switch>
         </Content>
         <AppFooter />

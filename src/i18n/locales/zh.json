@@ -82,7 +82,8 @@
     "bandwidthCap": "纳米节点能够调节其带宽，以限制可以发送或接收的消息量。 0表示无限带宽。",
     "uptime": "自上次重新引导节点以来的时间。",
     "pendingTransactionCount": "待处理的交易数量超过了显示的限制{{count}}。",
-    "mnano": "Mnano是目前用于钱包，交易所和服务的标准部门。它被称为1 NANO。"
+    "mnano": "Mnano是目前用于钱包，交易所和服务的标准部门。它被称为1 NANO。",
+    "versionsByWeight": "为了使版本能够取代网络的共识，它需要至少具有{{onlineWeightMinimum}} NANO的67％的在线投票权。"
   },
   "search": {
     "searchBy": "按地址/阻止/已知帐户搜索",
@@ -284,8 +285,7 @@
       "nodeVersions": "节点版本",
       "latestVersion": "最新版本",
       "database": "数据库",
-      "versionsByWeight": "投票权版本",
-      "versionsByWeightDescription": "为了使版本能够取代网络的共识，它需要至少具有{{onlineWeightMinimum}} NANO的67％的在线投票权。"
+      "versionsByWeight": "投票权版本"
     },
     "exchangeTracker": {
       "description": "每天都会记录Nano交易所在的最受欢迎交易所的账户余额。此度量可用于分析网络上的移动和波动。"

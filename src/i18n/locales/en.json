@@ -82,7 +82,8 @@
     "bandwidthCap": "Nano nodes are able to throttle their bandwidth to limit the amount of messages that can be sent or received. 0 means unlimited bandwidth.",
     "uptime": "Time since the node was last rebooted.",
     "pendingTransactionCount": "The number of pending transactions exceeds the displayed limit of {{count}}.",
-    "mnano": "Mnano is the current standard division used in wallets, on exchanges and services. It is referred as 1 NANO."
+    "mnano": "Mnano is the current standard division used in wallets, on exchanges and services. It is referred as 1 NANO.",
+    "versionsByWeight": "For a version to be taking over the network's consensus, it needs to have {{onlineWeightQuorumPercent}}% of the online voting weight from a minimum of {{onlineWeightMinimum}} NANO."
   },
   "search": {
     "searchBy": "Search by Address / Block / Known Account",
@@ -284,8 +285,7 @@
       "nodeVersions": "Node versions",
       "latestVersion": "Latest version",
       "database": "Database",
-      "versionsByWeight": "Versions by voting weight",
-      "versionsByWeightDescription": "For a version to be taking over the network's consensus, it needs to have {{onlineWeightQuorumPercent}}% of the online voting weight from a minimum of {{onlineWeightMinimum}} NANO."
+      "versionsByWeight": "Versions by voting weight"
     },
     "exchangeTracker": {
       "description": "Every day a capture of the account balances of the most popular exchanges where Nano is traded is taken. This measurement can be used to analyze movements and fluctuations on the network."

@@ -1,5 +1,5 @@
 import * as React from "react";
-// import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import { Button, Card, Row, Col, Space, Typography } from "antd";
 import BigNumber from "bignumber.js";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -14,16 +14,90 @@ const pingColor = (ping: number) => {
   return "red";
 };
 
-const Quake3Page: React.FC = () => {
-  // const { t } = useTranslation();
+const NanoQuakeJSPage: React.FC = () => {
+  const { t } = useTranslation();
   const isMediumAndHigher = !useMediaQuery("(max-width: 768px)");
 
   return (
     <>
-      <Title level={3}>NanoQuakeJS</Title>
+      <Row gutter={[12, 0]}>
+        <Col xs={24} md={12}>
+          <Title level={3}>
+            NanoQuakeJS{" "}
+            <span
+              className="color-muted"
+              style={{
+                fontSize: "12px",
+              }}
+            >
+              {t("common.by")} Jayycox
+            </span>
+          </Title>
+          <Card size="small" bordered={false} className="detail-layout">
+            <img
+              src="/nanoquakejs/quake3.svg"
+              alt="Quake 3"
+              width="100%"
+              style={{
+                maxWidth: "360px",
+                display: "block",
+                margin: "-50px auto",
+              }}
+            />
+
+            <Title level={4}>
+              Jump into the Arena and get paid in NANO for your Frags!
+            </Title>
+
+            <p>
+              Welcome to the Arena, where high-ranking warriors are transformed
+              into spineless mush. Abandoning every ounce of common sense and
+              any trace of doubt, you lunge onto a stage of harrowing landscapes
+              and veiled abysses. Your new environment rejects you with lava
+              pits and atmospheric hazards as legions of foes surround you,
+              testing the gut reaction that brought you here in the first place.
+              Your new mantra: fight or be finished.
+            </p>
+            <p>
+              Play the 1999 best selling first-person shooter game with your
+              friends and other players around the world earning NANO for
+              fragging each other!
+            </p>
+
+            <div style={{ textAlign: "center" }}>
+              <Space size={12} align="center">
+                <Button type="primary" size="large" shape="round">
+                  Join the action !
+                </Button>
+
+                <Button ghost type="primary" size="large" shape="round">
+                  Register
+                </Button>
+              </Space>
+            </div>
+          </Card>
+        </Col>
+        <Col xs={24} md={12}>
+          <Title level={3}>Gameplay</Title>
+          <Card size="small" bordered={false} className="detail-layout">
+            <div className="video-wrapper">
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube-nocookie.com/embed/3ktrLqH1L_8?start=16"
+                title="Quake3"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </Card>
+        </Col>
+      </Row>
 
       <Row gutter={[12, 0]}>
         <Col xs={24} md={12}>
+          <Title level={3}>Game in progress</Title>
           <Card size="small" bordered={false} className="detail-layout">
             <Row gutter={6}>
               <Col xs={24} sm={6}>
@@ -59,8 +133,8 @@ const Quake3Page: React.FC = () => {
             </Row>
           </Card>
         </Col>
-
         <Col xs={24} md={12}>
+          <Title level={3}>Statistics</Title>
           <Card size="small" bordered={false} className="detail-layout">
             <Row gutter={6}>
               <Col xs={24} sm={8}>
@@ -143,7 +217,7 @@ const Quake3Page: React.FC = () => {
             <Row gutter={12} key={index}>
               <Col xs={2}>
                 <img
-                  src={`/earn-nano/quake3/characters/${character}.png`}
+                  src={`/nanoquakejs/characters/${character}.png`}
                   width="24px"
                   height="24px"
                   alt="sarge"
@@ -171,7 +245,7 @@ const Quake3Page: React.FC = () => {
                   {awards.map((award, index) => (
                     <img
                       key={index}
-                      src={`/earn-nano/quake3/award/${award}.png`}
+                      src={`/nanoquakejs/award/${award}.png`}
                       width="24px"
                       height="24px"
                       alt={award}
@@ -183,20 +257,8 @@ const Quake3Page: React.FC = () => {
           ),
         )}
       </Card>
-
-      <div style={{ marginTop: 12, textAlign: "center" }}>
-        <Button
-          type="primary"
-          href="https://nanoquakejs.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          size="large"
-        >
-          Join the action !
-        </Button>
-      </div>
     </>
   );
 };
 
-export default Quake3Page;
+export default NanoQuakeJSPage;

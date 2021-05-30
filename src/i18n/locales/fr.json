@@ -82,7 +82,8 @@
     "bandwidthCap": "Les nano nœuds peuvent limiter leur bande passante pour limiter la quantité de messages pouvant être envoyés ou reçus. 0 signifie une bande passante illimitée.",
     "uptime": "Temps écoulé depuis le dernier redémarrage du nœud.",
     "pendingTransactionCount": "Le nombre de transactions en attente dépasse la limite affichée de {{count}}.",
-    "mnano": "Mnano est la division standard actuelle utilisée dans les portefeuilles, sur les échanges et les services. Il est appelé 1 NANO."
+    "mnano": "Mnano est la division standard actuelle utilisée dans les portefeuilles, sur les échanges et les services. Il est appelé 1 NANO.",
+    "versionsByWeight": "Pour qu'une version reprenne le consensus du réseau, elle doit avoir {{onlineWeightQuorumPercent}}% du poids du vote en ligne sur un minimum de {{onlineWeightMinimum}} NANO."
   },
   "search": {
     "searchBy": "Recherche par Address / Bloc",
@@ -284,8 +285,7 @@
       "nodeVersions": "Versions des nœuds",
       "latestVersion": "Dernière version",
       "database": "Base de données",
-      "versionsByWeight": "Versions par poids de vote",
-      "versionsByWeightDescription": "Pour qu'une version reprenne le consensus du réseau, elle doit avoir {{onlineWeightQuorumPercent}}% du poids du vote en ligne sur un minimum de {{onlineWeightMinimum}} NANO."
+      "versionsByWeight": "Versions par poids de vote"
     },
     "exchangeTracker": {
       "description": "Chaque jour, une capture du solde des comptes des plateformes d'échanges les plus populaires où Nano est négocié est pris. Cette mesure peut permettre d'analyser les mouvements et fluctuations sur le réseau."

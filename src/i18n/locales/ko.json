@@ -82,7 +82,8 @@
     "bandwidthCap": "나노 노드는 보내고받을 수있는 메시지의 양을 제한하기 위해 대역폭을 조절할 수 있습니다. 0은 무제한 대역폭을 의미합니다.",
     "uptime": "노드가 마지막으로 재부팅 된 이후의 시간입니다.",
     "pendingTransactionCount": "보류중인 트랜잭션 수가 표시된 한도 인 {{count}}을 (를) 초과합니다.",
-    "mnano": "Mnano는 지갑, 거래소 및 서비스에서 사용되는 현재 표준 부서입니다. 1 NANO라고합니다."
+    "mnano": "Mnano는 지갑, 거래소 및 서비스에서 사용되는 현재 표준 부서입니다. 1 NANO라고합니다.",
+    "versionsByWeight": "버전이 네트워크의 합의를 인수하려면 최소 {{onlineWeightMinimum}} NANO에서 온라인 투표 가중치의 67 %를 가져야합니다."
   },
   "search": {
     "searchBy": "주소 / 차단 / 알려진 계정으로 검색",
@@ -284,8 +285,7 @@
       "nodeVersions": "노드 버전",
       "latestVersion": "최신 버전",
       "database": "데이터 베이스",
-      "versionsByWeight": "투표 가중치 별 버전",
-      "versionsByWeightDescription": "버전이 네트워크의 합의를 인수하려면 최소 {{onlineWeightMinimum}} NANO에서 온라인 투표 가중치의 67 %를 가져야합니다."
+      "versionsByWeight": "투표 가중치 별 버전"
     },
     "exchangeTracker": {
       "description": "Nano가 거래되는 가장 인기있는 거래소의 계정 잔액을 매일 캡처합니다. 이 측정은 네트워크의 움직임과 변동을 분석하는 데 사용할 수 있습니다."

@@ -1,12 +1,13 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { Card, Col, Row, Skeleton, Switch, Typography } from "antd";
+import { Card, Col, Row, Skeleton, Switch, Tooltip, Typography } from "antd";
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import { Pie, PieConfig } from "@antv/g2plot";
 import BigNumber from "bignumber.js";
 import orderBy from "lodash/orderBy";
 import { Theme, PreferencesContext } from "api/contexts/Preferences";
 import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
+import QuestionCircle from "components/QuestionCircle";
 import { rawToRai } from "components/utils";
 
 const { Title } = Typography;
@@ -128,6 +129,17 @@ const Representatives: React.FC<Props> = ({ versions }) => {
         <Row gutter={6}>
           <Col xs={20} md={12}>
             {t("pages.status.versionsByWeight")}
+            <Tooltip
+              placement="right"
+              title={t("tooltips.versionsByWeight", {
+                onlineWeightMinimum: new BigNumber(
+                  rawToRai(onlineWeightMinimum),
+                ).toFormat(),
+                onlineWeightQuorumPercent,
+              })}
+            >
+              <QuestionCircle />
+            </Tooltip>
           </Col>
           <Col xs={4} md={12}>
             <Switch
@@ -139,16 +151,6 @@ const Representatives: React.FC<Props> = ({ versions }) => {
               }}
               defaultChecked={isVersionByWeight}
             />
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={24}>
-            {t("pages.status.versionsByWeightDescription", {
-              onlineWeightMinimum: new BigNumber(
-                rawToRai(onlineWeightMinimum),
-              ).toFormat(),
-              onlineWeightQuorumPercent,
-            })}
           </Col>
         </Row>
         <Row>

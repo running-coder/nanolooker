@@ -82,7 +82,8 @@
     "bandwidthCap": "Os bós da nano são capazes de limitar sua banda larga para limitar a quantidade de mensagens que podem ser enviadas ou recebidas. 0 significa banda larga ilimitada.",
     "uptime": "Tempo desde a última reinicialização do nó.",
     "pendingTransactionCount": "O número de transações pendentes excede o limite exibido de {{count}}.",
-    "mnano": "Mnano é a divisão padrão atual usada em carteiras, bolsas e serviços. É referido como 1 NANO."
+    "mnano": "Mnano é a divisão padrão atual usada em carteiras, bolsas e serviços. É referido como 1 NANO.",
+    "versionsByWeight": "Para que uma versão assuma o consenso da rede, ela precisa ter {{onlineWeightQuorumPercent}}% do peso da votação online de um mínimo de {{onlineWeightMinimum}} NANO."
   },
   "search": {
     "searchBy": "Pesquisar por endereço / bloco",
@@ -284,8 +285,7 @@
       "nodeVersions": "Versões de nó",
       "latestVersion": "Última versão",
       "database": "Banco de dados",
-      "versionsByWeight": "Versões por peso de voto",
-      "versionsByWeightDescription": "Para que uma versão assuma o consenso da rede, ela precisa ter {{onlineWeightQuorumPercent}}% do peso da votação online de um mínimo de {{onlineWeightMinimum}} NANO."
+      "versionsByWeight": "Versões por peso de voto"
     },
     "exchangeTracker": {
       "description": "Todos os dias é feita uma captura dos saldos das contas das exchanges mais populares onde a Nano é negociada. Esta medição pode ser usada para analisar movimentos e flutuações na rede."

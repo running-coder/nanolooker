@@ -403,12 +403,12 @@ h4.ant-typography {
   display: inline-block;
 }
 
-.what-is-card .video-wrapper {
+.video-wrapper {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */
   height: 0;
 }
-.what-is-card .video-wrapper iframe {
+.video-wrapper iframe {
   position: absolute;
   top: 0;
   left: 0;

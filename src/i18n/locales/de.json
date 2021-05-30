@@ -82,7 +82,8 @@
     "bandwidthCap": "Nano-Knoten können ihre Bandbreite drosseln, um die Anzahl der Nachrichten zu begrenzen, die gesendet oder empfangen werden können. 0 bedeutet unbegrenzte Bandbreite.",
     "uptime": "Zeit seit dem letzten Neustart des Knotens.",
     "pendingTransactionCount": "Die Anzahl der ausstehenden Transaktionen überschreitet das angezeigte Limit von {{count}}.",
-    "mnano": "Mnano ist die derzeitige Standardabteilung für Brieftaschen, Börsen und Dienstleistungen. Es wird als 1 NANO bezeichnet."
+    "mnano": "Mnano ist die derzeitige Standardabteilung für Brieftaschen, Börsen und Dienstleistungen. Es wird als 1 NANO bezeichnet.",
+    "versionsByWeight": "Damit eine Version den Konsens des Netzwerks übernimmt, muss sie {{onlineWeightQuorumPercent}}% des Online-Abstimmungsgewichts von mindestens {{onlineWeightMinimum}} NANO haben."
   },
   "search": {
     "searchBy": "Suche nach Adresse / Block / Bekanntem Konto",
@@ -284,8 +285,7 @@
       "nodeVersions": "Knotenversionen",
       "latestVersion": "Letzte Version",
       "database": "Datenbank",
-      "versionsByWeight": "Versionen nach Wahlgewicht",
-      "versionsByWeightDescription": "Damit eine Version den Konsens des Netzwerks übernimmt, muss sie {{onlineWeightQuorumPercent}}% des Online-Abstimmungsgewichts von mindestens {{onlineWeightMinimum}} NANO haben."
+      "versionsByWeight": "Versionen nach Wahlgewicht"
     },
     "exchangeTracker": {
       "description": "Jeden Tag wird eine Erfassung der Kontensalden der beliebtesten Börsen vorgenommen, an denen Nano gehandelt wird. Mit dieser Messung können Bewegungen und Schwankungen im Netzwerk analysiert werden."
