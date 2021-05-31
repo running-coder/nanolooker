@@ -2,12 +2,6 @@ import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Button, Space, Typography } from "antd";
-// import {
-//   DollarOutlined,
-//   EuroOutlined,
-//   PayCircleOutlined,
-//   PoundOutlined,
-// } from "@ant-design/icons";
 import { Theme, PreferencesContext } from "api/contexts/Preferences";
 import Search from "components/Search";
 import { Tracker } from "components/utils/analytics";
@@ -66,16 +60,9 @@ const Banner: React.FC = () => {
         <Search isHome />
       </div>
 
-      <Space>
+      <Space size={[6, 12]} wrap style={{ justifyContent: "center" }}>
         <Link to={"/what-is-nano"}>
-          <Button
-            ghost
-            onClick={() => {
-              Tracker.ga4?.gtag("event", "WhatIsNano");
-            }}
-          >
-            {t("menu.whatIsNano")}
-          </Button>
+          <Button ghost>{t("menu.whatIsNano")}</Button>
         </Link>
 
         <Button
@@ -121,6 +108,20 @@ const Banner: React.FC = () => {
           </div>
         </Button>
 
+        {/* <Link to={"/nanoquakejs"}>
+          <Button ghost>
+            <img
+              alt="NanoQuakeJS"
+              src={`/nanoquakejs/quake3-white.svg`}
+              style={{
+                height: "50px",
+                margin: "-20px -6px -30px -20px",
+              }}
+            />{" "}
+            NanoQuakeJS
+          </Button>
+        </Link> */}
+
         <Button
           ghost
           href="https://bananolooker.com"
@@ -130,22 +131,6 @@ const Banner: React.FC = () => {
         >
           <img alt="Go to BananoLooker" src={`/banano.svg`} height="12px" />
         </Button>
-
-        {/* <Button
-          ghost
-          href="https://earn-nano.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => {
-            Tracker.ga4?.gtag("event", "EarnNano");
-          }}
-        >
-          {[Fiat.CAD, Fiat.USD].includes(fiat) ? <DollarOutlined /> : null}
-          {fiat === Fiat.EUR ? <EuroOutlined /> : null}
-          {fiat === Fiat.GBP ? <PoundOutlined /> : null}
-          {[Fiat.CNY, Fiat.JPY].includes(fiat) ? <PayCircleOutlined /> : null}
-          {t("menu.earnNano")}
-        </Button> */}
       </Space>
     </div>
   );

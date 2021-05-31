@@ -2,7 +2,7 @@ import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Card, Col, Row, Skeleton, Switch, Tooltip, Typography } from "antd";
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
-import { Pie, PieConfig } from "@antv/g2plot";
+import { Pie } from "@antv/g2plot";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import BigNumber from "bignumber.js";
 import forEach from "lodash/forEach";
@@ -15,7 +15,6 @@ import {
 import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
 import { KnownAccountsBalance } from "api/hooks/use-known-accounts-balance";
 import QuestionCircle from "components/QuestionCircle";
-// import { rawToRai } from "components/utils";
 
 const { Text, Title } = Typography;
 
@@ -28,7 +27,7 @@ const getDelegatedEntity = async (): Promise<any[] | undefined> => {
   } catch (err) {}
 };
 
-let representativesChart: any = null;
+let representativesChart: Pie | null = null;
 
 interface Props {
   isIncludeOfflineRepresentatives: boolean;
@@ -209,18 +208,19 @@ const Representatives: React.FC<Props> = ({
 
     setNakamotoCoefficient(nakamotoCoefficient);
 
-    const config: PieConfig = {
-      data: filteredRepresentatives.map(({ weight, account, alias }) => {
-        const value = new BigNumber(weight)
-          .times(100)
-          .dividedBy(stake)
-          .toFixed(2);
+    const data = filteredRepresentatives.map(({ weight, account, alias }) => {
+      const value = parseFloat(
+        new BigNumber(weight).times(100).dividedBy(stake).toFixed(2),
+      );
 
-        return {
-          alias: `${alias || ""}${aliasSeparator}${account}`,
-          value,
-        };
-      }),
+      return {
+        alias: `${alias || ""}${aliasSeparator}${account}`,
+        value,
+      };
+    });
+
+    const config = {
+      data,
       angleField: "value",
       colorField: "alias",
       radius: 0.8,
@@ -240,20 +240,18 @@ const Representatives: React.FC<Props> = ({
       },
       legend: {
         visible: !isSmallAndLower,
-        text: {
-          formatter: text => {
+        itemName: {
+          // @ts-ignore
+          formatter: (text: string) => {
             const [alias, account] = text.split(aliasSeparator);
             return alias || account || t("common.unknown");
           },
         },
       },
       tooltip: {
-        style: {
-          color: "green",
-        },
         showTitle: false,
         // @ts-ignore
-        formatter: (value, rawAlias) => {
+        formatter: ({ value, alias: rawAlias }) => {
           const [alias, account] = rawAlias.split(aliasSeparator);
           return {
             name: alias || account || t("common.unknown"),
@@ -267,13 +265,15 @@ const Representatives: React.FC<Props> = ({
     if (!representativesChart) {
       representativesChart = new Pie(
         document.getElementById("representatives-chart") as HTMLElement,
+        // @ts-ignore
         config,
       );
+      representativesChart.render();
     } else {
-      representativesChart.updateConfig(config);
+      // @ts-ignore
+      representativesChart.update(config);
     }
 
-    representativesChart.render();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     theme,
@@ -296,7 +296,7 @@ const Representatives: React.FC<Props> = ({
 
   React.useEffect(() => {
     return () => {
-      representativesChart = null;
+      representativesChart?.destroy();
     };
   }, []);
 

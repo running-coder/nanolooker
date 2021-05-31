@@ -2,21 +2,16 @@ import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Button, Card, Row, Col, Space, Typography } from "antd";
 import BigNumber from "bignumber.js";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import data from "./data.json";
+import QRCodeModal from "components/QRCodeModal";
+import Scores from "./Scores";
 
-const { Title } = Typography;
+const { Text, Title } = Typography;
 
-const pingColor = (ping: number) => {
-  if (ping < 50) return "green";
-  if (ping < 100) return "#ffda03";
-  if (ping < 200) return "orange";
-  return "red";
-};
+export const NANOQUAKEJS_DONATION_ACCOUNT =
+  "nano_18rtodfdzxqprb5pamok8surdg91x7wys8yk47uk3xp7cyu3nuc44teysix1";
 
 const NanoQuakeJSPage: React.FC = () => {
   const { t } = useTranslation();
-  const isMediumAndHigher = !useMediaQuery("(max-width: 768px)");
 
   return (
     <>
@@ -35,11 +30,11 @@ const NanoQuakeJSPage: React.FC = () => {
           </Title>
           <Card size="small" bordered={false} className="detail-layout">
             <img
-              src="/nanoquakejs/quake3.svg"
+              src="/nanoquakejs/quake3arena.svg"
               alt="Quake 3"
               width="100%"
               style={{
-                maxWidth: "360px",
+                maxWidth: "320px",
                 display: "block",
                 margin: "-50px auto",
               }}
@@ -66,14 +61,25 @@ const NanoQuakeJSPage: React.FC = () => {
 
             <div style={{ textAlign: "center" }}>
               <Space size={12} align="center">
-                <Button type="primary" size="large" shape="round">
-                  Join the action !
-                </Button>
+                {/* <Button type="primary" size="large" shape="round">
+                  Join Game !
+                </Button> */}
 
-                <Button ghost type="primary" size="large" shape="round">
-                  Register
+                <Button type="primary" size="large" shape="round">
+                  Register for Free
                 </Button>
               </Space>
+
+              <div style={{ marginTop: 12 }}>
+                <QRCodeModal
+                  account={NANOQUAKEJS_DONATION_ACCOUNT}
+                  header={<Text>NanoQuakeJS Hot wallet</Text>}
+                >
+                  <Button ghost type="primary" size="small" shape="round">
+                    Donate to NanoQuakeJS price pool
+                  </Button>
+                </QRCodeModal>
+              </div>
             </div>
           </Card>
         </Col>
@@ -96,7 +102,7 @@ const NanoQuakeJSPage: React.FC = () => {
       </Row>
 
       <Row gutter={[12, 0]}>
-        <Col xs={24} md={12}>
+        <Col xs={{ span: 24, order: 1 }} md={{ span: 12, order: 1 }}>
           <Title level={3}>Game in progress</Title>
           <Card size="small" bordered={false} className="detail-layout">
             <Row gutter={6}>
@@ -123,17 +129,9 @@ const NanoQuakeJSPage: React.FC = () => {
                 Match in progress, 10:31
               </Col>
             </Row>
-            <Row gutter={6}>
-              <Col xs={24} sm={6}>
-                Spectators
-              </Col>
-              <Col xs={24} sm={18}>
-                4
-              </Col>
-            </Row>
           </Card>
         </Col>
-        <Col xs={24} md={12}>
+        <Col xs={{ span: 24, order: 3 }} md={{ span: 12, order: 2 }}>
           <Title level={3}>Statistics</Title>
           <Card size="small" bordered={false} className="detail-layout">
             <Row gutter={6}>
@@ -178,85 +176,10 @@ const NanoQuakeJSPage: React.FC = () => {
             </Row>
           </Card>
         </Col>
+        <Col xs={{ span: 24, order: 2 }} md={{ order: 3 }}>
+          <Scores />
+        </Col>
       </Row>
-
-      <Card
-        size="small"
-        bordered={false}
-        className="detail-layout quake3-scoreboard"
-      >
-        <Row gutter={12}>
-          <Col xs={2}></Col>
-          <Col xs={3}>Score</Col>
-          <Col xs={3}>Ping</Col>
-          {isMediumAndHigher ? (
-            <>
-              <Col md={2}>Time</Col>
-              <Col md={2}>DGiven</Col>
-              <Col md={2}>DTaken</Col>
-            </>
-          ) : null}
-          <Col xs={16} md={10}>
-            Player
-          </Col>
-        </Row>
-        {data.map(
-          (
-            {
-              character,
-              score,
-              ping,
-              time,
-              damageGiven,
-              damageTaken,
-              name,
-              awards,
-            },
-            index,
-          ) => (
-            <Row gutter={12} key={index}>
-              <Col xs={2}>
-                <img
-                  src={`/nanoquakejs/characters/${character}.png`}
-                  width="24px"
-                  height="24px"
-                  alt="sarge"
-                />
-              </Col>
-              <Col xs={3}>{score}</Col>
-              <Col
-                md={3}
-                style={{
-                  color: pingColor(ping),
-                }}
-              >
-                {ping}
-              </Col>
-              {isMediumAndHigher ? (
-                <>
-                  <Col md={2}>{time}</Col>
-                  <Col md={2}>{damageGiven}</Col>
-                  <Col md={2}>{damageTaken}</Col>
-                </>
-              ) : null}
-              <Col xs={16} md={10}>
-                <Space>
-                  {name}
-                  {awards.map((award, index) => (
-                    <img
-                      key={index}
-                      src={`/nanoquakejs/award/${award}.png`}
-                      width="24px"
-                      height="24px"
-                      alt={award}
-                    />
-                  ))}
-                </Space>
-              </Col>
-            </Row>
-          ),
-        )}
-      </Card>
     </>
   );
 };

@@ -183,8 +183,12 @@ const Telemetry: React.FC = () => {
                 isLoading={isTelemetryLoading}
                 title={t("pages.status.bandwidthCap")}
                 tooltip={t("tooltips.bandwidthCap")}
-                value={formattedMedianBandwidthCap.value}
-                suffix={formattedMedianBandwidthCap.suffix}
+                value={formattedMedianBandwidthCap.value || "∞"}
+                suffix={
+                  formattedMedianBandwidthCap.value
+                    ? formattedMedianBandwidthCap.suffix
+                    : null
+                }
               />
             </Col>
             <Col xs={12} lg={8} xl={6} style={{ margin: "12px 0" }}>
@@ -200,13 +204,6 @@ const Telemetry: React.FC = () => {
                 title={t("pages.status.uptime")}
                 tooltip={t("tooltips.uptime")}
                 value={secondsToTime(telemetry[currentPercentile]?.uptime || 0)}
-              />
-            </Col>
-            <Col xs={12} lg={8} xl={6} style={{ margin: "12px 0" }}>
-              <LoadingStatistic
-                isLoading={isTelemetryLoading}
-                title={t("pages.status.activeDifficulty")}
-                value={telemetry[currentPercentile]?.activeDifficulty}
               />
             </Col>
           </Row>

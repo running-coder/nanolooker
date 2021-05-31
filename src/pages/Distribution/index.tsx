@@ -4,7 +4,8 @@ import { useTranslation, Trans } from "react-i18next";
 import { Helmet } from "react-helmet";
 import { Card, Switch, Tooltip, Typography } from "antd";
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
-import { StackedColumn, StackedColumnConfig } from "@antv/g2plot";
+import { Column } from "@antv/g2plot";
+import isInteger from "lodash/isInteger";
 import useDeepCompareEffect from "use-deep-compare-effect";
 import BigNumber from "bignumber.js";
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
@@ -47,11 +48,12 @@ const Distribution: React.FC = () => {
   const [totalBalance, setTotalBalance] = React.useState<number>(0);
   const [distributionData, setDistributionData] = React.useState<any[]>([]);
   const [isLogScale, setIsLogScale] = React.useState<boolean>(false);
+  const [knownExchangeBalance, setKnownExchangeBalance] = React.useState("0");
   const { data } = useDistribution();
 
   React.useEffect(() => {
     return () => {
-      distributionChart = null;
+      distributionChart?.destroy();
     };
   }, []);
 
@@ -112,6 +114,14 @@ const Distribution: React.FC = () => {
       },
     );
 
+    const knownExchangeBalance = new BigNumber(
+      Object.values(data?.knownExchanges || []).reduce(
+        (acc, balance) => new BigNumber(acc).plus(balance).toNumber(),
+        0,
+      ),
+    ).toFormat(2);
+
+    setKnownExchangeBalance(knownExchangeBalance);
     setTotalAccounts(tmpTotalAccounts);
     setTotalBalance(tmpTotalBalance);
     setDistributionData(tmpDistributionData);
@@ -121,14 +131,15 @@ const Distribution: React.FC = () => {
     // @TODO: Validate data: https://nanocharts.info/p/05/balance-distribution
     // https://g2plot.antv.vision/en/examples/column/stacked#connected-area-interaction
 
-    const config: StackedColumnConfig = {
-      forceFit: true,
-      // responsive: true,
+    const config = {
+      // forceFit: true,
+      responsive: true,
       padding: "auto",
+      isStack: true,
       data: distributionData,
       xField: "title",
       yField: "value",
-      stackField: "type",
+      seriesField: "type",
       yAxis: {
         type: isLogScale ? "log" : "linear",
         min: 0,
@@ -137,7 +148,7 @@ const Distribution: React.FC = () => {
       meta: {
         value: {
           alias: " ",
-          formatter: text => {
+          formatter: (text: number) => {
             return intToString(text);
           },
         },
@@ -147,40 +158,38 @@ const Distribution: React.FC = () => {
       },
       tooltip: {
         // @ts-ignore
-        formatter: (title: string, value: number, name: string) => ({
+        formatter: ({ title, value, name }) => ({
           title,
           value: new BigNumber(value).toFormat(),
-          name: name.charAt(0).toUpperCase() + name.slice(1),
+          name: isInteger(value) ? t("common.accounts") : t("common.balance"),
         }),
       },
       connectedArea: {
         visible: true,
-        // triggerOn: "mouseenter touchstart",
         triggerOn: false,
       },
       legend: {
-        visible: true,
-        position: "top-center",
-        text: {
+        layout: "horizontal",
+        position: "top",
+        itemName: {
           style: {
             fontSize: 14,
           },
-          formatter: (text: string) =>
-            text.charAt(0).toUpperCase() + text.slice(1),
+          formatter: (text: string) => t(`common.${text}`),
         },
       },
     };
 
     if (!distributionChart) {
-      distributionChart = new StackedColumn(
+      distributionChart = new Column(
         document.getElementById("distribution-chart") as HTMLElement,
+        // @ts-ignore
         config,
       );
+      distributionChart.render();
     } else {
-      distributionChart.updateConfig(config);
+      distributionChart.update(config);
     }
-
-    distributionChart.render();
   }, [distributionData, isLogScale]);
 
   const i18nTotalAccounts = new BigNumber(totalAccounts).toFormat();
@@ -188,13 +197,6 @@ const Distribution: React.FC = () => {
   const knownExchangeList = knownExchangeAccounts
     .map(({ alias }) => alias)
     .join(", ");
-  const knownExchangeBalance = new BigNumber(
-    knownExchangeAccounts.reduce(
-      (acc, { total }) => new BigNumber(acc).plus(total).toNumber(),
-      0,
-    ),
-  ).toFormat();
-
   const date = data?.status?.date || t("common.notAvailable");
 
   return (
@@ -268,11 +270,12 @@ const Distribution: React.FC = () => {
         </div>
 
         <div
+          style={{ marginTop: 24 }}
           id="distribution-chart"
-          style={{
-            margin: `0 -24px ${distributionData.length ? "-24px" : "0"} -24px`,
-          }}
-        ></div>
+          // style={{
+          //   margin: `0 -24px ${distributionData.length ? "-24px" : "0"} -24px`,
+          // }}
+        />
       </Card>
 
       <DormantFunds data={data?.dormantFunds} />

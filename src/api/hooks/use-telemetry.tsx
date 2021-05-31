@@ -1,6 +1,7 @@
 import * as React from "react";
 
 export enum Percentiles {
+  P5 = "p5",
   P50 = "p50",
   P95 = "p95",
   P100 = "p100",

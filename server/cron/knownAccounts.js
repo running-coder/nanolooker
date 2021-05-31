@@ -25,6 +25,16 @@ const doKnownAccountsCron = async () => {
         account:
           "nano_3sq7fi6tx9h3h7p3h9oe1ppqq3jkd98yx6txymcuorwbbctymtezsf8ay351",
       },
+      {
+        alias: "NanoQuakeJS Hot wallet",
+        account:
+          "nano_18rtodfdzxqprb5pamok8surdg91x7wys8yk47uk3xp7cyu3nuc44teysix1",
+      },
+      {
+        alias: "Dogecoin creator",
+        account:
+          "nano_3j61hdczpb4z8cchyythzqct6wikn4x5c3bkexyzaj97nm5q73dg9ayntps4",
+      },
     ]);
 
     nodeCache.set(KNOWN_ACCOUNTS, knownAccounts);

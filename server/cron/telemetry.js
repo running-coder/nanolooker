@@ -38,6 +38,7 @@ const calculatePercentiles = (metrics, peers) => {
   let activeDifficulty = [];
 
   const percentiles = {
+    p5: {},
     p50: {},
     p95: {},
     p100: {},
@@ -122,68 +123,63 @@ const calculatePercentiles = (metrics, peers) => {
     bandwidthCap: parseInt(highestBandwidthCapGroup),
   });
 
+  percentiles.p5.blockCount = calculateAverage([...blockCount], 0.05);
   percentiles.p50.blockCount = calculateAverage([...blockCount], 0.5);
   percentiles.p95.blockCount = calculateAverage([...blockCount], 0.95);
   percentiles.p100.blockCount = calculateAverage([...blockCount], 1);
 
+  percentiles.p5.cementedCount = calculateAverage([...cementedCount], 0.05);
   percentiles.p50.cementedCount = calculateAverage([...cementedCount], 0.5);
   percentiles.p95.cementedCount = calculateAverage([...cementedCount], 0.95);
   percentiles.p100.cementedCount = calculateAverage([...cementedCount], 1);
 
+  percentiles.p5.uncheckedCount = calculateAverage([...uncheckedCount], 0.05);
   percentiles.p50.uncheckedCount = calculateAverage([...uncheckedCount], 0.5);
   percentiles.p95.uncheckedCount = calculateAverage([...uncheckedCount], 0.95);
   percentiles.p100.uncheckedCount = calculateAverage([...uncheckedCount], 1);
 
+  percentiles.p5.accountCount = calculateAverage([...accountCount], 0.05);
   percentiles.p50.accountCount = calculateAverage([...accountCount], 0.5);
   percentiles.p95.accountCount = calculateAverage([...accountCount], 0.95);
   percentiles.p100.accountCount = calculateAverage([...accountCount], 1);
 
-  percentiles.p50.bandwidthCap = calculateAverage(
-    [...bandwidthCap],
-    0.5,
-    false,
-  );
-  percentiles.p95.bandwidthCap = calculateAverage(
-    [...bandwidthCap],
-    0.95,
-    false,
-  );
-  percentiles.p100.bandwidthCap = calculateAverage([...bandwidthCap], 1, false);
+  percentiles.p5.bandwidthCap =
+    (status.bandwidthCapGroups[0].count * 100) /
+      status.bandwidthCapGroups[1].count <
+    50
+      ? status.bandwidthCapGroups[0].bandwidthCap
+      : status.bandwidthCapGroups[1].bandwidthCap;
 
+  percentiles.p50.bandwidthCap =
+    (status.bandwidthCapGroups[0].count * 100) /
+      status.bandwidthCapGroups[1].count >=
+    50
+      ? status.bandwidthCapGroups[0].bandwidthCap
+      : status.bandwidthCapGroups[1].bandwidthCap;
+
+  percentiles.p95.bandwidthCap = percentiles.p50.bandwidthCap;
+  percentiles.p100.bandwidthCap = percentiles.p50.bandwidthCap;
+
+  percentiles.p5.peerCount = calculateAverage([...peerCount], 0.05);
   percentiles.p50.peerCount = calculateAverage([...peerCount], 0.5);
   percentiles.p95.peerCount = calculateAverage([...peerCount], 0.95);
   percentiles.p100.peerCount = calculateAverage([...peerCount], 1);
 
+  percentiles.p5.uptime = calculateAverage([...uptime], 0.05);
   percentiles.p50.uptime = calculateAverage([...uptime], 0.5);
   percentiles.p95.uptime = calculateAverage([...uptime], 0.95);
   percentiles.p100.uptime = calculateAverage([...uptime], 1);
 
-  percentiles.p50.activeDifficulty = calculateAverage(
-    [...activeDifficulty],
-    0.5,
-    false,
-  );
-  percentiles.p95.activeDifficulty = calculateAverage(
-    [...activeDifficulty],
-    0.95,
-    false,
-  );
-  percentiles.p100.activeDifficulty = calculateAverage(
-    [...activeDifficulty],
-    1,
-    false,
-  );
-
   return { telemetry: percentiles, versions, status };
 };
 
-const calculateAverage = (values, percentile, isInt = true) => {
+const calculateAverage = (values, percentile) => {
   values.length = Math.ceil(values.length * percentile);
 
   const sample = values.reduce((a, b) => Number(a) + Number(b), 0);
   const median = sample / values.length;
 
-  return isInt ? parseInt(median) : parseFloat(median);
+  return parseInt(median);
 };
 
 // Once every 10 minutes

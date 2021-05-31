@@ -6,6 +6,7 @@ import { SearchOutlined } from "@ant-design/icons";
 import QRCode from "qrcode";
 import Copy from "components/Copy";
 import { DONATION_ACCOUNT } from "components/AppFooter";
+import { NANOQUAKEJS_DONATION_ACCOUNT } from "pages/NanoQuakeJS";
 
 import type { PageParams } from "types/page";
 
@@ -65,7 +66,9 @@ const QRCodeModal = ({ header, account, children }: QRCodeModalProps) => {
           {base64Image ? <img src={base64Image} alt="QR code" /> : null}
         </div>
         <>
-          {account === DONATION_ACCOUNT && accountParam !== DONATION_ACCOUNT ? (
+          {(account === DONATION_ACCOUNT &&
+            accountParam !== DONATION_ACCOUNT) ||
+          account === NANOQUAKEJS_DONATION_ACCOUNT ? (
             <div
               style={{
                 display: "flex",
@@ -73,9 +76,9 @@ const QRCodeModal = ({ header, account, children }: QRCodeModalProps) => {
                 marginBottom: "12px",
               }}
             >
-              <Copy text={DONATION_ACCOUNT} />
+              <Copy text={account} />
               <Link
-                to={`/account/${DONATION_ACCOUNT}`}
+                to={`/account/${account}`}
                 style={{ marginLeft: "12px" }}
               >
                 <Button

@@ -2,7 +2,7 @@ import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Card, Col, Row, Skeleton, Switch, Tooltip, Typography } from "antd";
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
-import { Pie, PieConfig } from "@antv/g2plot";
+import { Pie } from "@antv/g2plot";
 import BigNumber from "bignumber.js";
 import orderBy from "lodash/orderBy";
 import { Theme, PreferencesContext } from "api/contexts/Preferences";
@@ -55,7 +55,7 @@ const Representatives: React.FC<Props> = ({ versions }) => {
       });
     }
 
-    const config: PieConfig = {
+    const config = {
       padding: -12,
       data,
       angleField: isVersionByWeight ? "weight" : "count",
@@ -84,20 +84,23 @@ const Representatives: React.FC<Props> = ({ versions }) => {
       },
       tooltip: {
         showTitle: false,
-        // @ts-ignore
-        formatter: (value, version) => {
-          return {
-            name: version,
-            value: isVersionByWeight
-              ? `${new BigNumber(value).toFormat(2)} NANO - ${new BigNumber(
-                  value,
-                )
-                  .times(100)
-                  .dividedBy(totalWeight)
-                  .toFormat(2)}%`
-              : `${value} ${t("common.nodes")}`,
-          };
-        },
+        formatter: ({
+          weight,
+          version,
+        }: {
+          weight: number;
+          version: string;
+        }) => ({
+          name: version,
+          value: isVersionByWeight
+            ? `${new BigNumber(weight).toFormat(2)} NANO - ${new BigNumber(
+                weight,
+              )
+                .times(100)
+                .dividedBy(totalWeight)
+                .toFormat(2)}%`
+            : `${weight} ${t("common.nodes")}`,
+        }),
       },
       interactions: [{ type: "element-active" }],
     };
@@ -105,19 +108,20 @@ const Representatives: React.FC<Props> = ({ versions }) => {
     if (!versionsChart) {
       versionsChart = new Pie(
         document.getElementById("versions-chart") as HTMLElement,
+        // @ts-ignore
         config,
       );
+      versionsChart.render();
     } else {
-      versionsChart.updateConfig(config);
+      versionsChart.update(config);
     }
 
-    versionsChart.render();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [theme, versions, isVersionByWeight]);
 
   React.useEffect(() => {
     return () => {
-      versionsChart = null;
+      versionsChart?.destroy();
     };
   }, []);
 

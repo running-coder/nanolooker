@@ -20,7 +20,6 @@ const allowedRpcMethods = [
   "accounts_balances",
   "active_difficulty",
   "available_supply",
-  "block_confirm",
   "block_count",
   "block_info",
   "blocks_info",
@@ -29,14 +28,11 @@ const allowedRpcMethods = [
   "frontier_count",
   "peers",
   "pending",
-  "process",
   "representatives",
   "representatives_online",
   "stats",
-  "successors",
   "uptime",
   "version",
-  "work_validate",
 ];
 
 const cacheSettings = {
@@ -46,7 +42,6 @@ const cacheSettings = {
   accounts_balances: 5,
   active_difficulty: 5,
   available_supply: 604800,
-  block_confirm: undefined,
   block_count: 5,
   block_info: 5,
   blocks_info: 5,
@@ -55,14 +50,11 @@ const cacheSettings = {
   frontier_count: 5,
   peers: 10,
   pending: 5,
-  process: undefined,
   representatives: 30,
   representatives_online: 30,
   stats: 5,
-  successors: undefined,
   uptime: 30,
   version: 30,
-  work_validate: undefined,
 };
 
 const limits = {

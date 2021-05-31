@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import moment from "moment";
 import foreach from "lodash/forEach";
 import BigNumber from "bignumber.js";
-import { Line, LineConfig } from "@antv/g2plot";
+import { Line } from "@antv/g2plot";
 import { Card, Tag, Typography } from "antd";
 import { WalletOutlined } from "@ant-design/icons";
 import { tagColors, lineColors } from "./utils";
@@ -112,7 +112,7 @@ const ExchangeTrackerPage: React.FC = () => {
     });
 
     return () => {
-      exchangeTrackerChart = null;
+      exchangeTrackerChart?.destroy();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -136,8 +136,9 @@ const ExchangeTrackerPage: React.FC = () => {
   }, [activeWallets, exchangeBalances]);
 
   React.useEffect(() => {
-    const config: LineConfig = {
-      // @ts-ignore
+    if (!data?.length) return;
+
+    const config = {
       data,
       xField: "day",
       yField: "value",
@@ -147,7 +148,7 @@ const ExchangeTrackerPage: React.FC = () => {
       },
       tooltip: {
         // @ts-ignore
-        formatter: (title: string, value: number, name: string) => ({
+        formatter: ({ title, value, name }) => ({
           title,
           value: new BigNumber(value).toFormat(),
           name:
@@ -157,7 +158,7 @@ const ExchangeTrackerPage: React.FC = () => {
       },
       yAxis: {
         label: {
-          formatter: value =>
+          formatter: (value: string) =>
             `${new BigNumber(value).dividedBy(1000000).toFormat()}M`,
         },
       },
@@ -174,13 +175,15 @@ const ExchangeTrackerPage: React.FC = () => {
     if (!exchangeTrackerChart) {
       exchangeTrackerChart = new Line(
         document.getElementById("exchange-tracker-chart") as HTMLElement,
+        // @ts-ignore
         config,
       );
+
+      exchangeTrackerChart.render();
     } else {
-      exchangeTrackerChart.updateConfig(config);
+      exchangeTrackerChart.update(config);
     }
 
-    exchangeTrackerChart.render();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
