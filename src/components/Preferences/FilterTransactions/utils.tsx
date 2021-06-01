@@ -11,22 +11,22 @@ export const units: Unit[] = [
   {
     unit: "Gnano",
     raw: 1e33,
-    display: "1000 Nano",
+    display: "1000 Ban",
   },
   {
     unit: "Mnano",
     raw: 1e30,
-    display: "1 Nano",
+    display: "1 Ban",
   },
   {
     unit: "knano",
     raw: 1e27,
-    display: `0.001 Nano`,
+    display: `0.001 Ban`,
   },
   {
     unit: "nano",
     raw: 1e24,
-    display: `0.000001 Nano`,
+    display: `0.000001 Ban`,
   },
   {
     unit: "mnano",
