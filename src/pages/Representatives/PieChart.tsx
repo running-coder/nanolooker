@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import { Card, Col, Row, Skeleton, Switch, Tooltip, Typography } from "antd";
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import { Pie } from "@antv/g2plot";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import BigNumber from "bignumber.js";
 import forEach from "lodash/forEach";
 import orderBy from "lodash/orderBy";
@@ -43,7 +42,6 @@ const Representatives: React.FC<Props> = ({
   setIsGroupedByEntities,
 }) => {
   const { t } = useTranslation();
-  const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
   const { theme } = React.useContext(PreferencesContext);
   const {
     representatives,
@@ -224,6 +222,7 @@ const Representatives: React.FC<Props> = ({
       angleField: "value",
       colorField: "alias",
       radius: 0.8,
+      // theme: 'dark',
       label: {
         visible: true,
         type: "outer",
@@ -239,7 +238,7 @@ const Representatives: React.FC<Props> = ({
               },
       },
       legend: {
-        visible: !isSmallAndLower,
+        visible: true,
         itemName: {
           // @ts-ignore
           formatter: (text: string) => {
@@ -297,6 +296,7 @@ const Representatives: React.FC<Props> = ({
   React.useEffect(() => {
     return () => {
       representativesChart?.destroy();
+      representativesChart = null;
     };
   }, []);
 

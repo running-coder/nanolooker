@@ -288,7 +288,8 @@
       "versionsByWeight": "Versions by voting weight"
     },
     "exchangeTracker": {
-      "description": "Every day a capture of the account balances of the most popular exchanges where Nano is traded is taken. This measurement can be used to analyze movements and fluctuations on the network."
+      "description": "Every day a capture of the account balances of the most popular exchanges where Nano is traded is taken. This measurement can be used to analyze movements and fluctuations on the network.",
+      "totalSelected": "Total balance of selected exchanges"
     },
     "preferences": {
       "description": "Manage your preferences for every sections. The preferences are stored on the browser, if you clear your data your preferences will be back to defaults.",

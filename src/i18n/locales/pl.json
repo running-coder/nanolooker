@@ -288,7 +288,8 @@
       "versionsByWeight": "Wersje według wagi głosu"
     },
     "exchangeTracker": {
-      "description": "Codziennie zbierane są salda kont najpopularniejszych giełd, na których handluje się Nano. Pomiar ten można wykorzystać do analizy ruchów i fluktuacji w sieci."
+      "description": "Codziennie zbierane są salda kont najpopularniejszych giełd, na których handluje się Nano. Pomiar ten można wykorzystać do analizy ruchów i fluktuacji w sieci.",
+      "totalSelected": "Łączne saldo wybranych giełd"
     },
     "preferences": {
       "description": "Zarządzaj preferencjami dla każdej sekcji. Preferencje są przechowywane w przeglądarce, jeśli wyczyścisz swoje dane, przywrócone zostaną ustawienia domyślne.",

@@ -288,7 +288,8 @@
       "versionsByWeight": "Versionen nach Wahlgewicht"
     },
     "exchangeTracker": {
-      "description": "Jeden Tag wird eine Erfassung der Kontensalden der beliebtesten Börsen vorgenommen, an denen Nano gehandelt wird. Mit dieser Messung können Bewegungen und Schwankungen im Netzwerk analysiert werden."
+      "description": "Jeden Tag wird eine Erfassung der Kontensalden der beliebtesten Börsen vorgenommen, an denen Nano gehandelt wird. Mit dieser Messung können Bewegungen und Schwankungen im Netzwerk analysiert werden.",
+      "totalSelected": "Gesamtsaldo ausgewählter Börsen"
     },
     "preferences": {
       "description": "Verwalten Sie Ihre Einstellungen für jeden Abschnitt. Die Einstellungen werden im Browser gespeichert. Wenn Sie Ihre Daten löschen, werden Ihre Einstellungen auf die Standardeinstellungen zurückgesetzt.",

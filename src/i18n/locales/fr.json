@@ -288,7 +288,8 @@
       "versionsByWeight": "Versions par poids de vote"
     },
     "exchangeTracker": {
-      "description": "Chaque jour, une capture du solde des comptes des plateformes d'échanges les plus populaires où Nano est négocié est pris. Cette mesure peut permettre d'analyser les mouvements et fluctuations sur le réseau."
+      "description": "Chaque jour, une capture du solde des comptes des plateformes d'échanges les plus populaires où Nano est négocié est pris. Cette mesure peut permettre d'analyser les mouvements et fluctuations sur le réseau.",
+      "totalSelected": "Solde total des échanges sélectionnés"
     },
     "preferences": {
       "description": "Gérez vos préférences pour chaque section. Les préférences sont stockées sur le navigateur, si vous effacez vos données, vos préférences seront rétablies par défaut.",

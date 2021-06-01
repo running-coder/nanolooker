@@ -35,6 +35,11 @@ const doKnownAccountsCron = async () => {
         account:
           "nano_3j61hdczpb4z8cchyythzqct6wikn4x5c3bkexyzaj97nm5q73dg9ayntps4",
       },
+      {
+        alias: "NanoTicker",
+        account:
+          "nano_3tura8g7m7pgrmbxpb8ochtgq3maebd6ayi9tqchchbya9zpa1sfhwugkpmc",
+      },
     ]);
 
     nodeCache.set(KNOWN_ACCOUNTS, knownAccounts);

@@ -54,6 +54,7 @@ const Distribution: React.FC = () => {
   React.useEffect(() => {
     return () => {
       distributionChart?.destroy();
+      distributionChart = null;
     };
   }, []);
 
@@ -132,7 +133,7 @@ const Distribution: React.FC = () => {
     // https://g2plot.antv.vision/en/examples/column/stacked#connected-area-interaction
 
     const config = {
-      // forceFit: true,
+      forceFit: true,
       responsive: true,
       padding: "auto",
       isStack: true,
@@ -269,13 +270,7 @@ const Distribution: React.FC = () => {
           </Text>
         </div>
 
-        <div
-          style={{ marginTop: 24 }}
-          id="distribution-chart"
-          // style={{
-          //   margin: `0 -24px ${distributionData.length ? "-24px" : "0"} -24px`,
-          // }}
-        />
+        <div style={{ marginTop: 24 }} id="distribution-chart" />
       </Card>
 
       <DormantFunds data={data?.dormantFunds} />

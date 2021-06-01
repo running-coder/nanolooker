@@ -122,6 +122,7 @@ const Representatives: React.FC<Props> = ({ versions }) => {
   React.useEffect(() => {
     return () => {
       versionsChart?.destroy();
+      versionsChart = null;
     };
   }, []);
 

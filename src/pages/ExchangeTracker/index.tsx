@@ -7,6 +7,7 @@ import BigNumber from "bignumber.js";
 import { Line } from "@antv/g2plot";
 import { Card, Tag, Typography } from "antd";
 import { WalletOutlined } from "@ant-design/icons";
+import LoadingStatistic from "components/LoadingStatistic";
 import { tagColors, lineColors } from "./utils";
 import exchangeWallets from "../../exchanges.json";
 
@@ -88,6 +89,7 @@ const ExchangeTrackerPage: React.FC = () => {
     setExchangeBalances,
   ] = React.useState<ExchangeBalances>();
   const [data, setData] = React.useState<LineChartData[]>();
+  const [totalExchangeBalance, setTotalExchangeBalance] = React.useState(0);
 
   const toggleActiveWallet = (account: string) => {
     if (activeWallets.includes(account)) {
@@ -113,6 +115,7 @@ const ExchangeTrackerPage: React.FC = () => {
 
     return () => {
       exchangeTrackerChart?.destroy();
+      exchangeTrackerChart = null;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -120,6 +123,7 @@ const ExchangeTrackerPage: React.FC = () => {
   const filterData = React.useCallback(() => {
     let data: LineChartData[] = [];
 
+    let totalExchangeBalance = 0;
     for (let account in exchangeBalances) {
       if (!activeWallets.includes(account)) continue;
 
@@ -130,8 +134,13 @@ const ExchangeTrackerPage: React.FC = () => {
           category: account,
         });
       });
+
+      totalExchangeBalance = new BigNumber(totalExchangeBalance)
+        .plus(data[data.length - 1].value)
+        .toNumber();
     }
 
+    setTotalExchangeBalance(totalExchangeBalance);
     setData(data);
   }, [activeWallets, exchangeBalances]);
 
@@ -148,13 +157,15 @@ const ExchangeTrackerPage: React.FC = () => {
       },
       tooltip: {
         // @ts-ignore
-        formatter: ({ title, value, name }) => ({
-          title,
-          value: new BigNumber(value).toFormat(),
-          name:
-            exchangeWallets.find(({ account }) => account === name)?.name ||
-            name,
-        }),
+        formatter: ({ title, value, category }) => {
+          return {
+            title,
+            value: new BigNumber(value).toFormat(),
+            name:
+              exchangeWallets.find(({ account }) => account === category)
+                ?.name || category,
+          };
+        },
       },
       yAxis: {
         label: {
@@ -230,6 +241,12 @@ const ExchangeTrackerPage: React.FC = () => {
             );
           })}
         </div>
+
+        <LoadingStatistic
+          title={t("pages.exchangeTracker.totalSelected")}
+          value={totalExchangeBalance}
+          isLoading={!exchangeBalances}
+        />
 
         <div id="exchange-tracker-chart" />
       </Card>

@@ -288,7 +288,8 @@
       "versionsByWeight": "投票权版本"
     },
     "exchangeTracker": {
-      "description": "每天都会记录Nano交易所在的最受欢迎交易所的账户余额。此度量可用于分析网络上的移动和波动。"
+      "description": "每天都会记录Nano交易所在的最受欢迎交易所的账户余额。此度量可用于分析网络上的移动和波动。",
+      "totalSelected": "所选交易所的总余额"
     },
     "preferences": {
       "description": "管理每个部分的首选项。首选项存储在浏览器中，如果您清除数据，则首选项将恢复为默认值。",
