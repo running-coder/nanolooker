@@ -14,6 +14,7 @@ import DeveloperFundPage from "pages/DeveloperFund";
 import DeveloperFundTransactionsPage from "pages/DeveloperFund/Transactions";
 import DistributionPage from "pages/Distribution";
 import ExchangeTrackerPage from "pages/ExchangeTracker";
+import FaucetsPage from "pages/Faucets";
 import LargeTransactionsPage from "pages/LargeTransactions";
 import KnownAccountsPage from "pages/KnownAccounts";
 import AccountPage from "pages/Account";
@@ -24,7 +25,6 @@ import NetworkStatusPage from "pages/NetworkStatus";
 import WhatIsBananoPage from "pages/WhatIsBanano";
 import PreferencesPage from "pages/Preferences";
 import BookmarksPage from "pages/Bookmarks";
-import NanoQuakeJSPage from "pages/NanoQuakeJS";
 import "components/utils/analytics";
 
 import "antd/dist/antd.css";
@@ -71,6 +71,7 @@ const App: React.FC = () => {
             <Route path="/known-accounts" component={KnownAccountsPage} />
             <Route path="/distribution" component={DistributionPage} />
             <Route path="/exchange-tracker" component={ExchangeTrackerPage} />
+            <Route path="/faucets" component={FaucetsPage} />
             <Route
               path="/large-transactions/:sortBy?"
               component={LargeTransactionsPage}
@@ -86,7 +87,6 @@ const App: React.FC = () => {
             <Route path="/what-is-banano" component={WhatIsBananoPage} />
             <Route path="/preferences" component={PreferencesPage} />
             <Route path="/bookmarks" component={BookmarksPage} />
-            <Route path="/nanoquakejs" component={NanoQuakeJSPage} />
           </Switch>
         </Content>
         <AppFooter />
