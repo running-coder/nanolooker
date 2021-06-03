@@ -512,3 +512,29 @@ body,
 .ant-menu-vertical > .ant-menu-item:not(.ant-menu-item-selected) {
   color: rgba(0, 0, 0, 0.65);
 }
+
+#reader {
+  border-color: #d9d9d9 !important;
+}
+
+#reader .ant-btn {
+  margin-top: 12px;
+}
+
+#reader > div:first-of-type > span:first-of-type {
+  display: none;
+}
+
+#reader__status_span {
+  float: none !important;
+}
+
+.ant-alert-with-description {
+  align-items: baseline;
+  padding: 12px;
+}
+
+.ant-alert-with-description .ant-alert-icon {
+  margin-right: 12px;
+  font-size: 16px;
+}

@@ -6,7 +6,7 @@ import { SearchOutlined } from "@ant-design/icons";
 import QRCode from "qrcode";
 import Copy from "components/Copy";
 import { DONATION_ACCOUNT } from "components/AppFooter";
-import { NANOQUAKEJS_DONATION_ACCOUNT } from "pages/NanoQuakeJS";
+import { NANOQUAKEJS_DONATION_ACCOUNT } from "pages/NanoQuakeJS/Register";
 
 import type { PageParams } from "types/page";
 
@@ -77,10 +77,7 @@ const QRCodeModal = ({ header, account, children }: QRCodeModalProps) => {
               }}
             >
               <Copy text={account} />
-              <Link
-                to={`/account/${account}`}
-                style={{ marginLeft: "12px" }}
-              >
+              <Link to={`/account/${account}`} style={{ marginLeft: "12px" }}>
                 <Button
                   shape="circle"
                   size="small"

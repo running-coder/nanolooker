@@ -43,15 +43,26 @@ const Bookmark: React.FC<Props> = ({ type, bookmark, placement = "top" }) => {
   }, [bookmark, bookmarks]);
 
   const onVisibleChange = (isVisible: boolean) => {
-    if (!alias && !isVisible) {
+    setIsOpened(isVisible);
+  };
+
+  React.useEffect(() => {
+    if (isOpened) return;
+
+    if (!alias) {
       removeBookmark({
         type,
         bookmark,
       });
+    } else {
+      addBookmark({
+        type,
+        bookmark,
+        value: alias,
+      });
     }
-
-    setIsOpened(isVisible);
-  };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpened]);
 
   return (
     <Popover

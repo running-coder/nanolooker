@@ -1,14 +1,11 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { Button, Card, Row, Col, Space, Typography } from "antd";
+import { Card, Row, Col, Typography } from "antd";
 import BigNumber from "bignumber.js";
-import QRCodeModal from "components/QRCodeModal";
+import Register from "./Register";
 import Scores from "./Scores";
 
-const { Text, Title } = Typography;
-
-export const NANOQUAKEJS_DONATION_ACCOUNT =
-  "nano_18rtodfdzxqprb5pamok8surdg91x7wys8yk47uk3xp7cyu3nuc44teysix1";
+const { Title } = Typography;
 
 const NanoQuakeJSPage: React.FC = () => {
   const { t } = useTranslation();
@@ -36,7 +33,7 @@ const NanoQuakeJSPage: React.FC = () => {
               style={{
                 maxWidth: "320px",
                 display: "block",
-                margin: "-50px auto",
+                margin: "-50px auto -30px",
               }}
             />
 
@@ -59,28 +56,7 @@ const NanoQuakeJSPage: React.FC = () => {
               fragging each other!
             </p>
 
-            <div style={{ textAlign: "center" }}>
-              <Space size={12} align="center">
-                {/* <Button type="primary" size="large" shape="round">
-                  Join Game !
-                </Button> */}
-
-                <Button type="primary" size="large" shape="round">
-                  Register for Free
-                </Button>
-              </Space>
-
-              <div style={{ marginTop: 12 }}>
-                <QRCodeModal
-                  account={NANOQUAKEJS_DONATION_ACCOUNT}
-                  header={<Text>NanoQuakeJS Hot wallet</Text>}
-                >
-                  <Button ghost type="primary" size="small" shape="round">
-                    Donate to NanoQuakeJS price pool
-                  </Button>
-                </QRCodeModal>
-              </div>
-            </div>
+            <Register />
           </Card>
         </Col>
         <Col xs={24} md={12}>
