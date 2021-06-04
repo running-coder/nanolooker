@@ -37,8 +37,7 @@
     "executionTimeAgo": "Ostatnia kompilacja to",
     "node": "Węzeł",
     "nodes": "Węzły",
-    "cancel": "Anuluj",
-    "back": "Z powrotem"
+    "cancel": "Anuluj"
   },
   "nodeHealth": {
     "nodeReloading": "Nano Node jest przeładowywana",
@@ -322,7 +321,9 @@
       "welcomeDescription": "Witamy na Arenie, gdzie wysocy rangą wojownicy zamieniają się w pozbawioną kręgosłupa papkę. Porzucając wszelką nutę zdrowego rozsądku i wszelkie ślady wątpliwości, rzucasz się na scenę wstrząsających krajobrazów i zawoalowanych otchłani. Twoje nowe środowisko odrzuca cię z dołami lawy i zagrożeniami atmosferycznymi, gdy otaczają cię legiony wrogów, testując reakcję jelit, która cię tu przywiodła. Twoja nowa mantra: walcz lub skończ.",
       "welcomeDescription2": "Zagraj w najlepiej sprzedającą się strzelankę FPS z 1999 r. ze znajomymi i innymi graczami z całego świata, zdobywając NANO za wzajemne fragowanie!",
       "gameplay": "Rozgrywka",
-      "registerErrorUsername": "Nazwa użytkownika jest już zajęta dla innego adresu"
+      "registerErrorUsername": "Nazwa użytkownika jest już zajęta dla innego adresu",
+      "playNanoquakejs": "Zagraj w NanoQuakeJS",
+      "trailer": "Zwiastun filmu"
     }
   }
 }

@@ -37,8 +37,7 @@
     "executionTimeAgo": "Letzte Zusammenstellung war",
     "node": "Knoten",
     "nodes": "Knoten",
-    "cancel": "Stornieren",
-    "back": "Zurück"
+    "cancel": "Stornieren"
   },
   "nodeHealth": {
     "nodeReloading": "Der Nanoknoten wird neu geladen",
@@ -322,7 +321,9 @@
       "welcomeDescription": "Willkommen in der Arena, wo hochrangige Krieger in rückgratlosen Brei verwandelt werden. Sie lassen jeden gesunden Menschenverstand und jede Spur von Zweifel hinter sich und stürzen sich auf eine Bühne aus erschütternden Landschaften und verschleierten Abgründen. Deine neue Umgebung weist dich mit Lavagruben und atmosphärischen Gefahren zurück, während Legionen von Feinden dich umgeben und deine Bauchreaktion auf die Probe stellen, die dich überhaupt hierher gebracht hat. Dein neues Mantra: Kämpfe oder sei fertig.",
       "welcomeDescription2": "Spielen Sie das meistverkaufte Ego-Shooter-Spiel von 1999 mit Ihren Freunden und anderen Spielern auf der ganzen Welt und verdienen Sie NANO für das gegenseitige Verprügeln!",
       "gameplay": "Spielweise",
-      "registerErrorUsername": "Benutzername ist bereits für eine andere Adresse verwendet"
+      "registerErrorUsername": "Benutzername ist bereits für eine andere Adresse verwendet",
+      "playNanoquakejs": "Spielen Sie NanoQuakeJS",
+      "trailer": "Anhänger"
     }
   }
 }

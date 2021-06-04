@@ -37,8 +37,7 @@
     "executionTimeAgo": "La última compilación fue",
     "node": "Nodo",
     "nodes": "Nodos",
-    "cancel": "Cancelar",
-    "back": "atrás"
+    "cancel": "Cancelar"
   },
   "nodeHealth": {
     "nodeReloading": "Nano nodo se está recargando",
@@ -322,7 +321,9 @@
       "welcomeDescription": "Bienvenido a la Arena, donde los guerreros de alto rango se transforman en papilla sin espinas. Abandonando cada gramo de sentido común y cualquier rastro de duda, te lanzas a un escenario de paisajes desgarradores y abismos velados. Tu nuevo entorno te rechaza con pozos de lava y peligros atmosféricos mientras legiones de enemigos te rodean, poniendo a prueba la reacción instintiva que te trajo aquí en primer lugar. Tu nuevo mantra: lucha o acaba.",
       "welcomeDescription2": "¡Juega el juego de disparos en primera persona más vendido de 1999 con tus amigos y otros jugadores de todo el mundo y gana NANO por destrozarse entre ellos!",
       "gameplay": "Como se Juega",
-      "registerErrorUsername": "El nombre de usuario ya está tomado para una dirección diferente"
+      "registerErrorUsername": "El nombre de usuario ya está tomado para una dirección diferente",
+      "playNanoquakejs": "Juega NanoQuakeJS",
+      "trailer": "Remolque"
     }
   }
 }

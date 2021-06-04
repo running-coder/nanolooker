@@ -37,8 +37,7 @@
     "executionTimeAgo": "De laatste update was",
     "node": "Node",
     "nodes": "Nodes",
-    "cancel": "annuleren",
-    "back": "Terug"
+    "cancel": "annuleren"
   },
   "nodeHealth": {
     "nodeReloading": "Nano node wordt opnieuw geladen",
@@ -322,7 +321,9 @@
       "welcomeDescription": "Welkom in de Arena, waar hooggeplaatste krijgers worden omgevormd tot slappe brij. Zonder elk greintje gezond verstand en elk spoor van twijfel achter je te laten, stort je je op een podium van schrijnende landschappen en versluierde afgronden. Je nieuwe omgeving wijst je af met lavaputten en atmosferische gevaren terwijl legioenen vijanden je omsingelen en de darmreactie testen die je hier in de eerste plaats bracht. Je nieuwe mantra: vechten of klaar zijn.",
       "welcomeDescription2": "Speel het bestverkochte first-person shooter-spel uit 1999 met je vrienden en andere spelers over de hele wereld en verdien NANO door elkaar te belazeren!",
       "gameplay": "Gameplay",
-      "registerErrorUsername": "Gebruikersnaam is al in gebruik voor een ander adres"
+      "registerErrorUsername": "Gebruikersnaam is al in gebruik voor een ander adres",
+      "playNanoquakejs": "Speel NanoQuakeJS",
+      "trailer": "Aanhangwagen"
     }
   }
 }

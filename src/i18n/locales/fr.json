@@ -37,8 +37,7 @@
     "executionTimeAgo": "La dernière compilation était",
     "node": "Nœud",
     "nodes": "Nœuds",
-    "cancel": "Annuler",
-    "back": "Dos"
+    "cancel": "Annuler"
   },
   "nodeHealth": {
     "nodeReloading": "Le nœud Nano est en cours de rechargement",
@@ -322,7 +321,9 @@
       "welcomeDescription": "Bienvenue dans l'Arène, où les guerriers de haut rang sont transformés en bouillie sans épines. Abandonnant toute once de bon sens et toute trace de doute, vous vous précipitez sur une scène de paysages poignants et d'abîmes voilés. Votre nouvel environnement vous rejette avec des fosses de lave et des dangers atmosphériques alors que des légions d'ennemis vous entourent, testant la réaction intestinale qui vous a amené ici en premier lieu. Votre nouveau mantra : combattre ou être fini.",
       "welcomeDescription2": "Jouez au jeu de tir à la première personne le plus vendu de 1999 avec vos amis et d'autres joueurs du monde entier et gagnez NANO pour vous être battus !",
       "gameplay": "Gameplay",
-      "registerErrorUsername": "Le nom d'utilisateur est déjà pris pour une adresse différente"
+      "registerErrorUsername": "Le nom d'utilisateur est déjà pris pour une adresse différente",
+      "playNanoquakejs": "Jouer à NanoQuakeJS",
+      "trailer": "Bande annonce"
     }
   }
 }

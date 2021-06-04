@@ -37,8 +37,7 @@
     "executionTimeAgo": "上次编译是",
     "node": "节点",
     "nodes": "节点数",
-    "cancel": "取消",
-    "back": "后退"
+    "cancel": "取消"
   },
   "nodeHealth": {
     "nodeReloading": "纳米节点正在重新加载",
@@ -322,7 +321,9 @@
       "welcomeDescription": "欢迎来到竞技场，在那里高级战士会变成没有骨气的糊状物。抛弃每一分常识和任何怀疑，你冲进了一个令人痛苦的风景和隐藏的深渊的舞台。你的新环境会以熔岩坑和大气危害拒绝你，因为大量敌人围绕着你，测试最初将你带到这里的直觉反应。你的新口头禅：战斗或结束。",
       "welcomeDescription2": "与您的朋友和世界各地的其他玩家一起玩 1999 年最畅销的第一人称射击游戏，通过互相打架赚取 NANO！",
       "gameplay": "游戏玩法",
-      "registerErrorUsername": "用户名已被用于其他地址"
+      "registerErrorUsername": "用户名已被用于其他地址",
+      "playNanoquakejs": "玩 NanoQuakeJS",
+      "trailer": "预告片"
     }
   }
 }

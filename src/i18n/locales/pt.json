@@ -37,8 +37,7 @@
     "executionTimeAgo": "A última compilação foi",
     "node": "Nó",
     "nodes": "Nós",
-    "cancel": "Cancelar",
-    "back": "Voltar"
+    "cancel": "Cancelar"
   },
   "nodeHealth": {
     "nodeReloading": "O nó da Nano está recarregando",
@@ -322,7 +321,9 @@
       "welcomeDescription": "Bem-vindo à Arena, onde guerreiros de alto escalão são transformados em mingau. Abandonando cada grama de bom senso e qualquer vestígio de dúvida, você se lança em um palco de paisagens angustiantes e abismos velados. Seu novo ambiente rejeita você com poços de lava e perigos atmosféricos enquanto legiões de inimigos o cercam, testando a reação instintiva que o trouxe aqui em primeiro lugar. Seu novo mantra: lute ou acabe.",
       "welcomeDescription2": "Jogue o jogo de tiro em primeira pessoa mais vendido de 1999 com seus amigos e outros jogadores ao redor do mundo, ganhando NANO por destruir uns aos outros!",
       "gameplay": "Jogabilidade",
-      "registerErrorUsername": "O nome de usuário já foi usado para um endereço diferente"
+      "registerErrorUsername": "O nome de usuário já foi usado para um endereço diferente",
+      "playNanoquakejs": "Jogue NanoQuakeJS",
+      "trailer": "Reboque"
     }
   }
 }

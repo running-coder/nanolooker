@@ -37,8 +37,7 @@
     "executionTimeAgo": "L'ultima compilation è stata",
     "node": "Nodo",
     "nodes": "Nodi",
-    "cancel": "Annulla",
-    "back": "Indietro"
+    "cancel": "Annulla"
   },
   "nodeHealth": {
     "nodeReloading": "Il nano nodo si sta ricaricando",
@@ -322,7 +321,9 @@
       "welcomeDescription": "Benvenuto nell'Arena, dove i guerrieri di alto rango si trasformano in una poltiglia senza spina dorsale. Abbandonando ogni grammo di buon senso e ogni traccia di dubbio, ti tuffi in un palcoscenico di paesaggi strazianti e abissi velati. Il tuo nuovo ambiente ti respinge con pozzi di lava e pericoli atmosferici mentre legioni di nemici ti circondano, mettendo alla prova la reazione istintiva che ti ha portato qui in primo luogo. Il tuo nuovo mantra: combatti o finisci.",
       "welcomeDescription2": "Gioca al gioco sparatutto in prima persona più venduto del 1999 con i tuoi amici e altri giocatori di tutto il mondo guadagnando NANO per aver litigato a vicenda!",
       "gameplay": "Gioco",
-      "registerErrorUsername": "Il nome utente è già stato utilizzato per un indirizzo diverso"
+      "registerErrorUsername": "Il nome utente è già stato utilizzato per un indirizzo diverso",
+      "playNanoquakejs": "Gioca a NanoQuakeJS",
+      "trailer": "trailer"
     }
   }
 }

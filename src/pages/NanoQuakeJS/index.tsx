@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
 import { Card, Row, Col, Skeleton, Space, Typography } from "antd";
 // import BigNumber from "bignumber.js";
@@ -14,6 +15,9 @@ const NanoQuakeJSPage: React.FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{t("pages.nanoquakejs.playNanoquakejs")}</title>
+      </Helmet>
       <Row gutter={[12, 0]}>
         <Col xs={24} md={12}>
           <Title level={3}>
@@ -70,7 +74,7 @@ const NanoQuakeJSPage: React.FC = () => {
           </Card>
         </Col>
         <Col xs={24} md={12}>
-          <Title level={3}>{t("pages.nanoquakejs.gameplay")}</Title>
+          <Title level={3}>{t("pages.nanoquakejs.trailer")}</Title>
           <Card size="small" bordered={false} className="detail-layout">
             <div className="video-wrapper">
               <iframe

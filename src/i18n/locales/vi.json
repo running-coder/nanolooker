@@ -37,8 +37,7 @@
     "executionTimeAgo": "Lần biên dịch cuối cùng là",
     "node": "Nút",
     "nodes": "Điểm giao",
-    "cancel": "Huỷ bỏ",
-    "back": "Trở lại"
+    "cancel": "Huỷ bỏ"
   },
   "nodeHealth": {
     "nodeReloading": "Nút nano đang tải lại",
@@ -322,7 +321,9 @@
       "welcomeDescription": "Chào mừng bạn đến với Đấu trường, nơi những chiến binh cấp cao được biến thành những kẻ không có xương sống. Từ bỏ mọi suy nghĩ thông thường và bất kỳ dấu vết nào của sự nghi ngờ, bạn lao vào một giai đoạn của những cảnh quan khốn khổ và những vực thẳm có màn che. Môi trường mới từ chối bạn với các hố dung nham và các mối nguy hiểm trong khí quyển khi quân đoàn kẻ thù vây quanh bạn, thử nghiệm phản ứng của ruột đã đưa bạn đến đây ngay từ đầu. Câu thần chú mới của bạn: chiến đấu hoặc kết thúc.",
       "welcomeDescription2": "Chơi trò chơi bắn súng góc nhìn thứ nhất bán chạy nhất năm 1999 với bạn bè của bạn và những người chơi khác trên khắp thế giới kiếm NANO để đánh nhau!",
       "gameplay": "Gameplay",
-      "registerErrorUsername": "Tên người dùng đã được sử dụng cho một địa chỉ khác"
+      "registerErrorUsername": "Tên người dùng đã được sử dụng cho một địa chỉ khác",
+      "playNanoquakejs": "Chơi NanoQuakeJS",
+      "trailer": "Giới thiệu tóm tắt"
     }
   }
 }

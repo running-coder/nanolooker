@@ -37,8 +37,7 @@
     "executionTimeAgo": "Son derleme",
     "node": "Düğüm",
     "nodes": "Düğümler",
-    "cancel": "İptal etmek",
-    "back": "Geri"
+    "cancel": "İptal etmek"
   },
   "nodeHealth": {
     "nodeReloading": "Nano düğüm yeniden yükleniyor",
@@ -322,7 +321,9 @@
       "welcomeDescription": "Yüksek rütbeli savaşçıların omurgasız lapa dönüştüğü Arena'ya hoş geldiniz. Her türlü sağduyuyu ve her türlü şüphe izini terk ederek, üzücü manzaralar ve örtülü uçurumlardan oluşan bir sahneye atlıyorsunuz. Yeni ortamınız sizi lav çukurları ve atmosferik tehlikelerle reddediyor, çünkü düşman lejyonları sizi çevreliyor ve sizi buraya getiren bağırsak reaksiyonunu test ediyor. Yeni mantranız: savaşın ya da bitirin.",
       "welcomeDescription2": "1999'un en çok satan birinci şahıs nişancı oyununu arkadaşlarınızla ve dünyanın dört bir yanındaki diğer oyuncularla birbirinizi parçalamak için NANO kazanan oynayın!",
       "gameplay": "Oynanış",
-      "registerErrorUsername": "Kullanıcı adı zaten farklı bir adres için alınmış"
+      "registerErrorUsername": "Kullanıcı adı zaten farklı bir adres için alınmış",
+      "playNanoquakejs": "NanoQuakeJS oyna",
+      "trailer": "tanıtım videosu"
     }
   }
 }

@@ -34,7 +34,6 @@
     "bookmarks": "Bookmarks",
     "ok": "Ok",
     "cancel": "Cancel",
-    "back": "Back",
     "executionDate": "Last compilation was on <0>{{date}}</0>",
     "executionTimeAgo": "Last compilation was",
     "node": "Node",
@@ -322,7 +321,9 @@
       "welcomeDescription": "Welcome to the Arena, where high-ranking warriors are transformed into spineless mush. Abandoning every ounce of common sense and any trace of doubt, you lunge onto a stage of harrowing landscapes and veiled abysses. Your new environment rejects you with lava pits and atmospheric hazards as legions of foes surround you, testing the gut reaction that brought you here in the first place. Your new mantra: fight or be finished.",
       "welcomeDescription2": "Play the 1999 best selling first-person shooter game with your friends and other players around the world earning NANO for fragging each other!",
       "gameplay": "Gameplay",
-      "registerErrorUsername": "Username is already taken for a different address"
+      "registerErrorUsername": "Username is already taken for a different address",
+      "playNanoquakejs": "Play NanoQuakeJS",
+      "trailer": "Trailer"
     }
   }
 }

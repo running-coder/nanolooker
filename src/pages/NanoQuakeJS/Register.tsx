@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { Alert, Button, Col, Input, Modal, Row, Space, Typography } from "antd";
 import { CheckCircleTwoTone, CameraOutlined } from "@ant-design/icons";
 import { PreferencesContext } from "api/contexts/Preferences";
@@ -34,7 +34,7 @@ const Register: React.FC = () => {
   } = React.useContext(PreferencesContext);
 
   const {
-    register,
+    control,
     handleSubmit,
     trigger,
     setValue,
@@ -210,9 +210,7 @@ const Register: React.FC = () => {
             ? setIsOpen(false)
             : setSection(Sections.REGISTER);
         }}
-        cancelText={
-          section === Sections.REGISTER ? t("common.cancel") : t("common.back")
-        }
+        cancelText={t("common.cancel")}
       >
         {section === Sections.REGISTER ? (
           <>
@@ -230,57 +228,61 @@ const Register: React.FC = () => {
 
                 <Space size={3} direction="vertical" style={{ width: "100%" }}>
                   <Text>{t("pages.nanoquakejs.inGameUsername")}</Text>
-                  <Input
-                    readOnly={isSending}
-                    autoFocus={!!getValues("username")}
-                    {...register("username", {
-                      required: true,
+                  <Controller
+                    render={({ field }) => (
+                      <Input
+                        {...field}
+                        type="text"
+                        readOnly={isSending}
+                        maxLength={32}
+                        autoFocus={!!getValues("username")}
+                        suffix={
+                          getValues("username") && !errors?.username ? (
+                            <CheckCircleTwoTone twoToneColor={"#52c41a"} />
+                          ) : (
+                            " "
+                          )
+                        }
+                      />
+                    )}
+                    rules={{
                       validate: (value: string) => value.length >= 3,
-                    })}
-                    maxLength={32}
-                    onChange={e => {
-                      setValue("username", e.target.value);
-                      trigger("username");
                     }}
-                    value={getValues("username")}
-                    suffix={
-                      getValues("username") && !errors?.username ? (
-                        <CheckCircleTwoTone twoToneColor={"#52c41a"} />
-                      ) : (
-                        " "
-                      )
-                    }
+                    control={control}
+                    name="username"
+                    defaultValue={getValues("username")}
                   />
                 </Space>
                 <Space size={3} direction="vertical" style={{ width: "100%" }}>
                   <Text>{t("pages.nanoquakejs.accountReceivePayouts")}</Text>
-                  <Input
-                    readOnly={isSending}
-                    placeholder="nano_"
-                    {...register("account", {
-                      required: true,
+                  <Controller
+                    render={({ field }) => (
+                      <Input
+                        {...field}
+                        readOnly={isSending}
+                        placeholder="nano_"
+                        suffix={
+                          getValues("account") && !errors?.account ? (
+                            <CheckCircleTwoTone twoToneColor={"#52c41a"} />
+                          ) : (
+                            <Button
+                              size="small"
+                              type="text"
+                              style={{ margin: "-1px -7px -1px" }}
+                              onClick={() => setSection(Sections.SCAN)}
+                            >
+                              <CameraOutlined />
+                            </Button>
+                          )
+                        }
+                      />
+                    )}
+                    rules={{
                       validate: (value: string) => isValidAccountAddress(value),
-                    })}
-                    // @ts-ignore
-                    onPaste={(e: ClipboardEvent<HTMLInputElement>) => {}}
-                    onChange={e => {
-                      setValue("account", e.target.value);
-                      trigger("account");
                     }}
-                    value={getValues("account")}
-                    suffix={
-                      getValues("account") && !errors?.account ? (
-                        <CheckCircleTwoTone twoToneColor={"#52c41a"} />
-                      ) : (
-                        <Button
-                          size="small"
-                          type="text"
-                          onClick={() => setSection(Sections.SCAN)}
-                        >
-                          <CameraOutlined />
-                        </Button>
-                      )
-                    }
+                    control={control}
+                    name="account"
+                    defaultValue={getValues("account")}
                   />
                 </Space>
                 <Text style={{ fontSize: 12 }} className="color-muted">
