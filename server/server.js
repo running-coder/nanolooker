@@ -14,6 +14,7 @@ const { getDistributionData } = require("./cron/distribution");
 const { getExchangeBalances } = require("./cron/exchangeTracker");
 const express = require("express");
 const cors = require("cors");
+const fetch = require("node-fetch");
 const { rpc, allowedRpcMethods } = require("./rpc");
 const bodyParser = require("body-parser");
 const path = require("path");
@@ -61,24 +62,24 @@ app.post("/api/rpc", async (req, res) => {
   const { action, ...params } = req.body || {};
 
   if (!action) {
-    return res.status(422).send("Missing action");
+    res.status(422).send("Missing action");
   } else if (!allowedRpcMethods.includes(action)) {
-    return res.status(422).send("RPC action not allowed");
+    res.status(422).send("RPC action not allowed");
   }
 
   const result = await rpc(action, params, true);
 
-  return res.send(result);
+  res.send(result);
 });
 
 app.get("/api/confirmations-per-second", (req, res) => {
-  return res.send({ cps: nodeCache.get(CONFIRMATIONS_PER_SECOND) });
+  res.send({ cps: nodeCache.get(CONFIRMATIONS_PER_SECOND) });
 });
 
 app.get("/api/distribution", (req, res) => {
   const data = getDistributionData();
 
-  return res.send(data);
+  res.send(data);
 });
 
 // @TODO ADD getDelegators && getAllDelegators if req.account is specified
@@ -92,25 +93,25 @@ app.get("/api/delegators", async (req, res) => {
     data = getAllDelegators();
   }
 
-  return res.send(data);
+  res.send(data);
 });
 
 app.get("/api/large-transactions", async (req, res) => {
   const { largeTransactions } = await getLargeTransactions();
 
-  return res.send(largeTransactions);
+  res.send(largeTransactions);
 });
 
 app.get("/api/exchange-tracker", async (req, res) => {
   const exchangeBalances = await getExchangeBalances();
 
-  return res.send(exchangeBalances);
+  res.send(exchangeBalances);
 });
 
 app.get("/api/developer-fund/transactions", async (req, res) => {
   const { developerFundTransactions } = await getDeveloperFundTransactions();
 
-  return res.send(developerFundTransactions);
+  res.send(developerFundTransactions);
 });
 
 app.get("/api/market-statistics", async (req, res) => {
@@ -128,7 +129,7 @@ app.get("/api/market-statistics", async (req, res) => {
     cryptocurrency: req.query.cryptocurrency,
   });
 
-  return res.send({
+  res.send({
     [TOTAL_CONFIRMATIONS_24H]: cachedConfirmations24h,
     [TOTAL_VOLUME_24H]: cachedVolume24h,
     [TOTAL_CONFIRMATIONS_48H]: cachedConfirmations48h,
@@ -143,43 +144,68 @@ app.get("/api/market-statistics", async (req, res) => {
 app.get("/api/known-accounts", async (req, res) => {
   const knownAccounts = await getKnownAccounts();
 
-  return res.send(knownAccounts);
+  res.send(knownAccounts);
 });
 
 app.get("/api/known-accounts-balance", async (req, res) => {
   const knownAccountsBalance = await getKnownAccountsBalance();
 
-  return res.send(knownAccountsBalance);
+  res.send(knownAccountsBalance);
 });
 
 app.get("/api/node-status", async (req, res) => {
   const { nodeStatus } = await getNodeStatus();
 
-  return res.send(nodeStatus);
+  res.send(nodeStatus);
 });
 
 app.get("/api/node-monitors", async (req, res) => {
   const nodeMonitors = await getNodeMonitors();
 
-  return res.send(nodeMonitors);
+  res.send(nodeMonitors);
 });
 
 app.get("/api/node-locations", async (req, res) => {
   const nodeLocations = await getNodeLocations();
 
-  return res.send(nodeLocations);
+  res.send(nodeLocations);
 });
 
 app.get("/api/delegated-entity", async (req, res) => {
   const delegatedEntity = await getDelegatedEntity();
 
-  return res.send(delegatedEntity);
+  res.send(delegatedEntity);
 });
 
 app.get("/api/telemetry", async (req, res) => {
   const telemetry = await getTelemetry();
 
-  return res.send(telemetry);
+  res.send(telemetry);
+});
+
+app.get("/api/nanoquakejs/scores", async (req, res) => {
+  let json = {};
+  try {
+    const res = await fetch("https://nanoquakejs.com/scores");
+    json = await res.json();
+  } catch (err) {
+    console.log("Error", err);
+  }
+
+  res.send(json);
+});
+
+app.post("/api/nanoquakejs/register", async (req, res, next) => {
+  try {
+    const res = await fetch("https://nanoquakejs.com/register", {
+      method: "POST",
+      body: JSON.stringify(req.body),
+    });
+    const json = await res.json();
+    res.send(json);
+  } catch (err) {
+    next(err);
+  }
 });
 
 app.use(express.static(path.join(__dirname, "../dist")));

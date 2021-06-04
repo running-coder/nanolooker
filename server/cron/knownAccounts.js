@@ -26,7 +26,7 @@ const doKnownAccountsCron = async () => {
           "nano_3sq7fi6tx9h3h7p3h9oe1ppqq3jkd98yx6txymcuorwbbctymtezsf8ay351",
       },
       {
-        alias: "NanoQuakeJS Hot wallet",
+        alias: "NanoQuakeJS",
         account:
           "nano_18rtodfdzxqprb5pamok8surdg91x7wys8yk47uk3xp7cyu3nuc44teysix1",
       },

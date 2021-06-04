@@ -22,7 +22,8 @@ enum Sections {
 const Register: React.FC = () => {
   // const { t } = useTranslation();
   const [isOpen, setIsOpen] = React.useState(false);
-  // const [isSending, setIsSending] = React.useState(false);
+  const [isSending, setIsSending] = React.useState(false);
+  const [isError, setIsError] = React.useState(false);
   const [invalidQrCode, setInvalidQrCode] = React.useState("");
   const [section, setSection] = React.useState(Sections.REGISTER);
   const {
@@ -31,7 +32,6 @@ const Register: React.FC = () => {
     nanoQuakeJSAccount,
     setNanoQuakeJSAccount,
   } = React.useContext(PreferencesContext);
-  // const isMediumAndHigher = !useMediaQuery("(max-width: 768px)");
 
   const {
     register,
@@ -41,26 +41,47 @@ const Register: React.FC = () => {
     getValues,
     formState: { errors, isValid },
   } = useForm({
+    defaultValues: {
+      username: nanoQuakeJSUsername || "",
+      account: nanoQuakeJSAccount || "",
+    },
     mode: "onChange",
   });
-  const onSubmit = ({
+  const onSubmit = async ({
     username,
     account,
   }: {
     username: string;
     account: string;
   }) => {
-    // @TODO API call to register
+    setIsSending(true);
+    setIsError(false);
+    try {
+      const res = await fetch("/api/nanoquakejs/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, address: account }),
+      });
+      const json = await res.json();
+      console.log("Json response", json);
 
-    setNanoQuakeJSUsername(username);
-    setNanoQuakeJSAccount(account);
-    setIsOpen(false);
+      setNanoQuakeJSUsername(username);
+      setNanoQuakeJSAccount(account);
+      setIsOpen(false);
+    } catch (err) {
+      setIsError(true);
+    }
+
+    setIsSending(false);
   };
 
   React.useEffect(() => {
     if (!isOpen) {
       setSection(Sections.REGISTER);
       setInvalidQrCode("");
+      setIsError(false);
     }
   }, [isOpen]);
 
@@ -89,9 +110,15 @@ const Register: React.FC = () => {
   }, [section]);
 
   return (
-    <div>
-      {/* <Space size={12} align="center" direction="vertical" style={{ width: '100%'}}> */}
-      <Row style={{ textAlign: "center", paddingBottom: '3px' }}>
+    <>
+      <Row
+        style={{
+          textAlign: "center",
+          paddingBottom: "3px",
+          border: "none",
+          marginTop: -12,
+        }}
+      >
         <Col xs={24}>
           <Space size={12} align="center" direction="vertical">
             {nanoQuakeJSUsername && nanoQuakeJSAccount ? (
@@ -99,7 +126,8 @@ const Register: React.FC = () => {
                 type="primary"
                 size="large"
                 shape="round"
-                onClick={() => console.log("API to quakejs")}
+                href={`http://www.quakejs.com/play?connect%2078.129.253.179:27960&name%20${nanoQuakeJSUsername}`}
+                target="_blank"
               >
                 Play Now !
               </Button>
@@ -116,7 +144,7 @@ const Register: React.FC = () => {
 
             <QRCodeModal
               account={NANOQUAKEJS_DONATION_ACCOUNT}
-              header={<Text>NanoQuakeJS Hot wallet</Text>}
+              header={<Text>NanoQuakeJS</Text>}
             >
               <Button ghost type="primary" size="small" shape="round">
                 Donate to NanoQuakeJS price pool
@@ -126,10 +154,7 @@ const Register: React.FC = () => {
         </Col>
       </Row>
       {nanoQuakeJSUsername && nanoQuakeJSAccount ? (
-        <Row
-          gutter={24}
-          // style={{ borderTop: "solid 1px #f0f2f5", paddingTop: 12 }}
-        >
+        <Row gutter={24}>
           <Col xs={4} md={4} style={{ textAlign: "right" }}>
             <Natricon
               account={nanoQuakeJSAccount}
@@ -166,7 +191,7 @@ const Register: React.FC = () => {
         okButtonProps={{
           disabled: !isValid,
         }}
-        // confirmLoading={isSending}
+        confirmLoading={isSending}
         onCancel={() => {
           section === Sections.REGISTER
             ? setIsOpen(false)
@@ -175,73 +200,85 @@ const Register: React.FC = () => {
         cancelText={section === Sections.REGISTER ? "Cancel" : "Back"}
       >
         {section === Sections.REGISTER ? (
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <Space size={12} direction="vertical" style={{ width: "100%" }}>
-              <Text>
-                NanoQuakeJS is free to play, forever. If you enjoy the service
-                you can make a small contribution to the NanoQuakeJS price pool.
-              </Text>
-              <Text>Happy fragging!</Text>
+          <>
+            {isError ? (
+              <Alert
+                message={"Unable to complete registration"}
+                type="error"
+                showIcon
+                style={{ marginBottom: 12 }}
+              />
+            ) : null}
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <Space size={12} direction="vertical" style={{ width: "100%" }}>
+                <Text>
+                  NanoQuakeJS is free to play, forever. If you enjoy the service
+                  you can make a small contribution to the NanoQuakeJS price
+                  pool.
+                </Text>
+                <Text>Happy fragging!</Text>
 
-              <Space size={3} direction="vertical" style={{ width: "100%" }}>
-                <Text>In-game username</Text>
-                <Input
-                  autoFocus={!!getValues("username")}
-                  {...register("username", {
-                    required: true,
-                    validate: (value: string) => value.length >= 3,
-                  })}
-                  maxLength={32}
-                  onChange={e => {
-                    setValue("username", e.target.value);
-                    trigger("username");
-                  }}
-                  value={getValues("username")}
-                  suffix={
-                    getValues("username") && !errors?.username ? (
-                      <CheckCircleTwoTone twoToneColor={"#52c41a"} />
-                    ) : (
-                      " "
-                    )
-                  }
-                />
+                <Space size={3} direction="vertical" style={{ width: "100%" }}>
+                  <Text>In-game username</Text>
+                  <Input
+                    readOnly={isSending}
+                    autoFocus={!!getValues("username")}
+                    {...register("username", {
+                      required: true,
+                      validate: (value: string) => value.length >= 3,
+                    })}
+                    maxLength={32}
+                    onChange={e => {
+                      setValue("username", e.target.value);
+                      trigger("username");
+                    }}
+                    value={getValues("username")}
+                    suffix={
+                      getValues("username") && !errors?.username ? (
+                        <CheckCircleTwoTone twoToneColor={"#52c41a"} />
+                      ) : (
+                        " "
+                      )
+                    }
+                  />
+                </Space>
+                <Space size={3} direction="vertical" style={{ width: "100%" }}>
+                  <Text>Account to receive payouts</Text>
+                  <Input
+                    readOnly={isSending}
+                    placeholder="nano_"
+                    {...register("account", {
+                      required: true,
+                      validate: (value: string) => isValidAccountAddress(value),
+                    })}
+                    // @ts-ignore
+                    onPaste={(e: ClipboardEvent<HTMLInputElement>) => {}}
+                    onChange={e => {
+                      setValue("account", e.target.value);
+                      trigger("account");
+                    }}
+                    value={getValues("account")}
+                    suffix={
+                      getValues("account") && !errors?.account ? (
+                        <CheckCircleTwoTone twoToneColor={"#52c41a"} />
+                      ) : (
+                        <Button
+                          size="small"
+                          type="text"
+                          onClick={() => setSection(Sections.SCAN)}
+                        >
+                          <CameraOutlined />
+                        </Button>
+                      )
+                    }
+                  />
+                </Space>
+                <Text style={{ fontSize: 12 }} className="color-muted">
+                  * The username and account are stored in the browser data.
+                </Text>
               </Space>
-              <Space size={3} direction="vertical" style={{ width: "100%" }}>
-                <Text>Account to receive payouts</Text>
-                <Input
-                  placeholder="nano_"
-                  {...register("account", {
-                    required: true,
-                    validate: (value: string) => isValidAccountAddress(value),
-                  })}
-                  // @ts-ignore
-                  onPaste={(e: ClipboardEvent<HTMLInputElement>) => {}}
-                  onChange={e => {
-                    setValue("account", e.target.value);
-                    trigger("account");
-                  }}
-                  value={getValues("account")}
-                  suffix={
-                    getValues("account") && !errors?.account ? (
-                      <CheckCircleTwoTone twoToneColor={"#52c41a"} />
-                    ) : (
-                      <Button
-                        size="small"
-                        type="text"
-                        // style={{ margin: "-1px -8px -1px" }}
-                        onClick={() => setSection(Sections.SCAN)}
-                      >
-                        <CameraOutlined />
-                      </Button>
-                    )
-                  }
-                />
-              </Space>
-              <Text style={{ fontSize: 12 }} className="color-muted">
-                * The username and account are stored in the browser data.
-              </Text>
-            </Space>
-          </form>
+            </form>
+          </>
         ) : null}
         {section === Sections.SCAN ? (
           <>
@@ -258,7 +295,7 @@ const Register: React.FC = () => {
           </>
         ) : null}
       </Modal>
-    </div>
+    </>
   );
 };
 
