@@ -36,7 +36,9 @@
     "executionDate": "上次编译时间为 <0>{{date}}</0>",
     "executionTimeAgo": "上次编译是",
     "node": "节点",
-    "nodes": "节点数"
+    "nodes": "节点数",
+    "cancel": "取消",
+    "back": "后退"
   },
   "nodeHealth": {
     "nodeReloading": "纳米节点正在重新加载",
@@ -302,6 +304,25 @@
     "bookmarks": {
       "viewAll": "查看所有书签",
       "noBookmarksFound": "找不到书签"
+    },
+    "nanoquakejs": {
+      "playNow": "现在播放 ！",
+      "register": "登记",
+      "donatePricePool": "捐赠给 NanoQuakeJS 价格池",
+      "scanWallet": "扫描你的钱包地址",
+      "registerError": "无法完成注册",
+      "registerDescription": "NanoQuakeJS 可以永远免费玩。如果您喜欢这项服务，您可以为 NanoQuakeJS 价格池做出一点贡献。",
+      "happyFragging": "快乐碎片！",
+      "inGameUsername": "游戏内用户名",
+      "accountReceivePayouts": "接收付款的帐户",
+      "registerNote": "用户名和帐户存储在浏览器数据中。",
+      "invalidAccount": "无效账户",
+      "playersOnline": "在线玩家",
+      "welcomeTitle": "进入竞技场并为您的 Frag 获得 NANO 报酬！",
+      "welcomeDescription": "欢迎来到竞技场，在那里高级战士会变成没有骨气的糊状物。抛弃每一分常识和任何怀疑，你冲进了一个令人痛苦的风景和隐藏的深渊的舞台。你的新环境会以熔岩坑和大气危害拒绝你，因为大量敌人围绕着你，测试最初将你带到这里的直觉反应。你的新口头禅：战斗或结束。",
+      "welcomeDescription2": "与您的朋友和世界各地的其他玩家一起玩 1999 年最畅销的第一人称射击游戏，通过互相打架赚取 NANO！",
+      "gameplay": "游戏玩法",
+      "registerErrorUsername": "用户名已被用于其他地址"
     }
   }
 }

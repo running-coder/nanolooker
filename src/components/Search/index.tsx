@@ -11,6 +11,7 @@ import {
 import {
   isValidAccountAddress,
   isValidBlockHash,
+  getPrefixedAccount,
   getAccountAddressFromText,
   getAccountBlockHashFromText,
 } from "components/utils";
@@ -50,15 +51,9 @@ const Search = ({ isHome = false }) => {
         setIsError(!isValidAccount && !isValidBlock);
 
         if (isValidAccount) {
-          let account = value.toLowerCase();
+          let account = getPrefixedAccount(value);
 
-          if (!account.includes("_")) {
-            account = `nano_${account}`;
-            setSearchValue(account);
-          } else if (account.startsWith("xrb_")) {
-            account = account.replace("xrb_", "nano_");
-            setSearchValue(account);
-          }
+          setSearchValue(account);
           addSearchHistory(account);
           history.push(`/account/${account}`);
         } else if (isValidBlock) {

@@ -36,7 +36,9 @@
     "executionDate": "마지막 편집은 <0>{{date}}</0>에있었습니다.",
     "executionTimeAgo": "마지막 편집은",
     "node": "마디",
-    "nodes": "노드"
+    "nodes": "노드",
+    "cancel": "취소",
+    "back": "뒤"
   },
   "nodeHealth": {
     "nodeReloading": "나노 노드가 다시로드됩니다.",
@@ -302,6 +304,25 @@
     "bookmarks": {
       "viewAll": "모든 북마크보기",
       "noBookmarksFound": "북마크가 없습니다."
+    },
+    "nanoquakejs": {
+      "playNow": "지금 플레이하세요!",
+      "register": "레지스터",
+      "donatePricePool": "NanoQuakeJS 가격 풀에 기부",
+      "scanWallet": "지갑 주소 스캔",
+      "registerError": "등록을 완료 할 수 없습니다.",
+      "registerDescription": "NanoQuakeJS는 영원히 무료로 플레이 할 수 있습니다. 서비스를 즐기신다면 NanoQuakeJS 가격 풀에 약간의 기여를 할 수 있습니다.",
+      "happyFragging": "행복한 파편!",
+      "inGameUsername": "게임 내 사용자 이름",
+      "accountReceivePayouts": "판매 대금을받을 계정",
+      "registerNote": "사용자 이름과 계정은 브라우저 데이터에 저장됩니다.",
+      "invalidAccount": "잘못된 계정",
+      "playersOnline": "온라인 플레이어",
+      "welcomeTitle": "아레나에 들어가서 NANO에서 프 래그에 대한 보상을 받으세요!",
+      "welcomeDescription": "아레나에 오신 것을 환영합니다. 이곳에서 고위 전사들이 가시없는 진흙탕으로 변신합니다. 모든 상식과 의심의 흔적을 버리고 끔찍한 풍경과 가려진 심연의 무대로 뛰어 들게됩니다. 당신의 새로운 환경은 용암 구덩이와 대기의 위험으로 당신을 거부하고, 당신을 여기로 데려온 장 반응을 테스트하는 적군이 당신을 둘러싸고 있습니다. 당신의 새로운 진언 : 싸우거나 끝내십시오.",
+      "welcomeDescription2": "친구 및 전 세계의 다른 플레이어와 함께 1999 년 베스트셀러 1 인칭 슈팅 게임을 플레이하고 서로를 찢어 놓고 NANO를 획득하세요!",
+      "gameplay": "게임 플레이",
+      "registerErrorUsername": "이미 다른 주소의 사용자 이름을 사용하고 있습니다."
     }
   }
 }

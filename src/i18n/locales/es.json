@@ -36,7 +36,9 @@
     "executionDate": "La última compilación fue el <0>{{date}}</0>",
     "executionTimeAgo": "La última compilación fue",
     "node": "Nodo",
-    "nodes": "Nodos"
+    "nodes": "Nodos",
+    "cancel": "Cancelar",
+    "back": "atrás"
   },
   "nodeHealth": {
     "nodeReloading": "Nano nodo se está recargando",
@@ -302,6 +304,25 @@
     "bookmarks": {
       "viewAll": "Ver todos los marcadores",
       "noBookmarksFound": "No se encontraron marcadores"
+    },
+    "nanoquakejs": {
+      "playNow": "Reproducir ahora !",
+      "register": "Registrarse",
+      "donatePricePool": "Done al grupo de precios de NanoQuakeJS",
+      "scanWallet": "Escanea la dirección de tu billetera",
+      "registerError": "No se pudo completar el registro",
+      "registerDescription": "NanoQuakeJS es un juego gratuito para siempre. Si disfruta del servicio, puede hacer una pequeña contribución al grupo de precios de NanoQuakeJS.",
+      "happyFragging": "¡Feliz fragmentación!",
+      "inGameUsername": "Nombre de usuario del juego",
+      "accountReceivePayouts": "Cuenta para recibir pagos",
+      "registerNote": "El nombre de usuario y la cuenta se almacenan en los datos del navegador.",
+      "invalidAccount": "Cuenta no válida",
+      "playersOnline": "Jugadores online",
+      "welcomeTitle": "¡Salta a la Arena y recibe un pago en NANO por tus Frags!",
+      "welcomeDescription": "Bienvenido a la Arena, donde los guerreros de alto rango se transforman en papilla sin espinas. Abandonando cada gramo de sentido común y cualquier rastro de duda, te lanzas a un escenario de paisajes desgarradores y abismos velados. Tu nuevo entorno te rechaza con pozos de lava y peligros atmosféricos mientras legiones de enemigos te rodean, poniendo a prueba la reacción instintiva que te trajo aquí en primer lugar. Tu nuevo mantra: lucha o acaba.",
+      "welcomeDescription2": "¡Juega el juego de disparos en primera persona más vendido de 1999 con tus amigos y otros jugadores de todo el mundo y gana NANO por destrozarse entre ellos!",
+      "gameplay": "Como se Juega",
+      "registerErrorUsername": "El nombre de usuario ya está tomado para una dirección diferente"
     }
   }
 }

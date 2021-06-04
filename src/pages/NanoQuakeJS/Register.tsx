@@ -1,5 +1,5 @@
 import * as React from "react";
-// import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Alert, Button, Col, Input, Modal, Row, Space, Typography } from "antd";
@@ -7,7 +7,7 @@ import { CheckCircleTwoTone, CameraOutlined } from "@ant-design/icons";
 import { PreferencesContext } from "api/contexts/Preferences";
 import QRCodeModal from "components/QRCodeModal";
 import { Natricon } from "components/Preferences/Natricons/Natricon";
-import { isValidAccountAddress } from "components/utils";
+import { isValidAccountAddress, getPrefixedAccount } from "components/utils";
 
 const { Text } = Typography;
 
@@ -20,10 +20,10 @@ enum Sections {
 }
 
 const Register: React.FC = () => {
-  // const { t } = useTranslation();
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = React.useState(false);
   const [isSending, setIsSending] = React.useState(false);
-  const [isError, setIsError] = React.useState(false);
+  const [registerError, setRegisterError] = React.useState("");
   const [invalidQrCode, setInvalidQrCode] = React.useState("");
   const [section, setSection] = React.useState(Sections.REGISTER);
   const {
@@ -55,23 +55,36 @@ const Register: React.FC = () => {
     account: string;
   }) => {
     setIsSending(true);
-    setIsError(false);
+    setRegisterError("");
+
+    // Prefix account with nano_
+    const address = getPrefixedAccount(account);
+
     try {
       const res = await fetch("/api/nanoquakejs/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ username, address: account }),
+        body: JSON.stringify({
+          username,
+          address,
+        }),
       });
       const json = await res.json();
-      console.log("Json response", json);
-
-      setNanoQuakeJSUsername(username);
-      setNanoQuakeJSAccount(account);
-      setIsOpen(false);
+      if (!json.error) {
+        setNanoQuakeJSUsername(username);
+        setNanoQuakeJSAccount(address);
+        setIsOpen(false);
+      } else {
+        setRegisterError(
+          json.error === "already_registered"
+            ? t("pages.nanoquakejs.registerErrorUsername")
+            : t("pages.nanoquakejs.registerError"),
+        );
+      }
     } catch (err) {
-      setIsError(true);
+      setRegisterError(t("pages.nanoquakejs.registerError"));
     }
 
     setIsSending(false);
@@ -81,7 +94,7 @@ const Register: React.FC = () => {
     if (!isOpen) {
       setSection(Sections.REGISTER);
       setInvalidQrCode("");
-      setIsError(false);
+      setRegisterError("");
     }
   }, [isOpen]);
 
@@ -90,7 +103,7 @@ const Register: React.FC = () => {
 
     function onScanSuccess(qrMessage: any) {
       if (isValidAccountAddress(qrMessage)) {
-        setValue("account", qrMessage);
+        setValue("account", getPrefixedAccount(qrMessage));
         trigger("account");
 
         document.getElementById("html5-qrcode-scan-stop-btn")?.click();
@@ -129,7 +142,7 @@ const Register: React.FC = () => {
                 href={`http://www.quakejs.com/play?connect%2078.129.253.179:27960&name%20${nanoQuakeJSUsername}`}
                 target="_blank"
               >
-                Play Now !
+                {t("pages.nanoquakejs.playNow")}
               </Button>
             ) : (
               <Button
@@ -138,7 +151,7 @@ const Register: React.FC = () => {
                 shape="round"
                 onClick={() => setIsOpen(true)}
               >
-                Register
+                {t("pages.nanoquakejs.register")}
               </Button>
             )}
 
@@ -147,14 +160,14 @@ const Register: React.FC = () => {
               header={<Text>NanoQuakeJS</Text>}
             >
               <Button ghost type="primary" size="small" shape="round">
-                Donate to NanoQuakeJS price pool
+                {t("pages.nanoquakejs.donatePricePool")}
               </Button>
             </QRCodeModal>
           </Space>
         </Col>
       </Row>
       {nanoQuakeJSUsername && nanoQuakeJSAccount ? (
-        <Row gutter={24}>
+        <Row gutter={6}>
           <Col xs={4} md={4} style={{ textAlign: "right" }}>
             <Natricon
               account={nanoQuakeJSAccount}
@@ -177,8 +190,8 @@ const Register: React.FC = () => {
       <Modal
         title={
           section === Sections.REGISTER
-            ? "Register"
-            : "Scan your wallet address"
+            ? t("pages.nanoquakejs.register")
+            : t("pages.nanoquakejs.scanWallet")
         }
         visible={isOpen}
         // @ts-ignore
@@ -187,7 +200,7 @@ const Register: React.FC = () => {
             ? handleSubmit(onSubmit)
             : setSection(Sections.REGISTER)
         }
-        okText={"Register"}
+        okText={t("pages.nanoquakejs.register")}
         okButtonProps={{
           disabled: !isValid,
         }}
@@ -197,13 +210,15 @@ const Register: React.FC = () => {
             ? setIsOpen(false)
             : setSection(Sections.REGISTER);
         }}
-        cancelText={section === Sections.REGISTER ? "Cancel" : "Back"}
+        cancelText={
+          section === Sections.REGISTER ? t("common.cancel") : t("common.back")
+        }
       >
         {section === Sections.REGISTER ? (
           <>
-            {isError ? (
+            {registerError ? (
               <Alert
-                message={"Unable to complete registration"}
+                message={registerError}
                 type="error"
                 showIcon
                 style={{ marginBottom: 12 }}
@@ -211,15 +226,10 @@ const Register: React.FC = () => {
             ) : null}
             <form onSubmit={handleSubmit(onSubmit)}>
               <Space size={12} direction="vertical" style={{ width: "100%" }}>
-                <Text>
-                  NanoQuakeJS is free to play, forever. If you enjoy the service
-                  you can make a small contribution to the NanoQuakeJS price
-                  pool.
-                </Text>
-                <Text>Happy fragging!</Text>
+                <Text>{t("pages.nanoquakejs.registerDescription")}</Text>
 
                 <Space size={3} direction="vertical" style={{ width: "100%" }}>
-                  <Text>In-game username</Text>
+                  <Text>{t("pages.nanoquakejs.inGameUsername")}</Text>
                   <Input
                     readOnly={isSending}
                     autoFocus={!!getValues("username")}
@@ -243,7 +253,7 @@ const Register: React.FC = () => {
                   />
                 </Space>
                 <Space size={3} direction="vertical" style={{ width: "100%" }}>
-                  <Text>Account to receive payouts</Text>
+                  <Text>{t("pages.nanoquakejs.accountReceivePayouts")}</Text>
                   <Input
                     readOnly={isSending}
                     placeholder="nano_"
@@ -274,7 +284,7 @@ const Register: React.FC = () => {
                   />
                 </Space>
                 <Text style={{ fontSize: 12 }} className="color-muted">
-                  * The username and account are stored in the browser data.
+                  * {t("pages.nanoquakejs.registerNote")}
                 </Text>
               </Space>
             </form>
@@ -284,7 +294,7 @@ const Register: React.FC = () => {
           <>
             {invalidQrCode ? (
               <Alert
-                message={"Invalid account"}
+                message={t("pages.nanoquakejs.invalidAccount")}
                 description={invalidQrCode}
                 type="error"
                 showIcon

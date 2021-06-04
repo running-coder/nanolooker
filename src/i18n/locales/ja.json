@@ -36,7 +36,9 @@
     "executionDate": "最後のコンパイルは<0>{{date}}</0>でした",
     "executionTimeAgo": "最後のコンパイルは",
     "node": "ノード",
-    "nodes": "ノード"
+    "nodes": "ノード",
+    "cancel": "キャンセル",
+    "back": "バック"
   },
   "nodeHealth": {
     "nodeReloading": "Nanoノードがリロードしています",
@@ -302,6 +304,25 @@
     "bookmarks": {
       "viewAll": "すべてのブックマークを表示",
       "noBookmarksFound": "ブックマークが見つかりません"
+    },
+    "nanoquakejs": {
+      "playNow": "今すぐプレイ！",
+      "register": "登録",
+      "donatePricePool": "NanoQuakeJS価格プールに寄付",
+      "scanWallet": "ウォレットアドレスをスキャン",
+      "registerError": "登録を完了できません",
+      "registerDescription": "NanoQuakeJS は、永久に無料でプレイできます。このサービスを楽しんだら、NanoQuakeJS の価格プールに少額の寄付をすることができます。",
+      "happyFragging": "ハッピーフラギング！",
+      "inGameUsername": "ゲーム内ユーザー名",
+      "accountReceivePayouts": "支払いを受け取るアカウント",
+      "registerNote": "ユーザー名とアカウントはブラウザのデータに保存されます。",
+      "invalidAccount": "無効なアカウント",
+      "playersOnline": "オンラインのプレーヤー",
+      "welcomeTitle": "アリーナに飛び込んで、あなたのフラグのために NANO で支払いを受けましょう!",
+      "welcomeDescription": "高ランクの戦士が背骨のない泥沼に変身するアリーナへようこそ。常識や疑いの痕跡を一切捨てて、あなたは悲惨な風景とベールに包まれた深淵のステージに突進します。あなたの新しい環境は、溶岩の穴と大気の危険であなたを拒絶し、敵の軍団があなたを取り囲み、そもそもあなたをここに連れてきた腸の反応をテストします.あなたの新しいマントラ: 戦うか、終わるか。",
+      "welcomeDescription2": "1999 年のベストセラーの一人称シューティング ゲームを友達や世界中の他のプレイヤーとプレイして、お互いにフラグを立てて NANO を獲得してください!",
+      "gameplay": "ゲームプレイ",
+      "registerErrorUsername": "ユーザー名はすでに別のアドレスに使用されています"
     }
   }
 }

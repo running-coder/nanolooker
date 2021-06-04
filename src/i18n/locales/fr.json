@@ -36,7 +36,9 @@
     "executionDate": "La dernière compilation a eu lieu le <0>{{date}}</0>",
     "executionTimeAgo": "La dernière compilation était",
     "node": "Nœud",
-    "nodes": "Nœuds"
+    "nodes": "Nœuds",
+    "cancel": "Annuler",
+    "back": "Dos"
   },
   "nodeHealth": {
     "nodeReloading": "Le nœud Nano est en cours de rechargement",
@@ -302,6 +304,25 @@
     "bookmarks": {
       "viewAll": "Afficher tous les signets",
       "noBookmarksFound": "Aucun signet trouvé"
+    },
+    "nanoquakejs": {
+      "playNow": "Joue maintenant !",
+      "register": "S'inscrire",
+      "donatePricePool": "Faire un don au pool de prix NanoQuakeJS",
+      "scanWallet": "Scannez l'adresse de votre portefeuille",
+      "registerError": "Impossible de terminer l'inscription",
+      "registerDescription": "NanoQuakeJS est gratuit pour toujours. Si vous appréciez le service, vous pouvez apporter une petite contribution au pool de prix NanoQuakeJS.",
+      "happyFragging": "Bonne frag !",
+      "inGameUsername": "Nom d'utilisateur dans le jeu",
+      "accountReceivePayouts": "Compte pour recevoir des paiements",
+      "registerNote": "Le nom d'utilisateur et le compte sont stockés dans les données du navigateur.",
+      "invalidAccount": "Compte invalide",
+      "playersOnline": "Joueurs en ligne",
+      "welcomeTitle": "Sautez dans l'arène et soyez payé en NANO pour vos frags !",
+      "welcomeDescription": "Bienvenue dans l'Arène, où les guerriers de haut rang sont transformés en bouillie sans épines. Abandonnant toute once de bon sens et toute trace de doute, vous vous précipitez sur une scène de paysages poignants et d'abîmes voilés. Votre nouvel environnement vous rejette avec des fosses de lave et des dangers atmosphériques alors que des légions d'ennemis vous entourent, testant la réaction intestinale qui vous a amené ici en premier lieu. Votre nouveau mantra : combattre ou être fini.",
+      "welcomeDescription2": "Jouez au jeu de tir à la première personne le plus vendu de 1999 avec vos amis et d'autres joueurs du monde entier et gagnez NANO pour vous être battus !",
+      "gameplay": "Gameplay",
+      "registerErrorUsername": "Le nom d'utilisateur est déjà pris pour une adresse différente"
     }
   }
 }

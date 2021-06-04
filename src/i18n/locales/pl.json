@@ -36,7 +36,9 @@
     "executionDate": "Ostatnia kompilacja miała miejsce <0>{{date}}</0>",
     "executionTimeAgo": "Ostatnia kompilacja to",
     "node": "Węzeł",
-    "nodes": "Węzły"
+    "nodes": "Węzły",
+    "cancel": "Anuluj",
+    "back": "Z powrotem"
   },
   "nodeHealth": {
     "nodeReloading": "Nano Node jest przeładowywana",
@@ -302,6 +304,25 @@
     "bookmarks": {
       "viewAll": "Wyświetl wszystkie zakładki",
       "noBookmarksFound": "Nie znaleziono zakładek"
+    },
+    "nanoquakejs": {
+      "playNow": "Zagraj teraz !",
+      "register": "Zarejestrować",
+      "donatePricePool": "Przekaż darowiznę na pulę cen NanoQuakeJS",
+      "scanWallet": "Zeskanuj swój adres portfela",
+      "registerError": "Nie można dokończyć rejestracji",
+      "registerDescription": "NanoQuakeJS jest darmowy na zawsze. Jeśli spodoba Ci się usługa, możesz wnieść niewielki wkład do puli cen NanoQuakeJS.",
+      "happyFragging": "Miłego fragowania!",
+      "inGameUsername": "Nazwa użytkownika w grze",
+      "accountReceivePayouts": "Konto do otrzymywania wypłat",
+      "registerNote": "Nazwa użytkownika i konto są przechowywane w danych przeglądarki.",
+      "invalidAccount": "Nieważne konto",
+      "playersOnline": "Gracze online",
+      "welcomeTitle": "Wskocz na arenę i zarabiaj w NANO za swoje Fragi!",
+      "welcomeDescription": "Witamy na Arenie, gdzie wysocy rangą wojownicy zamieniają się w pozbawioną kręgosłupa papkę. Porzucając wszelką nutę zdrowego rozsądku i wszelkie ślady wątpliwości, rzucasz się na scenę wstrząsających krajobrazów i zawoalowanych otchłani. Twoje nowe środowisko odrzuca cię z dołami lawy i zagrożeniami atmosferycznymi, gdy otaczają cię legiony wrogów, testując reakcję jelit, która cię tu przywiodła. Twoja nowa mantra: walcz lub skończ.",
+      "welcomeDescription2": "Zagraj w najlepiej sprzedającą się strzelankę FPS z 1999 r. ze znajomymi i innymi graczami z całego świata, zdobywając NANO za wzajemne fragowanie!",
+      "gameplay": "Rozgrywka",
+      "registerErrorUsername": "Nazwa użytkownika jest już zajęta dla innego adresu"
     }
   }
 }

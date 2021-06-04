@@ -98,6 +98,16 @@ export const getAccountAddressFromText = (text: string): string | null => {
   return address;
 };
 
+export const getPrefixedAccount = (address: string) => {
+  let account = address.toLowerCase();
+  if (!address.includes("_")) {
+    account = `nano_${address}`;
+  } else if (address.startsWith("xrb_")) {
+    account = address.replace("xrb_", "nano_");
+  }
+  return account;
+}
+
 export const isOpenAccountBlockHash = (hash: string): boolean =>
   /^[0]{64}$/.test(hash);
 

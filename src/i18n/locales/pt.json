@@ -36,7 +36,9 @@
     "executionDate": "A última compilação foi em <0>{{date}}</0>",
     "executionTimeAgo": "A última compilação foi",
     "node": "Nó",
-    "nodes": "Nós"
+    "nodes": "Nós",
+    "cancel": "Cancelar",
+    "back": "Voltar"
   },
   "nodeHealth": {
     "nodeReloading": "O nó da Nano está recarregando",
@@ -302,6 +304,25 @@
     "bookmarks": {
       "viewAll": "Ver todos os favoritos",
       "noBookmarksFound": "Nenhum marcador encontrado"
+    },
+    "nanoquakejs": {
+      "playNow": "Jogue agora !",
+      "register": "Registro",
+      "donatePricePool": "Doe para o pool de preços do NanoQuakeJS",
+      "scanWallet": "Digitalize o endereço da sua carteira",
+      "registerError": "Incapaz de completar o registro",
+      "registerDescription": "NanoQuakeJS é grátis para jogar, para sempre. Se você gosta do serviço, pode fazer uma pequena contribuição para o pool de preços do NanoQuakeJS.",
+      "happyFragging": "Feliz fragging!",
+      "inGameUsername": "Nome de usuário no jogo",
+      "accountReceivePayouts": "Conta para receber pagamentos",
+      "registerNote": "O nome de usuário e a conta são armazenados nos dados do navegador.",
+      "invalidAccount": "Conta inválida",
+      "playersOnline": "Jogadores online",
+      "welcomeTitle": "Entre na Arena e receba em NANO por seus Frags!",
+      "welcomeDescription": "Bem-vindo à Arena, onde guerreiros de alto escalão são transformados em mingau. Abandonando cada grama de bom senso e qualquer vestígio de dúvida, você se lança em um palco de paisagens angustiantes e abismos velados. Seu novo ambiente rejeita você com poços de lava e perigos atmosféricos enquanto legiões de inimigos o cercam, testando a reação instintiva que o trouxe aqui em primeiro lugar. Seu novo mantra: lute ou acabe.",
+      "welcomeDescription2": "Jogue o jogo de tiro em primeira pessoa mais vendido de 1999 com seus amigos e outros jogadores ao redor do mundo, ganhando NANO por destruir uns aos outros!",
+      "gameplay": "Jogabilidade",
+      "registerErrorUsername": "O nome de usuário já foi usado para um endereço diferente"
     }
   }
 }

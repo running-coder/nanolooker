@@ -197,11 +197,14 @@ app.get("/api/nanoquakejs/scores", async (req, res) => {
 
 app.post("/api/nanoquakejs/register", async (req, res, next) => {
   try {
-    const res = await fetch("https://nanoquakejs.com/register", {
+    const response = await fetch("https://nanoquakejs.com/register", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(req.body),
     });
-    const json = await res.json();
+    const json = await response.json();
     res.send(json);
   } catch (err) {
     next(err);

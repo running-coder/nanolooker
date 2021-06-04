@@ -33,6 +33,8 @@
     "bookmark": "Bookmark",
     "bookmarks": "Bookmarks",
     "ok": "Ok",
+    "cancel": "Cancel",
+    "back": "Back",
     "executionDate": "Last compilation was on <0>{{date}}</0>",
     "executionTimeAgo": "Last compilation was",
     "node": "Node",
@@ -302,6 +304,25 @@
     "bookmarks": {
       "viewAll": "View all bookmarks",
       "noBookmarksFound": "No bookmarks found"
+    },
+    "nanoquakejs": {
+      "playNow": "Play Now !",
+      "register": "Register",
+      "donatePricePool": "Donate to NanoQuakeJS price pool",
+      "scanWallet": "Scan your wallet address",
+      "registerError": "Unable to complete registration",
+      "registerDescription": "NanoQuakeJS is free to play, forever. If you enjoy the service you can make a small contribution to the NanoQuakeJS price pool.",
+      "happyFragging": "Happy fragging!",
+      "inGameUsername": "In-game username",
+      "accountReceivePayouts": "Account to receive payouts",
+      "registerNote": "The username and account are stored in the browser data.",
+      "invalidAccount": "Invalid account",
+      "playersOnline": "Players online",
+      "welcomeTitle": "Jump into the Arena and get paid in NANO for your Frags!",
+      "welcomeDescription": "Welcome to the Arena, where high-ranking warriors are transformed into spineless mush. Abandoning every ounce of common sense and any trace of doubt, you lunge onto a stage of harrowing landscapes and veiled abysses. Your new environment rejects you with lava pits and atmospheric hazards as legions of foes surround you, testing the gut reaction that brought you here in the first place. Your new mantra: fight or be finished.",
+      "welcomeDescription2": "Play the 1999 best selling first-person shooter game with your friends and other players around the world earning NANO for fragging each other!",
+      "gameplay": "Gameplay",
+      "registerErrorUsername": "Username is already taken for a different address"
     }
   }
 }

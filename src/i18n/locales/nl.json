@@ -36,7 +36,9 @@
     "executionDate": "De laatste update was op <0>{{date}}</0>",
     "executionTimeAgo": "De laatste update was",
     "node": "Node",
-    "nodes": "Nodes"
+    "nodes": "Nodes",
+    "cancel": "annuleren",
+    "back": "Terug"
   },
   "nodeHealth": {
     "nodeReloading": "Nano node wordt opnieuw geladen",
@@ -302,6 +304,25 @@
     "bookmarks": {
       "viewAll": "Bekijk alle bladwijzers",
       "noBookmarksFound": "Geen bladwijzers gevonden"
+    },
+    "nanoquakejs": {
+      "playNow": "Nu afspelen !",
+      "register": "Registreren",
+      "donatePricePool": "Doneer aan NanoQuakeJS prijspool",
+      "scanWallet": "Scan uw portemonnee-adres",
+      "registerError": "Kan registratie niet voltooien",
+      "registerDescription": "NanoQuakeJS is gratis te spelen, voor altijd. Als u van de service geniet, kunt u een kleine bijdrage leveren aan de NanoQuakeJS-prijzenpool.",
+      "happyFragging": "Veel plezier met frezen!",
+      "inGameUsername": "Gebruikersnaam in de game",
+      "accountReceivePayouts": "Account om uitbetalingen te ontvangen",
+      "registerNote": "De gebruikersnaam en het account worden opgeslagen in de browsergegevens.",
+      "invalidAccount": "Ongeldig account",
+      "playersOnline": "Spelers online",
+      "welcomeTitle": "Spring in de Arena en word in NANO betaald voor je Frags!",
+      "welcomeDescription": "Welkom in de Arena, waar hooggeplaatste krijgers worden omgevormd tot slappe brij. Zonder elk greintje gezond verstand en elk spoor van twijfel achter je te laten, stort je je op een podium van schrijnende landschappen en versluierde afgronden. Je nieuwe omgeving wijst je af met lavaputten en atmosferische gevaren terwijl legioenen vijanden je omsingelen en de darmreactie testen die je hier in de eerste plaats bracht. Je nieuwe mantra: vechten of klaar zijn.",
+      "welcomeDescription2": "Speel het bestverkochte first-person shooter-spel uit 1999 met je vrienden en andere spelers over de hele wereld en verdien NANO door elkaar te belazeren!",
+      "gameplay": "Gameplay",
+      "registerErrorUsername": "Gebruikersnaam is al in gebruik voor een ander adres"
     }
   }
 }
