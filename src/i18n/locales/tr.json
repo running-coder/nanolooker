@@ -324,7 +324,10 @@
       "registerErrorUsername": "Kullanıcı adı zaten farklı bir adres için alınmış",
       "playNanoquakejs": "NanoQuakeJS oyna",
       "trailer": "tanıtım videosu",
-      "payoutDescription": "Ödemeler, her turun sonunda her oyuncuya gönderilecektir. İlişkili hesabın ödeme alabilmesi için oyun içi oyuncu adınızın kayıtlı kullanıcı adınızla eşleştiğinden emin olun."
+      "payoutDescription": "Ödemeler, her turun sonunda her oyuncuya gönderilecektir. İlişkili hesabın ödeme alabilmesi için oyun içi oyuncu adınızın kayıtlı kullanıcı adınızla eşleştiğinden emin olun.",
+      "currentMap": "Geçerli harita",
+      "totalFrags": "Toplam Frag",
+      "gamesPlayed": "Oynanan oyunlar"
     }
   }
 }

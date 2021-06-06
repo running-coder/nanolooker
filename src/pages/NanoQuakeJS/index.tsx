@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Card, Row, Col, Skeleton, Space, Typography } from "antd";
 import { Natricon } from "components/Preferences/Natricons/Natricon";
-// import BigNumber from "bignumber.js";
+import BigNumber from "bignumber.js";
 import useNanoQuakeJS from "./hooks/use-nanoquakejs-scores";
 import { PreferencesContext } from "api/contexts/Preferences";
 import Register from "./Register";
@@ -14,7 +14,7 @@ const { Text, Title } = Typography;
 
 const NanoQuakeJSPage: React.FC = () => {
   const { t } = useTranslation();
-  const { playerCount } = useNanoQuakeJS();
+  const { playerCount, statistics, currentMap } = useNanoQuakeJS();
   const { nanoQuakeJSUsername, nanoQuakeJSAccount } = React.useContext(
     PreferencesContext,
   );
@@ -50,7 +50,7 @@ const NanoQuakeJSPage: React.FC = () => {
                     active
                     title={{ width: "50px" }}
                   >
-                    {playerCount}/12
+                    {playerCount}/14
                   </Skeleton>
                 </Space>
               </Col>
@@ -130,37 +130,57 @@ const NanoQuakeJSPage: React.FC = () => {
         </Col>
       </Row>
 
-      {/* <Row gutter={[12, 0]}>
+      <Row gutter={[12, 0]}>
         <Col xs={{ span: 24, order: 1 }} md={{ span: 12, order: 1 }}>
-          <Title level={3}>Game in progress</Title>
           <Card size="small" bordered={false} className="detail-layout">
             <Row gutter={6}>
               <Col xs={24} sm={6}>
-                Players Online
+                {t("pages.nanoquakejs.currentMap")}
               </Col>
               <Col xs={24} sm={18}>
-                9/12
+                <Skeleton
+                  paragraph={false}
+                  loading={!currentMap}
+                  active
+                  title={{ width: "50%" }}
+                >
+                  {currentMap}
+                </Skeleton>
               </Col>
             </Row>
             <Row gutter={6}>
               <Col xs={24} sm={6}>
-                Map
+                {t("pages.nanoquakejs.totalFrags")}
               </Col>
               <Col xs={24} sm={18}>
-                Q3DM7: Temple of Retribution
+                <Skeleton
+                  paragraph={false}
+                  loading={!statistics?.totalFrags}
+                  active
+                  title={{ width: "25%" }}
+                >
+                  {new BigNumber(statistics?.totalFrags).toFormat()}
+                </Skeleton>
               </Col>
             </Row>
             <Row gutter={6}>
               <Col xs={24} sm={6}>
-                Status
+                {t("pages.nanoquakejs.gamesPlayed")}
               </Col>
               <Col xs={24} sm={18}>
-                Match in progress, 10:31
+                <Skeleton
+                  paragraph={false}
+                  loading={!statistics?.gamesPlayed}
+                  active
+                  title={{ width: "25%" }}
+                >
+                  {new BigNumber(statistics?.gamesPlayed).toFormat()}
+                </Skeleton>
               </Col>
             </Row>
           </Card>
         </Col>
-        <Col xs={{ span: 24, order: 3 }} md={{ span: 12, order: 2 }}>
+        {/* <Col xs={{ span: 24, order: 3 }} md={{ span: 12, order: 2 }}>
           <Title level={3}>Statistics</Title>
           <Card size="small" bordered={false} className="detail-layout">
             <Row gutter={6}>
@@ -204,11 +224,11 @@ const NanoQuakeJSPage: React.FC = () => {
               </Col>
             </Row>
           </Card>
-        </Col>
-        <Col xs={{ span: 24, order: 2 }} md={{ order: 3 }}>
+        </Col> */}
+        {/* <Col xs={{ span: 24, order: 2 }} md={{ order: 3 }}>
           <Scores />
-        </Col>
-      </Row> */}
+        </Col> */}
+      </Row>
     </>
   );
 };

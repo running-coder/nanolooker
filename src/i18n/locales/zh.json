@@ -324,7 +324,10 @@
       "registerErrorUsername": "用户名已被用于其他地址",
       "playNanoquakejs": "玩 NanoQuakeJS",
       "trailer": "预告片",
-      "payoutDescription": "奖金将在每轮结束时发送给每位玩家。确保您的游戏内玩家名称与您注册的用户名匹配，以便关联的帐户可以接收付款。"
+      "payoutDescription": "奖金将在每轮结束时发送给每位玩家。确保您的游戏内玩家名称与您注册的用户名匹配，以便关联的帐户可以接收付款。",
+      "currentMap": "当前地图",
+      "totalFrags": "总碎片",
+      "gamesPlayed": "玩过的游戏"
     }
   }
 }

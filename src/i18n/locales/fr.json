@@ -324,7 +324,10 @@
       "registerErrorUsername": "Le nom d'utilisateur est déjà pris pour une adresse différente",
       "playNanoquakejs": "Jouer à NanoQuakeJS",
       "trailer": "Bande annonce",
-      "payoutDescription": "Les paiements seront envoyés à chaque joueur à la fin de chaque tour. Assurez-vous que votre nom de joueur dans le jeu correspond à votre nom d'utilisateur enregistré afin que le compte associé puisse recevoir des paiements."
+      "payoutDescription": "Les paiements seront envoyés à chaque joueur à la fin de chaque tour. Assurez-vous que votre nom de joueur dans le jeu correspond à votre nom d'utilisateur enregistré afin que le compte associé puisse recevoir des paiements.",
+      "currentMap": "Carte actuelle",
+      "totalFrags": "Nombre total de fragments",
+      "gamesPlayed": "Parties jouées"
     }
   }
 }

@@ -324,7 +324,10 @@
       "registerErrorUsername": "Benutzername ist bereits für eine andere Adresse verwendet",
       "playNanoquakejs": "Spielen Sie NanoQuakeJS",
       "trailer": "Anhänger",
-      "payoutDescription": "Die Auszahlungen werden am Ende jeder Runde an jeden Spieler gesendet. Stellen Sie sicher, dass Ihr Spielername im Spiel mit Ihrem registrierten Benutzernamen übereinstimmt, damit das zugehörige Konto Auszahlungen erhalten kann."
+      "payoutDescription": "Die Auszahlungen werden am Ende jeder Runde an jeden Spieler gesendet. Stellen Sie sicher, dass Ihr Spielername im Spiel mit Ihrem registrierten Benutzernamen übereinstimmt, damit das zugehörige Konto Auszahlungen erhalten kann.",
+      "currentMap": "Aktuelle Karte",
+      "totalFrags": "Gesamtfragmente",
+      "gamesPlayed": "Spiele gespielt"
     }
   }
 }
