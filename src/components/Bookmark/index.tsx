@@ -80,20 +80,6 @@ const Bookmark: React.FC<Props> = ({ type, bookmark, placement = "top" }) => {
               autoFocus
               allowClear
             />
-            <Button
-              style={{ padding: "0 12px" }}
-              type="primary"
-              onClick={() => {
-                addBookmark({
-                  type,
-                  bookmark,
-                  value: alias,
-                });
-                setIsOpened(false);
-              }}
-            >
-              {t("common.ok")}
-            </Button>
           </Space>
         </div>
       }

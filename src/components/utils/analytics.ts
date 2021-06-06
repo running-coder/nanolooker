@@ -8,6 +8,7 @@ import {
   getFilterTransactionsRange,
 } from "api/contexts/Preferences";
 import { DEFAULT_UNITS } from "components/Preferences/FilterTransactions/utils";
+import { getBookmarks } from "api/contexts/Bookmarks";
 import { toBoolean } from ".";
 
 const TRACKER = process.env.REACT_APP_GOOGLE_MEASUREMENT_ID;
@@ -23,12 +24,13 @@ class Analytics {
     ga4react.initialize().then(ga4 => {
       this._ga4 = ga4;
 
-      let filterTransactions = toBoolean(
+      const filterTransactions = toBoolean(
         localStorage.getItem(LOCALSTORAGE_KEYS.FILTER_TRANSACTIONS),
       );
-      let filterTransactionsRange: boolean =
+      const filterTransactionsRange: boolean =
         filterTransactions &&
         !isEqual(getFilterTransactionsRange(), DEFAULT_UNITS);
+      const bookmark = toBoolean(Object.keys(getBookmarks("account")).length);
 
       const userProperties = {
         theme: localStorage.getItem(LOCALSTORAGE_KEYS.THEME) || Theme.LIGHT,
@@ -42,6 +44,7 @@ class Analytics {
         filterTransactions,
         filterTransactionsRange,
         language: localStorage.getItem(LOCALSTORAGE_KEYS.LANGUAGE),
+        bookmark,
       };
 
       this._ga4.gtag("set", "user_properties", userProperties);

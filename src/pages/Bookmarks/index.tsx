@@ -10,7 +10,6 @@ const { Title } = Typography;
 const BookmarksPage: React.FC = () => {
   const { t } = useTranslation();
   const { bookmarks } = React.useContext(BookmarksContext);
-
   const hasAccountBookmarks = !!Object.keys(bookmarks?.account || {}).length;
 
   return (

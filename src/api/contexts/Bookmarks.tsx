@@ -1,4 +1,5 @@
 import * as React from "react";
+import { LOCALSTORAGE_KEYS } from "api/contexts/Preferences";
 
 export type BookmarkTypes = "account" | "block";
 
@@ -13,16 +14,15 @@ interface Context {
   removeBookmark: Function;
 }
 
-enum LOCALSTORAGE_KEYS {
-  BOOKMARKS = "BOOKMARKS",
-}
-
-const getBookmarks = (): Bookmarks => {
+export const getBookmarks = (type?: BookmarkTypes): Bookmarks => {
   let bookmarks;
   try {
     bookmarks = JSON.parse(
       window.localStorage.getItem(LOCALSTORAGE_KEYS.BOOKMARKS) || "",
     );
+    if (type) {
+      bookmarks = bookmarks[type];
+    }
   } catch (_e) {}
 
   return bookmarks || {};

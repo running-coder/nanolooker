@@ -22,6 +22,7 @@ const getNodeStatus = async () => {
           free: os.freemem(),
           total: os.totalmem(),
         },
+        cpu: os.cpus(),
         ledgerSize,
         nodeStats: {
           cpu,
