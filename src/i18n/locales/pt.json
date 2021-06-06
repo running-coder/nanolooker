@@ -323,7 +323,8 @@
       "gameplay": "Jogabilidade",
       "registerErrorUsername": "O nome de usuário já foi usado para um endereço diferente",
       "playNanoquakejs": "Jogue NanoQuakeJS",
-      "trailer": "Reboque"
+      "trailer": "Reboque",
+      "payoutDescription": "Os pagamentos serão enviados a cada jogador no final de cada rodada. Certifique-se de que seu nome de jogador no jogo corresponda ao seu nome de usuário registrado para que a conta associada possa receber pagamentos."
     }
   }
 }

@@ -323,7 +323,8 @@
       "gameplay": "Gameplay",
       "registerErrorUsername": "Gebruikersnaam is al in gebruik voor een ander adres",
       "playNanoquakejs": "Speel NanoQuakeJS",
-      "trailer": "Aanhangwagen"
+      "trailer": "Aanhangwagen",
+      "payoutDescription": "Uitbetalingen worden aan het einde van elke ronde naar elke speler verzonden. Zorg ervoor dat de naam van je in-game speler overeenkomt met je geregistreerde gebruikersnaam, zodat het gekoppelde account uitbetalingen kan ontvangen."
     }
   }
 }

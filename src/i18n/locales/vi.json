@@ -323,7 +323,8 @@
       "gameplay": "Gameplay",
       "registerErrorUsername": "Tên người dùng đã được sử dụng cho một địa chỉ khác",
       "playNanoquakejs": "Chơi NanoQuakeJS",
-      "trailer": "Giới thiệu tóm tắt"
+      "trailer": "Giới thiệu tóm tắt",
+      "payoutDescription": "Các khoản thanh toán sẽ được gửi đến từng người chơi vào cuối mỗi vòng đấu. Đảm bảo rằng tên người chơi trong trò chơi của bạn khớp với tên người dùng đã đăng ký của bạn để tài khoản được liên kết có thể nhận được các khoản thanh toán."
     }
   }
 }

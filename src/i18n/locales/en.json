@@ -323,7 +323,8 @@
       "gameplay": "Gameplay",
       "registerErrorUsername": "Username is already taken for a different address",
       "playNanoquakejs": "Play NanoQuakeJS",
-      "trailer": "Trailer"
+      "trailer": "Trailer",
+      "payoutDescription": "Payouts will be sent to each players at the end of each round. Make sure your in-game player name matches your registered username so that the associated account can be receiving payouts."
     }
   }
 }

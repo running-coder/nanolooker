@@ -165,10 +165,6 @@ const Distribution: React.FC = () => {
           name: isInteger(value) ? t("common.accounts") : t("common.balance"),
         }),
       },
-      connectedArea: {
-        visible: true,
-        triggerOn: false,
-      },
       legend: {
         layout: "horizontal",
         position: "top",

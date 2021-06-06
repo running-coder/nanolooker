@@ -1,12 +1,10 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
 import { Alert, Button, Col, Input, Modal, Row, Space, Typography } from "antd";
 import { CheckCircleTwoTone, CameraOutlined } from "@ant-design/icons";
 import { PreferencesContext } from "api/contexts/Preferences";
 import QRCodeModal from "components/QRCodeModal";
-import { Natricon } from "components/Preferences/Natricons/Natricon";
 import { isValidAccountAddress, getPrefixedAccount } from "components/utils";
 
 const { Text } = Typography;
@@ -163,29 +161,13 @@ const Register: React.FC = () => {
                 {t("pages.nanoquakejs.donatePricePool")}
               </Button>
             </QRCodeModal>
+
+            <p className="default-color" style={{ textAlign: "left" }}>
+              {t("pages.nanoquakejs.payoutDescription")}
+            </p>
           </Space>
         </Col>
       </Row>
-      {nanoQuakeJSUsername && nanoQuakeJSAccount ? (
-        <Row gutter={6}>
-          <Col xs={4} md={4} style={{ textAlign: "right" }}>
-            <Natricon
-              account={nanoQuakeJSAccount}
-              style={{
-                margin: "-12px -6px -18px -18px ",
-                width: "80px",
-                height: "80px",
-              }}
-            />
-          </Col>
-          <Col xs={20} md={20} style={{ textAlign: "left" }}>
-            <div className="color-important">{nanoQuakeJSUsername}</div>
-            <Link to={`/account/${nanoQuakeJSAccount}`} className="break-word">
-              {nanoQuakeJSAccount}
-            </Link>
-          </Col>
-        </Row>
-      ) : null}
 
       <Modal
         title={

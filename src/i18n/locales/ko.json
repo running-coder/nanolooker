@@ -323,7 +323,8 @@
       "gameplay": "게임 플레이",
       "registerErrorUsername": "이미 다른 주소의 사용자 이름을 사용하고 있습니다.",
       "playNanoquakejs": "NanoQuakeJS 플레이",
-      "trailer": "트레일러"
+      "trailer": "트레일러",
+      "payoutDescription": "지불금은 각 라운드가 끝날 때 각 플레이어에게 전송됩니다. 게임 내 플레이어 이름이 등록 된 사용자 이름과 일치하는지 확인하여 관련 계정이 판매 대금을받을 수 있도록합니다."
     }
   }
 }

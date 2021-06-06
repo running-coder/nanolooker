@@ -1,9 +1,12 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { Card, Row, Col, Skeleton, Space, Typography } from "antd";
+import { Natricon } from "components/Preferences/Natricons/Natricon";
 // import BigNumber from "bignumber.js";
 import useNanoQuakeJS from "./hooks/use-nanoquakejs-scores";
+import { PreferencesContext } from "api/contexts/Preferences";
 import Register from "./Register";
 // import Scores from "./Scores";
 
@@ -12,6 +15,9 @@ const { Text, Title } = Typography;
 const NanoQuakeJSPage: React.FC = () => {
   const { t } = useTranslation();
   const { playerCount } = useNanoQuakeJS();
+  const { nanoQuakeJSUsername, nanoQuakeJSAccount } = React.useContext(
+    PreferencesContext,
+  );
 
   return (
     <>
@@ -49,6 +55,35 @@ const NanoQuakeJSPage: React.FC = () => {
                 </Space>
               </Col>
             </Row>
+            {nanoQuakeJSUsername && nanoQuakeJSAccount ? (
+              <>
+                <Row gutter={6}>
+                  <Col xs={24}>
+                    <Space size={12}>
+                      <Natricon
+                        account={nanoQuakeJSAccount}
+                        style={{
+                          margin: "-12px -12px -18px -12px ",
+                          width: "80px",
+                          height: "80px",
+                        }}
+                      />
+                      <div>
+                        <div className="color-important default-color">
+                          {nanoQuakeJSUsername}
+                        </div>
+                        <Link
+                          to={`/account/${nanoQuakeJSAccount}`}
+                          className="break-word"
+                        >
+                          {nanoQuakeJSAccount}
+                        </Link>
+                      </div>
+                    </Space>
+                  </Col>
+                </Row>
+              </>
+            ) : null}
             <Row>
               <Col xs={24}>
                 <img
@@ -66,8 +101,9 @@ const NanoQuakeJSPage: React.FC = () => {
                   {t("pages.nanoquakejs.welcomeTitle")}
                 </Title>
 
-                <p>{t("pages.nanoquakejs.welcomeDescription")}</p>
-                <p>{t("pages.nanoquakejs.welcomeDescription2")}</p>
+                <p className="default-color">
+                  {t("pages.nanoquakejs.welcomeDescription")}
+                </p>
               </Col>
             </Row>
             <Register />
@@ -76,6 +112,9 @@ const NanoQuakeJSPage: React.FC = () => {
         <Col xs={24} md={12}>
           <Title level={3}>{t("pages.nanoquakejs.trailer")}</Title>
           <Card size="small" bordered={false} className="detail-layout">
+            <p className="default-color">
+              {t("pages.nanoquakejs.welcomeDescription2")}
+            </p>
             <div className="video-wrapper">
               <iframe
                 width="560"

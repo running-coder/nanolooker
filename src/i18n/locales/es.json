@@ -323,7 +323,8 @@
       "gameplay": "Como se Juega",
       "registerErrorUsername": "El nombre de usuario ya está tomado para una dirección diferente",
       "playNanoquakejs": "Juega NanoQuakeJS",
-      "trailer": "Remolque"
+      "trailer": "Remolque",
+      "payoutDescription": "Los pagos se enviarán a cada jugador al final de cada ronda. Asegúrese de que su nombre de jugador en el juego coincida con su nombre de usuario registrado para que la cuenta asociada pueda recibir pagos."
     }
   }
 }

@@ -323,7 +323,8 @@
       "gameplay": "Rozgrywka",
       "registerErrorUsername": "Nazwa użytkownika jest już zajęta dla innego adresu",
       "playNanoquakejs": "Zagraj w NanoQuakeJS",
-      "trailer": "Zwiastun filmu"
+      "trailer": "Zwiastun filmu",
+      "payoutDescription": "Wypłaty zostaną wysłane do każdego gracza na koniec każdej rundy. Upewnij się, że nazwa gracza w grze jest zgodna z zarejestrowaną nazwą użytkownika, aby powiązane konto mogło otrzymywać wypłaty."
     }
   }
 }

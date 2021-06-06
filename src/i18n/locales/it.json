@@ -323,7 +323,8 @@
       "gameplay": "Gioco",
       "registerErrorUsername": "Il nome utente è già stato utilizzato per un indirizzo diverso",
       "playNanoquakejs": "Gioca a NanoQuakeJS",
-      "trailer": "trailer"
+      "trailer": "trailer",
+      "payoutDescription": "I pagamenti verranno inviati a ciascun giocatore alla fine di ogni round. Assicurati che il tuo nome giocatore di gioco corrisponda al tuo nome utente registrato in modo che l'account associato possa ricevere i pagamenti."
     }
   }
 }
