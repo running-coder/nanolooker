@@ -84,7 +84,8 @@
     "uptime": "Düğümün en son yeniden başlatılmasından bu yana geçen süre.",
     "pendingTransactionCount": "Bekleyen işlemlerin sayısı, görüntülenen {{count}} sınırını aşıyor.",
     "mnano": "Mnano, cüzdanlarda, borsalarda ve hizmetlerde kullanılan mevcut standart bölümdür. 1 NANO olarak anılır.",
-    "versionsByWeight": "Bir sürümün ağın fikir birliğini devralması için, minimum {{onlineWeightMinimum}} NANO'dan çevrimiçi oy ağırlığının% 67'sine sahip olması gerekir."
+    "versionsByWeight": "Bir sürümün ağın fikir birliğini devralması için, minimum {{onlineWeightMinimum}} NANO'dan çevrimiçi oy ağırlığının% 67'sine sahip olması gerekir.",
+    "onChainVolume": "Ağda onaylanan tüm NANO işlemlerinin toplamı. Aynı gün A kullanıcısı 1 NANO gönderir ve B kullanıcısı 1 NANO alırsa, 2 işlem yayınlanıp onaylandığı için gönderme ve alma olmak üzere günlük hacme 2 NANO eklenir."
   },
   "search": {
     "searchBy": "Adres / Blok / Bilinen Hesap ile Ara",
@@ -307,7 +308,6 @@
     "nanoquakejs": {
       "playNow": "Şimdi oyna !",
       "register": "Kayıt ol",
-      "donatePricePool": "NanoQuakeJS fiyat havuzuna bağış yapın",
       "scanWallet": "Cüzdan adresinizi tarayın",
       "registerError": "Kayıt tamamlanamadı",
       "registerDescription": "NanoQuakeJS sonsuza kadar oynamak ücretsizdir. Hizmetten hoşlanıyorsanız, NanoQuakeJS fiyat havuzuna küçük bir katkı sağlayabilirsiniz.",
@@ -327,7 +327,8 @@
       "payoutDescription": "Ödemeler, her turun sonunda her oyuncuya gönderilecektir. İlişkili hesabın ödeme alabilmesi için oyun içi oyuncu adınızın kayıtlı kullanıcı adınızla eşleştiğinden emin olun.",
       "currentMap": "Geçerli harita",
       "totalFrags": "Toplam Frag",
-      "gamesPlayed": "Oynanan oyunlar"
+      "gamesPlayed": "Oynanan oyunlar",
+      "donatePrizePool": "NanoQuakeJS ödül havuzuna bağış yapın"
     }
   }
 }

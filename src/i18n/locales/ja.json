@@ -84,7 +84,8 @@
     "uptime": "ノードが最後に再起動されてからの時間。",
     "pendingTransactionCount": "保留中のトランザクションの数が、表示されている制限の{{count}}を超えています。",
     "mnano": "Mnanoは、ウォレット、取引所、サービスで使用されている現在の標準部門です。 1NANOと呼ばれます。",
-    "versionsByWeight": "ネットワークのコンセンサスを引き継ぐバージョンの場合、最小の{{onlineWeightMinimum}} NANOからのオンライン投票の重みの67％が必要です。"
+    "versionsByWeight": "ネットワークのコンセンサスを引き継ぐバージョンの場合、最小の{{onlineWeightMinimum}} NANOからのオンライン投票の重みの67％が必要です。",
+    "onChainVolume": "ネットワーク上で確認されたすべての NANO トランザクションの合計。ユーザー A が同じ日に 1 つの NANO を送信し、ユーザー B が 1 つの NANO を受信した場合、2 つのトランザクションがブロードキャストおよび確認されたため、1 日のボリュームに 2 つの NANO が追加されます。"
   },
   "search": {
     "searchBy": "アドレス/ブロック/既知のアカウントで検索",
@@ -307,7 +308,6 @@
     "nanoquakejs": {
       "playNow": "今すぐプレイ！",
       "register": "登録",
-      "donatePricePool": "NanoQuakeJS価格プールに寄付",
       "scanWallet": "ウォレットアドレスをスキャン",
       "registerError": "登録を完了できません",
       "registerDescription": "NanoQuakeJS は、永久に無料でプレイできます。このサービスを楽しんだら、NanoQuakeJS の価格プールに少額の寄付をすることができます。",
@@ -327,7 +327,8 @@
       "payoutDescription": "ペイアウトは各ラウンドの終了時に各プレイヤーに送られます。関連付けられたアカウントが支払いを受け取ることができるように、ゲーム内のプレーヤー名が登録済みのユーザー名と一致していることを確認してください。",
       "currentMap": "現在の地図",
       "totalFrags": "総フラグ数",
-      "gamesPlayed": "プレイしたゲーム"
+      "gamesPlayed": "プレイしたゲーム",
+      "donatePrizePool": "NanoQuakeJSの賞金プールに寄付する"
     }
   }
 }

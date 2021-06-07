@@ -84,7 +84,8 @@
     "uptime": "Tijd sinds de node voor het laatst opnieuw is opgestart.",
     "pendingTransactionCount": "Het aantal lopende transacties overschrijdt de weergavelimiet van {{count}}.",
     "mnano": "Mnano is de huidige standaarddivisie die wordt gebruikt in portefeuilles, beurzen en services. Het wordt 1 NANO genoemd.",
-    "versionsByWeight": "Om een versie de consensus van het netwerk te laten overnemen, moet deze {{onlineWeightQuorumPercent}}% van het online stemgewicht hebben van minimaal {{onlineWeightMinimum}} NANO."
+    "versionsByWeight": "Om een versie de consensus van het netwerk te laten overnemen, moet deze {{onlineWeightQuorumPercent}}% van het online stemgewicht hebben van minimaal {{onlineWeightMinimum}} NANO.",
+    "onChainVolume": "De som van alle NANO-transacties die op het netwerk zijn bevestigd. Als gebruiker A 1 NANO verzendt en gebruiker B 1 NANO op dezelfde dag ontvangt, wordt 2 NANO toegevoegd aan het dagelijkse volume omdat er 2 transacties zijn uitgezonden en bevestigd, een verzenden en een ontvangen."
   },
   "search": {
     "searchBy": "Zoeken op adres / block / bekend account",
@@ -307,7 +308,6 @@
     "nanoquakejs": {
       "playNow": "Nu afspelen !",
       "register": "Registreren",
-      "donatePricePool": "Doneer aan NanoQuakeJS prijspool",
       "scanWallet": "Scan uw portemonnee-adres",
       "registerError": "Kan registratie niet voltooien",
       "registerDescription": "NanoQuakeJS is gratis te spelen, voor altijd. Als u van de service geniet, kunt u een kleine bijdrage leveren aan de NanoQuakeJS-prijzenpool.",
@@ -327,7 +327,8 @@
       "payoutDescription": "Uitbetalingen worden aan het einde van elke ronde naar elke speler verzonden. Zorg ervoor dat de naam van je in-game speler overeenkomt met je geregistreerde gebruikersnaam, zodat het gekoppelde account uitbetalingen kan ontvangen.",
       "currentMap": "huidige kaart",
       "totalFrags": "Totaal aantal fragmenten",
-      "gamesPlayed": "Spellen gespeeld"
+      "gamesPlayed": "Spellen gespeeld",
+      "donatePrizePool": "Doneer aan NanoQuakeJS prijzenpot"
     }
   }
 }

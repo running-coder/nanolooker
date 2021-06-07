@@ -84,7 +84,8 @@
     "uptime": "Tempo trascorso dall'ultimo riavvio del nodo.",
     "pendingTransactionCount": "Il numero di transazioni in sospeso supera il limite visualizzato di {{count}}.",
     "mnano": "Mnano è l'attuale divisione standard utilizzata nei portafogli, negli scambi e nei servizi. È indicato come 1 NANO.",
-    "versionsByWeight": "Affinché una versione abbia il consenso della rete, deve avere il {{onlineWeightQuorumPercent}}% del peso del voto online da un minimo di {{onlineWeightMinimum}} NANO."
+    "versionsByWeight": "Affinché una versione abbia il consenso della rete, deve avere il {{onlineWeightQuorumPercent}}% del peso del voto online da un minimo di {{onlineWeightMinimum}} NANO.",
+    "onChainVolume": "La somma di tutte le transazioni NANO che sono state confermate sulla rete. Se l'utente A invia 1 NANO e l'utente B riceve 1 NANO nello stesso giorno, verranno aggiunti 2 NANO nel volume giornaliero perché sono state trasmesse e confermate 2 transazioni, una di invio e una di ricezione."
   },
   "search": {
     "searchBy": "Cerca per indirizzo / blocco / account noto",
@@ -307,7 +308,6 @@
     "nanoquakejs": {
       "playNow": "Riproduci ora !",
       "register": "Registrati",
-      "donatePricePool": "Fai una donazione al pool di prezzi NanoQuakeJS",
       "scanWallet": "Scansiona l'indirizzo del tuo portafoglio",
       "registerError": "Impossibile completare la registrazione",
       "registerDescription": "NanoQuakeJS è gratuito, per sempre. Se ti piace il servizio puoi dare un piccolo contributo al montepremi NanoQuakeJS.",
@@ -327,7 +327,8 @@
       "payoutDescription": "I pagamenti verranno inviati a ciascun giocatore alla fine di ogni round. Assicurati che il tuo nome giocatore di gioco corrisponda al tuo nome utente registrato in modo che l'account associato possa ricevere i pagamenti.",
       "currentMap": "Mappa attuale",
       "totalFrags": "Frammenti totali",
-      "gamesPlayed": "Giochi giocati"
+      "gamesPlayed": "Giochi giocati",
+      "donatePrizePool": "Dona al montepremi NanoQuakeJS"
     }
   }
 }

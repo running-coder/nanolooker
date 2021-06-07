@@ -84,7 +84,8 @@
     "uptime": "Zeit seit dem letzten Neustart des Knotens.",
     "pendingTransactionCount": "Die Anzahl der ausstehenden Transaktionen überschreitet das angezeigte Limit von {{count}}.",
     "mnano": "Mnano ist die derzeitige Standardabteilung für Brieftaschen, Börsen und Dienstleistungen. Es wird als 1 NANO bezeichnet.",
-    "versionsByWeight": "Damit eine Version den Konsens des Netzwerks übernimmt, muss sie {{onlineWeightQuorumPercent}}% des Online-Abstimmungsgewichts von mindestens {{onlineWeightMinimum}} NANO haben."
+    "versionsByWeight": "Damit eine Version den Konsens des Netzwerks übernimmt, muss sie {{onlineWeightQuorumPercent}}% des Online-Abstimmungsgewichts von mindestens {{onlineWeightMinimum}} NANO haben.",
+    "onChainVolume": "Die Summe aller NANO-Transaktionen, die im Netzwerk bestätigt wurden. Wenn Benutzer A 1 NANO sendet und Benutzer B 1 NANO am selben Tag empfängt, werden 2 NANO zum Tagesvolumen hinzugefügt, da 2 Transaktionen gesendet und bestätigt wurden, ein Senden und ein Empfangen."
   },
   "search": {
     "searchBy": "Suche nach Adresse / Block / Bekanntem Konto",
@@ -307,7 +308,6 @@
     "nanoquakejs": {
       "playNow": "Jetzt abspielen !",
       "register": "Registrieren",
-      "donatePricePool": "Spenden Sie an den NanoQuakeJS-Preispool",
       "scanWallet": "Scannen Sie Ihre Wallet-Adresse",
       "registerError": "Registrierung kann nicht abgeschlossen werden",
       "registerDescription": "NanoQuakeJS ist für immer kostenlos spielbar. Wenn Ihnen der Service gefällt, können Sie einen kleinen Beitrag zum NanoQuakeJS-Preispool leisten.",
@@ -327,7 +327,8 @@
       "payoutDescription": "Die Auszahlungen werden am Ende jeder Runde an jeden Spieler gesendet. Stellen Sie sicher, dass Ihr Spielername im Spiel mit Ihrem registrierten Benutzernamen übereinstimmt, damit das zugehörige Konto Auszahlungen erhalten kann.",
       "currentMap": "Aktuelle Karte",
       "totalFrags": "Gesamtfragmente",
-      "gamesPlayed": "Spiele gespielt"
+      "gamesPlayed": "Spiele gespielt",
+      "donatePrizePool": "Spenden Sie an den NanoQuakeJS-Preispool"
     }
   }
 }

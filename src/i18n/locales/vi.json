@@ -84,7 +84,8 @@
     "uptime": "Thời gian kể từ khi nút được khởi động lại lần cuối.",
     "pendingTransactionCount": "Số lượng giao dịch đang chờ xử lý vượt quá giới hạn được hiển thị là {{count}}.",
     "mnano": "Mnano là bộ phận tiêu chuẩn hiện tại được sử dụng trong ví, trên các sàn giao dịch và dịch vụ. Nó được gọi là 1 NANO.",
-    "versionsByWeight": "Để một phiên bản chiếm được sự đồng thuận của mạng, phiên bản đó cần có {{onlineWeightQuorumPercent}}% trọng lượng bỏ phiếu trực tuyến từ tối thiểu là {{onlineWeightMinimum}} NANO."
+    "versionsByWeight": "Để một phiên bản chiếm được sự đồng thuận của mạng, phiên bản đó cần có {{onlineWeightQuorumPercent}}% trọng lượng bỏ phiếu trực tuyến từ tối thiểu là {{onlineWeightMinimum}} NANO.",
+    "onChainVolume": "Tổng của tất cả các giao dịch NANO đã được xác nhận trên mạng. Nếu người dùng A gửi 1 NANO và người dùng B nhận được 1 NANO trong cùng một ngày, thì 2 NANO sẽ được thêm vào khối lượng hàng ngày vì 2 giao dịch đã được phát và xác nhận, một gửi và một nhận."
   },
   "search": {
     "searchBy": "Tìm kiếm theo Địa chỉ / Khối / Tài khoản Đã biết",
@@ -307,7 +308,6 @@
     "nanoquakejs": {
       "playNow": "Bắt đầu chơi !",
       "register": "Đăng ký",
-      "donatePricePool": "Quyên góp cho nhóm giá NanoQuakeJS",
       "scanWallet": "Quét địa chỉ ví của bạn",
       "registerError": "Không thể hoàn tất đăng ký",
       "registerDescription": "NanoQuakeJS chơi miễn phí, mãi mãi. Nếu bạn thích dịch vụ, bạn có thể đóng góp một phần nhỏ vào tổng giá NanoQuakeJS.",
@@ -327,7 +327,8 @@
       "payoutDescription": "Các khoản thanh toán sẽ được gửi đến từng người chơi vào cuối mỗi vòng đấu. Đảm bảo rằng tên người chơi trong trò chơi của bạn khớp với tên người dùng đã đăng ký của bạn để tài khoản được liên kết có thể nhận được các khoản thanh toán.",
       "currentMap": "Bản đồ hiện tại",
       "totalFrags": "Tổng số Frags",
-      "gamesPlayed": "Trò chơi đã chơi"
+      "gamesPlayed": "Trò chơi đã chơi",
+      "donatePrizePool": "Quyên góp cho tổng giải thưởng NanoQuakeJS"
     }
   }
 }

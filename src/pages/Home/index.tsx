@@ -190,8 +190,9 @@ const HomePage = () => {
               <Col xs={24}>
                 <LoadingStatistic
                   isLoading={
-                    isMarketStatisticsInitialLoading || isMarketStatisticsError
+                    isMarketStatisticsInitialLoading || isMarketStatisticsError || !onChainVolumeChange24h
                   }
+                  tooltip={t("tooltips.onChainVolume")}
                   title={t("pages.home.onChainVolume")}
                   suffix={
                     <StatisticsChange
@@ -205,7 +206,7 @@ const HomePage = () => {
                 />
                 <LoadingStatistic
                   isLoading={
-                    isMarketStatisticsInitialLoading || isMarketStatisticsError
+                    isMarketStatisticsInitialLoading || isMarketStatisticsError || !confirmationChange24h
                   }
                   title={t("pages.home.confirmedTransactions")}
                   suffix={

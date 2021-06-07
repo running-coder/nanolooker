@@ -84,7 +84,8 @@
     "uptime": "Czas od ostatniego restartu Nano Node.",
     "pendingTransactionCount": "Liczba oczekujących transakcji przekracza wyświetlany limit {{count}}.",
     "mnano": "Mnano to obecny standardowy podział stosowany w portfelach, giełdach i usługach. Nazywa się 1 NANO.",
-    "versionsByWeight": "Aby wersja przejęła konsensus sieci, musi mieć {{onlineWeightQuorumPercent}}% głosów online z co najmniej {{onlineWeightMinimum}} NANO."
+    "versionsByWeight": "Aby wersja przejęła konsensus sieci, musi mieć {{onlineWeightQuorumPercent}}% głosów online z co najmniej {{onlineWeightMinimum}} NANO.",
+    "onChainVolume": "Suma wszystkich transakcji NANO, które zostały potwierdzone w sieci. Jeśli użytkownik A wyśle 1 NANO, a użytkownik B otrzyma 1 NANO tego samego dnia, 2 NANO zostaną dodane do dziennego wolumenu, ponieważ 2 transakcje zostały wyemitowane i potwierdzone, wysłanie i odbiór."
   },
   "search": {
     "searchBy": "Wyszukaj według adresu / bloku / znanego konta",
@@ -307,7 +308,6 @@
     "nanoquakejs": {
       "playNow": "Zagraj teraz !",
       "register": "Zarejestrować",
-      "donatePricePool": "Przekaż darowiznę na pulę cen NanoQuakeJS",
       "scanWallet": "Zeskanuj swój adres portfela",
       "registerError": "Nie można dokończyć rejestracji",
       "registerDescription": "NanoQuakeJS jest darmowy na zawsze. Jeśli spodoba Ci się usługa, możesz wnieść niewielki wkład do puli cen NanoQuakeJS.",
@@ -327,7 +327,8 @@
       "payoutDescription": "Wypłaty zostaną wysłane do każdego gracza na koniec każdej rundy. Upewnij się, że nazwa gracza w grze jest zgodna z zarejestrowaną nazwą użytkownika, aby powiązane konto mogło otrzymywać wypłaty.",
       "currentMap": "Aktualna mapa",
       "totalFrags": "Razem Fragi",
-      "gamesPlayed": "Grane gry"
+      "gamesPlayed": "Grane gry",
+      "donatePrizePool": "Przekaż darowiznę na pulę nagród NanoQuakeJS"
     }
   }
 }

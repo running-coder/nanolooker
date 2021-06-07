@@ -84,7 +84,8 @@
     "uptime": "노드가 마지막으로 재부팅 된 이후의 시간입니다.",
     "pendingTransactionCount": "보류중인 트랜잭션 수가 표시된 한도 인 {{count}}을 (를) 초과합니다.",
     "mnano": "Mnano는 지갑, 거래소 및 서비스에서 사용되는 현재 표준 부서입니다. 1 NANO라고합니다.",
-    "versionsByWeight": "버전이 네트워크의 합의를 인수하려면 최소 {{onlineWeightMinimum}} NANO에서 온라인 투표 가중치의 67 %를 가져야합니다."
+    "versionsByWeight": "버전이 네트워크의 합의를 인수하려면 최소 {{onlineWeightMinimum}} NANO에서 온라인 투표 가중치의 67 %를 가져야합니다.",
+    "onChainVolume": "네트워크에서 확인 된 모든 NANO 거래의 합계입니다. 사용자 A가 1 개의 NANO를 전송하고 사용자 B가 같은 날에 1 개의 NANO를 받으면 2 개의 트랜잭션이 브로드 캐스트되고 확인되었으므로 전송 및 수신 1 개로 일일 볼륨에 2 개의 NANO가 추가됩니다."
   },
   "search": {
     "searchBy": "주소 / 차단 / 알려진 계정으로 검색",
@@ -307,7 +308,6 @@
     "nanoquakejs": {
       "playNow": "지금 플레이하세요!",
       "register": "레지스터",
-      "donatePricePool": "NanoQuakeJS 가격 풀에 기부",
       "scanWallet": "지갑 주소 스캔",
       "registerError": "등록을 완료 할 수 없습니다.",
       "registerDescription": "NanoQuakeJS는 영원히 무료로 플레이 할 수 있습니다. 서비스를 즐기신다면 NanoQuakeJS 가격 풀에 약간의 기여를 할 수 있습니다.",
@@ -327,7 +327,8 @@
       "payoutDescription": "지불금은 각 라운드가 끝날 때 각 플레이어에게 전송됩니다. 게임 내 플레이어 이름이 등록 된 사용자 이름과 일치하는지 확인하여 관련 계정이 판매 대금을받을 수 있도록합니다.",
       "currentMap": "현재지도",
       "totalFrags": "총 프 래그",
-      "gamesPlayed": "플레이 한 게임"
+      "gamesPlayed": "플레이 한 게임",
+      "donatePrizePool": "NanoQuakeJS 상금 풀에 기부"
     }
   }
 }

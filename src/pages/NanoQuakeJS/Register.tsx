@@ -158,7 +158,7 @@ const Register: React.FC = () => {
               header={<Text>NanoQuakeJS</Text>}
             >
               <Button ghost type="primary" size="small" shape="round">
-                {t("pages.nanoquakejs.donatePricePool")}
+                {t("pages.nanoquakejs.donatePrizePool")}
               </Button>
             </QRCodeModal>
 

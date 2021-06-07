@@ -84,7 +84,8 @@
     "uptime": "Time since the node was last rebooted.",
     "pendingTransactionCount": "The number of pending transactions exceeds the displayed limit of {{count}}.",
     "mnano": "Mnano is the current standard division used in wallets, on exchanges and services. It is referred as 1 NANO.",
-    "versionsByWeight": "For a version to be taking over the network's consensus, it needs to have {{onlineWeightQuorumPercent}}% of the online voting weight from a minimum of {{onlineWeightMinimum}} NANO."
+    "versionsByWeight": "For a version to be taking over the network's consensus, it needs to have {{onlineWeightQuorumPercent}}% of the online voting weight from a minimum of {{onlineWeightMinimum}} NANO.",
+    "onChainVolume": "The sum of all NANO transactions that have been confirmed on the network. If user A sends 1 NANO and user B receives 1 NANO on the same day, 2 NANO will be added in the daily volume because 2 transactions were broadcasted and confirmed, a send and a receive."
   },
   "search": {
     "searchBy": "Search by Address / Block / Known Account",
@@ -307,7 +308,7 @@
     "nanoquakejs": {
       "playNow": "Play Now !",
       "register": "Register",
-      "donatePricePool": "Donate to NanoQuakeJS price pool",
+      "donatePrizePool": "Donate to NanoQuakeJS prize pool",
       "scanWallet": "Scan your wallet address",
       "registerError": "Unable to complete registration",
       "registerDescription": "NanoQuakeJS is free to play, forever. If you enjoy the service you can make a small contribution to the NanoQuakeJS price pool.",

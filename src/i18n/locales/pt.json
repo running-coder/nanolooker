@@ -84,7 +84,8 @@
     "uptime": "Tempo desde a última reinicialização do nó.",
     "pendingTransactionCount": "O número de transações pendentes excede o limite exibido de {{count}}.",
     "mnano": "Mnano é a divisão padrão atual usada em carteiras, bolsas e serviços. É referido como 1 NANO.",
-    "versionsByWeight": "Para que uma versão assuma o consenso da rede, ela precisa ter {{onlineWeightQuorumPercent}}% do peso da votação online de um mínimo de {{onlineWeightMinimum}} NANO."
+    "versionsByWeight": "Para que uma versão assuma o consenso da rede, ela precisa ter {{onlineWeightQuorumPercent}}% do peso da votação online de um mínimo de {{onlineWeightMinimum}} NANO.",
+    "onChainVolume": "A soma de todas as transações NANO que foram confirmadas na rede. Se o usuário A enviar 1 NANO e o usuário B receber 1 NANO no mesmo dia, 2 NANO serão adicionados no volume diário porque 2 transações foram transmitidas e confirmadas, um envio e um recebimento."
   },
   "search": {
     "searchBy": "Pesquisar por endereço / bloco",
@@ -307,7 +308,6 @@
     "nanoquakejs": {
       "playNow": "Jogue agora !",
       "register": "Registro",
-      "donatePricePool": "Doe para o pool de preços do NanoQuakeJS",
       "scanWallet": "Digitalize o endereço da sua carteira",
       "registerError": "Incapaz de completar o registro",
       "registerDescription": "NanoQuakeJS é grátis para jogar, para sempre. Se você gosta do serviço, pode fazer uma pequena contribuição para o pool de preços do NanoQuakeJS.",
@@ -327,7 +327,8 @@
       "payoutDescription": "Os pagamentos serão enviados a cada jogador no final de cada rodada. Certifique-se de que seu nome de jogador no jogo corresponda ao seu nome de usuário registrado para que a conta associada possa receber pagamentos.",
       "currentMap": "Mapa atual",
       "totalFrags": "Total Frags",
-      "gamesPlayed": "Jogos jogados"
+      "gamesPlayed": "Jogos jogados",
+      "donatePrizePool": "Doe para a premiação do NanoQuakeJS"
     }
   }
 }
