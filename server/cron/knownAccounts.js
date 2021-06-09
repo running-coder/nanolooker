@@ -11,6 +11,7 @@ const {
   KNOWN_ACCOUNTS_BALANCE,
   EXPIRE_48H,
 } = require("../constants");
+const extraKnownAccounts = require("./knownAccounts.json");
 
 const doKnownAccountsCron = async () => {
   let knownAccounts = [];
@@ -19,28 +20,7 @@ const doKnownAccountsCron = async () => {
     knownAccounts = (await res.json()) || [];
 
     // Custom known-account list
-    knownAccounts = knownAccounts.concat([
-      {
-        alias: "imalfect",
-        account:
-          "nano_3sq7fi6tx9h3h7p3h9oe1ppqq3jkd98yx6txymcuorwbbctymtezsf8ay351",
-      },
-      {
-        alias: "NanoQuakeJS",
-        account:
-          "nano_18rtodfdzxqprb5pamok8surdg91x7wys8yk47uk3xp7cyu3nuc44teysix1",
-      },
-      {
-        alias: "Dogecoin creator",
-        account:
-          "nano_3j61hdczpb4z8cchyythzqct6wikn4x5c3bkexyzaj97nm5q73dg9ayntps4",
-      },
-      {
-        alias: "NanoTicker",
-        account:
-          "nano_3tura8g7m7pgrmbxpb8ochtgq3maebd6ayi9tqchchbya9zpa1sfhwugkpmc",
-      },
-    ]);
+    knownAccounts = knownAccounts.concat(extraKnownAccounts);
 
     nodeCache.set(KNOWN_ACCOUNTS, knownAccounts);
   } catch (err) {
