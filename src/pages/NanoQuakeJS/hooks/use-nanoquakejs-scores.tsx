@@ -52,7 +52,7 @@ const useNanoQuakeJS = () => {
 
     nextRequestTimeout = window.setTimeout(() => {
       getScores();
-    }, 10000);
+    }, 5000);
   };
 
   React.useEffect(() => {

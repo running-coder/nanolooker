@@ -310,7 +310,6 @@
       "register": "登记",
       "scanWallet": "扫描你的钱包地址",
       "registerError": "无法完成注册",
-      "registerDescription": "NanoQuakeJS 可以永远免费玩。如果您喜欢这项服务，您可以为 NanoQuakeJS 价格池做出一点贡献。",
       "happyFragging": "快乐碎片！",
       "inGameUsername": "游戏内用户名",
       "accountReceivePayouts": "接收付款的帐户",
@@ -328,7 +327,8 @@
       "currentMap": "当前地图",
       "totalFrags": "总碎片",
       "gamesPlayed": "玩过的游戏",
-      "donatePrizePool": "捐赠给 NanoQuakeJS 奖池"
+      "donatePrizePool": "捐赠给 NanoQuakeJS 奖池",
+      "registerDescription": "NanoQuakeJS 可以永远免费玩。如果您喜欢这项服务，您可以为 NanoQuakeJS 奖池做出一点贡献。"
     }
   }
 }

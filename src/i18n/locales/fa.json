@@ -310,7 +310,6 @@
       "register": "ثبت نام",
       "scanWallet": "آدرس کیف پول خود را اسکن کنید",
       "registerError": "ثبت نام امکان پذیر نیست",
-      "registerDescription": "NanoQuakeJS برای همیشه رایگان است. اگر از این خدمات لذت می برید می توانید سهمی ناچیز در مجموعه قیمت NanoQuakeJS داشته باشید.",
       "happyFragging": "شکننده شدن مبارک!",
       "inGameUsername": "نام کاربری درون بازی",
       "accountReceivePayouts": "حساب برای دریافت پرداخت ها",
@@ -328,7 +327,8 @@
       "currentMap": "نقشه فعلی",
       "totalFrags": "Total Frags",
       "gamesPlayed": "بازی های انجام شده",
-      "donatePrizePool": "اهدا به جایزه NanoQuakeJS"
+      "donatePrizePool": "اهدا به جایزه NanoQuakeJS",
+      "registerDescription": "NanoQuakeJS برای همیشه رایگان است. اگر از این خدمات لذت می برید می توانید سهمی ناچیز در جایزه NanoQuakeJS داشته باشید."
     }
   }
 }

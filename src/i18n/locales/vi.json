@@ -310,7 +310,6 @@
       "register": "Đăng ký",
       "scanWallet": "Quét địa chỉ ví của bạn",
       "registerError": "Không thể hoàn tất đăng ký",
-      "registerDescription": "NanoQuakeJS chơi miễn phí, mãi mãi. Nếu bạn thích dịch vụ, bạn có thể đóng góp một phần nhỏ vào tổng giá NanoQuakeJS.",
       "happyFragging": "Happy fragging!",
       "inGameUsername": "Tên người dùng trong trò chơi",
       "accountReceivePayouts": "Tài khoản để nhận các khoản thanh toán",
@@ -328,7 +327,8 @@
       "currentMap": "Bản đồ hiện tại",
       "totalFrags": "Tổng số Frags",
       "gamesPlayed": "Trò chơi đã chơi",
-      "donatePrizePool": "Quyên góp cho tổng giải thưởng NanoQuakeJS"
+      "donatePrizePool": "Quyên góp cho tổng giải thưởng NanoQuakeJS",
+      "registerDescription": "NanoQuakeJS chơi miễn phí, mãi mãi. Nếu bạn thích dịch vụ, bạn có thể đóng góp một phần nhỏ vào giải thưởng NanoQuakeJS."
     }
   }
 }

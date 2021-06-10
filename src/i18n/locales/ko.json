@@ -310,7 +310,6 @@
       "register": "레지스터",
       "scanWallet": "지갑 주소 스캔",
       "registerError": "등록을 완료 할 수 없습니다.",
-      "registerDescription": "NanoQuakeJS는 영원히 무료로 플레이 할 수 있습니다. 서비스를 즐기신다면 NanoQuakeJS 가격 풀에 약간의 기여를 할 수 있습니다.",
       "happyFragging": "행복한 파편!",
       "inGameUsername": "게임 내 사용자 이름",
       "accountReceivePayouts": "판매 대금을받을 계정",
@@ -328,7 +327,8 @@
       "currentMap": "현재지도",
       "totalFrags": "총 프 래그",
       "gamesPlayed": "플레이 한 게임",
-      "donatePrizePool": "NanoQuakeJS 상금 풀에 기부"
+      "donatePrizePool": "NanoQuakeJS 상금 풀에 기부",
+      "registerDescription": "NanoQuakeJS는 영원히 무료로 플레이 할 수 있습니다. 서비스를 즐기시면 NanoQuakeJS 상금 풀에 약간의 기여를 할 수 있습니다."
     }
   }
 }

@@ -310,7 +310,6 @@
       "register": "регистр",
       "scanWallet": "Отсканируйте адрес своего кошелька",
       "registerError": "Невозможно завершить регистрацию",
-      "registerDescription": "В NanoQuakeJS можно играть бесплатно навсегда. Если вам нравится сервис, вы можете внести небольшой вклад в пул цен NanoQuakeJS.",
       "happyFragging": "Удачного фрагинга!",
       "inGameUsername": "Имя пользователя в игре",
       "accountReceivePayouts": "Аккаунт для получения выплат",
@@ -328,7 +327,8 @@
       "currentMap": "Текущая карта",
       "totalFrags": "Всего фрагов",
       "gamesPlayed": "Игр сыграно",
-      "donatePrizePool": "Сделайте пожертвование в призовой фонд NanoQuakeJS"
+      "donatePrizePool": "Сделайте пожертвование в призовой фонд NanoQuakeJS",
+      "registerDescription": "В NanoQuakeJS можно играть бесплатно навсегда. Если вам понравился сервис, вы можете внести небольшой вклад в призовой фонд NanoQuakeJS."
     }
   }
 }

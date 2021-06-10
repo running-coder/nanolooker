@@ -310,7 +310,6 @@
       "register": "Registreren",
       "scanWallet": "Scan uw portemonnee-adres",
       "registerError": "Kan registratie niet voltooien",
-      "registerDescription": "NanoQuakeJS is gratis te spelen, voor altijd. Als u van de service geniet, kunt u een kleine bijdrage leveren aan de NanoQuakeJS-prijzenpool.",
       "happyFragging": "Veel plezier met frezen!",
       "inGameUsername": "Gebruikersnaam in de game",
       "accountReceivePayouts": "Account om uitbetalingen te ontvangen",
@@ -328,7 +327,8 @@
       "currentMap": "huidige kaart",
       "totalFrags": "Totaal aantal fragmenten",
       "gamesPlayed": "Spellen gespeeld",
-      "donatePrizePool": "Doneer aan NanoQuakeJS prijzenpot"
+      "donatePrizePool": "Doneer aan NanoQuakeJS prijzenpot",
+      "registerDescription": "NanoQuakeJS is gratis te spelen, voor altijd. Als u van de service geniet, kunt u een kleine bijdrage leveren aan de NanoQuakeJS-prijzenpot."
     }
   }
 }

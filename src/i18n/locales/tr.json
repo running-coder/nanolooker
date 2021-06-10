@@ -310,7 +310,6 @@
       "register": "Kayıt ol",
       "scanWallet": "Cüzdan adresinizi tarayın",
       "registerError": "Kayıt tamamlanamadı",
-      "registerDescription": "NanoQuakeJS sonsuza kadar oynamak ücretsizdir. Hizmetten hoşlanıyorsanız, NanoQuakeJS fiyat havuzuna küçük bir katkı sağlayabilirsiniz.",
       "happyFragging": "Mutlu parçalama!",
       "inGameUsername": "oyun içi kullanıcı adı",
       "accountReceivePayouts": "Ödeme almak için hesap",
@@ -328,7 +327,8 @@
       "currentMap": "Geçerli harita",
       "totalFrags": "Toplam Frag",
       "gamesPlayed": "Oynanan oyunlar",
-      "donatePrizePool": "NanoQuakeJS ödül havuzuna bağış yapın"
+      "donatePrizePool": "NanoQuakeJS ödül havuzuna bağış yapın",
+      "registerDescription": "NanoQuakeJS sonsuza kadar oynamak ücretsizdir. Hizmetten hoşlanıyorsanız, NanoQuakeJS ödül havuzuna küçük bir katkıda bulunabilirsiniz."
     }
   }
 }

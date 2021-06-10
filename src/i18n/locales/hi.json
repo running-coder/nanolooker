@@ -310,7 +310,6 @@
       "register": "रजिस्टर करें",
       "scanWallet": "अपना वॉलेट पता स्कैन करें",
       "registerError": "पंजीकरण पूरा करने में असमर्थ",
-      "registerDescription": "NanoQuakeJS हमेशा के लिए खेलने के लिए स्वतंत्र है। यदि आप सेवा का आनंद लेते हैं तो आप NanoQuakeJS मूल्य पूल में एक छोटा सा योगदान कर सकते हैं।",
       "happyFragging": "हैप्पी फ्रैगिंग!",
       "inGameUsername": "इन-गेम उपयोगकर्ता नाम",
       "accountReceivePayouts": "पेआउट प्राप्त करने के लिए खाता",
@@ -328,7 +327,8 @@
       "currentMap": "वर्तमान नक्शा",
       "totalFrags": "कुल टुकड़े",
       "gamesPlayed": "खेले गए खेल",
-      "donatePrizePool": "NanoQuakeJS पुरस्कार पूल में दान करें"
+      "donatePrizePool": "NanoQuakeJS पुरस्कार पूल में दान करें",
+      "registerDescription": "NanoQuakeJS हमेशा के लिए खेलने के लिए स्वतंत्र है। यदि आप सेवा का आनंद लेते हैं तो आप NanoQuakeJS पुरस्कार पूल में एक छोटा सा योगदान कर सकते हैं।"
     }
   }
 }
