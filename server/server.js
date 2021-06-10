@@ -186,7 +186,7 @@ app.get("/api/telemetry", async (req, res) => {
 app.get("/api/nanoquakejs/scores", async (req, res) => {
   let json = {};
   try {
-    const res = await fetch("https://nanoquakejs.com/scores");
+    const res = await fetch("https://rainstorm.city/nanoquake/scores");
     json = await res.json();
   } catch (err) {
     console.log("Error", err);
@@ -197,7 +197,7 @@ app.get("/api/nanoquakejs/scores", async (req, res) => {
 
 app.post("/api/nanoquakejs/register", async (req, res, next) => {
   try {
-    const response = await fetch("https://nanoquakejs.com/register", {
+    const response = await fetch("https://rainstorm.city/nanoquake/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
