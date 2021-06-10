@@ -108,7 +108,7 @@ const Banner: React.FC = () => {
           </div>
         </Button>
 
-        {/* <Link to={"/nanoquakejs"}>
+        <Link to={"/nanoquakejs"}>
           <Button ghost>
             <img
               alt="NanoQuakeJS"
@@ -120,7 +120,7 @@ const Banner: React.FC = () => {
             />{" "}
             NanoQuakeJS
           </Button>
-        </Link> */}
+        </Link>
 
         <Button
           ghost
