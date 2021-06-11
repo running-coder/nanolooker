@@ -6,8 +6,9 @@ import BigNumber from "bignumber.js";
 import usePending, { PendingBlock } from "api/hooks/use-pending";
 import useBlocksInfo from "api/hooks/use-blocks-info";
 import { AccountInfoContext } from "api/contexts/AccountInfo";
+import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 import TransactionsTable from "pages/Account/Transactions";
-import { raiToRaw, rawToRai, toBoolean } from "components/utils";
+import { toBoolean } from "components/utils";
 
 import type { Subtype } from "types/transaction";
 
@@ -23,21 +24,45 @@ interface PendingHistoryBlock extends PendingBlock {
   local_timestamp: String;
 }
 
-const PENDING_MIN_THRESHOLD = 0.0001;
+// 0.000001 Nano
+const PENDING_MIN_THRESHOLD = new BigNumber(1e24).toFixed();
+// 0.001 Nano
+const PENDING_MIN_EXCHANGE_THRESHOLD = new BigNumber(1e27).toFixed();
 
 const AccountPendingHistory: React.FC = () => {
   const { t } = useTranslation();
-  const { account, accountInfo } = React.useContext(AccountInfoContext);
+  const [knownExchangesList, setKnownExchangesList] = React.useState<
+    undefined | string[]
+  >();
+  const { account } = React.useContext(AccountInfoContext);
   const {
     pending: { blocks = {} } = {},
     isLoading: isAccountHistoryLoading,
-  } = usePending(account, {
-    count: String(MAX_PENDING_TRANSACTIONS),
-    sorting: true,
-    source: true,
-    threshold: new BigNumber(raiToRaw(PENDING_MIN_THRESHOLD)).toFixed(),
-    include_only_confirmed: false,
-  });
+  } = usePending(
+    typeof knownExchangesList?.length === "number" ? account : "",
+    {
+      count: String(MAX_PENDING_TRANSACTIONS),
+      sorting: true,
+      source: true,
+      threshold: knownExchangesList?.includes(account)
+        ? PENDING_MIN_EXCHANGE_THRESHOLD
+        : PENDING_MIN_THRESHOLD,
+      include_only_confirmed: false,
+    },
+  );
+  const {
+    knownExchangeAccounts,
+    isLoading: isKnownAccountsLoading,
+  } = React.useContext(KnownAccountsContext);
+
+  React.useEffect(() => {
+    if (!isKnownAccountsLoading) {
+      setKnownExchangesList(
+        knownExchangeAccounts.map(({ account }) => account),
+      );
+    }
+  }, [knownExchangeAccounts, isKnownAccountsLoading]);
+
   const [hashes, setHashes] = React.useState<string[]>([]);
   const { blocks: blocksInfo } = useBlocksInfo(hashes);
   const totalPending = Object.keys(blocks).length;
@@ -70,11 +95,12 @@ const AccountPendingHistory: React.FC = () => {
     setHashes(hashes?.slice(start, start + TRANSACTIONS_PER_PAGE));
   }, [blocks, start]);
 
-  const accountPending = accountInfo?.pending
-    ? new BigNumber(rawToRai(accountInfo?.pending)).toNumber()
-    : 0;
+  // const accountPending = accountInfo?.pending
+  //   ? new BigNumber(rawToRai(accountInfo?.pending)).toNumber()
+  //   : 0;
 
-  return accountPending > PENDING_MIN_THRESHOLD ? (
+  // return accountPending > PENDING_MIN_THRESHOLD ? (
+  return pendingHistory?.length ? (
     <>
       <div
         style={{
