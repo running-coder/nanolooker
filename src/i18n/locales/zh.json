@@ -37,7 +37,8 @@
     "executionTimeAgo": "上次编译是",
     "node": "节点",
     "nodes": "节点数",
-    "cancel": "取消"
+    "cancel": "取消",
+    "comingSoon": "即将推出"
   },
   "nodeHealth": {
     "nodeReloading": "纳米节点正在重新加载",
@@ -328,7 +329,14 @@
       "totalFrags": "总碎片",
       "gamesPlayed": "玩过的游戏",
       "donatePrizePool": "捐赠给 NanoQuakeJS 奖池",
-      "registerDescription": "NanoQuakeJS 可以永远免费玩。如果您喜欢这项服务，您可以为 NanoQuakeJS 奖池做出一点贡献。"
+      "registerDescription": "NanoQuakeJS 可以永远免费玩。如果您喜欢这项服务，您可以为 NanoQuakeJS 奖池做出一点贡献。",
+      "launchGame": "开始游戏",
+      "chooseLocation": "选择服务器位置",
+      "chooseLocationDescription": "选择最近的位置以获得最佳的游戏体验。",
+      "leaderboard": "第 3 季排行榜",
+      "rank": "秩",
+      "player": "播放器",
+      "frags": "碎片"
     }
   }
 }

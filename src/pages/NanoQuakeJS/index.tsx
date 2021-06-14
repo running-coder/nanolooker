@@ -8,16 +8,20 @@ import BigNumber from "bignumber.js";
 import useNanoQuakeJS from "./hooks/use-nanoquakejs-scores";
 import { PreferencesContext } from "api/contexts/Preferences";
 import Register from "./Register";
-// import Scores from "./Scores";
+import Leaderboard from "./Leaderboard";
 
 const { Text, Title } = Typography;
 
 const NanoQuakeJSPage: React.FC = () => {
   const { t } = useTranslation();
-  const { playerCount, statistics, currentMap } = useNanoQuakeJS();
+  const { playerCount, statistics, currentMap, topScores } = useNanoQuakeJS();
   const { nanoQuakeJSUsername, nanoQuakeJSAccount } = React.useContext(
     PreferencesContext,
   );
+
+  const playerRank = topScores.find(
+    ({ player }) => player === nanoQuakeJSUsername,
+  )?.rank;
 
   return (
     <>
@@ -70,7 +74,13 @@ const NanoQuakeJSPage: React.FC = () => {
                       />
                       <div>
                         <div className="color-important default-color">
-                          {nanoQuakeJSUsername}
+                          {nanoQuakeJSUsername}{" "}
+                          <span
+                            style={{ fontWeight: "normal" }}
+                            className="color-muted"
+                          >
+                            {playerRank ? `#${playerRank}` : null}
+                          </span>
                         </div>
                         <Link
                           to={`/account/${nanoQuakeJSAccount}`}
@@ -93,45 +103,20 @@ const NanoQuakeJSPage: React.FC = () => {
                   style={{
                     maxWidth: "320px",
                     display: "block",
-                    margin: "-50px auto -30px",
+                    margin: "-50px auto -50px",
                   }}
                 />
 
-                <Title level={4} style={{ textAlign: "center" }}>
+                <Title
+                  level={5}
+                  style={{ textAlign: "center", marginBottom: "24px" }}
+                >
                   {t("pages.nanoquakejs.welcomeTitle")}
                 </Title>
-
-                <p className="default-color">
-                  {t("pages.nanoquakejs.welcomeDescription")}
-                </p>
               </Col>
             </Row>
             <Register />
           </Card>
-        </Col>
-        <Col xs={24} md={12}>
-          <Title level={3}>{t("pages.nanoquakejs.trailer")}</Title>
-          <Card size="small" bordered={false} className="detail-layout">
-            <p className="default-color">
-              {t("pages.nanoquakejs.welcomeDescription2")}
-            </p>
-            <div className="video-wrapper">
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube-nocookie.com/embed/quvLQq_d__E"
-                title="Quake3"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-          </Card>
-        </Col>
-      </Row>
-
-      <Row gutter={[12, 0]}>
-        <Col xs={{ span: 24, order: 1 }} md={{ span: 12, order: 1 }}>
           <Card size="small" bordered={false} className="detail-layout">
             <Row gutter={6}>
               <Col xs={24} sm={6}>
@@ -178,6 +163,34 @@ const NanoQuakeJSPage: React.FC = () => {
                 </Skeleton>
               </Col>
             </Row>
+          </Card>
+        </Col>
+        <Col xs={24} md={12}>
+          <Leaderboard topScores={topScores} />
+        </Col>
+      </Row>
+
+      <Row gutter={[12, 0]}>
+        <Col xs={24} md={12}>
+          <Title level={3}>{t("pages.nanoquakejs.trailer")}</Title>
+          <Card size="small" bordered={false} className="detail-layout">
+            <div className="video-wrapper">
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube-nocookie.com/embed/quvLQq_d__E"
+                title="Quake3"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+
+            <p style={{ marginTop: 12 }}>
+              {t("pages.nanoquakejs.welcomeDescription")}
+            </p>
+
+            <p>{t("pages.nanoquakejs.welcomeDescription2")}</p>
           </Card>
         </Col>
         {/* <Col xs={{ span: 24, order: 3 }} md={{ span: 12, order: 2 }}>

@@ -56,6 +56,8 @@ interface Preferences {
   setNanoQuakeJSUsername: Function;
   nanoQuakeJSAccount: null | string;
   setNanoQuakeJSAccount: Function;
+  nanoQuakeJSServer: null | string;
+  setNanoQuakeJSServer: Function;
 }
 
 export enum LOCALSTORAGE_KEYS {
@@ -70,6 +72,7 @@ export enum LOCALSTORAGE_KEYS {
   BOOKMARKS = "BOOKMARKS",
   NANOQUAKEJS_USERNAME = "NANOQUAKEJS_USERNAME",
   NANOQUAKEJS_ACCOUNT = "NANOQUAKEJS_ACCOUNT",
+  NANOQUAKEJS_SERVER = "NANOQUAKEJS_SERVER",
 }
 
 const MAX_CRYPTOCURRENCY: number = 10;
@@ -115,6 +118,7 @@ export const PreferencesContext = React.createContext<Preferences>({
   natricons: false,
   nanoQuakeJSUsername: null,
   nanoQuakeJSAccount: null,
+  nanoQuakeJSServer: null,
   setTheme: () => {},
   addCryptocurrency: () => {},
   removeCryptocurrency: () => {},
@@ -126,6 +130,7 @@ export const PreferencesContext = React.createContext<Preferences>({
   setNatricons: () => {},
   setNanoQuakeJSUsername: () => {},
   setNanoQuakeJSAccount: () => {},
+  setNanoQuakeJSServer: () => {},
 });
 
 const Provider: React.FC = ({ children }) => {
@@ -160,6 +165,9 @@ const Provider: React.FC = ({ children }) => {
   );
   const [nanoQuakeJSAccount, setNanoQuakeJSAccount] = React.useState(
     localStorage.getItem(LOCALSTORAGE_KEYS.NANOQUAKEJS_ACCOUNT),
+  );
+  const [nanoQuakeJSServer, setNanoQuakeJSServer] = React.useState(
+    localStorage.getItem(LOCALSTORAGE_KEYS.NANOQUAKEJS_SERVER),
   );
 
   const addCryptocurrency = React.useCallback(
@@ -250,6 +258,11 @@ const Provider: React.FC = ({ children }) => {
     setNanoQuakeJSAccount(newValue);
   };
 
+  const setLocalstorageNanoQuakeJSServer = (newValue: string) => {
+    localStorage.setItem(LOCALSTORAGE_KEYS.NANOQUAKEJS_SERVER, `${newValue}`);
+    setNanoQuakeJSServer(newValue);
+  };
+
   return (
     <PreferencesContext.Provider
       value={{
@@ -262,6 +275,7 @@ const Provider: React.FC = ({ children }) => {
         natricons,
         nanoQuakeJSUsername,
         nanoQuakeJSAccount,
+        nanoQuakeJSServer,
         setTheme: setLocalstorageTheme,
         addCryptocurrency,
         removeCryptocurrency,
@@ -273,6 +287,7 @@ const Provider: React.FC = ({ children }) => {
         setNatricons: setLocalstorageNatricons,
         setNanoQuakeJSUsername: setLocalstorageNanoQuakeJSUsername,
         setNanoQuakeJSAccount: setLocalstorageNanoQuakeJSAccount,
+        setNanoQuakeJSServer: setLocalstorageNanoQuakeJSServer,
       }}
     >
       {children}

@@ -37,7 +37,8 @@
     "executionTimeAgo": "最後のコンパイルは",
     "node": "ノード",
     "nodes": "ノード",
-    "cancel": "キャンセル"
+    "cancel": "キャンセル",
+    "comingSoon": "近日公開"
   },
   "nodeHealth": {
     "nodeReloading": "Nanoノードがリロードしています",
@@ -328,7 +329,14 @@
       "totalFrags": "総フラグ数",
       "gamesPlayed": "プレイしたゲーム",
       "donatePrizePool": "NanoQuakeJSの賞金プールに寄付する",
-      "registerDescription": "NanoQuakeJS は、永久に無料でプレイできます。このサービスを楽しんだら、NanoQuakeJS の賞金プールに少額の寄付をすることができます。"
+      "registerDescription": "NanoQuakeJS は、永久に無料でプレイできます。このサービスを楽しんだら、NanoQuakeJS の賞金プールに少額の寄付をすることができます。",
+      "launchGame": "ローンチゲーム",
+      "chooseLocation": "サーバーの場所を選択してください",
+      "chooseLocationDescription": "最高のゲーム内体験を利用するには、最も近い場所を選択してください。",
+      "leaderboard": "シーズン3リーダーボード",
+      "rank": "ランク",
+      "player": "プレーヤー",
+      "frags": "フラグメント"
     }
   }
 }

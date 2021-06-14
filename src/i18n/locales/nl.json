@@ -37,7 +37,8 @@
     "executionTimeAgo": "De laatste update was",
     "node": "Node",
     "nodes": "Nodes",
-    "cancel": "annuleren"
+    "cancel": "annuleren",
+    "comingSoon": "Binnenkort beschikbaar"
   },
   "nodeHealth": {
     "nodeReloading": "Nano node wordt opnieuw geladen",
@@ -328,7 +329,14 @@
       "totalFrags": "Totaal aantal fragmenten",
       "gamesPlayed": "Spellen gespeeld",
       "donatePrizePool": "Doneer aan NanoQuakeJS prijzenpot",
-      "registerDescription": "NanoQuakeJS is gratis te spelen, voor altijd. Als u van de service geniet, kunt u een kleine bijdrage leveren aan de NanoQuakeJS-prijzenpot."
+      "registerDescription": "NanoQuakeJS is gratis te spelen, voor altijd. Als u van de service geniet, kunt u een kleine bijdrage leveren aan de NanoQuakeJS-prijzenpot.",
+      "launchGame": "Start spel",
+      "chooseLocation": "Kies een serverlocatie",
+      "chooseLocationDescription": "Kies de dichtstbijzijnde locatie om te profiteren van de beste in-game-ervaring.",
+      "leaderboard": "Seizoen 3 klassement",
+      "rank": "Rang",
+      "player": "Speler",
+      "frags": "Frags"
     }
   }
 }

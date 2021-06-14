@@ -37,7 +37,8 @@
     "executionTimeAgo": "마지막 편집은",
     "node": "마디",
     "nodes": "노드",
-    "cancel": "취소"
+    "cancel": "취소",
+    "comingSoon": "곧 출시"
   },
   "nodeHealth": {
     "nodeReloading": "나노 노드가 다시로드됩니다.",
@@ -328,7 +329,14 @@
       "totalFrags": "총 프 래그",
       "gamesPlayed": "플레이 한 게임",
       "donatePrizePool": "NanoQuakeJS 상금 풀에 기부",
-      "registerDescription": "NanoQuakeJS는 영원히 무료로 플레이 할 수 있습니다. 서비스를 즐기시면 NanoQuakeJS 상금 풀에 약간의 기여를 할 수 있습니다."
+      "registerDescription": "NanoQuakeJS는 영원히 무료로 플레이 할 수 있습니다. 서비스를 즐기시면 NanoQuakeJS 상금 풀에 약간의 기여를 할 수 있습니다.",
+      "launchGame": "점심 게임",
+      "chooseLocation": "서버 위치 선택",
+      "chooseLocationDescription": "최고의 게임 경험을 누리려면 가장 가까운 위치를 선택하십시오.",
+      "leaderboard": "시즌 3 순위표",
+      "rank": "계급",
+      "player": "플레이어",
+      "frags": "프 래그"
     }
   }
 }

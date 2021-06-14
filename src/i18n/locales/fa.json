@@ -37,7 +37,8 @@
     "executionTimeAgo": "آخرین مجموعه بود",
     "node": "گره",
     "nodes": "گره ها",
-    "cancel": "لغو"
+    "cancel": "لغو",
+    "comingSoon": "به زودی"
   },
   "nodeHealth": {
     "nodeReloading": "گره نانو در حال بارگیری مجدد است",
@@ -328,7 +329,14 @@
       "totalFrags": "Total Frags",
       "gamesPlayed": "بازی های انجام شده",
       "donatePrizePool": "اهدا به جایزه NanoQuakeJS",
-      "registerDescription": "NanoQuakeJS برای همیشه رایگان است. اگر از این خدمات لذت می برید می توانید سهمی ناچیز در جایزه NanoQuakeJS داشته باشید."
+      "registerDescription": "NanoQuakeJS برای همیشه رایگان است. اگر از این خدمات لذت می برید می توانید سهمی ناچیز در جایزه NanoQuakeJS داشته باشید.",
+      "launchGame": "راه اندازی بازی",
+      "chooseLocation": "مکان سرور را انتخاب کنید",
+      "chooseLocationDescription": "نزدیکترین مکان را انتخاب کنید تا از بهترین تجربه در بازی بهره مند شوید.",
+      "leaderboard": "فصل 3 تابلوی امتیازات",
+      "rank": "رتبه بندی",
+      "player": "بازیکن",
+      "frags": "فرها"
     }
   }
 }

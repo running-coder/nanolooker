@@ -6,6 +6,8 @@ import { CheckCircleTwoTone, CameraOutlined } from "@ant-design/icons";
 import { PreferencesContext } from "api/contexts/Preferences";
 import QRCodeModal from "components/QRCodeModal";
 import { isValidAccountAddress, getPrefixedAccount } from "components/utils";
+import { Tracker } from "components/utils/analytics";
+import Play from "./Play";
 
 const { Text } = Typography;
 
@@ -74,6 +76,7 @@ const Register: React.FC = () => {
         setNanoQuakeJSUsername(username);
         setNanoQuakeJSAccount(address);
         setIsOpen(false);
+        Tracker.ga4?.gtag("event", "NanoQuakeJS - Register");
       } else {
         setRegisterError(
           json.error === "already_registered"
@@ -133,15 +136,7 @@ const Register: React.FC = () => {
         <Col xs={24}>
           <Space size={12} align="center" direction="vertical">
             {nanoQuakeJSUsername && nanoQuakeJSAccount ? (
-              <Button
-                type="primary"
-                size="large"
-                shape="round"
-                href={`http://www.quakejs.com/play?connect%2078.129.253.179:27960&name%20${nanoQuakeJSUsername}`}
-                target="_blank"
-              >
-                {t("pages.nanoquakejs.playNow")}
-              </Button>
+              <Play />
             ) : (
               <Button
                 type="primary"

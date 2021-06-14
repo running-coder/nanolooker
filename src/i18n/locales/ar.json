@@ -37,7 +37,8 @@
     "executionTimeAgo": "التجميع الأخير كان",
     "node": "العقدة",
     "nodes": "العقد",
-    "cancel": "يلغي"
+    "cancel": "يلغي",
+    "comingSoon": "قريبا"
   },
   "nodeHealth": {
     "nodeReloading": "يتم إعادة تحميل عقدة النانو",
@@ -328,7 +329,14 @@
       "totalFrags": "مجموع فراجس",
       "gamesPlayed": "الألعاب التي تم لعبها",
       "donatePrizePool": "التبرع لمجمع جوائز NanoQuakeJS",
-      "registerDescription": "NanoQuakeJS مجاني للعب إلى الأبد. إذا كنت تستمتع بالخدمة ، يمكنك تقديم مساهمة صغيرة في مجموعة جوائز NanoQuakeJS."
+      "registerDescription": "NanoQuakeJS مجاني للعب إلى الأبد. إذا كنت تستمتع بالخدمة ، يمكنك تقديم مساهمة صغيرة في مجموعة جوائز NanoQuakeJS.",
+      "launchGame": "ابدا اللعبه",
+      "chooseLocation": "اختر موقع الخادم",
+      "chooseLocationDescription": "اختر أقرب موقع للاستفادة من أفضل تجربة داخل اللعبة.",
+      "leaderboard": "الموسم 3 المتصدرين",
+      "rank": "رتبة",
+      "player": "لاعب",
+      "frags": "فراجس"
     }
   }
 }

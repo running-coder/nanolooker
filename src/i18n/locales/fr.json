@@ -37,7 +37,8 @@
     "executionTimeAgo": "La dernière compilation était",
     "node": "Nœud",
     "nodes": "Nœuds",
-    "cancel": "Annuler"
+    "cancel": "Annuler",
+    "comingSoon": "Bientôt disponible"
   },
   "nodeHealth": {
     "nodeReloading": "Le nœud Nano est en cours de rechargement",
@@ -328,7 +329,14 @@
       "totalFrags": "Nombre total de fragments",
       "gamesPlayed": "Parties jouées",
       "donatePrizePool": "Faire un don à la cagnotte NanoQuakeJS",
-      "registerDescription": "NanoQuakeJS est gratuit pour toujours. Si vous appréciez le service, vous pouvez apporter une petite contribution à la cagnotte NanoQuakeJS."
+      "registerDescription": "NanoQuakeJS est gratuit pour toujours. Si vous appréciez le service, vous pouvez apporter une petite contribution à la cagnotte NanoQuakeJS.",
+      "launchGame": "Lancer le jeu",
+      "chooseLocation": "Choisissez un emplacement de serveur",
+      "chooseLocationDescription": "Choisissez l'emplacement le plus proche pour profiter de la meilleure expérience de jeu.",
+      "leaderboard": "Classement de la saison 3",
+      "rank": "Rang",
+      "player": "Joueur",
+      "frags": "Fragments"
     }
   }
 }

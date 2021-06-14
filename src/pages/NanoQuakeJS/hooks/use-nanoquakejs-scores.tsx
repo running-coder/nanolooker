@@ -1,4 +1,5 @@
 import * as React from "react";
+import orderBy from "lodash/orderBy";
 
 let nextRequestTimeout: number | undefined;
 
@@ -6,7 +7,7 @@ interface ScoresResponse {
   current_map: string;
   games_played: string;
   player_count: string;
-  top_score: any; // TBD
+  top_score: { [key: string]: string };
   total_frags: string;
 }
 
@@ -15,8 +16,14 @@ interface Statistics {
   totalFrags: string;
 }
 
+export interface PlayerScore {
+  rank: number;
+  player: string;
+  frags: number;
+}
+
 const useNanoQuakeJS = () => {
-  const [topScore, setTopScore] = React.useState({});
+  const [topScores, setTopScores] = React.useState([] as PlayerScore[]);
   const [currentMap, setCurrentMap] = React.useState("");
   const [playerCount, setPlayerCount] = React.useState<undefined | string>();
   const [statistics, setStatistics] = React.useState({} as Statistics);
@@ -34,18 +41,32 @@ const useNanoQuakeJS = () => {
           "Content-Type": "application/json",
         },
       });
+      const json = await res.json();
+
       const {
         player_count: playerCount,
-        top_score: topScore,
+        top_score: topScores,
         current_map: currentMap,
         games_played: gamesPlayed,
         total_frags: totalFrags,
-      }: ScoresResponse = await res.json();
+      }: ScoresResponse = json;
+
+      const mappedTopScores = orderBy(
+        Object.entries(topScores).map(([player, frags]) => ({
+          player,
+          frags: parseInt(frags),
+        })),
+        ["frags"],
+        ["desc"],
+      ).map((topScore, index) => ({
+        ...topScore,
+        rank: index + 1,
+      }));
 
       setStatistics({ gamesPlayed, totalFrags });
       setCurrentMap(currentMap);
       setPlayerCount(playerCount);
-      setTopScore(topScore);
+      setTopScores(mappedTopScores);
     } catch (err) {
       setIsError(true);
     }
@@ -73,7 +94,7 @@ const useNanoQuakeJS = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return { playerCount, currentMap, topScore, statistics, isLoading, isError };
+  return { playerCount, currentMap, topScores, statistics, isLoading, isError };
 };
 
 export default useNanoQuakeJS;

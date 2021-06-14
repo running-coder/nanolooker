@@ -37,7 +37,8 @@
     "executionTimeAgo": "अंतिम संकलन था",
     "node": "नोड",
     "nodes": "नोड्स",
-    "cancel": "रद्द करना"
+    "cancel": "रद्द करना",
+    "comingSoon": "जल्द आ रहा है"
   },
   "nodeHealth": {
     "nodeReloading": "नैनो नोड पुनः लोड हो रहा है",
@@ -328,7 +329,14 @@
       "totalFrags": "कुल टुकड़े",
       "gamesPlayed": "खेले गए खेल",
       "donatePrizePool": "NanoQuakeJS पुरस्कार पूल में दान करें",
-      "registerDescription": "NanoQuakeJS हमेशा के लिए खेलने के लिए स्वतंत्र है। यदि आप सेवा का आनंद लेते हैं तो आप NanoQuakeJS पुरस्कार पूल में एक छोटा सा योगदान कर सकते हैं।"
+      "registerDescription": "NanoQuakeJS हमेशा के लिए खेलने के लिए स्वतंत्र है। यदि आप सेवा का आनंद लेते हैं तो आप NanoQuakeJS पुरस्कार पूल में एक छोटा सा योगदान कर सकते हैं।",
+      "launchGame": "खेल प्रारम्भ करना",
+      "chooseLocation": "एक सर्वर स्थान चुनें",
+      "chooseLocationDescription": "सर्वश्रेष्ठ इन-गेम अनुभव का लाभ उठाने के लिए निकटतम स्थान चुनें।",
+      "leaderboard": "सीजन 3 लीडरबोर्ड",
+      "rank": "पद",
+      "player": "खिलाड़ी",
+      "frags": "फ्रैग्स"
     }
   }
 }

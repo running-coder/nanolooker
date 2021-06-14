@@ -37,7 +37,8 @@
     "executionTimeAgo": "Lần biên dịch cuối cùng là",
     "node": "Nút",
     "nodes": "Điểm giao",
-    "cancel": "Huỷ bỏ"
+    "cancel": "Huỷ bỏ",
+    "comingSoon": "Sắp có"
   },
   "nodeHealth": {
     "nodeReloading": "Nút nano đang tải lại",
@@ -328,7 +329,14 @@
       "totalFrags": "Tổng số Frags",
       "gamesPlayed": "Trò chơi đã chơi",
       "donatePrizePool": "Quyên góp cho tổng giải thưởng NanoQuakeJS",
-      "registerDescription": "NanoQuakeJS chơi miễn phí, mãi mãi. Nếu bạn thích dịch vụ, bạn có thể đóng góp một phần nhỏ vào giải thưởng NanoQuakeJS."
+      "registerDescription": "NanoQuakeJS chơi miễn phí, mãi mãi. Nếu bạn thích dịch vụ, bạn có thể đóng góp một phần nhỏ vào giải thưởng NanoQuakeJS.",
+      "launchGame": "Khởi động trò chơi",
+      "chooseLocation": "Chọn một vị trí máy chủ",
+      "chooseLocationDescription": "Chọn vị trí gần nhất để có được trải nghiệm trong trò chơi tốt nhất.",
+      "leaderboard": "Bảng xếp hạng phần 3",
+      "rank": "Cấp",
+      "player": "Người chơi",
+      "frags": "Frags"
     }
   }
 }

@@ -37,7 +37,8 @@
     "executionTimeAgo": "Ostatnia kompilacja to",
     "node": "Węzeł",
     "nodes": "Węzły",
-    "cancel": "Anuluj"
+    "cancel": "Anuluj",
+    "comingSoon": "Wkrótce"
   },
   "nodeHealth": {
     "nodeReloading": "Nano Node jest przeładowywana",
@@ -328,7 +329,14 @@
       "totalFrags": "Razem Fragi",
       "gamesPlayed": "Grane gry",
       "donatePrizePool": "Przekaż darowiznę na pulę nagród NanoQuakeJS",
-      "registerDescription": "NanoQuakeJS jest darmowy na zawsze. Jeśli spodoba Ci się usługa, możesz wnieść niewielki wkład do puli nagród NanoQuakeJS."
+      "registerDescription": "NanoQuakeJS jest darmowy na zawsze. Jeśli spodoba Ci się usługa, możesz wnieść niewielki wkład do puli nagród NanoQuakeJS.",
+      "launchGame": "Uruchom grę",
+      "chooseLocation": "Wybierz lokalizację serwera",
+      "chooseLocationDescription": "Wybierz najbliższą lokalizację, aby skorzystać z najlepszych wrażeń w grze.",
+      "leaderboard": "Tabela wyników sezonu 3",
+      "rank": "Ranga",
+      "player": "Gracz",
+      "frags": "Fragi"
     }
   }
 }

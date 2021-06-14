@@ -37,7 +37,8 @@
     "executionTimeAgo": "Letzte Zusammenstellung war",
     "node": "Knoten",
     "nodes": "Knoten",
-    "cancel": "Stornieren"
+    "cancel": "Stornieren",
+    "comingSoon": "Kommt bald"
   },
   "nodeHealth": {
     "nodeReloading": "Der Nanoknoten wird neu geladen",
@@ -328,7 +329,14 @@
       "totalFrags": "Gesamtfragmente",
       "gamesPlayed": "Spiele gespielt",
       "donatePrizePool": "Spenden Sie an den NanoQuakeJS-Preispool",
-      "registerDescription": "NanoQuakeJS ist für immer kostenlos spielbar. Wenn Ihnen der Service gefällt, können Sie einen kleinen Beitrag zum NanoQuakeJS-Preispool leisten."
+      "registerDescription": "NanoQuakeJS ist für immer kostenlos spielbar. Wenn Ihnen der Service gefällt, können Sie einen kleinen Beitrag zum NanoQuakeJS-Preispool leisten.",
+      "launchGame": "Spiel startet",
+      "chooseLocation": "Wählen Sie einen Serverstandort",
+      "chooseLocationDescription": "Wählen Sie den nächstgelegenen Ort, um von der besten Spielerfahrung zu profitieren.",
+      "leaderboard": "Rangliste der dritten Staffel",
+      "rank": "Rang",
+      "player": "Spieler",
+      "frags": "Frags"
     }
   }
 }

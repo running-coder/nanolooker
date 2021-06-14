@@ -37,7 +37,8 @@
     "executionTimeAgo": "Son derleme",
     "node": "Düğüm",
     "nodes": "Düğümler",
-    "cancel": "İptal etmek"
+    "cancel": "İptal etmek",
+    "comingSoon": "Çok yakında"
   },
   "nodeHealth": {
     "nodeReloading": "Nano düğüm yeniden yükleniyor",
@@ -328,7 +329,14 @@
       "totalFrags": "Toplam Frag",
       "gamesPlayed": "Oynanan oyunlar",
       "donatePrizePool": "NanoQuakeJS ödül havuzuna bağış yapın",
-      "registerDescription": "NanoQuakeJS sonsuza kadar oynamak ücretsizdir. Hizmetten hoşlanıyorsanız, NanoQuakeJS ödül havuzuna küçük bir katkıda bulunabilirsiniz."
+      "registerDescription": "NanoQuakeJS sonsuza kadar oynamak ücretsizdir. Hizmetten hoşlanıyorsanız, NanoQuakeJS ödül havuzuna küçük bir katkıda bulunabilirsiniz.",
+      "launchGame": "Oyunu başlat",
+      "chooseLocation": "Bir sunucu konumu seçin",
+      "chooseLocationDescription": "En iyi oyun içi deneyimden yararlanmak için en yakın konumu seçin.",
+      "leaderboard": "3. Sezon Skor Tablosu",
+      "rank": "rütbe",
+      "player": "oyuncu",
+      "frags": "Fraglar"
     }
   }
 }
