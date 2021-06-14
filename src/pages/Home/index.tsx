@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Card, Col, Row } from "antd";
 import BigNumber from "bignumber.js";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import useAvailableSupply from "api/hooks/use-available-supply";
 import {
   PreferencesContext,
   CurrencySymbol,
@@ -30,6 +31,7 @@ import RecentTransactions from "./RecentTransactions";
 const HomePage = () => {
   const { t } = useTranslation();
   const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
+  const { availableSupply } = useAvailableSupply();
   const { fiat } = React.useContext(PreferencesContext);
   const {
     marketStatistics,
@@ -42,7 +44,6 @@ const HomePage = () => {
     marketCap,
     marketCapChangePercentage24h,
     volume24h,
-    circulatingSupply,
     priceStats: { bitcoin: { [fiat]: btcCurrentPrice = 0 } } = {
       bitcoin: { [fiat]: 0 },
     },
@@ -139,7 +140,7 @@ const HomePage = () => {
                   }
                   title={t("pages.home.circulatingSupply")}
                   tooltip={t("tooltips.circulatingSupply")}
-                  value={new BigNumber(circulatingSupply).toNumber()}
+                  value={new BigNumber(availableSupply).toNumber()}
                 />
                 <LoadingStatistic
                   isLoading={isNodeStatusLoading}

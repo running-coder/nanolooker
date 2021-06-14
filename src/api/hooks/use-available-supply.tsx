@@ -1,28 +1,48 @@
 import * as React from "react";
+import { rpc } from "api/rpc";
 import { rawToRai } from "components/utils";
 
-export interface Return {
+export interface Return extends Supply {
+  isLoading: boolean;
+  isError: boolean;
+}
+
+interface Supply {
   rawAvailableSupply: number;
   availableSupply: number;
 }
 
 const useAvailableSupply = (): Return => {
-  const [availableSupply, setAvailableSupply] = React.useState({} as Return);
+  const [availableSupply, setAvailableSupply] = React.useState({} as Supply);
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [isError, setIsError] = React.useState(false);
 
   const getAvailableSupply = async () => {
-    const rawAvailableSupply = 133247751314337892790698507037689913088;
+    setIsLoading(true);
+    try {
+      const json = await rpc("available_supply");
 
-    setAvailableSupply({
-      rawAvailableSupply,
-      availableSupply: rawToRai(rawAvailableSupply),
-    });
+      if (!json || json.error) {
+        setIsError(true);
+      } else {
+        const rawAvailableSupply = parseInt(json.available);
+        setAvailableSupply({
+          rawAvailableSupply,
+          availableSupply: rawToRai(rawAvailableSupply),
+        });
+      }
+    } catch (err) {
+      setIsError(true);
+    }
+
+    setIsLoading(false);
   };
 
   React.useEffect(() => {
     getAvailableSupply();
   }, []);
 
-  return { ...availableSupply };
+  return { ...availableSupply, isLoading, isError };
 };
 
 export default useAvailableSupply;
