@@ -223,7 +223,8 @@ const Register: React.FC = () => {
                       />
                     )}
                     rules={{
-                      validate: (value: string) => value.length >= 3,
+                      validate: (value: string) =>
+                        value.length >= 3 && !/\s/.test(value),
                     }}
                     control={control}
                     name="username"
