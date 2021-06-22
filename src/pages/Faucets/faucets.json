@@ -29,5 +29,10 @@
     "name": "Nanocafe",
     "account": "nano_1cafe95a81ko3mq3oin4wnubsbw9z3w3tw5a95u47897wxy96r1zj9hxu1wb",
     "link": "https://nanocafe.cc/faucet"
+  },
+  {
+    "name": "TryNano",
+    "account": "nano_3fb56gt1896wmzfrs78oowdjwed9arm1mugtg48eupewfnuq4io1gfjors5j",
+    "link": "https://www.trynano.io/"
   }
 ]
