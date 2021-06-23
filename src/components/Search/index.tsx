@@ -50,15 +50,15 @@ const Search = ({ isHome = false }) => {
 
         setIsError(!isValidAccount && !isValidBlock);
 
-        if (isValidAccount) {
+        if (isValidBlock) {
+          addSearchHistory(value.toUpperCase());
+          history.push(`/block/${value.toUpperCase()}`);
+        } else if (isValidAccount) {
           let account = getPrefixedAccount(value);
 
           setSearchValue(account);
           addSearchHistory(account);
           history.push(`/account/${account}`);
-        } else if (isValidBlock) {
-          addSearchHistory(value.toUpperCase());
-          history.push(`/block/${value.toUpperCase()}`);
         } else {
           const filteredKnownAccounts = knownAccounts
             .filter(({ alias }) =>

@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+  nano-node:
+    image: nanocurrency/nano:V22.1
+    container_name: nano-node
+    hostname: nano-node
+    net: host
+    environment:
+      - TERM=xterm
+    restart: unless-stopped
+    ports:
+      - "7075:7075"
+      - "::1:7076:7076"
+      - "7078:7078"
+    volumes:
+      - /nano:/root
+
+  nano-node-monitor:
+    image: nanotools/nanonodemonitor
+    container_name: nano-node-monitor
+    hostname: nano-node-monitor
+    restart: unless-stopped
+    volumes:
+      - ./nano-node-monitor:/opt/nanoNodeMonitor
+    ports:
+      - "80:80"
+
+  watchtower:
+    image: v2tec/watchtower
+    container_name: watchtower
+    restart: unless-stopped
+    command: watchtower nano-node nano-node-monitor
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+networks:
+  default:
+    external:
+      name: nano-node-network
