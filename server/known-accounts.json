@@ -1,5 +1,13 @@
 [
   {
+    "account": "ban_1swapdwa9wwaxh38htsrupc6zfrcojtqz4kd6jssrat6cec1ggfjnnm6hypz",
+    "alias": "Banano.exchange - swap"
+  },
+  {
+    "account": "ban_1banexkcfuieufzxksfrxqf6xy8e57ry1zdtq9yn7jntzhpwu4pg4hajojmq",
+    "alias": "Banano.exchange"
+  },
+    {
     "account": "ban_3a1dokzzuc334kpsedakxz5hw4cauexjori8spcf7pninujry43dxkbam4o6",
     "alias": "BNswap"
   },
