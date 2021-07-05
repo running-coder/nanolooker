@@ -6,7 +6,7 @@ import { Theme, PreferencesContext } from "api/contexts/Preferences";
 import Search from "components/Search";
 import { Tracker } from "components/utils/analytics";
 
-const { Title } = Typography;
+const { Text, Title } = Typography;
 
 const Banner: React.FC = () => {
   const { t } = useTranslation();
@@ -64,6 +64,30 @@ const Banner: React.FC = () => {
         <Link to={"/what-is-nano"}>
           <Button ghost>{t("menu.whatIsNano")}</Button>
         </Link>
+
+        <Button
+          ghost
+          href="https://nanobrowserquest.com"
+          target="_blank"
+          style={{ padding: "0 10px" }}
+          onClick={() => {
+            Tracker.ga4?.gtag("event", "NanoBrowserQuest");
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <img
+              alt="Go to NanoBrowserQuest"
+              src={`/nanobrowserquest.png`}
+              height="16px"
+            />
+            <Text
+              //@ts-ignore
+              style={{ marginLeft: "6px", color: "gold", fontWeight: "500" }}
+            >
+              NanoBrowserQuest
+            </Text>
+          </div>
+        </Button>
 
         <Link to={"/nanoquakejs"}>
           <Button ghost>
