@@ -1,11 +1,12 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { Button, Card, Col, Modal, Row, Tag, Typography } from "antd";
-import { CheckCircleTwoTone } from "@ant-design/icons";
+import { Button } from "antd";
+// import { Button, Card, Col, Modal, Row, Tag, Typography } from "antd";
+// import { CheckCircleTwoTone } from "@ant-design/icons";
 import { PreferencesContext } from "api/contexts/Preferences";
 import { Tracker } from "components/utils/analytics";
 
-const { Text } = Typography;
+// const { Text } = Typography;
 
 const servers: { [key: string]: Server } = {
   EU: {
@@ -28,54 +29,55 @@ interface Server {
   isComingSoon?: boolean;
 }
 
-const Continent: React.FC<{ server: Server } & { isActive: boolean }> = ({
-  server: { location, image, isComingSoon },
-  isActive,
-}) => {
-  const { t } = useTranslation();
-  return (
-    <div
-      style={{
-        textAlign: "center",
-        cursor: isComingSoon ? "cursor" : "pointer",
-        position: "relative",
-        userSelect: "none",
-      }}
-    >
-      {isActive ? (
-        <CheckCircleTwoTone
-          style={{ position: "absolute", top: 0, right: 0 }}
-        />
-      ) : null}
-      {isComingSoon ? (
-        <Tag style={{ position: "absolute", top: 0, right: 0, zIndex: 2 }}>
-          {t("common.comingSoon")}
-        </Tag>
-      ) : null}
-      <img
-        draggable={false}
-        src={image}
-        alt="text"
-        width="50%"
-        style={!isActive ? { filter: "grayscale(100%)", opacity: "50%" } : {}}
-      />
-      <br />
-      {location}
-    </div>
-  );
-};
+// const Continent: React.FC<{ server: Server } & { isActive: boolean }> = ({
+//   server: { location, image, isComingSoon },
+//   isActive,
+// }) => {
+//   const { t } = useTranslation();
+//   return (
+//     <div
+//       style={{
+//         textAlign: "center",
+//         cursor: isComingSoon ? "cursor" : "pointer",
+//         position: "relative",
+//         userSelect: "none",
+//       }}
+//     >
+//       {isActive ? (
+//         <CheckCircleTwoTone
+//           style={{ position: "absolute", top: 0, right: 0 }}
+//         />
+//       ) : null}
+//       {isComingSoon ? (
+//         <Tag style={{ position: "absolute", top: 0, right: 0, zIndex: 2 }}>
+//           {t("common.comingSoon")}
+//         </Tag>
+//       ) : null}
+//       <img
+//         draggable={false}
+//         src={image}
+//         alt="text"
+//         width="50%"
+//         style={!isActive ? { filter: "grayscale(100%)", opacity: "50%" } : {}}
+//       />
+//       <br />
+//       {location}
+//     </div>
+//   );
+// };
 
 const Play: React.FC = () => {
   const { t } = useTranslation();
-  const [isOpen, setIsOpen] = React.useState(false);
+  // const [isOpen, setIsOpen] = React.useState(false);
   const {
     nanoQuakeJSUsername,
-    nanoQuakeJSServer,
-    setNanoQuakeJSServer,
+    // nanoQuakeJSServer,
+    // setNanoQuakeJSServer,
   } = React.useContext(PreferencesContext);
-  const [selectedContinent, setSelectedContinent] = React.useState(
-    nanoQuakeJSServer || "EU",
-  );
+  // const [selectedContinent, setSelectedContinent] = React.useState(
+  //   nanoQuakeJSServer || "EU",
+  // );
+  const selectedContinent = "EU";
 
   return (
     <>
@@ -83,11 +85,18 @@ const Play: React.FC = () => {
         type="primary"
         size="large"
         shape="round"
-        onClick={() => setIsOpen(true)}
+        href={`http://www.quakejs.com/play?connect%20${servers[selectedContinent]?.ip}&name%20${nanoQuakeJSUsername}`}
+        target={"_blank"}
+        onClick={() => {
+          Tracker.ga4?.gtag("event", "NanoQuakeJS - Play", {
+            server: selectedContinent,
+          });
+        }}
+        // onClick={() => setIsOpen(true)}
       >
         {t("pages.nanoquakejs.playNow")}
       </Button>
-      <Modal
+      {/* <Modal
         title={t("pages.nanoquakejs.chooseLocation")}
         visible={isOpen}
         // @ts-ignore
@@ -136,7 +145,7 @@ const Play: React.FC = () => {
           ))}
           <Text>{t("pages.nanoquakejs.chooseLocationDescription")}</Text>
         </Row>
-      </Modal>
+      </Modal> */}
     </>
   );
 };
