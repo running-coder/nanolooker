@@ -37,12 +37,13 @@ const doKnownAccountsBalanceCron = async () => {
   try {
     const knownAccounts = await (nodeCache.get(KNOWN_ACCOUNTS) ||
       doKnownAccountsCron());
+
     let accounts = knownAccounts.flatMap(({ account }) => [account]);
 
     let ignoredKnownAccountBalances =
       nodeCache.get(`${KNOWN_ACCOUNTS_BALANCE}_IGNORED`) || [];
 
-    // Remove accounts with balance lower than 10 NANO for 48h
+    // Remove accounts with balance lower than 1 NANO for 48h
     if (ignoredKnownAccountBalances.length) {
       accounts = accounts.filter(
         account => !ignoredKnownAccountBalances.includes(account),
@@ -77,7 +78,7 @@ const doKnownAccountsBalanceCron = async () => {
       : [];
 
     ignoredKnownAccountBalances = knownAccountsBalance
-      .filter(({ total }) => total < 10)
+      .filter(({ total }) => total < 1)
       .flatMap(({ account }) => [account]);
 
     nodeCache.set(

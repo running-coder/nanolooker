@@ -65,11 +65,10 @@ app.post("/api/rpc", async (req, res) => {
     res.status(422).send("Missing action");
   } else if (!allowedRpcMethods.includes(action)) {
     res.status(422).send("RPC action not allowed");
+  } else {
+    const result = await rpc(action, params, true);
+    res.send(result);
   }
-
-  const result = await rpc(action, params, true);
-
-  res.send(result);
 });
 
 app.get("/api/confirmations-per-second", (req, res) => {

@@ -379,9 +379,9 @@ h4.ant-typography {
   border-color: rgba(255, 255, 255, 0.7);
 }
 
-.home-banner .ant-input-affix-wrapper {
+/* .home-banner .ant-input-affix-wrapper {
   border: none;
-}
+} */
 
 .what-is-card {
   text-align: center;
@@ -537,4 +537,10 @@ body,
 .ant-alert-with-description .ant-alert-icon {
   margin-right: 12px;
   font-size: 16px;
+}
+
+.ant-input-affix-wrapper.has-error:focus,
+.ant-input-affix-wrapper-focused.has-error {
+  border-color: #ff7875 !important;
+  box-shadow: 0 0 0 2px #ff4d4f33 !important;
 }

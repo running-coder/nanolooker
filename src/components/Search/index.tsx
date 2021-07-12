@@ -48,7 +48,7 @@ const Search = ({ isHome = false }) => {
         const isValidAccount = isValidAccountAddress(value);
         const isValidBlock = isValidBlockHash(value);
 
-        setIsError(!isValidAccount && !isValidBlock);
+        setIsError(!isValidAccount && !isValidBlock && value.length > 30);
 
         if (isValidBlock) {
           addSearchHistory(value.toUpperCase());
@@ -117,13 +117,11 @@ const Search = ({ isHome = false }) => {
         const paste = (e.clipboardData || window.clipboardData).getData("text");
 
         const account = getAccountAddressFromText(paste);
-        if (account) {
-          setSearchValue(account);
+        const hash = getAccountBlockHashFromText(paste);
+        if (account || hash) {
+          setSearchValue(account || hash);
         } else {
-          const hash = getAccountBlockHashFromText(paste);
-          if (hash) {
-            setSearchValue(hash);
-          }
+          setSearchValue(paste);
         }
       }}
       value={searchValue}
@@ -191,6 +189,7 @@ const Search = ({ isHome = false }) => {
         onFocus={() => setIsExpanded(true)}
         onBlur={() => setIsExpanded(isHome || false)}
         size={isHome ? "large" : "middle"}
+        spellCheck={false}
       />
     </AutoComplete>
   );
