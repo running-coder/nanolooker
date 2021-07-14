@@ -242,5 +242,9 @@
   {
     "alias": "dev-ptera",
     "account": "ban_1ifabmn4heheu1jr6mffaosqazr7cgfi7bcfwk8ahb9f3di4qhie45fz4rea"
+  },
+  {
+    "alias": "CRPay",
+    "account": "ban_1crpaybw8jip7fm98fzfxnjajb55ty76oyzmpfwe9s66u4aod37tm3kxba8q"
   }
 ]
