@@ -22,7 +22,7 @@ import type { PageParams } from "types/page";
 const { Title, Text } = Typography;
 
 const removeHtmlTags = (html: string): string =>
-  html.replace(/<[\s\S]+?\/?>/g, "");
+  html?.replace(/<[\s\S]+?\/?>/g, "");
 
 enum MEDIUM_FEEDS {
   NANO_CURRENCY = "nanocurrency",
@@ -63,10 +63,14 @@ const getMediumPosts = async () => {
             );
             const { items } = await res.json();
 
-            const posts: MediumPost[] = items.map(
-              ({ description, content, author, ...rest }: MediumPost) => {
+            const posts: MediumPost[] = items
+              .map(({ description, content, author, ...rest }: MediumPost) => {
+                if (!description) return false;
+
                 const [, descriptionShort, descriptionLong] =
                   description.match(/(<p>.+?<\/p>)[\s\S]+?(<p>.+?<\/p>)/) || [];
+
+                if (!descriptionShort && !descriptionLong) return false;
 
                 if (!AUTHORS.includes(author)) {
                   AUTHORS.push(author);
@@ -79,11 +83,11 @@ const getMediumPosts = async () => {
                   descriptionLong: removeHtmlTags(descriptionLong),
                   feed,
                 };
-              },
-            );
+              })
+              .filter(Boolean);
 
             resolve(posts);
-          } catch (e) {
+          } catch (err) {
             reject([]);
           }
         }),
