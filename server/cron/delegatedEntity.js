@@ -1,5 +1,5 @@
 const cron = require("node-cron");
-const { nodeCache } = require("../cache");
+const { nodeCache } = require("../client/cache");
 const { rpc } = require("../rpc");
 const { KNOWN_ACCOUNTS_BALANCE, DELEGATED_ENTITY } = require("../constants");
 const { BURN_ACCOUNT } = require("../../src/knownAccounts.json");

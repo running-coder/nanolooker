@@ -4,7 +4,7 @@ const BigNumber = require("bignumber.js");
 const { doDelegatedEntitiesCron } = require("./delegatedEntity");
 const { rawToRai } = require("../utils");
 const { rpc } = require("../rpc");
-const { nodeCache } = require("../cache");
+const { nodeCache } = require("../client/cache");
 const { Sentry } = require("../sentry");
 const {
   KNOWN_ACCOUNTS,

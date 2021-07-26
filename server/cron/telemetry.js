@@ -1,6 +1,6 @@
 const cron = require("node-cron");
 const { rpc } = require("../rpc");
-const { nodeCache } = require("../cache");
+const { nodeCache } = require("../client/cache");
 const { Sentry } = require("../sentry");
 const { TELEMETRY } = require("../constants");
 const { getConfirmationQuorumPeers } = require("./nodeMonitors");

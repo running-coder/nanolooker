@@ -1,6 +1,6 @@
 const fs = require("fs");
 const { join } = require("path");
-const { nodeCache } = require("../cache");
+const { nodeCache } = require("../client/cache");
 const { EXPIRE_1W, DELEGATORS } = require("../constants");
 
 const ROOT_FOLDER = join(__dirname, "../data/");

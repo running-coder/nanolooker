@@ -1,6 +1,6 @@
 const MongoClient = require("mongodb").MongoClient;
 const { Sentry } = require("../sentry");
-const { nodeCache } = require("../cache");
+const { nodeCache } = require("../client/cache");
 const {
   EXPIRE_1h,
   EXPIRE_24H,

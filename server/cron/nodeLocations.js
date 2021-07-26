@@ -3,7 +3,7 @@ const fetch = require("node-fetch");
 const chunk = require("lodash/chunk");
 const MongoClient = require("mongodb").MongoClient;
 const { rpc } = require("../rpc");
-const { nodeCache } = require("../cache");
+const { nodeCache } = require("../client/cache");
 const { Sentry } = require("../sentry");
 const {
   MONGO_DB,

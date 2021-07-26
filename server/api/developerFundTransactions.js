@@ -1,6 +1,6 @@
 const sortBy = require("lodash/sortBy");
 const reverse = require("lodash/reverse");
-const { nodeCache } = require("../cache");
+const { nodeCache } = require("../client/cache");
 const { Sentry } = require("../sentry");
 const { rpc } = require("../rpc");
 const { DEVELOPER_FUND_ACCOUNTS } = require("../../src/knownAccounts.json");

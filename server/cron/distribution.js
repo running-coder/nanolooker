@@ -1,18 +1,21 @@
 const fs = require("fs");
 const util = require("util");
 const { join } = require("path");
+
 // const rimraf = require("rimraf");
 const cron = require("node-cron");
 const chunk = require("lodash/chunk");
 const BigNumber = require("bignumber.js");
-const { nodeCache } = require("../cache");
+const { nodeCache } = require("../client/cache");
 const { Sentry } = require("../sentry");
+const { client: redisClient } = require("../client/redis");
 const {
   EXPIRE_24H,
   EXPIRE_1W,
   DISTRIBUTION,
   DORMANT_FUNDS,
   KNOWN_EXCHANGES,
+  REDIS_RICH_LIST,
   STATUS,
 } = require("../constants");
 const { rawToRai } = require("../utils");
@@ -140,6 +143,8 @@ const getDistribution = async () => {
         }`,
       );
 
+      const richList = {};
+
       await Promise.all(
         Object.entries(balances).map(
           async ([account, { balance: rawBalance, pending: rawPending }]) => {
@@ -148,6 +153,8 @@ const getDistribution = async () => {
             const total = new BigNumber(balance).plus(pending).toNumber();
 
             if (total < MIN_TOTAL) return;
+
+            richList[account] = total;
 
             const index = total >= 1 ? `${parseInt(total)}`.length : 0;
 
@@ -207,6 +214,12 @@ const getDistribution = async () => {
         JSON.stringify({ distribution, dormantFunds }, null, 2),
       );
 
+      const richListData = Object.entries(richList).flatMap(acc =>
+        acc.reverse(),
+      );
+
+      redisClient.zadd(`${REDIS_RICH_LIST}_TMP`, ...richListData);
+
       // @TODO check if can remove the sleep now that the node is a bit more powerful
       await sleep(100);
     }
@@ -251,6 +264,8 @@ const doDistributionCron = async () => {
     nodeCache.set(DISTRIBUTION, distribution, EXPIRE_1W);
     nodeCache.set(DORMANT_FUNDS, dormantFunds, EXPIRE_1W);
     nodeCache.set(KNOWN_EXCHANGES, knownExchanges, EXPIRE_24H);
+
+    redisClient.rename(`${REDIS_RICH_LIST}_TMP`, REDIS_RICH_LIST);
 
     // rimraf(TMP_ACCOUNTS_PATH, () => {});
   } catch (err) {

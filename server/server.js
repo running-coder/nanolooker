@@ -1,4 +1,5 @@
 require("dotenv").config();
+require("./client/redis");
 require("./cron/marketCapRank");
 require("./cron/knownAccounts");
 require("./cron/delegatedEntity");
@@ -18,7 +19,7 @@ const fetch = require("node-fetch");
 const { rpc, allowedRpcMethods } = require("./rpc");
 const bodyParser = require("body-parser");
 const path = require("path");
-const { nodeCache } = require("./cache");
+const { nodeCache } = require("./client/cache");
 const {
   TOTAL_CONFIRMATIONS_24H,
   TOTAL_VOLUME_24H,
@@ -43,6 +44,7 @@ const {
   getKnownAccountsBalance,
 } = require("./api/knownAccounts");
 const { getDelegators, getAllDelegators } = require("./api/delegators");
+const { getRichListPage, getRichListAccount } = require("./api/richList");
 const { getNodeLocations } = require("./api/nodeLocations");
 const { getNodeMonitors } = require("./api/nodeMonitors");
 const { getDelegatedEntity } = require("./api/delegatedEntity");
@@ -180,6 +182,18 @@ app.get("/api/telemetry", async (req, res) => {
   const telemetry = await getTelemetry();
 
   res.send(telemetry);
+});
+
+app.get("/api/rich-list", async (req, res) => {
+  const { page, account } = req.query;
+  let data;
+  if (page) {
+    data = await getRichListPage(page);
+  } else if (account) {
+    data = await getRichListAccount(account);
+  }
+
+  res.send(data);
 });
 
 app.get("/api/nanoquakejs/scores", async (req, res) => {

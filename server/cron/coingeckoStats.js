@@ -1,7 +1,7 @@
 const fetch = require("node-fetch");
 const cron = require("node-cron");
 const { Sentry } = require("../sentry");
-const { nodeCache } = require("../cache");
+const { nodeCache } = require("../client/cache");
 const {
   COINGECKO_MARKET_STATS,
   COINGECKO_ALL_PRICE_STATS,

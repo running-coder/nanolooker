@@ -1,4 +1,4 @@
-const { nodeCache } = require("../cache");
+const { nodeCache } = require("../client/cache");
 const { TELEMETRY } = require("../constants");
 
 const getTelemetry = () => {

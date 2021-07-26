@@ -1,4 +1,4 @@
-const { nodeCache } = require("../cache");
+const { nodeCache } = require("../client/cache");
 const { NODE_MONITORS } = require("../constants");
 
 const getNodeMonitors = () => {

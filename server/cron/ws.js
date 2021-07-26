@@ -1,7 +1,7 @@
 const MongoClient = require("mongodb").MongoClient;
 const BigNumber = require("bignumber.js");
 const cron = require("node-cron");
-const { nodeCache } = require("../cache");
+const { nodeCache } = require("../client/cache");
 const { Sentry } = require("../sentry");
 
 const {

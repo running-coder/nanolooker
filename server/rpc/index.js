@@ -5,7 +5,7 @@ const {
 const {
   transformer: representatives,
 } = require("./transformers/representatives");
-const { nodeCache } = require("../cache");
+const { nodeCache } = require("../client/cache");
 const { Sentry } = require("../sentry");
 
 const transformers = {

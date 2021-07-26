@@ -1,4 +1,4 @@
-const { nodeCache } = require("../cache");
+const { nodeCache } = require("../client/cache");
 const { DELEGATED_ENTITY } = require("../constants");
 
 const getDelegatedEntity = async () => {

@@ -1,4 +1,4 @@
-const { nodeCache } = require("../cache");
+const { nodeCache } = require("../client/cache");
 const { KNOWN_ACCOUNTS, KNOWN_ACCOUNTS_BALANCE } = require("../constants");
 const { doKnownAccountsCron } = require("../cron/knownAccounts");
 

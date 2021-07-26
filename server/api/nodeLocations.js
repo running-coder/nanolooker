@@ -1,5 +1,5 @@
 const MongoClient = require("mongodb").MongoClient;
-const { nodeCache } = require("../cache");
+const { nodeCache } = require("../client/cache");
 const { Sentry } = require("../sentry");
 const {
   MONGO_URL,

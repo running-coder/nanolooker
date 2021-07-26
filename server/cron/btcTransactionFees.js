@@ -1,7 +1,7 @@
 const cron = require("node-cron");
 const fetch = require("node-fetch");
 const { Sentry } = require("../sentry");
-const { nodeCache } = require("../cache");
+const { nodeCache } = require("../client/cache");
 const {
   BITCOIN_TOTAL_TRANSACTION_FEES_24H,
   BITCOIN_TOTAL_TRANSACTION_FEES_48H,

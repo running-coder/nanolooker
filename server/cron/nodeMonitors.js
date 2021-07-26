@@ -1,7 +1,7 @@
 const cron = require("node-cron");
 const fetch = require("node-fetch");
 const { rpc } = require("../rpc");
-const { nodeCache } = require("../cache");
+const { nodeCache } = require("../client/cache");
 const { Sentry } = require("../sentry");
 const { rawToRai } = require("../utils");
 const { NODE_MONITORS, EXPIRE_24H } = require("../constants");

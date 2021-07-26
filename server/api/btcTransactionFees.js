@@ -1,4 +1,4 @@
-const { nodeCache } = require("../cache");
+const { nodeCache } = require("../client/cache");
 const {
   BITCOIN_TOTAL_TRANSACTION_FEES_24H,
   BITCOIN_TOTAL_TRANSACTION_FEES_48H,

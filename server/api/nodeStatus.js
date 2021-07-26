@@ -2,7 +2,7 @@ const fs = require("fs");
 const os = require("os");
 const find = require("find-process");
 const pidusage = require("pidusage");
-const { nodeCache } = require("../cache");
+const { nodeCache } = require("../client/cache");
 const { Sentry } = require("../sentry");
 const { NODE_STATUS, EXPIRE_1M } = require("../constants");
 
