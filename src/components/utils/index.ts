@@ -107,7 +107,7 @@ export const getPrefixedAccount = (address: string) => {
     account = address.replace("xrb_", "nano_");
   }
   return account;
-}
+};
 
 export const isOpenAccountBlockHash = (hash: string): boolean =>
   /^[0]{64}$/.test(hash);
@@ -193,3 +193,6 @@ export const formatBytes = (bytes: number, decimals = 2): FormattedBytes => {
     suffix: sizes[i],
   };
 };
+
+export const roundOff = (n: number) =>
+  parseFloat(n.toExponential(Math.max(1, 2 + Math.log10(Math.abs(n)))));

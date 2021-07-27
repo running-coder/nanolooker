@@ -4,27 +4,37 @@ const { REDIS_RICH_LIST } = require("../constants");
 
 const PER_PAGE = 25;
 
+// Total is currently busted, rip
+const getTotal = () =>
+  new Promise(async resolve => {
+    redisClient.zcard(REDIS_RICH_LIST, (err, total) => {
+      if (err) Sentry.captureException(err);
+      resolve(total);
+    });
+  });
+
 const getRichListPage = async page =>
-  new Promise(resolve => {
+  new Promise(async resolve => {
     const offset = (page - 1) * PER_PAGE;
+    const total = await getTotal();
 
     redisClient.zrevrange(
       REDIS_RICH_LIST,
       offset,
-      offset + PER_PAGE,
+      offset + PER_PAGE - 1,
       "WITHSCORES",
       (err, list) => {
-        const accounts = [];
+        const data = [];
         list.forEach(value => {
           if (value.startsWith("nano_")) {
-            accounts.push({ account: value });
+            data.push({ account: value });
           } else {
-            accounts[accounts.length - 1].balance = parseFloat(value);
+            data[data.length - 1].balance = parseFloat(value);
           }
         });
 
         if (err) Sentry.captureException(err);
-        resolve(accounts);
+        resolve({ data, meta: { total, perPage: PER_PAGE, offset } });
       },
     );
   });
@@ -34,9 +44,9 @@ const getRichListAccount = async account =>
     redisClient.zrevrank(REDIS_RICH_LIST, account, async (err, rank) => {
       if (err) Sentry.captureException(err);
       if (typeof rank === "number") {
-        const list = await getRichListPage(Math.ceil(rank / PER_PAGE));
+        const data = await getRichListPage(Math.ceil(rank / PER_PAGE));
 
-        resolve({ rank, list });
+        resolve({ rank, ...data });
       }
     });
   });

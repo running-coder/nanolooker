@@ -265,6 +265,12 @@ const doDistributionCron = async () => {
     nodeCache.set(DORMANT_FUNDS, dormantFunds, EXPIRE_1W);
     nodeCache.set(KNOWN_EXCHANGES, knownExchanges, EXPIRE_24H);
 
+    // @NOTE manual add for now
+    redisClient.zadd(
+      `${REDIS_RICH_LIST}_TMP`,
+      207035873.510723,
+      "nano_1111111111111111111111111111111111111111111111111111hifc8npp",
+    );
     redisClient.rename(`${REDIS_RICH_LIST}_TMP`, REDIS_RICH_LIST);
 
     // rimraf(TMP_ACCOUNTS_PATH, () => {});

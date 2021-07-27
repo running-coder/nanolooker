@@ -10,6 +10,7 @@ import useDeepCompareEffect from "use-deep-compare-effect";
 import BigNumber from "bignumber.js";
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 import useDistribution, { DistributionIndex } from "api/hooks/use-distribution";
+import RichList from "./RichList";
 import DormantFunds from "./DormantFunds";
 import QuestionCircle from "components/QuestionCircle";
 import { intToString } from "components/utils";
@@ -268,6 +269,8 @@ const Distribution: React.FC = () => {
 
         <div style={{ marginTop: 24 }} id="distribution-chart" />
       </Card>
+
+      <RichList />
 
       <DormantFunds data={data?.dormantFunds} />
     </>

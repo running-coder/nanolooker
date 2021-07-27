@@ -246,7 +246,8 @@
       "unknownDormantFunds": "Unknown dormant funds",
       "dormantFundsQuarterExample": "An account which holds 50 NANO and 50 pending NANO have last transacted 6 months ago (2 quarters), a balance of 100 NANO is added as \"dormant\" to the total of the following quarter.",
       "dormantNano": "Dormant NANO",
-      "ofAvailableSupply": "of available supply"
+      "ofAvailableSupply": "of available supply",
+      "richList": "Rich List"
     },
     "news": {
       "allFeeds": "All Feeds",
