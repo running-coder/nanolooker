@@ -29,7 +29,9 @@ interface Params {
 const useRichList = ({ account, page }: Params): Return => {
   const [data, setData] = React.useState([] as Data[]);
   const [meta, setMeta] = React.useState({} as Meta);
-  const { knownAccounts } = React.useContext(KnownAccountsContext);
+  const { knownAccounts, isLoading: isKnownAccountsLoading } = React.useContext(
+    KnownAccountsContext,
+  );
   const [isLoading, setIsLoading] = React.useState(false);
   const [isError, setIsError] = React.useState(false);
 
@@ -49,24 +51,30 @@ const useRichList = ({ account, page }: Params): Return => {
     if (!json || json.error) {
       setIsError(true);
     } else {
-      const accounts = (json.data as Data[]).map(({ account, balance }) => {
-        const alias = knownAccounts.find(
-          ({ account: knownAccount }) => account === knownAccount,
-        )?.alias;
-
-        return {
-          account,
-          balance,
-          alias,
-        };
-      });
-
-      setData(accounts);
+      setData(json.data);
       setMeta(json.meta);
     }
 
     setIsLoading(false);
   };
+
+  React.useEffect(() => {
+    if (isKnownAccountsLoading || !data.length) return;
+
+    const accounts = (data as Data[]).map(({ account, balance }) => {
+      const alias = knownAccounts.find(
+        ({ account: knownAccount }) => account === knownAccount,
+      )?.alias;
+
+      return {
+        account,
+        balance,
+        alias,
+      };
+    });
+
+    setData(accounts);
+  }, [data, knownAccounts, isKnownAccountsLoading]);
 
   React.useEffect(() => {
     getRichList({ account, page });
