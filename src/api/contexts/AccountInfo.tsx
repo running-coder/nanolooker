@@ -1,6 +1,7 @@
 import * as React from "react";
 import { rpc } from "api/rpc";
 import { isValidAccountAddress } from "components/utils";
+import { BURN_ACCOUNT } from "knownAccounts.json";
 
 export interface AccountInfoRPCResponse {
   frontier: string;
@@ -46,7 +47,7 @@ const Provider: React.FC = ({ children }) => {
     const json = await rpc("account_info", {
       account,
       representative: "true",
-      pending: "true",
+      ...(account !== BURN_ACCOUNT ? { pending: "true" } : null),
     });
 
     if (!json || json.error) {

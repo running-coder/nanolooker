@@ -32,7 +32,7 @@ const useRichList = ({ account, page }: Params): Return => {
   const { knownAccounts, isLoading: isKnownAccountsLoading } = React.useContext(
     KnownAccountsContext,
   );
-  const [isLoading, setIsLoading] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(true);
   const [isError, setIsError] = React.useState(false);
 
   const getRichList = async ({ account, page }: Params) => {
@@ -59,7 +59,7 @@ const useRichList = ({ account, page }: Params): Return => {
   };
 
   React.useEffect(() => {
-    if (isKnownAccountsLoading || !data.length) return;
+    if (isLoading || isKnownAccountsLoading || !data.length) return;
 
     const accounts = (data as Data[]).map(({ account, balance }) => {
       const alias = knownAccounts.find(
@@ -74,7 +74,8 @@ const useRichList = ({ account, page }: Params): Return => {
     });
 
     setData(accounts);
-  }, [data, knownAccounts, isKnownAccountsLoading]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoading, knownAccounts, isKnownAccountsLoading]);
 
   React.useEffect(() => {
     getRichList({ account, page });

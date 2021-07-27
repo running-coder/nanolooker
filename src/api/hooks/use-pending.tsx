@@ -1,6 +1,7 @@
 import * as React from "react";
 import { rpc } from "api/rpc";
 import { isValidAccountAddress } from "components/utils";
+import { BURN_ACCOUNT } from "knownAccounts.json";
 
 interface Params {
   count?: string;
@@ -52,7 +53,7 @@ const usePending = (account: string, params: Params): Return => {
     // Reset on account change
     setPending({});
 
-    if (!isValidAccountAddress(account)) return;
+    if (!isValidAccountAddress(account) || account === BURN_ACCOUNT) return;
 
     getPending(account);
     // eslint-disable-next-line react-hooks/exhaustive-deps
