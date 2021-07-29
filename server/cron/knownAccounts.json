@@ -1,6 +1,10 @@
 [
   {
-    "alias": "Nano Browser Quest",
+    "alias": "NanoLooker",
+    "account": "nano_1ookerz3adg5rxc4zwwoshim5yyyihf6dpogjihwwq6ksjpq7ea4fuam5mmc"
+  },
+  {
+    "alias": "NanoBrowserQuest",
     "account": "nano_1questzx4ym4ncmswhz3r4upwrxosh1hnic8ry8sbh694r48ajq95d1ckpay"
   },
   {
@@ -12,7 +16,7 @@
     "account": "nano_3j61hdczpb4z8cchyythzqct6wikn4x5c3bkexyzaj97nm5q73dg9ayntps4"
   },
   {
-    "alias": "NanoTicker",
+    "alias": "NanoTicker speed test",
     "account": "nano_3tura8g7m7pgrmbxpb8ochtgq3maebd6ayi9tqchchbya9zpa1sfhwugkpmc"
   },
   {

@@ -24,6 +24,8 @@ export enum TwoToneColors {
   RECEIVE_DARK = "#16c784",
   DONATE = "magenta",
   DONATE_DARK = "#eb2f96",
+  WARNING = "volcano",
+  WARNING_DARK = "#f50",
 }
 
 // @TODO: map subtype to color?

@@ -71,6 +71,7 @@ const AccountDetails: React.FC = () => {
     accountInfo,
     isLoading: isAccountInfoLoading,
   } = React.useContext(AccountInfoContext);
+
   const {
     accountHistory: { history },
     isLoading: isAccountHistoryLoading,
@@ -231,19 +232,38 @@ const AccountDetails: React.FC = () => {
                       {accountsRepresentative.alias}
                     </div>
                   ) : null}
-
-                  <Link
-                    to={`/account/${accountInfo.representative}${
-                      section === Sections.TRANSACTIONS ? "/delegators" : ""
-                    }`}
-                    className="break-word"
-                  >
-                    {accountInfo.representative}
-                  </Link>
                 </>
-              ) : (
-                t("pages.account.noRepresentative")
-              )}
+              ) : null}
+
+              {!accountsRepresentative?.account &&
+              accountInfo.representative ? (
+                <div style={{ display: "flex", margin: "3px 0" }}>
+                  <Tag
+                    color={
+                      theme === Theme.DARK
+                        ? TwoToneColors.WARNING_DARK
+                        : TwoToneColors.WARNING
+                    }
+                  >
+                    {t("pages.account.notVoting")}
+                  </Tag>
+                </div>
+              ) : null}
+
+              {accountsRepresentative?.account || accountInfo.representative ? (
+                <Link
+                  to={`/account/${accountInfo.representative}${
+                    section === Sections.TRANSACTIONS ? "/delegators" : ""
+                  }`}
+                  className="break-word"
+                >
+                  {accountInfo.representative}
+                </Link>
+              ) : null}
+
+              {!accountsRepresentative?.account && !accountInfo.representative
+                ? t("pages.account.noRepresentative")
+                : null}
             </Skeleton>
           </Col>
         </Row>

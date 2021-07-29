@@ -162,6 +162,7 @@
     },
     "account": {
       "votingWeight": "Voting weight",
+      "notVoting": "Not Voting",
       "percentNetworkVotingWeight": "% of the network voting weight",
       "percentRepresentativeVotingWeight": "% of the representative's voting weight",
       "noRepresentative": "No Representative",
