@@ -152,12 +152,10 @@ const RichList: React.FC = () => {
                     current: currentPage,
                     disabled: false,
                     onChange: (page: number) => {
-                      // if (scrollTo) {
                       const element = document.getElementById(
                         "rich-list-title",
                       );
                       element?.scrollIntoView();
-                      // }
 
                       setCurrentPage?.(page);
                     },

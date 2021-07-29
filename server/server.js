@@ -3,7 +3,6 @@ require("./client/redis");
 require("./cron/marketCapRank");
 require("./cron/knownAccounts");
 require("./cron/delegatedEntity");
-require("./cron/delegators");
 require("./cron/nodeLocations");
 require("./cron/nodeMonitors");
 require("./cron/telemetry");
@@ -43,12 +42,16 @@ const {
   getKnownAccounts,
   getKnownAccountsBalance,
 } = require("./api/knownAccounts");
-const { getDelegators, getAllDelegators } = require("./api/delegators");
+const {
+  getDelegatorsPage,
+  getAllDelegatorsCount,
+} = require("./api/delegators");
 const { getRichListPage, getRichListAccount } = require("./api/richList");
 const { getNodeLocations } = require("./api/nodeLocations");
 const { getNodeMonitors } = require("./api/nodeMonitors");
 const { getDelegatedEntity } = require("./api/delegatedEntity");
 const { getTelemetry } = require("./api/telemetry");
+const { Sentry } = require("./sentry");
 
 const app = express();
 
@@ -86,12 +89,12 @@ app.get("/api/distribution", (req, res) => {
 // @TODO ADD getDelegators && getAllDelegators if req.account is specified
 app.get("/api/delegators", async (req, res) => {
   let data;
-  const { account } = req.query;
+  const { account, page } = req.query;
 
   if (account) {
-    data = getDelegators({ account });
+    data = await getDelegatorsPage({ account, page });
   } else {
-    data = getAllDelegators();
+    data = await getAllDelegatorsCount();
   }
 
   res.send(data);
@@ -202,7 +205,7 @@ app.get("/api/nanoquakejs/scores", async (req, res) => {
     const res = await fetch("https://rainstorm.city/nanoquake/scores");
     json = await res.json();
   } catch (err) {
-    console.log("Error", err);
+    Sentry.captureException(err);
   }
 
   res.send(json);

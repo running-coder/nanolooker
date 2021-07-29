@@ -1,41 +1,78 @@
-const fs = require("fs");
-const { join } = require("path");
-const { nodeCache } = require("../client/cache");
-const { EXPIRE_1W, DELEGATORS } = require("../constants");
+const { client: redisClient } = require("../client/redis");
+const { Sentry } = require("../sentry");
+const { DELEGATORS } = require("../constants");
 
-const ROOT_FOLDER = join(__dirname, "../data/");
-const DELEGATORS_FOLDER = join(__dirname, "../data/delegators/");
-const DELEGATORS_PATH = join(ROOT_FOLDER, "delegators.json");
+const PER_PAGE = 50;
 
-const getDelegators = ({ account }) => {
-  const delegatorsKey = `${DELEGATORS}-${account}`;
-  let delegators = nodeCache.get(delegatorsKey);
+const getTotal = account =>
+  new Promise(async resolve => {
+    redisClient.zcard(`DELEGATORS:${account}`, (err, total) => {
+      if (err) Sentry.captureException(err);
+      resolve(total);
+    });
+  });
 
-  if (!delegators) {
-    const accountDelegatorsPath = join(DELEGATORS_FOLDER, `${account}.json`);
-    delegators = fs.existsSync(accountDelegatorsPath)
-      ? JSON.parse(fs.readFileSync(accountDelegatorsPath, "utf8"))
-      : [];
-    nodeCache.set(delegatorsKey, delegators, EXPIRE_1W);
-  }
+const getDelegatorsPage = async ({ page = 1, account }) =>
+  new Promise(async resolve => {
+    const offset = (page - 1) * PER_PAGE;
+    const total = await getTotal(account);
 
-  return delegators;
-};
+    redisClient.zrevrange(
+      `DELEGATORS:${account}`,
+      offset,
+      offset + PER_PAGE - 1,
+      "WITHSCORES",
+      (err, list) => {
+        if (err) {
+          Sentry.captureException(err);
+          return;
+        }
 
-const getAllDelegators = () => {
-  let delegators = nodeCache.get(DELEGATORS);
+        const data = {};
+        let account = "";
+        list.forEach(value => {
+          if (value.startsWith("nano_")) {
+            account = value;
+          } else {
+            data[account] = parseFloat(value);
+          }
+        });
 
-  if (!delegators) {
-    delegators = fs.existsSync(DELEGATORS_PATH)
-      ? JSON.parse(fs.readFileSync(DELEGATORS_PATH, "utf8"))
-      : [];
-    nodeCache.set(DELEGATORS, delegators, EXPIRE_1W);
-  }
+        resolve({ data, meta: { total, perPage: PER_PAGE, offset } });
+      },
+    );
+  });
 
-  return delegators;
-};
+const getAllDelegatorsCount = async () =>
+  new Promise(async resolve => {
+    redisClient.keys(`${DELEGATORS}:*`, (err, res) => {
+      if (err) {
+        Sentry.captureException(err);
+        return;
+      }
+
+      Promise.all(
+        res.map(async key => {
+          const account = key.replace(`${DELEGATORS}:`, "");
+          const count = await getTotal(account);
+
+          return {
+            [account]: count,
+          };
+        }),
+      ).then(result => {
+        resolve(
+          result.reduce((acc, value) => {
+            const key = Object.keys(value)[0];
+            acc[key] = value[key];
+            return acc;
+          }, {}),
+        );
+      });
+    });
+  });
 
 module.exports = {
-  getDelegators,
-  getAllDelegators,
+  getDelegatorsPage,
+  getAllDelegatorsCount,
 };

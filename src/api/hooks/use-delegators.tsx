@@ -4,21 +4,34 @@ import { isValidAccountAddress } from "components/utils";
 
 export interface Return {
   delegators: { [key: string]: number };
+  meta: Meta;
   isLoading: boolean;
   isError: boolean;
 }
 
-const useDelegators = (account: string): Return => {
+interface Meta {
+  perPage: number;
+  offset: number;
+  total: number;
+}
+
+interface Params {
+  account?: string;
+  page?: number;
+}
+
+const useDelegators = ({ account, page }: Params): Return => {
   const [delegators, setDelegators] = React.useState({} as any);
-  const [isLoading, setIsLoading] = React.useState(false);
+  const [meta, setMeta] = React.useState({} as Meta);
+  const [isLoading, setIsLoading] = React.useState(true);
   const [isError, setIsError] = React.useState(false);
 
-  const getDelegators = async (account: string) => {
+  const getDelegators = async ({ account, page }: Params) => {
     setIsError(false);
     setIsLoading(true);
 
     const query = qs.stringify(
-      { account },
+      { account, page },
       {
         addQueryPrefix: true,
       },
@@ -26,18 +39,24 @@ const useDelegators = (account: string): Return => {
     const res = await fetch(`/api/delegators${query}`);
     const json = await res.json();
 
-    !json || json.error ? setIsError(true) : setDelegators(json);
+    if (!json || json.error) {
+      setIsError(true);
+    } else {
+      setDelegators(json.data);
+      setMeta(json.meta);
+    }
+
     setIsLoading(false);
   };
 
   React.useEffect(() => {
-    if (!isValidAccountAddress(account)) return;
+    if (!account || !isValidAccountAddress(account)) return;
 
-    getDelegators(account);
+    getDelegators({ account, page });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [account]);
+  }, [account, page]);
 
-  return { delegators, isLoading, isError };
+  return { delegators, meta, isLoading, isError };
 };
 
 export default useDelegators;

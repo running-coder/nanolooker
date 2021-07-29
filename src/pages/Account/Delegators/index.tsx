@@ -1,7 +1,16 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { Button, Card, Col, Empty, Row, Skeleton, Typography } from "antd";
+import {
+  Button,
+  Card,
+  Col,
+  Empty,
+  Pagination,
+  Row,
+  Skeleton,
+  Typography,
+} from "antd";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import BigNumber from "bignumber.js";
 import { AccountInfoContext } from "api/contexts/AccountInfo";
@@ -13,12 +22,20 @@ const { Title } = Typography;
 
 const Delegators: React.FC = () => {
   const { t } = useTranslation();
+  const [currentPage, setCurrentPage] = React.useState<number>(1);
   const { account } = React.useContext(AccountInfoContext);
   const { delegators: allDelegators, getDelegators } = React.useContext(
     DelegatorsContext,
   );
   const { knownAccounts } = React.useContext(KnownAccountsContext);
-  const { delegators, isLoading: isDelegatorsLoading } = useDelegators(account);
+  const {
+    delegators,
+    meta: { total, perPage },
+    isLoading: isDelegatorsLoading,
+  } = useDelegators({
+    account,
+    page: currentPage,
+  });
   const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
 
   React.useEffect(() => {
@@ -37,7 +54,7 @@ const Delegators: React.FC = () => {
           justifyContent: "space-between",
         }}
       >
-        <Title level={3}>
+        <Title level={3} id="delegator-title">
           {count} {t(`common.delegator${count !== "1" ? "s" : ""}`)}
         </Title>
 
@@ -54,7 +71,7 @@ const Delegators: React.FC = () => {
             <Row gutter={6}>
               <Col xs={24} sm={12} md={8} lg={6}>
                 <span className="default-color">
-                  {t("pages.representative.votingWeight")}
+                  {t("pages.account.votingWeight")}
                 </span>
               </Col>
               <Col xs={24} sm={12} md={16} lg={18}>
@@ -77,8 +94,9 @@ const Delegators: React.FC = () => {
             ))
           : null}
 
-        {!isDelegatorsLoading && Object.keys(delegators).length
-          ? Object.entries(delegators || []).map(([account, weight]) => {
+        {!isDelegatorsLoading && Object.keys(delegators).length ? (
+          <>
+            {Object.entries(delegators || []).map(([account, weight]) => {
               const alias = knownAccounts.find(
                 ({ account: knownAccount }) => account === knownAccount,
               )?.alias;
@@ -104,8 +122,33 @@ const Delegators: React.FC = () => {
                   </Col>
                 </Row>
               );
-            })
-          : null}
+            })}
+            {total > perPage ? (
+              <Row className="row-pagination">
+                <Col xs={24} style={{ textAlign: "right" }}>
+                  <Pagination
+                    size="small"
+                    {...{
+                      total,
+                      pageSize: perPage,
+                      current: currentPage,
+                      disabled: false,
+                      onChange: (page: number) => {
+                        const element = document.getElementById(
+                          "delegator-title",
+                        );
+                        element?.scrollIntoView();
+
+                        setCurrentPage(page);
+                      },
+                      showSizeChanger: false,
+                    }}
+                  />
+                </Col>
+              </Row>
+            ) : null}
+          </>
+        ) : null}
 
         {!isDelegatorsLoading && !Object.keys(delegators).length ? (
           <Row>

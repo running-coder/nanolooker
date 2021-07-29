@@ -1,18 +1,19 @@
 const fs = require("fs");
 const util = require("util");
 const { join } = require("path");
-
 // const rimraf = require("rimraf");
 const cron = require("node-cron");
 const chunk = require("lodash/chunk");
 const BigNumber = require("bignumber.js");
+
 const { nodeCache } = require("../client/cache");
-const { Sentry } = require("../sentry");
 const { client: redisClient } = require("../client/redis");
+const { Sentry } = require("../sentry");
 const {
   EXPIRE_24H,
   EXPIRE_1W,
   DISTRIBUTION,
+  DELEGATORS,
   DORMANT_FUNDS,
   KNOWN_EXCHANGES,
   REDIS_RICH_LIST,
@@ -33,8 +34,10 @@ const TMP_DISTRIBUTION_PATH = join(DATA_ROOT_PATH, "/tmp/distribution");
 const DORMANT_FUNDS_PATH = join(DATA_ROOT_PATH, "/dormantFunds.json");
 const KNOWN_EXCHANGES_PATH = join(DATA_ROOT_PATH, "knownExchanges.json");
 const STATUS_PATH = join(DATA_ROOT_PATH, "/status.json");
+
 // Balance + pending below this amount will be ignored
 const MIN_TOTAL = 0.001;
+const MIN_DELEGATOR_TOTAL = 1;
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -166,6 +169,18 @@ const getDistribution = async () => {
                 .toNumber(),
             };
 
+            if (total > MIN_DELEGATOR_TOTAL) {
+              const { representative } = await rpc("account_representative", {
+                account,
+              });
+
+              redisClient.zadd(
+                `${DELEGATORS}_TMP:${representative}`,
+                total,
+                account,
+              );
+            }
+
             // Search for the last transaction date to place the accounts
             // balance and pending into the Dormant funds
             const { history } = await rpc("account_history", {
@@ -266,12 +281,29 @@ const doDistributionCron = async () => {
     nodeCache.set(KNOWN_EXCHANGES, knownExchanges, EXPIRE_24H);
 
     // @NOTE manual add for now
-    redisClient.zadd(
-      `${REDIS_RICH_LIST}_TMP`,
-      207035873.510723,
-      "nano_1111111111111111111111111111111111111111111111111111hifc8npp",
-    );
+    redisClient.zadd(`${REDIS_RICH_LIST}_TMP`, 207035873.510723, BURN_ACCOUNT);
     redisClient.rename(`${REDIS_RICH_LIST}_TMP`, REDIS_RICH_LIST);
+
+    // Replace previously generated delegators by new ones
+    redisClient.keys(`${DELEGATORS}:*`, (err, res) => {
+      if (err) {
+        Sentry.captureException(err);
+        return;
+      }
+
+      redisClient.del(...res, () => {
+        redisClient.keys(`${DELEGATORS}_TMP:*`, (err, res) => {
+          if (err) {
+            Sentry.captureException(err);
+            return;
+          }
+
+          res.forEach(key => {
+            redisClient.rename(key, key.replace("_TMP", ""));
+          });
+        });
+      });
+    });
 
     // rimraf(TMP_ACCOUNTS_PATH, () => {});
   } catch (err) {
@@ -295,7 +327,7 @@ cron.schedule("15 5 * * 2", async () => {
 //   !fs.existsSync(KNOWN_EXCHANGES_PATH) &&
 //   !fs.existsSync(STATUS_PATH)
 // ) {
-//   doDistributionCron();
+// doDistributionCron();
 // }
 
 const getDistributionData = () => {

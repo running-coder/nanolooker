@@ -5,7 +5,6 @@ services:
     image: nanocurrency/nano:V22.1
     container_name: nano-node
     hostname: nano-node
-    net: host
     environment:
       - TERM=xterm
     restart: unless-stopped

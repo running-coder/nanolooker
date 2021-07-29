@@ -4,7 +4,6 @@ const { REDIS_RICH_LIST } = require("../constants");
 
 const PER_PAGE = 25;
 
-// Total is currently busted, rip
 const getTotal = () =>
   new Promise(async resolve => {
     redisClient.zcard(REDIS_RICH_LIST, (err, total) => {
@@ -13,7 +12,7 @@ const getTotal = () =>
     });
   });
 
-const getRichListPage = async page =>
+const getRichListPage = async (page = 1) =>
   new Promise(async resolve => {
     const offset = (page - 1) * PER_PAGE;
     const total = await getTotal();
