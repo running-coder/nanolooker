@@ -1,5 +1,6 @@
 const fetch = require("node-fetch");
 const cron = require("node-cron");
+const uniqBy = require("lodash/uniqBy");
 const BigNumber = require("bignumber.js");
 const { doDelegatedEntitiesCron } = require("./delegatedEntity");
 const { rawToRai } = require("../utils");
@@ -19,8 +20,8 @@ const doKnownAccountsCron = async () => {
     const res = await fetch("https://mynano.ninja/api/accounts/aliases");
     knownAccounts = (await res.json()) || [];
 
-    // Custom known-account list
-    knownAccounts = knownAccounts.concat(extraKnownAccounts);
+    // Merge knownAccounts.json list
+    knownAccounts = uniqBy(knownAccounts.concat(extraKnownAccounts), "account");
 
     nodeCache.set(KNOWN_ACCOUNTS, knownAccounts);
   } catch (err) {
