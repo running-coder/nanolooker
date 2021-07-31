@@ -49,13 +49,13 @@
     "accountAndBlock": "アカウント/ブロック",
     "send": "送信",
     "receive": "受け取る",
-    "pending": "保留中",
     "change": "変化する",
     "open": "開いた",
     "state": "状態",
     "epoch": "時代",
     "cps": "CPS",
-    "amount": "量"
+    "amount": "量",
+    "pending": "売掛金"
   },
   "tooltips": {
     "avgConfirmationTime": "平均確認時間は、ノードでローカルに計算されます。ノードが再起動された場合、または劣化した状態の場合、平均確認時間はネットワークの他の部分よりも長くなる可能性があります。",
@@ -83,10 +83,10 @@
     "ledgerSize": "これまでのすべてのNanoトランザクションを保存するために必要なディスク容量の合計。元帳のサイズは、1000ではなく1024ベースで計算されます。",
     "bandwidthCap": "Nanoノードは、帯域幅を調整して、送受信できるメッセージの量を制限できます。 0は無制限の帯域幅を意味します。",
     "uptime": "ノードが最後に再起動されてからの時間。",
-    "pendingTransactionCount": "保留中のトランザクションの数が、表示されている制限の{{count}}を超えています。",
     "mnano": "Mnanoは、ウォレット、取引所、サービスで使用されている現在の標準部門です。 1NANOと呼ばれます。",
     "versionsByWeight": "ネットワークのコンセンサスを引き継ぐバージョンの場合、最小の{{onlineWeightMinimum}} NANOからのオンライン投票の重みの67％が必要です。",
-    "onChainVolume": "ネットワーク上で確認されたすべての NANO トランザクションの合計。ユーザー A が同じ日に 1 つの NANO を送信し、ユーザー B が 1 つの NANO を受信した場合、2 つのトランザクションがブロードキャストおよび確認されたため、1 日のボリュームに 2 つの NANO が追加されます。"
+    "onChainVolume": "ネットワーク上で確認されたすべての NANO トランザクションの合計。ユーザー A が同じ日に 1 つの NANO を送信し、ユーザー B が 1 つの NANO を受信した場合、2 つのトランザクションがブロードキャストおよび確認されたため、1 日のボリュームに 2 つの NANO が追加されます。",
+    "pendingTransactionCount": "売掛金取引の数が、表示されている制限の{{count}}を超えています。"
   },
   "search": {
     "searchBy": "アドレス/ブロック/既知のアカウントで検索",
@@ -167,13 +167,14 @@
       "noRepresentative": "代表者なし",
       "confirmationHeight": "確認高さ",
       "lastTransaction": "最後のトランザクション",
-      "pendingTransactions": "保留中のトランザクション",
       "loadMoreTransactions": "より多くのトランザクションをロードする",
       "viewTransactions": "トランザクションを表示する",
       "notOpenedYet": "このアカウントはまだ開設されていません",
       "notOpenedYetReason": "アカウントアドレスは有効ですが、チェーンにブロックはまだ公開されていません。 NANOがこのアカウントに送信された場合でも、資金をポケットに入れるために対応するブロックを公開する必要があります。",
       "missingAccount": "アカウントがありません",
-      "missingAccountInfo": "アカウントがURLで指定されていません。上部の検索バーを使用してアカウントを検索するか、URLの /account/ の後に追加します"
+      "missingAccountInfo": "アカウントがURLで指定されていません。上部の検索バーを使用してアカウントを検索するか、URLの /account/ の後に追加します",
+      "notVoting": "投票しない",
+      "pendingTransactions": "受け取る準備ができているトランザクション"
     },
     "block": {
       "blockSubtype": "ブロックサブタイプ",
@@ -246,7 +247,8 @@
       "unknownDormantFunds": "不明な休眠資金",
       "dormantFundsQuarterExample": "50個のNANOと50個の保留中のNANOを保持するアカウントは、6か月前（2四半期）に最後に取引され、残りの100個のNANOが次の四半期の合計に「休止」として追加されます。",
       "dormantNano": "眠っているNANO",
-      "ofAvailableSupply": "利用可能な供給の"
+      "ofAvailableSupply": "利用可能な供給の",
+      "richList": "豊富なリスト"
     },
     "news": {
       "allFeeds": "すべてのフィード",

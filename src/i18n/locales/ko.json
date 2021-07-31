@@ -49,13 +49,13 @@
     "accountAndBlock": "계정 / 차단",
     "send": "보내다",
     "receive": "받다",
-    "pending": "보류 중",
     "change": "변화",
     "open": "열다",
     "state": "상태",
     "epoch": "시대",
     "cps": "CPS",
-    "amount": "양"
+    "amount": "양",
+    "pending": "받을 수 있는"
   },
   "tooltips": {
     "avgConfirmationTime": "평균 확인 시간은 노드에서 로컬로 계산됩니다. 노드가 다시 시작되거나 성능이 저하 된 상태이면 평균 확인 시간이 나머지 네트워크보다 길 수 있습니다.",
@@ -83,10 +83,10 @@
     "ledgerSize": "지금까지 모든 Nano 트랜잭션을 저장하는 데 필요한 총 디스크 공간입니다. 원장 크기는 1000이 아닌 1024를 기준으로 계산됩니다.",
     "bandwidthCap": "나노 노드는 보내고받을 수있는 메시지의 양을 제한하기 위해 대역폭을 조절할 수 있습니다. 0은 무제한 대역폭을 의미합니다.",
     "uptime": "노드가 마지막으로 재부팅 된 이후의 시간입니다.",
-    "pendingTransactionCount": "보류중인 트랜잭션 수가 표시된 한도 인 {{count}}을 (를) 초과합니다.",
     "mnano": "Mnano는 지갑, 거래소 및 서비스에서 사용되는 현재 표준 부서입니다. 1 NANO라고합니다.",
     "versionsByWeight": "버전이 네트워크의 합의를 인수하려면 최소 {{onlineWeightMinimum}} NANO에서 온라인 투표 가중치의 67 %를 가져야합니다.",
-    "onChainVolume": "네트워크에서 확인 된 모든 NANO 거래의 합계입니다. 사용자 A가 1 개의 NANO를 전송하고 사용자 B가 같은 날에 1 개의 NANO를 받으면 2 개의 트랜잭션이 브로드 캐스트되고 확인되었으므로 전송 및 수신 1 개로 일일 볼륨에 2 개의 NANO가 추가됩니다."
+    "onChainVolume": "네트워크에서 확인 된 모든 NANO 거래의 합계입니다. 사용자 A가 1 개의 NANO를 전송하고 사용자 B가 같은 날에 1 개의 NANO를 받으면 2 개의 트랜잭션이 브로드 캐스트되고 확인되었으므로 전송 및 수신 1 개로 일일 볼륨에 2 개의 NANO가 추가됩니다.",
+    "pendingTransactionCount": "받을 수 있는 거래 수가 표시된 한도인 {{count}}개를 초과했습니다."
   },
   "search": {
     "searchBy": "주소 / 차단 / 알려진 계정으로 검색",
@@ -167,13 +167,14 @@
       "noRepresentative": "대리인 없음",
       "confirmationHeight": "확인 높이",
       "lastTransaction": "마지막 거래",
-      "pendingTransactions": "보류중인 거래",
       "loadMoreTransactions": "더 많은 거래로드",
       "viewTransactions": "거래보기",
       "notOpenedYet": "이 계정은 아직 개설되지 않았습니다.",
       "notOpenedYetReason": "계정 주소가 유효하지만 아직 체인에 게시 된 블록이 없습니다. NANO가이 계정으로 전송 된 경우 자금을 보관하려면 해당 블록을 게시해야합니다.",
       "missingAccount": "누락 된 계정",
-      "missingAccountInfo": "계정이 URL에 지정되지 않았습니다. 계정을 검색하려면 상단 검색 창을 사용하거나 /account/ 뒤의 URL에 추가하세요."
+      "missingAccountInfo": "계정이 URL에 지정되지 않았습니다. 계정을 검색하려면 상단 검색 창을 사용하거나 /account/ 뒤의 URL에 추가하세요.",
+      "notVoting": "투표하지 않음",
+      "pendingTransactions": "받을 준비가 된 거래"
     },
     "block": {
       "blockSubtype": "블록 하위 유형",
@@ -246,7 +247,8 @@
       "unknownDormantFunds": "알 수없는 휴면 자금",
       "dormantFundsQuarterExample": "50 개의 NANO와 50 개의 보류중인 NANO를 보유한 계정은 6 개월 전에 (2 분기) 마지막으로 거래되었으며, 100 NANO의 잔액은 다음 분기의 합계에 \"휴면\"으로 추가됩니다.",
       "dormantNano": "잠자는 나노",
-      "ofAvailableSupply": "사용 가능한 공급"
+      "ofAvailableSupply": "사용 가능한 공급",
+      "richList": "리치 목록"
     },
     "news": {
       "allFeeds": "모든 피드",

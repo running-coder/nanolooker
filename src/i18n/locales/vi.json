@@ -49,13 +49,13 @@
     "accountAndBlock": "Tài khoản / Khối",
     "send": "Gửi",
     "receive": "Nhận được",
-    "pending": "Đang chờ xử lý",
     "change": "Thay đổi",
     "open": "Mở",
     "state": "Tiểu bang",
     "epoch": "Epoch",
     "cps": "CPS",
-    "amount": "Số tiền"
+    "amount": "Số tiền",
+    "pending": "Phải thu"
   },
   "tooltips": {
     "avgConfirmationTime": "Thời gian xác nhận trung bình được tính cục bộ trên nút. Nếu nút được khởi động lại hoặc trong tình trạng xuống cấp, thời gian xác nhận trung bình có thể cao hơn phần còn lại của mạng.",
@@ -83,10 +83,10 @@
     "ledgerSize": "Tổng dung lượng ổ đĩa cần thiết để lưu trữ mọi giao dịch Nano cho đến nay. Kích thước sổ cái được tính trên cơ sở 1024 chứ không phải 1000.",
     "bandwidthCap": "Các nút nano có thể điều chỉnh băng thông của chúng để giới hạn số lượng tin nhắn có thể được gửi hoặc nhận. 0 có nghĩa là băng thông không giới hạn.",
     "uptime": "Thời gian kể từ khi nút được khởi động lại lần cuối.",
-    "pendingTransactionCount": "Số lượng giao dịch đang chờ xử lý vượt quá giới hạn được hiển thị là {{count}}.",
     "mnano": "Mnano là bộ phận tiêu chuẩn hiện tại được sử dụng trong ví, trên các sàn giao dịch và dịch vụ. Nó được gọi là 1 NANO.",
     "versionsByWeight": "Để một phiên bản chiếm được sự đồng thuận của mạng, phiên bản đó cần có {{onlineWeightQuorumPercent}}% trọng lượng bỏ phiếu trực tuyến từ tối thiểu là {{onlineWeightMinimum}} NANO.",
-    "onChainVolume": "Tổng của tất cả các giao dịch NANO đã được xác nhận trên mạng. Nếu người dùng A gửi 1 NANO và người dùng B nhận được 1 NANO trong cùng một ngày, thì 2 NANO sẽ được thêm vào khối lượng hàng ngày vì 2 giao dịch đã được phát và xác nhận, một gửi và một nhận."
+    "onChainVolume": "Tổng của tất cả các giao dịch NANO đã được xác nhận trên mạng. Nếu người dùng A gửi 1 NANO và người dùng B nhận được 1 NANO trong cùng một ngày, thì 2 NANO sẽ được thêm vào khối lượng hàng ngày vì 2 giao dịch đã được phát và xác nhận, một gửi và một nhận.",
+    "pendingTransactionCount": "Số lượng giao dịch phải thu vượt quá giới hạn hiển thị là {{count}}."
   },
   "search": {
     "searchBy": "Tìm kiếm theo Địa chỉ / Khối / Tài khoản Đã biết",
@@ -167,13 +167,14 @@
       "noRepresentative": "Không có đại diện",
       "confirmationHeight": "Chiều cao xác nhận",
       "lastTransaction": "Giao dịch cuối cùng",
-      "pendingTransactions": "Giao dịch đang chờ xử lý",
       "loadMoreTransactions": "Tải nhiều giao dịch hơn",
       "viewTransactions": "Xem các giao dịch",
       "notOpenedYet": "Tài khoản này chưa được mở",
       "notOpenedYetReason": "Mặc dù địa chỉ tài khoản hợp lệ, nhưng chưa có khối nào được xuất bản vào chuỗi của nó. Nếu NANO đã được gửi đến tài khoản này, nó vẫn cần xuất bản một khối tương ứng để bỏ túi tiền.",
       "missingAccount": "Thiếu tài khoản",
-      "missingAccountInfo": "Tài khoản không được chỉ định trong URL. Sử dụng thanh tìm kiếm trên cùng để tìm kiếm tài khoản hoặc thêm tài khoản vào URL sau /account/"
+      "missingAccountInfo": "Tài khoản không được chỉ định trong URL. Sử dụng thanh tìm kiếm trên cùng để tìm kiếm tài khoản hoặc thêm tài khoản vào URL sau /account/",
+      "notVoting": "Không bỏ phiếu",
+      "pendingTransactions": "Giao dịch đã sẵn sàng để nhận"
     },
     "block": {
       "blockSubtype": "Block con",
@@ -246,7 +247,8 @@
       "unknownDormantFunds": "Các quỹ không hoạt động không xác định",
       "dormantFundsQuarterExample": "Một tài khoản có 50 NANO và 50 NANO đang chờ xử lý đã giao dịch lần cuối cách đây 6 tháng (2 quý), số dư 100 NANO được thêm vào là \"không hoạt động\" vào tổng số của quý tiếp theo.",
       "dormantNano": "Ngủ NANO",
-      "ofAvailableSupply": "nguồn cung cấp có sẵn"
+      "ofAvailableSupply": "nguồn cung cấp có sẵn",
+      "richList": "Danh sách phong phú"
     },
     "news": {
       "allFeeds": "Tất cả Nguồn cấp dữ liệu",

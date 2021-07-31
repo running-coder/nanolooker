@@ -49,13 +49,13 @@
     "accountAndBlock": "帐户/块",
     "send": "发送",
     "receive": "收到",
-    "pending": "待办的",
     "change": "改变",
     "open": "打开",
     "state": "状态",
     "epoch": "时代",
     "cps": "CPS",
-    "amount": "数量"
+    "amount": "数量",
+    "pending": "应收账款"
   },
   "tooltips": {
     "avgConfirmationTime": "平均确认时间在节点上本地计算。如果节点重新启动或处于降级状态，则平均确认时间可能会高于网络的其余部分。",
@@ -83,10 +83,10 @@
     "ledgerSize": "到现在为止，存储每个Nano事务所需的磁盘空间总量。分类帐大小是基于1024而不是1000计算的。",
     "bandwidthCap": "纳米节点能够调节其带宽，以限制可以发送或接收的消息量。 0表示无限带宽。",
     "uptime": "自上次重新引导节点以来的时间。",
-    "pendingTransactionCount": "待处理的交易数量超过了显示的限制{{count}}。",
     "mnano": "Mnano是目前用于钱包，交易所和服务的标准部门。它被称为1 NANO。",
     "versionsByWeight": "为了使版本能够取代网络的共识，它需要至少具有{{onlineWeightMinimum}} NANO的67％的在线投票权。",
-    "onChainVolume": "网络上已确认的所有 NANO 交易的总和。如果用户 A 发送 1 个 NANO，用户 B 在同一天收到 1 个 NANO，那么每天的交易量会增加 2 个 NANO，因为 2 个交易被广播和确认，一个发送和一个接收。"
+    "onChainVolume": "网络上已确认的所有 NANO 交易的总和。如果用户 A 发送 1 个 NANO，用户 B 在同一天收到 1 个 NANO，那么每天的交易量会增加 2 个 NANO，因为 2 个交易被广播和确认，一个发送和一个接收。",
+    "pendingTransactionCount": "应收交易的数量超过了显示的{{count}} 限制。"
   },
   "search": {
     "searchBy": "按地址/阻止/已知帐户搜索",
@@ -167,13 +167,14 @@
       "noRepresentative": "没有代表",
       "confirmationHeight": "确认高度",
       "lastTransaction": "最后交易",
-      "pendingTransactions": "待交易",
       "loadMoreTransactions": "加载更多交易",
       "viewTransactions": "查看交易",
       "notOpenedYet": "此帐户尚未打开",
       "notOpenedYetReason": "帐户地址有效时，尚未将任何块发布到其链中。如果NANO已发送到该帐户，它仍需要发布相应的块以将资金放入口袋。",
       "missingAccount": "帐户遗失",
-      "missingAccountInfo": "未在URL中指定帐户。使用顶部的搜索栏搜索帐户，或将其附加在 /account/ 之后的URL中"
+      "missingAccountInfo": "未在URL中指定帐户。使用顶部的搜索栏搜索帐户，或将其附加在 /account/ 之后的URL中",
+      "notVoting": "不投票",
+      "pendingTransactions": "准备接收的交易"
     },
     "block": {
       "blockSubtype": "块子类型",
@@ -246,7 +247,8 @@
       "unknownDormantFunds": "未知的休眠资金",
       "dormantFundsQuarterExample": "拥有50个NANO和50个未决NANO的帐户最近一次交易是在6个月前（2个季度），余额100个NANO作为“休眠”添加到了下一个季度的总数中。",
       "dormantNano": "睡觉的NANO",
-      "ofAvailableSupply": "可用供应量"
+      "ofAvailableSupply": "可用供应量",
+      "richList": "富豪榜"
     },
     "news": {
       "allFeeds": "所有提要",

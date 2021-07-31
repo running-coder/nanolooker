@@ -49,13 +49,13 @@
     "accountAndBlock": "Hesap / Blok",
     "send": "Gönder",
     "receive": "Teslim almak",
-    "pending": "Bekliyor",
     "change": "Değişiklik",
     "open": "Açık",
     "state": "Durum",
     "epoch": "Dönem",
     "cps": "CPS",
-    "amount": "Miktar"
+    "amount": "Miktar",
+    "pending": "alacak"
   },
   "tooltips": {
     "avgConfirmationTime": "Ortalama onay süresi, düğümde yerel olarak hesaplanır. Düğüm yeniden başlatılırsa veya düşürülmüş durumdaysa, ortalama onay süresi ağın geri kalanından daha yüksek olabilir.",
@@ -83,10 +83,10 @@
     "ledgerSize": "Şimdiye kadarki her Nano işlemini depolamak için gereken toplam disk alanı miktarı. Defter boyutu 1000 değil 1024 temel alınarak hesaplanır.",
     "bandwidthCap": "Nano düğümler, gönderilebilen veya alınabilen mesajların miktarını sınırlamak için bant genişliğini kısabilir. 0, sınırsız bant genişliği anlamına gelir.",
     "uptime": "Düğümün en son yeniden başlatılmasından bu yana geçen süre.",
-    "pendingTransactionCount": "Bekleyen işlemlerin sayısı, görüntülenen {{count}} sınırını aşıyor.",
     "mnano": "Mnano, cüzdanlarda, borsalarda ve hizmetlerde kullanılan mevcut standart bölümdür. 1 NANO olarak anılır.",
     "versionsByWeight": "Bir sürümün ağın fikir birliğini devralması için, minimum {{onlineWeightMinimum}} NANO'dan çevrimiçi oy ağırlığının% 67'sine sahip olması gerekir.",
-    "onChainVolume": "Ağda onaylanan tüm NANO işlemlerinin toplamı. Aynı gün A kullanıcısı 1 NANO gönderir ve B kullanıcısı 1 NANO alırsa, 2 işlem yayınlanıp onaylandığı için gönderme ve alma olmak üzere günlük hacme 2 NANO eklenir."
+    "onChainVolume": "Ağda onaylanan tüm NANO işlemlerinin toplamı. Aynı gün A kullanıcısı 1 NANO gönderir ve B kullanıcısı 1 NANO alırsa, 2 işlem yayınlanıp onaylandığı için gönderme ve alma olmak üzere günlük hacme 2 NANO eklenir.",
+    "pendingTransactionCount": "Alacak işlemlerinin sayısı, görüntülenen {{count}} sınırını aşıyor."
   },
   "search": {
     "searchBy": "Adres / Blok / Bilinen Hesap ile Ara",
@@ -167,13 +167,14 @@
       "noRepresentative": "Temsilci Yok",
       "confirmationHeight": "Onay yüksekliği",
       "lastTransaction": "Son işlem",
-      "pendingTransactions": "bekleyen işlemler",
       "loadMoreTransactions": "Daha fazla işlem yükle",
       "viewTransactions": "İşlemleri görüntüleyin",
       "notOpenedYet": "Bu hesap henüz açılmadı",
       "notOpenedYetReason": "Hesap adresi geçerliyken, zincirinde henüz blok yayınlanmamıştır. NANO bu hesaba gönderilmişse, parayı cebe indirmek için yine de karşılık gelen bir blok yayınlaması gerekir.",
       "missingAccount": "Eksik hesap",
-      "missingAccountInfo": "Hesap URL'de belirtilmemiştir. Bir hesabı aramak için üstteki arama çubuğunu kullanın veya URL'ye /account/ sonrasına ekleyin."
+      "missingAccountInfo": "Hesap URL'de belirtilmemiştir. Bir hesabı aramak için üstteki arama çubuğunu kullanın veya URL'ye /account/ sonrasına ekleyin.",
+      "notVoting": "Oy Vermemek",
+      "pendingTransactions": "Alınmaya hazır işlemler"
     },
     "block": {
       "blockSubtype": "Alt türü engelle",
@@ -246,7 +247,8 @@
       "unknownDormantFunds": "Bilinmeyen faal olmayan fonlar",
       "dormantFundsQuarterExample": "50 NANO ve 50 bekleyen NANO tutan bir hesap en son 6 ay önce işlem görmüş (2 çeyrek), 100 NANO bakiyesi bir sonraki çeyreğin toplamına \"hareketsiz\" olarak eklenmiştir.",
       "dormantNano": "NANO uyuyor",
-      "ofAvailableSupply": "mevcut arzın"
+      "ofAvailableSupply": "mevcut arzın",
+      "richList": "Zengin Liste"
     },
     "news": {
       "allFeeds": "Tüm Beslemeler",

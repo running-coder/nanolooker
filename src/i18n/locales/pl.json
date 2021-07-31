@@ -49,13 +49,13 @@
     "accountAndBlock": "Konto / Zablokuj",
     "send": "Wysłanie",
     "receive": "Otrzymanie",
-    "pending": "Oczekiwanie...",
     "change": "Zmiana",
     "open": "otwarty",
     "state": "Stan",
     "epoch": "Epoch",
     "cps": "PNS",
-    "amount": "Ilość"
+    "amount": "Ilość",
+    "pending": "Należność"
   },
   "tooltips": {
     "avgConfirmationTime": "Średni czas potwierdzenia jest obliczany lokalnie w Nano Node. Jeśli Nano Node zostanie zrestartowany lub w stanie zdegradowanym, średni czas potwierdzenia może być dłuższy niż w pozostałej części sieci.",
@@ -83,10 +83,10 @@
     "ledgerSize": "Całkowita ilość miejsca na dysku wymagana do przechowywania wszystkich dotychczasowych transakcji Nano. Rozmiar księgi jest obliczany na podstawie 1024, a nie 1000.",
     "bandwidthCap": "Nano Node mogą ograniczać przepustowość, aby ograniczyć liczbę wiadomości, które mogą być wysyłane lub odbierane. 0 oznacza nieograniczoną przepustowość.",
     "uptime": "Czas od ostatniego restartu Nano Node.",
-    "pendingTransactionCount": "Liczba oczekujących transakcji przekracza wyświetlany limit {{count}}.",
     "mnano": "Mnano to obecny standardowy podział stosowany w portfelach, giełdach i usługach. Nazywa się 1 NANO.",
     "versionsByWeight": "Aby wersja przejęła konsensus sieci, musi mieć {{onlineWeightQuorumPercent}}% głosów online z co najmniej {{onlineWeightMinimum}} NANO.",
-    "onChainVolume": "Suma wszystkich transakcji NANO, które zostały potwierdzone w sieci. Jeśli użytkownik A wyśle 1 NANO, a użytkownik B otrzyma 1 NANO tego samego dnia, 2 NANO zostaną dodane do dziennego wolumenu, ponieważ 2 transakcje zostały wyemitowane i potwierdzone, wysłanie i odbiór."
+    "onChainVolume": "Suma wszystkich transakcji NANO, które zostały potwierdzone w sieci. Jeśli użytkownik A wyśle 1 NANO, a użytkownik B otrzyma 1 NANO tego samego dnia, 2 NANO zostaną dodane do dziennego wolumenu, ponieważ 2 transakcje zostały wyemitowane i potwierdzone, wysłanie i odbiór.",
+    "pendingTransactionCount": "Liczba transakcji należności przekracza wyświetlany limit {{count}}."
   },
   "search": {
     "searchBy": "Wyszukaj według adresu / bloku / znanego konta",
@@ -167,13 +167,14 @@
       "noRepresentative": "Brak przedstawiciela",
       "confirmationHeight": "Wysokość potwierdzenia",
       "lastTransaction": "Ostatnia transakcja",
-      "pendingTransactions": "oczekujące transakcje",
       "loadMoreTransactions": "Załaduj więcej transakcji",
       "viewTransactions": "Wyświetl transakcje",
       "notOpenedYet": "To konto nie zostało jeszcze otwarte",
       "notOpenedYetReason": "Chociaż adres konta jest prawidłowy, żadne bloki nie zostały jeszcze opublikowane w jego łańcuchu. Jeśli NANO zostało wysłane na to konto, nadal musi opublikować odpowiedni blok, aby zdobyć środki.",
       "missingAccount": "Brakujące konto",
-      "missingAccountInfo": "Konto nie jest określone w adresie URL. Użyj górnego paska wyszukiwania do wyszukania konta lub dołącz go do adresu URL po /account/"
+      "missingAccountInfo": "Konto nie jest określone w adresie URL. Użyj górnego paska wyszukiwania do wyszukania konta lub dołącz go do adresu URL po /account/",
+      "notVoting": "Nie głosuję",
+      "pendingTransactions": "Transakcje gotowe do odbioru"
     },
     "block": {
       "blockSubtype": "Podtyp blokowy",
@@ -246,7 +247,8 @@
       "unknownDormantFunds": "Nieznane nieaktywne fundusze",
       "dormantFundsQuarterExample": "Rachunek, na którym znajduje się 50 NANO i 50 oczekujących na transakcje NANO, ostatnio dokonano transakcji 6 miesięcy temu (2 kwartały), saldo 100 NANO jest dodawane jako „nieaktywne” do sumy z następnego kwartału.",
       "dormantNano": "Śpiąca NANO",
-      "ofAvailableSupply": "dostępnej podaży"
+      "ofAvailableSupply": "dostępnej podaży",
+      "richList": "Bogata lista"
     },
     "news": {
       "allFeeds": "Wszystkie kanały",

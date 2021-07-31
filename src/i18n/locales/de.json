@@ -49,13 +49,13 @@
     "accountAndBlock": "Konto / Block",
     "send": "Senden",
     "receive": "Erhalten",
-    "pending": "steht aus",
     "change": "Veränderung",
     "open": "Öffnen",
     "state": "Zustand",
     "epoch": "Epoche",
     "cps": "CPS",
-    "amount": "Menge"
+    "amount": "Menge",
+    "pending": "Forderung"
   },
   "tooltips": {
     "avgConfirmationTime": "Die durchschnittliche Bestätigungszeit wird lokal auf dem Knoten berechnet. Wenn der Knoten neu gestartet wird oder sich in einem verschlechterten Zustand befindet, ist die durchschnittliche Bestätigungszeit möglicherweise höher als der Rest des Netzwerks.",
@@ -83,10 +83,10 @@
     "ledgerSize": "Die Gesamtmenge an Speicherplatz, die bisher zum Speichern aller Nano-Transaktionen erforderlich ist. Die Hauptbuchgröße wird auf 1024-Basis berechnet, nicht auf 1000.",
     "bandwidthCap": "Nano-Knoten können ihre Bandbreite drosseln, um die Anzahl der Nachrichten zu begrenzen, die gesendet oder empfangen werden können. 0 bedeutet unbegrenzte Bandbreite.",
     "uptime": "Zeit seit dem letzten Neustart des Knotens.",
-    "pendingTransactionCount": "Die Anzahl der ausstehenden Transaktionen überschreitet das angezeigte Limit von {{count}}.",
     "mnano": "Mnano ist die derzeitige Standardabteilung für Brieftaschen, Börsen und Dienstleistungen. Es wird als 1 NANO bezeichnet.",
     "versionsByWeight": "Damit eine Version den Konsens des Netzwerks übernimmt, muss sie {{onlineWeightQuorumPercent}}% des Online-Abstimmungsgewichts von mindestens {{onlineWeightMinimum}} NANO haben.",
-    "onChainVolume": "Die Summe aller NANO-Transaktionen, die im Netzwerk bestätigt wurden. Wenn Benutzer A 1 NANO sendet und Benutzer B 1 NANO am selben Tag empfängt, werden 2 NANO zum Tagesvolumen hinzugefügt, da 2 Transaktionen gesendet und bestätigt wurden, ein Senden und ein Empfangen."
+    "onChainVolume": "Die Summe aller NANO-Transaktionen, die im Netzwerk bestätigt wurden. Wenn Benutzer A 1 NANO sendet und Benutzer B 1 NANO am selben Tag empfängt, werden 2 NANO zum Tagesvolumen hinzugefügt, da 2 Transaktionen gesendet und bestätigt wurden, ein Senden und ein Empfangen.",
+    "pendingTransactionCount": "Die Anzahl der ausstehenden Transaktionen überschreitet das angezeigte Limit von {{count}}."
   },
   "search": {
     "searchBy": "Suche nach Adresse / Block / Bekanntem Konto",
@@ -167,13 +167,14 @@
       "noRepresentative": "Kein Vertreter",
       "confirmationHeight": "Bestätigungshöhe",
       "lastTransaction": "Letzte Transaktion",
-      "pendingTransactions": "Ausstehende Transaktionen",
       "loadMoreTransactions": "Laden Sie weitere Transaktionen",
       "viewTransactions": "Transaktionen anzeigen",
       "notOpenedYet": "Dieses Konto wurde noch nicht eröffnet",
       "notOpenedYetReason": "Während die Kontoadresse gültig ist, wurden noch keine Blöcke in ihrer Kette veröffentlicht. Wenn NANO auf dieses Konto gesendet wurde, muss noch ein entsprechender Block veröffentlicht werden, um das Geld einzustecken.",
       "missingAccount": "Fehlendes Konto",
-      "missingAccountInfo": "Das Konto ist nicht in der URL angegeben. Verwenden Sie die obere Suchleiste, um nach einem Konto zu suchen, oder hängen Sie es an die URL nach /account/ an."
+      "missingAccountInfo": "Das Konto ist nicht in der URL angegeben. Verwenden Sie die obere Suchleiste, um nach einem Konto zu suchen, oder hängen Sie es an die URL nach /account/ an.",
+      "notVoting": "Nicht abstimmen",
+      "pendingTransactions": "empfangsbereite Transaktionen"
     },
     "block": {
       "blockSubtype": "Subtyp blockieren",
@@ -246,7 +247,8 @@
       "unknownDormantFunds": "Unbekannte ruhende Gelder",
       "dormantFundsQuarterExample": "Ein Konto mit 50 NANO und 50 ausstehenden NANO wurde zuletzt vor 6 Monaten (2 Quartale) abgewickelt. Ein Saldo von 100 NANO wird als \"ruhend\" zur Gesamtsumme des folgenden Quartals hinzugefügt.",
       "dormantNano": "Ruhende Nano",
-      "ofAvailableSupply": "des verfügbaren Angebots"
+      "ofAvailableSupply": "des verfügbaren Angebots",
+      "richList": "Reiche Liste"
     },
     "news": {
       "allFeeds": "Alle Feeds",
