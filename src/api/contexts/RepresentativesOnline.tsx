@@ -1,7 +1,5 @@
 import * as React from "react";
-import uniq from "lodash/uniq";
 import { rpc } from "api/rpc";
-import { NANOLOOKER } from "../../knownAccounts.json";
 
 export interface RepresentativesOnlineReturn {
   representatives: string[];
@@ -29,7 +27,7 @@ const Provider: React.FC = ({ children }) => {
 
     !json || json.error
       ? setIsError(true)
-      : setRepresentatives(uniq(json.representatives.concat([NANOLOOKER])));
+      : setRepresentatives(json.representatives);
 
     setIsLoading(false);
   };

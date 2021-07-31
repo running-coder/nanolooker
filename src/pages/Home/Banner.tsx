@@ -72,7 +72,7 @@ const Banner: React.FC = () => {
             Tracker.ga4?.gtag("event", "GoToNanoLooker");
           }}
         >
-          <img alt="Go to NanoLooker" src={`/nano-white.png`} height="8px" />
+          <img alt="Go to NanoLooker" src={`/nano-white.png`} height="10px" />
         </Button>
       </Space>
     </div>
