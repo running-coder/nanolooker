@@ -327,7 +327,7 @@ cron.schedule("15 5 * * 1", async () => {
 //   !fs.existsSync(KNOWN_EXCHANGES_PATH) &&
 //   !fs.existsSync(STATUS_PATH)
 // ) {
-doDistributionCron();
+// doDistributionCron();
 // }
 
 const getDistributionData = () => {

@@ -47,6 +47,7 @@ const {
   getAllDelegatorsCount,
 } = require("./api/delegators");
 const { getRichListPage, getRichListAccount } = require("./api/richList");
+const { getParticipant, getParticipantsPage } = require("./api/participants");
 const { getNodeLocations } = require("./api/nodeLocations");
 const { getNodeMonitors } = require("./api/nodeMonitors");
 const { getDelegatedEntity } = require("./api/delegatedEntity");
@@ -194,6 +195,18 @@ app.get("/api/rich-list", async (req, res) => {
     data = await getRichListPage(page);
   } else if (account) {
     data = await getRichListAccount(account);
+  }
+
+  res.send(data);
+});
+
+app.get("/api/participants", async (req, res) => {
+  const { page, account } = req.query;
+  let data;
+  if (account) {
+    data = await getParticipant(account);
+  } else if (page) {
+    data = await getParticipantsPage(page);
   }
 
   res.send(data);
