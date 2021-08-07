@@ -50,9 +50,8 @@ const useParticipants = ({ account, page }: Params): Return => {
     if (!json || json.error) {
       setIsError(true);
     } else {
-      console.log("~~~~~account?", account);
       if (account) {
-        setParticipants([json]);
+        setParticipants(Object.keys(json).length ? [json] : []);
         setMeta({} as Meta);
       } else {
         setParticipants(json.data);

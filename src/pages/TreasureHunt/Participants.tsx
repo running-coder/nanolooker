@@ -37,7 +37,7 @@ const Progress: React.FC<ProgressProps> = ({ isCompleted, hash }) => {
   const { theme } = React.useContext(PreferencesContext);
 
   return isCompleted || (hash && hash !== "0") ? (
-    <Space size={12}>
+    <Space size={6}>
       <CheckCircleTwoTone
         twoToneColor={
           theme === Theme.DARK ? TwoToneColors.RECEIVE_DARK : "#52c41a"
@@ -66,10 +66,7 @@ const Participants: React.FC = () => {
     page: currentPage,
   });
   const history = useHistory();
-  // const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
   const isLargeAndLower = !useMediaQuery("(min-width: 992px)");
-
-  console.log("~~~~isMediumAndLower", isLargeAndLower);
 
   const onChange = (e: React.ChangeEventHandler<HTMLInputElement>) => {
     // @ts-ignore
@@ -95,7 +92,7 @@ const Participants: React.FC = () => {
         // @ts-ignore
         onChange={onChange}
         placeholder="Search for participant address"
-        style={{ maxWidth: "50%", marginBottom: 12 }}
+        style={{ maxWidth: isLargeAndLower ? "100%" : "60%", marginBottom: 12 }}
         allowClear
       ></Input>
 
@@ -150,7 +147,11 @@ const Participants: React.FC = () => {
             <Col xs={24} style={{ textAlign: "center" }}>
               <Empty
                 image={Empty.PRESENTED_IMAGE_SIMPLE}
-                description={"No participants yet"}
+                description={
+                  account
+                    ? "Participant not found, if you posted your account on the twitter thread, wait a few seconds."
+                    : "No participants found"
+                }
                 style={{ padding: "12px" }}
               />
             </Col>
@@ -179,7 +180,7 @@ const Participants: React.FC = () => {
                     </Link>
                   </Col>
                   <Col xs={12} md={6} lg={3} style={{ textAlign: "center" }}>
-                    <Space size={12}>
+                    <Space size={[6, 12]}>
                       {isLargeAndLower ? (
                         <>
                           <TwitterOutlined /> Twitter
@@ -189,24 +190,24 @@ const Participants: React.FC = () => {
                     </Space>
                   </Col>
                   <Col xs={12} md={6} lg={3} style={{ textAlign: "center" }}>
-                    <Space size={12}>
+                    <Space size={6}>
                       {isLargeAndLower ? <Text>NanoCafe.cc</Text> : null}
                       <Progress hash={nanoCafe} />
                     </Space>
                   </Col>
                   <Col xs={12} md={6} lg={3} style={{ textAlign: "center" }}>
-                    <Space size={12}>
+                    <Space size={6}>
                       {isLargeAndLower ? <Text>Representative</Text> : null}
                       <Progress hash={representative} />
                     </Space>
                   </Col>
                   <Col xs={12} md={6} lg={3} style={{ textAlign: "center" }}>
-                    <Space size={12}>
+                    <Space size={6}>
                       {isLargeAndLower ? <Text>NanoBrowserQuest</Text> : null}
                       <Progress hash={nanoBrowserQuest} />
                     </Space>
                   </Col>
-                  <Col xs={24} md={12} lg={4} style={{ textAlign: "center" }}>
+                  <Col xs={24} md={6} lg={4} style={{ textAlign: "center" }}>
                     {payout && payout !== "0" ? (
                       <Link to={`block/${payout}`} className="truncate">
                         {payout}

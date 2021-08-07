@@ -44,7 +44,11 @@ const getParticipantsPage = async (page = 1) =>
 const getParticipant = async account =>
   new Promise(async resolve => {
     redisClient.hgetall(`${PARTICIPANTS}:${account}`, (error, reply) => {
-      resolve({ account, ...reply });
+      if (!reply) {
+        resolve({});
+      } else {
+        resolve({ account, ...reply });
+      }
     });
   });
 

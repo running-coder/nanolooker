@@ -2,14 +2,25 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { Card, Typography } from "antd";
 
-const { Title } = Typography;
+const { Text, Title } = Typography;
 
 const Rules: React.FC = () => {
   return (
     <>
       <Title level={3}>Treasure Hunt Rules (Beta)</Title>
       <Card size="small" bordered={false}>
-        <p>The treasure hunt is scheduled to last 24h (give exact time)</p>
+        {/* <p>The treasure hunt is scheduled to last 24h (give exact time)</p> */}
+
+        <Text
+          style={{
+            fontSize: "18px",
+            display: "block",
+            margin: "6px 0",
+            fontWeight: "bold",
+          }}
+        >
+          First:
+        </Text>
         <ol>
           <li>
             Post your public address in the{" "}
@@ -31,6 +42,19 @@ const Rules: React.FC = () => {
               </li>
             </ul>
           </li>
+        </ol>
+
+        <Text
+          style={{
+            fontSize: "18px",
+            display: "block",
+            margin: "6px 0",
+            fontWeight: "bold",
+          }}
+        >
+          Then:
+        </Text>
+        <ol>
           <li>
             Claim a payout from the{" "}
             <a
