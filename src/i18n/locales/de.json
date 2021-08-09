@@ -18,7 +18,7 @@
     "balance": "Balance",
     "totalBalance": "Gesamtsaldo",
     "weight": "Gewicht",
-    "notAvailable": "N / A",
+    "notAvailable": "N/V",
     "continueReading": "Weiterlesen",
     "alias": "Alias",
     "search": "Suche",
@@ -37,7 +37,7 @@
     "executionTimeAgo": "Letzte Zusammenstellung war",
     "node": "Knoten",
     "nodes": "Knoten",
-    "cancel": "Stornieren",
+    "cancel": "Abbrechen",
     "comingSoon": "Kommt bald"
   },
   "nodeHealth": {
@@ -55,7 +55,7 @@
     "epoch": "Epoche",
     "cps": "CPS",
     "amount": "Menge",
-    "pending": "Forderung"
+    "pending": "Abholbar"
   },
   "tooltips": {
     "avgConfirmationTime": "Die durchschnittliche Bestätigungszeit wird lokal auf dem Knoten berechnet. Wenn der Knoten neu gestartet wird oder sich in einem verschlechterten Zustand befindet, ist die durchschnittliche Bestätigungszeit möglicherweise höher als der Rest des Netzwerks.",
@@ -83,7 +83,7 @@
     "ledgerSize": "Die Gesamtmenge an Speicherplatz, die bisher zum Speichern aller Nano-Transaktionen erforderlich ist. Die Hauptbuchgröße wird auf 1024-Basis berechnet, nicht auf 1000.",
     "bandwidthCap": "Nano-Knoten können ihre Bandbreite drosseln, um die Anzahl der Nachrichten zu begrenzen, die gesendet oder empfangen werden können. 0 bedeutet unbegrenzte Bandbreite.",
     "uptime": "Zeit seit dem letzten Neustart des Knotens.",
-    "mnano": "Mnano ist die derzeitige Standardabteilung für Brieftaschen, Börsen und Dienstleistungen. Es wird als 1 NANO bezeichnet.",
+    "mnano": "Mnano ist die derzeitige Standardeinteilung für Brieftaschen, Börsen und Dienstleistungen. Es wird als 1 NANO bezeichnet.",
     "versionsByWeight": "Damit eine Version den Konsens des Netzwerks übernimmt, muss sie {{onlineWeightQuorumPercent}}% des Online-Abstimmungsgewichts von mindestens {{onlineWeightMinimum}} NANO haben.",
     "onChainVolume": "Die Summe aller NANO-Transaktionen, die im Netzwerk bestätigt wurden. Wenn Benutzer A 1 NANO sendet und Benutzer B 1 NANO am selben Tag empfängt, werden 2 NANO zum Tagesvolumen hinzugefügt, da 2 Transaktionen gesendet und bestätigt wurden, ein Senden und ein Empfangen.",
     "pendingTransactionCount": "Die Anzahl der ausstehenden Transaktionen überschreitet das angezeigte Limit von {{count}}."
@@ -173,7 +173,7 @@
       "notOpenedYetReason": "Während die Kontoadresse gültig ist, wurden noch keine Blöcke in ihrer Kette veröffentlicht. Wenn NANO auf dieses Konto gesendet wurde, muss noch ein entsprechender Block veröffentlicht werden, um das Geld einzustecken.",
       "missingAccount": "Fehlendes Konto",
       "missingAccountInfo": "Das Konto ist nicht in der URL angegeben. Verwenden Sie die obere Suchleiste, um nach einem Konto zu suchen, oder hängen Sie es an die URL nach /account/ an.",
-      "notVoting": "Nicht abstimmen",
+      "notVoting": "Nicht abstimmend",
       "pendingTransactions": "empfangsbereite Transaktionen"
     },
     "block": {
@@ -205,9 +205,9 @@
       "minimumOnlineWeight": "Minimales Online-Gewicht",
       "totalOnlineStake": "Gesamt-Online-Einsatz",
       "totalPeerStake": "Total Peer Stake",
-      "includeOfflineRepresentatives": "Schließen Sie Offline-Vertreter ein",
+      "includeOfflineRepresentatives": "Offline-Vertreter einschließen",
       "viewDelegators": "{{count}} Delegatoren anzeigen",
-      "loadAllRepresentatives": "Laden Sie alle Vertreter",
+      "loadAllRepresentatives": "Alle Vertreter laden",
       "groupByEntities": "Nach Entitäten gruppieren"
     },
     "representative": {
@@ -309,7 +309,7 @@
       "noBookmarksFound": "Keine Lesezeichen gefunden"
     },
     "nanoquakejs": {
-      "playNow": "Jetzt abspielen !",
+      "playNow": "Jetzt spielen!",
       "register": "Registrieren",
       "scanWallet": "Scannen Sie Ihre Wallet-Adresse",
       "registerError": "Registrierung kann nicht abgeschlossen werden",
