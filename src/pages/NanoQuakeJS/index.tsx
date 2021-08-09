@@ -103,6 +103,7 @@ const NanoQuakeJSPage: React.FC = () => {
                   style={{
                     maxWidth: "320px",
                     display: "block",
+                    pointerEvents: "none",
                     margin: "-50px auto -50px",
                   }}
                 />

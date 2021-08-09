@@ -54,8 +54,8 @@ const Leaderboard: React.FC<Props> = ({ topScores }) => {
       <Card size="small" bordered={false} className="detail-layout">
         <Row gutter={12}>
           <Col xs={4}>{t("pages.nanoquakejs.rank")}</Col>
-          <Col xs={16}>{t("pages.nanoquakejs.player")}</Col>
-          <Col xs={4}>{t("pages.nanoquakejs.frags")}</Col>
+          <Col xs={14}>{t("pages.nanoquakejs.player")}</Col>
+          <Col xs={6}>{t("pages.nanoquakejs.frags")}</Col>
         </Row>
         {!topScores?.length ? (
           Array.from(Array(5).keys()).map(index => (
@@ -63,10 +63,10 @@ const Leaderboard: React.FC<Props> = ({ topScores }) => {
               <Col xs={4}>
                 <Skeleton loading={true} paragraph={false} active />
               </Col>
-              <Col xs={16}>
+              <Col xs={14}>
                 <Skeleton loading={true} paragraph={false} active />
               </Col>
-              <Col xs={4}>
+              <Col xs={6}>
                 <Skeleton loading={true} paragraph={false} active />
               </Col>
             </Row>
@@ -83,14 +83,14 @@ const Leaderboard: React.FC<Props> = ({ topScores }) => {
                       #{rank} <Trophy rank={rank} />
                     </Text>
                   </Col>
-                  <Col xs={16}>
+                  <Col xs={14}>
                     <Text
                       style={{ fontSize: fontSizeToRankMap[rank] ?? "auto" }}
                     >
                       {player}
                     </Text>
                   </Col>
-                  <Col xs={4}>
+                  <Col xs={6}>
                     <Text
                       style={{ fontSize: fontSizeToRankMap[rank] ?? "auto" }}
                     >
