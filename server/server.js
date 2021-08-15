@@ -67,12 +67,17 @@ app.use(bodyParser.json());
 app.post("/api/rpc", async (req, res) => {
   const { action, ...params } = req.body || {};
 
+  let rpcDomain = req.header("x-rpc") || undefined;
+  if (rpcDomain && !/^https?:\/\//.test(rpcDomain)) {
+    rpcDomain = `http://${rpcDomain}`;
+  }
+
   if (!action) {
     res.status(422).send("Missing action");
   } else if (!allowedRpcMethods.includes(action)) {
     res.status(422).send("RPC action not allowed");
   } else {
-    const result = await rpc(action, params, true);
+    const result = await rpc(action, params, true, rpcDomain);
     res.send(result);
   }
 });

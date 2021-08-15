@@ -302,7 +302,11 @@
       "searchHistory": "Historique des recherches",
       "filterTransactionsRange": "Personnaliser le filtrage des montants des transactions",
       "filterTransactionsRangeDetailed": "Choisissez d'afficher uniquement les transactions entrantes dans une certaine plage min / max du montant envoyé ou reçu.",
-      "noLimit": "Sans limites"
+      "noLimit": "Sans limites",
+      "nodeConnection": "Connexion de nœud",
+      "connectionDetailed": "Connectez l'explorateur à un autre nœud que NanoLooker",
+      "rpcDomain": "RPC",
+      "websocketDomain": "Websocket"
     },
     "bookmarks": {
       "viewAll": "Afficher tous les signets",

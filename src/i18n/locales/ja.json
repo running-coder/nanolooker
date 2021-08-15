@@ -302,7 +302,11 @@
       "searchHistory": "検索履歴",
       "filterTransactionsRange": "取引金額のフィルタリングをカスタマイズする",
       "filterTransactionsRangeDetailed": "送信または受信された金額の特定の最小/最大範囲内の着信トランザクションのみを表示するように選択します。",
-      "noLimit": "制限なし"
+      "noLimit": "制限なし",
+      "nodeConnection": "ノード接続",
+      "connectionDetailed": "エクスプローラーをNanoLooker以外のノードに接続します",
+      "rpcDomain": "RPC",
+      "websocketDomain": "Websocket"
     },
     "bookmarks": {
       "viewAll": "すべてのブックマークを表示",

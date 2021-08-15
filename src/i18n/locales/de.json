@@ -302,7 +302,11 @@
       "searchHistory": "Suchverlauf",
       "filterTransactionsRange": "Passen Sie die Filterung der Transaktionsbeträge an",
       "filterTransactionsRangeDetailed": "Wählen Sie diese Option, um eingehende Transaktionen nur innerhalb eines bestimmten Min / Max-Bereichs des gesendeten oder empfangenen Betrags anzuzeigen.",
-      "noLimit": "Keine Begrenzung"
+      "noLimit": "Keine Begrenzung",
+      "nodeConnection": "Knotenverbindung",
+      "connectionDetailed": "Verbinden Sie den Explorer mit einem anderen Knoten als NanoLooker",
+      "rpcDomain": "RPC",
+      "websocketDomain": "Websocket"
     },
     "bookmarks": {
       "viewAll": "Alle Lesezeichen anzeigen",

@@ -302,7 +302,11 @@
       "searchHistory": "Lịch sử tìm kiếm",
       "filterTransactionsRange": "Tùy chỉnh lọc số tiền giao dịch",
       "filterTransactionsRangeDetailed": "Chọn chỉ hiển thị các giao dịch đến trong một phạm vi tối thiểu / tối đa nhất định của số tiền đã gửi hoặc đã nhận.",
-      "noLimit": "Không giới hạn"
+      "noLimit": "Không giới hạn",
+      "nodeConnection": "Kết nối nút",
+      "connectionDetailed": "Kết nối trình thám hiểm với một nút khác ngoài NanoLooker",
+      "rpcDomain": "RPC",
+      "websocketDomain": "Websocket"
     },
     "bookmarks": {
       "viewAll": "Xem tất cả các dấu trang",

@@ -302,7 +302,11 @@
       "searchHistory": "खोज इतिहास",
       "filterTransactionsRange": "लेन-देन की मात्रा फ़िल्टरिंग अनुकूलित करें",
       "filterTransactionsRangeDetailed": "केवल भेजे गए या प्राप्त राशि के एक निश्चित न्यूनतम / अधिकतम सीमा के भीतर आने वाले लेनदेन को प्रदर्शित करना चुनें।",
-      "noLimit": "कोई सीमा नहीं"
+      "noLimit": "कोई सीमा नहीं",
+      "nodeConnection": "नोड कनेक्शन",
+      "connectionDetailed": "एक्सप्लोरर को NanoLooker की तुलना में किसी अन्य नोड से कनेक्ट करें",
+      "rpcDomain": "आरपीसी",
+      "websocketDomain": "वेबसोकेट"
     },
     "bookmarks": {
       "viewAll": "सभी बुकमार्क देखें",

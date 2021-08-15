@@ -302,7 +302,11 @@
       "searchHistory": "Zoekgeschiedenis",
       "filterTransactionsRange": "Pas het filteren van transactiebedragen aan",
       "filterTransactionsRangeDetailed": "Kies ervoor om alleen inkomende transacties weer te geven binnen een bepaald min / max bereik van het verzonden of ontvangen bedrag.",
-      "noLimit": "Geen limiet"
+      "noLimit": "Geen limiet",
+      "nodeConnection": "Knooppuntverbinding",
+      "connectionDetailed": "Verbind de verkenner met een ander knooppunt dan NanoLooker",
+      "rpcDomain": "RPC",
+      "websocketDomain": "Websocket"
     },
     "bookmarks": {
       "viewAll": "Bekijk alle bladwijzers",

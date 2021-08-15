@@ -1,3 +1,5 @@
+import { LOCALSTORAGE_KEYS } from "api/contexts/Preferences";
+
 let isRPCAvailable = true;
 
 const dispatchRPCStateChange = () => {
@@ -11,6 +13,8 @@ const dispatchRPCStateChange = () => {
 export const rpc = async (action: string, params?: any) => {
   let res;
   let json;
+  let rpcDomain =
+    localStorage.getItem(LOCALSTORAGE_KEYS.RPC_DOMAIN) || undefined;
 
   try {
     res = await fetch(`/api/rpc`, {
@@ -18,6 +22,11 @@ export const rpc = async (action: string, params?: any) => {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
+        ...(rpcDomain
+          ? {
+              "x-rpc": rpcDomain,
+            }
+          : null),
       },
       body: JSON.stringify({
         action,

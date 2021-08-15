@@ -58,6 +58,10 @@ interface Preferences {
   setNanoQuakeJSAccount: Function;
   nanoQuakeJSServer: null | string;
   setNanoQuakeJSServer: Function;
+  rpcDomain: null | string;
+  setRpcDomain: Function;
+  websocketDomain: null | string;
+  setWebsocketDomain: Function;
 }
 
 export enum LOCALSTORAGE_KEYS {
@@ -73,6 +77,8 @@ export enum LOCALSTORAGE_KEYS {
   NANOQUAKEJS_USERNAME = "NANOQUAKEJS_USERNAME",
   NANOQUAKEJS_ACCOUNT = "NANOQUAKEJS_ACCOUNT",
   NANOQUAKEJS_SERVER = "NANOQUAKEJS_SERVER",
+  RPC_DOMAIN = "RPC_DOMAIN",
+  WEBSOCKET_DOMAIN = "WEBSOCKET_DOMAIN",
 }
 
 const MAX_CRYPTOCURRENCY: number = 10;
@@ -119,6 +125,8 @@ export const PreferencesContext = React.createContext<Preferences>({
   nanoQuakeJSUsername: null,
   nanoQuakeJSAccount: null,
   nanoQuakeJSServer: null,
+  rpcDomain: null,
+  websocketDomain: null,
   setTheme: () => {},
   addCryptocurrency: () => {},
   removeCryptocurrency: () => {},
@@ -131,6 +139,8 @@ export const PreferencesContext = React.createContext<Preferences>({
   setNanoQuakeJSUsername: () => {},
   setNanoQuakeJSAccount: () => {},
   setNanoQuakeJSServer: () => {},
+  setRpcDomain: () => {},
+  setWebsocketDomain: () => {},
 });
 
 const Provider: React.FC = ({ children }) => {
@@ -168,6 +178,12 @@ const Provider: React.FC = ({ children }) => {
   );
   const [nanoQuakeJSServer, setNanoQuakeJSServer] = React.useState(
     localStorage.getItem(LOCALSTORAGE_KEYS.NANOQUAKEJS_SERVER),
+  );
+  const [rpcDomain, setRpcDomain] = React.useState(
+    localStorage.getItem(LOCALSTORAGE_KEYS.RPC_DOMAIN) || "",
+  );
+  const [websocketDomain, setWebsocketDomain] = React.useState(
+    localStorage.getItem(LOCALSTORAGE_KEYS.WEBSOCKET_DOMAIN) || "",
   );
 
   const addCryptocurrency = React.useCallback(
@@ -263,6 +279,16 @@ const Provider: React.FC = ({ children }) => {
     setNanoQuakeJSServer(newValue);
   };
 
+  const setLocalstorageRpcDomain = (newValue: string) => {
+    localStorage.setItem(LOCALSTORAGE_KEYS.RPC_DOMAIN, `${newValue}`);
+    setRpcDomain(newValue);
+  };
+
+  const setLocalstorageWebsocketDomain = (newValue: string) => {
+    localStorage.setItem(LOCALSTORAGE_KEYS.WEBSOCKET_DOMAIN, `${newValue}`);
+    setWebsocketDomain(newValue);
+  };
+
   return (
     <PreferencesContext.Provider
       value={{
@@ -276,6 +302,8 @@ const Provider: React.FC = ({ children }) => {
         nanoQuakeJSUsername,
         nanoQuakeJSAccount,
         nanoQuakeJSServer,
+        rpcDomain,
+        websocketDomain,
         setTheme: setLocalstorageTheme,
         addCryptocurrency,
         removeCryptocurrency,
@@ -288,6 +316,8 @@ const Provider: React.FC = ({ children }) => {
         setNanoQuakeJSUsername: setLocalstorageNanoQuakeJSUsername,
         setNanoQuakeJSAccount: setLocalstorageNanoQuakeJSAccount,
         setNanoQuakeJSServer: setLocalstorageNanoQuakeJSServer,
+        setRpcDomain: setLocalstorageRpcDomain,
+        setWebsocketDomain: setLocalstorageWebsocketDomain,
       }}
     >
       {children}

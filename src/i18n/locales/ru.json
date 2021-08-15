@@ -302,7 +302,11 @@
       "searchHistory": "История поиска",
       "filterTransactionsRange": "Настроить фильтрацию сумм транзакций",
       "filterTransactionsRangeDetailed": "Выберите отображение только входящих транзакций в пределах определенного минимального / максимального диапазона отправленной или полученной суммы.",
-      "noLimit": "Безлимитный"
+      "noLimit": "Безлимитный",
+      "nodeConnection": "Подключение к узлу",
+      "connectionDetailed": "Подключите проводник к другому узлу, кроме NanoLooker",
+      "rpcDomain": "RPC",
+      "websocketDomain": "Websocket"
     },
     "bookmarks": {
       "viewAll": "Посмотреть все закладки",

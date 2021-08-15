@@ -302,7 +302,11 @@
       "searchHistory": "搜索历史记录",
       "filterTransactionsRange": "自定义交易金额过滤",
       "filterTransactionsRangeDetailed": "选择仅显示在已发送或已接收金额的特定最小/最大范围内的传入交易。",
-      "noLimit": "没有限制"
+      "noLimit": "没有限制",
+      "nodeConnection": "节点连接",
+      "connectionDetailed": "将资源管理器连接到 NanoLooker 以外的另一个节点",
+      "rpcDomain": "RPC",
+      "websocketDomain": "网络套接字"
     },
     "bookmarks": {
       "viewAll": "查看所有书签",

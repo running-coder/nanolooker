@@ -302,7 +302,11 @@
       "searchHistory": "검색 기록",
       "filterTransactionsRange": "거래 금액 필터링 사용자 지정",
       "filterTransactionsRangeDetailed": "전송 또는 수신 금액의 특정 최소 / 최대 범위 내에서만 수신 거래를 표시하도록 선택합니다.",
-      "noLimit": "제한 없음"
+      "noLimit": "제한 없음",
+      "nodeConnection": "노드 연결",
+      "connectionDetailed": "Explorer를 NanoLooker가 아닌 다른 노드에 연결",
+      "rpcDomain": "RPC",
+      "websocketDomain": "웹 소켓"
     },
     "bookmarks": {
       "viewAll": "모든 북마크보기",

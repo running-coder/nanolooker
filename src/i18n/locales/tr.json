@@ -302,7 +302,11 @@
       "searchHistory": "Arama geçmişi",
       "filterTransactionsRange": "İşlem tutarlarını filtrelemeyi özelleştirin",
       "filterTransactionsRangeDetailed": "Yalnızca gönderilen veya alınan miktarın belirli bir min / maks aralığında gelen işlemleri görüntülemeyi seçin.",
-      "noLimit": "Limit yok"
+      "noLimit": "Limit yok",
+      "nodeConnection": "Düğüm Bağlantısı",
+      "connectionDetailed": "Gezgini NanoLooker'dan başka bir düğüme bağlayın",
+      "rpcDomain": "RPC",
+      "websocketDomain": "Web yuvası"
     },
     "bookmarks": {
       "viewAll": "Tüm yer imlerini görüntüleyin",

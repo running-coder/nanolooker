@@ -302,7 +302,11 @@
       "searchHistory": "سجل البحث",
       "filterTransactionsRange": "تخصيص تصفية مبالغ المعاملات",
       "filterTransactionsRangeDetailed": "اختر عرض الحركات الواردة فقط ضمن نطاق حد أدنى / أقصى معين للمبلغ المرسل أو المستلم.",
-      "noLimit": "لا حدود"
+      "noLimit": "لا حدود",
+      "nodeConnection": "اتصال العقدة",
+      "connectionDetailed": "قم بتوصيل المستكشف بعقدة أخرى غير NanoLooker",
+      "rpcDomain": "RPC",
+      "websocketDomain": "مقبس ويب"
     },
     "bookmarks": {
       "viewAll": "عرض كل الإشارات المرجعية",

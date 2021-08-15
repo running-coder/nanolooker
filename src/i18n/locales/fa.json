@@ -302,7 +302,11 @@
       "searchHistory": "تاریخچه جستجو",
       "filterTransactionsRange": "مقدار فیلتر معاملات را سفارشی کنید",
       "filterTransactionsRangeDetailed": "انتخاب کنید که فقط معاملات ورودی در محدوده حداقل / حداکثر مقدار ارسال شده یا دریافت شده نمایش داده شوند.",
-      "noLimit": "بدون محدودیت"
+      "noLimit": "بدون محدودیت",
+      "nodeConnection": "اتصال گره",
+      "connectionDetailed": "Explorer را به یک گره دیگر به غیر از NanoLooker وصل کنید",
+      "rpcDomain": "RPC",
+      "websocketDomain": "وب سایت"
     },
     "bookmarks": {
       "viewAll": "مشاهده همه نشانک ها",

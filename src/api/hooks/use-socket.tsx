@@ -34,6 +34,7 @@ const useSocket = () => {
     disableLiveTransactions,
   } = React.useContext(PreferencesContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
+  const { websocketDomain } = React.useContext(PreferencesContext);
 
   const visibilityChange = React.useCallback(() => {
     if (document.visibilityState !== "visible") {
@@ -119,7 +120,8 @@ const useSocket = () => {
   const connect = React.useCallback(() => {
     isForcedClosed = false;
     setIsConnected(false);
-    ws = new WebSocket("wss://www.nanolooker.com/ws");
+
+    ws = new WebSocket(websocketDomain || "wss://www.nanolooker.com/ws");
 
     ws.onopen = () => {
       setIsError(false);
