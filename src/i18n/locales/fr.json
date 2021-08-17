@@ -59,7 +59,7 @@
   },
   "tooltips": {
     "avgConfirmationTime": "Le temps moyen de confirmation est calculé localement sur le nœud. Si le nœud est redémarré ou dans un état dégradé, le temps de confirmation moyen peut être supérieur à celui du reste du réseau.",
-    "circulatingSupply": "La quantité de pièces en circulation. Nano est entièrement distribué, l'offre n'augmentera jamais.",
+    "circulatingSupply": "La quantité de Nano en circulation. Nano est entièrement distribué, l'offre n'augmentera jamais.",
     "transactionFees": "Contrairement à toutes les autres crypto-monnaies, les transactions Nano sont sans frais, pour toujours.",
     "bitcoinTransactionFees": "Cette valeur n'a aucun impact sur le réseau NANO, c'est uniquement à des fins de comparaison. Il représente la somme des frais de transaction que les utilisateurs de Bitcoin paient aux mineurs pour que leur transaction soit acceptée sur le réseau Bitcoin.",
     "cps": "Confirmations par seconde. Le taux de blocs confirmés (envoi ou réception) sur le réseau NANO. Il est échantillonné au cours de la dernière minute localement sur le nœud. Si le nœud est redémarré ou dans un état dégradé, la valeur CPS peut être supérieure ou inférieure à la moyenne réelle sur le réseau pendant que le nœud se synchronise et se reconnecte avec les autres nœuds.",
@@ -80,7 +80,7 @@
     "bookmarks": "Les {{type, capitalize}} favoris sont enregistrés sur votre appareil. Vous pouvez gérer vos {{type}} connus en leur donnant des alias.",
     "groupByEntities": "Regroupez tous les votes qui sont divisés en différents représentants principaux en entités uniques. Par exemple, un échange peut avoir plusieurs portefeuilles et diviser leur poids, mais en réalité, il peut être compté comme un poids unique s'il devait le regrouper.",
     "telemetry": "Mesures d'autres nœuds du réseau. Toutes les métriques sont collectées et moyennées pour représenter différents états sur le réseau. P correspond au centile, p50 est calculé en excluant les 50% inférieurs tandis que p95 exclut les 5% inférieurs des différentes valeurs pour calculer la moyenne.",
-    "ledgerSize": "La quantité totale d'espace disque nécessaire pour stocker toutes les transactions Nano jusqu'à présent. La taille du grand livre est calculée sur une base de 1024 et non sur 1000.",
+    "ledgerSize": "La quantité totale d'espace disque nécessaire pour stocker toutes les transactions Nano jusqu'à présent. La taille du registre est calculée sur une base de 1024 et non sur 1000.",
     "bandwidthCap": "Les nano nœuds peuvent limiter leur bande passante pour limiter la quantité de messages pouvant être envoyés ou reçus. 0 signifie une bande passante illimitée.",
     "uptime": "Temps écoulé depuis le dernier redémarrage du nœud.",
     "mnano": "Mnano est la division standard actuelle utilisée dans les portefeuilles, sur les échanges et les services. Il est appelé 1 NANO.",
@@ -89,18 +89,18 @@
     "pendingTransactionCount": "Le nombre de transactions à recevoir dépasse la limite affichée de {{count}}."
   },
   "search": {
-    "searchBy": "Recherche par Address / Bloc",
+    "searchBy": "Recherche par Adresse / Bloc / Compte Connu",
     "noHistory": "Aucun historique de recherche"
   },
   "preferences": {
     "viewAll": "Voir toutes les préférences",
-    "darkMode": "Mode de nuit",
-    "darkModeDetailed": "Passez du mode Clair ou Foncé pour améliorer l'expérience de navigation de votre site en fonction de votre environnement.",
+    "darkMode": "Mode Sombre",
+    "darkModeDetailed": "Passez du mode Clair ou Sombre pour améliorer l'expérience de navigation de NanoLooker en fonction de vos préférences.",
     "language": "Langue",
     "languageDetailed": "Choisissez la langue souhaitée. NanoLooker recherche des contributeurs pour aider à améliorer la traduction de l'explorateur. <0>Contribuer</0>",
-    "watch": "Surveiller d'autres cryptomonnaies",
+    "watch": "Surveiller d'autres crypto-monnaies",
     "watchSearch": "Rechercher des crypto-monnaies",
-    "watchDetailed": "Surveillez le prix des autres crypto-monnaies dans le top 100. Les prix actuels du marché et le changement sur 24 heures apparaîtront dans la barre supérieure. Vous pouvez également réorganiser votre sélection par glisser-déposer.",
+    "watchDetailed": "Surveillez le prix des autres crypto-monnaies dans le top 100. Les prix actuels du marché et le changement sur 24 heures apparaîtront dans la barre supérieure. Vous pouvez également réorganiser votre sélection en utilisant le glisser-déposer.",
     "fiatCurrency": "Monnaie fiduciaire",
     "fiatCurrencyDetailed": "L'argent fiduciaire est une monnaie émise par le gouvernement. Sélectionnez une monnaie fiduciaire pour comparer le prix de Nano.",
     "natricons": "Natricons",
@@ -115,14 +115,14 @@
   "menu": {
     "explore": "Explorer",
     "representatives": "Représentants",
-    "developerFund": "Fond de développement",
+    "developerFund": "Fonds des développeurs",
     "knownAccounts": "Comptes connus",
-    "largeTransactions": "Transactions volimineuses",
+    "largeTransactions": "Transactions volumineuses",
     "distribution": "Distribution",
     "exchangeTracker": "Suivi des plateforme d'échanges",
-    "faucets": "Robitets (Faucets)",
-    "news": "Nouvelles",
-    "nodeStatus": "Status du nœud",
+    "faucets": "Faucets",
+    "news": "Actualités",
+    "nodeStatus": "Statut du nœuds",
     "whatIsNano": "Qu'est-ce que Nano?",
     "earnNano": "Gagner des Nano",
     "preferences": "Préférences",
@@ -133,7 +133,7 @@
     "createdBy": "Créé par {{creator}}",
     "donations": {
       "donate": "Faire un don",
-      "title": "Compte de don NanoLooker"
+      "title": "Compte de don de NanoLooker"
     }
   },
   "pages": {
@@ -141,12 +141,12 @@
       "network": "Réseau",
       "statistics": "Statistiques",
       "market": "Marchés",
-      "marketCapRank": "Classement de la capitalisation",
+      "marketCapRank": "Rang de la capitalisation du marché",
       "marketCap": "Capitalisation du marché",
       "circulatingSupply": "NANO en circulation",
       "latestBlock": "Dernier bloc",
       "principalRepOnline": "Représentants principaux en ligne",
-      "ledgerSize": "Taille du grand livre",
+      "ledgerSize": "Taille du registre",
       "last24Hours": "Dernières 24 heures",
       "avgConfirmationTime": "Temps de confirmation moyen (secondes)",
       "confirmedTransactions": "Transactions confirmés",
@@ -170,9 +170,9 @@
       "loadMoreTransactions": "Voir plus de transactions",
       "viewTransactions": "Voir les transactions",
       "notOpenedYet": "Ce compte n'a pas encore été ouvert",
-      "notOpenedYetReason": "Bien que l'adresse du compte soit valide, aucun bloc n'a encore été publié dans sa chaîne. Si NANO a été envoyé sur ce compte, il doit encore publier un bloc correspondant pour empocher les fonds.",
+      "notOpenedYetReason": "Bien que l'adresse du compte soit valide, aucun bloc n'a encore été publié dans sa chaîne. Si du NANO a été envoyé sur ce compte, un bloc correspondant doit encore être publié pour recevoir les fonds.",
       "missingAccount": "Compte manquant",
-      "missingAccountInfo": "Le compte n'est pas spécifié dans l'URL. Utilisez la barre de recherche supérieure pour rechercher un compte ou ajoutez-le dans l'URL après /account/",
+      "missingAccountInfo": "Le compte n'est pas spécifié dans l'URL. Utilisez la barre de recherche pour rechercher un compte ou ajoutez-le dans l'URL après /account/",
       "notVoting": "Ne pas voter",
       "pendingTransactions": "Transactions prêtes à être reçues"
     },
@@ -189,7 +189,7 @@
       "openAccountBlock": "Ce block a ouvert le compte",
       "originalBlockContent": "Contenu original du bloc",
       "missingBlock": "Bloc manquant",
-      "missingBlockInfo": "Le bloc n'est pas spécifié dans l'URL. Utilisez la barre de recherche supérieure pour rechercher un bloc ou ajoutez-le dans l'URL après /block/",
+      "missingBlockInfo": "Le bloc n'est pas spécifié dans l'URL. Utilisez la barre de recherche pour rechercher un bloc ou ajoutez-le dans l'URL après /block/",
       "blockNotFound": "Bloc non trouvé",
       "blockNotFoundInfo": "Le bloc que vous avez demandé est introuvable. Il est possible que le bloc soit présent sur le réseau Nano mais n'ait pas encore été vu par le nœud. Assurez-vous que vous recherchez le bon bloc ou réessayez plus tard."
     },
@@ -215,14 +215,14 @@
       "noDelegatorsFound": "Aucun délégant trouvé"
     },
     "faucets": {
-      "description": "Les robitets (Faucets) vous permet de réclamer gratuitement de petites quantités de NANO. Ces robinets vous permettent de découvrir à quel point il est facile d'envoyer et de recevoir des NANO à travers le monde instantanément sur un réseau décentralisé."
+      "description": "Les Faucets vous permet de réclamer gratuitement de petites quantités de NANO. Ces Faucets vous permettent de découvrir à quel point il est facile d'envoyer et de recevoir du NANO à travers le monde instantanément sur un réseau décentralisé."
     },
     "developerFund": {
-      "description": "À partir du 25/11/19, le fonds de développement a été divisé en {{totalAccounts}} comptes suite à un examen de la politique de sécurité interne et des poids de vote représentatifs.",
+      "description": "À partir du 25 novembre 2019, le fonds de développement a été divisé en {{totalAccounts}} comptes suite à un examen de la politique de sécurité interne et des poids de vote représentatifs.",
       "lastTransaction": "Dernière transaction",
       "allTransactions": "Afficher toutes les transactions d'envoi",
       "originalDeveloperFund": "Fonds d'origine pour les développeurs",
-      "originalDeveloperFundDescription": "La distribution de Nano (anciennement RaiBlocks) a été effectuée en résolvant les captchas manuels à partir de fin 2015 et se terminant en octobre 2017. La distribution s'est arrêtée après ~ 39% du montant de <0>Genèse</0> a été distribué et le reste de l'approvisionnement a été <1>brûlé</1>.",
+      "originalDeveloperFundDescription": "La distribution de Nano (anciennement RaiBlocks) a été effectuée en résolvant des captchas manuels à partir de fin 2015 jusqu'en octobre 2017. La distribution s'est arrêtée après que ~ 39% du <0>montant original</0> a été distribué et que le reste a été <1>brûlé</1>.",
       "totalAccounts": "{{totalAccounts}} Comptes au total",
       "percentOfTotal": "{{percent}}% des NANO en circulation"
     },
@@ -248,7 +248,7 @@
       "dormantFundsQuarterExample": "Un compte qui détient 50 NANO et 50 NANO en attente ont effectué la dernière transaction il y a 6 mois (2 trimestres), un solde de 100 NANO est ajouté comme «dormant» au total du trimestre suivant.",
       "dormantNano": "NANO dormant",
       "ofAvailableSupply": "de l'offre disponible",
-      "richList": "Liste riche"
+      "richList": "Liste des riches"
     },
     "news": {
       "allFeeds": "Tous les flux",
@@ -261,21 +261,21 @@
       "cemented": "Cimenté",
       "ledger": "Registre",
       "availableSupply": "Approvisionnement disponible",
-      "ledgerSize": "Taille du grand livre",
+      "ledgerSize": "Taille du registre",
       "activeDifficulty": "Difficulté active",
       "networkMinimum": "Difficulté minimum du réseau",
-      "networkCurrent": "Difficulté actuellle sur le réseau",
+      "networkCurrent": "Difficulté actuelle sur le réseau",
       "multiplier": "Multiplicateur",
       "version": "Version",
       "uptime": "Disponibilité",
-      "cpuUsage": "L'utilisation du processeur",
+      "cpuUsage": "Utilisation du processeur",
       "memory": "Mémoire",
-      "peers": "Homologues",
-      "connectedPeers": "Homologues connectés",
+      "peers": "Pairs",
+      "connectedPeers": "Pairs connectés",
       "protocolVersion": "Version du protocol {{protocolVersion}}",
       "monitor": "Moniteur",
       "stats": "Statistiques",
-      "location": "Emplacement",
+      "location": "Position géographique",
       "sync": "Synchroniser",
       "ip": "IP",
       "nodeMonitors": "{{count}} Moniteurs de nœuds",
@@ -293,7 +293,7 @@
       "versionsByWeight": "Versions par poids de vote"
     },
     "exchangeTracker": {
-      "description": "Chaque jour, une capture du solde des comptes des plateformes d'échanges les plus populaires où Nano est négocié est pris. Cette mesure peut permettre d'analyser les mouvements et fluctuations sur le réseau.",
+      "description": "Chaque jour, une capture du solde des comptes des plateformes d'échanges les plus populaires où Nano est listé est prise. Cette capture peut permettre d'analyser les mouvements et fluctuations sur le réseau.",
       "totalSelected": "Solde total des échanges sélectionnés"
     },
     "preferences": {
@@ -317,14 +317,14 @@
       "register": "S'inscrire",
       "scanWallet": "Scannez l'adresse de votre portefeuille",
       "registerError": "Impossible de terminer l'inscription",
-      "happyFragging": "Bonne frag !",
+      "happyFragging": "Bonne chance !",
       "inGameUsername": "Nom d'utilisateur dans le jeu",
       "accountReceivePayouts": "Compte pour recevoir des paiements",
       "registerNote": "Le nom d'utilisateur et le compte sont stockés dans les données du navigateur.",
       "invalidAccount": "Compte invalide",
       "playersOnline": "Joueurs en ligne",
-      "welcomeTitle": "Sautez dans l'arène et soyez payé en NANO pour vos frags !",
-      "welcomeDescription": "Bienvenue dans l'Arène, où les guerriers de haut rang sont transformés en bouillie sans épines. Abandonnant toute once de bon sens et toute trace de doute, vous vous précipitez sur une scène de paysages poignants et d'abîmes voilés. Votre nouvel environnement vous rejette avec des fosses de lave et des dangers atmosphériques alors que des légions d'ennemis vous entourent, testant la réaction intestinale qui vous a amené ici en premier lieu. Votre nouveau mantra : combattre ou être fini.",
+      "welcomeTitle": "Sautez dans l'arène et soyez payé en NANO pour vos victoires !",
+      "welcomeDescription": "Bienvenue dans l'Arène, où les guerriers de haut rang sont transformés en bouillie sans épines. Abandonnant toute once de bon sens et toute trace de doute, vous vous précipitez sur une scène de paysages poignants et d'abîmes voilés. Votre nouvel environnement vous rejette avec des fosses de lave et des dangers atmosphériques alors que des légions d'ennemis vous entourent, testant la réaction intestinale qui vous a amené ici en premier lieu. Votre nouveau mantra : tuer ou être tué.",
       "welcomeDescription2": "Jouez au jeu de tir à la première personne le plus vendu de 1999 avec vos amis et d'autres joueurs du monde entier et gagnez NANO pour vous être battus !",
       "gameplay": "Gameplay",
       "registerErrorUsername": "Le nom d'utilisateur est déjà pris pour une adresse différente",
