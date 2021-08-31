@@ -6,7 +6,7 @@ import { Theme, PreferencesContext } from "api/contexts/Preferences";
 import Search from "components/Search";
 import { Tracker } from "components/utils/analytics";
 
-const { Text, Title } = Typography;
+const { Title } = Typography;
 
 const Banner: React.FC = () => {
   const { t } = useTranslation();
@@ -79,13 +79,9 @@ const Banner: React.FC = () => {
               alt="Go to NanoBrowserQuest"
               src={`/nanobrowserquest.png`}
               height="16px"
+              style={{ marginRight: "6px" }}
             />
-            <Text
-              //@ts-ignore
-              style={{ marginLeft: "6px", color: "gold", fontWeight: "500" }}
-            >
-              NanoBrowserQuest
-            </Text>
+            NanoBrowserQuest
           </div>
         </Button>
 

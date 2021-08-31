@@ -158,7 +158,9 @@
       "liveUpdatesDisabled": "التحديثات الحية معطلة",
       "waitingForTransactions": "في انتظار المعاملات",
       "connectingToBlockchain": "الاتصال بـ NANO blockchain",
-      "reconnectingToBlockchain": "تم قطع الاتصال وإعادة الاتصال بـ NANO blockchain"
+      "reconnectingToBlockchain": "تم قطع الاتصال وإعادة الاتصال بـ NANO blockchain",
+      "cpsLocal": "لوحظ CPS على العقدة المحلية",
+      "cpsNetwork": "متوسط CPS عبر عدة عقد تمثيلية"
     },
     "account": {
       "votingWeight": "وزن التصويت",

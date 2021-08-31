@@ -158,7 +158,9 @@
       "liveUpdatesDisabled": "लाइव अपडेट अक्षम हैं",
       "waitingForTransactions": "लेन-देन की प्रतीक्षा कर रहा है",
       "connectingToBlockchain": "नैनो ब्लॉकचेन से जुड़ना",
-      "reconnectingToBlockchain": "असंबद्ध, नैनो ब्लॉकचेन से फिर से जुड़ना"
+      "reconnectingToBlockchain": "असंबद्ध, नैनो ब्लॉकचेन से फिर से जुड़ना",
+      "cpsLocal": "सीपीएस स्थानीय नोड पर देखा गया",
+      "cpsNetwork": "कई प्रतिनिधि नोड्स में मेडियन सीपीएस"
     },
     "account": {
       "votingWeight": "मतदान का वजन",

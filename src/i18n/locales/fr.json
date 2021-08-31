@@ -158,7 +158,9 @@
       "liveUpdatesDisabled": "Mises à jour en direct désactivées",
       "waitingForTransactions": "En attente de nouvelles transactions",
       "connectingToBlockchain": "Connexion à la blockchain NANO",
-      "reconnectingToBlockchain": "Déconnecté, reconnection en cours à la blockchain NANO"
+      "reconnectingToBlockchain": "Déconnecté, reconnection en cours à la blockchain NANO",
+      "cpsLocal": "CPS observé sur le nœud local",
+      "cpsNetwork": "CPS médian sur plusieurs nœuds représentatifs"
     },
     "account": {
       "votingWeight": "Poids du vote",

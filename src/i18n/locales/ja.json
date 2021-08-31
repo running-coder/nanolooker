@@ -158,7 +158,9 @@
       "liveUpdatesDisabled": "ライブアップデートが無効",
       "waitingForTransactions": "トランザクションを待っています",
       "connectingToBlockchain": "NANOブロックチェーンに接続する",
-      "reconnectingToBlockchain": "切断され、NANOブロックチェーンに再接続されます"
+      "reconnectingToBlockchain": "切断され、NANOブロックチェーンに再接続されます",
+      "cpsLocal": "ローカルノードで観測されたCPS",
+      "cpsNetwork": "いくつかの代表的なノードにわたるCPSの中央値"
     },
     "account": {
       "votingWeight": "投票の重み",

@@ -158,7 +158,9 @@
       "liveUpdatesDisabled": "Живые обновления отключены",
       "waitingForTransactions": "Ожидание транзакций",
       "connectingToBlockchain": "Подключение к блокчейну NANO",
-      "reconnectingToBlockchain": "Отключено, переподключение к блокчейну NANO"
+      "reconnectingToBlockchain": "Отключено, переподключение к блокчейну NANO",
+      "cpsLocal": "CPS наблюдается на локальном узле",
+      "cpsNetwork": "Медиана CPS на нескольких репрезентативных узлах"
     },
     "account": {
       "votingWeight": "Вес голосования",

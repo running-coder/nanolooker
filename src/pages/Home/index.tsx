@@ -136,7 +136,9 @@ const HomePage = () => {
                 />
                 <LoadingStatistic
                   isLoading={
-                    isMarketStatisticsInitialLoading || isMarketStatisticsError
+                    isMarketStatisticsInitialLoading ||
+                    isMarketStatisticsError ||
+                    !availableSupply
                   }
                   title={t("pages.home.circulatingSupply")}
                   tooltip={t("tooltips.circulatingSupply")}
@@ -191,7 +193,9 @@ const HomePage = () => {
               <Col xs={24}>
                 <LoadingStatistic
                   isLoading={
-                    isMarketStatisticsInitialLoading || isMarketStatisticsError || !onChainVolumeChange24h
+                    isMarketStatisticsInitialLoading ||
+                    isMarketStatisticsError ||
+                    !onChainVolumeChange24h
                   }
                   tooltip={t("tooltips.onChainVolume")}
                   title={t("pages.home.onChainVolume")}
@@ -207,7 +211,9 @@ const HomePage = () => {
                 />
                 <LoadingStatistic
                   isLoading={
-                    isMarketStatisticsInitialLoading || isMarketStatisticsError || !confirmationChange24h
+                    isMarketStatisticsInitialLoading ||
+                    isMarketStatisticsError ||
+                    !confirmationChange24h
                   }
                   title={t("pages.home.confirmedTransactions")}
                   suffix={

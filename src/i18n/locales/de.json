@@ -158,7 +158,9 @@
       "liveUpdatesDisabled": "Live-Updates deaktiviert",
       "waitingForTransactions": "Warten auf Transaktionen",
       "connectingToBlockchain": "Verbindung zur NANO-Blockchain herstellen",
-      "reconnectingToBlockchain": "Verbindung getrennt, Verbindung zur NANO-Blockchain wiederhergestellt"
+      "reconnectingToBlockchain": "Verbindung getrennt, Verbindung zur NANO-Blockchain wiederhergestellt",
+      "cpsLocal": "CPS auf dem lokalen Knoten beobachtet",
+      "cpsNetwork": "Medianer CPS über mehrere repräsentative Knoten"
     },
     "account": {
       "votingWeight": "Abstimmungsgewicht",

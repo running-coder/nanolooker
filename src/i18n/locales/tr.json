@@ -158,7 +158,9 @@
       "liveUpdatesDisabled": "Canlı güncellemeler devre dışı bırakıldı",
       "waitingForTransactions": "İşlemler bekleniyor",
       "connectingToBlockchain": "NANO blok zincirine bağlanma",
-      "reconnectingToBlockchain": "Bağlantı kesildi, NANO blok zincirine yeniden bağlanılıyor"
+      "reconnectingToBlockchain": "Bağlantı kesildi, NANO blok zincirine yeniden bağlanılıyor",
+      "cpsLocal": "Yerel düğümde gözlemlenen CPS",
+      "cpsNetwork": "Birkaç temsili düğümde medyan CPS"
     },
     "account": {
       "votingWeight": "Oy ağırlığı",

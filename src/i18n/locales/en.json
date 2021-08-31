@@ -158,7 +158,9 @@
       "liveUpdatesDisabled": "Live updates disabled",
       "waitingForTransactions": "Waiting for transactions",
       "connectingToBlockchain": "Connecting to the NANO blockchain",
-      "reconnectingToBlockchain": "Disconnected, reconnecting to the NANO blockchain"
+      "reconnectingToBlockchain": "Disconnected, reconnecting to the NANO blockchain",
+      "cpsLocal": "CPS observed on the local node",
+      "cpsNetwork": "Median CPS across several representative nodes"
     },
     "account": {
       "votingWeight": "Voting weight",

@@ -158,7 +158,9 @@
       "liveUpdatesDisabled": "به روزرسانی های زنده غیرفعال شده است",
       "waitingForTransactions": "منتظر معاملات",
       "connectingToBlockchain": "اتصال به زنجیره بلوک NANO",
-      "reconnectingToBlockchain": "اتصال قطع شد ، دوباره به زنجیره بلوک NANO متصل شدید"
+      "reconnectingToBlockchain": "اتصال قطع شد ، دوباره به زنجیره بلوک NANO متصل شدید",
+      "cpsLocal": "CPS در گره محلی مشاهده شده است",
+      "cpsNetwork": "CPS متوسط در چندین گره نماینده"
     },
     "account": {
       "votingWeight": "وزن رای گیری",

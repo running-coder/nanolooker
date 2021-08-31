@@ -245,6 +245,18 @@ app.post("/api/nanoquakejs/register", async (req, res, next) => {
   }
 });
 
+app.get("/api/nanoticker", async (req, res) => {
+  let json = {};
+  try {
+    const res = await fetch("https://nanoticker.info/json/stats.json");
+    json = await res.json();
+  } catch (err) {
+    // Sentry.captureException(err);
+  }
+
+  res.send(json);
+});
+
 app.use(express.static(path.join(__dirname, "../dist")));
 
 app.get("*", (req, res, next) => {

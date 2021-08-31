@@ -158,7 +158,9 @@
       "liveUpdatesDisabled": "Cập nhật trực tiếp bị vô hiệu hóa",
       "waitingForTransactions": "Chờ giao dịch",
       "connectingToBlockchain": "Kết nối với chuỗi khối NANO",
-      "reconnectingToBlockchain": "Đã ngắt kết nối, đang kết nối lại với chuỗi khối NANO"
+      "reconnectingToBlockchain": "Đã ngắt kết nối, đang kết nối lại với chuỗi khối NANO",
+      "cpsLocal": "CPS được quan sát trên nút cục bộ",
+      "cpsNetwork": "CPS trung bình trên một số nút đại diện"
     },
     "account": {
       "votingWeight": "Số phiếu bầu",

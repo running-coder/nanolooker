@@ -158,7 +158,9 @@
       "liveUpdatesDisabled": "Live updates uitgeschakeld",
       "waitingForTransactions": "Wachten op transacties",
       "connectingToBlockchain": "Verbinding maken met het NANO netwerk",
-      "reconnectingToBlockchain": "Verbinding verbroken, opnieuw verbinding maken met het NANO netwerk"
+      "reconnectingToBlockchain": "Verbinding verbroken, opnieuw verbinding maken met het NANO netwerk",
+      "cpsLocal": "CPS waargenomen op het lokale knooppunt",
+      "cpsNetwork": "Mediane CPS over verschillende representatieve knooppunten"
     },
     "account": {
       "votingWeight": "Stemgewicht",
