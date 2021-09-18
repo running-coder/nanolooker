@@ -34,5 +34,10 @@
     "name": "TryNano",
     "account": "nano_3fb56gt1896wmzfrs78oowdjwed9arm1mugtg48eupewfnuq4io1gfjors5j",
     "link": "https://www.trynano.io/"
+  },
+  {
+    "name": "Prussia's Nano Faucet",
+    "account":"nano_3346kkobb11qqpo17imgiybmwrgibr7yi34mwn5j6uywyke8f7fnfp94uyps",
+    "link":"https://faucet.prussia.dev/nano"
   }
 ]
