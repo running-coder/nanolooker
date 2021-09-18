@@ -154,7 +154,7 @@
       "exchangeVolume": "Wolumen wymiany",
       "onChainVolume": "Objętość NANO w łańcuchu",
       "bitcoinTransactionFees": "Opłaty transakcyjne Bitcoin płacone górnikom",
-      "recentTransactions": "ostatnie tranzakcje",
+      "recentTransactions": "ostatnie transakcje",
       "liveUpdatesDisabled": "Aktualizacje na żywo wyłączone",
       "waitingForTransactions": "Czekam na transakcje",
       "connectingToBlockchain": "Łączenie się z blockchainem NANO",
@@ -175,7 +175,7 @@
       "notOpenedYetReason": "Chociaż adres konta jest prawidłowy, żadne bloki nie zostały jeszcze opublikowane w jego łańcuchu. Jeśli NANO zostało wysłane na to konto, nadal musi opublikować odpowiedni blok, aby zdobyć środki.",
       "missingAccount": "Brakujące konto",
       "missingAccountInfo": "Konto nie jest określone w adresie URL. Użyj górnego paska wyszukiwania do wyszukania konta lub dołącz go do adresu URL po /account/",
-      "notVoting": "Nie głosuję",
+      "notVoting": "Nie głosuje",
       "pendingTransactions": "Transakcje gotowe do odbioru"
     },
     "block": {
