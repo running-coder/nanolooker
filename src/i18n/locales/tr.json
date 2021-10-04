@@ -345,6 +345,19 @@
       "rank": "rütbe",
       "player": "oyuncu",
       "frags": "Fraglar"
+    },
+    "nanobrowserquest": {
+      "playNow": "Şimdi oyna !",
+      "playersOnline": "oyuncular çevrimiçi",
+      "playNanoBrowserQuest": "NanoBrowserQuest oyna",
+      "welcomeTitle": "NanoBrowserQuest oynayın ve oyunu tamamladığınız için küçük bir ödeme kazanın!",
+      "donatePrizePool": "NanoBrowserQuest ödül havuzuna bağış yapın",
+      "registerDescription": "NanoBrowserQuest'i oynamak ücretsizdir. Hizmetten hoşlanıyorsanız, NanoBrowserQuest ödül havuzuna küçük bir katkıda bulunabilirsiniz.",
+      "payoutDescription": "Son BOSS'u öldürdükten sonra ödeme gönderilecektir! Alacağınız miktar, kilidini açtığınız başarılara bağlı olacaktır.",
+      "leaderboard": "Liderler Sıralaması",
+      "rank": "Rütbe",
+      "player": "oyuncu",
+      "exp": "Tecrübe etmek"
     }
   }
 }

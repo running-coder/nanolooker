@@ -345,6 +345,19 @@
       "rank": "رتبة",
       "player": "لاعب",
       "frags": "فراجس"
+    },
+    "nanobrowserquest": {
+      "playNow": "العب الان !",
+      "playersOnline": "لاعبين عبر الإنترنت",
+      "playNanoBrowserQuest": "تشغيل NanoBrowserQuest",
+      "welcomeTitle": "العب NanoBrowserQuest واكسب عائدًا صغيرًا مقابل إكمال اللعبة!",
+      "donatePrizePool": "التبرع لمجمع جوائز NanoBrowserQuest",
+      "registerDescription": "NanoBrowserQuest مجاني للعب. إذا كنت تستمتع بالخدمة ، يمكنك تقديم مساهمة صغيرة في مجموعة جوائز NanoBrowserQuest.",
+      "payoutDescription": "سيتم إرسال المدفوعات بعد أن تقتل رئيس النهاية! سيعتمد المبلغ الذي ستحصل عليه على الإنجازات التي فتحتها.",
+      "leaderboard": "ليدربورد",
+      "rank": "مرتبة",
+      "player": "لاعب",
+      "exp": "خبرة"
     }
   }
 }

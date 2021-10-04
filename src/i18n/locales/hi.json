@@ -345,6 +345,19 @@
       "rank": "पद",
       "player": "खिलाड़ी",
       "frags": "फ्रैग्स"
+    },
+    "nanobrowserquest": {
+      "playNow": "अब खेलते हैं !",
+      "playersOnline": "खिलाड़ी ऑनलाइन",
+      "playNanoBrowserQuest": "नैनोब्राउज़र क्वेस्ट खेलें",
+      "welcomeTitle": "NanoBrowserQuest खेलें और गेम को पूरा करने के लिए एक छोटा सा भुगतान अर्जित करें!",
+      "donatePrizePool": "NanoBrowserQuest पुरस्कार पूल में दान करें",
+      "registerDescription": "NanoBrowserQuest खेलने के लिए स्वतंत्र है। यदि आप सेवा का आनंद लेते हैं तो आप NanoBrowserQuest पुरस्कार पूल में एक छोटा सा योगदान कर सकते हैं।",
+      "payoutDescription": "एंड बॉस को मारने के बाद पेआउट भेजा जाएगा! आपको मिलने वाली राशि आपके द्वारा अनलॉक की गई उपलब्धियों पर निर्भर करेगी।",
+      "leaderboard": "लीडरबोर्ड",
+      "rank": "पद",
+      "player": "खिलाड़ी",
+      "exp": "अनुभव"
     }
   }
 }

@@ -9,6 +9,8 @@ require("./cron/telemetry");
 require("./cron/ws");
 require("./cron/coingeckoStats");
 require("./cron/btcTransactionFees");
+require("./cron/nanotickerStats");
+require("./cron/nanobrowserquestStats");
 require("./ws");
 const { getDistributionData } = require("./cron/distribution");
 const { getExchangeBalances } = require("./cron/exchangeTracker");
@@ -25,6 +27,9 @@ const {
   TOTAL_CONFIRMATIONS_48H,
   TOTAL_VOLUME_48H,
   CONFIRMATIONS_PER_SECOND,
+  NANOTICKER_STATS,
+  NANOBROWSERQUEST_PLAYERS,
+  NANOBROWSERQUEST_LEADERBOARD,
 } = require("./constants");
 const {
   getBtcTransactionFees,
@@ -245,16 +250,24 @@ app.post("/api/nanoquakejs/register", async (req, res, next) => {
   }
 });
 
-app.get("/api/nanoticker", async (req, res) => {
-  let json = {};
+app.get("/api/nanobrowserquest/players", async (req, res, next) => {
   try {
-    const res = await fetch("https://nanoticker.info/json/stats.json");
-    json = await res.json();
+    res.send(nodeCache.get(NANOBROWSERQUEST_PLAYERS) || {});
   } catch (err) {
-    // Sentry.captureException(err);
+    next(err);
   }
+});
 
-  res.send(json);
+app.get("/api/nanobrowserquest/leaderboard", async (req, res, next) => {
+  try {
+    res.send(nodeCache.get(NANOBROWSERQUEST_LEADERBOARD) || []);
+  } catch (err) {
+    next(err);
+  }
+});
+
+app.get("/api/nanoticker", async (req, res) => {
+  res.send(nodeCache.get(NANOTICKER_STATS) || {});
 });
 
 app.use(express.static(path.join(__dirname, "../dist")));

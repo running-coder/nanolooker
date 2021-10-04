@@ -345,6 +345,19 @@
       "rank": "رتبه بندی",
       "player": "بازیکن",
       "frags": "فرها"
+    },
+    "nanobrowserquest": {
+      "playNow": "الان بازی کن !",
+      "playersOnline": "بازیکنان آنلاین",
+      "playNanoBrowserQuest": "بازی NanoBrowserQuest",
+      "welcomeTitle": "NanoBrowserQuest را بازی کنید و برای تکمیل بازی مبلغ کمی دریافت کنید!",
+      "donatePrizePool": "به مجموعه جایزه NanoBrowserQuest اهدا کنید",
+      "registerDescription": "بازی NanoBrowserQuest رایگان است. اگر از این سرویس لذت می برید ، می توانید کمک کوچکی به مجموعه جایزه NanoBrowserQuest کنید.",
+      "payoutDescription": "پس از کشتن BOSS پایان ، پرداخت ارسال می شود! مبلغی که بدست می آورید بستگی به دستاوردهای باز شده شما دارد.",
+      "leaderboard": "تابلوی امتیازات",
+      "rank": "رتبه",
+      "player": "بازیکن",
+      "exp": "تجربه"
     }
   }
 }

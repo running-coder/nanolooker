@@ -345,6 +345,19 @@
       "rank": "ランク",
       "player": "プレーヤー",
       "frags": "フラグメント"
+    },
+    "nanobrowserquest": {
+      "playNow": "今すぐプレイ！",
+      "playersOnline": "オンラインプレイヤー",
+      "playNanoBrowserQuest": "NanoBrowserQuestを再生する",
+      "welcomeTitle": "NanoBrowserQuestをプレイして、ゲームを完了するための少額の支払いを獲得してください！",
+      "donatePrizePool": "NanoBrowserQuest賞金プールに寄付する",
+      "registerDescription": "NanoBrowserQuestは無料でプレイできます。このサービスを楽しんでいる場合は、NanoBrowserQuestの賞金プールに少額の寄付をすることができます。",
+      "payoutDescription": "エンドボスを倒すとペイアウトが送られます！獲得できる金額は、ロックを解除した実績によって異なります。",
+      "leaderboard": "リーダーボード",
+      "rank": "ランク",
+      "player": "プレーヤー",
+      "exp": "経験"
     }
   }
 }

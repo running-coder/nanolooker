@@ -27,6 +27,7 @@ import WhatIsNanoPage from "pages/WhatIsNano";
 import PreferencesPage from "pages/Preferences";
 import BookmarksPage from "pages/Bookmarks";
 import NanoQuakeJSPage from "pages/NanoQuakeJS";
+import NanoBrowserQuestPage from "pages/NanoBrowserQuest";
 import TreasureHunt from "pages/TreasureHunt";
 import "components/utils/analytics";
 
@@ -92,6 +93,7 @@ const App: React.FC = () => {
             <Route path="/preferences" component={PreferencesPage} />
             <Route path="/bookmarks" component={BookmarksPage} />
             <Route path="/nanoquakejs" component={NanoQuakeJSPage} />
+            <Route path="/nanobrowserquest" component={NanoBrowserQuestPage} />
             <Route path="/treasure-hunt/:account?" component={TreasureHunt} />
           </Switch>
         </Content>

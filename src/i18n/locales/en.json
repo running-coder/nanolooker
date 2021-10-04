@@ -345,6 +345,19 @@
       "rank": "Rank",
       "player": "Player",
       "frags": "Frags"
+    },
+    "nanobrowserquest": {
+      "playNow": "Play Now !",
+      "playersOnline": "Players online",
+      "playNanoBrowserQuest": "Play NanoBrowserQuest",
+      "welcomeTitle": "Play NanoBrowserQuest and earn a small payout for completing the game!",
+      "donatePrizePool": "Donate to NanoBrowserQuest prize pool",
+      "registerDescription": "NanoBrowserQuest is free to play. If you enjoy the service you can make a small contribution to the NanoBrowserQuest prize pool.",
+      "payoutDescription": "Payout will be sent after you kill the end BOSS! The amount you'll get will depend on the achievements you've unlocked.",
+      "leaderboard": "Leaderboard",
+      "rank": "Rank",
+      "player": "Player",
+      "exp": "Experience"
     }
   }
 }

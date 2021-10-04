@@ -345,6 +345,19 @@
       "rank": "Cấp",
       "player": "Người chơi",
       "frags": "Frags"
+    },
+    "nanobrowserquest": {
+      "playNow": "Bắt đầu chơi !",
+      "playersOnline": "Người chơi trực tuyến",
+      "playNanoBrowserQuest": "Chơi NanoBrowserQuest",
+      "welcomeTitle": "Chơi NanoBrowserQuest và kiếm một khoản thanh toán nhỏ khi hoàn thành trò chơi!",
+      "donatePrizePool": "Quyên góp cho nhóm giải thưởng NanoBrowserQuest",
+      "registerDescription": "NanoBrowserQuest chơi miễn phí. Nếu bạn thích dịch vụ này, bạn có thể đóng góp một phần nhỏ vào giải thưởng NanoBrowserQuest.",
+      "payoutDescription": "Thanh toán sẽ được gửi sau khi bạn tiêu diệt BOSS cuối! Số tiền bạn nhận được sẽ phụ thuộc vào thành tích bạn đã mở khóa.",
+      "leaderboard": "Bảng xếp hạng",
+      "rank": "Thứ hạng",
+      "player": "Người chơi",
+      "exp": "Kinh nghiệm"
     }
   }
 }

@@ -345,6 +345,19 @@
       "rank": "秩",
       "player": "播放器",
       "frags": "碎片"
+    },
+    "nanobrowserquest": {
+      "playNow": "现在播放 ！",
+      "playersOnline": "在线玩家",
+      "playNanoBrowserQuest": "玩 NanoBrowserQuest",
+      "welcomeTitle": "玩 NanoBrowserQuest 并获得完成游戏的小额支出！",
+      "donatePrizePool": "捐赠给 NanoBrowserQuest 奖池",
+      "registerDescription": "NanoBrowserQuest 是免费玩的。如果您喜欢这项服务，您可以为 NanoBrowserQuest 奖池做出一点贡献。",
+      "payoutDescription": "击杀末日BOSS后会派发奖金！您将获得的数量取决于您已解锁的成就。",
+      "leaderboard": "排行榜",
+      "rank": "秩",
+      "player": "播放器",
+      "exp": "经验"
     }
   }
 }

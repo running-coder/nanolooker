@@ -15,7 +15,7 @@ const useNanoTicker = (): UseUptimeReturn => {
     clearTimeout(confirmationsPerSecondTimeout);
     try {
       const res = await fetch("/api/nanoticker");
-      const { CPSMedian: cps } = await res.json();
+      const { cps } = await res.json();
 
       setConfirmationsPerSecond(cps);
     } catch (err) {

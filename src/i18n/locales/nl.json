@@ -345,6 +345,19 @@
       "rank": "Rang",
       "player": "Speler",
       "frags": "Frags"
+    },
+    "nanobrowserquest": {
+      "playNow": "Nu afspelen !",
+      "playersOnline": "Spelers online",
+      "playNanoBrowserQuest": "Speel NanoBrowserQuest",
+      "welcomeTitle": "Speel NanoBrowserQuest en verdien een kleine uitbetaling voor het voltooien van het spel!",
+      "donatePrizePool": "Doneer aan NanoBrowserQuest prijzenpot",
+      "registerDescription": "NanoBrowserQuest is gratis te spelen. Als u van de service geniet, kunt u een kleine bijdrage leveren aan de NanoBrowserQuest-prijzenpot.",
+      "payoutDescription": "De uitbetaling wordt verzonden nadat je de eindbaas hebt gedood! Het bedrag dat je krijgt, hangt af van de prestaties die je hebt ontgrendeld.",
+      "leaderboard": "Scorebord",
+      "rank": "Rang",
+      "player": "Speler",
+      "exp": "Beleven"
     }
   }
 }

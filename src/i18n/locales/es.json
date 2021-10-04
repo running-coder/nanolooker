@@ -345,6 +345,19 @@
       "rank": "Rango",
       "player": "Jugador",
       "frags": "Fragmentos"
+    },
+    "nanobrowserquest": {
+      "playNow": "Reproducir ahora !",
+      "playersOnline": "Jugadores online",
+      "playNanoBrowserQuest": "Juega NanoBrowserQuest",
+      "welcomeTitle": "¡Juega a NanoBrowserQuest y gana un pequeño pago por completar el juego!",
+      "donatePrizePool": "Done a la bolsa de premios de NanoBrowserQuest",
+      "registerDescription": "NanoBrowserQuest es un juego gratuito. Si disfruta del servicio, puede hacer una pequeña contribución al premio acumulado de NanoBrowserQuest.",
+      "payoutDescription": "¡El pago se enviará después de que mates al BOSS final! La cantidad que obtendrás dependerá de los logros que hayas desbloqueado.",
+      "leaderboard": "Tabla de clasificación",
+      "rank": "Rango",
+      "player": "Jugador",
+      "exp": "Experiencia"
     }
   }
 }

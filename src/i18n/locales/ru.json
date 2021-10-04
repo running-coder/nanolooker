@@ -345,6 +345,19 @@
       "rank": "Классифицировать",
       "player": "Игрок",
       "frags": "Frags"
+    },
+    "nanobrowserquest": {
+      "playNow": "Играть сейчас !",
+      "playersOnline": "Игроки онлайн",
+      "playNanoBrowserQuest": "Играть в NanoBrowserQuest",
+      "welcomeTitle": "Играйте в NanoBrowserQuest и получайте небольшую выплату за завершение игры!",
+      "donatePrizePool": "Сделайте пожертвование в призовой фонд NanoBrowserQuest",
+      "registerDescription": "NanoBrowserQuest можно играть бесплатно. Если вам понравился сервис, вы можете внести небольшой вклад в призовой фонд NanoBrowserQuest.",
+      "payoutDescription": "Выплата будет отправлена после того, как вы убьете конечного БОССА! Сумма, которую вы получите, будет зависеть от разблокированных вами достижений.",
+      "leaderboard": "Таблица лидеров",
+      "rank": "Классифицировать",
+      "player": "Игрок",
+      "exp": "Опыт"
     }
   }
 }
