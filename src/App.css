@@ -142,7 +142,17 @@ a:hover {
   margin: 12px 0;
 }
 
+h3.ant-typography,
+.ant-typography h3 {
+  font-size: 22px;
+}
+
 @media (min-width: 768px) {
+  h3.ant-typography,
+  .ant-typography h3 {
+    font-size: 24px;
+  }
+
   .app-header {
     padding: 0 12px;
   }

@@ -9,6 +9,7 @@ import { AccountInfoContext } from "api/contexts/AccountInfo";
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 import TransactionsTable from "pages/Account/Transactions";
 import { toBoolean } from "components/utils";
+import QuestionCircle from "components/QuestionCircle";
 
 import type { Subtype } from "types/transaction";
 
@@ -112,6 +113,10 @@ const AccountPendingHistory: React.FC = () => {
           {isAccountHistoryLoading ? "" : pendingHistory?.length}{" "}
           {t("pages.account.pendingTransactions")}
         </Title>
+
+        <Tooltip placement="right" title={t("tooltips.pendingTransaction")}>
+          <QuestionCircle />
+        </Tooltip>
 
         {pendingHistory?.length === MAX_PENDING_TRANSACTIONS ? (
           <Tooltip

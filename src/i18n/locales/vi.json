@@ -86,7 +86,8 @@
     "mnano": "Mnano là bộ phận tiêu chuẩn hiện tại được sử dụng trong ví, trên các sàn giao dịch và dịch vụ. Nó được gọi là 1 NANO.",
     "versionsByWeight": "Để một phiên bản chiếm được sự đồng thuận của mạng, phiên bản đó cần có {{onlineWeightQuorumPercent}}% trọng lượng bỏ phiếu trực tuyến từ tối thiểu là {{onlineWeightMinimum}} NANO.",
     "onChainVolume": "Tổng của tất cả các giao dịch NANO đã được xác nhận trên mạng. Nếu người dùng A gửi 1 NANO và người dùng B nhận được 1 NANO trong cùng một ngày, thì 2 NANO sẽ được thêm vào khối lượng hàng ngày vì 2 giao dịch đã được phát và xác nhận, một gửi và một nhận.",
-    "pendingTransactionCount": "Số lượng giao dịch phải thu vượt quá giới hạn hiển thị là {{count}}."
+    "pendingTransactionCount": "Số lượng giao dịch phải thu vượt quá giới hạn hiển thị là {{count}}.",
+    "pendingTransaction": "Tiền đã được gửi đến tài khoản này nhưng chủ sở hữu vẫn chưa bỏ túi tiền. Chỉ chủ sở hữu tài khoản mới có thể ghi giao dịch đã nhận vào blockchain của họ. Nếu đây là tài khoản của bạn, hãy mở khóa ví của bạn, khối nhận thường được phát tự động."
   },
   "search": {
     "searchBy": "Tìm kiếm theo Địa chỉ / Khối / Tài khoản Đã biết",
@@ -357,7 +358,8 @@
       "leaderboard": "Bảng xếp hạng",
       "rank": "Thứ hạng",
       "player": "Người chơi",
-      "exp": "Kinh nghiệm"
+      "exp": "Kinh nghiệm",
+      "level": "Cấp độ"
     }
   }
 }

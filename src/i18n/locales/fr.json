@@ -86,7 +86,8 @@
     "mnano": "Mnano est la division standard actuelle utilisée dans les portefeuilles, sur les échanges et les services. Il est appelé 1 NANO.",
     "versionsByWeight": "Pour qu'une version reprenne le consensus du réseau, elle doit avoir {{onlineWeightQuorumPercent}}% du poids du vote en ligne sur un minimum de {{onlineWeightMinimum}} NANO.",
     "onChainVolume": "La somme de toutes les transactions NANO qui ont été confirmées sur le réseau. Si l'utilisateur A envoie 1 NANO et que l'utilisateur B reçoit 1 NANO le même jour, 2 NANO seront ajoutés au volume quotidien car 2 transactions ont été diffusées et confirmées, un envoi et une réception.",
-    "pendingTransactionCount": "Le nombre de transactions à recevoir dépasse la limite affichée de {{count}}."
+    "pendingTransactionCount": "Le nombre de transactions à recevoir dépasse la limite affichée de {{count}}.",
+    "pendingTransaction": "Des fonds ont été envoyés sur ce compte mais le propriétaire n'a pas encore empoché les fonds. Seul le propriétaire du compte peut écrire une transaction reçue dans sa blockchain. S'il s'agit de votre compte, déverrouillez votre portefeuille, le blocage de réception est généralement automatiquement diffusé."
   },
   "search": {
     "searchBy": "Recherche par Adresse / Bloc / Compte Connu",
@@ -357,7 +358,8 @@
       "leaderboard": "Classement",
       "rank": "Rang",
       "player": "Joueur",
-      "exp": "Vivre"
+      "exp": "Vivre",
+      "level": "Niveau"
     }
   }
 }

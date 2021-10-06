@@ -38,7 +38,7 @@ export const AccountDetailsLayout = ({
   children,
 }: AccountDetailsLayoutProps) => (
   <Row>
-    <Col xs={24} xl={12}>
+    <Col xs={24}>
       <Card size="small" bordered={bordered} className="detail-layout">
         {children}
       </Card>

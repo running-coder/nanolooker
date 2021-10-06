@@ -86,7 +86,8 @@
     "mnano": "Mnano to obecny standardowy podział stosowany w portfelach, giełdach i usługach. Nazywa się 1 NANO.",
     "versionsByWeight": "Aby wersja przejęła konsensus sieci, musi mieć {{onlineWeightQuorumPercent}}% głosów online z co najmniej {{onlineWeightMinimum}} NANO.",
     "onChainVolume": "Suma wszystkich transakcji NANO, które zostały potwierdzone w sieci. Jeśli użytkownik A wyśle 1 NANO, a użytkownik B otrzyma 1 NANO tego samego dnia, 2 NANO zostaną dodane do dziennego wolumenu, ponieważ 2 transakcje zostały wyemitowane i potwierdzone, wysłanie i odbiór.",
-    "pendingTransactionCount": "Liczba transakcji należności przekracza wyświetlany limit {{count}}."
+    "pendingTransactionCount": "Liczba transakcji należności przekracza wyświetlany limit {{count}}.",
+    "pendingTransaction": "Środki zostały wysłane na to konto, ale właściciel jeszcze ich nie przejął. Tylko właściciel konta może zapisać otrzymaną transakcję w swoim łańcuchu bloków. Jeśli to jest twoje konto, odblokuj portfel, blokada odbioru jest zwykle automatycznie transmitowana."
   },
   "search": {
     "searchBy": "Wyszukaj według adresu / bloku / znanego konta",
@@ -357,7 +358,8 @@
       "leaderboard": "Tablica wyników",
       "rank": "Ranga",
       "player": "Gracz",
-      "exp": "Doświadczenie"
+      "exp": "Doświadczenie",
+      "level": "Poziom"
     }
   }
 }

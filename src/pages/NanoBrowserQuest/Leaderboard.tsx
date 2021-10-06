@@ -4,6 +4,7 @@ import { Card, Row, Col, Pagination, Skeleton, Typography } from "antd";
 import { TrophyTwoTone } from "@ant-design/icons";
 import chunk from "lodash/chunk";
 import useNanoBrowserQuestLeaderboard from "./hooks/use-nanobrowserquest-leaderboard";
+import { getLevel } from "./utils";
 
 const { Text, Title } = Typography;
 
@@ -50,7 +51,8 @@ const Leaderboard: React.FC = () => {
       <Card size="small" bordered={false} className="detail-layout">
         <Row gutter={12}>
           <Col xs={4}>{t("pages.nanobrowserquest.rank")}</Col>
-          <Col xs={14}>{t("pages.nanobrowserquest.player")}</Col>
+          <Col xs={10}>{t("pages.nanobrowserquest.player")}</Col>
+          <Col xs={4}>{t("pages.nanobrowserquest.level")}</Col>
           <Col xs={6}>{t("pages.nanobrowserquest.exp")}</Col>
         </Row>
         {isLoading ? (
@@ -59,7 +61,10 @@ const Leaderboard: React.FC = () => {
               <Col xs={4}>
                 <Skeleton loading={true} paragraph={false} active />
               </Col>
-              <Col xs={14}>
+              <Col xs={10}>
+                <Skeleton loading={true} paragraph={false} active />
+              </Col>
+              <Col xs={4}>
                 <Skeleton loading={true} paragraph={false} active />
               </Col>
               <Col xs={6}>
@@ -79,14 +84,21 @@ const Leaderboard: React.FC = () => {
                       #{rank} <Trophy rank={rank} />
                     </Text>
                   </Col>
-                  <Col xs={14}>
+                  <Col xs={10}>
                     <Text
                       style={{ fontSize: fontSizeToRankMap[rank] ?? "auto" }}
                     >
                       {player}
                     </Text>
                   </Col>
-                  <Col xs={6}>
+                  <Col xs={4}>
+                    <Text
+                      style={{ fontSize: fontSizeToRankMap[rank] ?? "auto" }}
+                    >
+                      {getLevel(exp)}
+                    </Text>
+                  </Col>
+                  <Col xs={4}>
                     <Text
                       style={{ fontSize: fontSizeToRankMap[rank] ?? "auto" }}
                     >
