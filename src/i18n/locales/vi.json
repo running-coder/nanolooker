@@ -364,7 +364,13 @@
     },
     "statistics": {
       "social": {
-        "title": "Tương tác xã hội của tiền điện tử / 1 tỷ đô la trong vốn hóa thị trường"
+        "title": "Tương tác xã hội của tiền điện tử / 1 tỷ đô la trong vốn hóa thị trường",
+        "redditSubscribers": "Số lượng người đăng ký Reddit trên mỗi tỷ đô la",
+        "twitterFollowers": "Số lượng người theo dõi Twitter trên mỗi tỷ đô la",
+        "githubStars": "Số sao Github trên mỗi tỷ đô la",
+        "engagementPerBillion": "Tương tác trên mỗi tỷ đô la",
+        "marketCap": "Vốn hóa thị trường",
+        "totalEngagement": "Tổng tương tác"
       }
     }
   }

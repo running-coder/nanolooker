@@ -364,7 +364,13 @@
     },
     "statistics": {
       "social": {
-        "title": "加密货币社交参与度/市值 10 亿美元"
+        "title": "加密货币社交参与度/市值 10 亿美元",
+        "redditSubscribers": "每十亿美元的 Reddit 订阅者数量",
+        "twitterFollowers": "每十亿美元的 Twitter 关注者数量",
+        "githubStars": "每十亿美元的 Github 星数",
+        "engagementPerBillion": "每十亿美元的参与度",
+        "marketCap": "市值",
+        "totalEngagement": "总参与度"
       }
     }
   }

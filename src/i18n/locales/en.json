@@ -302,7 +302,13 @@
     },
     "statistics": {
       "social": {
-        "title": "Cryptocurrencies social engagement / $1 Billion in Market Cap"
+        "title": "Cryptocurrencies social engagement / $1 Billion in Market Cap",
+        "redditSubscribers": "Number of Reddit subscribers per $Billion",
+        "twitterFollowers": "Number of Twitter followers per $Billion",
+        "githubStars": "Number of Github stars per $Billion",
+        "engagementPerBillion": "Engagement per $Billion",
+        "marketCap": "Market Cap",
+        "totalEngagement": "Total Engagement"
       }
     },
     "preferences": {

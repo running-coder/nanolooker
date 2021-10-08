@@ -13,11 +13,15 @@ const useRepresentativesOnline = (): RepresentativesOnlineReturn => {
   const [isError, setIsError] = React.useState(false);
 
   const getBlockCount = async () => {
-    const json = await rpc("representatives_online");
+    try {
+      const json = await rpc("representatives_online");
 
-    !json || json.error
-      ? setIsError(true)
-      : setRepresentatives(uniq(json.representatives.concat([NANOLOOKER])));
+      !json || json.error
+        ? setIsError(true)
+        : setRepresentatives(uniq(json.representatives.concat([NANOLOOKER])));
+    } catch (err) {
+      setIsError(true);
+    }
   };
 
   React.useEffect(() => {

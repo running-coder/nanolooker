@@ -364,7 +364,13 @@
     },
     "statistics": {
       "social": {
-        "title": "Sociale betrokkenheid van cryptocurrencies / $ 1 miljard aan marktkapitalisatie"
+        "title": "Sociale betrokkenheid van cryptocurrencies / $ 1 miljard aan marktkapitalisatie",
+        "redditSubscribers": "Aantal Reddit-abonnees per $ miljard",
+        "twitterFollowers": "Aantal Twitter-volgers per $ miljard",
+        "githubStars": "Aantal Github-sterren per $ miljard",
+        "engagementPerBillion": "Betrokkenheid per $ miljard",
+        "marketCap": "Marktkapitalisatie",
+        "totalEngagement": "Totale betrokkenheid"
       }
     }
   }

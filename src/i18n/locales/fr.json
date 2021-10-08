@@ -364,7 +364,13 @@
     },
     "statistics": {
       "social": {
-        "title": "Engagement social des crypto-monnaies / 1 milliard de dollars de capitalisation boursière"
+        "title": "Engagement social des crypto-monnaies / 1 milliard de dollars de capitalisation boursière",
+        "redditSubscribers": "Nombre d'abonnés Reddit par milliard de dollars",
+        "twitterFollowers": "Nombre d'abonnés Twitter par milliard de dollars",
+        "githubStars": "Nombre d'étoiles Github par milliard de dollars",
+        "engagementPerBillion": "Engagement par milliard de dollars",
+        "marketCap": "Capitalisation boursière",
+        "totalEngagement": "Engagement total"
       }
     }
   }

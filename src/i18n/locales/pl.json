@@ -364,7 +364,13 @@
     },
     "statistics": {
       "social": {
-        "title": "Zaangażowanie społeczne w kryptowaluty / 1 miliard USD kapitalizacji rynkowej"
+        "title": "Zaangażowanie społeczne w kryptowaluty / 1 miliard USD kapitalizacji rynkowej",
+        "redditSubscribers": "Liczba subskrybentów Reddit na miliard dolarów",
+        "twitterFollowers": "Liczba obserwujących na Twitterze na miliard dolarów",
+        "githubStars": "Liczba gwiazdek Github na miliard dolarów",
+        "engagementPerBillion": "Zaangażowanie na miliard dolarów",
+        "marketCap": "Kapitalizacja rynku",
+        "totalEngagement": "Całkowite zaangażowanie"
       }
     }
   }

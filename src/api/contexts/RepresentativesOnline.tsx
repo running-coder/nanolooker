@@ -25,12 +25,15 @@ const Provider: React.FC = ({ children }) => {
   const getRepresentativesOnline = async () => {
     setIsError(false);
     setIsLoading(true);
-    const json = await rpc("representatives_online");
+    try {
+      const json = await rpc("representatives_online");
 
-    !json || json.error
-      ? setIsError(true)
-      : setRepresentatives(uniq(json.representatives.concat([NANOLOOKER])));
-
+      !json || json.error
+        ? setIsError(true)
+        : setRepresentatives(uniq(json.representatives.concat([NANOLOOKER])));
+    } catch (err) {
+      setIsError(true);
+    }
     setIsLoading(false);
   };
 

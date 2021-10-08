@@ -364,7 +364,13 @@
     },
     "statistics": {
       "social": {
-        "title": "Coinvolgimento sociale delle criptovalute / $ 1 miliardo di capitalizzazione di mercato"
+        "title": "Coinvolgimento sociale delle criptovalute / $ 1 miliardo di capitalizzazione di mercato",
+        "redditSubscribers": "Numero di abbonati a Reddit per $ miliardi",
+        "twitterFollowers": "Numero di follower su Twitter per $ miliardi",
+        "githubStars": "Numero di stelle Github per $ miliardi",
+        "engagementPerBillion": "Coinvolgimento per $ miliardi",
+        "marketCap": "Capitale di mercato",
+        "totalEngagement": "Coinvolgimento totale"
       }
     }
   }

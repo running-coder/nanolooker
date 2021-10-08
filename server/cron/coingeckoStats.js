@@ -85,7 +85,7 @@ const getMarketStats = async fiats => {
 
 const getMarketCapStats = async () => {
   const marketCapStats = [];
-  const top = 150;
+  const top = process.env.NODE_ENV === "production" ? 150 : 1;
 
   try {
     // @NOTE top 150
@@ -122,7 +122,7 @@ const getMarketCapStats = async () => {
           id,
           symbol,
           name,
-          image,
+          image: image.replace("/large/", "/small/"),
           marketCap,
           marketCapRank,
           fullyDilutedValuation,
@@ -160,9 +160,9 @@ const getMarketCapStats = async () => {
 
       // CoinGecko rate limit is 10 calls per seconds
       if (i && !(i % 10)) {
-        await sleep(3000);
+        await sleep(3500);
       } else {
-        await sleep(500);
+        await sleep(process.env.NODE_ENV === "production" ? 750 : 0);
       }
     }
 
@@ -197,5 +197,6 @@ getMarketStats(defaultFiats);
 if (process.env.NODE_ENV === "production") {
   getPriceStats(secondaryFiats);
   getMarketStats(secondaryFiats);
-  getMarketCapStats();
 }
+
+getMarketCapStats();

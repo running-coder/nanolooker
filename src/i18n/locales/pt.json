@@ -364,7 +364,13 @@
     },
     "statistics": {
       "social": {
-        "title": "Engajamento social de criptomoedas / US $ 1 bilhão em valor de mercado"
+        "title": "Engajamento social de criptomoedas / US $ 1 bilhão em valor de mercado",
+        "redditSubscribers": "Número de assinantes do Reddit por $ bilhões",
+        "twitterFollowers": "Número de seguidores no Twitter por $ bilhões",
+        "githubStars": "Número de estrelas no Github por $ bilhões",
+        "engagementPerBillion": "Engajamento por $ bilhões",
+        "marketCap": "Valor de mercado",
+        "totalEngagement": "Engajamento Total"
       }
     }
   }

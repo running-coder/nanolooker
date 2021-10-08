@@ -364,7 +364,13 @@
     },
     "statistics": {
       "social": {
-        "title": "暗号通貨の社会的関与/時価総額10億ドル"
+        "title": "暗号通貨の社会的関与/時価総額10億ドル",
+        "redditSubscribers": "10億ドルあたりのRedditサブスクライバーの数",
+        "twitterFollowers": "10億ドルあたりのTwitterフォロワー数",
+        "githubStars": "10億ドルあたりのGithubスターの数",
+        "engagementPerBillion": "10億ドルあたりのエンゲージメント",
+        "marketCap": "時価総額",
+        "totalEngagement": "トータルエンゲージメント"
       }
     }
   }

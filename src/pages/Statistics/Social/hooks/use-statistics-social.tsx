@@ -14,6 +14,7 @@ export interface CryptoCurrency {
   twitterFollowersPerBillion: number | null;
   redditSubscribersPerBillion: number | null;
   githubStarsPerBillion: number | null;
+  rank?: number;
 }
 
 const useStatisticsSocial = () => {

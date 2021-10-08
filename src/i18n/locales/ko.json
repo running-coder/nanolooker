@@ -364,7 +364,13 @@
     },
     "statistics": {
       "social": {
-        "title": "암호화폐 소셜 참여 / 시가총액 10억 달러"
+        "title": "암호화폐 소셜 참여 / 시가총액 10억 달러",
+        "redditSubscribers": "10억 달러당 Reddit 구독자 수",
+        "twitterFollowers": "10억 달러당 트위터 팔로워 수",
+        "githubStars": "10억 달러당 Github 별 수",
+        "engagementPerBillion": "10억 달러당 참여",
+        "marketCap": "시가총액",
+        "totalEngagement": "총 참여"
       }
     }
   }

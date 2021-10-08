@@ -364,7 +364,13 @@
     },
     "statistics": {
       "social": {
-        "title": "Kripto para birimleri sosyal etkileşimi / Piyasa Değerinde 1 Milyar Dolar"
+        "title": "Kripto para birimleri sosyal etkileşimi / Piyasa Değerinde 1 Milyar Dolar",
+        "redditSubscribers": "Milyar Dolar Başına Reddit abone sayısı",
+        "twitterFollowers": "Milyar Dolar Başına Twitter Takipçi Sayısı",
+        "githubStars": "Milyar Dolar Başına Github yıldızlarının sayısı",
+        "engagementPerBillion": "Milyar Dolar Başına Etkileşim",
+        "marketCap": "Piyasa değeri",
+        "totalEngagement": "Toplam Katılım"
       }
     }
   }

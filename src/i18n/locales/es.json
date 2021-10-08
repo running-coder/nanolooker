@@ -364,7 +364,13 @@
     },
     "statistics": {
       "social": {
-        "title": "Participación social de las criptomonedas / $ 1 mil millones en capitalización de mercado"
+        "title": "Participación social de las criptomonedas / $ 1 mil millones en capitalización de mercado",
+        "redditSubscribers": "Número de suscriptores de Reddit por mil millones de dólares",
+        "twitterFollowers": "Número de seguidores de Twitter por mil millones de dólares",
+        "githubStars": "Número de estrellas de Github por mil millones de dólares",
+        "engagementPerBillion": "Compromiso por mil millones de dólares",
+        "marketCap": "Tapa del mercado",
+        "totalEngagement": "Compromiso total"
       }
     }
   }

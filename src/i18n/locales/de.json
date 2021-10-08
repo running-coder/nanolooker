@@ -364,7 +364,13 @@
     },
     "statistics": {
       "social": {
-        "title": "Soziales Engagement von Kryptowährungen / 1 Milliarde US-Dollar Marktkapitalisierung"
+        "title": "Soziales Engagement von Kryptowährungen / 1 Milliarde US-Dollar Marktkapitalisierung",
+        "redditSubscribers": "Anzahl der Reddit-Abonnenten pro Milliarde $",
+        "twitterFollowers": "Anzahl der Twitter-Follower pro Milliarde US-Dollar",
+        "githubStars": "Anzahl der Github-Sterne pro Milliarde $",
+        "engagementPerBillion": "Engagement pro Milliarde US-Dollar",
+        "marketCap": "Marktkapitalisierung",
+        "totalEngagement": "Gesamtengagement"
       }
     }
   }

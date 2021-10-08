@@ -1,19 +1,21 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
+import BigNumber from "bignumber.js";
 import { Radio, Card, Col, Row, Skeleton, Typography } from "antd";
 import {
   TwitterOutlined,
   RedditOutlined,
   GithubOutlined,
 } from "@ant-design/icons";
-import { Bar } from "@antv/g2plot";
+import { Bar, G2 } from "@antv/g2plot";
 import orderBy from "lodash/orderBy";
 import useStatisticsSocial, {
   CryptoCurrency,
 } from "./hooks/use-statistics-social";
 
-const { Title } = Typography;
+const { Text, Title } = Typography;
+const G = G2.getEngine("canvas");
 
 let socialChart: any = null;
 
@@ -28,10 +30,18 @@ type PerBillion =
   | "redditSubscribersPerBillion"
   | "githubStarsPerBillion";
 
-const filterToKeyMap: { [key in Filter]: PerBillion } = {
+const filterPerBillionToKeyMap: { [key in Filter]: PerBillion } = {
   [Filter.TWITTER]: "twitterFollowersPerBillion",
   [Filter.REDDIT]: "redditSubscribersPerBillion",
   [Filter.GITHUB]: "githubStarsPerBillion",
+};
+
+type TotalEngagement = "twitterFollowers" | "redditSubscribers" | "githubStars";
+
+const filterTotalToKeyMap: { [key in Filter]: TotalEngagement } = {
+  [Filter.TWITTER]: "twitterFollowers",
+  [Filter.REDDIT]: "redditSubscribers",
+  [Filter.GITHUB]: "githubStars",
 };
 
 const StatisticsSocialPage: React.FC = () => {
@@ -43,26 +53,82 @@ const StatisticsSocialPage: React.FC = () => {
     if (isLoading || !statistics.length) return;
 
     const data = orderBy(
-      statistics.filter(statistic => !!statistic[filterToKeyMap[filter]]),
-      [filterToKeyMap[filter]],
+      statistics.filter(
+        statistic => !!statistic[filterPerBillionToKeyMap[filter]],
+      ),
+      [filterPerBillionToKeyMap[filter]],
       ["desc"],
-    );
+    ).map((statistic, index) => {
+      statistic.rank = index + 1;
+      return statistic;
+    });
 
     const config = {
       data,
-      xField: filterToKeyMap[filter],
+      xField: filterPerBillionToKeyMap[filter],
       yField: "name",
       seriesField: "name",
-      height: 3000,
+      title: "hello",
+      height: data.length * 40,
       legend: {
         visible: false,
       },
       label: {
-        formatter: (data: CryptoCurrency) => {
-          return data[filterToKeyMap[filter]];
-        },
+        //   content: (data: CryptoCurrency) => {
+        //     const group = new G.Group({});
+        //     group.addShape({
+        //       type: "image",
+        //       attrs: {
+        //         x: 0,
+        //         y: 0,
+        //         width: 20,
+        //         height: 20,
+        //         img: data.image,
+        //         crossOrigin: "anonymous",
+        //       },
+        //     });
+
+        //     group.addShape({
+        //       type: "text",
+        //       attrs: {
+        //         x: 25,
+        //         y: 5,
+        //         text: data[filterPerBillionToKeyMap[filter]],
+        //         textAlign: "left",
+        //         textBaseline: "top",
+        //         fill: "#595959",
+        //       },
+        //     });
+
+        //     return group;
+        //   },
         position: "right",
         offset: 4,
+      },
+      tooltip: {
+        // @ts-ignore
+        title: (text, data) => `#${data.rank} ${text}`,
+        customItems: (originalItems: any) => {
+          const items = [
+            {
+              color: originalItems[0].color,
+              name: t("pages.statistics.social.engagementPerBillion"),
+              value: originalItems[0].value,
+            },
+            {
+              name: t("pages.statistics.social.marketCap"),
+              value: `$${new BigNumber(originalItems[0].data.marketCap)
+                .dividedBy(1_000_000_000)
+                .toFixed(2)}B`,
+            },
+            {
+              name: t("pages.statistics.social.totalEngagement"),
+              value: originalItems[0].data[filterTotalToKeyMap[filter]],
+            },
+          ];
+
+          return items;
+        },
       },
     };
 
@@ -112,12 +178,15 @@ const StatisticsSocialPage: React.FC = () => {
                 <GithubOutlined /> Github
               </Radio.Button>
             </Radio.Group>
+            <br />
+            <br />
+            <Text>
+              {t(`pages.statistics.social.${filterTotalToKeyMap[filter]}`)}
+            </Text>
           </Col>
         </Row>
-
         <Row>
           <Col xs={24}>
-            {/* <img src="https://assets.coingecko.com/coins/images/975/large/cardano.png?1547034860" /> */}
             <Skeleton loading={isLoading || !statistics.length} active>
               <div id="social-chart" />
             </Skeleton>
