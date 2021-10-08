@@ -161,7 +161,8 @@
       "connectingToBlockchain": "NANOブロックチェーンに接続する",
       "reconnectingToBlockchain": "切断され、NANOブロックチェーンに再接続されます",
       "cpsLocal": "ローカルノードで観測されたCPS",
-      "cpsNetwork": "いくつかの代表的なノードにわたるCPSの中央値"
+      "cpsNetwork": "いくつかの代表的なノードにわたるCPSの中央値",
+      "viewSocialEngagement": "ソーシャルエンゲージメントを見る"
     },
     "account": {
       "votingWeight": "投票の重み",
@@ -360,6 +361,11 @@
       "player": "プレーヤー",
       "exp": "経験",
       "level": "レベル"
+    },
+    "statistics": {
+      "social": {
+        "title": "暗号通貨の社会的関与/時価総額10億ドル"
+      }
     }
   }
 }

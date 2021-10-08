@@ -161,7 +161,8 @@
       "connectingToBlockchain": "NANO blok zincirine bağlanma",
       "reconnectingToBlockchain": "Bağlantı kesildi, NANO blok zincirine yeniden bağlanılıyor",
       "cpsLocal": "Yerel düğümde gözlemlenen CPS",
-      "cpsNetwork": "Birkaç temsili düğümde medyan CPS"
+      "cpsNetwork": "Birkaç temsili düğümde medyan CPS",
+      "viewSocialEngagement": "Sosyal Etkileşimi Görüntüle"
     },
     "account": {
       "votingWeight": "Oy ağırlığı",
@@ -360,6 +361,11 @@
       "player": "oyuncu",
       "exp": "Tecrübe etmek",
       "level": "Seviye"
+    },
+    "statistics": {
+      "social": {
+        "title": "Kripto para birimleri sosyal etkileşimi / Piyasa Değerinde 1 Milyar Dolar"
+      }
     }
   }
 }

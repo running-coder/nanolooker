@@ -29,6 +29,7 @@ import BookmarksPage from "pages/Bookmarks";
 import NanoQuakeJSPage from "pages/NanoQuakeJS";
 import NanoBrowserQuestPage from "pages/NanoBrowserQuest";
 import TreasureHunt from "pages/TreasureHunt";
+import StatisticsSocial from "pages/Statistics/Social";
 import "components/utils/analytics";
 
 import "antd/dist/antd.css";
@@ -95,6 +96,7 @@ const App: React.FC = () => {
             <Route path="/nanoquakejs" component={NanoQuakeJSPage} />
             <Route path="/nanobrowserquest" component={NanoBrowserQuestPage} />
             <Route path="/treasure-hunt/:account?" component={TreasureHunt} />
+            <Route path="/statistics/social" component={StatisticsSocial} />
           </Switch>
         </Content>
         <AppFooter />

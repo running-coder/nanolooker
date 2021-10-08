@@ -161,7 +161,8 @@
       "connectingToBlockchain": "Verbindung zur NANO-Blockchain herstellen",
       "reconnectingToBlockchain": "Verbindung getrennt, Verbindung zur NANO-Blockchain wiederhergestellt",
       "cpsLocal": "CPS auf dem lokalen Knoten beobachtet",
-      "cpsNetwork": "Medianer CPS über mehrere repräsentative Knoten"
+      "cpsNetwork": "Medianer CPS über mehrere repräsentative Knoten",
+      "viewSocialEngagement": "Soziales Engagement anzeigen"
     },
     "account": {
       "votingWeight": "Abstimmungsgewicht",
@@ -360,6 +361,11 @@
       "player": "Spieler",
       "exp": "Erfahrung",
       "level": "Niveau"
+    },
+    "statistics": {
+      "social": {
+        "title": "Soziales Engagement von Kryptowährungen / 1 Milliarde US-Dollar Marktkapitalisierung"
+      }
     }
   }
 }

@@ -161,7 +161,8 @@
       "connectingToBlockchain": "Connecting to the NANO blockchain",
       "reconnectingToBlockchain": "Disconnected, reconnecting to the NANO blockchain",
       "cpsLocal": "CPS observed on the local node",
-      "cpsNetwork": "Median CPS across several representative nodes"
+      "cpsNetwork": "Median CPS across several representative nodes",
+      "viewSocialEngagement": "View Social Engagement"
     },
     "account": {
       "votingWeight": "Voting weight",
@@ -298,6 +299,11 @@
     "exchangeTracker": {
       "description": "Every day a capture of the account balances of the most popular exchanges where Nano is traded is taken. This measurement can be used to analyze movements and fluctuations on the network.",
       "totalSelected": "Total balance of selected exchanges"
+    },
+    "statistics": {
+      "social": {
+        "title": "Cryptocurrencies social engagement / $1 Billion in Market Cap"
+      }
     },
     "preferences": {
       "description": "Manage your preferences for every sections. The preferences are stored on the browser, if you clear your data your preferences will be back to defaults.",

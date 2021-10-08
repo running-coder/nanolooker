@@ -161,7 +161,8 @@
       "connectingToBlockchain": "Conectando-se ao blockchain da NANO",
       "reconnectingToBlockchain": "Desconectado, reconectando ao blockchain da NANO",
       "cpsLocal": "CPS observado no nó local",
-      "cpsNetwork": "CPS médio em vários nós representativos"
+      "cpsNetwork": "CPS médio em vários nós representativos",
+      "viewSocialEngagement": "Ver Social Engagement"
     },
     "account": {
       "votingWeight": "Peso de voto",
@@ -360,6 +361,11 @@
       "player": "Jogador",
       "exp": "Experiência",
       "level": "Nível"
+    },
+    "statistics": {
+      "social": {
+        "title": "Engajamento social de criptomoedas / US $ 1 bilhão em valor de mercado"
+      }
     }
   }
 }

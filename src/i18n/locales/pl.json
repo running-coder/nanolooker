@@ -161,7 +161,8 @@
       "connectingToBlockchain": "Łączenie się z blockchainem NANO",
       "reconnectingToBlockchain": "Rozłączono, ponownie łączę się z łańcuchem bloków NANO",
       "cpsLocal": "CPS zaobserwowany w węźle lokalnym",
-      "cpsNetwork": "Mediana CPS w kilku reprezentatywnych węzłach"
+      "cpsNetwork": "Mediana CPS w kilku reprezentatywnych węzłach",
+      "viewSocialEngagement": "Zobacz zaangażowanie społeczne"
     },
     "account": {
       "votingWeight": "Waga głosowania",
@@ -360,6 +361,11 @@
       "player": "Gracz",
       "exp": "Doświadczenie",
       "level": "Poziom"
+    },
+    "statistics": {
+      "social": {
+        "title": "Zaangażowanie społeczne w kryptowaluty / 1 miliard USD kapitalizacji rynkowej"
+      }
     }
   }
 }

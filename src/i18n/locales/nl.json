@@ -161,7 +161,8 @@
       "connectingToBlockchain": "Verbinding maken met het NANO netwerk",
       "reconnectingToBlockchain": "Verbinding verbroken, opnieuw verbinding maken met het NANO netwerk",
       "cpsLocal": "CPS waargenomen op het lokale knooppunt",
-      "cpsNetwork": "Mediane CPS over verschillende representatieve knooppunten"
+      "cpsNetwork": "Mediane CPS over verschillende representatieve knooppunten",
+      "viewSocialEngagement": "Sociale betrokkenheid bekijken"
     },
     "account": {
       "votingWeight": "Stemgewicht",
@@ -360,6 +361,11 @@
       "player": "Speler",
       "exp": "Beleven",
       "level": "Peil"
+    },
+    "statistics": {
+      "social": {
+        "title": "Sociale betrokkenheid van cryptocurrencies / $ 1 miljard aan marktkapitalisatie"
+      }
     }
   }
 }

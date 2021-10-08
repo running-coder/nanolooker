@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Card, Col, Row } from "antd";
 import BigNumber from "bignumber.js";
@@ -126,7 +127,15 @@ const HomePage = () => {
           md={{ span: 12, order: 1 }}
           style={{ width: "100%" }}
         >
-          <Card size="small" title={t("pages.home.network")}>
+          <Card
+            size="small"
+            title={t("pages.home.network")}
+            extra={
+              <Link to="/statistics/social">
+                {t("pages.home.viewSocialEngagement")}
+              </Link>
+            }
+          >
             <Row gutter={6}>
               <Col xs={24} sm={12}>
                 <LoadingStatistic
@@ -276,6 +285,7 @@ const HomePage = () => {
                   }
                   value={`${marketCapRank}`}
                 />
+
                 <LoadingStatistic
                   isLoading={
                     isMarketStatisticsInitialLoading || isMarketStatisticsError

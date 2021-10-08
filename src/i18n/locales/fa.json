@@ -161,7 +161,8 @@
       "connectingToBlockchain": "اتصال به زنجیره بلوک NANO",
       "reconnectingToBlockchain": "اتصال قطع شد ، دوباره به زنجیره بلوک NANO متصل شدید",
       "cpsLocal": "CPS در گره محلی مشاهده شده است",
-      "cpsNetwork": "CPS متوسط در چندین گره نماینده"
+      "cpsNetwork": "CPS متوسط در چندین گره نماینده",
+      "viewSocialEngagement": "مشاهده مشارکت اجتماعی"
     },
     "account": {
       "votingWeight": "وزن رای گیری",
@@ -360,6 +361,11 @@
       "player": "بازیکن",
       "exp": "تجربه",
       "level": "مرحله"
+    },
+    "statistics": {
+      "social": {
+        "title": "مشارکت اجتماعی ارزهای رمزنگاری شده / 1 میلیارد دلار سرمایه بازار"
+      }
     }
   }
 }

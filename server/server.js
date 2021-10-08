@@ -37,7 +37,10 @@ const {
   BITCOIN_TOTAL_TRANSACTION_FEES_48H,
 } = require("./api/btcTransactionFees");
 
-const { getCoingeckoStats } = require("./api/coingeckoStats");
+const {
+  getCoingeckoStats,
+  getCoingeckoMarketCapStats,
+} = require("./api/coingeckoStats");
 const {
   getDeveloperFundTransactions,
 } = require("./api/developerFundTransactions");
@@ -154,6 +157,12 @@ app.get("/api/market-statistics", async (req, res) => {
     ...marketStats,
     priceStats,
   });
+});
+
+app.get("/api/statistics-social", async (req, res) => {
+  const data = getCoingeckoMarketCapStats();
+
+  res.send(data);
 });
 
 app.get("/api/known-accounts", async (req, res) => {

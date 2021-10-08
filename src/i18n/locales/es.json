@@ -161,7 +161,8 @@
       "connectingToBlockchain": "Conexión a la cadena de bloques NANO",
       "reconnectingToBlockchain": "Desconectado, reconectándose a la cadena de bloques NANO",
       "cpsLocal": "CPS observado en el nodo local",
-      "cpsNetwork": "CPS mediana en varios nodos representativos"
+      "cpsNetwork": "CPS mediana en varios nodos representativos",
+      "viewSocialEngagement": "Ver participación social"
     },
     "account": {
       "votingWeight": "Peso de voto",
@@ -360,6 +361,11 @@
       "player": "Jugador",
       "exp": "Experiencia",
       "level": "Nivel"
+    },
+    "statistics": {
+      "social": {
+        "title": "Participación social de las criptomonedas / $ 1 mil millones en capitalización de mercado"
+      }
     }
   }
 }

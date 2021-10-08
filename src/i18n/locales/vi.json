@@ -161,7 +161,8 @@
       "connectingToBlockchain": "Kết nối với chuỗi khối NANO",
       "reconnectingToBlockchain": "Đã ngắt kết nối, đang kết nối lại với chuỗi khối NANO",
       "cpsLocal": "CPS được quan sát trên nút cục bộ",
-      "cpsNetwork": "CPS trung bình trên một số nút đại diện"
+      "cpsNetwork": "CPS trung bình trên một số nút đại diện",
+      "viewSocialEngagement": "Xem mức độ tương tác trên mạng xã hội"
     },
     "account": {
       "votingWeight": "Số phiếu bầu",
@@ -360,6 +361,11 @@
       "player": "Người chơi",
       "exp": "Kinh nghiệm",
       "level": "Cấp độ"
+    },
+    "statistics": {
+      "social": {
+        "title": "Tương tác xã hội của tiền điện tử / 1 tỷ đô la trong vốn hóa thị trường"
+      }
     }
   }
 }

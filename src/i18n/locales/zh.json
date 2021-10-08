@@ -161,7 +161,8 @@
       "connectingToBlockchain": "连接到NANO区块链",
       "reconnectingToBlockchain": "断开连接，重新连接到NANO区块链",
       "cpsLocal": "在本地节点上观察到的 CPS",
-      "cpsNetwork": "几个代表性节点的中值 CPS"
+      "cpsNetwork": "几个代表性节点的中值 CPS",
+      "viewSocialEngagement": "查看社交互动"
     },
     "account": {
       "votingWeight": "投票权重",
@@ -360,6 +361,11 @@
       "player": "播放器",
       "exp": "经验",
       "level": "等级"
+    },
+    "statistics": {
+      "social": {
+        "title": "加密货币社交参与度/市值 10 亿美元"
+      }
     }
   }
 }

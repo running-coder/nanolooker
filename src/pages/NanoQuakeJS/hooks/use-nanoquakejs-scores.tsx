@@ -71,6 +71,8 @@ const useNanoQuakeJS = () => {
       setIsError(true);
     }
 
+    setIsLoading(false);
+
     nextRequestTimeout = window.setTimeout(() => {
       getScores();
     }, 5000);

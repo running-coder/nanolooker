@@ -161,7 +161,8 @@
       "connectingToBlockchain": "Connexion à la blockchain NANO",
       "reconnectingToBlockchain": "Déconnecté, reconnection en cours à la blockchain NANO",
       "cpsLocal": "CPS observé sur le nœud local",
-      "cpsNetwork": "CPS médian sur plusieurs nœuds représentatifs"
+      "cpsNetwork": "CPS médian sur plusieurs nœuds représentatifs",
+      "viewSocialEngagement": "Afficher l'engagement social"
     },
     "account": {
       "votingWeight": "Poids du vote",
@@ -360,6 +361,11 @@
       "player": "Joueur",
       "exp": "Vivre",
       "level": "Niveau"
+    },
+    "statistics": {
+      "social": {
+        "title": "Engagement social des crypto-monnaies / 1 milliard de dollars de capitalisation boursière"
+      }
     }
   }
 }

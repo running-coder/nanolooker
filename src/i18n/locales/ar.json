@@ -161,7 +161,8 @@
       "connectingToBlockchain": "الاتصال بـ NANO blockchain",
       "reconnectingToBlockchain": "تم قطع الاتصال وإعادة الاتصال بـ NANO blockchain",
       "cpsLocal": "لوحظ CPS على العقدة المحلية",
-      "cpsNetwork": "متوسط CPS عبر عدة عقد تمثيلية"
+      "cpsNetwork": "متوسط CPS عبر عدة عقد تمثيلية",
+      "viewSocialEngagement": "عرض المشاركة الاجتماعية"
     },
     "account": {
       "votingWeight": "وزن التصويت",
@@ -360,6 +361,11 @@
       "player": "لاعب",
       "exp": "خبرة",
       "level": "مستوى"
+    },
+    "statistics": {
+      "social": {
+        "title": "المشاركة الاجتماعية للعملات المشفرة / 1 مليار دولار في القيمة السوقية"
+      }
     }
   }
 }

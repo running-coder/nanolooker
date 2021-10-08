@@ -9,6 +9,7 @@ const {
   MONGO_OPTIONS,
   MONGO_DB,
   COINGECKO_MARKET_STATS,
+  COINGECKO_MARKET_CAP_STATS,
   COINGECKO_ALL_PRICE_STATS,
   COINGECKO_PRICE_STATS,
   MARKET_CAP_RANK_24H,
@@ -76,6 +77,11 @@ const getCoingeckoStats = async ({ fiat, cryptocurrency }) => {
   };
 };
 
+const getCoingeckoMarketCapStats = () => {
+  return nodeCache.get(COINGECKO_MARKET_CAP_STATS) || [];
+};
+
 module.exports = {
   getCoingeckoStats,
+  getCoingeckoMarketCapStats,
 };
