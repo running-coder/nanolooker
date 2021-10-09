@@ -360,7 +360,24 @@
       "rank": "Thứ hạng",
       "player": "Người chơi",
       "exp": "Kinh nghiệm",
-      "level": "Cấp độ"
+      "level": "Cấp độ",
+      "gameDescription": "NanoBrowserQuest là phiên bản làm lại của minigame MMORPG dựa trên web BrowserQuest ban đầu được tạo ra vào khoảng năm 2012. Trò chơi hỗ trợ 200 người chơi đồng thời và chơi miễn phí. NanoBrowserQuest cho phép bạn chơi với bạn bè, hoàn thành các thành tích trong trò chơi và nhận phần thưởng Nano nhỏ sau khi hoàn thành trò chơi.",
+      "howToPlay": "Cách chơi",
+      "itemUpgrade": "Nâng cấp mặt hàng",
+      "itemUpgradeDescription": "Nâng cấp các vật phẩm của bạn tại Anvil trong thị trấn. Chọn mục bạn muốn nâng cấp và kéo nó sang vị trí bên trái. Thêm một lớp cuộn nâng cấp tương tự vào một trong 9 khe của phần giữa. Nếu nâng cấp thành công, vật phẩm sẽ xuất hiện trong khe bên phải. Hãy cẩn thận để luôn có một mục dự phòng trong trường hợp nâng cấp không thành công.",
+      "upgradeSuccessRate": "Nâng cấp tỷ lệ thành công",
+      "playerLevel": "Cấp độ người chơi",
+      "playerLevelDescription": "Bạn càng lên cấp nhân vật của mình, bạn sẽ nhận được nhiều chỉ số thưởng hơn như tăng máu và sát thương.",
+      "playerLevelDescription2": "Thanh màu vàng thể hiện sự tiến triển cấp độ của bạn, hãy di chuột vào thanh này để nhận% chi tiết hơn.",
+      "shortcuts": "Các phím tắt",
+      "shortcut": {
+        "i": "Nhấn I hoặc nhấp vào các mục dưới cùng để chuyển đổi Khoảng không quảng cáo",
+        "c": " Nhấn C hoặc nhấp vào thanh sức khỏe để chuyển đổi thông tin nhân vật",
+        "p": "Nhấn P hoặc nhấp vào # Người chơi ở thanh dưới cùng để xem những người chơi trực tuyến",
+        "enter": "Nhấn ENTER hoặc nhấp vào bong bóng trò chuyện để nói chuyện với những người chơi ở gần bạn",
+        "q": "Nhấn Q hoặc nhấp vào cúp để xem sách Nhiệm vụ của bạn",
+        "m": "Nhấn M hoặc nhấp vào loa để chuyển đổi Tắt tiếng"
+      }
     },
     "statistics": {
       "social": {

@@ -2,7 +2,7 @@ import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Tag, Layout, Typography } from "antd";
 import { GithubOutlined, HeartTwoTone } from "@ant-design/icons";
-import QRCodeModal from "components/QRCodeModal";
+import QRCodeModal from "components/QRCode/Modal";
 import { Theme, PreferencesContext } from "api/contexts/Preferences";
 import { TwoToneColors } from "components/utils";
 

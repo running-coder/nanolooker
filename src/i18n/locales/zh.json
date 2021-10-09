@@ -360,7 +360,24 @@
       "rank": "秩",
       "player": "播放器",
       "exp": "经验",
-      "level": "等级"
+      "level": "等级",
+      "gameDescription": "NanoBrowserQuest 是流行的 BrowserQuest 基于网络的 MMORPG 迷你游戏的翻版，该游戏最初是在 2012 年左右创建的。该游戏支持 200 名同时玩家并且是免费的。 NanoBrowserQuest 可让您与朋友一起玩，完成游戏内成就并在完成游戏后获得小额 Nano 奖励。",
+      "howToPlay": "怎么玩",
+      "itemUpgrade": "物品升级",
+      "itemUpgradeDescription": "在镇上的铁砧升级你的物品。选择您要升级的项目并将其拖到左侧插槽中。将相同的升级卷轴类添加到 9 个中间部分插槽之一。如果升级成功，该物品将出现在右侧的插槽中。小心总是有一个备份项目，以防升级不成功。",
+      "upgradeSuccessRate": "升级成功率",
+      "playerLevel": "玩家等级",
+      "playerLevelDescription": "您的角色等级越高，您获得的奖励统计数据就越多，例如增加的健康和伤害。",
+      "playerLevelDescription2": "黄色条代表您的等级进度，将其悬停以获得更详细的百分比。",
+      "shortcuts": "快捷方式",
+      "shortcut": {
+        "i": "按 I 或单击底部的项目以切换库存",
+        "c": " 按 C 或单击健康栏以切换角色信息",
+        "p": "按 P 或单击底部栏上的 # Player 查看在线玩家",
+        "enter": "按 ENTER 或单击聊天气泡与您附近的玩家交谈",
+        "q": "按 Q 或单击奖杯以查看您的任务书",
+        "m": "按 M 或单击扬声器切换静音"
+      }
     },
     "statistics": {
       "social": {

@@ -360,7 +360,24 @@
       "rank": "Ranga",
       "player": "Gracz",
       "exp": "Doświadczenie",
-      "level": "Poziom"
+      "level": "Poziom",
+      "gameDescription": "NanoBrowserQuest to remake popularnej internetowej minigry MMORPG BrowserQuest, która została pierwotnie stworzona około 2012 roku. Gra obsługuje 200 jednoczesnych graczy i jest darmowa. NanoBrowserQuest pozwala grać ze znajomymi, zdobywać osiągnięcia w grze i otrzymać małą nagrodę Nano po ukończeniu gry.",
+      "howToPlay": "Jak grać",
+      "itemUpgrade": "Aktualizacja przedmiotu",
+      "itemUpgradeDescription": "Ulepsz swoje przedmioty w kowadle w mieście. Wybierz przedmiot, który chcesz ulepszyć i przeciągnij go do lewego slotu. Dodaj tę samą klasę zwoju ulepszenia do jednego z 9 miejsc w środkowej sekcji. Jeśli ulepszenie się powiedzie, przedmiot pojawi się w slocie po prawej stronie. Uważaj, aby zawsze mieć zapasowy element na wypadek, gdyby aktualizacja się nie powiodła.",
+      "upgradeSuccessRate": "Uaktualnij wskaźnik sukcesu",
+      "playerLevel": "Poziom gracza",
+      "playerLevelDescription": "Im bardziej wypoziomujesz swoją postać, tym więcej otrzymasz bonusowych statystyk, takich jak zwiększone zdrowie i obrażenia.",
+      "playerLevelDescription2": "Żółty pasek reprezentuje postęp poziomu, najedź na niego, aby uzyskać bardziej szczegółowy %.",
+      "shortcuts": "Skróty",
+      "shortcut": {
+        "i": "Naciśnij I lub kliknij dolne elementy, aby przełączyć ekwipunek",
+        "c": " Naciśnij C lub kliknij pasek zdrowia, aby przełączyć informacje o postaci",
+        "p": "Naciśnij P lub kliknij # Player na dolnym pasku, aby wyświetlić graczy online",
+        "enter": "Naciśnij ENTER lub kliknij dymek czatu, aby porozmawiać z graczami w pobliżu",
+        "q": "Naciśnij Q lub kliknij trofeum, aby wyświetlić księgę zadań",
+        "m": "Naciśnij M lub kliknij głośnik, aby włączyć wyciszenie"
+      }
     },
     "statistics": {
       "social": {

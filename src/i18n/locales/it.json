@@ -360,7 +360,24 @@
       "rank": "Classifica",
       "player": "Giocatore",
       "exp": "Esperienza",
-      "level": "Livello"
+      "level": "Livello",
+      "gameDescription": "NanoBrowserQuest è un remake del popolare minigioco MMORPG basato sul web BrowserQuest, originariamente creato intorno al 2012. Il gioco supporta 200 giocatori simultanei ed è gratuito. NanoBrowserQuest ti consente di giocare con i tuoi amici, completare obiettivi di gioco e ottenere una piccola ricompensa Nano dopo aver completato il gioco.",
+      "howToPlay": "Come giocare",
+      "itemUpgrade": "Aggiornamento dell'oggetto",
+      "itemUpgradeDescription": "Aggiorna i tuoi oggetti all'Incudine in città. Scegli l'oggetto che desideri aggiornare e trascinalo nello slot di sinistra. Aggiungi una stessa classe di pergamena di aggiornamento a uno dei 9 slot della sezione centrale. Se l'aggiornamento va a buon fine, l'oggetto apparirà nello slot a destra. Fare attenzione a disporre sempre di un elemento di backup nel caso in cui l'aggiornamento non vada a buon fine.",
+      "upgradeSuccessRate": "Tasso di successo dell'aggiornamento",
+      "playerLevel": "Livello giocatore",
+      "playerLevelDescription": "Più livelli il tuo personaggio, più riceverai statistiche bonus come aumento della salute e dei danni.",
+      "playerLevelDescription2": "La barra gialla rappresenta la tua progressione di livello, passaci sopra per ottenere % più dettagliati.",
+      "shortcuts": "Scorciatoie",
+      "shortcut": {
+        "i": "Premi I o fai clic sugli elementi in basso per attivare l'inventario",
+        "c": " Premi C o fai clic sulla barra della salute per alternare le informazioni sul personaggio",
+        "p": "Premi P o fai clic su # Giocatore nella barra in basso per visualizzare i giocatori online",
+        "enter": "Premi INVIO o fai clic sul fumetto della chat per parlare con i giocatori vicino a te",
+        "q": "Premi Q o fai clic sul trofeo per visualizzare il tuo libro delle missioni",
+        "m": "Premi M o fai clic sull'altoparlante per disattivare l'audio"
+      }
     },
     "statistics": {
       "social": {

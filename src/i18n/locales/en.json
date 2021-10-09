@@ -365,13 +365,29 @@
       "playNanoBrowserQuest": "Play NanoBrowserQuest",
       "welcomeTitle": "Play NanoBrowserQuest and earn a small payout for completing the game!",
       "donatePrizePool": "Donate to NanoBrowserQuest prize pool",
-      "registerDescription": "NanoBrowserQuest is free to play. If you enjoy the service you can make a small contribution to the NanoBrowserQuest prize pool.",
+      "gameDescription": "NanoBrowserQuest is a remake of the popular BrowserQuest web-based MMORPG minigame that was originally created around 2012. The game supports 200 simultaneous players and is free to play. NanoBrowserQuest allows you to play with your friends, complete in-game achievements and get a small Nano reward after completing the game.",
       "payoutDescription": "Payout will be sent after you kill the end BOSS! The amount you'll get will depend on the achievements you've unlocked.",
       "leaderboard": "Leaderboard",
       "rank": "Rank",
       "player": "Player",
       "exp": "Experience",
-      "level": "Level"
+      "level": "Level",
+      "howToPlay": "How to play",
+      "itemUpgrade": "Item upgrade",
+      "itemUpgradeDescription": "Upgrade your items at the Anvil in town. Choose the item you want to upgrade and drag it to the left slot. Add a same upgrade scroll class to one of the 9 middle section slots. If the upgrade is successful the item will appear in the slot on the right. Be careful to always have a backup item in case the upgrade does not succeed.",
+      "upgradeSuccessRate": "Upgrade success rate",
+      "playerLevel": "Player level",
+      "playerLevelDescription": "The more you level your character the more you will receive bonus stats such as increased health and damage.",
+      "playerLevelDescription2": "The yellow bar represents your level progression, hover it to get more detailed %.",
+      "shortcuts": "Shortcuts",
+      "shortcut": {
+        "i": "Press I or click on the bottom items to toggle the Inventory",
+        "c": " Press C or click on the health bar to toggle the Character information",
+        "p": "Press P or click on the # Player on the bottom bar to view the online players",
+        "enter": "Press ENTER or click on chat bubble to talk to players near you",
+        "q": "Press Q or click the trophy to view your Quest book",
+        "m": "Press M or click speaker to toggle Mute"
+      }
     }
   }
 }

@@ -4,7 +4,7 @@ import { Button, Row, Col } from "antd";
 import { WalletOutlined, QrcodeOutlined } from "@ant-design/icons";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Copy from "components/Copy";
-import QRCodeModal from "components/QRCodeModal";
+import QRCodeModal from "components/QRCode/Modal";
 import Bookmark from "components/Bookmark";
 import { Natricon } from "components/Preferences/Natricons/Natricon";
 import { PreferencesContext } from "api/contexts/Preferences";

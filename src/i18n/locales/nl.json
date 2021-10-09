@@ -360,7 +360,24 @@
       "rank": "Rang",
       "player": "Speler",
       "exp": "Beleven",
-      "level": "Peil"
+      "level": "Peil",
+      "gameDescription": "NanoBrowserQuest is een remake van de populaire BrowserQuest webgebaseerde MMORPG-minigame die oorspronkelijk rond 2012 is gemaakt. De game ondersteunt 200 gelijktijdige spelers en is gratis te spelen. Met NanoBrowserQuest kun je met je vrienden spelen, in-game prestaties voltooien en een kleine Nano-beloning krijgen na het voltooien van het spel.",
+      "howToPlay": "Hoe te spelen",
+      "itemUpgrade": "Artikelupgrade",
+      "itemUpgradeDescription": "Upgrade je items bij het Anvil in de stad. Kies het item dat u wilt upgraden en sleep het naar het linkervak. Voeg dezelfde upgrade-scrollklasse toe aan een van de 9 slots in het middengedeelte. Als de upgrade is gelukt, verschijnt het item in de sleuf aan de rechterkant. Zorg ervoor dat u altijd een back-upitem heeft voor het geval de upgrade niet lukt.",
+      "upgradeSuccessRate": "Succespercentage upgrade",
+      "playerLevel": "Spelersniveau",
+      "playerLevelDescription": "Hoe meer je je personage levelt, hoe meer bonusstatistieken je krijgt, zoals meer gezondheid en schade.",
+      "playerLevelDescription2": "De gele balk geeft de voortgang van je niveau aan, beweeg de muisaanwijzer om meer gedetailleerd % te krijgen.",
+      "shortcuts": "Sneltoetsen",
+      "shortcut": {
+        "i": "Druk op I of klik op de onderste items om de inventaris te wisselen",
+        "c": " Druk op C of klik op de gezondheidsbalk om de karakterinformatie te wisselen",
+        "p": "Druk op P of klik op de # Player op de onderste balk om de online spelers te bekijken",
+        "enter": "Druk op ENTER of klik op de chatballon om met spelers bij jou in de buurt te praten",
+        "q": "Druk op Q of klik op de trofee om je Quest-boek te bekijken",
+        "m": "Druk op M of klik op luidspreker om Dempen in te schakelen"
+      }
     },
     "statistics": {
       "social": {

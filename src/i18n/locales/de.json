@@ -360,7 +360,24 @@
       "rank": "Rang",
       "player": "Spieler",
       "exp": "Erfahrung",
-      "level": "Niveau"
+      "level": "Niveau",
+      "gameDescription": "NanoBrowserQuest ist ein Remake des beliebten webbasierten MMORPG-Minispiels BrowserQuest, das ursprünglich um 2012 entwickelt wurde. Das Spiel unterstützt 200 gleichzeitige Spieler und ist kostenlos spielbar. NanoBrowserQuest ermöglicht es dir, mit deinen Freunden zu spielen, Erfolge im Spiel zu erzielen und nach Abschluss des Spiels eine kleine Nano-Belohnung zu erhalten.",
+      "howToPlay": "Spielanleitung",
+      "itemUpgrade": "Artikel-Upgrade",
+      "itemUpgradeDescription": "Verbessere deine Gegenstände am Amboss in der Stadt. Wählen Sie das Element aus, das Sie aktualisieren möchten, und ziehen Sie es in den linken Slot. Füge eine gleiche Upgrade-Scroll-Klasse zu einem der 9 Slots im mittleren Abschnitt hinzu. Wenn das Upgrade erfolgreich ist, wird der Gegenstand rechts im Slot angezeigt. Achten Sie darauf, immer ein Backup-Element zu haben, falls das Upgrade nicht erfolgreich ist.",
+      "upgradeSuccessRate": "Upgrade-Erfolgsrate",
+      "playerLevel": "Spielerlevel",
+      "playerLevelDescription": "Je mehr Sie Ihren Charakter leveln, desto mehr erhalten Sie Bonusstatistiken wie erhöhte Gesundheit und Schaden.",
+      "playerLevelDescription2": "Der gelbe Balken stellt Ihren Level-Fortschritt dar. Bewegen Sie den Mauszeiger darüber, um detailliertere % zu erhalten.",
+      "shortcuts": "Verknüpfungen",
+      "shortcut": {
+        "i": "Drücke I oder klicke auf die unteren Gegenstände, um das Inventar umzuschalten",
+        "c": " Drücke C oder klicke auf die Gesundheitsleiste, um die Charakterinformationen umzuschalten",
+        "p": "Drücke P oder klicke auf # Player in der unteren Leiste, um die Online-Spieler anzuzeigen",
+        "enter": "Drücke die EINGABETASTE oder klicke auf die Chat-Sprechblase, um mit Spielern in deiner Nähe zu sprechen",
+        "q": "Drücke Q oder klicke auf die Trophäe, um dein Quest-Buch anzuzeigen",
+        "m": "Drücken Sie M oder klicken Sie auf den Lautsprecher, um die Stummschaltung umzuschalten"
+      }
     },
     "statistics": {
       "social": {

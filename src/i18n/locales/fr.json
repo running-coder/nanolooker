@@ -360,7 +360,24 @@
       "rank": "Rang",
       "player": "Joueur",
       "exp": "Vivre",
-      "level": "Niveau"
+      "level": "Niveau",
+      "gameDescription": "NanoBrowserQuest est un remake du populaire mini-jeu MMORPG Web BrowserQuest qui a été créé vers 2012. Le jeu prend en charge 200 joueurs simultanés et est gratuit. NanoBrowserQuest vous permet de jouer avec vos amis, de terminer des réalisations dans le jeu et d'obtenir une petite récompense Nano après avoir terminé le jeu.",
+      "howToPlay": "Comment jouer",
+      "itemUpgrade": "Mise à niveau de l'article",
+      "itemUpgradeDescription": "Améliorez vos objets à l'enclume en ville. Choisissez l'élément que vous souhaitez mettre à niveau et faites-le glisser vers l'emplacement de gauche. Ajoutez une même classe de parchemin de mise à niveau à l'un des 9 emplacements de la section centrale. Si la mise à niveau est réussie, l'élément apparaîtra dans l'emplacement à droite. Veillez à toujours avoir un élément de sauvegarde au cas où la mise à niveau ne réussirait pas.",
+      "upgradeSuccessRate": "Taux de réussite de la mise à niveau",
+      "playerLevel": "Niveau du joueur",
+      "playerLevelDescription": "Plus vous nivelez votre personnage, plus vous recevrez des statistiques bonus telles qu'une santé et des dégâts accrus.",
+      "playerLevelDescription2": "La barre jaune représente votre progression de niveau, survolez-la pour obtenir des% plus détaillés.",
+      "shortcuts": "Raccourcis",
+      "shortcut": {
+        "i": "Appuyez sur I ou cliquez sur les éléments du bas pour basculer l'inventaire",
+        "c": " Appuyez sur C ou cliquez sur la barre de santé pour basculer les informations du personnage",
+        "p": "Appuyez sur P ou cliquez sur le # Player dans la barre inférieure pour afficher les joueurs en ligne",
+        "enter": "Appuyez sur ENTRÉE ou cliquez sur la bulle de discussion pour parler aux joueurs près de chez vous",
+        "q": "Appuyez sur Q ou cliquez sur le trophée pour afficher votre livre de quêtes",
+        "m": "Appuyez sur M ou cliquez sur le haut-parleur pour activer le mode Muet"
+      }
     },
     "statistics": {
       "social": {

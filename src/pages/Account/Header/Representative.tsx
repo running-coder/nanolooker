@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { Tag, Typography } from "antd";
+import { Col, Row, Tag, Typography } from "antd";
 import { RepresentativesContext } from "api/contexts/Representatives";
 import { Theme, PreferencesContext } from "api/contexts/Preferences";
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
@@ -56,34 +56,42 @@ const AccountRepresentative: React.FC<Props> = ({ account }) => {
   return (
     <>
       {accountRepresentative?.account ? (
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <Title level={4} style={{ margin: "0 6px 0 0" }}>
-            {isPrincipal
-              ? t("common.principalRepresentative")
-              : t("common.representative")}
-          </Title>
-          {typeof isOnline === "boolean" ? (
-            <Tag
-              color={
-                isOnline
-                  ? theme === Theme.DARK
-                    ? TwoToneColors.RECEIVE_DARK
-                    : TwoToneColors.RECEIVE
-                  : theme === Theme.DARK
-                  ? TwoToneColors.SEND_DARK
-                  : TwoToneColors.SEND
-              }
-              className={`tag-${isOnline ? "online" : "offline"}`}
-            >
-              {t(`common.${isOnline ? "online" : "offline"}`)}
-            </Tag>
-          ) : null}
-        </div>
+        <Row>
+          <Col xs={24}>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <Title level={4} style={{ margin: "0 6px 0 0" }}>
+                {isPrincipal
+                  ? t("common.principalRepresentative")
+                  : t("common.representative")}
+              </Title>
+              {typeof isOnline === "boolean" ? (
+                <Tag
+                  color={
+                    isOnline
+                      ? theme === Theme.DARK
+                        ? TwoToneColors.RECEIVE_DARK
+                        : TwoToneColors.RECEIVE
+                      : theme === Theme.DARK
+                      ? TwoToneColors.SEND_DARK
+                      : TwoToneColors.SEND
+                  }
+                  className={`tag-${isOnline ? "online" : "offline"}`}
+                >
+                  {t(`common.${isOnline ? "online" : "offline"}`)}
+                </Tag>
+              ) : null}
+            </div>
+          </Col>
+        </Row>
       ) : null}
       {accountRepresentative?.alias || alias ? (
-        <Text className="color-important" style={{ fontSize: "18px" }}>
-          {accountRepresentative.alias || alias}
-        </Text>
+        <Row>
+          <Col xs={24}>
+            <Text className="color-important" style={{ fontSize: "18px" }}>
+              {accountRepresentative.alias || alias}
+            </Text>
+          </Col>
+        </Row>
       ) : null}
     </>
   );

@@ -360,7 +360,24 @@
       "rank": "Rango",
       "player": "Jugador",
       "exp": "Experiencia",
-      "level": "Nivel"
+      "level": "Nivel",
+      "gameDescription": "NanoBrowserQuest es una nueva versión del popular minijuego MMORPG basado en web BrowserQuest que se creó originalmente alrededor de 2012. El juego admite 200 jugadores simultáneos y es gratuito. NanoBrowserQuest te permite jugar con tus amigos, completar logros en el juego y obtener una pequeña recompensa Nano después de completar el juego.",
+      "howToPlay": "Cómo jugar",
+      "itemUpgrade": "Actualización de artículo",
+      "itemUpgradeDescription": "Mejora tus artículos en el Yunque de la ciudad. Elija el elemento que desea actualizar y arrástrelo a la ranura de la izquierda. Agregue una misma clase de desplazamiento de actualización a una de las 9 ranuras de la sección central. Si la actualización tiene éxito, el artículo aparecerá en la ranura de la derecha. Tenga cuidado de tener siempre un elemento de respaldo en caso de que la actualización no se realice correctamente.",
+      "upgradeSuccessRate": "Actualizar la tasa de éxito",
+      "playerLevel": "Nivel de jugador",
+      "playerLevelDescription": "Cuanto más niveles tu personaje, más estadísticas de bonificación recibirás, como mayor salud y daño.",
+      "playerLevelDescription2": "La barra amarilla representa la progresión de su nivel, colóquela para obtener un% más detallado.",
+      "shortcuts": "Atajos",
+      "shortcut": {
+        "i": "Presione I o haga clic en los elementos inferiores para alternar el Inventario",
+        "c": " Presiona C o haz clic en la barra de salud para alternar la información del personaje",
+        "p": "Presione P o haga clic en el # Player en la barra inferior para ver los jugadores en línea",
+        "enter": "Presiona ENTER o haz clic en la burbuja de chat para hablar con los jugadores cerca de ti.",
+        "q": "Pulsa Q o haz clic en el trofeo para ver tu libro de misiones.",
+        "m": "Presione M o haga clic en el altavoz para alternar Silencio"
+      }
     },
     "statistics": {
       "social": {

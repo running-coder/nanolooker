@@ -5,6 +5,7 @@ import { Card, Row, Col, Skeleton, Space, Typography } from "antd";
 import useNanoBrowserQuestPlayers from "./hooks/use-nanobrowserquest-players";
 import Register from "./Register";
 import Leaderboard from "./Leaderboard";
+import HowToPlay from "./HowToPlay";
 
 const { Text, Title } = Typography;
 
@@ -62,16 +63,16 @@ const NanoBrowserQuestPage: React.FC = () => {
                   }}
                 />
 
-                <Title
-                  level={5}
-                  style={{ textAlign: "center", marginBottom: "24px" }}
-                >
-                  {t("pages.nanobrowserquest.welcomeTitle")}
-                </Title>
+                <Text style={{ display: "block", margin: "12px 0" }}>
+                  {t("pages.nanobrowserquest.gameDescription")}
+                </Text>
               </Col>
             </Row>
             <Register />
           </Card>
+
+          <HowToPlay />
+
           {/* <Card size="small" bordered={false} className="detail-layout">
             <Row gutter={6}>
               <Col xs={24} sm={6}>

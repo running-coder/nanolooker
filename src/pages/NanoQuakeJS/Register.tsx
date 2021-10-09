@@ -4,7 +4,7 @@ import { useForm, Controller } from "react-hook-form";
 import { Alert, Button, Col, Input, Modal, Row, Space, Typography } from "antd";
 import { CheckCircleTwoTone, CameraOutlined } from "@ant-design/icons";
 import { PreferencesContext } from "api/contexts/Preferences";
-import QRCodeModal from "components/QRCodeModal";
+import QRCodeModal from "components/QRCode/Modal";
 import { isValidAccountAddress, getPrefixedAccount } from "components/utils";
 import { Tracker } from "components/utils/analytics";
 import Play from "./Play";

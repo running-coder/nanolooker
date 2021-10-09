@@ -360,7 +360,24 @@
       "rank": "Rütbe",
       "player": "oyuncu",
       "exp": "Tecrübe etmek",
-      "level": "Seviye"
+      "level": "Seviye",
+      "gameDescription": "NanoBrowserQuest, orijinal olarak 2012 civarında oluşturulan popüler BrowserQuest web tabanlı MMORPG mini oyununun yeniden çevrimidir. Oyun, aynı anda 200 oyuncuyu destekler ve oynaması ücretsizdir. NanoBrowserQuest, arkadaşlarınızla oynamanıza, oyun içi başarıları tamamlamanıza ve oyunu tamamladıktan sonra küçük bir Nano ödülü kazanmanıza olanak tanır.",
+      "howToPlay": "Nasıl oynanır",
+      "itemUpgrade": "Öğe yükseltme",
+      "itemUpgradeDescription": "Eşyalarınızı şehirdeki Anvil'de yükseltin. Yükseltmek istediğiniz öğeyi seçin ve soldaki yuvaya sürükleyin. 9 orta bölüm yuvasından birine aynı yükseltme kaydırma sınıfını ekleyin. Yükseltme başarılı olursa, öğe sağdaki yuvada görünecektir. Yükseltmenin başarılı olmaması durumunda her zaman bir yedek öğe bulundurmaya dikkat edin.",
+      "upgradeSuccessRate": "Yükseltme başarı oranı",
+      "playerLevel": "Oyuncu seviyesi",
+      "playerLevelDescription": "Karakterinizi ne kadar çok seviyelerseniz, sağlık ve hasar artışı gibi bonus istatistikleri o kadar fazla alırsınız.",
+      "playerLevelDescription2": "Sarı çubuk, seviye ilerlemenizi temsil eder, daha ayrıntılı yüzde almak için üzerine gelin.",
+      "shortcuts": "Kısayollar",
+      "shortcut": {
+        "i": "Envanteri değiştirmek için I tuşuna basın veya alttaki öğelere tıklayın",
+        "c": " Karakter bilgisini değiştirmek için C'ye basın veya sağlık çubuğuna tıklayın",
+        "p": "Çevrimiçi oyuncuları görüntülemek için P'ye basın veya alt çubuktaki # Oyuncu'ya tıklayın",
+        "enter": "Yakınınızdaki oyuncularla konuşmak için ENTER'a basın veya sohbet balonuna tıklayın",
+        "q": "Quest kitabınızı görüntülemek için Q'ya basın veya kupaya tıklayın",
+        "m": "Sesi kapatmak için M tuşuna basın veya hoparlörü tıklayın"
+      }
     },
     "statistics": {
       "social": {

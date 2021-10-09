@@ -360,7 +360,24 @@
       "rank": "Classificação",
       "player": "Jogador",
       "exp": "Experiência",
-      "level": "Nível"
+      "level": "Nível",
+      "gameDescription": "NanoBrowserQuest é um remake do popular minijogo MMORPG baseado na web BrowserQuest que foi originalmente criado por volta de 2012. O jogo suporta 200 jogadores simultâneos e é gratuito para jogar. O NanoBrowserQuest permite que você jogue com seus amigos, conclua conquistas no jogo e receba uma pequena recompensa do Nano após concluir o jogo.",
+      "howToPlay": "Como jogar",
+      "itemUpgrade": "Upgrade de item",
+      "itemUpgradeDescription": "Atualize seus itens na bigorna na cidade. Escolha o item que deseja atualizar e arraste-o para o slot esquerdo. Adicione uma mesma classe de rolagem de atualização a um dos 9 slots da seção intermediária. Se a atualização for bem-sucedida, o item aparecerá no slot à direita. Tenha o cuidado de sempre ter um item de backup caso a atualização não seja bem-sucedida.",
+      "upgradeSuccessRate": "Taxa de sucesso de atualização",
+      "playerLevel": "Nível do jogador",
+      "playerLevelDescription": "Quanto mais você nivelar seu personagem, mais você receberá estatísticas de bônus, como aumento de saúde e dano.",
+      "playerLevelDescription2": "A barra amarela representa sua progressão de nível, passe o mouse para obter% mais detalhada.",
+      "shortcuts": "Atalhos",
+      "shortcut": {
+        "i": "Pressione I ou clique nos itens da parte inferior para alternar o inventário",
+        "c": " Pressione C ou clique na barra de saúde para alternar as informações do personagem",
+        "p": "Pressione P ou clique em # Player na barra inferior para ver os jogadores online",
+        "enter": "Pressione ENTER ou clique no balão do bate-papo para falar com jogadores perto de você",
+        "q": "Pressione Q ou clique no troféu para ver seu livro da Quest",
+        "m": "Pressione M ou clique no alto-falante para alternar entre mudo"
+      }
     },
     "statistics": {
       "social": {

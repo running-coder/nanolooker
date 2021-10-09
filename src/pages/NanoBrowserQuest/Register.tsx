@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Button, Col, Row, Space, Typography } from "antd";
-import QRCodeModal from "components/QRCodeModal";
+import QRCodeModal from "components/QRCode/Modal";
 import Play from "./Play";
 
 const { Text } = Typography;
