@@ -14,6 +14,7 @@ const {
   COINGECKO_PRICE_STATS,
   MARKET_CAP_RANK_24H,
   MARKET_CAP_RANK_COLLECTION,
+  MARKET_CAP_STATS_COLLECTION,
 } = require("../constants");
 
 const DEFAULT_FIAT = "usd";
@@ -77,8 +78,36 @@ const getCoingeckoStats = async ({ fiat, cryptocurrency }) => {
   };
 };
 
-const getCoingeckoMarketCapStats = () => {
-  return nodeCache.get(COINGECKO_MARKET_CAP_STATS) || [];
+const getCoingeckoMarketCapStats = async () => {
+  let marketCapStats = nodeCache.get(COINGECKO_MARKET_CAP_STATS);
+
+  if (marketCapStats) {
+    return marketCapStats;
+  }
+
+  return new Promise(resolve => {
+    let db;
+    try {
+      MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (err, client) => {
+        if (err) {
+          throw err;
+        }
+        db = client.db(MONGO_DB);
+
+        db.collection(MARKET_CAP_STATS_COLLECTION)
+          .find()
+          .toArray((_err, value = []) => {
+            nodeCache.set(COINGECKO_MARKET_CAP_STATS, value);
+            client.close();
+            resolve(value);
+          });
+      });
+    } catch (err) {
+      console.log("Error", err);
+      Sentry.captureException(err);
+      resolve([]);
+    }
+  });
 };
 
 module.exports = {

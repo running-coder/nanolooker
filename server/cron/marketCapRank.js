@@ -1,6 +1,6 @@
+const MongoClient = require("mongodb").MongoClient;
 const fetch = require("node-fetch");
 const cron = require("node-cron");
-const MongoClient = require("mongodb").MongoClient;
 const { Sentry } = require("../sentry");
 const {
   MONGO_URL,

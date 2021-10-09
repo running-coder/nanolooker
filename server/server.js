@@ -160,7 +160,7 @@ app.get("/api/market-statistics", async (req, res) => {
 });
 
 app.get("/api/statistics-social", async (req, res) => {
-  const data = getCoingeckoMarketCapStats();
+  const data = await getCoingeckoMarketCapStats();
 
   res.send(data);
 });

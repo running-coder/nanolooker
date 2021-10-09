@@ -68,40 +68,38 @@ const StatisticsSocialPage: React.FC = () => {
       xField: filterPerBillionToKeyMap[filter],
       yField: "name",
       seriesField: "name",
-      title: "hello",
       height: data.length * 40,
       legend: {
         visible: false,
       },
       label: {
-        //   content: (data: CryptoCurrency) => {
-        //     const group = new G.Group({});
-        //     group.addShape({
-        //       type: "image",
-        //       attrs: {
-        //         x: 0,
-        //         y: 0,
-        //         width: 20,
-        //         height: 20,
-        //         img: data.image,
-        //         crossOrigin: "anonymous",
-        //       },
-        //     });
+        content: (data: CryptoCurrency) => {
+          const group = new G.Group({});
+          group.addShape({
+            type: "image",
+            attrs: {
+              x: 0,
+              y: 0,
+              width: 20,
+              height: 20,
+              img: `/cryptocurrencies/logo/${data.symbol}.png`,
+            },
+          });
 
-        //     group.addShape({
-        //       type: "text",
-        //       attrs: {
-        //         x: 25,
-        //         y: 5,
-        //         text: data[filterPerBillionToKeyMap[filter]],
-        //         textAlign: "left",
-        //         textBaseline: "top",
-        //         fill: "#595959",
-        //       },
-        //     });
+          group.addShape({
+            type: "text",
+            attrs: {
+              x: 25,
+              y: 5,
+              text: data[filterPerBillionToKeyMap[filter]],
+              textAlign: "left",
+              textBaseline: "top",
+              fill: "#595959",
+            },
+          });
 
-        //     return group;
-        //   },
+          return group;
+        },
         position: "right",
         offset: 4,
       },

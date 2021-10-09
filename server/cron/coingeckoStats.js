@@ -1,22 +1,58 @@
+const MongoClient = require("mongodb").MongoClient;
+const { promises, existsSync } = require("fs");
+const { join } = require("path");
 const fetch = require("node-fetch");
 const cron = require("node-cron");
 const BigNumber = require("bignumber.js");
 const { Sentry } = require("../sentry");
 const { nodeCache } = require("../client/cache");
 const {
+  MONGO_URL,
+  MONGO_OPTIONS,
+  MONGO_DB,
   COINGECKO_MARKET_STATS,
   COINGECKO_MARKET_CAP_STATS,
   COINGECKO_ALL_PRICE_STATS,
   COINGECKO_PRICE_STATS,
   SUPPORTED_CRYPTOCURRENCY,
+  MARKET_CAP_STATS_COLLECTION,
 } = require("../constants");
 
 const defaultFiats = ["usd"];
 const secondaryFiats = ["cad", "eur", "gbp", "cny", "jpy"];
 
+const { writeFile, mkdir } = promises;
+
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+const PUBLIC_ROOT_PATH = join(__dirname, "..", "..", "public");
+const LOGO_PATH = join(PUBLIC_ROOT_PATH, "cryptocurrencies/logo");
+
+let db;
+let mongoClient;
+
+const connect = async () =>
+  await new Promise((resolve, reject) => {
+    try {
+      MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (err, client) => {
+        if (err) {
+          throw err;
+        }
+        mongoClient = client;
+        db = client.db(MONGO_DB);
+        db.collection(MARKET_CAP_STATS_COLLECTION).createIndex({
+          createdAt: 1,
+        });
+        resolve();
+      });
+    } catch (err) {
+      console.log("Error", err);
+      Sentry.captureException(err);
+      reject();
+    }
+  });
 
 const getPriceStats = async fiats => {
   let res;
@@ -84,8 +120,12 @@ const getMarketStats = async fiats => {
 };
 
 const getMarketCapStats = async () => {
+  await connect();
+  await mkdir(LOGO_PATH, { recursive: true });
+
   const marketCapStats = [];
-  const top = process.env.NODE_ENV === "production" ? 150 : 1;
+  const ids = [];
+  const top = process.env.NODE_ENV === "production" ? 150 : 10;
 
   try {
     // @NOTE top 150
@@ -100,11 +140,13 @@ const getMarketCapStats = async () => {
         id,
         symbol,
         name,
-        image,
+        image: largeImage,
         market_cap: marketCap,
         market_cap_rank: marketCapRank,
         fully_diluted_valuation: fullyDilutedValuation,
       } = cryptocurrencies[i];
+
+      ids.push(id);
       res = await fetch(
         `https://api.coingecko.com/api/v3/coins/${id}?tickers=false&market_data=false&sparkline=false`,
       );
@@ -118,11 +160,13 @@ const getMarketCapStats = async () => {
           developer_data: { stars: githubStars },
         } = await res.json();
 
-        marketCapStats.push({
+        const image = largeImage.replace("/large/", "/small/");
+
+        const cryptocurrency = {
           id,
           symbol,
           name,
-          image: image.replace("/large/", "/small/"),
+          image,
           marketCap,
           marketCapRank,
           fullyDilutedValuation,
@@ -150,11 +194,34 @@ const getMarketCapStats = async () => {
                 .integerValue()
                 .toNumber()
             : null,
-        });
+        };
+
+        marketCapStats.push(cryptocurrency);
+        await db.collection(MARKET_CAP_STATS_COLLECTION).findOneAndUpdate(
+          {
+            id,
+          },
+          {
+            $set: cryptocurrency,
+          },
+          { upsert: true },
+        );
+
+        try {
+          const logoPath = join(LOGO_PATH, `${symbol}.png`);
+
+          if (!existsSync(logoPath)) {
+            const response = await fetch(image);
+            const buffer = await response.buffer();
+            writeFile(logoPath, buffer);
+          }
+        } catch (err) {
+          console.error(err);
+        }
 
         console.log(`Fetched ${i}: ${id}`);
       } catch (err1) {
-        console.log(`Err Fetching ${i}: ${id}`);
+        console.log(`Err Fetching ${i}: ${id}`, err1);
         Sentry.captureException(err1);
       }
 
@@ -162,12 +229,20 @@ const getMarketCapStats = async () => {
       if (i && !(i % 10)) {
         await sleep(3500);
       } else {
-        await sleep(process.env.NODE_ENV === "production" ? 750 : 0);
+        await sleep(process.env.NODE_ENV === "production" ? 750 : 150);
       }
     }
 
+    // Delete entries that are gone from the top 150
+    await db.collection(MARKET_CAP_STATS_COLLECTION).deleteMany({
+      id: { $nin: ids },
+    });
+
+    mongoClient.close();
+
     nodeCache.set(COINGECKO_MARKET_CAP_STATS, marketCapStats);
   } catch (err) {
+    console.log("Error", err);
     Sentry.captureException(err);
   }
 };
@@ -197,6 +272,5 @@ getMarketStats(defaultFiats);
 if (process.env.NODE_ENV === "production") {
   getPriceStats(secondaryFiats);
   getMarketStats(secondaryFiats);
+  getMarketCapStats();
 }
-
-getMarketCapStats();
