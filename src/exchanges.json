@@ -42,5 +42,9 @@
   {
     "name": "Mercatox Cold Wallet",
     "account": "nano_1e3t7fh57qozn1fkcdzatypygbcoxs9r3ku9tsqx69fn5za4fqfjrihf5w7c"
+  },
+  {
+    "name": "Crypto.com",
+    "account": "nano_3ebd88zzysrkqpo8ey5yyxfpkfr39abmiyeihqn8b5ong9dkga1kbtd7gs4x"
   }
 ]

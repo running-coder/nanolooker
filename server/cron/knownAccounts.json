@@ -94,5 +94,9 @@
   {
     "alias": "2miners Payouts",
     "account": "nano_14uzbiw1euwicrt3gzwnpyufpa8td1uw8wbhyyrz5e5pnqitjfk1tb8xwgg4"
+  },
+  {
+    "alias": "Crypto.com",
+    "account": "nano_3ebd88zzysrkqpo8ey5yyxfpkfr39abmiyeihqn8b5ong9dkga1kbtd7gs4x"
   }
 ]
