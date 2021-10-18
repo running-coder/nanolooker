@@ -2,6 +2,7 @@ const MongoClient = require("mongodb").MongoClient;
 const { Sentry } = require("../sentry");
 const { nodeCache } = require("../client/cache");
 const {
+  EXPIRE_24h,
   MONGO_URL,
   MONGO_OPTIONS,
   MONGO_DB,
@@ -29,7 +30,7 @@ const get2MinersStats = async () => {
           .find()
           .sort({ date: -1 })
           .toArray((_err, data = []) => {
-            nodeCache.set(MINERS_STATS, data);
+            nodeCache.set(MINERS_STATS, data, EXPIRE_24h);
             client.close();
             resolve(data);
           });

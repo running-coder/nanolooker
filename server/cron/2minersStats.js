@@ -6,10 +6,12 @@ const uniq = require("lodash/uniq");
 const { rpc } = require("../rpc");
 const { Sentry } = require("../sentry");
 const { rawToRai } = require("../utils");
+const { nodeCache } = require("../client/cache");
 const {
   MONGO_URL,
   MONGO_OPTIONS,
   MONGO_DB,
+  MINERS_STATS,
   MINERS_STATS_COLLECTION,
 } = require("../constants");
 
@@ -213,6 +215,8 @@ const do2MinersStats = async () => {
       },
     );
   }
+  // Reset cache
+  nodeCache.set(MINERS_STATS, null);
 };
 
 // https://crontab.guru/#0_0_*_*_*
