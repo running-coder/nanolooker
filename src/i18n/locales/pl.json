@@ -388,6 +388,12 @@
         "engagementPerBillion": "Zaangażowanie na miliard dolarów",
         "marketCap": "Kapitalizacja rynku",
         "totalEngagement": "Całkowite zaangażowanie"
+      },
+      "2miners": {
+        "title": "Pula wydobywcza 2Miners Ethereum Nano wypłaty",
+        "totalAccounts": "Suma rachunków wypłat",
+        "totalPayouts": "Łączne wypłaty wysłane",
+        "totalAccountsHolding": "Rachunki posiadające więcej niż 0,001 NANO"
       }
     }
   }

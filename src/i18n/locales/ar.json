@@ -388,6 +388,12 @@
         "engagementPerBillion": "المشاركة لكل مليار دولار",
         "marketCap": "القيمة السوقية",
         "totalEngagement": "إجمالي المشاركة"
+      },
+      "2miners": {
+        "title": "دفعات نانو لمجمع تعدين الإيثيريوم من 2Miners",
+        "totalAccounts": "إجمالي حسابات المدفوعات",
+        "totalPayouts": "مجموع المدفوعات المرسلة",
+        "totalAccountsHolding": "حسابات بها أكثر من 0.001 NANO"
       }
     }
   }

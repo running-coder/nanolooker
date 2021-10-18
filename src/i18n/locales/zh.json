@@ -388,6 +388,12 @@
         "engagementPerBillion": "每十亿美元的参与度",
         "marketCap": "市值",
         "totalEngagement": "总参与度"
+      },
+      "2miners": {
+        "title": "2Miners 以太坊矿池 Nano 支出",
+        "totalAccounts": "总付款帐户",
+        "totalPayouts": "已发送的总付款",
+        "totalAccountsHolding": "持有超过 0.001 NANO 的账户"
       }
     }
   }

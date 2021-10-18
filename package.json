@@ -41,6 +41,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "find-process": "^1.4.3",
+    "fs-extra": "^10.0.0",
     "ga-4-react": "^0.1.281",
     "html5-qrcode": "github:mebjas/html5-qrcode#master",
     "i18next": "^19.9.0",

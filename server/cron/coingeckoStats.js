@@ -1,5 +1,6 @@
 const MongoClient = require("mongodb").MongoClient;
 const { promises, existsSync } = require("fs");
+const fse = require("fs-extra");
 const { join } = require("path");
 const fetch = require("node-fetch");
 const cron = require("node-cron");
@@ -21,14 +22,15 @@ const {
 const defaultFiats = ["usd"];
 const secondaryFiats = ["cad", "eur", "gbp", "cny", "jpy"];
 
-const { writeFile, mkdir } = promises;
+const { writeFile, mkdir, copy } = promises;
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-const PUBLIC_ROOT_PATH = join(__dirname, "..", "..", "public");
-const LOGO_PATH = join(PUBLIC_ROOT_PATH, "cryptocurrencies/logo");
+const PUBLIC_ROOT_PATH = join(__dirname, "..", "..");
+const LOGO_PATH = join(PUBLIC_ROOT_PATH, "public/cryptocurrencies/logo");
+const DIST_LOGO_PATH = join(PUBLIC_ROOT_PATH, "dist/cryptocurrencies/logo");
 
 let db;
 let mongoClient;
@@ -241,6 +243,8 @@ const getMarketCapStats = async () => {
     mongoClient.close();
 
     nodeCache.set(COINGECKO_MARKET_CAP_STATS, marketCapStats);
+
+    fse.copy(LOGO_PATH, DIST_LOGO_PATH);
   } catch (err) {
     console.log("Error", err);
     Sentry.captureException(err);

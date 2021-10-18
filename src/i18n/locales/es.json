@@ -388,6 +388,12 @@
         "engagementPerBillion": "Compromiso por mil millones de dólares",
         "marketCap": "Tapa del mercado",
         "totalEngagement": "Compromiso total"
+      },
+      "2miners": {
+        "title": "Nano pagos del grupo de minería Ethereum de 2Miners",
+        "totalAccounts": "Cuentas de pago totales",
+        "totalPayouts": "Pagos totales enviados",
+        "totalAccountsHolding": "Cuentas con más de 0,001 NANO"
       }
     }
   }

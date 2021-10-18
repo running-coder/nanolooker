@@ -388,6 +388,12 @@
         "engagementPerBillion": "Engajamento por $ bilhões",
         "marketCap": "Valor de mercado",
         "totalEngagement": "Engajamento Total"
+      },
+      "2miners": {
+        "title": "Pagamentos Nano do pool de mineração 2Miners Ethereum",
+        "totalAccounts": "Total de contas de pagamento",
+        "totalPayouts": "Total de pagamentos enviados",
+        "totalAccountsHolding": "Contas com mais de 0,001 NANO"
       }
     }
   }

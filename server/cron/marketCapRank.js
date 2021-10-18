@@ -24,7 +24,7 @@ cron.schedule("*/20 * * * *", async () => {
   let mongoClient;
 
   try {
-    MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (err, client) => {
+    MongoClient.connect(MONGO_URL, MONGO_OPTIONS, async (err, client) => {
       if (err) {
         throw err;
       }
@@ -36,6 +36,24 @@ cron.schedule("*/20 * * * *", async () => {
         { createdAt: 1 },
         { expireAfterSeconds: EXPIRE_48H },
       );
+
+      await db
+        .collection(MARKET_CAP_RANK_COLLECTION)
+        .updateOne(
+          {
+            hour,
+          },
+          {
+            $set: {
+              value: marketCapRank,
+            },
+            $setOnInsert: { hour, createdAt: new Date() },
+          },
+          { upsert: true },
+        )
+        .then(() => {
+          mongoClient.close();
+        });
     });
 
     const res = await fetch(
@@ -43,24 +61,6 @@ cron.schedule("*/20 * * * *", async () => {
     );
     const { market_cap_rank: marketCapRank } = await res.json();
     const hour = getNextHour();
-
-    await db
-      .collection(MARKET_CAP_RANK_COLLECTION)
-      .updateOne(
-        {
-          hour,
-        },
-        {
-          $set: {
-            value: marketCapRank,
-          },
-          $setOnInsert: { hour, createdAt: new Date() },
-        },
-        { upsert: true },
-      )
-      .then(() => {
-        mongoClient.close();
-      });
   } catch (err) {
     console.log("Error", err);
     Sentry.captureException(err);

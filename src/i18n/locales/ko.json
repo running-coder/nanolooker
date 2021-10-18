@@ -388,6 +388,12 @@
         "engagementPerBillion": "10억 달러당 참여",
         "marketCap": "시가총액",
         "totalEngagement": "총 참여"
+      },
+      "2miners": {
+        "title": "2Miners 이더리움 마이닝 풀 나노 지불금",
+        "totalAccounts": "총 지불 계정",
+        "totalPayouts": "전송된 총 판매 대금",
+        "totalAccountsHolding": "0.001 NANO 이상 보유 계좌"
       }
     }
   }

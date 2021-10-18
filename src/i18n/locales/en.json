@@ -309,6 +309,12 @@
         "engagementPerBillion": "Engagement per $Billion",
         "marketCap": "Market Cap",
         "totalEngagement": "Total Engagement"
+      },
+      "2miners": {
+        "title": "2Miners Ethereum mining pool Nano payouts",
+        "totalAccounts": "Total payout accounts",
+        "totalPayouts": "Total payouts sent",
+        "totalAccountsHolding": "Accounts holding more than 0.001 NANO"
       }
     },
     "preferences": {

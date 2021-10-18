@@ -388,6 +388,12 @@
         "engagementPerBillion": "प्रति $अरब सगाई",
         "marketCap": "बाज़ार आकार",
         "totalEngagement": "कुल जुड़ाव"
+      },
+      "2miners": {
+        "title": "2माइनर्स एथेरियम माइनिंग पूल नैनो पेआउट",
+        "totalAccounts": "कुल भुगतान खाते",
+        "totalPayouts": "कुल भुगतान भेजा गया",
+        "totalAccountsHolding": "0.001 नैनो से अधिक धारण करने वाले खाते"
       }
     }
   }

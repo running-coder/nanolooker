@@ -42,6 +42,7 @@ const {
   getCoingeckoStats,
   getCoingeckoMarketCapStats,
 } = require("./api/coingeckoStats");
+const { get2MinersStats } = require("./api/2minersStats");
 const {
   getDeveloperFundTransactions,
 } = require("./api/developerFundTransactions");
@@ -162,6 +163,12 @@ app.get("/api/market-statistics", async (req, res) => {
 
 app.get("/api/statistics-social", async (req, res) => {
   const data = await getCoingeckoMarketCapStats();
+
+  res.send(data);
+});
+
+app.get("/api/statistics-2miners", async (req, res) => {
+  const data = await get2MinersStats();
 
   res.send(data);
 });

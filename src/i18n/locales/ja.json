@@ -388,6 +388,12 @@
         "engagementPerBillion": "10億ドルあたりのエンゲージメント",
         "marketCap": "時価総額",
         "totalEngagement": "トータルエンゲージメント"
+      },
+      "2miners": {
+        "title": "2Minersイーサリアムマイニングプールナノペイアウト",
+        "totalAccounts": "合計支払いアカウント",
+        "totalPayouts": "送信された支払いの合計",
+        "totalAccountsHolding": "0.001以上のNANOを保有するアカウント"
       }
     }
   }

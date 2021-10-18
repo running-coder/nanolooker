@@ -388,6 +388,12 @@
         "engagementPerBillion": "Betrokkenheid per $ miljard",
         "marketCap": "Marktkapitalisatie",
         "totalEngagement": "Totale betrokkenheid"
+      },
+      "2miners": {
+        "title": "2Miners Ethereum mining pool Nano uitbetalingen",
+        "totalAccounts": "Totaal uitbetalingsaccounts",
+        "totalPayouts": "Totaal aantal verzonden uitbetalingen",
+        "totalAccountsHolding": "Rekeningen met meer dan 0,001 NANO"
       }
     }
   }

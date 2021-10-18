@@ -388,6 +388,12 @@
         "engagementPerBillion": "Tương tác trên mỗi tỷ đô la",
         "marketCap": "Vốn hóa thị trường",
         "totalEngagement": "Tổng tương tác"
+      },
+      "2miners": {
+        "title": "Nhóm khai thác Ethereum của 2Miners Khoản thanh toán Nano",
+        "totalAccounts": "Tổng số tài khoản thanh toán",
+        "totalPayouts": "Tổng số khoản thanh toán đã được gửi",
+        "totalAccountsHolding": "Tài khoản có hơn 0,001 NANO"
       }
     }
   }

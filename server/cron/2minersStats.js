@@ -96,7 +96,7 @@ const getLatestDate = async () => {
   return latestDate;
 };
 
-const get2MinersStats = async () => {
+const do2MinersStats = async () => {
   await connect();
 
   const latestDate = await getLatestDate();
@@ -219,8 +219,12 @@ const get2MinersStats = async () => {
 // “At midnight.”
 cron.schedule("0 0 * * *", async () => {
   try {
-    get2MinersStats();
+    do2MinersStats();
   } catch (err) {
     Sentry.captureException(err);
   }
 });
+
+if (process.env.NODE_ENV === "production") {
+  do2MinersStats();
+}

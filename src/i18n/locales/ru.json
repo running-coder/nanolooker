@@ -388,6 +388,12 @@
         "engagementPerBillion": "Вовлеченность на миллиард долларов",
         "marketCap": "Рыночная капитализация",
         "totalEngagement": "Полная вовлеченность"
+      },
+      "2miners": {
+        "title": "2Miners Пул майнинга Ethereum Nano выплаты",
+        "totalAccounts": "Общие выплаты по счетам",
+        "totalPayouts": "Всего отправлено выплат",
+        "totalAccountsHolding": "На счетах более 0,001 NANO"
       }
     }
   }

@@ -388,6 +388,12 @@
         "engagementPerBillion": "تعهد به ازای یک میلیارد دلار",
         "marketCap": "سرپوش بازار",
         "totalEngagement": "مشارکت کامل"
+      },
+      "2miners": {
+        "title": "2Miners Ethereum استخراج استخراج نانو",
+        "totalAccounts": "مجموع حسابهای پرداخت",
+        "totalPayouts": "مجموع پرداخت ها ارسال شد",
+        "totalAccountsHolding": "حسابهای دارای بیش از 0.001 NANO"
       }
     }
   }

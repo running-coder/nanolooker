@@ -388,6 +388,12 @@
         "engagementPerBillion": "Milyar Dolar Başına Etkileşim",
         "marketCap": "Piyasa değeri",
         "totalEngagement": "Toplam Katılım"
+      },
+      "2miners": {
+        "title": "2Miners Ethereum madencilik havuzu Nano ödemeleri",
+        "totalAccounts": "Toplam ödeme hesapları",
+        "totalPayouts": "Gönderilen toplam ödeme",
+        "totalAccountsHolding": "0,001 NANO'dan fazla tutan hesaplar"
       }
     }
   }
