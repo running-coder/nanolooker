@@ -11,6 +11,7 @@ require("./cron/coingeckoStats");
 require("./cron/btcTransactionFees");
 require("./cron/nanotickerStats");
 require("./cron/nanobrowserquestStats");
+require("./cron/2minersStats");
 require("./ws");
 const { getDistributionData } = require("./cron/distribution");
 const { getExchangeBalances } = require("./cron/exchangeTracker");

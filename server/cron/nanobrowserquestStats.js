@@ -92,6 +92,6 @@ cron.schedule("*/15 * * * *", async () => {
   getNanoBrowserQuestLeaderboard();
 });
 
-// if (process.env.NODE_ENV === "production") {
-getNanoBrowserQuestLeaderboard();
-// }
+if (process.env.NODE_ENV === "production") {
+  getNanoBrowserQuestLeaderboard();
+}
