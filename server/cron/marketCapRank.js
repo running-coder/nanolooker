@@ -37,6 +37,12 @@ cron.schedule("*/20 * * * *", async () => {
         { expireAfterSeconds: EXPIRE_48H },
       );
 
+      const res = await fetch(
+        "https://api.coingecko.com/api/v3/coins/nano?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false",
+      );
+      const { market_cap_rank: marketCapRank } = await res.json();
+      const hour = getNextHour();
+
       await db
         .collection(MARKET_CAP_RANK_COLLECTION)
         .updateOne(
@@ -55,12 +61,6 @@ cron.schedule("*/20 * * * *", async () => {
           mongoClient.close();
         });
     });
-
-    const res = await fetch(
-      "https://api.coingecko.com/api/v3/coins/nano?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false",
-    );
-    const { market_cap_rank: marketCapRank } = await res.json();
-    const hour = getNextHour();
   } catch (err) {
     console.log("Error", err);
     Sentry.captureException(err);
