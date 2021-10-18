@@ -311,10 +311,11 @@
         "totalEngagement": "Total Engagement"
       },
       "2miners": {
-        "title": "2Miners Ethereum mining pool Nano payouts",
-        "totalAccounts": "Total payout accounts",
-        "totalPayouts": "Total payouts sent",
-        "totalAccountsHolding": "Accounts holding more than 0.001 NANO"
+        "title": "Nano payout statistics by 2Miners Ethereum mining pool",
+        "totalAccounts": "Total accounts that received a payout",
+        "totalPayouts": "Total payouts",
+        "totalAccountsHolding": "Accounts holding more than 0.001 NANO",
+        "totalBalanceHolding": "Combined balance of the holding accounts"
       }
     },
     "preferences": {

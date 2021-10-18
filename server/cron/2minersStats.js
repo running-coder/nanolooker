@@ -107,7 +107,7 @@ const do2MinersStats = async () => {
   const PER_PAGE = 500;
   let currentPage = 1;
 
-  // let payoutAccounts = [];
+  let payoutAccounts = [];
   const statsByDate = {};
 
   while (isValid) {
@@ -135,30 +135,30 @@ const do2MinersStats = async () => {
         if (date === formatDate(Date.now())) {
           continue;
         }
+
+        payoutAccounts.push(account);
+
         // Do not compile stats for an already compiled date
-        if (latestDate && date <= latestDate) {
-          console.log(`Breaking loop ${date} <= ${latestDate}`);
-          isValid = false;
-          break;
-        }
+        if (!latestDate || (latestDate && date > latestDate)) {
+          if (!statsByDate[date]) {
+            statsByDate[date] = {
+              totalPayouts: 0,
+              totalAccounts: 0,
+              totalAccountsHolding: 0,
+              totalBalanceHolding: 0,
+              totalUniqueAccounts: 0,
+              payoutAccounts: [],
+              date,
+            };
+          }
 
-        if (!statsByDate[date]) {
-          statsByDate[date] = {
-            totalPayouts: 0,
-            totalAccounts: 0,
-            totalAccountsHolding: 0,
-            totalBalanceHolding: 0,
-            payoutAccounts: [],
-            date,
-          };
+          statsByDate[date].payoutAccounts.push(account);
+          statsByDate[date].totalPayouts = BigNumber(
+            statsByDate[date].totalPayouts,
+          )
+            .plus(amount)
+            .toNumber();
         }
-
-        statsByDate[date].payoutAccounts.push(account);
-        statsByDate[date].totalPayouts = BigNumber(
-          statsByDate[date].totalPayouts,
-        )
-          .plus(amount)
-          .toNumber();
       }
 
       if (history.length < PER_PAGE) {
@@ -172,7 +172,7 @@ const do2MinersStats = async () => {
 
   const yesterday = formatDate(Date.now() - 60 * 60 * 24 * 1000);
   if (statsByDate[yesterday]) {
-    const uniqPayoutAccounts = uniq(statsByDate[yesterday].payoutAccounts);
+    const uniqPayoutAccounts = uniq(payoutAccounts);
     const chunkPayoutAccounts = chunk(uniqPayoutAccounts, PER_PAGE);
 
     for (let i = 0; i < chunkPayoutAccounts.length; i++) {
@@ -192,6 +192,8 @@ const do2MinersStats = async () => {
         .plus(totalBalance)
         .toNumber();
     }
+
+    statsByDate[yesterday].totalUniqueAccounts = uniqPayoutAccounts.length;
   }
 
   if (Object.values(statsByDate).length) {
@@ -201,17 +203,20 @@ const do2MinersStats = async () => {
         payoutAccounts,
         totalAccountsHolding,
         totalBalanceHolding,
+        totalUniqueAccounts,
         date,
       }) => {
         const uniqPayoutAccounts = uniq(payoutAccounts);
 
-        db.collection(MINERS_STATS_COLLECTION).insertOne({
+        const data = {
           totalPayouts: rawToRai(totalPayouts),
           totalAccounts: uniqPayoutAccounts.length,
           totalAccountsHolding,
           totalBalanceHolding,
+          totalUniqueAccounts,
           date,
-        });
+        };
+        db.collection(MINERS_STATS_COLLECTION).insertOne(data);
       },
     );
   }

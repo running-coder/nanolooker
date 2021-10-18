@@ -3,6 +3,7 @@ import * as React from "react";
 export interface Entry {
   totalPayouts: number;
   totalAccounts: number;
+  totalUniqueAccounts: number;
   totalAccountsHolding: number;
   totalBalanceHolding: number;
   date: string;
