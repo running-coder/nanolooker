@@ -390,10 +390,18 @@
         "totalEngagement": "Tổng tương tác"
       },
       "2miners": {
-        "title": "Nhóm khai thác Ethereum của 2Miners Khoản thanh toán Nano",
-        "totalAccounts": "Tổng số tài khoản thanh toán",
-        "totalPayouts": "Tổng số khoản thanh toán đã được gửi",
-        "totalAccountsHolding": "Tài khoản có hơn 0,001 NANO"
+        "title": "Thống kê thanh toán Nano bởi nhóm khai thác Ethereum của 2Miners",
+        "totalPayouts": "Tổng số tiền thanh toán NANO của 2Miners",
+        "payouts": "Các khoản thanh toán",
+        "payoutsDescription": "Số lượng NANO đã được thanh toán cho các địa chỉ nano_ cho ngày hôm đó.",
+        "accounts": "Tài khoản",
+        "accountsDescription": "Số lượng tài khoản duy nhất đã nhận được khoản thanh toán cho ngày đó.",
+        "uniqueAccounts": "Tài khoản duy nhất",
+        "uniqueAccountsDescription": "Số lượng tài khoản đã nhận được khoản thanh toán kể từ {{date}}",
+        "accountsHolding": "Tài khoản đang nắm giữ",
+        "accountsHoldingDescription": "Số tài khoản đã nhận được khoản thanh toán kể từ {{date}} và có số dư trên 0,001 NANO.",
+        "balanceHolding": "Giữ số dư",
+        "balanceHoldingDescription": "Số dư tổng hợp của các tài khoản đã nhận thanh toán kể từ {{date}} và có số dư trên 0,001 NANO."
       }
     }
   }

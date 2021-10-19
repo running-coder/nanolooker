@@ -390,10 +390,18 @@
         "totalEngagement": "مشارکت کامل"
       },
       "2miners": {
-        "title": "2Miners Ethereum استخراج استخراج نانو",
-        "totalAccounts": "مجموع حسابهای پرداخت",
-        "totalPayouts": "مجموع پرداخت ها ارسال شد",
-        "totalAccountsHolding": "حسابهای دارای بیش از 0.001 NANO"
+        "title": "آمار پرداخت نانو توسط استخر معدن 2Miners Ethereum",
+        "totalPayouts": "مجموع پرداخت NANO توسط 2Miners",
+        "payouts": "پرداخت ها",
+        "payoutsDescription": "مقدار NANO که در آن روز به آدرسهای nano_ پرداخت شد.",
+        "accounts": "حساب ها",
+        "accountsDescription": "تعداد حسابهای منحصر به فردی که برای آن روز پرداخت شده است.",
+        "uniqueAccounts": "حسابهای منحصر به فرد",
+        "uniqueAccountsDescription": "تعداد حسابهایی که از {{date}} پرداختی دریافت کرده اند",
+        "accountsHolding": "نگهداری حساب ها",
+        "accountsHoldingDescription": "تعداد حسابهایی که از {{date}} پرداختی دریافت کرده اند و مانده آنها بالاتر از 0.001 NANO است.",
+        "balanceHolding": "حفظ تعادل",
+        "balanceHoldingDescription": "موجودی ترکیبی حساب هایی که از {{date}} پرداختی دریافت کرده اند و مانده آنها بالاتر از 0.001 NANO است."
       }
     }
   }

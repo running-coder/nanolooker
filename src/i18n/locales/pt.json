@@ -390,10 +390,18 @@
         "totalEngagement": "Engajamento Total"
       },
       "2miners": {
-        "title": "Pagamentos Nano do pool de mineração 2Miners Ethereum",
-        "totalAccounts": "Total de contas de pagamento",
-        "totalPayouts": "Total de pagamentos enviados",
-        "totalAccountsHolding": "Contas com mais de 0,001 NANO"
+        "title": "Nano estatísticas de pagamento por piscina de mineração 2Miners Ethereum",
+        "totalPayouts": "Pagamentos NANO totais por 2Miners",
+        "payouts": "Pagamentos",
+        "payoutsDescription": "A quantidade de NANO que foi paga a nano_ endereços naquele dia.",
+        "accounts": "Contas",
+        "accountsDescription": "O número de contas exclusivas que receberam pagamentos naquele dia.",
+        "uniqueAccounts": "Contas únicas",
+        "uniqueAccountsDescription": "O número de contas que receberam um pagamento desde {{date}}",
+        "accountsHolding": "Titularidade de contas",
+        "accountsHoldingDescription": "O número de contas que receberam um pagamento desde {{date}} e têm um saldo acima de 0,001 NANO.",
+        "balanceHolding": "Manter o equilíbrio",
+        "balanceHoldingDescription": "Saldo combinado das contas que receberam um pagamento desde {{date}} e têm um saldo acima de 0,001 NANO."
       }
     }
   }

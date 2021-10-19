@@ -9,7 +9,7 @@ import LoadingStatistic from "components/LoadingStatistic";
 import { Line } from "@antv/g2plot";
 import useStatisticsSocial from "./hooks/use-statistics-2miners";
 
-const { Title } = Typography;
+const { Text, Title } = Typography;
 
 let minersChart: any = null;
 
@@ -20,6 +20,8 @@ const Statistics2MinersPage: React.FC = () => {
   const totalPayouts = statistics.reduce((acc, { totalPayouts }) => {
     return (acc += totalPayouts);
   }, 0);
+
+  const { date } = statistics[statistics.length - 1] || {};
 
   React.useEffect(() => {
     if (isLoading || !statistics.length) return;
@@ -37,32 +39,32 @@ const Statistics2MinersPage: React.FC = () => {
           [
             {
               value: totalPayouts,
-              category: "Total Payouts",
+              category: t("pages.statistics.2miners.payouts"),
               date,
             },
             {
               value: totalAccounts,
-              category: "Total Accounts",
+              category: t("pages.statistics.2miners.accounts"),
               date,
             },
             totalUniqueAccounts
               ? {
                   value: totalUniqueAccounts,
-                  category: "Total Unique Accounts",
+                  category: t("pages.statistics.2miners.uniqueAccounts"),
                   date,
                 }
               : null,
             totalAccountsHolding
               ? {
                   value: totalAccountsHolding,
-                  category: "Total Accounts Holding",
+                  category: t("pages.statistics.2miners.accountsHolding"),
                   date,
                 }
               : null,
             totalBalanceHolding
               ? {
                   value: totalBalanceHolding,
-                  category: "Total Balance Holding",
+                  category: t("pages.statistics.2miners.balanceHolding"),
                   date,
                 }
               : null,
@@ -120,16 +122,36 @@ const Statistics2MinersPage: React.FC = () => {
               suffix="NANO"
             />
 
-            {/* <ul>
-              <li>
-                <Text style={{ fontSize: "12px" }}>
-                  {t("pages.statistics.2miners.totalAccountsHolding")}: The
-                  number of accounts that holds more than 0.001 Nano since they
-                  had their payout.
-                </Text>
-              </li>
-            </ul> */}
-
+            <Text style={{ fontSize: "12px" }}>
+              <strong>{t("pages.statistics.2miners.payouts")}</strong>:{" "}
+              {t("pages.statistics.2miners.payoutsDescription")}
+            </Text>
+            <br />
+            <Text style={{ fontSize: "12px" }}>
+              <strong>{t("pages.statistics.2miners.accounts")}</strong>:{" "}
+              {t("pages.statistics.2miners.accountsDescription")}
+            </Text>
+            <br />
+            <Text style={{ fontSize: "12px" }}>
+              <strong>{t("pages.statistics.2miners.uniqueAccounts")}</strong>:{" "}
+              {t("pages.statistics.2miners.uniqueAccountsDescription", {
+                date,
+              })}
+            </Text>
+            <br />
+            <Text style={{ fontSize: "12px" }}>
+              <strong>{t("pages.statistics.2miners.accountsHolding")}</strong>:{" "}
+              {t("pages.statistics.2miners.accountsHoldingDescription", {
+                date,
+              })}
+            </Text>
+            <br />
+            <Text style={{ fontSize: "12px" }}>
+              <strong>{t("pages.statistics.2miners.balanceHolding")}</strong>:{" "}
+              {t("pages.statistics.2miners.balanceHoldingDescription", {
+                date,
+              })}
+            </Text>
             <Skeleton loading={isLoading || !statistics.length} active>
               <div id="2miners-chart" />
             </Skeleton>

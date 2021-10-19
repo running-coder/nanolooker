@@ -390,10 +390,18 @@
         "totalEngagement": "Coinvolgimento totale"
       },
       "2miners": {
-        "title": "2Miners Ethereum mining pool Nano pagamenti",
-        "totalAccounts": "Conti di pagamento totale",
-        "totalPayouts": "Totale pagamenti inviati",
-        "totalAccountsHolding": "Conti con più di 0.001 NANO"
+        "title": "Statistiche di pagamento nano da 2Miners Ethereum mining pool",
+        "totalPayouts": "Pagamenti NANO totali di 2Miners",
+        "payouts": "Pagamenti",
+        "payoutsDescription": "La quantità di NANO che è stata pagata a nano_ indirizzi per quel giorno.",
+        "accounts": "Conti",
+        "accountsDescription": "Il numero di account univoci che hanno ricevuto il pagamento per quel giorno.",
+        "uniqueAccounts": "Account unici",
+        "uniqueAccountsDescription": "Il numero di account che hanno ricevuto un pagamento dal {{date}}",
+        "accountsHolding": "Conti in possesso",
+        "accountsHoldingDescription": "Il numero di account che hanno ricevuto un pagamento dal {{date}} e hanno un saldo superiore a 0.001 NANO.",
+        "balanceHolding": "Mantenere l'equilibrio",
+        "balanceHoldingDescription": "Saldo combinato dei conti che hanno ricevuto un pagamento dal {{date}} e hanno un saldo superiore a 0.001 NANO."
       }
     }
   }

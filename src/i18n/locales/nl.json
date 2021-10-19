@@ -390,10 +390,18 @@
         "totalEngagement": "Totale betrokkenheid"
       },
       "2miners": {
-        "title": "2Miners Ethereum mining pool Nano uitbetalingen",
-        "totalAccounts": "Totaal uitbetalingsaccounts",
-        "totalPayouts": "Totaal aantal verzonden uitbetalingen",
-        "totalAccountsHolding": "Rekeningen met meer dan 0,001 NANO"
+        "title": "Nano-uitbetalingsstatistieken door 2Miners Ethereum-mijnpool",
+        "totalPayouts": "Totale NANO-uitbetalingen door 2Miners",
+        "payouts": "Uitbetalingen",
+        "payoutsDescription": "Het bedrag aan NANO dat voor die dag is uitbetaald aan nano_-adressen.",
+        "accounts": "rekeningen",
+        "accountsDescription": "Het aantal unieke accounts dat voor die dag een uitbetaling heeft ontvangen.",
+        "uniqueAccounts": "Unieke accounts",
+        "uniqueAccountsDescription": "Het aantal accounts dat een uitbetaling heeft ontvangen sinds {{date}}",
+        "accountsHolding": "Rekeningenhoudend",
+        "accountsHoldingDescription": "Het aantal accounts dat een uitbetaling heeft ontvangen sinds {{date}} en een saldo heeft van meer dan 0,001 NANO.",
+        "balanceHolding": "Balans houden",
+        "balanceHoldingDescription": "Gecombineerd saldo van de accounts die een uitbetaling hebben ontvangen sinds {{date}} en een saldo hebben van meer dan 0,001 NANO."
       }
     }
   }

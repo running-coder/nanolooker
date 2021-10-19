@@ -390,10 +390,18 @@
         "totalEngagement": "Toplam Katılım"
       },
       "2miners": {
-        "title": "2Miners Ethereum madencilik havuzu Nano ödemeleri",
-        "totalAccounts": "Toplam ödeme hesapları",
-        "totalPayouts": "Gönderilen toplam ödeme",
-        "totalAccountsHolding": "0,001 NANO'dan fazla tutan hesaplar"
+        "title": "2Miners Ethereum madencilik havuzuna göre nano ödeme istatistikleri",
+        "totalPayouts": "2Miners tarafından toplam NANO ödemeleri",
+        "payouts": "ödemeler",
+        "payoutsDescription": "O gün için nano_ adreslerine ödenen NANO miktarı.",
+        "accounts": "Hesaplar",
+        "accountsDescription": "O gün için ödeme alan benzersiz hesapların sayısı.",
+        "uniqueAccounts": "Benzersiz hesaplar",
+        "uniqueAccountsDescription": "{{date}} tarihinden itibaren ödeme alan hesap sayısı",
+        "accountsHolding": "Hesap tutma",
+        "accountsHoldingDescription": "{{date}} tarihinden itibaren ödeme alan ve bakiyesi 0,001 NANO'nun üzerinde olan hesapların sayısı.",
+        "balanceHolding": "Tutma dengesi",
+        "balanceHoldingDescription": "{{date}} tarihinden itibaren ödeme alan ve 0,001 NANO'nun üzerinde bakiyesi olan hesapların toplam bakiyesi."
       }
     }
   }

@@ -390,10 +390,18 @@
         "totalEngagement": "トータルエンゲージメント"
       },
       "2miners": {
-        "title": "2Minersイーサリアムマイニングプールナノペイアウト",
-        "totalAccounts": "合計支払いアカウント",
-        "totalPayouts": "送信された支払いの合計",
-        "totalAccountsHolding": "0.001以上のNANOを保有するアカウント"
+        "title": "2Minersイーサリアムマイニングプールによるナノペイアウト統計",
+        "totalPayouts": "2Minersによる合計NANO支払い",
+        "payouts": "支払い",
+        "payoutsDescription": "その日にnano_アドレスに支払われたNANOの金額。",
+        "accounts": "アカウント",
+        "accountsDescription": "その日に支払いを受け取った一意のアカウントの数。",
+        "uniqueAccounts": "一意のアカウント",
+        "uniqueAccountsDescription": "{{date}}以降に支払いを受け取ったアカウントの数",
+        "accountsHolding": "保持しているアカウント",
+        "accountsHoldingDescription": "{{date}}以降に支払いを受け取り、残高が0.001NANOを超えるアカウントの数。",
+        "balanceHolding": "バランスを保つ",
+        "balanceHoldingDescription": "{{date}}以降に支払いを受け取り、残高が0.001NANOを超えるアカウントの合計残高。"
       }
     }
   }

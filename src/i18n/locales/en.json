@@ -312,10 +312,17 @@
       },
       "2miners": {
         "title": "Nano payout statistics by 2Miners Ethereum mining pool",
-        "totalAccounts": "Total accounts that received a payout",
-        "totalPayouts": "Total payouts",
-        "totalAccountsHolding": "Accounts holding more than 0.001 NANO",
-        "totalBalanceHolding": "Combined balance of the holding accounts"
+        "totalPayouts": "Total NANO payouts by 2Miners",
+        "payouts": "Payouts",
+        "payoutsDescription": "The amount of NANO that were paid out to nano_ addresses for that day.",
+        "accounts": "Accounts",
+        "accountsDescription": "The number of unique accounts that received payout for that day.",
+        "uniqueAccounts": "Unique accounts",
+        "uniqueAccountsDescription": "The number of accounts that received a payout since {{date}}",
+        "accountsHolding": "Accounts holding",
+        "accountsHoldingDescription": "The number of accounts that received a payout since {{date}} and have a balance above 0.001 NANO.",
+        "balanceHolding": "Holding balance",
+        "balanceHoldingDescription": "Combined balance of the accounts that received a payout since {{date}} and have a balance above 0.001 NANO."
       }
     },
     "preferences": {

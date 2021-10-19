@@ -390,10 +390,18 @@
         "totalEngagement": "إجمالي المشاركة"
       },
       "2miners": {
-        "title": "دفعات نانو لمجمع تعدين الإيثيريوم من 2Miners",
-        "totalAccounts": "إجمالي حسابات المدفوعات",
-        "totalPayouts": "مجموع المدفوعات المرسلة",
-        "totalAccountsHolding": "حسابات بها أكثر من 0.001 NANO"
+        "title": "إحصائيات مدفوعات النانو بواسطة تجمع تعدين 2Miners Ethereum",
+        "totalPayouts": "إجمالي مدفوعات NANO بواسطة 2Miners",
+        "payouts": "المدفوعات",
+        "payoutsDescription": "مبلغ NANO الذي تم دفعه لعناوين nano_ لهذا اليوم.",
+        "accounts": "حسابات",
+        "accountsDescription": "عدد الحسابات الفريدة التي تلقت عوائد لذلك اليوم.",
+        "uniqueAccounts": "حسابات فريدة",
+        "uniqueAccountsDescription": "عدد الحسابات التي تلقت عائدًا منذ {{date}}",
+        "accountsHolding": "عقد الحسابات",
+        "accountsHoldingDescription": "عدد الحسابات التي تلقت عائدًا منذ {{date}} ولديها رصيد أعلى من 0.001 NANO.",
+        "balanceHolding": "عقد التوازن",
+        "balanceHoldingDescription": "الرصيد المجمع للحسابات التي تلقت عائدًا منذ {{date}} ولديها رصيد أعلى من 0.001 NANO."
       }
     }
   }

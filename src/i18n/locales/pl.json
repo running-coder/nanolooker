@@ -390,10 +390,18 @@
         "totalEngagement": "Całkowite zaangażowanie"
       },
       "2miners": {
-        "title": "Pula wydobywcza 2Miners Ethereum Nano wypłaty",
-        "totalAccounts": "Suma rachunków wypłat",
-        "totalPayouts": "Łączne wypłaty wysłane",
-        "totalAccountsHolding": "Rachunki posiadające więcej niż 0,001 NANO"
+        "title": "Statystyki wypłat Nano według puli wydobywczej 2Miners Ethereum",
+        "totalPayouts": "Całkowite wypłaty NANO przez 2 Miners",
+        "payouts": "Wypłaty",
+        "payoutsDescription": "Kwota NANO wypłacona na adresy nano_ w danym dniu.",
+        "accounts": "Konta",
+        "accountsDescription": "Liczba unikalnych kont, które otrzymały zapłatę za ten dzień.",
+        "uniqueAccounts": "Unikalne konta",
+        "uniqueAccountsDescription": "Liczba kont, które otrzymały zapłatę od {{date}}",
+        "accountsHolding": "Posiadanie rachunków",
+        "accountsHoldingDescription": "Liczba kont, które otrzymały wypłatę od {{date}} i mają saldo powyżej 0,001 NANO.",
+        "balanceHolding": "Saldo posiadania",
+        "balanceHoldingDescription": "Łączne saldo kont, które otrzymały wypłatę od {{date}} i mają saldo powyżej 0,001 NANO."
       }
     }
   }
