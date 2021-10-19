@@ -38,7 +38,8 @@
     "node": "Düğüm",
     "nodes": "Düğümler",
     "cancel": "İptal etmek",
-    "comingSoon": "Çok yakında"
+    "comingSoon": "Çok yakında",
+    "statistics": "İstatistik"
   },
   "nodeHealth": {
     "nodeReloading": "Nano düğüm yeniden yükleniyor",
@@ -401,7 +402,8 @@
         "accountsHolding": "Hesap tutma",
         "accountsHoldingDescription": "{{date}} tarihinden itibaren ödeme alan ve bakiyesi 0,001 NANO'nun üzerinde olan hesapların sayısı.",
         "balanceHolding": "Tutma dengesi",
-        "balanceHoldingDescription": "{{date}} tarihinden itibaren ödeme alan ve 0,001 NANO'nun üzerinde bakiyesi olan hesapların toplam bakiyesi."
+        "balanceHoldingDescription": "{{date}} tarihinden itibaren ödeme alan ve 0,001 NANO'nun üzerinde bakiyesi olan hesapların toplam bakiyesi.",
+        "viewPayoutStatistics": "Ödeme istatistiklerini görüntüleyin"
       }
     }
   }

@@ -38,7 +38,8 @@
     "node": "Узел",
     "nodes": "Узлы",
     "cancel": "Отмена",
-    "comingSoon": "Скоро будет"
+    "comingSoon": "Скоро будет",
+    "statistics": "Статистика"
   },
   "nodeHealth": {
     "nodeReloading": "Нано-узел перезагружается",
@@ -401,7 +402,8 @@
         "accountsHolding": "Учетные записи",
         "accountsHoldingDescription": "Количество аккаунтов, получивших выплаты с {{date}} и имеющих баланс выше 0,001 NANO.",
         "balanceHolding": "Сохранение баланса",
-        "balanceHoldingDescription": "Совокупный баланс аккаунтов, по которым была выплачена выплата с {{date}} и у которых баланс превышает 0,001 NANO."
+        "balanceHoldingDescription": "Совокупный баланс аккаунтов, по которым была выплачена выплата с {{date}} и у которых баланс превышает 0,001 NANO.",
+        "viewPayoutStatistics": "Просмотр статистики выплат"
       }
     }
   }

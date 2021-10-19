@@ -38,7 +38,8 @@
     "node": "Node",
     "nodes": "Nodes",
     "cancel": "annuleren",
-    "comingSoon": "Binnenkort beschikbaar"
+    "comingSoon": "Binnenkort beschikbaar",
+    "statistics": "Statistieken"
   },
   "nodeHealth": {
     "nodeReloading": "Nano node wordt opnieuw geladen",
@@ -401,7 +402,8 @@
         "accountsHolding": "Rekeningenhoudend",
         "accountsHoldingDescription": "Het aantal accounts dat een uitbetaling heeft ontvangen sinds {{date}} en een saldo heeft van meer dan 0,001 NANO.",
         "balanceHolding": "Balans houden",
-        "balanceHoldingDescription": "Gecombineerd saldo van de accounts die een uitbetaling hebben ontvangen sinds {{date}} en een saldo hebben van meer dan 0,001 NANO."
+        "balanceHoldingDescription": "Gecombineerd saldo van de accounts die een uitbetaling hebben ontvangen sinds {{date}} en een saldo hebben van meer dan 0,001 NANO.",
+        "viewPayoutStatistics": "Uitbetalingsstatistieken bekijken"
       }
     }
   }

@@ -38,7 +38,8 @@
     "node": "节点",
     "nodes": "节点数",
     "cancel": "取消",
-    "comingSoon": "即将推出"
+    "comingSoon": "即将推出",
+    "statistics": "统计数据"
   },
   "nodeHealth": {
     "nodeReloading": "纳米节点正在重新加载",
@@ -401,7 +402,8 @@
         "accountsHolding": "持有账户",
         "accountsHoldingDescription": "自 {{date}} 起收到付款且余额高于 0.001 NANO 的帐户数量。",
         "balanceHolding": "持有余额",
-        "balanceHoldingDescription": "自 {{date}} 起收到付款且余额高于 0.001 NANO 的帐户的合并余额。"
+        "balanceHoldingDescription": "自 {{date}} 起收到付款且余额高于 0.001 NANO 的帐户的合并余额。",
+        "viewPayoutStatistics": "查看支付统计"
       }
     }
   }

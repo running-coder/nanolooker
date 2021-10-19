@@ -38,7 +38,8 @@
     "executionTimeAgo": "Last compilation was",
     "node": "Node",
     "nodes": "Nodes",
-    "comingSoon": "Coming soon"
+    "comingSoon": "Coming soon",
+    "statistics": "Statistics"
   },
   "nodeHealth": {
     "nodeReloading": "Nano node is reloading",
@@ -313,6 +314,7 @@
       "2miners": {
         "title": "Nano payout statistics by 2Miners Ethereum mining pool",
         "totalPayouts": "Total NANO payouts by 2Miners",
+        "viewPayoutStatistics": "View payout statistics",
         "payouts": "Payouts",
         "payoutsDescription": "The amount of NANO that were paid out to nano_ addresses for that day.",
         "accounts": "Accounts",

@@ -38,7 +38,8 @@
     "node": "گره",
     "nodes": "گره ها",
     "cancel": "لغو",
-    "comingSoon": "به زودی"
+    "comingSoon": "به زودی",
+    "statistics": "آمار"
   },
   "nodeHealth": {
     "nodeReloading": "گره نانو در حال بارگیری مجدد است",
@@ -401,7 +402,8 @@
         "accountsHolding": "نگهداری حساب ها",
         "accountsHoldingDescription": "تعداد حسابهایی که از {{date}} پرداختی دریافت کرده اند و مانده آنها بالاتر از 0.001 NANO است.",
         "balanceHolding": "حفظ تعادل",
-        "balanceHoldingDescription": "موجودی ترکیبی حساب هایی که از {{date}} پرداختی دریافت کرده اند و مانده آنها بالاتر از 0.001 NANO است."
+        "balanceHoldingDescription": "موجودی ترکیبی حساب هایی که از {{date}} پرداختی دریافت کرده اند و مانده آنها بالاتر از 0.001 NANO است.",
+        "viewPayoutStatistics": "مشاهده آمار پرداخت"
       }
     }
   }

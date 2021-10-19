@@ -38,7 +38,8 @@
     "node": "Nút",
     "nodes": "Điểm giao",
     "cancel": "Huỷ bỏ",
-    "comingSoon": "Sắp có"
+    "comingSoon": "Sắp có",
+    "statistics": "Số liệu thống kê"
   },
   "nodeHealth": {
     "nodeReloading": "Nút nano đang tải lại",
@@ -401,7 +402,8 @@
         "accountsHolding": "Tài khoản đang nắm giữ",
         "accountsHoldingDescription": "Số tài khoản đã nhận được khoản thanh toán kể từ {{date}} và có số dư trên 0,001 NANO.",
         "balanceHolding": "Giữ số dư",
-        "balanceHoldingDescription": "Số dư tổng hợp của các tài khoản đã nhận thanh toán kể từ {{date}} và có số dư trên 0,001 NANO."
+        "balanceHoldingDescription": "Số dư tổng hợp của các tài khoản đã nhận thanh toán kể từ {{date}} và có số dư trên 0,001 NANO.",
+        "viewPayoutStatistics": "Xem thống kê thanh toán"
       }
     }
   }

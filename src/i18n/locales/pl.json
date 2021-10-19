@@ -38,7 +38,8 @@
     "node": "Węzeł",
     "nodes": "Węzły",
     "cancel": "Anuluj",
-    "comingSoon": "Wkrótce"
+    "comingSoon": "Wkrótce",
+    "statistics": "Statystyka"
   },
   "nodeHealth": {
     "nodeReloading": "Nano Node jest przeładowywana",
@@ -401,7 +402,8 @@
         "accountsHolding": "Posiadanie rachunków",
         "accountsHoldingDescription": "Liczba kont, które otrzymały wypłatę od {{date}} i mają saldo powyżej 0,001 NANO.",
         "balanceHolding": "Saldo posiadania",
-        "balanceHoldingDescription": "Łączne saldo kont, które otrzymały wypłatę od {{date}} i mają saldo powyżej 0,001 NANO."
+        "balanceHoldingDescription": "Łączne saldo kont, które otrzymały wypłatę od {{date}} i mają saldo powyżej 0,001 NANO.",
+        "viewPayoutStatistics": "Zobacz statystyki wypłat"
       }
     }
   }

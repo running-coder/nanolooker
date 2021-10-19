@@ -38,7 +38,8 @@
     "node": "नोड",
     "nodes": "नोड्स",
     "cancel": "रद्द करना",
-    "comingSoon": "जल्द आ रहा है"
+    "comingSoon": "जल्द आ रहा है",
+    "statistics": "आंकड़े"
   },
   "nodeHealth": {
     "nodeReloading": "नैनो नोड पुनः लोड हो रहा है",
@@ -401,7 +402,8 @@
         "accountsHolding": "खाते रखना",
         "accountsHoldingDescription": "उन खातों की संख्या जिन्हें {{date}} से भुगतान प्राप्त हुआ है और जिनका बैलेंस 0.001 नैनो से अधिक है।",
         "balanceHolding": "होल्डिंग बैलेंस",
-        "balanceHoldingDescription": "{{date}} के बाद से भुगतान प्राप्त करने वाले और 0.001 नैनो से अधिक की शेष राशि वाले खातों की संयुक्त शेष राशि।"
+        "balanceHoldingDescription": "{{date}} के बाद से भुगतान प्राप्त करने वाले और 0.001 नैनो से अधिक की शेष राशि वाले खातों की संयुक्त शेष राशि।",
+        "viewPayoutStatistics": "पेआउट आंकड़े देखें"
       }
     }
   }

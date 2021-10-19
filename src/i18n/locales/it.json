@@ -38,7 +38,8 @@
     "node": "Nodo",
     "nodes": "Nodi",
     "cancel": "Annulla",
-    "comingSoon": "Prossimamente"
+    "comingSoon": "Prossimamente",
+    "statistics": "Statistiche"
   },
   "nodeHealth": {
     "nodeReloading": "Il nano nodo si sta ricaricando",
@@ -401,7 +402,8 @@
         "accountsHolding": "Conti in possesso",
         "accountsHoldingDescription": "Il numero di account che hanno ricevuto un pagamento dal {{date}} e hanno un saldo superiore a 0.001 NANO.",
         "balanceHolding": "Mantenere l'equilibrio",
-        "balanceHoldingDescription": "Saldo combinato dei conti che hanno ricevuto un pagamento dal {{date}} e hanno un saldo superiore a 0.001 NANO."
+        "balanceHoldingDescription": "Saldo combinato dei conti che hanno ricevuto un pagamento dal {{date}} e hanno un saldo superiore a 0.001 NANO.",
+        "viewPayoutStatistics": "Visualizza le statistiche di pagamento"
       }
     }
   }

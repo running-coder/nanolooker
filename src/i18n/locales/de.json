@@ -38,7 +38,8 @@
     "node": "Knoten",
     "nodes": "Knoten",
     "cancel": "Abbrechen",
-    "comingSoon": "Kommt bald"
+    "comingSoon": "Kommt bald",
+    "statistics": "Statistiken"
   },
   "nodeHealth": {
     "nodeReloading": "Der Nanoknoten wird neu geladen",
@@ -401,7 +402,8 @@
         "accountsHolding": "Kontoführung",
         "accountsHoldingDescription": "Die Anzahl der Konten, die seit dem {{date}} eine Auszahlung erhalten haben und deren Saldo über 0,001 NANO liegt.",
         "balanceHolding": "Guthaben halten",
-        "balanceHoldingDescription": "Kombinierter Saldo der Konten, die seit dem {{date}} eine Auszahlung erhalten haben und deren Saldo über 0,001 NANO liegt."
+        "balanceHoldingDescription": "Kombinierter Saldo der Konten, die seit dem {{date}} eine Auszahlung erhalten haben und deren Saldo über 0,001 NANO liegt.",
+        "viewPayoutStatistics": "Auszahlungsstatistik anzeigen"
       }
     }
   }

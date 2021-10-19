@@ -38,7 +38,8 @@
     "node": "마디",
     "nodes": "노드",
     "cancel": "취소",
-    "comingSoon": "곧 출시"
+    "comingSoon": "곧 출시",
+    "statistics": "통계"
   },
   "nodeHealth": {
     "nodeReloading": "나노 노드가 다시로드됩니다.",
@@ -401,7 +402,8 @@
         "accountsHolding": "보유 계좌",
         "accountsHoldingDescription": "{{date}} 이후 지급금을 받고 잔액이 0.001 NANO 이상인 계정 수.",
         "balanceHolding": "잔액 보유",
-        "balanceHoldingDescription": "{{date}} 이후에 판매 대금을 받고 잔액이 0.001 NANO 이상인 계정의 합산 잔액."
+        "balanceHoldingDescription": "{{date}} 이후에 판매 대금을 받고 잔액이 0.001 NANO 이상인 계정의 합산 잔액.",
+        "viewPayoutStatistics": "지불 통계 보기"
       }
     }
   }

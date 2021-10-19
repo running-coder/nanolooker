@@ -38,7 +38,8 @@
     "node": "Nó",
     "nodes": "Nós",
     "cancel": "Cancelar",
-    "comingSoon": "Em breve"
+    "comingSoon": "Em breve",
+    "statistics": "Estatisticas"
   },
   "nodeHealth": {
     "nodeReloading": "O nó da Nano está recarregando",
@@ -401,7 +402,8 @@
         "accountsHolding": "Titularidade de contas",
         "accountsHoldingDescription": "O número de contas que receberam um pagamento desde {{date}} e têm um saldo acima de 0,001 NANO.",
         "balanceHolding": "Manter o equilíbrio",
-        "balanceHoldingDescription": "Saldo combinado das contas que receberam um pagamento desde {{date}} e têm um saldo acima de 0,001 NANO."
+        "balanceHoldingDescription": "Saldo combinado das contas que receberam um pagamento desde {{date}} e têm um saldo acima de 0,001 NANO.",
+        "viewPayoutStatistics": "Ver estatísticas de pagamento"
       }
     }
   }

@@ -38,7 +38,8 @@
     "node": "ノード",
     "nodes": "ノード",
     "cancel": "キャンセル",
-    "comingSoon": "近日公開"
+    "comingSoon": "近日公開",
+    "statistics": "統計"
   },
   "nodeHealth": {
     "nodeReloading": "Nanoノードがリロードしています",
@@ -401,7 +402,8 @@
         "accountsHolding": "保持しているアカウント",
         "accountsHoldingDescription": "{{date}}以降に支払いを受け取り、残高が0.001NANOを超えるアカウントの数。",
         "balanceHolding": "バランスを保つ",
-        "balanceHoldingDescription": "{{date}}以降に支払いを受け取り、残高が0.001NANOを超えるアカウントの合計残高。"
+        "balanceHoldingDescription": "{{date}}以降に支払いを受け取り、残高が0.001NANOを超えるアカウントの合計残高。",
+        "viewPayoutStatistics": "支払い統計を表示する"
       }
     }
   }

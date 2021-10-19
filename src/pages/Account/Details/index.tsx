@@ -24,6 +24,7 @@ import LoadingStatistic from "components/LoadingStatistic";
 import QuestionCircle from "components/QuestionCircle";
 import { rawToRai, timestampToDate, TwoToneColors } from "components/utils";
 import AccountHeader from "../Header";
+import ExtraRow from "./ExtraRow";
 import { Sections } from "../.";
 
 import type { PageParams } from "types/page";
@@ -322,6 +323,7 @@ const AccountDetails: React.FC = () => {
             </Skeleton>
           </Col>
         </Row>
+        <ExtraRow account={account} />
       </>
     </AccountDetailsLayout>
   );

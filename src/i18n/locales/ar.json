@@ -38,7 +38,8 @@
     "node": "العقدة",
     "nodes": "العقد",
     "cancel": "يلغي",
-    "comingSoon": "قريبا"
+    "comingSoon": "قريبا",
+    "statistics": "إحصائيات"
   },
   "nodeHealth": {
     "nodeReloading": "يتم إعادة تحميل عقدة النانو",
@@ -401,7 +402,8 @@
         "accountsHolding": "عقد الحسابات",
         "accountsHoldingDescription": "عدد الحسابات التي تلقت عائدًا منذ {{date}} ولديها رصيد أعلى من 0.001 NANO.",
         "balanceHolding": "عقد التوازن",
-        "balanceHoldingDescription": "الرصيد المجمع للحسابات التي تلقت عائدًا منذ {{date}} ولديها رصيد أعلى من 0.001 NANO."
+        "balanceHoldingDescription": "الرصيد المجمع للحسابات التي تلقت عائدًا منذ {{date}} ولديها رصيد أعلى من 0.001 NANO.",
+        "viewPayoutStatistics": "عرض إحصائيات الدفع"
       }
     }
   }
