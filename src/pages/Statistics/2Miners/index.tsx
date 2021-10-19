@@ -81,7 +81,10 @@ const Statistics2MinersPage: React.FC = () => {
         type: "time",
       },
       legend: {
-        visible: false,
+        visible: true,
+        selected: {
+          [t("pages.statistics.2miners.balanceHolding")]: false,
+        },
       },
     };
 
@@ -121,7 +124,7 @@ const Statistics2MinersPage: React.FC = () => {
               isLoading={!totalPayouts}
               suffix="NANO"
             />
-
+            <br />
             <Text style={{ fontSize: "12px" }}>
               <strong>{t("pages.statistics.2miners.payouts")}</strong>:{" "}
               {t("pages.statistics.2miners.payoutsDescription")}
@@ -152,6 +155,8 @@ const Statistics2MinersPage: React.FC = () => {
                 date,
               })}
             </Text>
+            <br />
+            <br />
             <Skeleton loading={isLoading || !statistics.length} active>
               <div id="2miners-chart" />
             </Skeleton>
