@@ -394,7 +394,6 @@
         "title": "Nano-Auszahlungsstatistik des 2Miners Ethereum-Mining-Pools",
         "totalPayouts": "Gesamte NANO-Auszahlungen von 2Miners",
         "payouts": "Auszahlungen",
-        "payoutsDescription": "Der Betrag an NANO, der für diesen Tag an nano_-Adressen ausgezahlt wurde.",
         "accounts": "Konten",
         "accountsDescription": "Die Anzahl der einzelnen Konten, die an diesem Tag eine Auszahlung erhalten haben.",
         "uniqueAccounts": "Einzigartige Konten",
@@ -403,7 +402,8 @@
         "accountsHoldingDescription": "Die Anzahl der Konten, die seit dem {{date}} eine Auszahlung erhalten haben und deren Saldo über 0,001 NANO liegt.",
         "balanceHolding": "Guthaben halten",
         "balanceHoldingDescription": "Kombinierter Saldo der Konten, die seit dem {{date}} eine Auszahlung erhalten haben und deren Saldo über 0,001 NANO liegt.",
-        "viewPayoutStatistics": "Auszahlungsstatistik anzeigen"
+        "viewPayoutStatistics": "Auszahlungsstatistik anzeigen",
+        "payoutsDescription": "Der Betrag an NANO, der für diesen Tag ausgezahlt wurde."
       }
     }
   }

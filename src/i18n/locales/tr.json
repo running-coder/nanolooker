@@ -394,7 +394,6 @@
         "title": "2Miners Ethereum madencilik havuzuna göre nano ödeme istatistikleri",
         "totalPayouts": "2Miners tarafından toplam NANO ödemeleri",
         "payouts": "ödemeler",
-        "payoutsDescription": "O gün için nano_ adreslerine ödenen NANO miktarı.",
         "accounts": "Hesaplar",
         "accountsDescription": "O gün için ödeme alan benzersiz hesapların sayısı.",
         "uniqueAccounts": "Benzersiz hesaplar",
@@ -403,7 +402,8 @@
         "accountsHoldingDescription": "{{date}} tarihinden itibaren ödeme alan ve bakiyesi 0,001 NANO'nun üzerinde olan hesapların sayısı.",
         "balanceHolding": "Tutma dengesi",
         "balanceHoldingDescription": "{{date}} tarihinden itibaren ödeme alan ve 0,001 NANO'nun üzerinde bakiyesi olan hesapların toplam bakiyesi.",
-        "viewPayoutStatistics": "Ödeme istatistiklerini görüntüleyin"
+        "viewPayoutStatistics": "Ödeme istatistiklerini görüntüleyin",
+        "payoutsDescription": "O gün için ödenen NANO miktarı."
       }
     }
   }

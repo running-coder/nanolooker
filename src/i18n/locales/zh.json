@@ -394,7 +394,6 @@
         "title": "2Miners 以太坊矿池的 Nano 支付统计",
         "totalPayouts": "2Miners 的 NANO 总支出",
         "payouts": "支出",
-        "payoutsDescription": "当天支付给 nano_ 地址的 NANO 数量。",
         "accounts": "帐户",
         "accountsDescription": "当天收到付款的唯一帐户数。",
         "uniqueAccounts": "唯一账户",
@@ -403,7 +402,8 @@
         "accountsHoldingDescription": "自 {{date}} 起收到付款且余额高于 0.001 NANO 的帐户数量。",
         "balanceHolding": "持有余额",
         "balanceHoldingDescription": "自 {{date}} 起收到付款且余额高于 0.001 NANO 的帐户的合并余额。",
-        "viewPayoutStatistics": "查看支付统计"
+        "viewPayoutStatistics": "查看支付统计",
+        "payoutsDescription": "当天支付的 NANO 数量。"
       }
     }
   }

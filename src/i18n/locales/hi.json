@@ -394,7 +394,6 @@
         "title": "2Miners Ethereum माइनिंग पूल द्वारा नैनो भुगतान के आँकड़े",
         "totalPayouts": "2Miners द्वारा कुल नैनो भुगतान",
         "payouts": "भुगतान",
-        "payoutsDescription": "नैनो की वह राशि जिसका भुगतान उस दिन के नैनो_ पतों पर किया गया था।",
         "accounts": "हिसाब किताब",
         "accountsDescription": "उस दिन के लिए पेआउट प्राप्त करने वाले अद्वितीय खातों की संख्या।",
         "uniqueAccounts": "अद्वितीय खाते",
@@ -403,7 +402,8 @@
         "accountsHoldingDescription": "उन खातों की संख्या जिन्हें {{date}} से भुगतान प्राप्त हुआ है और जिनका बैलेंस 0.001 नैनो से अधिक है।",
         "balanceHolding": "होल्डिंग बैलेंस",
         "balanceHoldingDescription": "{{date}} के बाद से भुगतान प्राप्त करने वाले और 0.001 नैनो से अधिक की शेष राशि वाले खातों की संयुक्त शेष राशि।",
-        "viewPayoutStatistics": "पेआउट आंकड़े देखें"
+        "viewPayoutStatistics": "पेआउट आंकड़े देखें",
+        "payoutsDescription": "उस दिन के लिए भुगतान किए गए नैनो की राशि।"
       }
     }
   }

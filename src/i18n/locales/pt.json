@@ -394,7 +394,6 @@
         "title": "Nano estatísticas de pagamento por piscina de mineração 2Miners Ethereum",
         "totalPayouts": "Pagamentos NANO totais por 2Miners",
         "payouts": "Pagamentos",
-        "payoutsDescription": "A quantidade de NANO que foi paga a nano_ endereços naquele dia.",
         "accounts": "Contas",
         "accountsDescription": "O número de contas exclusivas que receberam pagamentos naquele dia.",
         "uniqueAccounts": "Contas únicas",
@@ -403,7 +402,8 @@
         "accountsHoldingDescription": "O número de contas que receberam um pagamento desde {{date}} e têm um saldo acima de 0,001 NANO.",
         "balanceHolding": "Manter o equilíbrio",
         "balanceHoldingDescription": "Saldo combinado das contas que receberam um pagamento desde {{date}} e têm um saldo acima de 0,001 NANO.",
-        "viewPayoutStatistics": "Ver estatísticas de pagamento"
+        "viewPayoutStatistics": "Ver estatísticas de pagamento",
+        "payoutsDescription": "A quantidade de NANO que foi paga naquele dia."
       }
     }
   }

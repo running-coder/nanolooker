@@ -394,7 +394,6 @@
         "title": "2Miners Ethereum 마이닝 풀의 나노 지불 통계",
         "totalPayouts": "2Miners의 총 NANO 지불금",
         "payouts": "지불금",
-        "payoutsDescription": "해당 날짜에 nano_ 주소로 지급된 NANO의 양입니다.",
         "accounts": "계정",
         "accountsDescription": "해당 날짜에 대한 판매 대금을 받은 고유 계정의 수입니다.",
         "uniqueAccounts": "고유 계정",
@@ -403,7 +402,8 @@
         "accountsHoldingDescription": "{{date}} 이후 지급금을 받고 잔액이 0.001 NANO 이상인 계정 수.",
         "balanceHolding": "잔액 보유",
         "balanceHoldingDescription": "{{date}} 이후에 판매 대금을 받고 잔액이 0.001 NANO 이상인 계정의 합산 잔액.",
-        "viewPayoutStatistics": "지불 통계 보기"
+        "viewPayoutStatistics": "지불 통계 보기",
+        "payoutsDescription": "그날 지급된 NANO의 양입니다."
       }
     }
   }

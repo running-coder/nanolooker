@@ -394,7 +394,6 @@
         "title": "إحصائيات مدفوعات النانو بواسطة تجمع تعدين 2Miners Ethereum",
         "totalPayouts": "إجمالي مدفوعات NANO بواسطة 2Miners",
         "payouts": "المدفوعات",
-        "payoutsDescription": "مبلغ NANO الذي تم دفعه لعناوين nano_ لهذا اليوم.",
         "accounts": "حسابات",
         "accountsDescription": "عدد الحسابات الفريدة التي تلقت عوائد لذلك اليوم.",
         "uniqueAccounts": "حسابات فريدة",
@@ -403,7 +402,8 @@
         "accountsHoldingDescription": "عدد الحسابات التي تلقت عائدًا منذ {{date}} ولديها رصيد أعلى من 0.001 NANO.",
         "balanceHolding": "عقد التوازن",
         "balanceHoldingDescription": "الرصيد المجمع للحسابات التي تلقت عائدًا منذ {{date}} ولديها رصيد أعلى من 0.001 NANO.",
-        "viewPayoutStatistics": "عرض إحصائيات الدفع"
+        "viewPayoutStatistics": "عرض إحصائيات الدفع",
+        "payoutsDescription": "مبلغ NANO الذي تم دفعه لذلك اليوم."
       }
     }
   }

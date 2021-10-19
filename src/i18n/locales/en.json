@@ -316,7 +316,7 @@
         "totalPayouts": "Total NANO payouts by 2Miners",
         "viewPayoutStatistics": "View payout statistics",
         "payouts": "Payouts",
-        "payoutsDescription": "The amount of NANO that were paid out to nano_ addresses for that day.",
+        "payoutsDescription": "The amount of NANO that were paid out for that day.",
         "accounts": "Accounts",
         "accountsDescription": "The number of unique accounts that received payout for that day.",
         "uniqueAccounts": "Unique accounts",

@@ -394,7 +394,6 @@
         "title": "آمار پرداخت نانو توسط استخر معدن 2Miners Ethereum",
         "totalPayouts": "مجموع پرداخت NANO توسط 2Miners",
         "payouts": "پرداخت ها",
-        "payoutsDescription": "مقدار NANO که در آن روز به آدرسهای nano_ پرداخت شد.",
         "accounts": "حساب ها",
         "accountsDescription": "تعداد حسابهای منحصر به فردی که برای آن روز پرداخت شده است.",
         "uniqueAccounts": "حسابهای منحصر به فرد",
@@ -403,7 +402,8 @@
         "accountsHoldingDescription": "تعداد حسابهایی که از {{date}} پرداختی دریافت کرده اند و مانده آنها بالاتر از 0.001 NANO است.",
         "balanceHolding": "حفظ تعادل",
         "balanceHoldingDescription": "موجودی ترکیبی حساب هایی که از {{date}} پرداختی دریافت کرده اند و مانده آنها بالاتر از 0.001 NANO است.",
-        "viewPayoutStatistics": "مشاهده آمار پرداخت"
+        "viewPayoutStatistics": "مشاهده آمار پرداخت",
+        "payoutsDescription": "مبلغ NANO که برای آن روز پرداخت شده است."
       }
     }
   }

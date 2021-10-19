@@ -394,7 +394,7 @@
         "title": "Statistiques de paiement nano par le pool minier 2Miners Ethereum",
         "totalPayouts": "Total des paiements NANO par 2Miners",
         "payouts": "Paiements",
-        "payoutsDescription": "Le montant de NANO qui a été payé aux adresses nano_ pour ce jour.",
+        "payoutsDescription": "Le montant de NANO qui a été payé pour ce jour.",
         "accounts": "Comptes",
         "accountsDescription": "Le nombre de comptes uniques qui ont reçu un paiement ce jour-là.",
         "uniqueAccounts": "Comptes uniques",
