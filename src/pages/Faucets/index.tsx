@@ -69,7 +69,7 @@ const FaucetsPage: React.FC = () => {
             </Col>
           </Row>
         ) : null}
-        {faucets.map(({ name, account, link, byLink }) => {
+        {faucets.map(({ alias, account, link, byLink }) => {
           const { height, local_timestamp: localTimestamp = 0 } =
             accountHistories?.find(
               ({ account: historyAccount }) => historyAccount === account,
@@ -77,9 +77,9 @@ const FaucetsPage: React.FC = () => {
 
           const modifiedTimestamp = Number(localTimestamp) * 1000;
           return (
-            <Row gutter={6} key={name}>
+            <Row gutter={6} key={alias}>
               <Col xs={24} sm={6} xl={4}>
-                {name}
+                {alias}
                 {byLink ? (
                   <>
                     <br />

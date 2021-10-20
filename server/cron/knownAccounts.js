@@ -13,6 +13,7 @@ const {
   EXPIRE_48H,
 } = require("../constants");
 const extraKnownAccounts = require("./knownAccounts.json");
+const faucetAccounts = require("../../src/pages/Faucets/faucets.json");
 
 const doKnownAccountsCron = async () => {
   let knownAccounts = [];
@@ -22,6 +23,7 @@ const doKnownAccountsCron = async () => {
 
     // Merge knownAccounts.json list
     knownAccounts = uniqBy(knownAccounts.concat(extraKnownAccounts), "account");
+    knownAccounts = uniqBy(knownAccounts.concat(faucetAccounts), "account");
 
     nodeCache.set(KNOWN_ACCOUNTS, knownAccounts);
   } catch (err) {

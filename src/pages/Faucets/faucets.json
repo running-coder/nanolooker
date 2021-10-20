@@ -1,43 +1,48 @@
 [
   {
-    "name": "nano-faucet",
+    "alias": "nano-faucet",
     "account": "nano_34prihdxwz3u4ps8qjnn14p7ujyewkoxkwyxm3u665it8rg5rdqw84qrypzk",
     "link": "https://nano-faucet.org/"
   },
   {
-    "name": "FreeNanoFaucet",
+    "alias": "FreeNanoFaucet",
     "account": "nano_3kwppxjcggzs65fjh771ch6dbuic3xthsn5wsg6i5537jacw7m493ra8574x",
     "link": "https://www.freenanofaucet.com/"
   },
   {
-    "name": "Nendly Tor Faucet",
+    "alias": "Nendly Tor Faucet",
     "byLink": "https://nendly.com/",
     "account": "nano_135a4boekhir8btsobsarjd6qoo4tq5p88jqoqeehcsnix1ug9fzpcfjgnkc",
     "link": "http://nendlyy5734pdfflygapdayez6dcorodcio72jwfvaux4fsrzyh7rzqd.onion/faucet/"
   },
   {
-    "name": "Apollo Faucet",
+    "alias": "Apollo Faucet",
     "account": "nano_1tyd79peyzk4bs5ok1enb633dqsrxou91k7y4zzo1oegw4s75bokmj1pey4s",
     "link": "https://twitter.com/ApolloNano/status/1365520666137481220"
   },
   {
-    "name": "LuckyNano",
+    "alias": "LuckyNano",
     "account": "nano_1oenixj4qtpfcembga9kqwggkb87wooicfy5df8nhdywrjrrqxk7or4gz15b",
     "link": "https://luckynano.com/"
   },
   {
-    "name": "Nanocafe",
+    "alias": "Nanocafe",
     "account": "nano_1cafe95a81ko3mq3oin4wnubsbw9z3w3tw5a95u47897wxy96r1zj9hxu1wb",
     "link": "https://nanocafe.cc/faucet"
   },
   {
-    "name": "TryNano",
+    "alias": "TryNano",
     "account": "nano_3fb56gt1896wmzfrs78oowdjwed9arm1mugtg48eupewfnuq4io1gfjors5j",
     "link": "https://www.trynano.io/"
   },
   {
-    "name": "Prussia's Nano Faucet",
-    "account":"nano_3346kkobb11qqpo17imgiybmwrgibr7yi34mwn5j6uywyke8f7fnfp94uyps",
-    "link":"https://faucet.prussia.dev/nano"
+    "alias": "Prussia's Nano Faucet",
+    "account": "nano_3346kkobb11qqpo17imgiybmwrgibr7yi34mwn5j6uywyke8f7fnfp94uyps",
+    "link": "https://faucet.prussia.dev/nano"
+  },
+  {
+    "alias": "Nano Queen Faucet",
+    "account": "nano_3yw7sznr3dhgd39y6spu5tzzr7qp3fore5ugz9fkfp4pqsq445yschw5d6xz",
+    "link": "https://faucetqueen.repl.co/"
   }
 ]
