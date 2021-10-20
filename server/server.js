@@ -12,6 +12,7 @@ require("./cron/btcTransactionFees");
 require("./cron/nanotickerStats");
 require("./cron/nanobrowserquestStats");
 require("./cron/2minersStats");
+require("./cron/youtubePlaylist");
 require("./ws");
 const { getDistributionData } = require("./cron/distribution");
 const { getExchangeBalances } = require("./cron/exchangeTracker");
@@ -37,7 +38,7 @@ const {
   BITCOIN_TOTAL_TRANSACTION_FEES_24H,
   BITCOIN_TOTAL_TRANSACTION_FEES_48H,
 } = require("./api/btcTransactionFees");
-
+const { getYoutubePlaylist } = require("./api/youtubePlaylist");
 const {
   getCoingeckoStats,
   getCoingeckoMarketCapStats,
@@ -285,6 +286,11 @@ app.get("/api/nanobrowserquest/leaderboard", async (req, res, next) => {
 
 app.get("/api/nanoticker", async (req, res) => {
   res.send(nodeCache.get(NANOTICKER_STATS) || {});
+});
+
+app.get("/api/youtube-playlist", async (req, res) => {
+  const playlist = await getYoutubePlaylist();
+  res.send(playlist || {});
 });
 
 app.use(express.static(path.join(__dirname, "../dist")));

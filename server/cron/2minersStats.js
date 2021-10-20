@@ -1,4 +1,5 @@
 const MongoClient = require("mongodb").MongoClient;
+const fetch = require("node-fetch");
 const cron = require("node-cron");
 const BigNumber = require("bignumber.js");
 const chunk = require("lodash/chunk");
@@ -172,6 +173,12 @@ const do2MinersStats = async () => {
 
   const yesterday = formatDate(Date.now() - 60 * 60 * 24 * 1000);
   if (statsByDate[yesterday]) {
+    const { hashrate, minersTotal, workersTotal } = await get2MinersPoolStats();
+
+    statsByDate[yesterday].hashrate = hashrate;
+    statsByDate[yesterday].minersTotal = minersTotal;
+    statsByDate[yesterday].workersTotal = workersTotal;
+
     const uniqPayoutAccounts = uniq(payoutAccounts);
     const chunkPayoutAccounts = chunk(uniqPayoutAccounts, PER_PAGE);
 
@@ -204,24 +211,49 @@ const do2MinersStats = async () => {
         totalAccountsHolding,
         totalBalanceHolding,
         totalUniqueAccounts,
+        hashrate,
+        minersTotal,
+        workersTotal,
         date,
       }) => {
         const uniqPayoutAccounts = uniq(payoutAccounts);
 
-        const data = {
+        db.collection(MINERS_STATS_COLLECTION).insertOne({
           totalPayouts: rawToRai(totalPayouts),
           totalAccounts: uniqPayoutAccounts.length,
           totalAccountsHolding,
           totalBalanceHolding,
           totalUniqueAccounts,
+          hashrate,
+          minersTotal,
+          workersTotal,
           date,
-        };
-        db.collection(MINERS_STATS_COLLECTION).insertOne(data);
+        });
       },
     );
   }
   // Reset cache
   nodeCache.set(MINERS_STATS, null);
+};
+
+const get2MinersPoolStats = async () => {
+  let hashrate = 0;
+  let minersTotal = 0;
+  let workersTotal = 0;
+
+  try {
+    const res = await fetch(`https://eth.2miners.com/api/stats`);
+    ({ hashrate, minersTotal, workersTotal } = await res.json());
+  } catch (err) {
+    console.log("Error", err);
+    Sentry.captureException(err);
+  }
+
+  return {
+    hashrate,
+    minersTotal,
+    workersTotal,
+  };
 };
 
 // https://crontab.guru/#0_0_*_*_*
