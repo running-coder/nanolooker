@@ -78,7 +78,7 @@ const useSocket = () => {
       window.removeEventListener("visibilitychange", visibilityChange);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filterTransactions]);
+  }, [filterTransactions, knownAccounts]);
 
   const onMessage = React.useCallback(
     (msg: MessageEvent) => {
