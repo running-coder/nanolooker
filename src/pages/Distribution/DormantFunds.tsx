@@ -29,7 +29,7 @@ const DormantFunds: React.FC<Props> = ({ data }) => {
   const isMediumAndLower = !useMediaQuery("(min-width: 768px)");
 
   React.useEffect(() => {
-    if (!data) return;
+    if (!data || !availableSupply) return;
     let totalFunds: number = 0;
     dormantFundsByRange = {};
 
@@ -76,14 +76,11 @@ const DormantFunds: React.FC<Props> = ({ data }) => {
     setUnknownDormantFunds(
       new BigNumber(availableSupply).minus(totalFunds).toNumber(),
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data]);
+  }, [data, availableSupply]);
 
   return (
     <>
-      <Title level={3}>
-        {t("pages.distribution.dormantFunds")}
-      </Title>
+      <Title level={3}>{t("pages.distribution.dormantFunds")}</Title>
       <Card size="small">
         <div style={{ marginBottom: "12px" }}>
           <Text style={{ fontSize: "12px" }}>
