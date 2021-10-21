@@ -246,37 +246,41 @@
   {
     "alias": "CRPay",
     "account": "ban_1crpaybw8jip7fm98fzfxnjajb55ty76oyzmpfwe9s66u4aod37tm3kxba8q"
-  }
+  },
   {
     "alias": "Nunu",
     "account": "ban_1nunu9z3puk3dehuoh3djesa4psro1mcqoi48pr64jxzf6osm6iqkmjupwfh"
-  }
+  },
   {
     "alias": "palm.just-dmitry.ru",
     "account": "ban_3pa1m3g79i1h7uijugndjeytpmqbsg6hc19zm8m7foqygwos1mmcqmab91hh"
-  }
+  },
   {
     "alias": "faucet.prussia.dev",
     "account": "ban_3346kkobb11qqpo17imgiybmwrgibr7yi34mwn5j6uywyke8f7fnfp94uyps"
-  }
+  },
   {
     "alias": "PiNode",
     "account": "ban_3iuqych4pnwfgcmey3kbedt9xjxx7jju6zr4rwia7j3thhn98h9pb8pinode"
-  }
+  },
   {
     "alias": "Baaanodeee",
     "account": "ban_151sj7ainc3379f37acp9e81qsy9kyfprkb7m6gn56aifeyy1hzdcmquy69b"
-  }
+  },
   {
     "alias": "node.banano.app",
     "account": "ban_177d6g6o3g8tdgqd7ia9aitx5xkrs4o776bnci1exiqstrpwztbgg368gyj8"
-  }
+  },
   {
     "alias": "BananoBust",
     "account": "ban_1uwidgukruggyde49g8kqyztxuw6z38dxhy4jj1ppe4xzjooo4kstwfyqfce"
-  }
+  },
   {
     "alias": "banano.neutralgood.dev",
     "account": "ban_339yi5dqeo38rnfo8p6f4q5amxifje7r1mam1ye33f9xr3fy3s1mxyy3pwc3"
+  },
+  {
+    "alias": "BanBucket",
+    "account": "ban_1j3rqseffoin7x5z5y1ehaqe1n7todza41kdf4oyga8phps3ea31u39ruchu"
   }
 ]
