@@ -290,6 +290,7 @@ app.get("/api/nanoticker", async (req, res) => {
 
 app.get("/api/youtube-playlist", async (req, res) => {
   const playlist = await getYoutubePlaylist();
+
   res.send(playlist || {});
 });
 

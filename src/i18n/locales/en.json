@@ -257,7 +257,8 @@
     },
     "news": {
       "allFeeds": "All Feeds",
-      "allAuthors": "All Authors"
+      "allAuthors": "All Authors",
+      "allSources": "All Sources"
     },
     "status": {
       "reload": "Reload",
