@@ -39,8 +39,16 @@ const NewsPage: React.FC = () => {
   const { feed = "" } = useParams<PageParams>();
   const [posts, setPosts] = React.useState([] as (MediumPost | YoutubePost)[]);
   const [authors, setAuthors] = React.useState([""]);
-  const { posts: mediumPosts, authors: mediumAuthors } = useMedium();
-  const { posts: youtubePosts, authors: youtubeAuthors } = useYoutube();
+  const {
+    isLoading: isMediumLoading,
+    posts: mediumPosts,
+    authors: mediumAuthors,
+  } = useMedium();
+  const {
+    isLoading: isYoutubeLoading,
+    posts: youtubePosts,
+    authors: youtubeAuthors,
+  } = useYoutube();
   const [feedFilter, setFeedFilter] = React.useState<MEDIUM_FEEDS | string>(
     ALL,
   );
@@ -64,7 +72,8 @@ const NewsPage: React.FC = () => {
     ].sort();
 
     setAuthors(orderedAuthors);
-  }, [mediumAuthors, youtubeAuthors]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mediumAuthors.length, youtubeAuthors.length]);
 
   React.useEffect(() => {
     if (feed && posts.find(({ feed: postFeed }) => postFeed === feed)) {
@@ -150,7 +159,7 @@ const NewsPage: React.FC = () => {
         </Dropdown>
       </Space>
 
-      {!filteredPosts.length
+      {!filteredPosts.length && (isMediumLoading || isYoutubeLoading)
         ? [0, 1, 2].map(index => (
             <Row gutter={[12, 0]} key={index}>
               <Col xs={24} md={10} lg={8}>
@@ -177,7 +186,7 @@ const NewsPage: React.FC = () => {
         </div>
       ))}
 
-      {!filteredPosts?.length ? (
+      {!filteredPosts?.length && !isMediumLoading && !isYoutubeLoading ? (
         <Text style={{ display: "block" }}>{t("common.noResults")}</Text>
       ) : null}
     </>

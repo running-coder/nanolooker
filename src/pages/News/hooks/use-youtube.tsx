@@ -40,7 +40,7 @@ const getYoutubePosts = async (): Promise<YoutubePost[]> =>
           } = snippet;
 
           posts.push({
-            author,
+            author: channelTitle,
             videoId,
             source: PostSource.YOUTUBE,
             title,

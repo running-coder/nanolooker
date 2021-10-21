@@ -35,6 +35,7 @@ const Youtube: React.FC<Props> = ({ post }) => {
           {!isClicked ? (
             <div style={{ background: "#000", textAlign: "center" }}>
               <img
+                style={{ cursor: "pointer" }}
                 src={thumbnail}
                 alt={title}
                 width="75%"
