@@ -127,10 +127,10 @@ const ExchangeTrackerPage: React.FC = () => {
     for (let account in exchangeBalances) {
       if (!activeWallets.includes(account)) continue;
 
-      exchangeBalances[account].forEach(({ date, balance }, i) => {
+      exchangeBalances[account].forEach(({ date, balance }) => {
         data.push({
           day: date,
-          value: balance,
+          value: balance < 1 ? 0 : balance,
           category: account,
         });
       });
@@ -157,14 +157,21 @@ const ExchangeTrackerPage: React.FC = () => {
       },
       tooltip: {
         // @ts-ignore
-        formatter: ({ title, value, category }) => {
-          return {
-            title,
-            value: new BigNumber(value).toFormat(),
-            name:
-              exchangeWallets.find(({ account }) => account === category)
-                ?.name || category,
-          };
+        customItems: (originalItems: any) => {
+          // @ts-ignore
+          const items = originalItems.map(data => {
+            const { name, value, ...rest } = data;
+
+            return {
+              ...rest,
+              name:
+                exchangeWallets.find(({ account }) => account === name)?.name ||
+                name,
+              value: new BigNumber(value).toFormat(),
+            };
+          });
+
+          return items;
         },
       },
       yAxis: {
