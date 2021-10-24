@@ -179,7 +179,8 @@
       "missingAccount": "Отсутствует учетная запись",
       "missingAccountInfo": "Учетная запись не указана в URL. Используйте верхнюю панель поиска для поиска учетной записи или добавьте ее в URL-адрес после /account/",
       "notVoting": "Не голосование",
-      "pendingTransactions": "Транзакции готовы к приему"
+      "pendingTransactions": "Транзакции готовы к приему",
+      "pendingTransaction": "Транзакция готова к приему"
     },
     "block": {
       "blockSubtype": "Подтип блока",
@@ -257,7 +258,8 @@
     },
     "news": {
       "allFeeds": "Все каналы",
-      "allAuthors": "Все авторы"
+      "allAuthors": "Все авторы",
+      "allSources": "Все источники"
     },
     "status": {
       "reload": "Перезагрузить",

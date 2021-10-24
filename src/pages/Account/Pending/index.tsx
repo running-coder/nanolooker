@@ -1,4 +1,5 @@
 import * as React from "react";
+import differenceBy from "lodash/differenceBy";
 import { useTranslation } from "react-i18next";
 import { Tooltip, Typography } from "antd";
 import { ExclamationCircleTwoTone } from "@ant-design/icons";
@@ -11,7 +12,7 @@ import TransactionsTable from "pages/Account/Transactions";
 import { toBoolean } from "components/utils";
 import QuestionCircle from "components/QuestionCircle";
 
-import type { Subtype } from "types/transaction";
+import type { Subtype, Transaction } from "types/transaction";
 
 const MAX_PENDING_TRANSACTIONS = 50;
 const TRANSACTIONS_PER_PAGE = 5;
@@ -30,7 +31,15 @@ const PENDING_MIN_THRESHOLD = new BigNumber(1e24).toFixed();
 // 0.001 Nano
 const PENDING_MIN_EXCHANGE_THRESHOLD = new BigNumber(1e27).toFixed();
 
-const AccountPendingHistory: React.FC = () => {
+interface Props {
+  socketTransactions: Transaction[];
+  pendingSocketTransactions: Transaction[];
+}
+
+const AccountPendingHistory: React.FC<Props> = ({
+  socketTransactions,
+  pendingSocketTransactions,
+}) => {
   const { t } = useTranslation();
   const [knownExchangesList, setKnownExchangesList] = React.useState<
     undefined | string[]
@@ -66,6 +75,7 @@ const AccountPendingHistory: React.FC = () => {
 
   const [hashes, setHashes] = React.useState<string[]>([]);
   const { blocks: blocksInfo } = useBlocksInfo(hashes);
+
   const totalPending = Object.keys(blocks).length;
   const isPaginated = true;
   const showPaginate = totalPending > TRANSACTIONS_PER_PAGE;
@@ -78,6 +88,9 @@ const AccountPendingHistory: React.FC = () => {
       // @ts-ignore
       ([block, { amount, source }]): PendingHistoryBlock => ({
         hash: block,
+        // @NOTE "hack" to easily filter out socketTransactions
+        // @ts-ignore
+        link: block,
         amount,
         local_timestamp: blocksInfo.blocks?.[block]?.local_timestamp,
         confirmed: toBoolean(blocksInfo.blocks?.[block]?.confirmed),
@@ -85,10 +98,16 @@ const AccountPendingHistory: React.FC = () => {
         subtype: "pending",
       }),
     );
+
+    pendingHistory = differenceBy(pendingHistory, socketTransactions, "link");
   }
 
   const start = 0 + (currentPage - 1) * TRANSACTIONS_PER_PAGE;
-  const data = pendingHistory?.slice(start, start + TRANSACTIONS_PER_PAGE);
+  let data = pendingHistory?.slice(start, start + TRANSACTIONS_PER_PAGE) || [];
+  if (currentPage === 1) {
+    // @ts-ignore
+    data = pendingSocketTransactions.concat(data);
+  }
 
   React.useEffect(() => {
     const hashes = Object.keys(blocks);
@@ -101,7 +120,10 @@ const AccountPendingHistory: React.FC = () => {
   //   : 0;
 
   // return accountPending > PENDING_MIN_THRESHOLD ? (
-  return pendingHistory?.length ? (
+
+  let count = (pendingHistory?.length || 0) + pendingSocketTransactions.length;
+
+  return count ? (
     <>
       <div
         style={{
@@ -110,8 +132,7 @@ const AccountPendingHistory: React.FC = () => {
         }}
       >
         <Title level={3}>
-          {isAccountHistoryLoading ? "" : pendingHistory?.length}{" "}
-          {t("pages.account.pendingTransactions")}
+          {count} {t(`common.pendingTransaction${count !== 1 ? "s" : ""}`)}
         </Title>
 
         <Tooltip placement="right" title={t("tooltips.pendingTransaction")}>

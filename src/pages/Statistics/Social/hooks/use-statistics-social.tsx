@@ -27,7 +27,7 @@ const useStatisticsSocial = () => {
     setIsError(false);
 
     try {
-      const res = await fetch("/api/statistics-social", {
+      const res = await fetch("/api/statistics/social", {
         headers: {
           "Content-Type": "application/json",
         },

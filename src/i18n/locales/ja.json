@@ -179,7 +179,8 @@
       "missingAccount": "アカウントがありません",
       "missingAccountInfo": "アカウントがURLで指定されていません。上部の検索バーを使用してアカウントを検索するか、URLの /account/ の後に追加します",
       "notVoting": "投票しない",
-      "pendingTransactions": "受け取る準備ができているトランザクション"
+      "pendingTransactions": "受け取る準備ができているトランザクション",
+      "pendingTransaction": "トランザクションを受信する準備ができました"
     },
     "block": {
       "blockSubtype": "ブロックサブタイプ",
@@ -257,7 +258,8 @@
     },
     "news": {
       "allFeeds": "すべてのフィード",
-      "allAuthors": "すべての著者"
+      "allAuthors": "すべての著者",
+      "allSources": "すべてのソース"
     },
     "status": {
       "reload": "リロード",

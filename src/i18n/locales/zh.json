@@ -179,7 +179,8 @@
       "missingAccount": "帐户遗失",
       "missingAccountInfo": "未在URL中指定帐户。使用顶部的搜索栏搜索帐户，或将其附加在 /account/ 之后的URL中",
       "notVoting": "不投票",
-      "pendingTransactions": "准备接收的交易"
+      "pendingTransactions": "准备接收的交易",
+      "pendingTransaction": "交易准备好接收"
     },
     "block": {
       "blockSubtype": "块子类型",
@@ -257,7 +258,8 @@
     },
     "news": {
       "allFeeds": "所有提要",
-      "allAuthors": "所有作者"
+      "allAuthors": "所有作者",
+      "allSources": "所有来源"
     },
     "status": {
       "reload": "重装",

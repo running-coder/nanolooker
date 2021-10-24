@@ -179,7 +179,8 @@
       "missingAccount": "Account ontbreekt",
       "missingAccountInfo": "Het account is niet gespecificeerd in de URL. Gebruik de zoekbalk bovenaan om naar een account te zoeken of voeg deze toe aan de URL achter /account/",
       "notVoting": "Niet stemmen",
-      "pendingTransactions": "Transacties klaar om te worden ontvangen"
+      "pendingTransactions": "Transacties klaar om te worden ontvangen",
+      "pendingTransaction": "Transactie klaar om te worden ontvangen"
     },
     "block": {
       "blockSubtype": "Block subtype",
@@ -257,7 +258,8 @@
     },
     "news": {
       "allFeeds": "Alle feeds",
-      "allAuthors": "Alle auteurs"
+      "allAuthors": "Alle auteurs",
+      "allSources": "Alle bronnen"
     },
     "status": {
       "reload": "Herladen",

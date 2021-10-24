@@ -10,6 +10,7 @@ import AccountPendingHistory from "./Pending";
 import AccountHistory from "./History";
 import AccountDelegators from "./Delegators";
 import { AccountInfoContext } from "api/contexts/AccountInfo";
+import useSockets from "./hooks/use-socket";
 
 import type { PageParams } from "types/page";
 
@@ -30,6 +31,15 @@ const AccountPage: React.FC = () => {
     AccountInfoContext,
   );
   const isValid = isValidAccountAddress(account);
+  const {
+    transactions: socketTransactions,
+    pendingTransactions: pendingSocketTransactions,
+    balance: socketBalance,
+    pendingBalance: socketPendingBalance,
+  } = useSockets({ account });
+
+  const updateCount =
+    socketTransactions.length + pendingSocketTransactions.length;
 
   React.useEffect(() => {
     document.body.scrollTop = 0; // For Safari
@@ -44,17 +54,29 @@ const AccountPage: React.FC = () => {
     <>
       <Helmet>
         <title>
+          {updateCount ? `(${updateCount}) ` : ""}
           {t("common.account")} {account}
         </title>
       </Helmet>
       <Title level={3}>{t("common.account")}</Title>
-      {isValid && !isAccountInfoError ? <AccountDetails /> : null}
+      {isValid && !isAccountInfoError ? (
+        <AccountDetails
+          socketTransactions={socketTransactions}
+          socketBalance={socketBalance}
+          socketPendingBalance={socketPendingBalance}
+        />
+      ) : null}
       {isValid && isAccountInfoError ? <AccountDetailsUnopened /> : null}
       {isValid && section === Sections.TRANSACTIONS ? (
-        <AccountPendingHistory />
+        <AccountPendingHistory
+          socketTransactions={socketTransactions}
+          pendingSocketTransactions={pendingSocketTransactions}
+        />
       ) : null}
 
-      {isValid && section === Sections.TRANSACTIONS ? <AccountHistory /> : null}
+      {isValid && section === Sections.TRANSACTIONS ? (
+        <AccountHistory socketTransactions={socketTransactions} />
+      ) : null}
       {isValid && section === Sections.DELEGATORS ? (
         <AccountDelegators />
       ) : null}

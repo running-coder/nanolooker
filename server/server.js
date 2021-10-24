@@ -162,13 +162,13 @@ app.get("/api/market-statistics", async (req, res) => {
   });
 });
 
-app.get("/api/statistics-social", async (req, res) => {
+app.get("/api/statistics/social", async (req, res) => {
   const data = await getCoingeckoMarketCapStats();
 
   res.send(data);
 });
 
-app.get("/api/statistics-2miners", async (req, res) => {
+app.get("/api/statistics/2miners", async (req, res) => {
   const data = await get2MinersStats();
 
   res.send(data);

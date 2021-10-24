@@ -179,7 +179,8 @@
       "missingAccount": "Brakujące konto",
       "missingAccountInfo": "Konto nie jest określone w adresie URL. Użyj górnego paska wyszukiwania do wyszukania konta lub dołącz go do adresu URL po /account/",
       "notVoting": "Nie głosuje",
-      "pendingTransactions": "Transakcje gotowe do odbioru"
+      "pendingTransactions": "Transakcje gotowe do odbioru",
+      "pendingTransaction": "Transakcja gotowa do odbioru"
     },
     "block": {
       "blockSubtype": "Podtyp blokowy",
@@ -257,7 +258,8 @@
     },
     "news": {
       "allFeeds": "Wszystkie kanały",
-      "allAuthors": "Wszyscy autorzy"
+      "allAuthors": "Wszyscy autorzy",
+      "allSources": "Wszystkie źródła"
     },
     "status": {
       "reload": "Przeładuj",

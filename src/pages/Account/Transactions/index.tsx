@@ -193,12 +193,17 @@ const TransactionsTable = ({
                         {knownAccount.alias}
                       </div>
                     ) : null}
-                    <Link
-                      to={`/account/${account}`}
-                      className="break-word color-normal"
-                    >
-                      {account}
-                    </Link>
+                    {account ? (
+                      <Link
+                        to={`/account/${account}`}
+                        className="break-word color-normal"
+                      >
+                        {account}
+                      </Link>
+                    ) : (
+                      t("common.notAvailable")
+                    )}
+
                     <br />
                     <Link
                       to={`/block/${hash}`}
@@ -213,10 +218,12 @@ const TransactionsTable = ({
                       style={{ color: Colors[themeColor] }}
                       className="break-word"
                     >
-                      {!amount ? t("common.notAvailable") : ""}
+                      {!amount || amount === "0"
+                        ? t("common.notAvailable")
+                        : ""}
                       {["receive", "open"].includes(transactionType) ? "+" : ""}
                       {subtype === "send" ? "-" : ""}
-                      {amount
+                      {amount && amount !== "0"
                         ? `${new BigNumber(rawToRai(amount)).toFormat()} NANO`
                         : ""}
                     </Text>

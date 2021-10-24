@@ -173,6 +173,7 @@
       "noRepresentative": "No Representative",
       "confirmationHeight": "Confirmation height",
       "lastTransaction": "Last transaction",
+      "pendingTransaction": "Transaction ready to be received",
       "pendingTransactions": "Transactions ready to be received",
       "loadMoreTransactions": "Load more transactions",
       "viewTransactions": "View transactions",

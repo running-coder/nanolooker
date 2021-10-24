@@ -179,7 +179,8 @@
       "missingAccount": "누락 된 계정",
       "missingAccountInfo": "계정이 URL에 지정되지 않았습니다. 계정을 검색하려면 상단 검색 창을 사용하거나 /account/ 뒤의 URL에 추가하세요.",
       "notVoting": "투표하지 않음",
-      "pendingTransactions": "받을 준비가 된 거래"
+      "pendingTransactions": "받을 준비가 된 거래",
+      "pendingTransaction": "거래를 받을 준비가 되었습니다"
     },
     "block": {
       "blockSubtype": "블록 하위 유형",
@@ -257,7 +258,8 @@
     },
     "news": {
       "allFeeds": "모든 피드",
-      "allAuthors": "모든 저자"
+      "allAuthors": "모든 저자",
+      "allSources": "모든 소스"
     },
     "status": {
       "reload": "새로 고침",

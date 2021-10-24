@@ -28,6 +28,7 @@ import ExtraRow from "./ExtraRow";
 import { Sections } from "../.";
 
 import type { PageParams } from "types/page";
+import type { Transaction } from "types/transaction";
 
 interface AccountDetailsLayoutProps {
   bordered?: boolean;
@@ -43,7 +44,17 @@ export const AccountDetailsLayout = ({
   </Card>
 );
 
-const AccountDetails: React.FC = () => {
+interface Props {
+  socketTransactions: Transaction[];
+  socketBalance: number;
+  socketPendingBalance: number;
+}
+
+const AccountDetails: React.FC<Props> = ({
+  socketTransactions,
+  socketBalance,
+  socketPendingBalance,
+}) => {
   const { t } = useTranslation();
   const { section = Sections.TRANSACTIONS } = useParams<PageParams>();
   const { theme, fiat } = React.useContext(PreferencesContext);
@@ -87,10 +98,13 @@ const AccountDetails: React.FC = () => {
     },
   } = React.useContext(ConfirmationQuorumContext);
 
-  const balance = new BigNumber(rawToRai(accountInfo?.balance || 0)).toNumber();
-  const balancePending = new BigNumber(
-    rawToRai(accountInfo?.pending || 0),
-  ).toFormat(8);
+  const balance = new BigNumber(rawToRai(accountInfo?.balance || 0))
+    .plus(socketBalance)
+    .toNumber();
+  const balancePending = new BigNumber(rawToRai(accountInfo?.pending || 0))
+    .plus(socketPendingBalance)
+    .toFormat(8);
+
   const fiatBalance = new BigNumber(balance)
     .times(currentPrice)
     .toFormat(CurrencyDecimal?.[fiat]);
@@ -264,7 +278,7 @@ const AccountDetails: React.FC = () => {
             </Skeleton>
           </Col>
         </Row>
-        {parseFloat(accountInfo?.pending) ? (
+        {parseFloat(balancePending) ? (
           <Row gutter={6}>
             <Col xs={24} sm={6} md={4}>
               {t("transaction.pending")}
@@ -286,7 +300,9 @@ const AccountDetails: React.FC = () => {
           </Col>
           <Col xs={24} sm={18} md={20}>
             <Skeleton {...skeletonProps}>
-              {accountInfo.confirmation_height}
+              {new BigNumber(accountInfo.confirmation_height)
+                .plus(socketTransactions.length)
+                .toNumber()}
             </Skeleton>
           </Col>
         </Row>

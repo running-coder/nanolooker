@@ -1,13 +1,13 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
 import flatten from "lodash/flatten";
 import { Card, Col, Row, Skeleton, Typography } from "antd";
-
 import LoadingStatistic from "components/LoadingStatistic";
-
 import { Line } from "@antv/g2plot";
 import useStatisticsSocial from "./hooks/use-statistics-2miners";
+import { ACCOUNT_2MINERS } from "pages/Account/Details/ExtraRow";
 
 const { Text, Title } = Typography;
 
@@ -119,7 +119,14 @@ const Statistics2MinersPage: React.FC = () => {
         <Row>
           <Col xs={24}>
             <LoadingStatistic
-              title={t("pages.statistics.2miners.totalPayouts")}
+              title={
+                <>
+                  {t("pages.statistics.2miners.totalPayouts")}{" "}
+                  <Link to={`/account/${ACCOUNT_2MINERS}`}>
+                    {t("pages.status.viewAccount")}
+                  </Link>
+                </>
+              }
               value={totalPayouts}
               isLoading={!totalPayouts}
               suffix="NANO"

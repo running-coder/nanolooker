@@ -179,7 +179,8 @@
       "missingAccount": "حساب مفقود",
       "missingAccountInfo": "الحساب غير محدد في URL. استخدم شريط البحث العلوي للبحث عن حساب أو إلحاقه بعنوان URL بعد / حساب /",
       "notVoting": "لا تصوت",
-      "pendingTransactions": "المعاملات جاهزة للاستلام"
+      "pendingTransactions": "المعاملات جاهزة للاستلام",
+      "pendingTransaction": "المعاملة جاهزة للاستلام"
     },
     "block": {
       "blockSubtype": "نوع الكتلة الفرعي",
@@ -257,7 +258,8 @@
     },
     "news": {
       "allFeeds": "كل الخلاصات",
-      "allAuthors": "كل المؤلفين"
+      "allAuthors": "كل المؤلفين",
+      "allSources": "جميع المصادر"
     },
     "status": {
       "reload": "إعادة تحميل",

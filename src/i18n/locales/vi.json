@@ -179,7 +179,8 @@
       "missingAccount": "Thiếu tài khoản",
       "missingAccountInfo": "Tài khoản không được chỉ định trong URL. Sử dụng thanh tìm kiếm trên cùng để tìm kiếm tài khoản hoặc thêm tài khoản vào URL sau /account/",
       "notVoting": "Không bỏ phiếu",
-      "pendingTransactions": "Giao dịch đã sẵn sàng để nhận"
+      "pendingTransactions": "Giao dịch đã sẵn sàng để nhận",
+      "pendingTransaction": "Giao dịch đã sẵn sàng để nhận"
     },
     "block": {
       "blockSubtype": "Block con",
@@ -257,7 +258,8 @@
     },
     "news": {
       "allFeeds": "Tất cả Nguồn cấp dữ liệu",
-      "allAuthors": "Tất cả các tác giả"
+      "allAuthors": "Tất cả các tác giả",
+      "allSources": "Tất cả các nguồn"
     },
     "status": {
       "reload": "Nạp lại",

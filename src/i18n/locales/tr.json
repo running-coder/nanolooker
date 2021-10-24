@@ -179,7 +179,8 @@
       "missingAccount": "Eksik hesap",
       "missingAccountInfo": "Hesap URL'de belirtilmemiştir. Bir hesabı aramak için üstteki arama çubuğunu kullanın veya URL'ye /account/ sonrasına ekleyin.",
       "notVoting": "Oy Vermemek",
-      "pendingTransactions": "Alınmaya hazır işlemler"
+      "pendingTransactions": "Alınmaya hazır işlemler",
+      "pendingTransaction": "İşlem alınmaya hazır"
     },
     "block": {
       "blockSubtype": "Alt türü engelle",
@@ -257,7 +258,8 @@
     },
     "news": {
       "allFeeds": "Tüm Beslemeler",
-      "allAuthors": "Tüm Yazarlar"
+      "allAuthors": "Tüm Yazarlar",
+      "allSources": "Tüm Kaynaklar"
     },
     "status": {
       "reload": "Tekrar yükle",

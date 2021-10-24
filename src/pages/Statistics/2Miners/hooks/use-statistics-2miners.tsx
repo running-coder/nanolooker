@@ -19,7 +19,7 @@ const useStatistics2Miners = () => {
     setIsError(false);
 
     try {
-      const res = await fetch("/api/statistics-2miners", {
+      const res = await fetch("/api/statistics/2miners", {
         headers: {
           "Content-Type": "application/json",
         },

@@ -179,7 +179,8 @@
       "missingAccount": "गुम खाता",
       "missingAccountInfo": "खाता URL में निर्दिष्ट नहीं है। खाता खोजने के लिए शीर्ष खोज बार का उपयोग करें या URL में /account/ के बाद इसे जोड़ें",
       "notVoting": "मतदान नहीं",
-      "pendingTransactions": "लेन-देन प्राप्त करने के लिए तैयार"
+      "pendingTransactions": "लेन-देन प्राप्त करने के लिए तैयार",
+      "pendingTransaction": "लेन-देन प्राप्त करने के लिए तैयार"
     },
     "block": {
       "blockSubtype": "ब्लॉक उपप्रकार",
@@ -257,7 +258,8 @@
     },
     "news": {
       "allFeeds": "सभी फ़ीड्स",
-      "allAuthors": "सभी लेखक"
+      "allAuthors": "सभी लेखक",
+      "allSources": "सभी स्रोत"
     },
     "status": {
       "reload": "पुनः लोड करें",

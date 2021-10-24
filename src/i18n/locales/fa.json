@@ -179,7 +179,8 @@
       "missingAccount": "حساب موجود نیست",
       "missingAccountInfo": "حساب در URL مشخص نشده است. برای جستجوی حساب از نوار جستجوی بالا استفاده کنید یا آن را در URL بعد از / حساب اضافه کنید /",
       "notVoting": "رای ندادن",
-      "pendingTransactions": "معاملات آماده دریافت است"
+      "pendingTransactions": "معاملات آماده دریافت است",
+      "pendingTransaction": "معامله آماده دریافت است"
     },
     "block": {
       "blockSubtype": "زیر گروه را مسدود کنید",
@@ -257,7 +258,8 @@
     },
     "news": {
       "allFeeds": "همه فیدها",
-      "allAuthors": "همه نویسندگان"
+      "allAuthors": "همه نویسندگان",
+      "allSources": "همه منابع"
     },
     "status": {
       "reload": "بارگیری مجدد",

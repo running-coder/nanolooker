@@ -7,7 +7,7 @@ interface Props {
   account: string;
 }
 
-const ACCOUNT_2MINERS =
+export const ACCOUNT_2MINERS =
   "nano_14uzbiw1euwicrt3gzwnpyufpa8td1uw8wbhyyrz5e5pnqitjfk1tb8xwgg4";
 
 const ExtraRow: React.FC<Props> = ({ account }) => {

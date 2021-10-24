@@ -179,7 +179,8 @@
       "missingAccount": "Fehlendes Konto",
       "missingAccountInfo": "Das Konto ist nicht in der URL angegeben. Verwenden Sie die obere Suchleiste, um nach einem Konto zu suchen, oder hängen Sie es an die URL nach /account/ an.",
       "notVoting": "Nicht abstimmend",
-      "pendingTransactions": "empfangsbereite Transaktionen"
+      "pendingTransactions": "empfangsbereite Transaktionen",
+      "pendingTransaction": "Transaktion empfangsbereit"
     },
     "block": {
       "blockSubtype": "Subtyp blockieren",
@@ -257,7 +258,8 @@
     },
     "news": {
       "allFeeds": "Alle Feeds",
-      "allAuthors": "Alle Autoren"
+      "allAuthors": "Alle Autoren",
+      "allSources": "Alle Quellen"
     },
     "status": {
       "reload": "Aktualisieren",

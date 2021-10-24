@@ -179,7 +179,8 @@
       "missingAccount": "Cuenta faltante",
       "missingAccountInfo": "La cuenta no está especificada en la URL. Use la barra de búsqueda superior para buscar una cuenta o añádala en la URL después de /account/",
       "notVoting": "No votar",
-      "pendingTransactions": "Transacciones listas para ser recibidas"
+      "pendingTransactions": "Transacciones listas para ser recibidas",
+      "pendingTransaction": "Transacción lista para ser recibida"
     },
     "block": {
       "blockSubtype": "Subtipo de bloque",
@@ -257,7 +258,8 @@
     },
     "news": {
       "allFeeds": "Todos los feeds",
-      "allAuthors": "Todos los Autores"
+      "allAuthors": "Todos los Autores",
+      "allSources": "Todas las fuentes"
     },
     "status": {
       "reload": "Recargar",
