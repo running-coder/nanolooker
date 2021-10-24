@@ -132,7 +132,8 @@ const AccountPendingHistory: React.FC<Props> = ({
         }}
       >
         <Title level={3}>
-          {count} {t(`common.pendingTransaction${count !== 1 ? "s" : ""}`)}
+          {count}{" "}
+          {t(`pages.account.pendingTransaction${count !== 1 ? "s" : ""}`)}
         </Title>
 
         <Tooltip placement="right" title={t("tooltips.pendingTransaction")}>
