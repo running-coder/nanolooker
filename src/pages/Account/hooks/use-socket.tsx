@@ -72,6 +72,8 @@ const useSocket = ({ account }: { account?: string }) => {
       action: "update",
       topic: Topic.CONFIRMATION,
       options: {
+        // confirmation_type: "active_quorum",
+        // all_local_accounts: true,
         accounts_add: [account],
         accounts_del: [prevAccount],
       },
@@ -117,7 +119,8 @@ const useSocket = ({ account }: { account?: string }) => {
             } else if (flatMessage.subtype === "change") {
               flatMessage.amount = "0";
             } else if (flatMessage.subtype === "receive") {
-              // @TODO Check why a receive transaction has an invalid link_as_account!? and a not defined source_account BUG!?
+              // @TODO Check why a receive transaction has an invalid link_as_account!? and a not defined source_account
+              // https://github.com/nanocurrency/nano-node/issues/3523
               flatMessage.account = "";
             }
 

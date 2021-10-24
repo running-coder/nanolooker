@@ -98,9 +98,15 @@ const AccountDetails: React.FC<Props> = ({
     },
   } = React.useContext(ConfirmationQuorumContext);
 
-  const balance = new BigNumber(rawToRai(accountInfo?.balance || 0))
+  let balance = new BigNumber(rawToRai(accountInfo?.balance || 0))
     .plus(socketBalance)
     .toNumber();
+
+  // @NOTE temporary fix until a solution is found with the websocket messages going below 0
+  if (balance < 0) {
+    balance = 0;
+  }
+
   const balancePending = new BigNumber(rawToRai(accountInfo?.pending || 0))
     .plus(socketPendingBalance)
     .toFormat(8);

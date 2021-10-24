@@ -9,11 +9,12 @@ const { Sentry } = require("../sentry");
 const { rawToRai } = require("../utils");
 const { nodeCache } = require("../client/cache");
 const {
+  COINGECKO_MARKET_STATS,
+  MINERS_STATS,
+  MINERS_STATS_COLLECTION,
   MONGO_URL,
   MONGO_OPTIONS,
   MONGO_DB,
-  MINERS_STATS,
-  MINERS_STATS_COLLECTION,
 } = require("../constants");
 
 let db;
@@ -149,6 +150,7 @@ const do2MinersStats = async () => {
               totalBalanceHolding: 0,
               totalUniqueAccounts: 0,
               payoutAccounts: [],
+              totalFiatPayouts: 0,
               date,
             };
           }
@@ -178,6 +180,15 @@ const do2MinersStats = async () => {
     statsByDate[yesterday].hashrate = hashrate;
     statsByDate[yesterday].minersTotal = minersTotal;
     statsByDate[yesterday].workersTotal = workersTotal;
+
+    const { currentPrice = 0 } =
+      nodeCache.get(`${COINGECKO_MARKET_STATS}-usd`) || {};
+    const totalFiatPayouts =
+      Math.round(
+        currentPrice * rawToRai(statsByDate[yesterday].totalPayouts) * 100,
+      ) / 100;
+
+    statsByDate[yesterday].totalFiatPayouts = totalFiatPayouts;
 
     const uniqPayoutAccounts = uniq(payoutAccounts);
     const chunkPayoutAccounts = chunk(uniqPayoutAccounts, PER_PAGE);
@@ -214,6 +225,7 @@ const do2MinersStats = async () => {
         hashrate,
         minersTotal,
         workersTotal,
+        totalFiatPayouts,
         date,
       }) => {
         const uniqPayoutAccounts = uniq(payoutAccounts);
@@ -227,6 +239,7 @@ const do2MinersStats = async () => {
           hashrate,
           minersTotal,
           workersTotal,
+          totalFiatPayouts,
           date,
         });
       },
