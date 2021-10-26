@@ -301,8 +301,8 @@
     },
     "exchangeTracker": {
       "description": "Mỗi ngày, việc nắm bắt số dư tài khoản của các sàn giao dịch phổ biến nhất nơi Nano được giao dịch sẽ được thực hiện. Phép đo này có thể được sử dụng để phân tích các chuyển động và dao động trên mạng.",
-      "totalSelected": "Tổng số dư của các trao đổi đã chọn",
-      "selectedExchanges": "Trao đổi đã Chọn"
+      "totalSelected": "Tổng số dư của các ví đã chọn",
+      "selectedWallets": "Ví đã chọn"
     },
     "preferences": {
       "description": "Quản lý tùy chọn của bạn cho mọi phần. Các tùy chọn được lưu trữ trên trình duyệt, nếu bạn xóa dữ liệu của mình, tùy chọn của bạn sẽ trở lại mặc định.",

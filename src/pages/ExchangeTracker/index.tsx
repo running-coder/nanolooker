@@ -14,15 +14,6 @@ import exchangeWallets from "../../exchanges.json";
 
 const { Text, Title } = Typography;
 
-function formatDate(timestamp: any) {
-  const date = new Date(timestamp);
-  const month = `${date.getMonth() + 1}`.padStart(2, "0");
-  const day = `${date.getDate()}`.padStart(2, "0");
-  const year = date.getFullYear();
-
-  return [year, month, day].join("-");
-}
-
 const accountToLineColorMap = exchangeWallets.map(({ account }, i) => ({
   account,
   color: lineColors[i],
@@ -140,23 +131,6 @@ const ExchangeTrackerPage: React.FC = () => {
 
     const lastExchangeValues: { [key: string]: number } = {};
 
-    if (isSelectedExchanges) {
-      var now = new Date();
-      for (
-        // @ts-ignore
-        var d = new Date(2020, 1, 1);
-        d <= now;
-        d.setDate(d.getDate() + 1)
-      ) {
-        const day = formatDate(d);
-        exchangeData[day] = {
-          day,
-          value: 0,
-          category: "ALL",
-        };
-      }
-    }
-
     let totalExchangeBalance = 0;
     for (let account in exchangeBalances) {
       if (!activeWallets.includes(account)) continue;
@@ -175,10 +149,18 @@ const ExchangeTrackerPage: React.FC = () => {
           category: account,
         });
 
-        if (exchangeData[day]) {
-          exchangeData[day].value = new BigNumber(exchangeData[day].value)
-            .plus(value)
-            .toNumber();
+        if (isSelectedExchanges) {
+          if (exchangeData[day]) {
+            exchangeData[day].value = new BigNumber(exchangeData[day].value)
+              .plus(value)
+              .toNumber();
+          } else {
+            exchangeData[day] = {
+              day,
+              value,
+              category: "ALL",
+            };
+          }
         }
       });
 
@@ -218,7 +200,7 @@ const ExchangeTrackerPage: React.FC = () => {
             let { name, value, ...rest } = data;
 
             if (name === "ALL") {
-              name = t("pages.exchangeTracker.selectedExchanges");
+              name = t("pages.exchangeTracker.selectedWallets");
             } else {
               name =
                 exchangeWallets.find(({ account }) => account === name)?.name ||
@@ -322,7 +304,7 @@ const ExchangeTrackerPage: React.FC = () => {
             }}
           >
             <span style={{ marginRight: "3px" }}>
-              {t("pages.exchangeTracker.selectedExchanges")} (
+              {t("pages.exchangeTracker.selectedWallets")} (
               {activeWallets.filter(account => account !== "ALL").length})
             </span>
           </Tag>

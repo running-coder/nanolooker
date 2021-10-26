@@ -301,8 +301,8 @@
     },
     "exchangeTracker": {
       "description": "Todos os dias é feita uma captura dos saldos das contas das exchanges mais populares onde a Nano é negociada. Esta medição pode ser usada para analisar movimentos e flutuações na rede.",
-      "totalSelected": "Saldo total das trocas selecionadas",
-      "selectedExchanges": "Trocas selecionadas"
+      "totalSelected": "Saldo total das carteiras selecionadas",
+      "selectedWallets": "Carteiras selecionadas"
     },
     "preferences": {
       "description": "Gerencie suas preferências para todas as seções. As preferências são armazenadas no navegador, se você limpar seus dados, suas preferências voltarão ao padrão.",

@@ -301,8 +301,8 @@
     },
     "exchangeTracker": {
       "description": "Her gün, Nano'nun işlem gördüğü en popüler borsaların hesap bakiyelerinin bir kaydı alınır. Bu ölçüm, ağdaki hareketleri ve dalgalanmaları analiz etmek için kullanılabilir.",
-      "totalSelected": "Seçilen borsaların toplam bakiyesi",
-      "selectedExchanges": "Seçilmiş Değişimler"
+      "totalSelected": "Seçilen cüzdanların toplam bakiyesi",
+      "selectedWallets": "Seçilen Cüzdanlar"
     },
     "preferences": {
       "description": "Her bölüm için tercihlerinizi yönetin. Tercihler tarayıcıda saklanır, verilerinizi temizlerseniz tercihleriniz varsayılanlara geri döner.",

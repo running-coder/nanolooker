@@ -301,8 +301,8 @@
     },
     "exchangeTracker": {
       "description": "Ogni giorno viene eseguita una cattura dei saldi dei conti delle borse più popolari in cui viene scambiato Nano. Questa misurazione può essere utilizzata per analizzare i movimenti e le fluttuazioni sulla rete.",
-      "totalSelected": "Saldo totale delle borse selezionate",
-      "selectedExchanges": "Scambi selezionati"
+      "totalSelected": "Saldo totale dei portafogli selezionati",
+      "selectedWallets": "Portafogli selezionati"
     },
     "preferences": {
       "description": "Gestisci le tue preferenze per ogni sezione. Le preferenze vengono memorizzate nel browser, se cancelli i tuoi dati le tue preferenze torneranno ai valori predefiniti.",

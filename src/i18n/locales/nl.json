@@ -301,8 +301,8 @@
     },
     "exchangeTracker": {
       "description": "Elke dag wordt een opname gemaakt van de accountsaldo's van de meest populaire exchanges waar Nano wordt verhandeld. Deze meting kan worden gebruikt om bewegingen en fluctuaties op het netwerk te analyseren.",
-      "totalSelected": "Totaal saldo van geselecteerde beurzen",
-      "selectedExchanges": "Geselecteerde beurzen"
+      "totalSelected": "Totaal saldo van geselecteerde portefeuilles",
+      "selectedWallets": "Geselecteerde portemonnees"
     },
     "preferences": {
       "description": "Beheer uw voorkeuren voor elke sectie. De voorkeuren worden in de browser opgeslagen, als u uw gegevens wist, worden uw voorkeuren teruggezet naar de standaardinstellingen.",

@@ -301,8 +301,8 @@
     },
     "exchangeTracker": {
       "description": "Every day a capture of the account balances of the most popular exchanges where Nano is traded is taken. This measurement can be used to analyze movements and fluctuations on the network.",
-      "totalSelected": "Total balance of selected exchanges",
-      "selectedExchanges": "Selected Exchanges"
+      "totalSelected": "Total balance of selected wallets",
+      "selectedWallets": "Selected Wallets"
     },
     "statistics": {
       "social": {
