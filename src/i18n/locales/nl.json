@@ -301,7 +301,8 @@
     },
     "exchangeTracker": {
       "description": "Elke dag wordt een opname gemaakt van de accountsaldo's van de meest populaire exchanges waar Nano wordt verhandeld. Deze meting kan worden gebruikt om bewegingen en fluctuaties op het netwerk te analyseren.",
-      "totalSelected": "Totaal saldo van geselecteerde beurzen"
+      "totalSelected": "Totaal saldo van geselecteerde beurzen",
+      "selectedExchanges": "Geselecteerde beurzen"
     },
     "preferences": {
       "description": "Beheer uw voorkeuren voor elke sectie. De voorkeuren worden in de browser opgeslagen, als u uw gegevens wist, worden uw voorkeuren teruggezet naar de standaardinstellingen.",
@@ -405,7 +406,10 @@
         "balanceHolding": "Balans houden",
         "balanceHoldingDescription": "Gecombineerd saldo van de accounts die een uitbetaling hebben ontvangen sinds {{date}} en een saldo hebben van meer dan 0,001 NANO.",
         "viewPayoutStatistics": "Uitbetalingsstatistieken bekijken",
-        "payoutsDescription": "Het bedrag aan NANO dat voor die dag is uitbetaald."
+        "payoutsDescription": "Het bedrag aan NANO dat voor die dag is uitbetaald.",
+        "fiatPayouts": "Fiat-uitbetalingen",
+        "fiatPayoutsDescription": "Het geschatte bedrag van $ USD dat voor die dag is uitbetaald.",
+        "totalFiatPayouts": "Geschatte totale uitbetalingen door 2Miners (USD)"
       }
     }
   }

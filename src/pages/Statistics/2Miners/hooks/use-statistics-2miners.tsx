@@ -6,6 +6,7 @@ export interface Entry {
   totalUniqueAccounts: number;
   totalAccountsHolding: number;
   totalBalanceHolding: number;
+  totalFiatPayouts: number;
   date: string;
 }
 

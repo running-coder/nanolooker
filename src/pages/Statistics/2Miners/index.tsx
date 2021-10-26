@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
 import flatten from "lodash/flatten";
@@ -8,6 +7,8 @@ import LoadingStatistic from "components/LoadingStatistic";
 import { Line } from "@antv/g2plot";
 import useStatisticsSocial from "./hooks/use-statistics-2miners";
 import { ACCOUNT_2MINERS } from "pages/Account/Details/ExtraRow";
+import AccountHeader from "pages/Account/Header/Account";
+import BigNumber from "bignumber.js";
 
 const { Text, Title } = Typography;
 
@@ -16,6 +17,7 @@ let minersChart: any = null;
 const Statistics2MinersPage: React.FC = () => {
   const { t } = useTranslation();
   const { statistics, isLoading } = useStatisticsSocial();
+  const [totalFiatPayouts, setTotalFiatPayouts] = React.useState(0);
 
   const totalPayouts = statistics.reduce((acc, { totalPayouts }) => {
     return (acc += totalPayouts);
@@ -26,6 +28,14 @@ const Statistics2MinersPage: React.FC = () => {
   React.useEffect(() => {
     if (isLoading || !statistics.length) return;
 
+    setTotalFiatPayouts(
+      statistics.reduce(
+        (acc, { totalFiatPayouts = 0 }) =>
+          new BigNumber(acc).plus(totalFiatPayouts).toNumber(),
+        0,
+      ),
+    );
+
     const data = flatten(
       statistics.map(
         ({
@@ -34,6 +44,7 @@ const Statistics2MinersPage: React.FC = () => {
           totalUniqueAccounts,
           totalAccountsHolding,
           totalBalanceHolding,
+          totalFiatPayouts,
           date,
         }) =>
           [
@@ -68,6 +79,13 @@ const Statistics2MinersPage: React.FC = () => {
                   date,
                 }
               : null,
+            totalFiatPayouts
+              ? {
+                  value: totalFiatPayouts,
+                  category: t("pages.statistics.2miners.fiatPayouts"),
+                  date,
+                }
+              : null,
           ].filter(Boolean),
       ),
     );
@@ -84,6 +102,7 @@ const Statistics2MinersPage: React.FC = () => {
         visible: true,
         selected: {
           [t("pages.statistics.2miners.balanceHolding")]: false,
+          [t("pages.statistics.2miners.fiatPayouts")]: false,
         },
       },
     };
@@ -118,20 +137,33 @@ const Statistics2MinersPage: React.FC = () => {
       <Card size="small" bordered={false} className="detail-layout">
         <Row>
           <Col xs={24}>
+            <AccountHeader
+              account={ACCOUNT_2MINERS}
+              isLink={true}
+              hideOptions={true}
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={24} sm={12} lg={8}>
             <LoadingStatistic
-              title={
-                <>
-                  {t("pages.statistics.2miners.totalPayouts")}{" "}
-                  <Link to={`/account/${ACCOUNT_2MINERS}`}>
-                    {t("pages.status.viewAccount")}
-                  </Link>
-                </>
-              }
+              title={<>{t("pages.statistics.2miners.totalPayouts")}</>}
               value={totalPayouts}
               isLoading={!totalPayouts}
               suffix="NANO"
             />
-            <br />
+          </Col>
+          <Col xs={24} sm={12} lg={8}>
+            <LoadingStatistic
+              title={<>{t("pages.statistics.2miners.totalFiatPayouts")}</>}
+              value={totalFiatPayouts}
+              isLoading={!totalFiatPayouts}
+              prefix="$"
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={24}>
             <Text style={{ fontSize: "12px" }}>
               <strong>{t("pages.statistics.2miners.payouts")}</strong>:{" "}
               {t("pages.statistics.2miners.payoutsDescription")}
@@ -163,7 +195,16 @@ const Statistics2MinersPage: React.FC = () => {
               })}
             </Text>
             <br />
-            <br />
+            <Text style={{ fontSize: "12px" }}>
+              <strong>{t("pages.statistics.2miners.fiatPayouts")}</strong>:{" "}
+              {t("pages.statistics.2miners.fiatPayoutsDescription", {
+                date,
+              })}
+            </Text>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={24}>
             <Skeleton loading={isLoading || !statistics.length} active>
               <div id="2miners-chart" />
             </Skeleton>

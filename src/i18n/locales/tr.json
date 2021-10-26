@@ -301,7 +301,8 @@
     },
     "exchangeTracker": {
       "description": "Her gün, Nano'nun işlem gördüğü en popüler borsaların hesap bakiyelerinin bir kaydı alınır. Bu ölçüm, ağdaki hareketleri ve dalgalanmaları analiz etmek için kullanılabilir.",
-      "totalSelected": "Seçilen borsaların toplam bakiyesi"
+      "totalSelected": "Seçilen borsaların toplam bakiyesi",
+      "selectedExchanges": "Seçilmiş Değişimler"
     },
     "preferences": {
       "description": "Her bölüm için tercihlerinizi yönetin. Tercihler tarayıcıda saklanır, verilerinizi temizlerseniz tercihleriniz varsayılanlara geri döner.",
@@ -405,7 +406,10 @@
         "balanceHolding": "Tutma dengesi",
         "balanceHoldingDescription": "{{date}} tarihinden itibaren ödeme alan ve 0,001 NANO'nun üzerinde bakiyesi olan hesapların toplam bakiyesi.",
         "viewPayoutStatistics": "Ödeme istatistiklerini görüntüleyin",
-        "payoutsDescription": "O gün için ödenen NANO miktarı."
+        "payoutsDescription": "O gün için ödenen NANO miktarı.",
+        "fiatPayouts": "Fiat ödemeleri",
+        "fiatPayoutsDescription": "O gün için ödenen tahmini ABD doları tutarı.",
+        "totalFiatPayouts": "2Miners tarafından tahmini toplam ödemeler (USD)"
       }
     }
   }

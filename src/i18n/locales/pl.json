@@ -301,7 +301,8 @@
     },
     "exchangeTracker": {
       "description": "Codziennie zbierane są salda kont najpopularniejszych giełd, na których handluje się Nano. Pomiar ten można wykorzystać do analizy ruchów i fluktuacji w sieci.",
-      "totalSelected": "Łączne saldo wybranych giełd"
+      "totalSelected": "Łączne saldo wybranych giełd",
+      "selectedExchanges": "Wybrane giełdy"
     },
     "preferences": {
       "description": "Zarządzaj preferencjami dla każdej sekcji. Preferencje są przechowywane w przeglądarce, jeśli wyczyścisz swoje dane, przywrócone zostaną ustawienia domyślne.",
@@ -405,7 +406,10 @@
         "balanceHolding": "Saldo posiadania",
         "balanceHoldingDescription": "Łączne saldo kont, które otrzymały wypłatę od {{date}} i mają saldo powyżej 0,001 NANO.",
         "viewPayoutStatistics": "Zobacz statystyki wypłat",
-        "payoutsDescription": "Kwota NANO, która została wypłacona na ten dzień."
+        "payoutsDescription": "Kwota NANO, która została wypłacona na ten dzień.",
+        "fiatPayouts": "Wypłaty Fiata",
+        "fiatPayoutsDescription": "Szacunkowa kwota w USD wypłacona tego dnia.",
+        "totalFiatPayouts": "Szacunkowe całkowite wypłaty przez 2Miners (USD)"
       }
     }
   }

@@ -301,7 +301,8 @@
     },
     "exchangeTracker": {
       "description": "Todos os dias é feita uma captura dos saldos das contas das exchanges mais populares onde a Nano é negociada. Esta medição pode ser usada para analisar movimentos e flutuações na rede.",
-      "totalSelected": "Saldo total das trocas selecionadas"
+      "totalSelected": "Saldo total das trocas selecionadas",
+      "selectedExchanges": "Trocas selecionadas"
     },
     "preferences": {
       "description": "Gerencie suas preferências para todas as seções. As preferências são armazenadas no navegador, se você limpar seus dados, suas preferências voltarão ao padrão.",
@@ -405,7 +406,10 @@
         "balanceHolding": "Manter o equilíbrio",
         "balanceHoldingDescription": "Saldo combinado das contas que receberam um pagamento desde {{date}} e têm um saldo acima de 0,001 NANO.",
         "viewPayoutStatistics": "Ver estatísticas de pagamento",
-        "payoutsDescription": "A quantidade de NANO que foi paga naquele dia."
+        "payoutsDescription": "A quantidade de NANO que foi paga naquele dia.",
+        "fiatPayouts": "Pagamentos Fiat",
+        "fiatPayoutsDescription": "A quantia estimada de $ USD que foi paga naquele dia.",
+        "totalFiatPayouts": "Pagamentos totais estimados por 2Miners (USD)"
       }
     }
   }

@@ -301,7 +301,8 @@
     },
     "exchangeTracker": {
       "description": "Every day a capture of the account balances of the most popular exchanges where Nano is traded is taken. This measurement can be used to analyze movements and fluctuations on the network.",
-      "totalSelected": "Total balance of selected exchanges"
+      "totalSelected": "Total balance of selected exchanges",
+      "selectedExchanges": "Selected Exchanges"
     },
     "statistics": {
       "social": {
@@ -316,6 +317,7 @@
       "2miners": {
         "title": "Nano payout statistics by 2Miners Ethereum mining pool",
         "totalPayouts": "Total NANO payouts by 2Miners",
+        "totalFiatPayouts": "Estimated total payouts by 2Miners (USD)",
         "viewPayoutStatistics": "View payout statistics",
         "payouts": "Payouts",
         "payoutsDescription": "The amount of NANO that were paid out for that day.",
@@ -326,7 +328,9 @@
         "accountsHolding": "Accounts holding",
         "accountsHoldingDescription": "The number of accounts that received a payout since {{date}} and have a balance above 0.001 NANO.",
         "balanceHolding": "Holding balance",
-        "balanceHoldingDescription": "Combined balance of the accounts that received a payout since {{date}} and have a balance above 0.001 NANO."
+        "balanceHoldingDescription": "Combined balance of the accounts that received a payout since {{date}} and have a balance above 0.001 NANO.",
+        "fiatPayouts": "Fiat payouts",
+        "fiatPayoutsDescription": "The estimated $USD amount that was paid out for that day."
       }
     },
     "preferences": {

@@ -301,7 +301,8 @@
     },
     "exchangeTracker": {
       "description": "Mỗi ngày, việc nắm bắt số dư tài khoản của các sàn giao dịch phổ biến nhất nơi Nano được giao dịch sẽ được thực hiện. Phép đo này có thể được sử dụng để phân tích các chuyển động và dao động trên mạng.",
-      "totalSelected": "Tổng số dư của các trao đổi đã chọn"
+      "totalSelected": "Tổng số dư của các trao đổi đã chọn",
+      "selectedExchanges": "Trao đổi đã Chọn"
     },
     "preferences": {
       "description": "Quản lý tùy chọn của bạn cho mọi phần. Các tùy chọn được lưu trữ trên trình duyệt, nếu bạn xóa dữ liệu của mình, tùy chọn của bạn sẽ trở lại mặc định.",
@@ -405,7 +406,10 @@
         "balanceHolding": "Giữ số dư",
         "balanceHoldingDescription": "Số dư tổng hợp của các tài khoản đã nhận thanh toán kể từ {{date}} và có số dư trên 0,001 NANO.",
         "viewPayoutStatistics": "Xem thống kê thanh toán",
-        "payoutsDescription": "Số lượng NANO đã được thanh toán cho ngày hôm đó."
+        "payoutsDescription": "Số lượng NANO đã được thanh toán cho ngày hôm đó.",
+        "fiatPayouts": "Các khoản thanh toán Fiat",
+        "fiatPayoutsDescription": "Số tiền USD USD ước tính đã được thanh toán cho ngày hôm đó.",
+        "totalFiatPayouts": "Tổng các khoản thanh toán ước tính của 2Miners (USD)"
       }
     }
   }

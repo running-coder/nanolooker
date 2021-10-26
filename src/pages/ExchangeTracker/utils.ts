@@ -11,7 +11,10 @@ export const tagColors = [
   "geekblue",
   "purple",
   "pink",
+  "processing",
 ];
+
+// "success" | "warning" | "default" | "" | "" | "" | "" | "yellow" | "processing" | "error",
 
 export const lineColors = [
   "magenta",
@@ -26,6 +29,7 @@ export const lineColors = [
   "#2f54eb",
   "#722ed1",
   "pink",
+  "#108ee9",
 ];
 
 export const formatDate = (date: Date) => {

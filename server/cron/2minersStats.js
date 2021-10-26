@@ -16,6 +16,9 @@ const {
   MONGO_OPTIONS,
   MONGO_DB,
 } = require("../constants");
+const exchanges = require("../../src/exchanges.json");
+
+const exchangeAccounts = exchanges.map(({ account }) => account);
 
 let db;
 let mongoClient;
@@ -56,6 +59,18 @@ const getAccountsBalances = async accounts => {
   }
 
   return { totalBalance, totalAccounts };
+};
+
+const getAccountNonExchangeRepresentative = async account => {
+  const { representative } = await rpc("account_representative", {
+    account,
+  });
+
+  if (exchangeAccounts.includes(representative)) {
+    return null;
+  }
+
+  return account;
 };
 
 const connect = async () =>
@@ -106,7 +121,7 @@ const do2MinersStats = async () => {
   const latestDate = await getLatestDate();
 
   let isValid = true;
-  const PER_PAGE = 500;
+  const PER_PAGE = 1000;
   let currentPage = 1;
 
   let payoutAccounts = [];
@@ -191,7 +206,25 @@ const do2MinersStats = async () => {
     statsByDate[yesterday].totalFiatPayouts = totalFiatPayouts;
 
     const uniqPayoutAccounts = uniq(payoutAccounts);
-    const chunkPayoutAccounts = chunk(uniqPayoutAccounts, PER_PAGE);
+
+    const uniqAccountNonExchangeRepresentative = [];
+
+    // @NOTE replace this by `accounts_representatives` RPC when v23 gets released
+    // https://github.com/nanocurrency/nano-node/pull/3412
+    // uniqPayoutAccounts.forEach(async account => {
+    for (let i = 0; i < uniqPayoutAccounts.length; i++) {
+      const nonExchangeAccount = await getAccountNonExchangeRepresentative(
+        uniqPayoutAccounts[i],
+      );
+      if (nonExchangeAccount) {
+        uniqAccountNonExchangeRepresentative.push(nonExchangeAccount);
+      }
+    }
+
+    const chunkPayoutAccounts = chunk(
+      uniqAccountNonExchangeRepresentative,
+      PER_PAGE,
+    );
 
     for (let i = 0; i < chunkPayoutAccounts.length; i++) {
       const { totalBalance, totalAccounts } = await getAccountsBalances(
@@ -244,6 +277,8 @@ const do2MinersStats = async () => {
         });
       },
     );
+
+    console.log("Completed!");
   }
   // Reset cache
   nodeCache.set(MINERS_STATS, null);

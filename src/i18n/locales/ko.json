@@ -301,7 +301,8 @@
     },
     "exchangeTracker": {
       "description": "Nano가 거래되는 가장 인기있는 거래소의 계정 잔액을 매일 캡처합니다. 이 측정은 네트워크의 움직임과 변동을 분석하는 데 사용할 수 있습니다.",
-      "totalSelected": "선택한 거래소의 총 잔액"
+      "totalSelected": "선택한 거래소의 총 잔액",
+      "selectedExchanges": "선택한 거래소"
     },
     "preferences": {
       "description": "모든 섹션에 대한 기본 설정을 관리합니다. 기본 설정은 브라우저에 저장되며, 데이터를 지우면 기본 설정이 기본값으로 돌아갑니다.",
@@ -405,7 +406,10 @@
         "balanceHolding": "잔액 보유",
         "balanceHoldingDescription": "{{date}} 이후에 판매 대금을 받고 잔액이 0.001 NANO 이상인 계정의 합산 잔액.",
         "viewPayoutStatistics": "지불 통계 보기",
-        "payoutsDescription": "그날 지급된 NANO의 양입니다."
+        "payoutsDescription": "그날 지급된 NANO의 양입니다.",
+        "fiatPayouts": "법정화폐 지급",
+        "fiatPayoutsDescription": "해당 날짜에 지급된 예상 USD 금액입니다.",
+        "totalFiatPayouts": "2Miners의 예상 총 지불금(USD)"
       }
     }
   }

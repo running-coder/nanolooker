@@ -301,7 +301,8 @@
     },
     "exchangeTracker": {
       "description": "每天都会记录Nano交易所在的最受欢迎交易所的账户余额。此度量可用于分析网络上的移动和波动。",
-      "totalSelected": "所选交易所的总余额"
+      "totalSelected": "所选交易所的总余额",
+      "selectedExchanges": "精选交易所"
     },
     "preferences": {
       "description": "管理每个部分的首选项。首选项存储在浏览器中，如果您清除数据，则首选项将恢复为默认值。",
@@ -405,7 +406,10 @@
         "balanceHolding": "持有余额",
         "balanceHoldingDescription": "自 {{date}} 起收到付款且余额高于 0.001 NANO 的帐户的合并余额。",
         "viewPayoutStatistics": "查看支付统计",
-        "payoutsDescription": "当天支付的 NANO 数量。"
+        "payoutsDescription": "当天支付的 NANO 数量。",
+        "fiatPayouts": "法定付款",
+        "fiatPayoutsDescription": "当天支付的估计美元金额。",
+        "totalFiatPayouts": "2Miners 的估计总支出（美元）"
       }
     }
   }

@@ -301,7 +301,8 @@
     },
     "exchangeTracker": {
       "description": "Nanoが取引されている最も人気のある取引所の口座残高を毎日取得します。この測定値は、ネットワーク上の動きや変動を分析するために使用できます。",
-      "totalSelected": "選択した取引所の合計残高"
+      "totalSelected": "選択した取引所の合計残高",
+      "selectedExchanges": "選択された取引所"
     },
     "preferences": {
       "description": "すべてのセクションの設定を管理します。プリファレンスはブラウザに保存されます。データをクリアすると、プリファレンスはデフォルトに戻ります。",
@@ -405,7 +406,10 @@
         "balanceHolding": "バランスを保つ",
         "balanceHoldingDescription": "{{date}}以降に支払いを受け取り、残高が0.001NANOを超えるアカウントの合計残高。",
         "viewPayoutStatistics": "支払い統計を表示する",
-        "payoutsDescription": "その日に支払われたNANOの金額。"
+        "payoutsDescription": "その日に支払われたNANOの金額。",
+        "fiatPayouts": "フィアットの支払い",
+        "fiatPayoutsDescription": "その日に支払われた推定$ USDの金額。",
+        "totalFiatPayouts": "2Miners（USD）による推定総支払い額"
       }
     }
   }
