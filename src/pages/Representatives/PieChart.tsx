@@ -212,7 +212,9 @@ const Representatives: React.FC<Props> = ({
       );
 
       return {
-        alias: `${alias || ""}${aliasSeparator}${account}`,
+        // @NOTE Remove symbol characters as they are causing the chart to crash
+        // on latest Safari & mobile chrome. Re-enable once it's fixed
+        alias: `${alias?.replace(/\W/g, "") || ""}${aliasSeparator}${account}`,
         value,
       };
     });
@@ -348,7 +350,7 @@ const Representatives: React.FC<Props> = ({
             <Tooltip
               placement="right"
               title={t("tooltips.nakamotoCoefficient", {
-                onlineWeightQuorumPercent,
+                onlineWeightQuorumPercent: onlineWeightQuorumPercent || 0,
               })}
             >
               <QuestionCircle />
