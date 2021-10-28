@@ -35,3 +35,12 @@ jobs:
           remote_host: ${{ secrets.DO_HOST }}
           remote_user: ${{ secrets.DO_USERNAME }}
           remote_key: ${{ secrets.DO_SSHKEY }}
+
+      - name: Upload to spaces
+        uses: BetaHuhn/do-spaces-action@v2
+        with:
+          access_key: ${{ secrets.DO_ACCESS_KEY}}
+          secret_key: ${{ secrets.DO_SECRET_KEY }}
+          space_name: ${{ secrets.DO_SPACE_NAME }}
+          space_region: ${{ secrets.DO_SPACE_REGION }}
+          source: dist
