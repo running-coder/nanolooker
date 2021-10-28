@@ -21,6 +21,7 @@ jobs:
 
       - name: Build static assets
         env:
+          PUBLIC_URL: https://${{ secrets.DO_SPACE_NAME }}.${{ secrets.DO_SPACE_REGION }}.digitaloceanspaces.com/
           REACT_APP_GOOGLE_MEASUREMENT_ID: ${{ secrets.REACT_APP_GOOGLE_MEASUREMENT_ID }}
         run: |
           npm install
