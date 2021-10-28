@@ -84,7 +84,7 @@
     "ledgerSize": "De totale hoeveelheid schijfruimte die tot nu toe nodig is om alle Nano transacties op te slaan. De databasegrootte wordt uitgedrukt in binaire groottes (mebibyte) in plaats van decimaal (megabyte).",
     "bandwidthCap": "Nano nodes kunnen hun bandbreedte beperken om het aantal berichten dat kan worden verzonden of ontvangen te beperken. 0 staat voor een onbeperkte bandbreedte.",
     "uptime": "Tijd sinds de node voor het laatst opnieuw is opgestart.",
-    "mnano": "Mnano is de huidige standaarddivisie die wordt gebruikt in portefeuilles, beurzen en services. Het wordt 1 NANO genoemd.",
+    "mnano": "Nano is de huidige standaarddivisie die wordt gebruikt in portefeuilles, beurzen en services. Het wordt 1 NANO genoemd.",
     "versionsByWeight": "Om een versie de consensus van het netwerk te laten overnemen, moet deze {{onlineWeightQuorumPercent}}% van het online stemgewicht hebben van minimaal {{onlineWeightMinimum}} NANO.",
     "onChainVolume": "De som van alle NANO-transacties die op het netwerk zijn bevestigd. Als gebruiker A 1 NANO verzendt en gebruiker B 1 NANO op dezelfde dag ontvangt, wordt 2 NANO toegevoegd aan het dagelijkse volume omdat er 2 transacties zijn uitgezonden en bevestigd, een verzenden en een ontvangen.",
     "pendingTransactionCount": "Het aantal te ontvangen transacties overschrijdt de weergegeven limiet van {{count}}.",

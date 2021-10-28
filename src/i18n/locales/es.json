@@ -84,7 +84,7 @@
     "ledgerSize": "La cantidad total de espacio en disco necesaria para almacenar todas las transacciones Nano hasta ahora. El tamaño del libro mayor se calcula en base 1024, no 1000.",
     "bandwidthCap": "Los nano nodos pueden acelerar su ancho de banda para limitar la cantidad de mensajes que se pueden enviar o recibir. 0 significa ancho de banda ilimitado.",
     "uptime": "Tiempo transcurrido desde la última vez que se reinició el nodo.",
-    "mnano": "Mnano es la división estándar actual utilizada en billeteras, intercambios y servicios. Se denomina 1 NANO.",
+    "mnano": "Nano es la división estándar actual utilizada en billeteras, intercambios y servicios. Se denomina 1 NANO.",
     "versionsByWeight": "Para que una versión se apodere del consenso de la red, debe tener el {{onlineWeightQuorumPercent}}% del peso de la votación en línea de un mínimo de {{onlineWeightMinimum}} NANO.",
     "onChainVolume": "La suma de todas las transacciones NANO que se han confirmado en la red. Si el usuario A envía 1 NANO y el usuario B recibe 1 NANO el mismo día, se agregarán 2 NANO en el volumen diario porque se transmitieron y confirmaron 2 transacciones, un envío y una recepción.",
     "pendingTransactionCount": "El número de transacciones por cobrar excede el límite mostrado de {{count}}.",

@@ -84,7 +84,7 @@
     "ledgerSize": "到现在为止，存储每个Nano事务所需的磁盘空间总量。分类帐大小是基于1024而不是1000计算的。",
     "bandwidthCap": "纳米节点能够调节其带宽，以限制可以发送或接收的消息量。 0表示无限带宽。",
     "uptime": "自上次重新引导节点以来的时间。",
-    "mnano": "Mnano是目前用于钱包，交易所和服务的标准部门。它被称为1 NANO。",
+    "mnano": "Nano是目前用于钱包，交易所和服务的标准部门。它被称为1 NANO。",
     "versionsByWeight": "为了使版本能够取代网络的共识，它需要至少具有{{onlineWeightMinimum}} NANO的67％的在线投票权。",
     "onChainVolume": "网络上已确认的所有 NANO 交易的总和。如果用户 A 发送 1 个 NANO，用户 B 在同一天收到 1 个 NANO，那么每天的交易量会增加 2 个 NANO，因为 2 个交易被广播和确认，一个发送和一个接收。",
     "pendingTransactionCount": "应收交易的数量超过了显示的{{count}} 限制。",

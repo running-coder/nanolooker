@@ -23,7 +23,7 @@ const Statistics2MinersPage: React.FC = () => {
     return (acc += totalPayouts);
   }, 0);
 
-  const { date } = statistics[statistics.length - 1] || {};
+  const { date = "" } = statistics[statistics.length - 1] || {};
 
   React.useEffect(() => {
     if (isLoading || !statistics.length) return;

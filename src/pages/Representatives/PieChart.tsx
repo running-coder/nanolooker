@@ -214,7 +214,7 @@ const Representatives: React.FC<Props> = ({
       return {
         // @NOTE Remove symbol characters as they are causing the chart to crash
         // on latest Safari & mobile chrome. Re-enable once it's fixed
-        alias: `${alias?.replace(/\W/g, "") || ""}${aliasSeparator}${account}`,
+        alias: `${alias?.replace(/\W/g, " ") || ""}${aliasSeparator}${account}`,
         value,
       };
     });
@@ -347,14 +347,16 @@ const Representatives: React.FC<Props> = ({
         <Row>
           <Col xs={24} md={12}>
             {t("pages.representatives.nakamotoCoefficient")}
-            <Tooltip
-              placement="right"
-              title={t("tooltips.nakamotoCoefficient", {
-                onlineWeightQuorumPercent: onlineWeightQuorumPercent || 0,
-              })}
-            >
-              <QuestionCircle />
-            </Tooltip>
+            {onlineWeightQuorumPercent ? (
+              <Tooltip
+                placement="right"
+                title={t("tooltips.nakamotoCoefficient", {
+                  onlineWeightQuorumPercent: onlineWeightQuorumPercent,
+                })}
+              >
+                <QuestionCircle />
+              </Tooltip>
+            ) : null}
           </Col>
           <Col xs={24} md={12}>
             <Skeleton
