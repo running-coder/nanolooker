@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "main": "server/server.js",
   "scripts": {
+    "analyze": "source-map-explorer 'dist/static/js/*.js'",
     "start": "react-scripts start",
     "start:server": "nodemon server/server.js",
     "restart": "",
@@ -70,6 +71,7 @@
     "reconnecting-websocket": "^4.4.0",
     "redis": "^3.1.2",
     "rimraf": "^3.0.2",
+    "source-map-explorer": "^2.5.2",
     "timeago-react": "^3.0.0",
     "use-deep-compare-effect": "^1.3.0",
     "ws": "^7.2.1",

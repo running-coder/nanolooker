@@ -36,13 +36,25 @@ const useSocket = ({ account }: { account?: string }) => {
 
   let pingInterval: number | undefined;
 
+  const visibilityChange = () => {
+    if (document.visibilityState !== "visible") {
+      isForcedClosed = true;
+      ws?.close();
+    } else {
+      isForcedClosed = false;
+      connect();
+    }
+  };
+
   React.useEffect(() => {
     connect();
 
     isMounted = true;
+    window.addEventListener("visibilitychange", visibilityChange);
 
     return () => {
       isMounted = false;
+      window.removeEventListener("visibilitychange", visibilityChange);
 
       ws?.close();
     };
