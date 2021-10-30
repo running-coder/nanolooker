@@ -151,7 +151,7 @@
       "ledgerSize": "Taille du registre",
       "last24Hours": "Dernières 24 heures",
       "avgConfirmationTime": "Temps de confirmation moyen (secondes)",
-      "confirmedTransactions": "Transactions confirmés",
+      "confirmedTransactions": "Transactions confirmées",
       "transactionFees": "Frais de transaction NANO",
       "exchangeVolume": "Volume des échanges",
       "onChainVolume": "Volume sur la chaîne NANO",
