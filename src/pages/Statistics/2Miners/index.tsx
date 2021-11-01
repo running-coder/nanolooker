@@ -2,22 +2,26 @@ import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
 import flatten from "lodash/flatten";
+import BigNumber from "bignumber.js";
 import { Card, Col, Row, Skeleton, Typography } from "antd";
-import LoadingStatistic from "components/LoadingStatistic";
 import { Line } from "@antv/g2plot";
 import useStatisticsSocial from "./hooks/use-statistics-2miners";
 import { ACCOUNT_2MINERS } from "pages/Account/Details/ExtraRow";
 import AccountHeader from "pages/Account/Header/Account";
-import BigNumber from "bignumber.js";
+import LoadingStatistic from "components/LoadingStatistic";
+
+import TransactionsTable from "pages/Account/Transactions";
 
 const { Text, Title } = Typography;
 
 let minersChart: any = null;
+const TRANSACTIONS_PER_PAGE = 25;
 
 const Statistics2MinersPage: React.FC = () => {
   const { t } = useTranslation();
   const { statistics, isLoading } = useStatisticsSocial();
   const [totalFiatPayouts, setTotalFiatPayouts] = React.useState(0);
+  const [currentPage, setCurrentPage] = React.useState<number>(1);
 
   const totalPayouts = statistics.reduce((acc, { totalPayouts }) => {
     return (acc += totalPayouts);
@@ -128,6 +132,10 @@ const Statistics2MinersPage: React.FC = () => {
     };
   }, []);
 
+  const transactions = flatten(statistics.map(({ blocks = [] }) => blocks));
+  const showPaginate = transactions.length > TRANSACTIONS_PER_PAGE;
+  const totalPages = Math.ceil(transactions.length / TRANSACTIONS_PER_PAGE);
+
   return (
     <>
       <Helmet>
@@ -211,6 +219,18 @@ const Statistics2MinersPage: React.FC = () => {
           </Col>
         </Row>
       </Card>
+
+      <TransactionsTable
+        scrollTo="totalTransactions"
+        data={transactions}
+        isLoading={isLoading}
+        isPaginated={true}
+        showPaginate={showPaginate}
+        pageSize={TRANSACTIONS_PER_PAGE}
+        currentPage={currentPage}
+        totalPages={totalPages}
+        setCurrentPage={setCurrentPage}
+      />
     </>
   );
 };

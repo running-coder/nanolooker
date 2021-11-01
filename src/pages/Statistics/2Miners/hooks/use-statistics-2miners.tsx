@@ -1,5 +1,9 @@
 import * as React from "react";
+import { Transaction } from "types/transaction";
 
+interface Blocks extends Transaction {
+  price: number;
+}
 export interface Entry {
   totalPayouts: number;
   totalAccounts: number;
@@ -7,6 +11,7 @@ export interface Entry {
   totalAccountsHolding: number;
   totalBalanceHolding: number;
   totalFiatPayouts: number;
+  blocks: Blocks[];
   date: string;
 }
 

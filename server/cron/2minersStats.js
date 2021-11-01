@@ -4,12 +4,12 @@ const cron = require("node-cron");
 const BigNumber = require("bignumber.js");
 const chunk = require("lodash/chunk");
 const uniq = require("lodash/uniq");
+const orderBy = require("lodash/orderBy");
 const { rpc } = require("../rpc");
 const { Sentry } = require("../sentry");
 const { rawToRai } = require("../utils");
 const { nodeCache } = require("../client/cache");
 const {
-  COINGECKO_MARKET_STATS,
   MINERS_STATS,
   MINERS_STATS_COLLECTION,
   MONGO_URL,
@@ -18,12 +18,18 @@ const {
 } = require("../constants");
 const exchanges = require("../../src/exchanges.json");
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 const exchangeAccounts = exchanges.map(({ account }) => account);
 
 let db;
 let mongoClient;
 
+const MIN_RECEIVE_AMOUNT = 100;
 const MIN_HOLDING_AMOUNT = 0.001;
+const MIN_DATE = "2021-10-12";
 const ACCOUNT =
   "nano_14uzbiw1euwicrt3gzwnpyufpa8td1uw8wbhyyrz5e5pnqitjfk1tb8xwgg4";
 
@@ -94,37 +100,36 @@ const connect = async () =>
     }
   });
 
-const getLatestDate = async () => {
+const getLatestEntry = async () => {
   if (!db) {
     console.log("DB not available");
     return;
   }
 
   // eslint-disable-next-line no-loop-func
-  const latestDate = await new Promise((resolve, reject) => {
+  const latestEntry = await new Promise((resolve, reject) => {
     db.collection(MINERS_STATS_COLLECTION)
-      .find()
+      .find({ pool: "2Miners" })
       .sort({ date: -1 })
-      .limit(2)
+      .limit(1)
       .toArray((_err, [data = {}] = []) => {
         console.log(`Most recent date: ${data.date}`);
-        resolve(data.date);
+        resolve(data);
       });
   });
 
-  return latestDate;
+  return latestEntry;
 };
 
 const do2MinersStats = async () => {
   await connect();
 
-  const latestDate = await getLatestDate();
+  const { date: latestDate, uniqueAccounts = [] } =
+    (await getLatestEntry()) || {};
 
   let isValid = true;
-  const PER_PAGE = 1000;
+  const PER_PAGE = 500;
   let currentPage = 1;
-
-  let payoutAccounts = [];
   const statsByDate = {};
 
   while (isValid) {
@@ -146,37 +151,51 @@ const do2MinersStats = async () => {
         local_timestamp: localTimestamp,
       } = history[i];
 
-      if (type === "send") {
-        const date = formatDate(parseFloat(localTimestamp) * 1000);
-        // Do not compile data for "today"
-        if (date === formatDate(Date.now())) {
-          continue;
+      const date = formatDate(parseFloat(localTimestamp) * 1000);
+      // Do not compile data for "today"
+      if (date === formatDate(Date.now())) {
+        continue;
+      }
+      // Do not compile stats for an already compiled date
+      if (date < MIN_DATE || (latestDate && date <= latestDate)) {
+        isValid = false;
+        break;
+      }
+
+      if (!statsByDate[date]) {
+        statsByDate[date] = {
+          pool: "2Miners",
+          totalPayouts: 0,
+          totalAccounts: 0,
+          totalAccountsHolding: 0,
+          totalBalanceHolding: 0,
+          totalUniqueAccounts: 0,
+          payoutAccounts: [],
+          blocks: [],
+          totalFiatPayouts: 0,
+          date,
+        };
+      }
+
+      if (type === "receive") {
+        const receivedAmount = rawToRai(amount);
+        if (receivedAmount > MIN_RECEIVE_AMOUNT) {
+          // CoinGecko rate limit
+          await sleep(1500);
+          const price = await getCoingeckoPrice(parseInt(localTimestamp));
+
+          statsByDate[date].blocks.push({
+            ...history[i],
+            price,
+          });
         }
-
-        payoutAccounts.push(account);
-
-        // Do not compile stats for an already compiled date
-        if (!latestDate || (latestDate && date > latestDate)) {
-          if (!statsByDate[date]) {
-            statsByDate[date] = {
-              totalPayouts: 0,
-              totalAccounts: 0,
-              totalAccountsHolding: 0,
-              totalBalanceHolding: 0,
-              totalUniqueAccounts: 0,
-              payoutAccounts: [],
-              totalFiatPayouts: 0,
-              date,
-            };
-          }
-
-          statsByDate[date].payoutAccounts.push(account);
-          statsByDate[date].totalPayouts = BigNumber(
-            statsByDate[date].totalPayouts,
-          )
-            .plus(amount)
-            .toNumber();
-        }
+      } else if (type === "send") {
+        statsByDate[date].payoutAccounts.push(account);
+        statsByDate[date].totalPayouts = BigNumber(
+          statsByDate[date].totalPayouts,
+        )
+          .plus(amount)
+          .toNumber();
       }
 
       if (history.length < PER_PAGE) {
@@ -188,120 +207,110 @@ const do2MinersStats = async () => {
     currentPage += 1;
   }
 
-  const yesterday = formatDate(Date.now() - 60 * 60 * 24 * 1000);
-  if (statsByDate[yesterday]) {
-    const { hashrate, minersTotal, workersTotal } = await get2MinersPoolStats();
+  let payoutAccounts = [];
+  let isUniqueAccountsInserted = false;
 
-    statsByDate[yesterday].hashrate = hashrate;
-    statsByDate[yesterday].minersTotal = minersTotal;
-    statsByDate[yesterday].workersTotal = workersTotal;
+  let statsLength = Object.values(statsByDate).length;
 
-    const { currentPrice = 0 } =
-      nodeCache.get(`${COINGECKO_MARKET_STATS}-usd`) || {};
-    const totalFiatPayouts =
-      Math.round(
-        currentPrice * rawToRai(statsByDate[yesterday].totalPayouts) * 100,
-      ) / 100;
+  orderBy(Object.values(statsByDate), ["date"], ["asc"]).forEach(
+    async (stats, index) => {
+      stats.totalFiatPayouts =
+        Math.round(
+          (stats.blocks[0].price || 0) * rawToRai(stats.totalPayouts) * 100,
+        ) / 100;
+      stats.payoutAccounts = uniq(stats.payoutAccounts);
+      stats.totalAccounts = stats.payoutAccounts.length;
 
-    statsByDate[yesterday].totalFiatPayouts = totalFiatPayouts;
-
-    const uniqPayoutAccounts = uniq(payoutAccounts);
-
-    const uniqAccountNonExchangeRepresentative = [];
-
-    // @NOTE replace this by `accounts_representatives` RPC when v23 gets released
-    // https://github.com/nanocurrency/nano-node/pull/3412
-    // uniqPayoutAccounts.forEach(async account => {
-    for (let i = 0; i < uniqPayoutAccounts.length; i++) {
-      const nonExchangeAccount = await getAccountNonExchangeRepresentative(
-        uniqPayoutAccounts[i],
+      payoutAccounts = uniq(
+        uniqueAccounts.concat(payoutAccounts, stats.payoutAccounts),
       );
-      if (nonExchangeAccount) {
-        uniqAccountNonExchangeRepresentative.push(nonExchangeAccount);
+      stats.totalUniqueAccounts = payoutAccounts.length;
+
+      if (statsLength - 1 === index) {
+        isUniqueAccountsInserted = true;
+        stats.uniqueAccounts = payoutAccounts;
       }
-    }
 
-    const chunkPayoutAccounts = chunk(
-      uniqAccountNonExchangeRepresentative,
-      PER_PAGE,
-    );
+      const uniqAccountNonExchangeRepresentative = [];
 
-    for (let i = 0; i < chunkPayoutAccounts.length; i++) {
-      const { totalBalance, totalAccounts } = await getAccountsBalances(
-        chunkPayoutAccounts[i],
+      // @NOTE replace this by `accounts_representatives` RPC when v23 gets released
+      // https://github.com/nanocurrency/nano-node/pull/3412
+      for (let i = 0; i < stats.payoutAccounts.length; i++) {
+        const nonExchangeAccount = await getAccountNonExchangeRepresentative(
+          stats.payoutAccounts[i],
+        );
+        if (nonExchangeAccount) {
+          uniqAccountNonExchangeRepresentative.push(nonExchangeAccount);
+        }
+      }
+
+      const chunkPayoutAccounts = chunk(
+        uniqAccountNonExchangeRepresentative,
+        PER_PAGE,
       );
 
-      statsByDate[yesterday].totalAccountsHolding = new BigNumber(
-        statsByDate[yesterday].totalAccountsHolding,
-      )
-        .plus(totalAccounts)
-        .toNumber();
+      for (let i = 0; i < chunkPayoutAccounts.length; i++) {
+        const { totalBalance, totalAccounts } = await getAccountsBalances(
+          chunkPayoutAccounts[i],
+        );
 
-      statsByDate[yesterday].totalBalanceHolding = new BigNumber(
-        statsByDate[yesterday].totalBalanceHolding,
-      )
-        .plus(totalBalance)
-        .toNumber();
-    }
+        stats.totalAccountsHolding = new BigNumber(stats.totalAccountsHolding)
+          .plus(totalAccounts)
+          .toNumber();
 
-    statsByDate[yesterday].totalUniqueAccounts = uniqPayoutAccounts.length;
-  }
+        stats.totalBalanceHolding = new BigNumber(stats.totalBalanceHolding)
+          .plus(totalBalance)
+          .toNumber();
+      }
 
-  if (Object.values(statsByDate).length) {
-    Object.values(statsByDate).forEach(
-      ({
-        totalPayouts,
-        payoutAccounts,
-        totalAccountsHolding,
-        totalBalanceHolding,
-        totalUniqueAccounts,
-        hashrate,
-        minersTotal,
-        workersTotal,
-        totalFiatPayouts,
-        date,
-      }) => {
-        const uniqPayoutAccounts = uniq(payoutAccounts);
+      stats.totalPayouts = rawToRai(stats.totalPayouts);
 
-        db.collection(MINERS_STATS_COLLECTION).insertOne({
-          totalPayouts: rawToRai(totalPayouts),
-          totalAccounts: uniqPayoutAccounts.length,
-          totalAccountsHolding,
-          totalBalanceHolding,
-          totalUniqueAccounts,
-          hashrate,
-          minersTotal,
-          workersTotal,
-          totalFiatPayouts,
-          date,
-        });
+      // Too heaving saving them, instead store uniqueAccounts on the latest date
+      delete stats.payoutAccounts;
+
+      db.collection(MINERS_STATS_COLLECTION).insertOne(stats);
+    },
+  );
+
+  // Delete previous payoutAccounts
+  if (isUniqueAccountsInserted) {
+    await db.collection(MINERS_STATS_COLLECTION).updateOne(
+      {
+        date: latestDate,
+      },
+      {
+        $set: {
+          uniqueAccounts: null,
+        },
       },
     );
-
-    console.log("Completed!");
   }
+
+  console.log("Completed!");
+
   // Reset cache
   nodeCache.set(MINERS_STATS, null);
 };
 
-const get2MinersPoolStats = async () => {
-  let hashrate = 0;
-  let minersTotal = 0;
-  let workersTotal = 0;
+const getCoingeckoPrice = async timestamp => {
+  let price = 0;
 
+  // Get the price from before the tx happened on the network
   try {
-    const res = await fetch(`https://eth.2miners.com/api/stats`);
-    ({ hashrate, minersTotal, workersTotal } = await res.json());
+    const res = await fetch(
+      `https://api.coingecko.com/api/v3/coins/nano/market_chart/range?vs_currency=usd&from=${
+        timestamp - 4000
+      }&to=${timestamp + 4000}`,
+    );
+
+    const { prices } = await res.json();
+    price = prices[0][1];
   } catch (err) {
     console.log("Error", err);
     Sentry.captureException(err);
   }
 
-  return {
-    hashrate,
-    minersTotal,
-    workersTotal,
-  };
+  return price;
 };
 
 // https://crontab.guru/#0_0_*_*_*
