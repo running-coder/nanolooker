@@ -127,10 +127,10 @@ const getMarketCapStats = async () => {
 
   const marketCapStats = [];
   const ids = [];
-  const top = process.env.NODE_ENV === "production" ? 150 : 10;
+  const top = process.env.NODE_ENV === "production" ? 200 : 10;
 
   try {
-    // @NOTE top 150
+    // @NOTE top 200
     let res = await fetch(
       `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${top}&page=1&sparkline=false`,
     );
@@ -231,7 +231,7 @@ const getMarketCapStats = async () => {
       if (i && !(i % 10)) {
         await sleep(3500);
       } else {
-        await sleep(process.env.NODE_ENV === "production" ? 750 : 150);
+        await sleep(process.env.NODE_ENV === "production" ? 1000 : 150);
       }
     }
 
