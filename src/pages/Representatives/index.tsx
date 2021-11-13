@@ -212,8 +212,7 @@ const Representatives = () => {
               </Col>
               <Col xs={24} sm={16}>
                 <Skeleton {...confirmationQuorumSkeletonProps}>
-                  {new BigNumber(principalRepresentativeMinWeight).toFormat()}{" "}
-                  NANO
+                  Ӿ{new BigNumber(principalRepresentativeMinWeight).toFormat()}
                 </Skeleton>
               </Col>
             </Row>
@@ -234,7 +233,7 @@ const Representatives = () => {
               <Col xs={24} sm={16}>
                 {" "}
                 <Skeleton {...confirmationQuorumSkeletonProps}>
-                  {new BigNumber(rawToRai(onlineWeightMinimum)).toFormat()} NANO
+                  Ӿ{new BigNumber(rawToRai(onlineWeightMinimum)).toFormat()}
                 </Skeleton>
               </Col>
             </Row>
@@ -244,7 +243,7 @@ const Representatives = () => {
               </Col>
               <Col xs={24} sm={16}>
                 <Skeleton {...confirmationQuorumSkeletonProps}>
-                  {new BigNumber(rawToRai(onlineStakeTotal)).toFormat(0)} NANO
+                  Ӿ{new BigNumber(rawToRai(onlineStakeTotal)).toFormat(0)}
                 </Skeleton>
               </Col>
             </Row>
@@ -254,7 +253,7 @@ const Representatives = () => {
               </Col>
               <Col xs={24} sm={16}>
                 <Skeleton {...confirmationQuorumSkeletonProps}>
-                  {new BigNumber(rawToRai(peersStakeTotal)).toFormat(0)} NANO
+                  Ӿ{new BigNumber(rawToRai(peersStakeTotal)).toFormat(0)}
                 </Skeleton>
               </Col>
             </Row>
@@ -332,7 +331,7 @@ const Representatives = () => {
                           display: "block",
                         }}
                       >
-                        {weight} NANO
+                        Ӿ{weight}
                       </span>
 
                       {isPrincipal ? (

@@ -102,6 +102,35 @@ const Statistics2MinersPage: React.FC = () => {
       xAxis: {
         type: "time",
       },
+      tooltip: {
+        // @ts-ignore
+        customItems: (originalItems: any) => {
+          // @ts-ignore
+          const items = originalItems.map(data => {
+            const { name, value, ...rest } = data;
+
+            let prefix = "";
+            let format: undefined | number;
+            if (
+              name === t("pages.statistics.2miners.payouts") ||
+              name === t("pages.statistics.2miners.balanceHolding")
+            ) {
+              prefix = "Ӿ";
+            } else if (name === t("pages.statistics.2miners.fiatPayouts")) {
+              prefix = "$";
+              format = 2;
+            }
+
+            return {
+              ...rest,
+              name,
+              value: `${prefix}${new BigNumber(value).toFormat(format)}`,
+            };
+          });
+
+          return items;
+        },
+      },
       legend: {
         visible: true,
         selected: {
@@ -158,7 +187,7 @@ const Statistics2MinersPage: React.FC = () => {
               title={<>{t("pages.statistics.2miners.totalPayouts")}</>}
               value={totalPayouts}
               isLoading={!totalPayouts}
-              suffix="NANO"
+              prefix="Ӿ"
             />
           </Col>
           <Col xs={24} sm={12} lg={8}>

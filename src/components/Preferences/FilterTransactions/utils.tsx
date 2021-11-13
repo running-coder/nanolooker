@@ -9,24 +9,24 @@ export const units: Unit[] = [
     raw: Infinity,
   },
   {
-    unit: "1000 Nano",
+    unit: "Ӿ1000",
     raw: 1e33,
-    display: "1000 Nano",
+    display: "Ӿ1000",
   },
   {
-    unit: "Nano",
+    unit: "Ӿ1",
     raw: 1e30,
-    display: "1 Nano",
+    display: "Ӿ1 ",
   },
   {
-    unit: "0.001 Nano",
+    unit: "Ӿ0.001",
     raw: 1e27,
-    display: "0.001 Nano",
+    display: "Ӿ0.001",
   },
   {
-    unit: "0.000001 Nano",
+    unit: "Ӿ0.000001",
     raw: 1e24,
-    display: `0.000001 Nano`,
+    display: `Ӿ0.000001`,
   },
   {
     unit: "1e+21 raw",

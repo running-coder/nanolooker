@@ -4,6 +4,7 @@ import uniqBy from "lodash/uniqBy";
 import { PostSource } from "../";
 
 export enum MEDIUM_FEEDS {
+  ANANO_CURRENCY = "@nanocurrency",
   NANO_CURRENCY = "nanocurrency",
   NANO_CENTER = "the-nano-center",
   NANO_EDUCATION = "nano-education",

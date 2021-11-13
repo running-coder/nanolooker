@@ -194,54 +194,6 @@ const NanoQuakeJSPage: React.FC = () => {
             <p>{t("pages.nanoquakejs.welcomeDescription2")}</p>
           </Card>
         </Col>
-        {/* <Col xs={{ span: 24, order: 3 }} md={{ span: 12, order: 2 }}>
-          <Title level={3}>Statistics</Title>
-          <Card size="small" bordered={false} className="detail-layout">
-            <Row gutter={6}>
-              <Col xs={24} sm={8}>
-                Registered Players
-              </Col>
-              <Col xs={24} sm={16}>
-                {new BigNumber(4143).toFormat()}
-              </Col>
-            </Row>
-            <Row gutter={6}>
-              <Col xs={24} sm={8}>
-                Total Frags
-              </Col>
-              <Col xs={24} sm={16}>
-                {new BigNumber(490334).toFormat()}
-              </Col>
-            </Row>
-            <Row gutter={6}>
-              <Col xs={24} sm={8}>
-                Season payouts
-              </Col>
-              <Col xs={24} sm={16}>
-                {new BigNumber(2.123456).toFormat()} NANO
-              </Col>
-            </Row>
-            <Row gutter={6}>
-              <Col xs={24} sm={8}>
-                Total paid out
-              </Col>
-              <Col xs={24} sm={16}>
-                {new BigNumber(215.55).toFormat()} NANO
-              </Col>
-            </Row>
-            <Row gutter={6}>
-              <Col xs={24} sm={8}>
-                Last game
-              </Col>
-              <Col xs={24} sm={16}>
-                {new BigNumber(0.0023456).toFormat()} NANO
-              </Col>
-            </Row>
-          </Card>
-        </Col> */}
-        {/* <Col xs={{ span: 24, order: 2 }} md={{ order: 3 }}>
-          <Scores />
-        </Col> */}
       </Row>
     </>
   );

@@ -204,12 +204,7 @@ const BlockDetails: React.FC = () => {
               <Col xs={24} sm={18} xl={20}>
                 <LoadingStatistic
                   isLoading={skeletonProps.loading}
-                  suffix={
-                    isSmallAndLower &&
-                    new BigNumber(amount).toFormat().length >= 25
-                      ? ""
-                      : "NANO"
-                  }
+                  prefix="Ӿ"
                   value={
                     amount >= 1 ? amount : new BigNumber(amount).toFormat()
                   }
@@ -234,7 +229,7 @@ const BlockDetails: React.FC = () => {
                   {...skeletonProps}
                   title={{ width: isSmallAndLower ? "100%" : "33%" }}
                 >
-                  {new BigNumber(balance).toFormat()} NANO
+                  Ӿ{new BigNumber(balance).toFormat()}
                   <br />
                 </Skeleton>
                 <Skeleton

@@ -312,6 +312,7 @@ const ExchangeTrackerPage: React.FC = () => {
 
         <LoadingStatistic
           title={t("pages.exchangeTracker.totalSelected")}
+          prefix="Ӿ"
           value={totalExchangeBalance}
           isLoading={!exchangeBalances}
         />
