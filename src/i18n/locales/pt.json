@@ -92,7 +92,8 @@
   },
   "search": {
     "searchBy": "Pesquisar por endereço / bloco",
-    "noHistory": "Sem histórico de pesquisa"
+    "noHistory": "Sem histórico de pesquisa",
+    "scanWallet": "Digitalize uma conta de carteira começando com \"nano_\""
   },
   "preferences": {
     "viewAll": "Ver todas as preferências",

@@ -92,7 +92,8 @@
   },
   "search": {
     "searchBy": "Adres / Blok / Bilinen Hesap ile Ara",
-    "noHistory": "Arama geçmişi yok"
+    "noHistory": "Arama geçmişi yok",
+    "scanWallet": "\"nano_\" ile başlayan bir cüzdan hesabını tarayın"
   },
   "preferences": {
     "viewAll": "Tüm tercihleri görüntüleyin",

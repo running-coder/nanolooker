@@ -221,8 +221,6 @@ const TransactionsTable = ({
                       {!amount || amount === "0"
                         ? t("common.notAvailable")
                         : ""}
-                      {["receive", "open"].includes(transactionType) ? "+" : ""}
-                      {subtype === "send" ? "-" : ""}
                       {amount && amount !== "0"
                         ? `Ӿ${new BigNumber(rawToRai(amount)).toFormat()}`
                         : ""}

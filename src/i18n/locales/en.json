@@ -92,7 +92,8 @@
   },
   "search": {
     "searchBy": "Search by Address / Block / Known Account",
-    "noHistory": "No search history"
+    "noHistory": "No search history",
+    "scanWallet": "Scan a wallet account starting with \"nano_\""
   },
   "preferences": {
     "viewAll": "View all preferences",
@@ -353,7 +354,7 @@
       "playNow": "Play Now !",
       "register": "Register",
       "donatePrizePool": "Donate to NanoQuakeJS prize pool",
-      "scanWallet": "Scan your wallet address",
+      "scanWallet": "Scan your wallet account starting with \"nano_\"",
       "registerError": "Unable to complete registration",
       "registerDescription": "NanoQuakeJS is free to play, forever. If you enjoy the service you can make a small contribution to the NanoQuakeJS prize pool.",
       "happyFragging": "Happy fragging!",

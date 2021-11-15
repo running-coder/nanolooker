@@ -92,7 +92,8 @@
   },
   "search": {
     "searchBy": "Tìm kiếm theo Địa chỉ / Khối / Tài khoản Đã biết",
-    "noHistory": "Không có lịch sử tìm kiếm"
+    "noHistory": "Không có lịch sử tìm kiếm",
+    "scanWallet": "Quét tài khoản ví bắt đầu bằng \"nano_\""
   },
   "preferences": {
     "viewAll": "Xem tất cả các tùy chọn",

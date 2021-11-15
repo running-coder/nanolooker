@@ -92,7 +92,8 @@
   },
   "search": {
     "searchBy": "Buscar por dirección / bloque / cuenta conocida",
-    "noHistory": "Sin historial de búsqueda"
+    "noHistory": "Sin historial de búsqueda",
+    "scanWallet": "Escanear una cuenta de billetera que comience con \"nano_\""
   },
   "preferences": {
     "viewAll": "Ver todas las preferencias",

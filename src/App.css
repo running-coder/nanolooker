@@ -523,19 +523,21 @@ body,
   color: rgba(0, 0, 0, 0.65);
 }
 
-#reader {
+.qrcode-reader {
   border-color: #d9d9d9 !important;
 }
 
-#reader .ant-btn {
+.qrcode-reader .ant-btn {
   margin-top: 12px;
 }
 
-#reader > div:first-of-type > span:first-of-type {
+.qrcode-reader > div:first-of-type > span:first-of-type {
   display: none;
 }
 
-#reader__status_span {
+#qrcode-reader__status_span,
+#qrcode-reader-search__status_span,
+#qrcode-reader-search-home__status_span {
   float: none !important;
 }
 

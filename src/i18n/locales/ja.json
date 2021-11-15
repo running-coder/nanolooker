@@ -92,7 +92,8 @@
   },
   "search": {
     "searchBy": "アドレス/ブロック/既知のアカウントで検索",
-    "noHistory": "検索履歴なし"
+    "noHistory": "検索履歴なし",
+    "scanWallet": "「nano_」で始まるウォレットアカウントをスキャンします"
   },
   "preferences": {
     "viewAll": "すべての設定を表示",

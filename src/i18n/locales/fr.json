@@ -92,7 +92,8 @@
   },
   "search": {
     "searchBy": "Recherche par Adresse / Bloc / Compte Connu",
-    "noHistory": "Aucun historique de recherche"
+    "noHistory": "Aucun historique de recherche",
+    "scanWallet": "Scannez un compte de portefeuille commençant par \"nano_\""
   },
   "preferences": {
     "viewAll": "Voir toutes les préférences",

@@ -92,7 +92,8 @@
   },
   "search": {
     "searchBy": "按地址/阻止/已知帐户搜索",
-    "noHistory": "没有搜寻记录"
+    "noHistory": "没有搜寻记录",
+    "scanWallet": "扫描以“nano_”开头的钱包账户"
   },
   "preferences": {
     "viewAll": "查看所有首选项",

@@ -92,7 +92,8 @@
   },
   "search": {
     "searchBy": "Zoeken op adres / block / bekend account",
-    "noHistory": "Geen zoekgeschiedenis"
+    "noHistory": "Geen zoekgeschiedenis",
+    "scanWallet": "Scan een portemonnee-account beginnend met \"nano_\""
   },
   "preferences": {
     "viewAll": "Bekijk alle voorkeuren",

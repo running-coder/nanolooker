@@ -92,7 +92,8 @@
   },
   "search": {
     "searchBy": "주소 / 차단 / 알려진 계정으로 검색",
-    "noHistory": "검색 기록 없음"
+    "noHistory": "검색 기록 없음",
+    "scanWallet": "\"nano_\"로 시작하는 지갑 계정 스캔"
   },
   "preferences": {
     "viewAll": "모든 환경 설정보기",

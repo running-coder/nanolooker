@@ -114,7 +114,7 @@ const Register: React.FC = () => {
       }
     }
 
-    const html5QrcodeScanner = new window.Html5QrcodeScanner("reader", {
+    const html5QrcodeScanner = new window.Html5QrcodeScanner("qrcode-reader", {
       fps: 10,
       qrbox: 250,
     });
@@ -281,7 +281,7 @@ const Register: React.FC = () => {
                 style={{ marginBottom: 12 }}
               />
             ) : null}
-            <div id="reader"></div>
+            <div id="qrcode-reader" className="qrcode-reader"></div>
           </>
         ) : null}
       </Modal>
