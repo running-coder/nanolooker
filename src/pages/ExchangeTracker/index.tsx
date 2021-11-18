@@ -52,10 +52,11 @@ const getExchangeBalances = async () => {
       // eslint-disable-next-line no-loop-func
       foreach(exchangeBalances[account], ({ date, balance }, i) => {
         balances.push({ date, balance });
+
         // If the exchange history is missing dates, fill in the blanks
         // so the balance graph line is vertical and not diagonal
         if (i !== exchangeBalances[account].length - 1) {
-          let tomorrow = moment(date).utc().add(1, "days").format();
+          let tomorrow = moment(date).add(1, "days").format("YYYY-MM-DD");
 
           while (!tomorrow.startsWith(exchangeBalances[account][i + 1].date)) {
             balances.push({
@@ -63,7 +64,7 @@ const getExchangeBalances = async () => {
               balance: exchangeBalances[account][i].balance,
             });
 
-            tomorrow = moment(tomorrow).utc().add(1, "days").format();
+            tomorrow = moment(tomorrow).add(1, "days").format("YYYY-MM-DD");
           }
         }
       });

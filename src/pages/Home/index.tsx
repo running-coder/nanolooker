@@ -149,7 +149,6 @@ const HomePage = () => {
                     isMarketStatisticsError ||
                     !availableSupply
                   }
-                  prefix="Ӿ"
                   title={t("pages.home.circulatingSupply")}
                   tooltip={t("tooltips.circulatingSupply")}
                   value={new BigNumber(availableSupply).toNumber()}
