@@ -382,7 +382,8 @@
         "enter": "Naciśnij ENTER lub kliknij dymek czatu, aby porozmawiać z graczami w pobliżu",
         "q": "Naciśnij Q lub kliknij trofeum, aby wyświetlić księgę zadań",
         "m": "Naciśnij M lub kliknij głośnik, aby włączyć wyciszenie"
-      }
+      },
+      "nanoPotions": "Eliksiry NANO"
     },
     "statistics": {
       "social": {

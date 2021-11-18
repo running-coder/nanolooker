@@ -382,7 +382,8 @@
         "enter": "Druk op ENTER of klik op de chatballon om met spelers bij jou in de buurt te praten",
         "q": "Druk op Q of klik op de trofee om je Quest-boek te bekijken",
         "m": "Druk op M of klik op luidspreker om Dempen in te schakelen"
-      }
+      },
+      "nanoPotions": "NANO-drankjes"
     },
     "statistics": {
       "social": {

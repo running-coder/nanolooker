@@ -50,21 +50,31 @@ const Leaderboard: React.FC = () => {
       <Title level={3}>{t("pages.nanobrowserquest.leaderboard")}</Title>
       <Card size="small" bordered={false} className="detail-layout">
         <Row gutter={12}>
-          <Col xs={4}>{t("pages.nanobrowserquest.rank")}</Col>
-          <Col xs={10}>{t("pages.nanobrowserquest.player")}</Col>
-          <Col xs={4}>{t("pages.nanobrowserquest.level")}</Col>
+          <Col xs={3}>{t("pages.nanobrowserquest.rank")}</Col>
+          <Col xs={9}>{t("pages.nanobrowserquest.player")}</Col>
+          <Col xs={3}>
+            <img
+              src="/nanobrowserquest/nano-potion.png"
+              width="16px"
+              alt={t("pages.nanobrowserquest.nanoPotions")}
+            />
+          </Col>
+          <Col xs={3}>{t("pages.nanobrowserquest.level")}</Col>
           <Col xs={6}>{t("pages.nanobrowserquest.exp")}</Col>
         </Row>
         {isLoading ? (
           Array.from(Array(5).keys()).map(index => (
             <Row gutter={12} key={index}>
-              <Col xs={4}>
+              <Col xs={3}>
                 <Skeleton loading={true} paragraph={false} active />
               </Col>
-              <Col xs={10}>
+              <Col xs={9}>
                 <Skeleton loading={true} paragraph={false} active />
               </Col>
-              <Col xs={4}>
+              <Col xs={3}>
+                <Skeleton loading={true} paragraph={false} active />
+              </Col>
+              <Col xs={3}>
                 <Skeleton loading={true} paragraph={false} active />
               </Col>
               <Col xs={6}>
@@ -77,28 +87,35 @@ const Leaderboard: React.FC = () => {
             {paginatedTopScores[currentPage - 1]?.map(
               ({ rank, player, exp, nanoPotions }) => (
                 <Row gutter={12} key={rank}>
-                  <Col xs={4}>
+                  <Col xs={3}>
                     <Text
                       style={{ fontSize: fontSizeToRankMap[rank] ?? "auto" }}
                     >
                       #{rank} <Trophy rank={rank} />
                     </Text>
                   </Col>
-                  <Col xs={10}>
+                  <Col xs={9}>
                     <Text
                       style={{ fontSize: fontSizeToRankMap[rank] ?? "auto" }}
                     >
                       {player}
                     </Text>
                   </Col>
-                  <Col xs={4}>
+                  <Col xs={3}>
+                    <Text
+                      style={{ fontSize: fontSizeToRankMap[rank] ?? "auto" }}
+                    >
+                      {nanoPotions}
+                    </Text>
+                  </Col>
+                  <Col xs={3}>
                     <Text
                       style={{ fontSize: fontSizeToRankMap[rank] ?? "auto" }}
                     >
                       {getLevel(exp)}
                     </Text>
                   </Col>
-                  <Col xs={4}>
+                  <Col xs={6}>
                     <Text
                       style={{ fontSize: fontSizeToRankMap[rank] ?? "auto" }}
                     >

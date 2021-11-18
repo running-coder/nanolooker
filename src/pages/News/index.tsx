@@ -159,32 +159,31 @@ const NewsPage: React.FC = () => {
         </Dropdown>
       </Space>
 
-      {!filteredPosts.length && (isMediumLoading || isYoutubeLoading)
-        ? [0, 1, 2].map(index => (
-            <Row gutter={[12, 0]} key={index}>
-              <Col xs={24} md={10} lg={8}>
+      <Row gutter={[12, 0]}>
+        {!filteredPosts.length && (isMediumLoading || isYoutubeLoading)
+          ? Array.from({ length: 6 }).map(() => (
+              <Col xs={24} md={12} lg={8}>
                 <Card
+                  size="small"
                   bodyStyle={{
-                    padding: 0,
-                    minHeight: "180px",
+                    minHeight: "240px",
                   }}
-                ></Card>
-              </Col>
-              <Col xs={24} md={14} lg={16}>
-                <Card size="small">
+                >
                   <Skeleton active loading={true}></Skeleton>
                 </Card>
               </Col>
-            </Row>
-          ))
-        : null}
+            ))
+          : null}
 
-      {filteredPosts.map((post: MediumPost | YoutubePost, index) => (
-        <div key={index}>
-          {post.source === PostSource.MEDIUM ? <Medium post={post} /> : null}
-          {post.source === PostSource.YOUTUBE ? <Youtube post={post} /> : null}
-        </div>
-      ))}
+        {filteredPosts.map((post: MediumPost | YoutubePost) => (
+          <Col xs={24} md={12} lg={8}>
+            {post.source === PostSource.MEDIUM ? <Medium post={post} /> : null}
+            {post.source === PostSource.YOUTUBE ? (
+              <Youtube post={post} />
+            ) : null}
+          </Col>
+        ))}
+      </Row>
 
       {!filteredPosts?.length && !isMediumLoading && !isYoutubeLoading ? (
         <Text style={{ display: "block" }}>{t("common.noResults")}</Text>

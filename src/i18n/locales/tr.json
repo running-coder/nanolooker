@@ -382,7 +382,8 @@
         "enter": "Yakınınızdaki oyuncularla konuşmak için ENTER'a basın veya sohbet balonuna tıklayın",
         "q": "Quest kitabınızı görüntülemek için Q'ya basın veya kupaya tıklayın",
         "m": "Sesi kapatmak için M tuşuna basın veya hoparlörü tıklayın"
-      }
+      },
+      "nanoPotions": "NANO İksirler"
     },
     "statistics": {
       "social": {

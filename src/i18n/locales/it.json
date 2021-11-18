@@ -382,7 +382,8 @@
         "enter": "Premi INVIO o fai clic sul fumetto della chat per parlare con i giocatori vicino a te",
         "q": "Premi Q o fai clic sul trofeo per visualizzare il tuo libro delle missioni",
         "m": "Premi M o fai clic sull'altoparlante per disattivare l'audio"
-      }
+      },
+      "nanoPotions": "Pozioni NANO"
     },
     "statistics": {
       "social": {

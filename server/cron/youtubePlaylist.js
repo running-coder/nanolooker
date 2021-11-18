@@ -7,13 +7,16 @@ const { YOUTUBE_PLAYLIST } = require("../constants");
 const { YOUTUBE_CREDENTIALS } = process.env;
 
 const doYoutubePlaylist = async () => {
-  const channels = { JasonEsg: "UCuZP5pk5N5rkS9ChM4nJQPQ" };
+  const channels = {
+    Nano: "UCFxXo3z9k4yvxSboEEjXO2w",
+    JasonEsg: "UCuZP5pk5N5rkS9ChM4nJQPQ",
+  };
 
   let videos = {};
   try {
     for (let i in channels) {
       const res = await fetch(
-        `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_CREDENTIALS}&channelId=${channels[i]}&part=snippet,id&order=date&maxResults=20`,
+        `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_CREDENTIALS}&channelId=${channels[i]}&part=snippet,id&order=date&maxResults=15`,
       );
       const { items = [] } = await res.json();
 

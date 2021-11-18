@@ -5,6 +5,7 @@ import { PostSource } from "../";
 
 export enum YOUTUBE_CHANNELS {
   JASONESG = "JasonEsg",
+  NANO = "Nano",
 }
 
 export interface YoutubePost {

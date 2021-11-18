@@ -1,10 +1,12 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { Card, Col, Row, Typography } from "antd";
+import { Card, Typography } from "antd";
+import moment from "moment";
 
 import type { YoutubePost } from "./hooks/use-youtube";
 
-const { Title } = Typography;
+const { Meta } = Card;
+const { Text } = Typography;
 
 interface Props {
   post: YoutubePost;
@@ -24,58 +26,52 @@ const Youtube: React.FC<Props> = ({ post }) => {
   } = post;
 
   return (
-    <Row gutter={[12, 0]}>
-      <Col xs={24} md={10} lg={8}>
-        <Card
-          bodyStyle={{
-            padding: 0,
-            minHeight: !thumbnail ? "180px" : "auto",
-          }}
-        >
-          {!isClicked ? (
-            <div style={{ background: "#000", textAlign: "center" }}>
-              <img
-                style={{ cursor: "pointer" }}
-                src={thumbnail}
-                alt={title}
-                width="75%"
-                onClick={() => setIsClicked(true)}
-              />
-            </div>
-          ) : (
-            <div className="video-wrapper">
-              <iframe
-                width="560"
-                height="315"
-                src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
-                title="Quake3"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-          )}
-        </Card>
-      </Col>
-      <Col xs={24} md={14} lg={16}>
-        <Card size="small">
-          <Title level={4} style={{ marginBottom: 0 }}>
-            {title}
-          </Title>
-          <span
-            style={{
-              display: "block",
-              fontSize: "12px",
-              marginBottom: "12px",
-            }}
-            className="color-muted"
-          >
-            {pubDate} {t("common.by")} {channelTitle}
-          </span>
-          <div>{description}</div>
-        </Card>
-      </Col>
-    </Row>
+    <Card
+      hoverable
+      bodyStyle={{ cursor: "default" }}
+      cover={
+        !isClicked ? (
+          <div style={{ background: "#000", textAlign: "center" }}>
+            <img
+              style={{ cursor: "pointer" }}
+              src={thumbnail}
+              alt={title}
+              width="75%"
+              onClick={() => setIsClicked(true)}
+            />
+          </div>
+        ) : (
+          <div className="video-wrapper">
+            <iframe
+              width="560"
+              height="315"
+              src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+              title={title}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        )
+      }
+    >
+      <Meta
+        title={title}
+        description={
+          <>
+            <Text
+              style={{ color: "#000000d9", display: "block", marginBottom: 6 }}
+            >
+              {description}
+            </Text>
+            <Text style={{ display: "block", fontSize: 12 }}>
+              {moment(pubDate).format("YYYY-MM-DD")} {t("common.by")}{" "}
+              {channelTitle}
+            </Text>
+          </>
+        }
+      />
+    </Card>
   );
 };
 

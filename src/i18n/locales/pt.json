@@ -382,7 +382,8 @@
         "enter": "Pressione ENTER ou clique no balão do bate-papo para falar com jogadores perto de você",
         "q": "Pressione Q ou clique no troféu para ver seu livro da Quest",
         "m": "Pressione M ou clique no alto-falante para alternar entre mudo"
-      }
+      },
+      "nanoPotions": "Poções NANO"
     },
     "statistics": {
       "social": {

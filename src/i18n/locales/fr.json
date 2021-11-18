@@ -382,7 +382,8 @@
         "enter": "Appuyez sur ENTRÉE ou cliquez sur la bulle de discussion pour parler aux joueurs près de chez vous",
         "q": "Appuyez sur Q ou cliquez sur le trophée pour afficher votre livre de quêtes",
         "m": "Appuyez sur M ou cliquez sur le haut-parleur pour activer le mode Muet"
-      }
+      },
+      "nanoPotions": "NANO-potions"
     },
     "statistics": {
       "social": {
