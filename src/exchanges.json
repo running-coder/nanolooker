@@ -46,5 +46,9 @@
   {
     "name": "Crypto.com",
     "account": "nano_3ebd88zzysrkqpo8ey5yyxfpkfr39abmiyeihqn8b5ong9dkga1kbtd7gs4x"
+  },
+  {
+    "name": "OKEx",
+    "account": "nano_1etto78drszxhtb5jhswzzm5m98ffqxwjzwg3gr8ajt5sq4ahdj4bjhni9we"
   }
 ]

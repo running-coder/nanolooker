@@ -166,7 +166,7 @@ const ExchangeTrackerPage: React.FC = () => {
       });
 
       totalExchangeBalance = new BigNumber(totalExchangeBalance)
-        .plus(data[data.length - 1].value)
+        .plus(data[data.length - 1]?.value || 0)
         .toNumber();
     }
 

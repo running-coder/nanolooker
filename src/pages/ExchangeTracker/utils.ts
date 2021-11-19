@@ -11,6 +11,7 @@ export const tagColors = [
   "geekblue",
   "purple",
   "pink",
+  "blue",
   "processing",
 ];
 
@@ -29,6 +30,7 @@ export const lineColors = [
   "#2f54eb",
   "#722ed1",
   "pink",
+  "blue",
   "#108ee9",
 ];
 
