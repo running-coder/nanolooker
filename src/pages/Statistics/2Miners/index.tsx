@@ -21,7 +21,7 @@ const TRANSACTIONS_PER_PAGE = 25;
 const Statistics2MinersPage: React.FC = () => {
   const { t } = useTranslation();
   const { statistics, isLoading } = useStatisticsSocial();
-  const [isLogScale, setIsLogScale] = React.useState(true);
+  const [isLogScale, setIsLogScale] = React.useState(false);
   const [totalFiatPayouts, setTotalFiatPayouts] = React.useState(0);
   const [currentPage, setCurrentPage] = React.useState<number>(1);
 
@@ -177,7 +177,18 @@ const Statistics2MinersPage: React.FC = () => {
       <Helmet>
         <title>{t("pages.statistics.2miners.title")}</title>
       </Helmet>
-      <Title level={3}>{t("pages.statistics.2miners.title")}</Title>
+      <div style={{ display: "flex", alignItems: "baseline" }}>
+        <Title level={3}>{t("pages.statistics.2miners.title")}</Title>
+        <a
+          style={{ display: "inline-block", marginLeft: 12 }}
+          href="https://2miners.com/blog/how-to-get-payouts-for-ethereum-mining-without-fees/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          {t("pages.statistics.2miners.announcement")}
+        </a>
+      </div>
+
       <Card size="small" bordered={false} className="detail-layout">
         <Row>
           <Col xs={24}>

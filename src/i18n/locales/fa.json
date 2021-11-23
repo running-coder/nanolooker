@@ -39,7 +39,8 @@
     "nodes": "گره ها",
     "cancel": "لغو",
     "comingSoon": "به زودی",
-    "statistics": "آمار"
+    "statistics": "آمار",
+    "continue": "ادامه هید"
   },
   "nodeHealth": {
     "nodeReloading": "گره نانو در حال بارگیری مجدد است",
@@ -234,7 +235,21 @@
       "percentOfTotal": "{{percent}}٪ از میزان عرضه در گردش"
     },
     "knownAccounts": {
-      "totalAccounts": "{{totalAccounts}} مجموع حسابهای شناخته شده"
+      "totalAccounts": "{{totalAccounts}} مجموع حسابهای شناخته شده",
+      "registerKnownAccount": "ثبت یک حساب شناخته شده",
+      "register": "ثبت نام",
+      "scanWallet": "اسکن حساب کیف پول خود را با \"nano_\" شروع کنید",
+      "registerDescription": "یک حساب مستعار در حساب های شناخته شده NanoLooker ثبت کنید. سپس حساب شما با نام مستعار قابل جستجو خواهد بود و به راحتی در اکسپلورر قابل شناسایی خواهد بود.",
+      "account": "یک حساب \"nano_\" وارد کنید تا با نام مستعار مرتبط شود",
+      "registerNote": "در مرحله بعد از شما خواسته می شود که تراکنش را از حساب \"nano_\" در حال ثبت ارسال کنید",
+      "invalidAccount": "حساب نامعتبر",
+      "waitingNote": "نام مستعار شما پس از ارسال Ӿ1 به NanoLooker کمک‌های مالی از حسابی که در حال ثبت نام هستید ثبت می‌شود تا تایید شود که متعلق به شماست.",
+      "registerErrorTaken": "نام مستعار برای این حساب قبلا ثبت شده است",
+      "registerError": "امکان تکمیل ثبت نام وجود ندارد",
+      "waitingForTransaction": "در انتظار معامله",
+      "viewAccount": "مشاهده اکانت",
+      "sendFrom": "ارسال Ӿ{{مقدار}} از",
+      "sendTo": "به"
     },
     "largeTransactions": {
       "description": "معاملات بزرگ در بلاکچین NANO اتفاق می افتد.",
@@ -411,7 +426,8 @@
         "payoutsDescription": "مبلغ NANO که برای آن روز پرداخت شده است.",
         "fiatPayouts": "پرداخت های فیات",
         "fiatPayoutsDescription": "مبلغ تخمینی دلار آمریکا که برای آن روز پرداخت شد.",
-        "totalFiatPayouts": "کل پرداخت‌های تخمینی توسط 2Miners (USD)"
+        "totalFiatPayouts": "کل پرداخت‌های تخمینی توسط 2Miners (USD)",
+        "announcement": "مشاهده اطلاعیه"
       }
     }
   }

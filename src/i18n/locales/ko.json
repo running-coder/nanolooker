@@ -39,7 +39,8 @@
     "nodes": "노드",
     "cancel": "취소",
     "comingSoon": "곧 출시",
-    "statistics": "통계"
+    "statistics": "통계",
+    "continue": "계속하다"
   },
   "nodeHealth": {
     "nodeReloading": "나노 노드가 다시로드됩니다.",
@@ -234,7 +235,21 @@
       "percentOfTotal": "유통 공급량의 {{percent}} %"
     },
     "knownAccounts": {
-      "totalAccounts": "{{totalAccounts}} 총 알려진 계정"
+      "totalAccounts": "{{totalAccounts}} 총 알려진 계정",
+      "registerKnownAccount": "알려진 계정 등록",
+      "register": "등록하다",
+      "scanWallet": "\"nano_\"로 시작하는 지갑 계정을 스캔하세요.",
+      "registerDescription": "NanoLooker 알려진 계정에 계정 별칭을 등록합니다. 그러면 귀하의 계정은 별칭으로 검색할 수 있으며 탐색기에서 쉽게 식별할 수 있습니다.",
+      "account": "별칭과 연결할 \"nano_\" 계정을 입력하세요.",
+      "registerNote": "다음 단계에서 등록 중인 \"nano_\" 계정에서 트랜잭션을 보내도록 요청받을 것입니다.",
+      "invalidAccount": "잘못된 계정",
+      "waitingNote": "귀하의 별칭은 귀하의 소유임을 확인하기 위해 등록 중인 계정에서 Ӿ1을 NanoLooker 기부금으로 보낸 후 등록됩니다.",
+      "registerErrorTaken": "이 계정의 별칭은 이미 등록되어 있습니다.",
+      "registerError": "등록을 완료할 수 없습니다",
+      "waitingForTransaction": "거래 대기 중",
+      "viewAccount": "계정 보기",
+      "sendFrom": "에서 Ӿ{{amount}} 보내기",
+      "sendTo": "NS"
     },
     "largeTransactions": {
       "description": "NANO 블록 체인에서 발생하는 대규모 거래.",
@@ -411,7 +426,8 @@
         "payoutsDescription": "그날 지급된 NANO의 양입니다.",
         "fiatPayouts": "법정화폐 지급",
         "fiatPayoutsDescription": "해당 날짜에 지급된 예상 USD 금액입니다.",
-        "totalFiatPayouts": "2Miners의 예상 총 지불금(USD)"
+        "totalFiatPayouts": "2Miners의 예상 총 지불금(USD)",
+        "announcement": "공지사항 보기"
       }
     }
   }

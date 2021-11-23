@@ -39,7 +39,8 @@
     "nodes": "Węzły",
     "cancel": "Anuluj",
     "comingSoon": "Wkrótce",
-    "statistics": "Statystyka"
+    "statistics": "Statystyka",
+    "continue": "Kontyntynuj"
   },
   "nodeHealth": {
     "nodeReloading": "Nano Node jest przeładowywana",
@@ -234,7 +235,21 @@
       "percentOfTotal": "{{percent}}% krążącej podaży"
     },
     "knownAccounts": {
-      "totalAccounts": "Łączna liczba znanych kont: {{totalAccounts}}"
+      "totalAccounts": "Łączna liczba znanych kont: {{totalAccounts}}",
+      "registerKnownAccount": "Zarejestruj znane konto",
+      "register": "Zarejestrować",
+      "scanWallet": "Zeskanuj swoje konto w portfelu zaczynając od „nano_”",
+      "registerDescription": "Zarejestruj alias konta na znanych kontach NanoLooker. Twoje konto będzie wtedy można przeszukiwać według aliasów i będzie można je łatwo zidentyfikować w eksploratorze.",
+      "account": "Wprowadź konto „nano_”, które ma być powiązane z aliasem",
+      "registerNote": "W kolejnym kroku zostaniesz poproszony o przesłanie transakcji z rejestrowanego konta „nano_”",
+      "invalidAccount": "Nieważne konto",
+      "waitingNote": "Twój alias zostanie zarejestrowany po wysłaniu Ӿ1 do NanoLooker darowizn z konta, które rejestrujesz, aby potwierdzić, że należy do Ciebie.",
+      "registerErrorTaken": "Alias dla tego konta jest już zarejestrowany",
+      "registerError": "Nie można dokończyć rejestracji",
+      "waitingForTransaction": "Czekam na transakcję",
+      "viewAccount": "Wyświetl konto",
+      "sendFrom": "Wyślij Ӿ{{amount}} z",
+      "sendTo": "Do"
     },
     "largeTransactions": {
       "description": "Duże transakcje na blockchainie NANO.",
@@ -411,7 +426,8 @@
         "payoutsDescription": "Kwota NANO, która została wypłacona na ten dzień.",
         "fiatPayouts": "Wypłaty Fiata",
         "fiatPayoutsDescription": "Szacunkowa kwota w USD wypłacona tego dnia.",
-        "totalFiatPayouts": "Szacunkowe całkowite wypłaty przez 2Miners (USD)"
+        "totalFiatPayouts": "Szacunkowe całkowite wypłaty przez 2Miners (USD)",
+        "announcement": "Zobacz ogłoszenie"
       }
     }
   }

@@ -33,6 +33,7 @@
     "bookmark": "Bookmark",
     "bookmarks": "Bookmarks",
     "ok": "Ok",
+    "continue": "Continue",
     "cancel": "Cancel",
     "executionDate": "Last compilation was on <0>{{date}}</0>",
     "executionTimeAgo": "Last compilation was",
@@ -234,7 +235,21 @@
       "percentOfTotal": "{{percent}}%  of the circulating supply"
     },
     "knownAccounts": {
-      "totalAccounts": "{{totalAccounts}} Total Known Accounts"
+      "totalAccounts": "{{totalAccounts}} Total Known Accounts",
+      "registerKnownAccount": "Register a Known Account",
+      "register": "Register",
+      "scanWallet": "Scan your wallet account starting with \"nano_\"",
+      "registerDescription": "Register an account alias in the NanoLooker known accounts. Your account will then be searchable by alias and is going to easily be identifiable on the explorer.",
+      "account": "Enter a \"nano_\" account to be associated with the alias",
+      "registerNote": "On the next step you will be ask to send a transaction from the \"nano_\" account being registered",
+      "invalidAccount": "Invalid account",
+      "waitingNote": "Your alias will be registered after sending Ӿ1 to NanoLooker donations from the account you are registering to confirm it belongs to you.",
+      "registerErrorTaken": "An alias for this account is already registered",
+      "registerError": "Unable to complete registration",
+      "waitingForTransaction": "Waiting for transaction",
+      "viewAccount": "View account",
+      "sendFrom": "Send Ӿ{{amount}} from",
+      "sendTo": "To"
     },
     "largeTransactions": {
       "description": "Large transactions happening on the NANO blockchain.",
@@ -317,6 +332,7 @@
       },
       "2miners": {
         "title": "Nano payout statistics by 2Miners Ethereum mining pool",
+        "announcement": "View Announcement",
         "totalPayouts": "Total NANO payouts by 2Miners",
         "totalFiatPayouts": "Estimated total payouts by 2Miners (USD)",
         "viewPayoutStatistics": "View payout statistics",

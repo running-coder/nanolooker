@@ -39,7 +39,8 @@
     "nodes": "Nodes",
     "cancel": "annuleren",
     "comingSoon": "Binnenkort beschikbaar",
-    "statistics": "Statistieken"
+    "statistics": "Statistieken",
+    "continue": "Doorgaan met"
   },
   "nodeHealth": {
     "nodeReloading": "Nano node wordt opnieuw geladen",
@@ -234,7 +235,21 @@
       "percentOfTotal": "{{percent}}% van het aantal munten in circulatie"
     },
     "knownAccounts": {
-      "totalAccounts": "{{totalAccounts}} totaal aantal bekende accounts"
+      "totalAccounts": "{{totalAccounts}} totaal aantal bekende accounts",
+      "registerKnownAccount": "Registreer een bekend account",
+      "register": "Register",
+      "scanWallet": "Scan uw portemonnee-account beginnend met \"nano_\"",
+      "registerDescription": "Registreer een accountalias in de bekende NanoLooker-accounts. Uw account zal dan doorzoekbaar zijn op alias en zal gemakkelijk herkenbaar zijn in de verkenner.",
+      "account": "Voer een \"nano_\"-account in om aan de alias te worden gekoppeld",
+      "registerNote": "Bij de volgende stap wordt u gevraagd om een transactie te verzenden vanaf het \"nano_\"-account dat wordt geregistreerd",
+      "invalidAccount": "Ongeldig account",
+      "waitingNote": "Uw alias wordt geregistreerd na het verzenden van Ӿ1 naar NanoLooker-donaties vanaf het account dat u registreert om te bevestigen dat het van u is.",
+      "registerErrorTaken": "Er is al een alias voor dit account geregistreerd",
+      "registerError": "Kan registratie niet voltooien",
+      "waitingForTransaction": "Wachten op transactie",
+      "viewAccount": "Bekijk account",
+      "sendFrom": "Stuur Ӿ{{amount}} van",
+      "sendTo": "Tot"
     },
     "largeTransactions": {
       "description": "Grote transacties die plaatsvinden op het NANO netwerk.",
@@ -411,7 +426,8 @@
         "payoutsDescription": "Het bedrag aan NANO dat voor die dag is uitbetaald.",
         "fiatPayouts": "Fiat-uitbetalingen",
         "fiatPayoutsDescription": "Het geschatte bedrag van $ USD dat voor die dag is uitbetaald.",
-        "totalFiatPayouts": "Geschatte totale uitbetalingen door 2Miners (USD)"
+        "totalFiatPayouts": "Geschatte totale uitbetalingen door 2Miners (USD)",
+        "announcement": "Bekijk aankondiging"
       }
     }
   }

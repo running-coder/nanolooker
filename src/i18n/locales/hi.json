@@ -39,7 +39,8 @@
     "nodes": "नोड्स",
     "cancel": "रद्द करना",
     "comingSoon": "जल्द आ रहा है",
-    "statistics": "आंकड़े"
+    "statistics": "आंकड़े",
+    "continue": "जारी रखना"
   },
   "nodeHealth": {
     "nodeReloading": "नैनो नोड पुनः लोड हो रहा है",
@@ -234,7 +235,21 @@
       "percentOfTotal": "{{percent}} परिसंचारी आपूर्ति का%"
     },
     "knownAccounts": {
-      "totalAccounts": "{{totalAccounts}} कुल ज्ञात खाते"
+      "totalAccounts": "{{totalAccounts}} कुल ज्ञात खाते",
+      "registerKnownAccount": "एक ज्ञात खाता पंजीकृत करें",
+      "register": "रजिस्टर करें",
+      "scanWallet": "\"नैनो_\" से शुरू होने वाले अपने वॉलेट खाते को स्कैन करें",
+      "registerDescription": "NanoLooker ज्ञात खातों में एक खाता उपनाम पंजीकृत करें। तब आपका खाता उपनाम से खोजा जा सकेगा और एक्सप्लोरर पर आसानी से पहचाना जा सकेगा।",
+      "account": "उपनाम से संबद्ध होने के लिए \"नैनो_\" खाता दर्ज करें",
+      "registerNote": "अगले चरण में आपको पंजीकृत होने वाले \"नैनो_\" खाते से लेनदेन भेजने के लिए कहा जाएगा",
+      "invalidAccount": "अमान्य खाता",
+      "waitingNote": "आपके द्वारा पंजीकृत किए जा रहे खाते से NanoLooker दान को 1 भेजने के बाद आपका उपनाम पंजीकृत किया जाएगा, यह पुष्टि करने के लिए कि यह आपका है।",
+      "registerErrorTaken": "इस खाते के लिए एक उपनाम पहले से पंजीकृत है",
+      "registerError": "पंजीकरण पूरा करने में असमर्थ",
+      "waitingForTransaction": "लेन-देन की प्रतीक्षा में",
+      "viewAccount": "अपना खाता देखें",
+      "sendFrom": "से Ӿ{{राशि}} भेजें",
+      "sendTo": "प्रति"
     },
     "largeTransactions": {
       "description": "नैनो ब्लॉकचेन पर बड़े लेनदेन हो रहे हैं।",
@@ -411,7 +426,8 @@
         "payoutsDescription": "उस दिन के लिए भुगतान किए गए नैनो की राशि।",
         "fiatPayouts": "फिएट भुगतान",
         "fiatPayoutsDescription": "उस दिन के लिए भुगतान की गई अनुमानित $USD राशि।",
-        "totalFiatPayouts": "2Miners द्वारा अनुमानित कुल भुगतान (USD)"
+        "totalFiatPayouts": "2Miners द्वारा अनुमानित कुल भुगतान (USD)",
+        "announcement": "घोषणा देखें"
       }
     }
   }

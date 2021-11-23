@@ -39,7 +39,8 @@
     "nodes": "العقد",
     "cancel": "يلغي",
     "comingSoon": "قريبا",
-    "statistics": "إحصائيات"
+    "statistics": "إحصائيات",
+    "continue": "يكمل"
   },
   "nodeHealth": {
     "nodeReloading": "يتم إعادة تحميل عقدة النانو",
@@ -234,7 +235,21 @@
       "percentOfTotal": "{{percent}}٪ من العرض المتداول"
     },
     "knownAccounts": {
-      "totalAccounts": "{{totalAccounts}} إجمالي الحسابات المعروفة"
+      "totalAccounts": "{{totalAccounts}} إجمالي الحسابات المعروفة",
+      "registerKnownAccount": "سجل حساب معروف",
+      "register": "يسجل",
+      "scanWallet": "مسح حساب محفظتك بدءًا من \"nano_\"",
+      "registerDescription": "قم بتسجيل اسم مستعار للحساب في حسابات NanoLooker المعروفة. سيكون حسابك بعد ذلك قابلاً للبحث عن طريق الاسم المستعار ويمكن التعرف عليه بسهولة على المستكشف.",
+      "account": "أدخل حساب \"nano_\" لربطه بالاسم المستعار",
+      "registerNote": "في الخطوة التالية ستطلب إرسال معاملة من حساب \"nano_\" الجاري تسجيله",
+      "invalidAccount": "حساب غير صالح",
+      "waitingNote": "سيتم تسجيل الاسم المستعار الخاص بك بعد إرسال Ӿ1 إلى تبرعات NanoLooker من الحساب الذي تقوم بتسجيله لتأكيد أنه ملك لك.",
+      "registerErrorTaken": "تم تسجيل الاسم المستعار لهذا الحساب بالفعل",
+      "registerError": "غير قادر على إتمام التسجيل",
+      "waitingForTransaction": "في انتظار المعاملة",
+      "viewAccount": "عرض الحساب",
+      "sendFrom": "أرسل Ӿ {{amount}} من",
+      "sendTo": "إلى"
     },
     "largeTransactions": {
       "description": "تحدث المعاملات الكبيرة على NANO blockchain.",
@@ -411,7 +426,8 @@
         "payoutsDescription": "مبلغ NANO الذي تم دفعه لذلك اليوم.",
         "fiatPayouts": "مدفوعات فيات",
         "fiatPayoutsDescription": "المبلغ المقدر بالدولار الأمريكي الذي تم دفعه لذلك اليوم.",
-        "totalFiatPayouts": "إجمالي المدفوعات المقدرة بواسطة 2Miners (بالدولار الأمريكي)"
+        "totalFiatPayouts": "إجمالي المدفوعات المقدرة بواسطة 2Miners (بالدولار الأمريكي)",
+        "announcement": "مشاهدة الاعلان"
       }
     }
   }

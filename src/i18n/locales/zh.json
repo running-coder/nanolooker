@@ -39,7 +39,8 @@
     "nodes": "节点数",
     "cancel": "取消",
     "comingSoon": "即将推出",
-    "statistics": "统计数据"
+    "statistics": "统计数据",
+    "continue": "继续"
   },
   "nodeHealth": {
     "nodeReloading": "纳米节点正在重新加载",
@@ -234,7 +235,21 @@
       "percentOfTotal": "循环供应量的{{percent}}％"
     },
     "knownAccounts": {
-      "totalAccounts": "{{totalAccounts}}个已知帐户总数"
+      "totalAccounts": "{{totalAccounts}}个已知帐户总数",
+      "registerKnownAccount": "注册一个已知帐户",
+      "register": "登记",
+      "scanWallet": "扫描以“nano_”开头的钱包账户",
+      "registerDescription": "在 NanoLooker 已知帐户中注册帐户别名。然后您的帐户将可以通过别名进行搜索，并且可以在资源管理器上轻松识别。",
+      "account": "输入要与别名关联的“nano_”帐户",
+      "registerNote": "在下一步中，您将被要求从正在注册的“nano_”帐户发送交易",
+      "invalidAccount": "无效账户",
+      "waitingNote": "从您注册的帐户向 NanoLooker 捐款发送 Ӿ1 以确认它属于您后，您的别名将被注册。",
+      "registerErrorTaken": "此帐户的别名已注册",
+      "registerError": "无法完成注册",
+      "waitingForTransaction": "等待交易",
+      "viewAccount": "查看账户",
+      "sendFrom": "发送 Ӿ{{amount}} 来自",
+      "sendTo": "到"
     },
     "largeTransactions": {
       "description": "在NANO区块链上发生的大笔交易。",
@@ -411,7 +426,8 @@
         "payoutsDescription": "当天支付的 NANO 数量。",
         "fiatPayouts": "法定付款",
         "fiatPayoutsDescription": "当天支付的估计美元金额。",
-        "totalFiatPayouts": "2Miners 的估计总支出（美元）"
+        "totalFiatPayouts": "2Miners 的估计总支出（美元）",
+        "announcement": "查看公告"
       }
     }
   }

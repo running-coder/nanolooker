@@ -39,7 +39,8 @@
     "nodes": "Düğümler",
     "cancel": "İptal etmek",
     "comingSoon": "Çok yakında",
-    "statistics": "İstatistik"
+    "statistics": "İstatistik",
+    "continue": "Devam et"
   },
   "nodeHealth": {
     "nodeReloading": "Nano düğüm yeniden yükleniyor",
@@ -234,7 +235,21 @@
       "percentOfTotal": "Dolaşan arzın% {{percent}} kadarı"
     },
     "knownAccounts": {
-      "totalAccounts": "{{totalAccounts}} Toplam Bilinen Hesaplar"
+      "totalAccounts": "{{totalAccounts}} Toplam Bilinen Hesaplar",
+      "registerKnownAccount": "Bilinen Bir Hesap Kaydolun",
+      "register": "Kayıt olmak",
+      "scanWallet": "\"nano_\" ile başlayan cüzdan hesabınızı tarayın",
+      "registerDescription": "NanoLooker bilinen hesaplarında bir hesap takma adı kaydedin. Hesabınız daha sonra takma adla aranabilir ve gezginde kolayca tanımlanabilir.",
+      "account": "Takma adla ilişkilendirilecek bir \"nano_\" hesabı girin",
+      "registerNote": "Bir sonraki adımda, kaydedilmekte olan \"nano_\" hesabından bir işlem göndermeniz istenecektir.",
+      "invalidAccount": "Geçersiz hesap",
+      "waitingNote": "Takma adınız, size ait olduğunu onaylamak için kaydettiğiniz hesaptan NanoLooker bağışlarına Ӿ1 gönderdikten sonra kaydedilecektir.",
+      "registerErrorTaken": "Bu hesap için bir takma ad zaten kayıtlı",
+      "registerError": "Kayıt tamamlanamadı",
+      "waitingForTransaction": "işlem bekleniyor",
+      "viewAccount": "Hesabı görüntüle",
+      "sendFrom": "Şuradan Ӿ{{amount}} gönder:",
+      "sendTo": "NS"
     },
     "largeTransactions": {
       "description": "NANO blok zincirinde gerçekleşen büyük işlemler.",
@@ -411,7 +426,8 @@
         "payoutsDescription": "O gün için ödenen NANO miktarı.",
         "fiatPayouts": "Fiat ödemeleri",
         "fiatPayoutsDescription": "O gün için ödenen tahmini ABD doları tutarı.",
-        "totalFiatPayouts": "2Miners tarafından tahmini toplam ödemeler (USD)"
+        "totalFiatPayouts": "2Miners tarafından tahmini toplam ödemeler (USD)",
+        "announcement": "Duyuruyu Görüntüle"
       }
     }
   }

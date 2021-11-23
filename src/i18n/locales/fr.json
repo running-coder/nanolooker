@@ -39,7 +39,8 @@
     "nodes": "Nœuds",
     "cancel": "Annuler",
     "comingSoon": "Bientôt disponible",
-    "statistics": "Statistiques"
+    "statistics": "Statistiques",
+    "continue": "Continuer"
   },
   "nodeHealth": {
     "nodeReloading": "Le nœud Nano est en cours de rechargement",
@@ -234,7 +235,21 @@
       "percentOfTotal": "{{percent}}% des NANO en circulation"
     },
     "knownAccounts": {
-      "totalAccounts": "{{totalAccounts}} Comptes connus"
+      "totalAccounts": "{{totalAccounts}} Comptes connus",
+      "registerKnownAccount": "Enregistrer un compte connu",
+      "register": "S'inscrire",
+      "scanWallet": "Scannez votre compte portefeuille commençant par \"nano_\"",
+      "registerDescription": "Enregistrez un alias de compte dans les comptes connus de NanoLooker. Votre compte sera alors consultable par alias et va être facilement identifiable sur l'explorateur.",
+      "account": "Saisissez un compte \"nano_\" à associer à l'alias",
+      "registerNote": "À l'étape suivante, il vous sera demandé d'envoyer une transaction à partir du compte \"nano_\" en cours d'enregistrement",
+      "invalidAccount": "Compte invalide",
+      "waitingNote": "Votre alias sera enregistré après l'envoi de Ӿ1 à NanoLooker depuis le compte que vous enregistrez pour confirmer qu'il vous appartient.",
+      "registerErrorTaken": "Un alias pour ce compte est déjà enregistré",
+      "registerError": "Impossible de terminer l'inscription",
+      "waitingForTransaction": "En attente de transaction",
+      "viewAccount": "Voir le compte",
+      "sendFrom": "Envoyer Ӿ{{montant}} de",
+      "sendTo": "À"
     },
     "largeTransactions": {
       "description": "Transactions volumineuses se déroulant sur la blockchain NANO.",
@@ -411,7 +426,8 @@
         "viewPayoutStatistics": "Afficher les statistiques de paiement",
         "fiatPayouts": "Paiements Fiat",
         "fiatPayoutsDescription": "Le montant estimé de $USD qui a été payé pour ce jour-là.",
-        "totalFiatPayouts": "Paiements totaux estimés par 2Miners (USD)"
+        "totalFiatPayouts": "Paiements totaux estimés par 2Miners (USD)",
+        "announcement": "Voir l'annonce"
       }
     }
   }

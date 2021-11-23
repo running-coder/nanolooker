@@ -39,7 +39,8 @@
     "nodes": "Điểm giao",
     "cancel": "Huỷ bỏ",
     "comingSoon": "Sắp có",
-    "statistics": "Số liệu thống kê"
+    "statistics": "Số liệu thống kê",
+    "continue": "Tiếp tục"
   },
   "nodeHealth": {
     "nodeReloading": "Nút nano đang tải lại",
@@ -234,7 +235,21 @@
       "percentOfTotal": "{{percent}}% nguồn cung lưu hành"
     },
     "knownAccounts": {
-      "totalAccounts": "{{totalAccounts}} Tổng số tài khoản đã biết"
+      "totalAccounts": "{{totalAccounts}} Tổng số tài khoản đã biết",
+      "registerKnownAccount": "Đăng ký một tài khoản đã biết",
+      "register": "Đăng ký",
+      "scanWallet": "Quét tài khoản ví của bạn bắt đầu bằng \"nano_\"",
+      "registerDescription": "Đăng ký bí danh tài khoản trong các tài khoản NanoLooker đã biết. Sau đó, tài khoản của bạn sẽ có thể tìm kiếm được theo bí danh và sẽ dễ dàng được nhận dạng trên trình khám phá.",
+      "account": "Nhập tài khoản \"nano_\" được liên kết với bí danh",
+      "registerNote": "Ở bước tiếp theo, bạn sẽ được yêu cầu gửi một giao dịch từ tài khoản \"nano_\" đang được đăng ký",
+      "invalidAccount": "Tài khoản không hợp lệ",
+      "waitingNote": "Bí danh của bạn sẽ được đăng ký sau khi gửi Ӿ1 khoản đóng góp cho NanoLooker từ tài khoản bạn đang đăng ký để xác nhận nó thuộc về bạn.",
+      "registerErrorTaken": "Bí danh cho tài khoản này đã được đăng ký",
+      "registerError": "Không thể hoàn thành đăng ký",
+      "waitingForTransaction": "Đang chờ giao dịch",
+      "viewAccount": "Xem tài khoản",
+      "sendFrom": "Gửi Ӿ {{amount}} từ",
+      "sendTo": "Đến"
     },
     "largeTransactions": {
       "description": "Các giao dịch lớn xảy ra trên blockchain NANO.",
@@ -411,7 +426,8 @@
         "payoutsDescription": "Số lượng NANO đã được thanh toán cho ngày hôm đó.",
         "fiatPayouts": "Các khoản thanh toán Fiat",
         "fiatPayoutsDescription": "Số tiền USD USD ước tính đã được thanh toán cho ngày hôm đó.",
-        "totalFiatPayouts": "Tổng các khoản thanh toán ước tính của 2Miners (USD)"
+        "totalFiatPayouts": "Tổng các khoản thanh toán ước tính của 2Miners (USD)",
+        "announcement": "Xem thông báo"
       }
     }
   }

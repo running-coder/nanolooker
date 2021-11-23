@@ -39,7 +39,8 @@
     "nodes": "Knoten",
     "cancel": "Abbrechen",
     "comingSoon": "Kommt bald",
-    "statistics": "Statistiken"
+    "statistics": "Statistiken",
+    "continue": "Weitermachen"
   },
   "nodeHealth": {
     "nodeReloading": "Der Nanoknoten wird neu geladen",
@@ -234,7 +235,21 @@
       "percentOfTotal": "{{percent}}% des Umlaufangebots"
     },
     "knownAccounts": {
-      "totalAccounts": "{{totalAccounts}} bekannte Konten insgesamt"
+      "totalAccounts": "{{totalAccounts}} bekannte Konten insgesamt",
+      "registerKnownAccount": "Registrieren Sie ein bekanntes Konto",
+      "register": "Registrieren",
+      "scanWallet": "Scannen Sie Ihr Wallet-Konto beginnend mit \"nano_\"",
+      "registerDescription": "Registrieren Sie einen Kontoalias in den bekannten NanoLooker-Konten. Ihr Konto ist dann nach Alias durchsuchbar und im Explorer leicht identifizierbar.",
+      "account": "Geben Sie ein \"nano_\"-Konto ein, das mit dem Alias verknüpft werden soll",
+      "registerNote": "Im nächsten Schritt werden Sie aufgefordert, eine Transaktion vom registrierten \"nano_\"-Konto zu senden",
+      "invalidAccount": "Ungültiger Account",
+      "waitingNote": "Ihr Alias wird registriert, nachdem Sie Ӿ1 an NanoLooker-Spenden von dem Konto, das Sie registrieren, gesendet haben, um zu bestätigen, dass es Ihnen gehört.",
+      "registerErrorTaken": "Ein Alias für dieses Konto ist bereits registriert",
+      "registerError": "Registrierung kann nicht abgeschlossen werden",
+      "waitingForTransaction": "Warten auf Transaktion",
+      "viewAccount": "Konto anzeigen",
+      "sendFrom": "Senden Sie Ӿ{{amount}} von",
+      "sendTo": "Zu"
     },
     "largeTransactions": {
       "description": "Große Transaktionen in der NANO-Blockchain.",
@@ -411,7 +426,8 @@
         "payoutsDescription": "Der Betrag an NANO, der für diesen Tag ausgezahlt wurde.",
         "fiatPayouts": "Fiat-Auszahlungen",
         "fiatPayoutsDescription": "Der geschätzte USD-Betrag, der für diesen Tag ausgezahlt wurde.",
-        "totalFiatPayouts": "Geschätzte Gesamtauszahlungen von 2Miners (USD)"
+        "totalFiatPayouts": "Geschätzte Gesamtauszahlungen von 2Miners (USD)",
+        "announcement": "Ankündigung anzeigen"
       }
     }
   }
