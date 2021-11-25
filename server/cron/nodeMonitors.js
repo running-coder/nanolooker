@@ -19,6 +19,8 @@ const getConfirmationQuorumPeers = async () => {
       },
     );
 
+    if (!rawPeers) return;
+
     peers = rawPeers.map(({ account, ip: rawIp, weight: rawWeight }) => {
       const [, ip] = rawIp.match(NODE_IP_REGEX);
       const weight = rawToRai(rawWeight);
@@ -92,6 +94,8 @@ const doNodeMonitors = async () => {
   console.log("Starting doPeersCron");
   try {
     let peers = await getConfirmationQuorumPeers();
+
+    if (!peers) return;
 
     // Store the nodes without monitor for 24h so the 5 minutes request doesn't pull them
     let skipMonitorCheck24h =
