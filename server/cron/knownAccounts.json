@@ -104,7 +104,15 @@
     "account": "nano_3oxhohaxp9ceobppkhp7wahauxd4zgyz4fhxfniyp4mb9opq4upfnaccswo7"
   },
   {
-    "alias": "OKEx",
+    "alias": "OKEx Deposits",
     "account": "nano_1etto78drszxhtb5jhswzzm5m98ffqxwjzwg3gr8ajt5sq4ahdj4bjhni9we"
+  },
+  {
+    "alias": "OKEx Withdrawals",
+    "account": "nano_1o5rr464r8bgu4h3jnt5yn4a6tbd5shbbpwk6aj6sunf8dzdpmke6q4tgtkj"
+  },
+  {
+    "alias": "Bitvavo",
+    "account": "nano_3wat6ci5a55s895eec64i4ihfd9ry3bdxnpb776mj1srjedqfdf4k11rcmg4"
   }
 ]

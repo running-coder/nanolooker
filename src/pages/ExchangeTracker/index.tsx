@@ -16,7 +16,7 @@ const { Text, Title } = Typography;
 
 const accountToLineColorMap = exchangeWallets.map(({ account }, i) => ({
   account,
-  color: lineColors[i],
+  color: lineColors[i % lineColors.length],
 }));
 accountToLineColorMap.push({
   account: "ALL",
@@ -265,7 +265,10 @@ const ExchangeTrackerPage: React.FC = () => {
         <div>
           {exchangeWallets.map(({ name, account }, index) => {
             const [tagColor, lineColor] = activeWallets.includes(account)
-              ? [tagColors[index], lineColors[index]]
+              ? [
+                  tagColors[index % tagColors.length],
+                  lineColors[index % lineColors.length],
+                ]
               : [];
             return (
               <Tag
@@ -297,7 +300,9 @@ const ExchangeTrackerPage: React.FC = () => {
           <Tag
             style={{ cursor: "pointer", marginBottom: "8px" }}
             color={
-              isSelectedExchanges ? tagColors[tagColors.length - 1] : "default"
+              isSelectedExchanges
+                ? tagColors[(tagColors.length - 1) % tagColors.length]
+                : "default"
             }
             onClick={() => {
               setIsSelectedExchanges(!isSelectedExchanges);
