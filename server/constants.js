@@ -1,5 +1,6 @@
 const EXPIRE_1M = 60;
 const EXPIRE_1H = 3600;
+const EXPIRE_6H = 3600 * 6;
 const EXPIRE_24H = EXPIRE_1H * 24;
 const EXPIRE_48H = EXPIRE_24H * 2;
 const EXPIRE_1W = EXPIRE_24H * 7;
@@ -60,6 +61,7 @@ const SUPPORTED_CRYPTOCURRENCY = require("./supported-cryptocurrency");
 module.exports = {
   EXPIRE_1M,
   EXPIRE_1H,
+  EXPIRE_6H,
   EXPIRE_24H,
   EXPIRE_48H,
   EXPIRE_1W,

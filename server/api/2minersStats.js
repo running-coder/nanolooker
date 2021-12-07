@@ -2,7 +2,7 @@ const MongoClient = require("mongodb").MongoClient;
 const { Sentry } = require("../sentry");
 const { nodeCache } = require("../client/cache");
 const {
-  EXPIRE_24h,
+  EXPIRE_6H,
   MONGO_URL,
   MONGO_OPTIONS,
   MONGO_DB,
@@ -33,7 +33,7 @@ const get2MinersStats = async () => {
             const filteredData = data.map(
               ({ uniqueAccounts, ...rest }) => rest,
             );
-            nodeCache.set(MINERS_STATS, filteredData, EXPIRE_24h);
+            nodeCache.set(MINERS_STATS, filteredData, EXPIRE_6H);
             client.close();
             resolve(data);
           });
