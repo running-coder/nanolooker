@@ -114,5 +114,9 @@
   {
     "alias": "Bitvavo",
     "account": "nano_3wat6ci5a55s895eec64i4ihfd9ry3bdxnpb776mj1srjedqfdf4k11rcmg4"
+  },
+  {
+    "alias": "Flowhub",
+    "account": "nano_3f1owhubic8wa8rfmj5x6w9ore9btbtju5eampghs3y9ere6q6u96jraoo5s"
   }
 ]
