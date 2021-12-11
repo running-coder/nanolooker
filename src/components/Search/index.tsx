@@ -30,15 +30,21 @@ import useSearch from "./hooks/use-search";
 import useSearchHistory from "./hooks/use-search-history";
 import { Theme, PreferencesContext } from "api/contexts/Preferences";
 import { KnownAccount, KnownAccountsContext } from "api/contexts/KnownAccounts";
+import { BookmarksContext } from "api/contexts/Bookmarks";
 
 const Search = ({ isHome = false }) => {
   const { t } = useTranslation();
   const { theme } = React.useContext(PreferencesContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
+  const { bookmarks } = React.useContext(BookmarksContext);
+  const hasAccountBookmarks = !!Object.keys(bookmarks?.account || {}).length;
   const [isExpanded, setIsExpanded] = React.useState(isHome);
   const [isError, setIsError] = React.useState(false);
   const [filteredResults, setFilteredResults] = React.useState([] as any);
   const { searchValue, setSearchValue } = useSearch();
+  const [accountBookmarks, setAccountBookmarks] = React.useState<
+    { alias: string; account: string }[]
+  >([]);
   const {
     searchHistory,
     addSearchHistory,
@@ -77,13 +83,36 @@ const Search = ({ isHome = false }) => {
             )
             .map(item => renderItem(item));
 
-          setFilteredResults(filteredKnownAccounts);
+          const filteredAccountBookmarks = accountBookmarks
+            .filter(({ alias }) =>
+              alias.toLowerCase().includes(value.toLowerCase()),
+            )
+            .map(item => renderItem(item as KnownAccount));
+
+          setFilteredResults(
+            filteredAccountBookmarks.concat(filteredKnownAccounts),
+          );
         }
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [addSearchHistory, knownAccounts],
+    [addSearchHistory, knownAccounts, accountBookmarks],
   );
+
+  React.useEffect(() => {
+    if (hasAccountBookmarks) {
+      setAccountBookmarks(
+        Object.entries(bookmarks?.account).map(([account, alias]) => ({
+          account,
+          alias,
+        })),
+      );
+    } else {
+      setAccountBookmarks([]);
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hasAccountBookmarks]);
 
   React.useEffect(() => {
     validateSearch(searchValue);
@@ -233,7 +262,10 @@ const Search = ({ isHome = false }) => {
           }
           className={`ant-input-search ${isError ? "has-error" : ""}`}
           placeholder={t("search.searchBy")}
-          onFocus={() => setIsExpanded(true)}
+          onFocus={({ target: { value } }) => {
+            validateSearch(value);
+            setIsExpanded(true);
+          }}
           onBlur={() => setIsExpanded(isHome || false)}
           size={isHome ? "large" : "middle"}
           spellCheck={false}
