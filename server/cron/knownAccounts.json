@@ -118,5 +118,9 @@
   {
     "alias": "Flowhub",
     "account": "nano_3f1owhubic8wa8rfmj5x6w9ore9btbtju5eampghs3y9ere6q6u96jraoo5s"
+  },
+  {
+    "alias": "CoinEx",
+    "account": "nano_35bidny8nqtn18uptkntcezcks3m4d8amz9jnnbjdd9aejpz86a788pfwgrz"
   }
 ]

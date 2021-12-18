@@ -58,5 +58,9 @@
   {
     "name": "Bitvavo",
     "account": "nano_3wat6ci5a55s895eec64i4ihfd9ry3bdxnpb776mj1srjedqfdf4k11rcmg4"
+  },
+  {
+    "name": "CoinEx",
+    "account": "nano_35bidny8nqtn18uptkntcezcks3m4d8amz9jnnbjdd9aejpz86a788pfwgrz"
   }
 ]
