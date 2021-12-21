@@ -40,7 +40,8 @@
     "cancel": "キャンセル",
     "comingSoon": "近日公開",
     "statistics": "統計",
-    "continue": "継続する"
+    "continue": "継続する",
+    "link": "リンク"
   },
   "nodeHealth": {
     "nodeReloading": "Nanoノードがリロードしています",

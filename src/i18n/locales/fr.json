@@ -40,7 +40,8 @@
     "cancel": "Annuler",
     "comingSoon": "Bientôt disponible",
     "statistics": "Statistiques",
-    "continue": "Continuer"
+    "continue": "Continuer",
+    "link": "Lien"
   },
   "nodeHealth": {
     "nodeReloading": "Le nœud Nano est en cours de rechargement",

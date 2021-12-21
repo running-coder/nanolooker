@@ -40,6 +40,14 @@ const getYoutubePosts = async (): Promise<YoutubePost[]> =>
             thumbnails: { high: { url = "" } = {} } = {},
           } = snippet;
 
+          if (!videoId && url) {
+            videoId = url.match(/\/vi\/(.+?)\//)[1];
+          }
+
+          if (!videoId) {
+            return;
+          }
+
           posts.push({
             author: channelTitle,
             videoId,

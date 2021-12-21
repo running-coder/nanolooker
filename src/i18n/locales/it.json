@@ -40,7 +40,8 @@
     "cancel": "Annulla",
     "comingSoon": "Prossimamente",
     "statistics": "Statistiche",
-    "continue": "Continua"
+    "continue": "Continua",
+    "link": "Collegamento"
   },
   "nodeHealth": {
     "nodeReloading": "Il nano nodo si sta ricaricando",

@@ -40,7 +40,8 @@
     "node": "Node",
     "nodes": "Nodes",
     "comingSoon": "Coming soon",
-    "statistics": "Statistics"
+    "statistics": "Statistics",
+    "link": "Link"
   },
   "nodeHealth": {
     "nodeReloading": "Nano node is reloading",

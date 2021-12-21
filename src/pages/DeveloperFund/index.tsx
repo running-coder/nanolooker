@@ -247,7 +247,7 @@ const DeveloperFund: React.FC = () => {
                 {t("common.balance")}
               </Col>
               <Col xs={24} sm={18}>
-                {new BigNumber("7000000").toFormat()} Ӿ
+                Ӿ{new BigNumber("7000000").toFormat()}
                 <br />
                 {t("pages.developerFund.percentOfTotal", {
                   percent: new BigNumber(7000000 * 100)

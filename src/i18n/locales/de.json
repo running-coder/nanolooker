@@ -40,7 +40,8 @@
     "cancel": "Abbrechen",
     "comingSoon": "Kommt bald",
     "statistics": "Statistiken",
-    "continue": "Weitermachen"
+    "continue": "Weitermachen",
+    "link": "Verknüpfung"
   },
   "nodeHealth": {
     "nodeReloading": "Der Nanoknoten wird neu geladen",

@@ -40,7 +40,8 @@
     "cancel": "لغو",
     "comingSoon": "به زودی",
     "statistics": "آمار",
-    "continue": "ادامه هید"
+    "continue": "ادامه هید",
+    "link": "ارتباط دادن"
   },
   "nodeHealth": {
     "nodeReloading": "گره نانو در حال بارگیری مجدد است",

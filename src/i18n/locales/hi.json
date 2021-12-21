@@ -40,7 +40,8 @@
     "cancel": "रद्द करना",
     "comingSoon": "जल्द आ रहा है",
     "statistics": "आंकड़े",
-    "continue": "जारी रखना"
+    "continue": "जारी रखना",
+    "link": "संपर्क"
   },
   "nodeHealth": {
     "nodeReloading": "नैनो नोड पुनः लोड हो रहा है",

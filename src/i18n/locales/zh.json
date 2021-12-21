@@ -40,7 +40,8 @@
     "cancel": "取消",
     "comingSoon": "即将推出",
     "statistics": "统计数据",
-    "continue": "继续"
+    "continue": "继续",
+    "link": "关联"
   },
   "nodeHealth": {
     "nodeReloading": "纳米节点正在重新加载",

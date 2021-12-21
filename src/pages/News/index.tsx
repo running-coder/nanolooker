@@ -161,8 +161,8 @@ const NewsPage: React.FC = () => {
 
       <Row gutter={[12, 0]}>
         {!filteredPosts.length && (isMediumLoading || isYoutubeLoading)
-          ? Array.from({ length: 6 }).map(() => (
-              <Col xs={24} md={12} lg={8}>
+          ? Array.from({ length: 6 }).map((_value, index) => (
+              <Col xs={24} md={12} lg={8} key={index}>
                 <Card
                   size="small"
                   bodyStyle={{
@@ -175,8 +175,8 @@ const NewsPage: React.FC = () => {
             ))
           : null}
 
-        {filteredPosts.map((post: MediumPost | YoutubePost) => (
-          <Col xs={24} md={12} lg={8}>
+        {filteredPosts.map((post: MediumPost | YoutubePost, index) => (
+          <Col xs={24} md={12} lg={8} key={index}>
             {post.source === PostSource.MEDIUM ? <Medium post={post} /> : null}
             {post.source === PostSource.YOUTUBE ? (
               <Youtube post={post} />

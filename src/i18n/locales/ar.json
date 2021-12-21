@@ -40,7 +40,8 @@
     "cancel": "يلغي",
     "comingSoon": "قريبا",
     "statistics": "إحصائيات",
-    "continue": "يكمل"
+    "continue": "يكمل",
+    "link": "وصلة"
   },
   "nodeHealth": {
     "nodeReloading": "يتم إعادة تحميل عقدة النانو",

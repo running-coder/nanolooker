@@ -40,7 +40,8 @@
     "cancel": "Huỷ bỏ",
     "comingSoon": "Sắp có",
     "statistics": "Số liệu thống kê",
-    "continue": "Tiếp tục"
+    "continue": "Tiếp tục",
+    "link": "Liên kết"
   },
   "nodeHealth": {
     "nodeReloading": "Nút nano đang tải lại",

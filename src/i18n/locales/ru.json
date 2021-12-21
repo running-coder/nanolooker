@@ -40,7 +40,8 @@
     "cancel": "Отмена",
     "comingSoon": "Скоро будет",
     "statistics": "Статистика",
-    "continue": "Продолжать"
+    "continue": "Продолжать",
+    "link": "Ссылка на сайт"
   },
   "nodeHealth": {
     "nodeReloading": "Нано-узел перезагружается",

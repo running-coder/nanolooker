@@ -40,7 +40,8 @@
     "cancel": "İptal etmek",
     "comingSoon": "Çok yakında",
     "statistics": "İstatistik",
-    "continue": "Devam et"
+    "continue": "Devam et",
+    "link": "Bağlantı"
   },
   "nodeHealth": {
     "nodeReloading": "Nano düğüm yeniden yükleniyor",

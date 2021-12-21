@@ -40,7 +40,8 @@
     "cancel": "annuleren",
     "comingSoon": "Binnenkort beschikbaar",
     "statistics": "Statistieken",
-    "continue": "Doorgaan met"
+    "continue": "Doorgaan met",
+    "link": "Koppeling"
   },
   "nodeHealth": {
     "nodeReloading": "Nano node wordt opnieuw geladen",

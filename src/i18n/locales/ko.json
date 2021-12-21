@@ -40,7 +40,8 @@
     "cancel": "취소",
     "comingSoon": "곧 출시",
     "statistics": "통계",
-    "continue": "계속하다"
+    "continue": "계속하다",
+    "link": "링크"
   },
   "nodeHealth": {
     "nodeReloading": "나노 노드가 다시로드됩니다.",
