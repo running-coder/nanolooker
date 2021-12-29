@@ -41,7 +41,7 @@ const getYoutubePosts = async (): Promise<YoutubePost[]> =>
           } = snippet;
 
           if (!videoId && url) {
-            videoId = url.match(/\/vi\/(.+?)\//)[1];
+            [, videoId] = url.match(/\/vi\/(.+?)\//) || [];
           }
 
           if (!videoId) {

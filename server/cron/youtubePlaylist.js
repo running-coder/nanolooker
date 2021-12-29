@@ -10,6 +10,7 @@ const doYoutubePlaylist = async () => {
   const channels = {
     Nano: "UCFxXo3z9k4yvxSboEEjXO2w",
     JasonEsg: "UCuZP5pk5N5rkS9ChM4nJQPQ",
+    NanoCollaborative: "UC5r23vImhUrpZZGYvcxrMvQ",
   };
 
   let videos = {};
