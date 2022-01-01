@@ -3,8 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
 import flatten from "lodash/flatten";
 import BigNumber from "bignumber.js";
-import { Card, Col, Row, Skeleton, Switch, Typography } from "antd";
-import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
+import { Card, Col, Row, Skeleton, Typography } from "antd";
 import { Line } from "@antv/g2plot";
 import useStatisticsSocial from "./hooks/use-statistics-2miners";
 import { ACCOUNT_2MINERS } from "pages/Account/Details/ExtraRow";
@@ -21,7 +20,6 @@ const TRANSACTIONS_PER_PAGE = 25;
 const Statistics2MinersPage: React.FC = () => {
   const { t } = useTranslation();
   const { statistics, isLoading } = useStatisticsSocial();
-  const [isLogScale, setIsLogScale] = React.useState(false);
   const [totalFiatPayouts, setTotalFiatPayouts] = React.useState(0);
   const [currentPage, setCurrentPage] = React.useState<number>(1);
 
@@ -105,7 +103,7 @@ const Statistics2MinersPage: React.FC = () => {
         type: "time",
       },
       yAxis: {
-        type: isLogScale ? "log" : "linear",
+        type: "linear",
         min: 290,
         base: 2,
       },
@@ -159,7 +157,7 @@ const Statistics2MinersPage: React.FC = () => {
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLoading, isLogScale, statistics]);
+  }, [isLoading, statistics]);
 
   React.useEffect(() => {
     return () => {
@@ -256,29 +254,6 @@ const Statistics2MinersPage: React.FC = () => {
                 date,
               })}
             </Text>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={24}>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
-              <Switch
-                disabled={isLoading || !statistics.length}
-                checkedChildren={<CheckOutlined />}
-                unCheckedChildren={<CloseOutlined />}
-                onChange={(checked: boolean) => {
-                  setIsLogScale(checked);
-                }}
-                defaultChecked={isLogScale}
-              />
-              <Text style={{ margin: "0 6px" }}>
-                {t("pages.distribution.logScale")}
-              </Text>
-            </div>
           </Col>
         </Row>
 
