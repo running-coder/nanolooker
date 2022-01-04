@@ -35,7 +35,7 @@ const fontSizeToRankMap: { [key: number]: string } = {
 const Leaderboard: React.FC = () => {
   const { t } = useTranslation();
   const { leaderboard, isLoading } = useNanoBrowserQuestLeaderboard();
-  const pageSize = 15;
+  const pageSize = 20;
   const [currentPage, setCurrentPage] = React.useState(1);
   const [paginatedTopScores, setPaginatedTopScores] = React.useState(
     [] as any[][],
@@ -51,14 +51,7 @@ const Leaderboard: React.FC = () => {
       <Card size="small" bordered={false} className="detail-layout">
         <Row gutter={12}>
           <Col xs={3}>{t("pages.nanobrowserquest.rank")}</Col>
-          <Col xs={9}>{t("pages.nanobrowserquest.player")}</Col>
-          <Col xs={3}>
-            <img
-              src="/nanobrowserquest/nano-potion.png"
-              width="16px"
-              alt={t("pages.nanobrowserquest.nanoPotions")}
-            />
-          </Col>
+          <Col xs={12}>{t("pages.nanobrowserquest.player")}</Col>
           <Col xs={3}>{t("pages.nanobrowserquest.level")}</Col>
           <Col xs={6}>{t("pages.nanobrowserquest.exp")}</Col>
         </Row>
@@ -68,10 +61,7 @@ const Leaderboard: React.FC = () => {
               <Col xs={3}>
                 <Skeleton loading={true} paragraph={false} active />
               </Col>
-              <Col xs={9}>
-                <Skeleton loading={true} paragraph={false} active />
-              </Col>
-              <Col xs={3}>
+              <Col xs={12}>
                 <Skeleton loading={true} paragraph={false} active />
               </Col>
               <Col xs={3}>
@@ -94,18 +84,11 @@ const Leaderboard: React.FC = () => {
                       #{rank} <Trophy rank={rank} />
                     </Text>
                   </Col>
-                  <Col xs={9}>
+                  <Col xs={12}>
                     <Text
                       style={{ fontSize: fontSizeToRankMap[rank] ?? "auto" }}
                     >
                       {player}
-                    </Text>
-                  </Col>
-                  <Col xs={3}>
-                    <Text
-                      style={{ fontSize: fontSizeToRankMap[rank] ?? "auto" }}
-                    >
-                      {nanoPotions}
                     </Text>
                   </Col>
                   <Col xs={3}>
