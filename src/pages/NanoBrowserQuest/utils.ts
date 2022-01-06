@@ -67,14 +67,9 @@ const expToLevelMap = [
 ];
 
 export const getLevel = (exp: number) => {
-  let level = 1;
-
-  for (let i = 0; i <= expToLevelMap.length; i++) {
+  for (let i = 1; i < expToLevelMap.length; i++) {
     if (exp < expToLevelMap[i]) {
-      break;
+      return i;
     }
-    level += 1;
   }
-
-  return level;
 };
