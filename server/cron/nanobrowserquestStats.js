@@ -41,16 +41,10 @@ const getNanoBrowserQuestPlayers = async () => {
 
 const getNanoBrowserQuestLeaderboard = async () => {
   let res;
-  const excludedPlayers = ["u:running-coder"];
-
   try {
     client.keys("u:*", (error, players) => {
-      const filteredPlayers = players.filter(
-        player => !excludedPlayers.includes(player),
-      );
-
       Promise.all(
-        filteredPlayers.map(
+        players.map(
           player =>
             new Promise(resolve => {
               client.hmget(
