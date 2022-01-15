@@ -104,7 +104,7 @@
     "fiatCurrency": "法定通貨",
     "fiatCurrencyDetailed": "法定紙幣は政府発行の通貨です。 Bananoの価格を比較するには、法定通貨を選択します。",
     "natricons": "ナトリコン",
-    "natriconsDetailed": "Natriconsは、Bananoアドレスにとって親しみやすく親しみやすい顔です。近くにBananoアドレスがある場所ならどこでも、アカウントページでそれらを使用してください。",
+    "natriconsDetailed": "MonKeysは、Bananoアドレスにとって親しみやすく親しみやすい顔です。近くにBananoアドレスがある場所ならどこでも、アカウントページでそれらを使用してください。",
     "liveTransactions": "ライブアップデートを有効にする",
     "liveTransactionsDetailed": "Bananoネットワークで発生するライブトランザクションを監視します。ホームページで入手できます。",
     "contribute": "助ける",
