@@ -41,7 +41,7 @@ const cacheSettings = {
   account_representative: 5,
   accounts_balances: 1,
   active_difficulty: 1,
-  available_supply: 604800,
+  available_supply: 3600,
   block_count: 1,
   block_info: 1,
   blocks_info: 5,
