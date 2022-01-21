@@ -122,5 +122,9 @@
   {
     "alias": "CoinEx",
     "account": "nano_35bidny8nqtn18uptkntcezcks3m4d8amz9jnnbjdd9aejpz86a788pfwgrz"
+  },
+  {
+    "alias": "Nano Collaborative Donations",
+    "account": "nano_36stct5ene3f9rgehtuddshki4gkjofequkf449p1shnexirrxzm93ixdbao"
   }
 ]
