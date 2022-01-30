@@ -61,7 +61,7 @@ const LanguagePreferences: React.FC<Props> = ({ isDetailed }) => {
           <Option value="ja">日本語</Option>
           <Option value="ko">한국어</Option>
           <Option value="nl">Nederlands</Option>
-          <Option value="pl">Język polski</Option>
+          <Option value="pl">Polski</Option>
           <Option value="pt">Português</Option>
           <Option value="ru">Pусский</Option>
           <Option value="tr">Türkçe</Option>
