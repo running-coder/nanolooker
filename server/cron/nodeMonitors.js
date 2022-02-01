@@ -4,7 +4,7 @@ const { rpc } = require("../rpc");
 const { nodeCache } = require("../client/cache");
 const { Sentry } = require("../sentry");
 const { rawToRai } = require("../utils");
-const { NODE_MONITORS, EXPIRE_24H } = require("../constants");
+const { NODE_MONITORS } = require("../constants");
 const monitorAliases = require("./monitorAliases.json");
 
 const NODE_IP_REGEX = /\[::ffff:([\d.]+)\]:[\d]+/;
@@ -41,7 +41,7 @@ const getConfirmationQuorumPeers = async () => {
 
 const getNodeMonitor = async (ip, protocol = "http") => {
   try {
-    const res = await fetch(`${protocol}://${ip}/api.php`, { timeout: 5000 });
+    const res = await fetch(`${protocol}://${ip}/api.php`, { timeout: 7500 });
 
     const {
       version,
@@ -106,10 +106,10 @@ const doNodeMonitors = async () => {
       peers.map(async ({ account, ip, ...rest }) => {
         const domain = monitorAliases[account] || ip;
 
-        let monitor = await getNodeMonitor(domain);
+        let monitor = await getNodeMonitor(domain, "https");
 
         if (!Object.keys(monitor).length) {
-          monitor = await getNodeMonitor(domain, "https");
+          monitor = await getNodeMonitor(domain);
         }
 
         if (!Object.keys(monitor).length) {
@@ -127,11 +127,7 @@ const doNodeMonitors = async () => {
 
     results = results.filter(Boolean);
 
-    nodeCache.set(
-      `${NODE_MONITORS}_NO_MONITOR`,
-      skipMonitorCheck24h,
-      EXPIRE_24H,
-    );
+    nodeCache.set(`${NODE_MONITORS}_NO_MONITOR`, skipMonitorCheck24h);
     nodeCache.set(NODE_MONITORS, results);
   } catch (err) {
     console.log("Error", err);
@@ -145,6 +141,12 @@ cron.schedule("*/10 * * * *", () => {
   if (process.env.NODE_ENV !== "production") return;
 
   doNodeMonitors();
+});
+
+// https://crontab.guru/#*/0_0_*_*_*
+// “At midnight.”
+cron.schedule("0 0 * * *", () => {
+  nodeCache.del(`${NODE_MONITORS}_NO_MONITOR`);
 });
 
 if (process.env.NODE_ENV === "production") {
