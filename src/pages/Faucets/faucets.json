@@ -49,5 +49,10 @@
     "alias": "Nano Queen Faucet",
     "account": "nano_3yw7sznr3dhgd39y6spu5tzzr7qp3fore5ugz9fkfp4pqsq445yschw5d6xz",
     "link": "https://faucetqueen.repl.co/"
+  },
+  {
+    "alias": "K3i's Free Nano Faucet",
+    "account": "nano_1g81pd84wnr3aiumt466xd1kopsfouzf1cwi1phqxdrkxaua9t7juzrg3i35",
+    "link": "https://nanofaucet.online/"
   }
 ]
