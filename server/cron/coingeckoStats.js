@@ -127,42 +127,42 @@ const getMarketCapStats = async () => {
 
   const marketCapStats = [];
   const ids = [];
-  const top = process.env.NODE_ENV === "production" ? 200 : 10;
+  const top = process.env.NODE_ENV === "production" ? 100 : 10;
 
   try {
-    // @NOTE top 200
     let res = await fetch(
-      `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${top}&page=1&sparkline=false`,
+      `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${top}&page=1&sparkline=false&market_data=false`,
     );
 
     const cryptocurrencies = await res.json();
 
+    // If nano is excluded from the top X, still include it to be requested
+    if (!cryptocurrencies.find(({ id }) => id === "nano")) {
+      cryptocurrencies.push({ id: "nano", symbol: "xno", name: "Nano" });
+    }
+
     for (let i = 0; i < cryptocurrencies.length; i++) {
-      const {
-        id,
-        symbol,
-        name,
-        image: largeImage,
-        market_cap: marketCap,
-        market_cap_rank: marketCapRank,
-        fully_diluted_valuation: fullyDilutedValuation,
-      } = cryptocurrencies[i];
+      const { id, symbol, name } = cryptocurrencies[i];
 
       ids.push(id);
       res = await fetch(
-        `https://api.coingecko.com/api/v3/coins/${id}?tickers=false&market_data=false&sparkline=false`,
+        `https://api.coingecko.com/api/v3/coins/${id}?tickers=false&sparkline=false`,
       );
 
       try {
         const {
+          market_data: {
+            market_cap: { usd: marketCap },
+          },
+          market_cap_rank: marketCapRank,
+          image: { small: image },
+          fully_diluted_valuation: fullyDilutedValuation,
           community_data: {
             twitter_followers: twitterFollowers,
             reddit_subscribers: redditSubscribers,
           },
           developer_data: { stars: githubStars },
         } = await res.json();
-
-        const image = largeImage.replace("/large/", "/small/");
 
         const cryptocurrency = {
           id,
