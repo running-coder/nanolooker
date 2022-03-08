@@ -200,7 +200,9 @@
       "missingBlock": "Thiếu khối",
       "missingBlockInfo": "Khối không được chỉ định trong URL. Sử dụng thanh tìm kiếm trên cùng để tìm kiếm một khối hoặc thêm khối đó vào URL sau /block/",
       "blockNotFound": "Không tìm thấy khối",
-      "blockNotFoundInfo": "Không tìm thấy khối bạn yêu cầu. Có thể khối hiện diện trên mạng Nano nhưng nút vẫn chưa được nhìn thấy. Đảm bảo rằng bạn đang tìm kiếm đúng khối hoặc thử lại sau."
+      "blockNotFoundInfo": "Không tìm thấy khối bạn yêu cầu. Có thể khối hiện diện trên mạng Nano nhưng nút vẫn chưa được nhìn thấy. Đảm bảo rằng bạn đang tìm kiếm đúng khối hoặc thử lại sau.",
+      "successorBlock": "Khối kế thừa",
+      "lastAccountBlock": "Khối này là lần gần đây nhất trên tài khoản"
     },
     "representatives": {
       "voteDistribution": "Phân phối phiếu bầu",

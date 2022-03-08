@@ -200,7 +200,9 @@
       "missingBlock": "Blocco mancante",
       "missingBlockInfo": "Il blocco non è specificato nell'URL. Usa la barra di ricerca in alto per cercare un blocco o aggiungilo nell'URL dopo /block/",
       "blockNotFound": "Blocco non trovato",
-      "blockNotFoundInfo": "Il blocco richiesto non è stato trovato. È possibile che il blocco sia presente sulla rete Nano ma non sia ancora stato visto dal nodo. Assicurati di cercare il blocco corretto o riprova più tardi."
+      "blockNotFoundInfo": "Il blocco richiesto non è stato trovato. È possibile che il blocco sia presente sulla rete Nano ma non sia ancora stato visto dal nodo. Assicurati di cercare il blocco corretto o riprova più tardi.",
+      "successorBlock": "Blocco successore",
+      "lastAccountBlock": "Questo blocco è il più recente sull'account"
     },
     "representatives": {
       "voteDistribution": "Distribuzione dei voti",

@@ -23,6 +23,7 @@ export interface BlockInfo {
     work: string;
   };
   subtype: Subtype;
+  successor: string;
 }
 
 export interface Return {

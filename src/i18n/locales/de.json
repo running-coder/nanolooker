@@ -200,7 +200,9 @@
       "missingBlock": "Fehlender Block",
       "missingBlockInfo": "Der Block ist in der URL nicht angegeben. Verwenden Sie die obere Suchleiste, um nach einem Block zu suchen, oder hängen Sie ihn an die URL nach /block/ an",
       "blockNotFound": "Block nicht gefunden",
-      "blockNotFoundInfo": "Der von Ihnen angeforderte Block wurde nicht gefunden. Es ist möglich, dass der Block im Nano-Netzwerk vorhanden ist, aber vom Knoten noch nicht gesehen wurde. Stellen Sie sicher, dass Sie nach dem richtigen Block suchen, oder versuchen Sie es später erneut."
+      "blockNotFoundInfo": "Der von Ihnen angeforderte Block wurde nicht gefunden. Es ist möglich, dass der Block im Nano-Netzwerk vorhanden ist, aber vom Knoten noch nicht gesehen wurde. Stellen Sie sicher, dass Sie nach dem richtigen Block suchen, oder versuchen Sie es später erneut.",
+      "successorBlock": "Nachfolgeblock",
+      "lastAccountBlock": "Dieser Block ist der neueste auf dem Konto"
     },
     "representatives": {
       "voteDistribution": "Stimmenverteilung",

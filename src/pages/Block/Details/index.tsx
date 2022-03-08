@@ -22,7 +22,7 @@ import {
   timestampToDate,
   isValidAccountAddress,
   isValidBlockHash,
-  isOpenAccountBlockHash,
+  isNullAccountBlockHash,
 } from "components/utils";
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 import LoadingStatistic from "components/LoadingStatistic";
@@ -71,6 +71,7 @@ const BlockDetails: React.FC = () => {
       signature = "",
       work = "",
     } = {},
+    successor,
   } = blockInfo || {};
 
   const modifiedTimestamp = Number(blockInfo?.local_timestamp) * 1000;
@@ -329,10 +330,29 @@ const BlockDetails: React.FC = () => {
                       {previous}
                     </Link>
                   ) : null}
-                  {isOpenAccountBlockHash(previous) ? (
+                  {isNullAccountBlockHash(previous) ? (
                     <Text>{t("pages.block.openAccountBlock")}</Text>
                   ) : null}
                 </Skeleton>
+              </Col>
+            </Row>
+            <Row gutter={6}>
+              <Col xs={24} sm={6} xl={4}>
+                {t("pages.block.successorBlock")}
+              </Col>
+              <Skeleton
+                {...skeletonProps}
+                title={{ width: isSmallAndLower ? "100%" : "50%" }}
+              ></Skeleton>
+              <Col xs={24} sm={18} xl={20}>
+                {isValidBlockHash(successor) ? (
+                  <Link to={`/block/${successor}`} className="break-word">
+                    {successor}
+                  </Link>
+                ) : null}
+                {isNullAccountBlockHash(successor) ? (
+                  <Text>{t("pages.block.lastAccountBlock")}</Text>
+                ) : null}
               </Col>
             </Row>
             <Row gutter={6}>

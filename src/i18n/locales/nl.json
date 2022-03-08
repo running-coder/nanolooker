@@ -200,7 +200,9 @@
       "missingBlock": "Ontbrekend block",
       "missingBlockInfo": "Het block is niet gespecificeerd in de URL. Gebruik de zoekbalk bovenaan om naar een block te zoeken of voeg het toe aan de URL na /block/",
       "blockNotFound": "Block niet gevonden",
-      "blockNotFoundInfo": "Het block dat u heeft aangevraagd, is niet gevonden. Het is mogelijk dat het block aanwezig is op het Nano netwerk, maar nog gezien moet worden door de node. Zorg ervoor dat u naar het juiste block zoekt of probeer het later opnieuw."
+      "blockNotFoundInfo": "Het block dat u heeft aangevraagd, is niet gevonden. Het is mogelijk dat het block aanwezig is op het Nano netwerk, maar nog gezien moet worden door de node. Zorg ervoor dat u naar het juiste block zoekt of probeer het later opnieuw.",
+      "successorBlock": "Opvolger blok",
+      "lastAccountBlock": "Dit blok is het meest recente op het account"
     },
     "representatives": {
       "voteDistribution": "Stemverdeling",
