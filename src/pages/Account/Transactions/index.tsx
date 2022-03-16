@@ -222,7 +222,7 @@ const TransactionsTable = ({
                         ? t("common.notAvailable")
                         : ""}
                       {amount && amount !== "0"
-                        ? `Ӿ${new BigNumber(rawToRai(amount)).toFormat()}`
+                        ? `Ӿ ${new BigNumber(rawToRai(amount)).toFormat()}`
                         : ""}
                     </Text>
                   </Col>

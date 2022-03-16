@@ -174,7 +174,7 @@ const AccountDetails: React.FC<Props> = ({
               value={balance >= 1 ? balance : new BigNumber(balance).toFormat()}
             />
             <Skeleton {...skeletonProps}>
-              {`${CurrencySymbol?.[fiat]}${fiatBalance} / ${btcBalance} BTC`}
+              {`${CurrencySymbol?.[fiat]} ${fiatBalance} / ${btcBalance} BTC`}
             </Skeleton>
           </Col>
         </Row>
@@ -293,7 +293,7 @@ const AccountDetails: React.FC<Props> = ({
               </Tooltip>
             </Col>
             <Col xs={24} sm={18} md={20}>
-              <Skeleton {...skeletonProps}>Ӿ{balancePending}</Skeleton>
+              <Skeleton {...skeletonProps}>Ӿ {balancePending}</Skeleton>
             </Col>
           </Row>
         ) : null}

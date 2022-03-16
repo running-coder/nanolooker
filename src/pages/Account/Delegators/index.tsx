@@ -109,7 +109,7 @@ const Delegators: React.FC = () => {
                         display: "block",
                       }}
                     >
-                      Ӿ{new BigNumber(weight).toFormat()}
+                      Ӿ {new BigNumber(weight).toFormat()}
                     </span>
                   </Col>
                   <Col xs={24} sm={12} md={16} lg={18}>

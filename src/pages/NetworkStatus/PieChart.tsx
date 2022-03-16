@@ -93,7 +93,7 @@ const Representatives: React.FC<Props> = ({ versions }) => {
         }) => ({
           name: version,
           value: isVersionByWeight
-            ? `Ӿ${new BigNumber(weight).toFormat(2)} - ${new BigNumber(weight)
+            ? `Ӿ ${new BigNumber(weight).toFormat(2)} - ${new BigNumber(weight)
                 .times(100)
                 .dividedBy(totalWeight)
                 .toFormat(2)}%`

@@ -66,6 +66,7 @@ const BlockDetails: React.FC = () => {
     contents: {
       type = "",
       representative = "",
+      link = "",
       link_as_account: linkAsAccount = "",
       previous = "",
       signature = "",
@@ -217,7 +218,7 @@ const BlockDetails: React.FC = () => {
                   }
                   title={{ width: isSmallAndLower ? "100%" : "33%" }}
                 >
-                  {`${CurrencySymbol?.[fiat]}${fiatAmount} / ${btcAmount} BTC`}
+                  {`${CurrencySymbol?.[fiat]} ${fiatAmount} / ${btcAmount} BTC`}
                 </Skeleton>
               </Col>
             </Row>
@@ -230,7 +231,7 @@ const BlockDetails: React.FC = () => {
                   {...skeletonProps}
                   title={{ width: isSmallAndLower ? "100%" : "33%" }}
                 >
-                  Ӿ{new BigNumber(balance).toFormat()}
+                  Ӿ {new BigNumber(balance).toFormat()}
                   <br />
                 </Skeleton>
                 <Skeleton
@@ -240,7 +241,7 @@ const BlockDetails: React.FC = () => {
                   }
                   title={{ width: isSmallAndLower ? "100%" : "33%" }}
                 >
-                  {`${CurrencySymbol?.[fiat]}${fiatBalance} / ${btcBalance} BTC`}
+                  {`${CurrencySymbol?.[fiat]} ${fiatBalance} / ${btcBalance} BTC`}
                 </Skeleton>
               </Col>
             </Row>
@@ -355,6 +356,24 @@ const BlockDetails: React.FC = () => {
                 ) : null}
               </Col>
             </Row>
+            {subtype === "receive" ? (
+              <Row gutter={6}>
+                <Col xs={24} sm={6} xl={4}>
+                  {t("pages.block.matchingSendBlock")}
+                </Col>
+                <Skeleton
+                  {...skeletonProps}
+                  title={{ width: isSmallAndLower ? "100%" : "50%" }}
+                ></Skeleton>
+                <Col xs={24} sm={18} xl={20}>
+                  {isValidBlockHash(link) ? (
+                    <Link to={`/block/${link}`} className="break-word">
+                      {link}
+                    </Link>
+                  ) : null}
+                </Col>
+              </Row>
+            ) : null}
             <Row gutter={6}>
               <Col xs={24} sm={6} xl={4}>
                 {t("pages.block.signature")}
