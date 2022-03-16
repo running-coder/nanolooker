@@ -82,7 +82,7 @@
     "blockHeight": "Lokalna wartość całkowita reprezentująca kolejność bloku w łańcuchu kont. Na przykład piętnasty blok na koncie miałby wysokość bloku 15. W stosunku (ale różniący się od) wysokości potwierdzenia.",
     "bookmarks": "{{type, capitalize}} zakładek zostało zapisanych na Twoim urządzeniu. Możesz zarządzać znanymi {{type}} dając im aliasy.",
     "groupByEntities": "Przegrupuj wszystkie wagi głosów, które są podzielone na różnych głównych przedstawicieli w pojedyncze jednostki. Na przykład giełda może mieć wiele portfeli i podzielić ich wagę, ale w rzeczywistości można ją policzyć jako jedną wagę, jeśli miałyby ją przegrupować.",
-    "telemetry": "Metryki z innych węzłów w sieci. Wszystkie metryki są zbierane i uśredniane, aby przedstawić różne stany w sieci. P odpowiada percentylowi, p50 jest obliczane poprzez wykluczenie dolnych 50%, podczas gdy p95 wyklucza dolne 5% różnych wartości w celu obliczenia średniej.",
+    "telemetry": "Metryki z innych węzłów w sieci. Wszystkie metryki są zbierane i uśredniane, aby przedstawić różne stany w sieci. P odpowiada percentylowi, p50 jest obliczane poprzez wykluczenie dolnych 50%, podczas gdy p95 wyklucza dolne 5% różnych wartości w celu obliczenia ś/rdniej.",
     "ledgerSize": "Całkowita ilość miejsca na dysku wymagana do przechowywania każdej transakcji Nano od tej pory. Rozmiar księgi jest obliczany na podstawie 1024 nie 1000.",
     "bandwidthCap": "Węzły Nano są w stanie ograniczyć przepustowość, aby ograniczyć ilość wiadomości, które mogą być wysłane lub odebrane. 0 oznacza nieograniczoną przepustowość.",
     "uptime": "Czas od ostatniego ponownego uruchomienia węzła.",
@@ -165,7 +165,7 @@
       "connectingToBlockchain": "Łączenie z blockchainem NANO",
       "reconnectingToBlockchain": "Rozłączono, ponowne lączenie z blockchainem NANO",
       "cpsLocal": "CPS obserwowany na lokalnym węźle",
-      "cpsNetwork": "Mediana CPS w kilku reprezentatywnych węzłach",
+      "cpsNetwork": "Mediany CPS w kilku reprezentatywnych węzłach",
       "viewSocialEngagement": "Zobacz zaangażowanie społeczne"
     },
     "account": {
@@ -201,8 +201,8 @@
       "missingBlockInfo": "Blok nie jest określony w adresie URL. Użyj górnego paska wyszukiwania, aby wyszukać blok lub dołącz go w adresie URL po /block/",
       "blockNotFound": "Nie znaleziono bloku",
       "blockNotFoundInfo": "Nie znaleziono żądanego bloku. Możliwe, że blok jest obecny w sieci Nano, ale musi być jeszcze widoczny dla węzła. Upewnij się, że szukasz właściwego bloku lub spróbuj ponownie później.",
-      "successorBlock": "Blok następcy",
-      "lastAccountBlock": "Ten blok jest najnowszym na koncie"
+      "successorBlock": "Następny blok",
+      "lastAccountBlock": "Ten blok jest najnowszy na koncie"
     },
     "representatives": {
       "voteDistribution": "Dystrybucja głosów",
