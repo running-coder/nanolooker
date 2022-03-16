@@ -26,6 +26,25 @@ const exchangeAccounts = exchanges.map(({ account }) => account);
 
 let db;
 let mongoClient;
+const connect = async () =>
+  await new Promise((resolve, reject) => {
+    try {
+      MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (err, client) => {
+        if (err) {
+          throw err;
+        }
+        mongoClient = client;
+        db = client.db(MONGO_DB);
+        db.collection(MINERS_STATS_COLLECTION).createIndex({
+          createdAt: 1,
+        });
+        resolve();
+      });
+    } catch (err) {
+      Sentry.captureException(err);
+      resolve();
+    }
+  });
 
 const MIN_RECEIVE_AMOUNT = 100;
 const MIN_HOLDING_AMOUNT = 0.001;
@@ -78,27 +97,6 @@ const getAccountNonExchangeRepresentative = async account => {
 
   return account;
 };
-
-const connect = async () =>
-  await new Promise((resolve, reject) => {
-    try {
-      MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (err, client) => {
-        if (err) {
-          throw err;
-        }
-        mongoClient = client;
-        db = client.db(MONGO_DB);
-        db.collection(MINERS_STATS_COLLECTION).createIndex({
-          createdAt: 1,
-        });
-        resolve();
-      });
-    } catch (err) {
-      console.log("Error", err);
-      Sentry.captureException(err);
-      reject();
-    }
-  });
 
 const getLatestEntry = async () => {
   if (!db) {
@@ -287,6 +285,8 @@ const do2MinersStats = async () => {
   }
 
   console.log("Completed!");
+
+  mongoClient.close();
 
   // Reset cache
   nodeCache.set(MINERS_STATS, null);
