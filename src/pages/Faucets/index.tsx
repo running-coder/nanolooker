@@ -69,73 +69,89 @@ const FaucetsPage: React.FC = () => {
             </Col>
           </Row>
         ) : null}
-        {faucets.map(({ alias, account, link, byLink }) => {
-          const { height, local_timestamp: localTimestamp = 0 } =
-            accountHistories?.find(
-              ({ account: historyAccount }) => historyAccount === account,
-            )?.history[0] || {};
+        {faucets.map(
+          ({
+            alias,
+            account,
+            link,
+            byLink,
+          }: {
+            alias: string;
+            account: string;
+            link: string;
+            byLink?: string;
+          }) => {
+            const { height, local_timestamp: localTimestamp = 0 } =
+              accountHistories?.find(
+                ({ account: historyAccount }) => historyAccount === account,
+              )?.history[0] || {};
 
-          const modifiedTimestamp = Number(localTimestamp) * 1000;
-          return (
-            <Row gutter={6} key={alias}>
-              <Col xs={24} sm={6} xl={4}>
-                {alias}
-                {byLink ? (
-                  <>
-                    <br />
-                    {t("common.by")}{" "}
-                    <a href={byLink} target="_blank" rel="noopener noreferrer">
-                      {byLink}
-                    </a>
-                  </>
-                ) : null}
-              </Col>
-              <Col xs={24} sm={4} xl={4}>
-                <Skeleton loading={isLoading} active paragraph={false}>
-                  {isSmallAndLower ? (
+            const modifiedTimestamp = Number(localTimestamp) * 1000;
+            return (
+              <Row gutter={6} key={alias}>
+                <Col xs={24} sm={6} xl={4}>
+                  {alias}
+                  {byLink ? (
                     <>
-                      <Text
-                        style={{ fontSize: "12px" }}
-                        className="color-muted"
+                      <br />
+                      {t("common.by")}{" "}
+                      <a
+                        href={byLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
-                        {t("pages.account.confirmationHeight")}
-                      </Text>{" "}
+                        {byLink}
+                      </a>
                     </>
                   ) : null}
-                  {height}
+                </Col>
+                <Col xs={24} sm={4} xl={4}>
+                  <Skeleton loading={isLoading} active paragraph={false}>
+                    {isSmallAndLower ? (
+                      <>
+                        <Text
+                          style={{ fontSize: "12px" }}
+                          className="color-muted"
+                        >
+                          {t("pages.account.confirmationHeight")}
+                        </Text>{" "}
+                      </>
+                    ) : null}
+                    {height}
+                    <br />
+                    <Text style={{ fontSize: "12px" }} className="color-muted">
+                      {t("pages.account.lastTransaction")}
+                    </Text>{" "}
+                    <TimeAgo
+                      locale={i18next.language}
+                      style={{ fontSize: "12px" }}
+                      className="color-muted"
+                      datetime={modifiedTimestamp}
+                      live={false}
+                    />
+                  </Skeleton>
+                </Col>
+                <Col xs={24} sm={14} xl={16}>
+                  <Link
+                    to={`/account/${account}`}
+                    className="break-word color-normal"
+                  >
+                    {account}
+                  </Link>
                   <br />
-                  <Text style={{ fontSize: "12px" }} className="color-muted">
-                    {t("pages.account.lastTransaction")}
-                  </Text>{" "}
-                  <TimeAgo
-                    locale={i18next.language}
-                    style={{ fontSize: "12px" }}
-                    className="color-muted"
-                    datetime={modifiedTimestamp}
-                    live={false}
-                  />
-                </Skeleton>
-              </Col>
-              <Col xs={24} sm={14} xl={16}>
-                <Link
-                  to={`/account/${account}`}
-                  className="break-word color-normal"
-                >
-                  {account}
-                </Link>
-                <br />
-                <a
-                  href={link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="break-word"
-                >
-                  {link}
-                </a>
-              </Col>
-            </Row>
-          );
-        })}
+                  <a
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="break-word"
+                  >
+                    {link}
+                  </a>
+                </Col>
+              </Row>
+            );
+          },
+        )}
       </Card>
     </>
   );
