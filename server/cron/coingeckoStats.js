@@ -20,7 +20,7 @@ const {
 } = require("../constants");
 
 const defaultFiats = ["usd"];
-const secondaryFiats = ["cad", "eur", "gbp", "cny", "jpy"];
+const secondaryFiats = ["cad", "eur", "gbp", "cny", "jpy", "pln"];
 
 const { writeFile, mkdir, copy } = promises;
 
