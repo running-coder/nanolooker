@@ -171,7 +171,6 @@
     "account": {
       "votingWeight": "Stemgewicht",
       "percentNetworkVotingWeight": "% van het stemgewicht van het netwerk",
-      "percentRepresentativeVotingWeight": "% van het stemgewicht van de vertegenwoordiger",
       "noRepresentative": "Geen vertegenwoordiger",
       "confirmationHeight": "Bevestigingshoogte",
       "lastTransaction": "Laatste transactie",

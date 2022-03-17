@@ -171,7 +171,6 @@
     "account": {
       "votingWeight": "मतदान का वजन",
       "percentNetworkVotingWeight": "नेटवर्क मतदान का%",
-      "percentRepresentativeVotingWeight": "प्रतिनिधि के मतदान वजन का%",
       "noRepresentative": "कोई प्रतिनिधि नहीं",
       "confirmationHeight": "पुष्टि की ऊंचाई",
       "lastTransaction": "अंतिम लेन-देन",

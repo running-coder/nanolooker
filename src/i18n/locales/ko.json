@@ -171,7 +171,6 @@
     "account": {
       "votingWeight": "투표 가중치",
       "percentNetworkVotingWeight": "네트워크 투표 가중치의 %",
-      "percentRepresentativeVotingWeight": "대표자 투표 가중치의 %",
       "noRepresentative": "대리인 없음",
       "confirmationHeight": "확인 높이",
       "lastTransaction": "마지막 거래",

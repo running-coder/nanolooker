@@ -171,7 +171,6 @@
     "account": {
       "votingWeight": "投票权重",
       "percentNetworkVotingWeight": "网络投票权的百分比",
-      "percentRepresentativeVotingWeight": "代表投票权的百分比",
       "noRepresentative": "没有代表",
       "confirmationHeight": "确认高度",
       "lastTransaction": "最后交易",

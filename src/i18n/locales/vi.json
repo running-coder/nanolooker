@@ -171,7 +171,6 @@
     "account": {
       "votingWeight": "Số phiếu bầu",
       "percentNetworkVotingWeight": "% trọng lượng biểu quyết của mạng",
-      "percentRepresentativeVotingWeight": "% trọng số biểu quyết của người đại diện",
       "noRepresentative": "Không có đại diện",
       "confirmationHeight": "Chiều cao xác nhận",
       "lastTransaction": "Giao dịch cuối cùng",

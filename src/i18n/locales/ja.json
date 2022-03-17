@@ -171,7 +171,6 @@
     "account": {
       "votingWeight": "投票の重み",
       "percentNetworkVotingWeight": "ネットワーク投票ウェイトの％",
-      "percentRepresentativeVotingWeight": "代表者の投票ウェイトの％",
       "noRepresentative": "代表者なし",
       "confirmationHeight": "確認高さ",
       "lastTransaction": "最後のトランザクション",

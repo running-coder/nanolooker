@@ -171,7 +171,6 @@
     "account": {
       "votingWeight": "Poids du vote",
       "percentNetworkVotingWeight": "% du poids des votes du réseau",
-      "percentRepresentativeVotingWeight": "% du poids des votes du représentant",
       "noRepresentative": "Pas de Représentant",
       "confirmationHeight": "Hauteur de confirmation",
       "lastTransaction": "Dernière transaction",
