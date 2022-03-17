@@ -101,7 +101,7 @@ const RichList: React.FC = () => {
                   </Link>
                 </Col>
                 <Col sm={6} md={6} xl={4}>
-                  Ӿ{new BigNumber(balance).toFormat()}
+                  Ӿ {new BigNumber(balance).toFormat()}
                   <span
                     className="color-muted"
                     style={{
@@ -122,7 +122,7 @@ const RichList: React.FC = () => {
                 <Col sm={4} md={4} xl={4}>
                   {currentPrice && btcCurrentPrice ? (
                     <>
-                      {`${CurrencySymbol?.[fiat]}${new BigNumber(balance)
+                      {`${CurrencySymbol?.[fiat]} ${new BigNumber(balance)
                         .times(currentPrice)
                         .toFormat(CurrencyDecimal?.[fiat])}`}
                       <span

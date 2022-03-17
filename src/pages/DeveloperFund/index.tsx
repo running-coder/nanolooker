@@ -143,7 +143,7 @@ const DeveloperFund: React.FC = () => {
                   value={totalBalance}
                 />
                 <Skeleton {...skeletonProps}>
-                  {`${CurrencySymbol?.[fiat]}${fiatBalance} / ${btcBalance} BTC`}
+                  {`${CurrencySymbol?.[fiat]} ${fiatBalance} / ${btcBalance} BTC`}
                 </Skeleton>
               </Col>
             </Row>
@@ -171,7 +171,7 @@ const DeveloperFund: React.FC = () => {
                   loading={!lastTransactionAmount}
                   paragraph={false}
                 >
-                  Ӿ{lastTransactionAmount}
+                  Ӿ {lastTransactionAmount}
                   <br />
                 </Skeleton>
                 <Skeleton
@@ -247,7 +247,7 @@ const DeveloperFund: React.FC = () => {
                 {t("common.balance")}
               </Col>
               <Col xs={24} sm={18}>
-                Ӿ{new BigNumber("7000000").toFormat()}
+                Ӿ {new BigNumber("7000000").toFormat()}
                 <br />
                 {t("pages.developerFund.percentOfTotal", {
                   percent: new BigNumber(7000000 * 100)
@@ -304,7 +304,7 @@ const DeveloperFund: React.FC = () => {
                   display: "block",
                 }}
               >
-                Ӿ{balance}
+                Ӿ {balance}
               </span>
             </Col>
             <Col sm={14} md={14} xl={18}>

@@ -193,6 +193,7 @@
       "sender": "Sender",
       "previousBlock": "Previous block",
       "successorBlock": "Successor block",
+      "matchingSendBlock": "Matching send block",
       "height": "Block height",
       "signature": "Signature",
       "work": "Work",

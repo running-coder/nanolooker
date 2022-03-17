@@ -470,6 +470,10 @@ body,
   color: rgba(0, 0, 0, 0.85);
 }
 
+.ant-statistic-content-prefix {
+  margin-right: 3px;
+}
+
 .ant-statistic-content-value-decimal {
   font-size: 16px;
 }
