@@ -202,7 +202,9 @@
       "blockNotFound": "الحظر غير موجود",
       "blockNotFoundInfo": "الكتلة التي طلبتها غير موجودة. من المحتمل أن تكون الكتلة موجودة على شبكة Nano ولكن لم يتم رؤيتها بواسطة العقدة بعد. تأكد من أنك تبحث عن الكتلة الصحيحة أو حاول مرة أخرى لاحقًا.",
       "successorBlock": "كتلة الخلف",
-      "lastAccountBlock": "هذه الكتلة هي الأحدث في الحساب"
+      "lastAccountBlock": "هذه الكتلة هي الأحدث في الحساب",
+      "matchingSendBlock": "مطابقة إرسال كتلة",
+      "noMatchingSendBlock": "لم يتم العثور على كتلة مطابقة"
     },
     "representatives": {
       "voteDistribution": "توزيع الأصوات",

@@ -202,7 +202,9 @@
       "blockNotFound": "找不到区块",
       "blockNotFoundInfo": "找不到您要求的封锁。该块可能存在于Nano网络上，但尚未被节点看到。确保您正在搜索正确的块，或者稍后再试。",
       "successorBlock": "后继区块",
-      "lastAccountBlock": "此块是帐户上的最新块"
+      "lastAccountBlock": "此块是帐户上的最新块",
+      "matchingSendBlock": "匹配发送块",
+      "noMatchingSendBlock": "未找到匹配块"
     },
     "representatives": {
       "voteDistribution": "投票分配",

@@ -202,7 +202,9 @@
       "blockNotFound": "ブロックが見つかりません",
       "blockNotFoundInfo": "リクエストしたブロックが見つかりません。ブロックがNanoネットワーク上に存在するが、ノードによってまだ認識されていない可能性があります。正しいブロックを検索していることを確認するか、後で再試行してください。",
       "successorBlock": "後継ブロック",
-      "lastAccountBlock": "このブロックはアカウントの最新のものです"
+      "lastAccountBlock": "このブロックはアカウントの最新のものです",
+      "matchingSendBlock": "一致する送信ブロック",
+      "noMatchingSendBlock": "一致するブロックが見つかりません"
     },
     "representatives": {
       "voteDistribution": "投票の分配",

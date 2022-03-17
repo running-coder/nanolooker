@@ -202,7 +202,9 @@
       "blockNotFound": "Block nicht gefunden",
       "blockNotFoundInfo": "Der von Ihnen angeforderte Block wurde nicht gefunden. Es ist möglich, dass der Block im Nano-Netzwerk vorhanden ist, aber vom Knoten noch nicht gesehen wurde. Stellen Sie sicher, dass Sie nach dem richtigen Block suchen, oder versuchen Sie es später erneut.",
       "successorBlock": "Nachfolgeblock",
-      "lastAccountBlock": "Dieser Block ist der neueste auf dem Konto"
+      "lastAccountBlock": "Dieser Block ist der neueste auf dem Konto",
+      "matchingSendBlock": "Passender Sendeblock",
+      "noMatchingSendBlock": "Kein passender Block gefunden"
     },
     "representatives": {
       "voteDistribution": "Stimmenverteilung",

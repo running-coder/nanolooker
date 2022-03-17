@@ -202,7 +202,9 @@
       "blockNotFound": "Không tìm thấy khối",
       "blockNotFoundInfo": "Không tìm thấy khối bạn yêu cầu. Có thể khối hiện diện trên mạng Nano nhưng nút vẫn chưa được nhìn thấy. Đảm bảo rằng bạn đang tìm kiếm đúng khối hoặc thử lại sau.",
       "successorBlock": "Khối kế thừa",
-      "lastAccountBlock": "Khối này là lần gần đây nhất trên tài khoản"
+      "lastAccountBlock": "Khối này là lần gần đây nhất trên tài khoản",
+      "matchingSendBlock": "Đối sánh khối gửi",
+      "noMatchingSendBlock": "Không tìm thấy khối phù hợp"
     },
     "representatives": {
       "voteDistribution": "Phân phối phiếu bầu",

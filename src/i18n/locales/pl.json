@@ -202,7 +202,9 @@
       "blockNotFound": "Nie znaleziono bloku",
       "blockNotFoundInfo": "Nie znaleziono żądanego bloku. Możliwe, że blok jest obecny w sieci Nano, ale musi być jeszcze widoczny dla węzła. Upewnij się, że szukasz właściwego bloku lub spróbuj ponownie później.",
       "successorBlock": "Następny blok",
-      "lastAccountBlock": "Ten blok jest najnowszy na koncie"
+      "lastAccountBlock": "Ten blok jest najnowszy na koncie",
+      "matchingSendBlock": "Dopasowany blok wysyłania",
+      "noMatchingSendBlock": "Nie znaleziono pasującego bloku"
     },
     "representatives": {
       "voteDistribution": "Dystrybucja głosów",

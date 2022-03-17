@@ -356,7 +356,7 @@ const BlockDetails: React.FC = () => {
                 ) : null}
               </Col>
             </Row>
-            {subtype === "receive" ? (
+            {link && subtype === "receive" ? (
               <Row gutter={6}>
                 <Col xs={24} sm={6} xl={4}>
                   {t("pages.block.matchingSendBlock")}
@@ -370,7 +370,9 @@ const BlockDetails: React.FC = () => {
                     <Link to={`/block/${link}`} className="break-word">
                       {link}
                     </Link>
-                  ) : null}
+                  ) : (
+                    t("pages.block.noMatchingSendBlock")
+                  )}
                 </Col>
               </Row>
             ) : null}

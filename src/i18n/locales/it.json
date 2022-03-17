@@ -202,7 +202,9 @@
       "blockNotFound": "Blocco non trovato",
       "blockNotFoundInfo": "Il blocco richiesto non è stato trovato. È possibile che il blocco sia presente sulla rete Nano ma non sia ancora stato visto dal nodo. Assicurati di cercare il blocco corretto o riprova più tardi.",
       "successorBlock": "Blocco successore",
-      "lastAccountBlock": "Questo blocco è il più recente sull'account"
+      "lastAccountBlock": "Questo blocco è il più recente sull'account",
+      "matchingSendBlock": "Blocco di invio corrispondente",
+      "noMatchingSendBlock": "Nessun blocco corrispondente trovato"
     },
     "representatives": {
       "voteDistribution": "Distribuzione dei voti",

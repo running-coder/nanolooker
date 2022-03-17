@@ -194,6 +194,7 @@
       "previousBlock": "Previous block",
       "successorBlock": "Successor block",
       "matchingSendBlock": "Matching send block",
+      "noMatchingSendBlock": "No matching block found",
       "height": "Block height",
       "signature": "Signature",
       "work": "Work",
