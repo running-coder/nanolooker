@@ -171,7 +171,6 @@
     "account": {
       "votingWeight": "Вес голосования",
       "percentNetworkVotingWeight": "% веса сетевого голосования",
-      "percentRepresentativeVotingWeight": "% от веса голоса представителя",
       "noRepresentative": "Нет представителя",
       "confirmationHeight": "Высота подтверждения",
       "lastTransaction": "Последняя транзакция",
