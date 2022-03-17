@@ -171,7 +171,6 @@
     "account": {
       "votingWeight": "Oy ağırlığı",
       "percentNetworkVotingWeight": "ağ oylama ağırlığının yüzdesi",
-      "percentRepresentativeVotingWeight": "Temsilcinin oy ağırlığının yüzdesi",
       "noRepresentative": "Temsilci Yok",
       "confirmationHeight": "Onay yüksekliği",
       "lastTransaction": "Son işlem",
