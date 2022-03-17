@@ -14,6 +14,7 @@ export enum CurrencySymbol {
   gbp = "£",
   cny = "¥",
   jpy = "¥",
+  pln = "zł",
 }
 
 // https://en.wikipedia.org/wiki/ISO_4217
@@ -24,15 +25,17 @@ export enum CurrencyDecimal {
   gbp = 2,
   cny = 2,
   jpy = 0,
+  pln = 2,
 }
 
 export enum Fiat {
-  USD = "usd",
   CAD = "cad",
+  CNY = "cny",
   EUR = "eur",
   GBP = "gbp",
-  CNY = "cny",
   JPY = "jpy",
+  PLN = "pln",
+  USD = "usd", 
 }
 
 interface Preferences {
