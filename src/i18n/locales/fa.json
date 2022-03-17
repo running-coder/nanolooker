@@ -171,7 +171,6 @@
     "account": {
       "votingWeight": "وزن رای گیری",
       "percentNetworkVotingWeight": "٪ وزن رای گیری شبکه",
-      "percentRepresentativeVotingWeight": "٪ وزن رای نماینده",
       "noRepresentative": "هیچ نماینده ای",
       "confirmationHeight": "ارتفاع تأیید",
       "lastTransaction": "آخرین معامله",
