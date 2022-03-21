@@ -29,13 +29,13 @@ export enum CurrencyDecimal {
 }
 
 export enum Fiat {
-  CAD = "cad",
-  CNY = "cny",
+  USD = "usd",
   EUR = "eur",
+  CAD = "cad",
   GBP = "gbp",
+  CNY = "cny",
   JPY = "jpy",
   PLN = "pln",
-  USD = "usd", 
 }
 
 interface Preferences {

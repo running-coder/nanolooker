@@ -4,7 +4,6 @@ const cron = require("node-cron");
 const BigNumber = require("bignumber.js");
 const chunk = require("lodash/chunk");
 const uniq = require("lodash/uniq");
-const orderBy = require("lodash/orderBy");
 const { rpc } = require("../rpc");
 const { Sentry } = require("../sentry");
 const { rawToRai } = require("../utils");
@@ -60,6 +59,54 @@ function formatDate(timestamp) {
 
   return [year, month, day].join("-");
 }
+
+const processData = async ({ stats }) => {
+  const PER_PAGE = 500;
+
+  stats.totalFiatPayouts =
+    Math.round(
+      (stats.blocks[0].price || 0) * rawToRai(stats.totalPayouts) * 100,
+    ) / 100;
+  stats.payoutAccounts = uniq(stats.payoutAccounts);
+  stats.totalAccounts = stats.payoutAccounts.length;
+
+  const nonExchangeRepresentativeAccount = [];
+
+  // @NOTE replace this by `accounts_representatives` RPC when v24 gets released
+  // https://github.com/nanocurrency/nano-node/pull/3412
+  for (let i = 0; i < stats.payoutAccounts.length; i++) {
+    const nonExchangeAccount = await getAccountNonExchangeRepresentative(
+      stats.payoutAccounts[i],
+    );
+
+    if (nonExchangeAccount) {
+      nonExchangeRepresentativeAccount.push(nonExchangeAccount);
+    }
+  }
+
+  const chunkPayoutAccounts = chunk(nonExchangeRepresentativeAccount, PER_PAGE);
+
+  for (let i = 0; i < chunkPayoutAccounts.length; i++) {
+    const { totalBalance, totalAccounts } = await getAccountsBalances(
+      chunkPayoutAccounts[i],
+    );
+
+    stats.totalAccountsHolding = new BigNumber(stats.totalAccountsHolding)
+      .plus(totalAccounts)
+      .toNumber();
+
+    stats.totalBalanceHolding = new BigNumber(stats.totalBalanceHolding)
+      .plus(totalBalance)
+      .toNumber();
+  }
+
+  stats.totalPayouts = rawToRai(stats.totalPayouts);
+
+  // Too heaving saving them, instead store uniqueAccounts on the latest date
+  delete stats.payoutAccounts;
+
+  await db.collection(MINERS_STATS_COLLECTION).insertOne(stats);
+};
 
 const getAccountsBalances = async accounts => {
   if (!accounts.length) return;
@@ -121,14 +168,13 @@ const getLatestEntry = async () => {
 
 const do2MinersStats = async () => {
   await connect();
-
-  const { date: latestDate, uniqueAccounts = [] } =
-    (await getLatestEntry()) || {};
+  const { date: latestDate } = (await getLatestEntry()) || {};
+  const PER_PAGE = 500;
+  const statsByDate = {};
 
   let isValid = true;
-  const PER_PAGE = 500;
   let currentPage = 1;
-  const statsByDate = {};
+  let currentDateToInsert = null;
 
   while (isValid) {
     const { history } = await rpc("account_history", {
@@ -154,20 +200,30 @@ const do2MinersStats = async () => {
       if (date === formatDate(Date.now())) {
         continue;
       }
+
       // Do not compile stats for an already compiled date
       if (date < MIN_DATE || (latestDate && date <= latestDate)) {
         isValid = false;
+        console.log("Invalid date for today", { date, latestDate });
         break;
       }
 
       if (!statsByDate[date]) {
+        if (currentDateToInsert) {
+          await processData({
+            stats: statsByDate[currentDateToInsert],
+          });
+
+          delete statsByDate[currentDateToInsert];
+        }
+        currentDateToInsert = date;
+
         statsByDate[date] = {
           pool: "2Miners",
           totalPayouts: 0,
           totalAccounts: 0,
           totalAccountsHolding: 0,
           totalBalanceHolding: 0,
-          totalUniqueAccounts: 0,
           payoutAccounts: [],
           blocks: [],
           totalFiatPayouts: 0,
@@ -203,85 +259,6 @@ const do2MinersStats = async () => {
 
     console.log(`Current page: ${currentPage}`);
     currentPage += 1;
-  }
-
-  let payoutAccounts = [];
-  let isUniqueAccountsInserted = false;
-
-  let statsLength = Object.values(statsByDate).length;
-
-  orderBy(Object.values(statsByDate), ["date"], ["asc"]).forEach(
-    async (stats, index) => {
-      stats.totalFiatPayouts =
-        Math.round(
-          (stats.blocks[0].price || 0) * rawToRai(stats.totalPayouts) * 100,
-        ) / 100;
-      stats.payoutAccounts = uniq(stats.payoutAccounts);
-      stats.totalAccounts = stats.payoutAccounts.length;
-
-      payoutAccounts = uniq(
-        uniqueAccounts.concat(payoutAccounts, stats.payoutAccounts),
-      );
-      stats.totalUniqueAccounts = payoutAccounts.length;
-
-      if (statsLength - 1 === index) {
-        isUniqueAccountsInserted = true;
-        stats.uniqueAccounts = payoutAccounts;
-      }
-
-      const uniqAccountNonExchangeRepresentative = [];
-
-      // @NOTE replace this by `accounts_representatives` RPC when v23 gets released
-      // https://github.com/nanocurrency/nano-node/pull/3412
-      for (let i = 0; i < stats.payoutAccounts.length; i++) {
-        const nonExchangeAccount = await getAccountNonExchangeRepresentative(
-          stats.payoutAccounts[i],
-        );
-        if (nonExchangeAccount) {
-          uniqAccountNonExchangeRepresentative.push(nonExchangeAccount);
-        }
-      }
-
-      const chunkPayoutAccounts = chunk(
-        uniqAccountNonExchangeRepresentative,
-        PER_PAGE,
-      );
-
-      for (let i = 0; i < chunkPayoutAccounts.length; i++) {
-        const { totalBalance, totalAccounts } = await getAccountsBalances(
-          chunkPayoutAccounts[i],
-        );
-
-        stats.totalAccountsHolding = new BigNumber(stats.totalAccountsHolding)
-          .plus(totalAccounts)
-          .toNumber();
-
-        stats.totalBalanceHolding = new BigNumber(stats.totalBalanceHolding)
-          .plus(totalBalance)
-          .toNumber();
-      }
-
-      stats.totalPayouts = rawToRai(stats.totalPayouts);
-
-      // Too heaving saving them, instead store uniqueAccounts on the latest date
-      delete stats.payoutAccounts;
-
-      db.collection(MINERS_STATS_COLLECTION).insertOne(stats);
-    },
-  );
-
-  // Delete previous payoutAccounts
-  if (isUniqueAccountsInserted) {
-    await db.collection(MINERS_STATS_COLLECTION).updateOne(
-      {
-        date: latestDate,
-      },
-      {
-        $set: {
-          uniqueAccounts: null,
-        },
-      },
-    );
   }
 
   console.log("Completed!");
