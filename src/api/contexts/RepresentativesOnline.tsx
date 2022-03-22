@@ -1,8 +1,9 @@
 import * as React from "react";
 import uniq from "lodash/uniq";
 import { rpc } from "api/rpc";
-import { NANOLOOKER } from "../../knownAccounts.json";
+import * as KnownAccounts from "../../knownAccounts.json";
 
+const { NANOLOOKER } = KnownAccounts;
 export interface RepresentativesOnlineReturn {
   representatives: string[];
   isLoading: boolean;

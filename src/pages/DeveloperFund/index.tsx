@@ -19,13 +19,15 @@ import useDeveloperAccountFund from "api/hooks/use-developer-fund-transactions";
 import QuestionCircle from "components/QuestionCircle";
 import LoadingStatistic from "components/LoadingStatistic";
 import { rawToRai, timestampToDate } from "components/utils";
-import {
+import * as KnownAccounts from "../../knownAccounts.json";
+
+const {
   GENESIS_ACCOUNT,
   DEVELOPER_FUND_ACCOUNTS,
   ORIGINAL_DEVELOPER_FUND_BLOCK,
   ORIGINAL_DEVELOPER_FUND_BURN_BLOCK,
   ORIGINAL_DEVELOPER_FUND_ACCOUNT,
-} from "../../knownAccounts.json";
+} = KnownAccounts;
 
 const DEVELOPER_FUND_CHANGE_LINK =
   "https://medium.com/nanocurrency/announcement-changes-to-nano-foundation-development-fund-account-43f8f340a841";

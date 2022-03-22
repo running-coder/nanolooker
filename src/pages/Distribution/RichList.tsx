@@ -13,8 +13,9 @@ import {
 } from "api/contexts/Preferences";
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 import { roundOff } from "components/utils";
-import { BURN_ACCOUNT } from "knownAccounts.json";
+import * as KnownAccounts from "knownAccounts.json";
 
+const { BURN_ACCOUNT } = KnownAccounts;
 const { Title } = Typography;
 
 const RichList: React.FC = () => {
