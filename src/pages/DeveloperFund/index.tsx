@@ -19,7 +19,7 @@ import useDeveloperAccountFund from "api/hooks/use-developer-fund-transactions";
 import QuestionCircle from "components/QuestionCircle";
 import LoadingStatistic from "components/LoadingStatistic";
 import { rawToRai, timestampToDate } from "components/utils";
-import * as KnownAccounts from "../../knownAccounts.json";
+import KnownAccounts from "../../knownAccounts.json";
 
 const {
   GENESIS_ACCOUNT,

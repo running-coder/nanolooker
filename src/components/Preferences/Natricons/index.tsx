@@ -4,7 +4,7 @@ import { Col, Row, Switch, Typography } from "antd";
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import { PreferencesContext } from "api/contexts/Preferences";
 import { Natricon } from "components/Preferences/Natricons/Natricon";
-import * as KnownAccounts from "knownAccounts.json";
+import KnownAccounts from "knownAccounts.json";
 
 const { DEVELOPER_FUND_ACCOUNTS } = KnownAccounts;
 const { Text } = Typography;

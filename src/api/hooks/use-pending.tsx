@@ -1,7 +1,7 @@
 import * as React from "react";
 import { rpc } from "api/rpc";
 import { isValidAccountAddress } from "components/utils";
-import * as KnownAccounts from "knownAccounts.json";
+import KnownAccounts from "knownAccounts.json";
 
 const { BURN_ACCOUNT } = KnownAccounts;
 

@@ -13,7 +13,7 @@ import {
 } from "api/contexts/Preferences";
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 import { roundOff } from "components/utils";
-import * as KnownAccounts from "knownAccounts.json";
+import KnownAccounts from "knownAccounts.json";
 
 const { BURN_ACCOUNT } = KnownAccounts;
 const { Title } = Typography;
