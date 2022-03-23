@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { Button, Input, Popover, Space, Tooltip } from "antd";
+import { Button, Input, InputRef, Popover, Space, Tooltip } from "antd";
 import { TooltipPlacement } from "antd/lib/tooltip";
 import { StarFilled, StarOutlined } from "@ant-design/icons";
 import { Theme, PreferencesContext } from "api/contexts/Preferences";
@@ -23,7 +23,7 @@ const Bookmark: React.FC<Props> = ({ type, bookmark, placement = "top" }) => {
   const [isOpened, setIsOpened] = React.useState(false);
   const [isBookmarked, setIsBookmarked] = React.useState(false);
   const [alias, setAlias] = React.useState(bookmarks?.[type]?.[bookmark]);
-  const inputRef = React.createRef<Input>();
+  const inputRef = React.createRef<InputRef>();
 
   const onChange = (e: React.ChangeEventHandler<HTMLInputElement>) => {
     // @ts-ignore

@@ -519,6 +519,14 @@ body,
   margin: 0 6px !important;
   padding: 0 18px 0 12px !important;
 }
+
+.ant-menu-item .anticon,
+.ant-menu-submenu-title .anticon {
+  min-width: 14px;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
 .ant-menu-vertical > .ant-menu-item:hover {
   background-color: #f5f5f5;
 }

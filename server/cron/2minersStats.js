@@ -201,21 +201,22 @@ const do2MinersStats = async () => {
         continue;
       }
 
-      // Do not compile stats for an already compiled date
-      if (date < MIN_DATE || (latestDate && date <= latestDate)) {
-        isValid = false;
-        console.log("Invalid date for today", { date, latestDate });
-        break;
-      }
-
       if (!statsByDate[date]) {
         if (currentDateToInsert) {
+          console.log(`Process data for ${currentDateToInsert}`);
           await processData({
             stats: statsByDate[currentDateToInsert],
           });
 
           delete statsByDate[currentDateToInsert];
         }
+        // Do not compile stats for an already compiled date
+        if (date < MIN_DATE || (latestDate && date <= latestDate)) {
+          isValid = false;
+          console.log("Invalid date for today", { date, latestDate });
+          break;
+        }
+
         currentDateToInsert = date;
 
         statsByDate[date] = {

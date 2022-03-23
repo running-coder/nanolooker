@@ -1,6 +1,8 @@
 import * as React from "react";
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
+import sortBy from "lodash/sortBy";
+import reverse from "lodash/reverse";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { Card, Col, Row, Skeleton, Tooltip, Typography } from "antd";
@@ -30,7 +32,17 @@ const FaucetsPage: React.FC = () => {
         }),
       ),
     ).then((histories: AccountHistory[]) => {
-      setAccountHistories(histories);
+      const sortedHistories = reverse(
+        sortBy(
+          histories,
+          function (o) {
+            return parseInt(o.history[0].height);
+          },
+          ["desc"],
+        ),
+      );
+
+      setAccountHistories(sortedHistories);
       setIsLoading(false);
     });
 
@@ -69,8 +81,8 @@ const FaucetsPage: React.FC = () => {
             </Col>
           </Row>
         ) : null}
-        {faucets.map(
-          ({
+        {accountHistories.map(({ account: historyAccount, history }) => {
+          const {
             alias,
             account,
             link,
@@ -80,78 +92,73 @@ const FaucetsPage: React.FC = () => {
             account: string;
             link: string;
             byLink?: string;
-          }) => {
-            const { height, local_timestamp: localTimestamp = 0 } =
-              accountHistories?.find(
-                ({ account: historyAccount }) => historyAccount === account,
-              )?.history[0] || {};
+          } = faucets.find(({ account }) => account === historyAccount)!;
 
-            const modifiedTimestamp = Number(localTimestamp) * 1000;
-            return (
-              <Row gutter={6} key={alias}>
-                <Col xs={24} sm={6} xl={4}>
-                  {alias}
-                  {byLink ? (
+          const { height, local_timestamp: localTimestamp = 0 } =
+            history[0] || {};
+
+          const modifiedTimestamp = Number(localTimestamp) * 1000;
+
+          return alias && account && link ? (
+            <Row gutter={6} key={alias}>
+              <Col xs={24} sm={6} xl={4}>
+                {alias}
+                {byLink ? (
+                  <>
+                    <br />
+                    {t("common.by")}{" "}
+                    <a href={byLink} target="_blank" rel="noopener noreferrer">
+                      {byLink}
+                    </a>
+                  </>
+                ) : null}
+              </Col>
+              <Col xs={24} sm={4} xl={4}>
+                <Skeleton loading={isLoading} active paragraph={false}>
+                  {isSmallAndLower ? (
                     <>
-                      <br />
-                      {t("common.by")}{" "}
-                      <a
-                        href={byLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <Text
+                        style={{ fontSize: "12px" }}
+                        className="color-muted"
                       >
-                        {byLink}
-                      </a>
+                        {t("pages.account.confirmationHeight")}
+                      </Text>{" "}
                     </>
                   ) : null}
-                </Col>
-                <Col xs={24} sm={4} xl={4}>
-                  <Skeleton loading={isLoading} active paragraph={false}>
-                    {isSmallAndLower ? (
-                      <>
-                        <Text
-                          style={{ fontSize: "12px" }}
-                          className="color-muted"
-                        >
-                          {t("pages.account.confirmationHeight")}
-                        </Text>{" "}
-                      </>
-                    ) : null}
-                    {height}
-                    <br />
-                    <Text style={{ fontSize: "12px" }} className="color-muted">
-                      {t("pages.account.lastTransaction")}
-                    </Text>{" "}
-                    <TimeAgo
-                      locale={i18next.language}
-                      style={{ fontSize: "12px" }}
-                      className="color-muted"
-                      datetime={modifiedTimestamp}
-                      live={false}
-                    />
-                  </Skeleton>
-                </Col>
-                <Col xs={24} sm={14} xl={16}>
-                  <Link
-                    to={`/account/${account}`}
-                    className="break-word color-normal"
-                  >
-                    {account}
-                  </Link>
+                  {height}
                   <br />
-                  <a
-                    href={link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="break-word"
-                  >
-                    {link}
-                  </a>
-                </Col>
-              </Row>
-            );
-          },
-        )}
+                  <Text style={{ fontSize: "12px" }} className="color-muted">
+                    {t("pages.account.lastTransaction")}
+                  </Text>{" "}
+                  <TimeAgo
+                    locale={i18next.language}
+                    style={{ fontSize: "12px" }}
+                    className="color-muted"
+                    datetime={modifiedTimestamp}
+                    live={false}
+                  />
+                </Skeleton>
+              </Col>
+              <Col xs={24} sm={14} xl={16}>
+                <Link
+                  to={`/account/${account}`}
+                  className="break-word color-normal"
+                >
+                  {account}
+                </Link>
+                <br />
+                <a
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="break-word"
+                >
+                  {link}
+                </a>
+              </Col>
+            </Row>
+          ) : null;
+        })}
       </Card>
     </>
   );
