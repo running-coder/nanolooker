@@ -1,5 +1,10 @@
 [
   {
+    "name": "Nanswap Faucet",
+    "account": "ban_36seefx46pwcpyp6a8kukybamqioam6a7jef88s8esjpubyc8urccebjqgyj",
+    "link": "https://nanswap.com/get-free-banano"
+  },
+  {
     "name": "BananoFaucet",
     "account": "ban_1faucetjuiyuwnz94j4c7s393r95sk5ac7p5usthmxct816osgqh3qd1caet",
     "link": "https://bananofaucet.cc/"
