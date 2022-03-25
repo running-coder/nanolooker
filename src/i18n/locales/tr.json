@@ -38,7 +38,10 @@
     "node": "Düğüm",
     "nodes": "Düğümler",
     "cancel": "İptal etmek",
-    "comingSoon": "Çok yakında"
+    "comingSoon": "Çok yakında",
+    "statistics": "İstatistik",
+    "continue": "Devam et",
+    "link": "Bağlantı"
   },
   "nodeHealth": {
     "nodeReloading": "Banano düğüm yeniden yükleniyor",
@@ -49,13 +52,13 @@
     "accountAndBlock": "Hesap / Blok",
     "send": "Gönder",
     "receive": "Teslim almak",
-    "pending": "Bekliyor",
     "change": "Değişiklik",
     "open": "Açık",
     "state": "Durum",
     "epoch": "Dönem",
     "cps": "CPS",
-    "amount": "Miktar"
+    "amount": "Miktar",
+    "pending": "alacak"
   },
   "tooltips": {
     "avgConfirmationTime": "Ortalama onay süresi, düğümde yerel olarak hesaplanır. Düğüm yeniden başlatılırsa veya düşürülmüş durumdaysa, ortalama onay süresi ağın geri kalanından daha yüksek olabilir.",
@@ -90,7 +93,8 @@
   },
   "search": {
     "searchBy": "Adres / Blok / Bilinen Hesap ile Ara",
-    "noHistory": "Arama geçmişi yok"
+    "noHistory": "Arama geçmişi yok",
+    "scanWallet": "\"nano_\" ile başlayan bir cüzdan hesabını tarayın"
   },
   "preferences": {
     "viewAll": "Tüm tercihleri görüntüleyin",
@@ -163,17 +167,18 @@
     "account": {
       "votingWeight": "Oy ağırlığı",
       "percentNetworkVotingWeight": "ağ oylama ağırlığının yüzdesi",
-      "percentRepresentativeVotingWeight": "Temsilcinin oy ağırlığının yüzdesi",
       "noRepresentative": "Temsilci Yok",
       "confirmationHeight": "Onay yüksekliği",
       "lastTransaction": "Son işlem",
-      "pendingTransactions": "bekleyen işlemler",
       "loadMoreTransactions": "Daha fazla işlem yükle",
       "viewTransactions": "İşlemleri görüntüleyin",
       "notOpenedYet": "Bu hesap henüz açılmadı",
       "notOpenedYetReason": "Hesap adresi geçerliyken, zincirinde henüz blok yayınlanmamıştır. BANANO bu hesaba gönderilmişse, parayı cebe indirmek için yine de karşılık gelen bir blok yayınlaması gerekir.",
       "missingAccount": "Eksik hesap",
-      "missingAccountInfo": "Hesap URL'de belirtilmemiştir. Bir hesabı aramak için üstteki arama çubuğunu kullanın veya URL'ye /account/ sonrasına ekleyin."
+      "missingAccountInfo": "Hesap URL'de belirtilmemiştir. Bir hesabı aramak için üstteki arama çubuğunu kullanın veya URL'ye /account/ sonrasına ekleyin.",
+      "notVoting": "Oy Vermemek",
+      "pendingTransactions": "Alınmaya hazır işlemler",
+      "pendingTransaction": "İşlem alınmaya hazır"
     },
     "block": {
       "blockSubtype": "Alt türü engelle",
@@ -224,7 +229,21 @@
       "percentOfTotal": "Dolaşan arzın% {{percent}} kadarı"
     },
     "knownAccounts": {
-      "totalAccounts": "{{totalAccounts}} Toplam Bilinen Hesaplar"
+      "totalAccounts": "{{totalAccounts}} Toplam Bilinen Hesaplar",
+      "registerKnownAccount": "Bilinen Bir Hesap Kaydolun",
+      "register": "Kayıt olmak",
+      "scanWallet": "\"nano_\" ile başlayan cüzdan hesabınızı tarayın",
+      "registerDescription": "NanoLooker bilinen hesaplarında bir hesap takma adı kaydedin. Hesabınız daha sonra takma adla aranabilir ve gezginde kolayca tanımlanabilir.",
+      "account": "Takma adla ilişkilendirilecek bir \"nano_\" hesabı girin",
+      "registerNote": "Bir sonraki adımda, kaydedilmekte olan \"nano_\" hesabından bir işlem göndermeniz istenecektir.",
+      "invalidAccount": "Geçersiz hesap",
+      "waitingNote": "Takma adınız, size ait olduğunu onaylamak için kaydettiğiniz hesaptan NanoLooker bağışlarına Ӿ1 gönderdikten sonra kaydedilecektir.",
+      "registerErrorTaken": "Bu hesap için bir takma ad zaten kayıtlı",
+      "registerError": "Kayıt tamamlanamadı",
+      "waitingForTransaction": "işlem bekleniyor",
+      "viewAccount": "Hesabı görüntüle",
+      "sendFrom": "Şuradan Ӿ{{amount}} gönder:",
+      "sendTo": "NS"
     },
     "largeTransactions": {
       "description": "BANANO blok zincirinde gerçekleşen büyük işlemler.",
@@ -248,7 +267,8 @@
     },
     "news": {
       "allFeeds": "Tüm Beslemeler",
-      "allAuthors": "Tüm Yazarlar"
+      "allAuthors": "Tüm Yazarlar",
+      "allSources": "Tüm Kaynaklar"
     },
     "status": {
       "reload": "Tekrar yükle",
@@ -297,7 +317,11 @@
       "searchHistory": "Arama geçmişi",
       "filterTransactionsRange": "İşlem tutarlarını filtrelemeyi özelleştirin",
       "filterTransactionsRangeDetailed": "Yalnızca gönderilen veya alınan miktarın belirli bir min / maks aralığında gelen işlemleri görüntülemeyi seçin.",
-      "noLimit": "Limit yok"
+      "noLimit": "Limit yok",
+      "nodeConnection": "Düğüm Bağlantısı",
+      "connectionDetailed": "Gezgini NanoLooker'dan başka bir düğüme bağlayın",
+      "rpcDomain": "RPC",
+      "websocketDomain": "Web yuvası"
     },
     "bookmarks": {
       "viewAll": "Tüm yer imlerini görüntüleyin",
@@ -334,6 +358,68 @@
       "rank": "rütbe",
       "player": "oyuncu",
       "frags": "Fraglar"
+    },
+    "nanobrowserquest": {
+      "playNow": "Şimdi oyna !",
+      "playersOnline": "oyuncular çevrimiçi",
+      "playNanoBrowserQuest": "NanoBrowserQuest oyna",
+      "welcomeTitle": "NanoBrowserQuest oynayın ve oyunu tamamladığınız için küçük bir ödeme kazanın!",
+      "donatePrizePool": "NanoBrowserQuest ödül havuzuna bağış yapın",
+      "registerDescription": "NanoBrowserQuest'i oynamak ücretsizdir. Hizmetten hoşlanıyorsanız, NanoBrowserQuest ödül havuzuna küçük bir katkıda bulunabilirsiniz.",
+      "payoutDescription": "Son BOSS'u öldürdükten sonra ödeme gönderilecektir! Alacağınız miktar, kilidini açtığınız başarılara bağlı olacaktır.",
+      "leaderboard": "Liderler Sıralaması",
+      "rank": "Rütbe",
+      "player": "oyuncu",
+      "exp": "Tecrübe etmek",
+      "level": "Seviye",
+      "gameDescription": "NanoBrowserQuest, orijinal olarak 2012 civarında oluşturulan popüler BrowserQuest web tabanlı MMORPG mini oyununun yeniden çevrimidir. Oyun, aynı anda 200 oyuncuyu destekler ve oynaması ücretsizdir. NanoBrowserQuest, arkadaşlarınızla oynamanıza, oyun içi başarıları tamamlamanıza ve oyunu tamamladıktan sonra küçük bir Nano ödülü kazanmanıza olanak tanır.",
+      "howToPlay": "Nasıl oynanır",
+      "itemUpgrade": "Öğe yükseltme",
+      "itemUpgradeDescription": "Eşyalarınızı şehirdeki Anvil'de yükseltin. Yükseltmek istediğiniz öğeyi seçin ve soldaki yuvaya sürükleyin. 9 orta bölüm yuvasından birine aynı yükseltme kaydırma sınıfını ekleyin. Yükseltme başarılı olursa, öğe sağdaki yuvada görünecektir. Yükseltmenin başarılı olmaması durumunda her zaman bir yedek öğe bulundurmaya dikkat edin.",
+      "upgradeSuccessRate": "Yükseltme başarı oranı",
+      "playerLevel": "Oyuncu seviyesi",
+      "playerLevelDescription": "Karakterinizi ne kadar çok seviyelerseniz, sağlık ve hasar artışı gibi bonus istatistikleri o kadar fazla alırsınız.",
+      "playerLevelDescription2": "Sarı çubuk, seviye ilerlemenizi temsil eder, daha ayrıntılı yüzde almak için üzerine gelin.",
+      "shortcuts": "Kısayollar",
+      "shortcut": {
+        "i": "Envanteri değiştirmek için I tuşuna basın veya alttaki öğelere tıklayın",
+        "c": " Karakter bilgisini değiştirmek için C'ye basın veya sağlık çubuğuna tıklayın",
+        "p": "Çevrimiçi oyuncuları görüntülemek için P'ye basın veya alt çubuktaki # Oyuncu'ya tıklayın",
+        "enter": "Yakınınızdaki oyuncularla konuşmak için ENTER'a basın veya sohbet balonuna tıklayın",
+        "q": "Quest kitabınızı görüntülemek için Q'ya basın veya kupaya tıklayın",
+        "m": "Sesi kapatmak için M tuşuna basın veya hoparlörü tıklayın"
+      },
+      "nanoPotions": "NANO İksirler"
+    },
+    "statistics": {
+      "social": {
+        "title": "Kripto para birimleri sosyal etkileşimi / Piyasa Değerinde 1 Milyar Dolar",
+        "redditSubscribers": "Milyar Dolar Başına Reddit abone sayısı",
+        "twitterFollowers": "Milyar Dolar Başına Twitter Takipçi Sayısı",
+        "githubStars": "Milyar Dolar Başına Github yıldızlarının sayısı",
+        "engagementPerBillion": "Milyar Dolar Başına Etkileşim",
+        "marketCap": "Piyasa değeri",
+        "totalEngagement": "Toplam Katılım"
+      },
+      "2miners": {
+        "title": "2Miners Ethereum madencilik havuzuna göre nano ödeme istatistikleri",
+        "totalPayouts": "2Miners tarafından toplam NANO ödemeleri",
+        "payouts": "ödemeler",
+        "accounts": "Hesaplar",
+        "accountsDescription": "O gün için ödeme alan benzersiz hesapların sayısı.",
+        "uniqueAccounts": "Benzersiz hesaplar",
+        "uniqueAccountsDescription": "{{date}} tarihinden itibaren ödeme alan hesap sayısı",
+        "accountsHolding": "Hesap tutma",
+        "accountsHoldingDescription": "{{date}} tarihinden itibaren ödeme alan ve bakiyesi 0,001 NANO'nun üzerinde olan hesapların sayısı.",
+        "balanceHolding": "Tutma dengesi",
+        "balanceHoldingDescription": "{{date}} tarihinden itibaren ödeme alan ve 0,001 NANO'nun üzerinde bakiyesi olan hesapların toplam bakiyesi.",
+        "viewPayoutStatistics": "Ödeme istatistiklerini görüntüleyin",
+        "payoutsDescription": "O gün için ödenen NANO miktarı.",
+        "fiatPayouts": "Fiat ödemeleri",
+        "fiatPayoutsDescription": "O gün için ödenen tahmini ABD doları tutarı.",
+        "totalFiatPayouts": "2Miners tarafından tahmini toplam ödemeler (USD)",
+        "announcement": "Duyuruyu Görüntüle"
+      }
     }
   }
 }

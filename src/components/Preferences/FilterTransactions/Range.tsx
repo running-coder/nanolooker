@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useTranslation, Trans } from "react-i18next";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { Col, Row, Slider, Switch, Tooltip, Typography } from "antd";
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import { PreferencesContext } from "api/contexts/Preferences";
@@ -12,32 +13,6 @@ interface Props {
   isDetailed?: boolean;
 }
 
-const marks = units.reduce((acc, { unit, raw }, index) => {
-  if (raw === 1e30) {
-    // @ts-ignore
-    acc[index] = {
-      label: (
-        <>
-          <strong>{unit}</strong>
-          <Tooltip placement="top" title={<Trans i18nKey="tooltips.mnano" />}>
-            <QuestionCircle />
-          </Tooltip>
-        </>
-      ),
-    };
-  } else if (raw === Infinity) {
-    // @ts-ignore
-    acc[index] = {
-      label: <Trans i18nKey="pages.preferences.noLimit" />,
-    };
-  } else {
-    // @ts-ignore
-    acc[index] = unit;
-  }
-
-  return acc;
-}, {});
-
 const FilterTransactionsRangePreferences: React.FC<Props> = ({
   isDetailed,
 }) => {
@@ -48,6 +23,37 @@ const FilterTransactionsRangePreferences: React.FC<Props> = ({
     filterTransactionsRange,
     setFilterTransactionsRange,
   } = React.useContext(PreferencesContext);
+  const isMediumAndLower = !useMediaQuery("(min-width: 768px)");
+
+  const marks = React.useCallback(() => {
+    return units.reduce((acc, { unit, raw }, index) => {
+      if (raw === 1e30) {
+        acc[index] = {
+          label: (
+            <>
+              <strong>{unit}</strong>
+              <Tooltip
+                placement="top"
+                title={<Trans i18nKey="tooltips.mnano" />}
+              >
+                <QuestionCircle />
+              </Tooltip>
+            </>
+          ),
+        };
+      } else if (raw === Infinity) {
+        acc[index] = {
+          label: <Trans i18nKey="pages.preferences.noLimit" />,
+        };
+      } else {
+        if (!isMediumAndLower || raw === 1) {
+          acc[index] = unit;
+        }
+      }
+
+      return acc;
+    }, {} as { [key: number]: any });
+  }, [isMediumAndLower]);
 
   return (
     <Row>
@@ -77,7 +83,7 @@ const FilterTransactionsRangePreferences: React.FC<Props> = ({
           disabled={!filterTransactions}
           dots
           reverse
-          marks={marks}
+          marks={marks()}
           min={0}
           max={units.length - 1}
           step={1}

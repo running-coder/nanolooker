@@ -38,7 +38,10 @@
     "node": "节点",
     "nodes": "节点数",
     "cancel": "取消",
-    "comingSoon": "即将推出"
+    "comingSoon": "即将推出",
+    "statistics": "统计数据",
+    "continue": "继续",
+    "link": "关联"
   },
   "nodeHealth": {
     "nodeReloading": "纳米节点正在重新加载",
@@ -49,13 +52,13 @@
     "accountAndBlock": "帐户/块",
     "send": "发送",
     "receive": "收到",
-    "pending": "待办的",
     "change": "改变",
     "open": "打开",
     "state": "状态",
     "epoch": "时代",
     "cps": "CPS",
-    "amount": "数量"
+    "amount": "数量",
+    "pending": "应收账款"
   },
   "tooltips": {
     "avgConfirmationTime": "平均确认时间在节点上本地计算。如果节点重新启动或处于降级状态，则平均确认时间可能会高于网络的其余部分。",
@@ -90,7 +93,8 @@
   },
   "search": {
     "searchBy": "按地址/阻止/已知帐户搜索",
-    "noHistory": "没有搜寻记录"
+    "noHistory": "没有搜寻记录",
+    "scanWallet": "扫描以“nano_”开头的钱包账户"
   },
   "preferences": {
     "viewAll": "查看所有首选项",
@@ -163,17 +167,18 @@
     "account": {
       "votingWeight": "投票权重",
       "percentNetworkVotingWeight": "网络投票权的百分比",
-      "percentRepresentativeVotingWeight": "代表投票权的百分比",
       "noRepresentative": "没有代表",
       "confirmationHeight": "确认高度",
       "lastTransaction": "最后交易",
-      "pendingTransactions": "待交易",
       "loadMoreTransactions": "加载更多交易",
       "viewTransactions": "查看交易",
       "notOpenedYet": "此帐户尚未打开",
       "notOpenedYetReason": "帐户地址有效时，尚未将任何块发布到其链中。如果BANANO已发送到该帐户，它仍需要发布相应的块以将资金放入口袋。",
       "missingAccount": "帐户遗失",
-      "missingAccountInfo": "未在URL中指定帐户。使用顶部的搜索栏搜索帐户，或将其附加在 /account/ 之后的URL中"
+      "missingAccountInfo": "未在URL中指定帐户。使用顶部的搜索栏搜索帐户，或将其附加在 /account/ 之后的URL中",
+      "notVoting": "不投票",
+      "pendingTransactions": "准备接收的交易",
+      "pendingTransaction": "交易准备好接收"
     },
     "block": {
       "blockSubtype": "块子类型",
@@ -224,7 +229,21 @@
       "percentOfTotal": "循环供应量的{{percent}}％"
     },
     "knownAccounts": {
-      "totalAccounts": "{{totalAccounts}}个已知帐户总数"
+      "totalAccounts": "{{totalAccounts}}个已知帐户总数",
+      "registerKnownAccount": "注册一个已知帐户",
+      "register": "登记",
+      "scanWallet": "扫描以“nano_”开头的钱包账户",
+      "registerDescription": "在 NanoLooker 已知帐户中注册帐户别名。然后您的帐户将可以通过别名进行搜索，并且可以在资源管理器上轻松识别。",
+      "account": "输入要与别名关联的“nano_”帐户",
+      "registerNote": "在下一步中，您将被要求从正在注册的“nano_”帐户发送交易",
+      "invalidAccount": "无效账户",
+      "waitingNote": "从您注册的帐户向 NanoLooker 捐款发送 Ӿ1 以确认它属于您后，您的别名将被注册。",
+      "registerErrorTaken": "此帐户的别名已注册",
+      "registerError": "无法完成注册",
+      "waitingForTransaction": "等待交易",
+      "viewAccount": "查看账户",
+      "sendFrom": "发送 Ӿ{{amount}} 来自",
+      "sendTo": "到"
     },
     "largeTransactions": {
       "description": "在BANANO区块链上发生的大笔交易。",
@@ -248,7 +267,8 @@
     },
     "news": {
       "allFeeds": "所有提要",
-      "allAuthors": "所有作者"
+      "allAuthors": "所有作者",
+      "allSources": "所有来源"
     },
     "status": {
       "reload": "重装",
@@ -297,7 +317,11 @@
       "searchHistory": "搜索历史记录",
       "filterTransactionsRange": "自定义交易金额过滤",
       "filterTransactionsRangeDetailed": "选择仅显示在已发送或已接收金额的特定最小/最大范围内的传入交易。",
-      "noLimit": "没有限制"
+      "noLimit": "没有限制",
+      "nodeConnection": "节点连接",
+      "connectionDetailed": "将资源管理器连接到 NanoLooker 以外的另一个节点",
+      "rpcDomain": "RPC",
+      "websocketDomain": "网络套接字"
     },
     "bookmarks": {
       "viewAll": "查看所有书签",
@@ -334,6 +358,68 @@
       "rank": "秩",
       "player": "播放器",
       "frags": "碎片"
+    },
+    "nanobrowserquest": {
+      "playNow": "现在播放 ！",
+      "playersOnline": "在线玩家",
+      "playNanoBrowserQuest": "玩 NanoBrowserQuest",
+      "welcomeTitle": "玩 NanoBrowserQuest 并获得完成游戏的小额支出！",
+      "donatePrizePool": "捐赠给 NanoBrowserQuest 奖池",
+      "registerDescription": "NanoBrowserQuest 是免费玩的。如果您喜欢这项服务，您可以为 NanoBrowserQuest 奖池做出一点贡献。",
+      "payoutDescription": "击杀末日BOSS后会派发奖金！您将获得的数量取决于您已解锁的成就。",
+      "leaderboard": "排行榜",
+      "rank": "秩",
+      "player": "播放器",
+      "exp": "经验",
+      "level": "等级",
+      "gameDescription": "NanoBrowserQuest 是流行的 BrowserQuest 基于网络的 MMORPG 迷你游戏的翻版，该游戏最初是在 2012 年左右创建的。该游戏支持 200 名同时玩家并且是免费的。 NanoBrowserQuest 可让您与朋友一起玩，完成游戏内成就并在完成游戏后获得小额 Nano 奖励。",
+      "howToPlay": "怎么玩",
+      "itemUpgrade": "物品升级",
+      "itemUpgradeDescription": "在镇上的铁砧升级你的物品。选择您要升级的项目并将其拖到左侧插槽中。将相同的升级卷轴类添加到 9 个中间部分插槽之一。如果升级成功，该物品将出现在右侧的插槽中。小心总是有一个备份项目，以防升级不成功。",
+      "upgradeSuccessRate": "升级成功率",
+      "playerLevel": "玩家等级",
+      "playerLevelDescription": "您的角色等级越高，您获得的奖励统计数据就越多，例如增加的健康和伤害。",
+      "playerLevelDescription2": "黄色条代表您的等级进度，将其悬停以获得更详细的百分比。",
+      "shortcuts": "快捷方式",
+      "shortcut": {
+        "i": "按 I 或单击底部的项目以切换库存",
+        "c": " 按 C 或单击健康栏以切换角色信息",
+        "p": "按 P 或单击底部栏上的 # Player 查看在线玩家",
+        "enter": "按 ENTER 或单击聊天气泡与您附近的玩家交谈",
+        "q": "按 Q 或单击奖杯以查看您的任务书",
+        "m": "按 M 或单击扬声器切换静音"
+      },
+      "nanoPotions": "纳米药水"
+    },
+    "statistics": {
+      "social": {
+        "title": "加密货币社交参与度/市值 10 亿美元",
+        "redditSubscribers": "每十亿美元的 Reddit 订阅者数量",
+        "twitterFollowers": "每十亿美元的 Twitter 关注者数量",
+        "githubStars": "每十亿美元的 Github 星数",
+        "engagementPerBillion": "每十亿美元的参与度",
+        "marketCap": "市值",
+        "totalEngagement": "总参与度"
+      },
+      "2miners": {
+        "title": "2Miners 以太坊矿池的 Nano 支付统计",
+        "totalPayouts": "2Miners 的 NANO 总支出",
+        "payouts": "支出",
+        "accounts": "帐户",
+        "accountsDescription": "当天收到付款的唯一帐户数。",
+        "uniqueAccounts": "唯一账户",
+        "uniqueAccountsDescription": "自 {{date}} 以来收到付款的帐户数量",
+        "accountsHolding": "持有账户",
+        "accountsHoldingDescription": "自 {{date}} 起收到付款且余额高于 0.001 NANO 的帐户数量。",
+        "balanceHolding": "持有余额",
+        "balanceHoldingDescription": "自 {{date}} 起收到付款且余额高于 0.001 NANO 的帐户的合并余额。",
+        "viewPayoutStatistics": "查看支付统计",
+        "payoutsDescription": "当天支付的 NANO 数量。",
+        "fiatPayouts": "法定付款",
+        "fiatPayoutsDescription": "当天支付的估计美元金额。",
+        "totalFiatPayouts": "2Miners 的估计总支出（美元）",
+        "announcement": "查看公告"
+      }
     }
   }
 }

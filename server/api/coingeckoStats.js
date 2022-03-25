@@ -10,15 +10,17 @@ const {
   MONGO_DB,
   COINGECKO_MARKET_STATS,
   COINGECKO_DOGE_MARKET_STATS,
+  COINGECKO_MARKET_CAP_STATS,
   COINGECKO_ALL_PRICE_STATS,
   COINGECKO_PRICE_STATS,
   MARKET_CAP_RANK_24H,
   MARKET_CAP_RANK_COLLECTION,
+  MARKET_CAP_STATS_COLLECTION,
 } = require("../constants");
 
 const DEFAULT_FIAT = "usd";
 
-const allowedFiats = ["usd", "cad", "eur", "gbp", "cny", "jpy"];
+const allowedFiats = ["usd", "cad", "eur", "gbp", "cny", "jpy", "pln"];
 
 const getCoingeckoStats = async ({ fiat, cryptocurrency }) => {
   fiat = allowedFiats.includes(fiat) ? fiat : DEFAULT_FIAT;
@@ -81,6 +83,39 @@ const getCoingeckoStats = async ({ fiat, cryptocurrency }) => {
   };
 };
 
+const getCoingeckoMarketCapStats = async () => {
+  let marketCapStats = nodeCache.get(COINGECKO_MARKET_CAP_STATS);
+
+  if (marketCapStats) {
+    return marketCapStats;
+  }
+
+  return new Promise(resolve => {
+    let db;
+    try {
+      MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (err, client) => {
+        if (err) {
+          throw err;
+        }
+        db = client.db(MONGO_DB);
+
+        db.collection(MARKET_CAP_STATS_COLLECTION)
+          .find()
+          .toArray((_err, value = []) => {
+            nodeCache.set(COINGECKO_MARKET_CAP_STATS, value);
+            client.close();
+            resolve(value);
+          });
+      });
+    } catch (err) {
+      console.log("Error", err);
+      Sentry.captureException(err);
+      resolve([]);
+    }
+  });
+};
+
 module.exports = {
   getCoingeckoStats,
+  getCoingeckoMarketCapStats,
 };

@@ -41,7 +41,7 @@ const cacheSettings = {
   account_representative: 5,
   accounts_balances: 1,
   active_difficulty: 1,
-  available_supply: 604800,
+  available_supply: 3600,
   block_count: 1,
   block_info: 1,
   blocks_info: 5,
@@ -73,7 +73,7 @@ const getCacheKey = (action, params) =>
       : ""
   }`;
 
-const rpc = async (action, params, isLimited) => {
+const rpc = async (action, params, isLimited, rpcDomain) => {
   let res;
   let json;
   let cacheKey = cacheSettings[action] && getCacheKey(action, params);
@@ -96,7 +96,7 @@ const rpc = async (action, params, isLimited) => {
         ...params,
       });
 
-      res = await fetch(process.env.RPC_DOMAIN, {
+      res = await fetch(rpcDomain || process.env.RPC_DOMAIN, {
         method: "POST",
         body,
       });
@@ -114,8 +114,11 @@ const rpc = async (action, params, isLimited) => {
       console.log(`Cache found for: ${cacheKey}`);
     }
   } catch (err) {
-    console.log("Error", err);
-    Sentry.captureException(err);
+    // @NOTE now that RPC is changeable, don't always capture errors
+    if (!rpcDomain) {
+      console.log("Error", err);
+      Sentry.captureException(err);
+    }
   }
 
   return json;

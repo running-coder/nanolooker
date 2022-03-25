@@ -142,7 +142,17 @@ a:hover {
   margin: 12px 0;
 }
 
+h3.ant-typography,
+.ant-typography h3 {
+  font-size: 22px;
+}
+
 @media (min-width: 768px) {
+  h3.ant-typography,
+  .ant-typography h3 {
+    font-size: 24px;
+  }
+
   .app-header {
     padding: 0 12px;
   }
@@ -460,6 +470,10 @@ body,
   color: rgba(0, 0, 0, 0.85);
 }
 
+.ant-statistic-content-prefix {
+  margin-right: 3px;
+}
+
 .ant-statistic-content-value-decimal {
   font-size: 16px;
 }
@@ -505,6 +519,14 @@ body,
   margin: 0 6px !important;
   padding: 0 18px 0 12px !important;
 }
+
+.ant-menu-item .anticon,
+.ant-menu-submenu-title .anticon {
+  min-width: 14px;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
 .ant-menu-vertical > .ant-menu-item:hover {
   background-color: #f5f5f5;
 }
@@ -513,19 +535,21 @@ body,
   color: rgba(0, 0, 0, 0.65);
 }
 
-#reader {
+.qrcode-reader {
   border-color: #d9d9d9 !important;
 }
 
-#reader .ant-btn {
+.qrcode-reader .ant-btn {
   margin-top: 12px;
 }
 
-#reader > div:first-of-type > span:first-of-type {
+.qrcode-reader > div:first-of-type > span:first-of-type {
   display: none;
 }
 
-#reader__status_span {
+#qrcode-reader__status_span,
+#qrcode-reader-search__status_span,
+#qrcode-reader-search-home__status_span {
   float: none !important;
 }
 

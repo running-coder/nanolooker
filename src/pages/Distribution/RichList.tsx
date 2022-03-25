@@ -13,8 +13,9 @@ import {
 } from "api/contexts/Preferences";
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 import { roundOff } from "components/utils";
-import { BURN_ACCOUNT } from "knownAccounts.json";
+import KnownAccounts from "knownAccounts.json";
 
+const { BURN_ACCOUNT } = KnownAccounts;
 const { Title } = Typography;
 
 const RichList: React.FC = () => {
@@ -101,7 +102,7 @@ const RichList: React.FC = () => {
                   </Link>
                 </Col>
                 <Col sm={6} md={6} xl={4}>
-                  {new BigNumber(balance).toFormat()} NANO
+                  Ӿ {new BigNumber(balance).toFormat()}
                   <span
                     className="color-muted"
                     style={{
@@ -122,7 +123,7 @@ const RichList: React.FC = () => {
                 <Col sm={4} md={4} xl={4}>
                   {currentPrice && btcCurrentPrice ? (
                     <>
-                      {`${CurrencySymbol?.[fiat]}${new BigNumber(balance)
+                      {`${CurrencySymbol?.[fiat]} ${new BigNumber(balance)
                         .times(currentPrice)
                         .toFormat(CurrencyDecimal?.[fiat])}`}
                       <span

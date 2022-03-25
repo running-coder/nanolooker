@@ -24,6 +24,9 @@ const {
   TOTAL_CONFIRMATIONS_48H,
   TOTAL_VOLUME_48H,
   CONFIRMATIONS_PER_SECOND,
+  NANOTICKER_STATS,
+  NANOBROWSERQUEST_PLAYERS,
+  NANOBROWSERQUEST_LEADERBOARD,
 } = require("./constants");
 
 const { getCoingeckoStats } = require("./api/coingeckoStats");
@@ -41,6 +44,7 @@ const {
   getAllDelegatorsCount,
 } = require("./api/delegators");
 const { getRichListPage, getRichListAccount } = require("./api/richList");
+const { getParticipant, getParticipantsPage } = require("./api/participants");
 const { getNodeLocations } = require("./api/nodeLocations");
 const { getNodeMonitors } = require("./api/nodeMonitors");
 const { getDelegatedEntity } = require("./api/delegatedEntity");
@@ -60,12 +64,17 @@ app.use(bodyParser.json());
 app.post("/api/rpc", async (req, res) => {
   const { action, ...params } = req.body || {};
 
+  let rpcDomain = req.header("x-rpc") || undefined;
+  if (rpcDomain && !/^https?:\/\//.test(rpcDomain)) {
+    rpcDomain = `http://${rpcDomain}`;
+  }
+
   if (!action) {
     res.status(422).send("Missing action");
   } else if (!allowedRpcMethods.includes(action)) {
     res.status(422).send("RPC action not allowed");
   } else {
-    const result = await rpc(action, params, true);
+    const result = await rpc(action, params, true, rpcDomain);
     res.send(result);
   }
 });
@@ -134,6 +143,18 @@ app.get("/api/market-statistics", async (req, res) => {
   });
 });
 
+app.get("/api/statistics/social", async (req, res) => {
+  const data = await getCoingeckoMarketCapStats();
+
+  res.send(data);
+});
+
+app.get("/api/statistics/2miners", async (req, res) => {
+  const data = await get2MinersStats();
+
+  res.send(data);
+});
+
 app.get("/api/known-accounts", async (req, res) => {
   const knownAccounts = await getKnownAccounts();
 
@@ -188,6 +209,18 @@ app.get("/api/rich-list", async (req, res) => {
   res.send(data);
 });
 
+app.get("/api/participants", async (req, res) => {
+  const { page, account } = req.query;
+  let data;
+  if (account) {
+    data = await getParticipant(account);
+  } else if (page) {
+    data = await getParticipantsPage(page);
+  }
+
+  res.send(data);
+});
+
 app.get("/api/nanoquakejs/scores", async (req, res) => {
   let json = {};
   try {
@@ -214,6 +247,32 @@ app.post("/api/nanoquakejs/register", async (req, res, next) => {
   } catch (err) {
     next(err);
   }
+});
+
+app.get("/api/nanobrowserquest/players", async (req, res, next) => {
+  try {
+    res.send(nodeCache.get(NANOBROWSERQUEST_PLAYERS) || {});
+  } catch (err) {
+    next(err);
+  }
+});
+
+app.get("/api/nanobrowserquest/leaderboard", async (req, res, next) => {
+  try {
+    res.send(nodeCache.get(NANOBROWSERQUEST_LEADERBOARD) || []);
+  } catch (err) {
+    next(err);
+  }
+});
+
+app.get("/api/nanoticker", async (req, res) => {
+  res.send(nodeCache.get(NANOTICKER_STATS) || {});
+});
+
+app.get("/api/youtube-playlist", async (req, res) => {
+  const playlist = await getYoutubePlaylist();
+
+  res.send(playlist || {});
 });
 
 app.use(express.static(path.join(__dirname, "../dist")));

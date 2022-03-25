@@ -1,17 +1,60 @@
+const MongoClient = require("mongodb").MongoClient;
+const { promises, existsSync } = require("fs");
+const fse = require("fs-extra");
+const { join } = require("path");
 const fetch = require("node-fetch");
 const cron = require("node-cron");
+const BigNumber = require("bignumber.js");
 const { Sentry } = require("../sentry");
 const { nodeCache } = require("../client/cache");
 const {
+  MONGO_URL,
+  MONGO_OPTIONS,
+  MONGO_DB,
   COINGECKO_MARKET_STATS,
   COINGECKO_DOGE_MARKET_STATS,
   COINGECKO_ALL_PRICE_STATS,
   COINGECKO_PRICE_STATS,
   SUPPORTED_CRYPTOCURRENCY,
+  MARKET_CAP_STATS_COLLECTION,
 } = require("../constants");
 
 const defaultFiats = ["usd"];
-const secondaryFiats = ["cad", "eur", "gbp", "cny", "jpy"];
+const secondaryFiats = ["cad", "eur", "gbp", "cny", "jpy", "pln"];
+
+const { writeFile, mkdir, copy } = promises;
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+const PUBLIC_ROOT_PATH = join(__dirname, "..", "..");
+const LOGO_PATH = join(PUBLIC_ROOT_PATH, "public/cryptocurrencies/logo");
+const DIST_LOGO_PATH = join(PUBLIC_ROOT_PATH, "dist/cryptocurrencies/logo");
+
+let db;
+let mongoClient;
+
+const connect = async () =>
+  await new Promise((resolve, reject) => {
+    try {
+      MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (err, client) => {
+        if (err) {
+          throw err;
+        }
+        mongoClient = client;
+        db = client.db(MONGO_DB);
+        db.collection(MARKET_CAP_STATS_COLLECTION).createIndex({
+          createdAt: 1,
+        });
+        resolve();
+      });
+    } catch (err) {
+      console.log("Error", err);
+      Sentry.captureException(err);
+      reject();
+    }
+  });
 
 const getPriceStats = async fiats => {
   let res;

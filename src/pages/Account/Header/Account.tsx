@@ -4,7 +4,7 @@ import { Button, Row, Col } from "antd";
 import { WalletOutlined, QrcodeOutlined } from "@ant-design/icons";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Copy from "components/Copy";
-import QRCodeModal from "components/QRCodeModal";
+import QRCodeModal from "components/QRCode/Modal";
 import Bookmark from "components/Bookmark";
 import { Natricon } from "components/Preferences/Natricons/Natricon";
 import { PreferencesContext } from "api/contexts/Preferences";
@@ -12,9 +12,14 @@ import { PreferencesContext } from "api/contexts/Preferences";
 interface Props {
   account: string;
   isLink?: boolean;
+  hideOptions?: boolean;
 }
 
-const AccountHeader: React.FC<Props> = ({ account, isLink = false }) => {
+const AccountHeader: React.FC<Props> = ({
+  account,
+  isLink = false,
+  hideOptions = false,
+}) => {
   const { natricons } = React.useContext(PreferencesContext);
   const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
 
@@ -68,23 +73,25 @@ const AccountHeader: React.FC<Props> = ({ account, isLink = false }) => {
         </Link>
       )}
 
-      <Row gutter={6} justify="start" className="options-wrapper">
-        <Col style={{ fontSize: 0, alignSelf: "center" }}>
-          <Copy text={account} />
-        </Col>
-        <Col>
-          <Bookmark
-            type="account"
-            bookmark={account}
-            placement={isSmallAndLower ? "left" : "top"}
-          />
-        </Col>
-        <Col>
-          <QRCodeModal account={account}>
-            <Button shape="circle" icon={<QrcodeOutlined />} size="small" />
-          </QRCodeModal>
-        </Col>
-      </Row>
+      {!hideOptions ? (
+        <Row gutter={6} justify="start" className="options-wrapper">
+          <Col style={{ fontSize: 0, alignSelf: "center" }}>
+            <Copy text={account} />
+          </Col>
+          <Col>
+            <Bookmark
+              type="account"
+              bookmark={account}
+              placement={isSmallAndLower ? "left" : "top"}
+            />
+          </Col>
+          <Col>
+            <QRCodeModal account={account}>
+              <Button shape="circle" icon={<QrcodeOutlined />} size="small" />
+            </QRCodeModal>
+          </Col>
+        </Row>
+      ) : null}
     </div>
   );
 };

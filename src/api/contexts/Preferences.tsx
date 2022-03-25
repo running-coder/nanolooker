@@ -14,6 +14,7 @@ export enum CurrencySymbol {
   gbp = "£",
   cny = "¥",
   jpy = "¥",
+  pln = "zł",
 }
 
 // https://en.wikipedia.org/wiki/ISO_4217
@@ -24,15 +25,17 @@ export enum CurrencyDecimal {
   gbp = 2,
   cny = 2,
   jpy = 0,
+  pln = 2,
 }
 
 export enum Fiat {
   USD = "usd",
-  CAD = "cad",
   EUR = "eur",
+  CAD = "cad",
   GBP = "gbp",
   CNY = "cny",
   JPY = "jpy",
+  PLN = "pln",
 }
 
 interface Preferences {
@@ -52,6 +55,10 @@ interface Preferences {
   setDisableLiveTransactions: Function;
   natricons: boolean;
   setNatricons: Function;
+  rpcDomain: null | string;
+  setRpcDomain: Function;
+  websocketDomain: null | string;
+  setWebsocketDomain: Function;
 }
 
 export enum LOCALSTORAGE_KEYS {
@@ -67,6 +74,8 @@ export enum LOCALSTORAGE_KEYS {
   NANOQUAKEJS_USERNAME = "NANOQUAKEJS_USERNAME",
   NANOQUAKEJS_ACCOUNT = "NANOQUAKEJS_ACCOUNT",
   NANOQUAKEJS_SERVER = "NANOQUAKEJS_SERVER",
+  RPC_DOMAIN = "RPC_DOMAIN",
+  WEBSOCKET_DOMAIN = "WEBSOCKET_DOMAIN",
 }
 
 const MAX_CRYPTOCURRENCY: number = 10;
@@ -110,6 +119,8 @@ export const PreferencesContext = React.createContext<Preferences>({
   filterTransactionsRange: DEFAULT_UNITS,
   disableLiveTransactions: false,
   natricons: true,
+  rpcDomain: null,
+  websocketDomain: null,
   setTheme: () => {},
   addCryptocurrency: () => {},
   removeCryptocurrency: () => {},
@@ -119,6 +130,8 @@ export const PreferencesContext = React.createContext<Preferences>({
   setFilterTransactionsRange: () => {},
   setDisableLiveTransactions: () => {},
   setNatricons: () => {},
+  setRpcDomain: () => {},
+  setWebsocketDomain: () => {},
 });
 
 const Provider: React.FC = ({ children }) => {
@@ -147,6 +160,12 @@ const Provider: React.FC = ({ children }) => {
   );
   const [natricons, setNatricons] = React.useState<boolean>(
     toBoolean(localStorage.getItem(LOCALSTORAGE_KEYS.NATRICONS) || true),
+  );
+  const [rpcDomain, setRpcDomain] = React.useState(
+    localStorage.getItem(LOCALSTORAGE_KEYS.RPC_DOMAIN) || "",
+  );
+  const [websocketDomain, setWebsocketDomain] = React.useState(
+    localStorage.getItem(LOCALSTORAGE_KEYS.WEBSOCKET_DOMAIN) || "",
   );
 
   const addCryptocurrency = React.useCallback(
@@ -227,6 +246,16 @@ const Provider: React.FC = ({ children }) => {
     setNatricons(newValue);
   };
 
+  const setLocalstorageRpcDomain = (newValue: string) => {
+    localStorage.setItem(LOCALSTORAGE_KEYS.RPC_DOMAIN, `${newValue}`);
+    setRpcDomain(newValue);
+  };
+
+  const setLocalstorageWebsocketDomain = (newValue: string) => {
+    localStorage.setItem(LOCALSTORAGE_KEYS.WEBSOCKET_DOMAIN, `${newValue}`);
+    setWebsocketDomain(newValue);
+  };
+
   return (
     <PreferencesContext.Provider
       value={{
@@ -237,6 +266,8 @@ const Provider: React.FC = ({ children }) => {
         filterTransactionsRange,
         disableLiveTransactions,
         natricons,
+        rpcDomain,
+        websocketDomain,
         setTheme: setLocalstorageTheme,
         addCryptocurrency,
         removeCryptocurrency,
@@ -246,6 +277,8 @@ const Provider: React.FC = ({ children }) => {
         setFilterTransactionsRange: setLocalstorageFilterTransactionsRange,
         setDisableLiveTransactions: setLocalstorageDisableLiveTransactions,
         setNatricons: setLocalstorageNatricons,
+        setRpcDomain: setLocalstorageRpcDomain,
+        setWebsocketDomain: setLocalstorageWebsocketDomain,
       }}
     >
       {children}

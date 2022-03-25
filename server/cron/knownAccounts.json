@@ -12,6 +12,10 @@
     "account": "nano_3sq7fi6tx9h3h7p3h9oe1ppqq3jkd98yx6txymcuorwbbctymtezsf8ay351"
   },
   {
+    "alias": "Kuyumcu",
+    "account": "nano_36rnorw5yud45pr6x6duudk1w9yd4qanur86wmy6wiesbwtakmpz4y5dtmjw"
+  },
+  {
     "alias": "Dogecoin creator",
     "account": "nano_3j61hdczpb4z8cchyythzqct6wikn4x5c3bkexyzaj97nm5q73dg9ayntps4"
   },
@@ -78,5 +82,49 @@
   {
     "alias": "NanoQuakeJS Payouts #14",
     "account": "nano_1odyzdkiaszjhapmemfwste6akzcktq9bh8seahp3777et8g4567y63nxz6n"
+  },
+  {
+    "alias": "Fight for the future donation",
+    "account": "nano_1uf9hjxf81n1t9rriudyph4iyzzb66jo1pjfi3z3e8j1pa7ucjq7sq5w17qw"
+  },
+  {
+    "alias": "Reddit Nano Giveaway",
+    "account": "nano_1senatusn5a1kutkt91pr1czefki47ed56g495syg1uf6dghqokrmczgy4cy"
+  },
+  {
+    "alias": "2Miners Payouts",
+    "account": "nano_14uzbiw1euwicrt3gzwnpyufpa8td1uw8wbhyyrz5e5pnqitjfk1tb8xwgg4"
+  },
+  {
+    "alias": "Crypto.com",
+    "account": "nano_3ebd88zzysrkqpo8ey5yyxfpkfr39abmiyeihqn8b5ong9dkga1kbtd7gs4x"
+  },
+  {
+    "alias": "BitGrail Trustee Rep",
+    "account": "nano_3oxhohaxp9ceobppkhp7wahauxd4zgyz4fhxfniyp4mb9opq4upfnaccswo7"
+  },
+  {
+    "alias": "OKEx Deposits",
+    "account": "nano_1etto78drszxhtb5jhswzzm5m98ffqxwjzwg3gr8ajt5sq4ahdj4bjhni9we"
+  },
+  {
+    "alias": "OKEx Withdrawals",
+    "account": "nano_1o5rr464r8bgu4h3jnt5yn4a6tbd5shbbpwk6aj6sunf8dzdpmke6q4tgtkj"
+  },
+  {
+    "alias": "Bitvavo",
+    "account": "nano_3wat6ci5a55s895eec64i4ihfd9ry3bdxnpb776mj1srjedqfdf4k11rcmg4"
+  },
+  {
+    "alias": "Flowhub",
+    "account": "nano_3f1owhubic8wa8rfmj5x6w9ore9btbtju5eampghs3y9ere6q6u96jraoo5s"
+  },
+  {
+    "alias": "CoinEx",
+    "account": "nano_35bidny8nqtn18uptkntcezcks3m4d8amz9jnnbjdd9aejpz86a788pfwgrz"
+  },
+  {
+    "alias": "Nano Collaborative Donations",
+    "account": "nano_36stct5ene3f9rgehtuddshki4gkjofequkf449p1shnexirrxzm93ixdbao"
   }
 ]

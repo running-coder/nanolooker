@@ -19,7 +19,9 @@ import useDeveloperAccountFund from "api/hooks/use-developer-fund-transactions";
 import QuestionCircle from "components/QuestionCircle";
 import LoadingStatistic from "components/LoadingStatistic";
 import { rawToRai, timestampToDate } from "components/utils";
-import { DEVELOPER_FUND_ACCOUNTS } from "../../knownAccounts.json";
+import KnownAccounts from "../../knownAccounts.json";
+
+const { DEVELOPER_FUND_ACCOUNTS } = KnownAccounts;
 
 const { Title } = Typography;
 
@@ -36,10 +38,8 @@ const DeveloperFund: React.FC = () => {
     },
     isInitialLoading: isMarketStatisticsInitialLoading,
   } = React.useContext(MarketStatisticsContext);
-  const {
-    accountsBalances,
-    isLoading: isAccountsBalancesLoading,
-  } = useAccountsBalances(DEVELOPER_FUND_ACCOUNTS);
+  const { accountsBalances, isLoading: isAccountsBalancesLoading } =
+    useAccountsBalances(DEVELOPER_FUND_ACCOUNTS);
   // const { availableSupply } = useAvailableSupply();
   const { developerFundTransactions } = useDeveloperAccountFund();
   const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
@@ -83,8 +83,11 @@ const DeveloperFund: React.FC = () => {
     loading: isAccountsBalancesLoading || isMarketStatisticsInitialLoading,
   };
 
-  const { amount, local_timestamp = 0, hash: lastTransactionHash } =
-    developerFundTransactions?.[0] || {};
+  const {
+    amount,
+    local_timestamp = 0,
+    hash: lastTransactionHash,
+  } = developerFundTransactions?.[0] || {};
   const modifiedTimestamp = Number(local_timestamp) * 1000;
   const lastTransactionAmount = new BigNumber(rawToRai(amount || 0)).toNumber();
 
@@ -126,11 +129,10 @@ const DeveloperFund: React.FC = () => {
               <Col xs={24} sm={18}>
                 <LoadingStatistic
                   isLoading={skeletonProps.loading}
-                  suffix="BAN"
                   value={totalBalance}
                 />
                 <Skeleton {...skeletonProps}>
-                  {`${CurrencySymbol?.[fiat]}${fiatBalance} / ${btcBalance} BTC`}
+                  {`${CurrencySymbol?.[fiat]} ${fiatBalance} / ${btcBalance} BTC`}
                 </Skeleton>
               </Col>
             </Row>
@@ -157,7 +159,7 @@ const DeveloperFund: React.FC = () => {
                   loading={!lastTransactionAmount}
                   paragraph={false}
                 >
-                  {lastTransactionAmount} BAN
+                  {lastTransactionAmount}
                   <br />
                 </Skeleton>
                 <Skeleton
@@ -219,7 +221,7 @@ const DeveloperFund: React.FC = () => {
                   display: "block",
                 }}
               >
-                {balance} BAN
+                {balance}
               </span>
             </Col>
             <Col sm={14} md={14} xl={18}>

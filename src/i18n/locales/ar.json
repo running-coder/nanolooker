@@ -38,7 +38,10 @@
     "node": "العقدة",
     "nodes": "العقد",
     "cancel": "يلغي",
-    "comingSoon": "قريبا"
+    "comingSoon": "قريبا",
+    "statistics": "إحصائيات",
+    "continue": "يكمل",
+    "link": "وصلة"
   },
   "nodeHealth": {
     "nodeReloading": "يتم إعادة تحميل عقدة النانو",
@@ -49,13 +52,13 @@
     "accountAndBlock": "حساب / حظر",
     "send": "إرسال",
     "receive": "تسلم",
-    "pending": "قيد الانتظار",
     "change": "يتغيرون",
     "open": "فتح",
     "state": "حالة",
     "epoch": "عصر",
     "cps": "CPS",
-    "amount": "كمية"
+    "amount": "كمية",
+    "pending": "مستحق"
   },
   "tooltips": {
     "avgConfirmationTime": "يتم حساب متوسط وقت التأكيد محليًا على العقدة. إذا تمت إعادة تشغيل العقدة أو كانت في حالة متدهورة ، فقد يكون متوسط وقت التأكيد أعلى من بقية الشبكة.",
@@ -86,11 +89,13 @@
     "mnano": "Mnano هو القسم القياسي الحالي المستخدم في المحافظ ، في التبادلات والخدمات. يشار إليه باسم 1 BANANO.",
     "versionsByWeight": "لكي يستحوذ الإصدار على إجماع الشبكة ، يجب أن يحصل على 67٪ من وزن التصويت عبر الإنترنت من الحد الأدنى من {{onlineWeightMinimum}} BANANO.",
     "onChainVolume": "مجموع جميع معاملات BANANO التي تم تأكيدها على الشبكة. إذا أرسل المستخدم A 1 BANANO وتلقى المستخدم B 1 BANANO في نفس اليوم ، فسيتم إضافة 2 BANANO في المجلد اليومي لأنه تم بث معاملتين وتأكيدهما ، إرسال واستلام.",
-    "oneBanEqualsOneDoge": "مقارنة ممتعة مع سلسلة العملات المعدنية الخاصة بنا من Doge meme ، إذا كانت القيمة السوقية لـ Banano ستكون مساوية لقيمة Doge."
+    "oneBanEqualsOneDoge": "مقارنة ممتعة مع سلسلة العملات المعدنية الخاصة بنا من Doge meme ، إذا كانت القيمة السوقية لـ Banano ستكون مساوية لقيمة Doge.",
+    "pendingTransaction": "تم إرسال الأموال إلى هذا الحساب ولكن المالك لم يضع الأموال في جيبه بعد. يمكن فقط لمالك الحساب كتابة معاملة مستلمة في blockchain الخاص به. إذا كان هذا هو حسابك ، فافتح محفظتك ، وعادة ما يتم بث كتلة الاستلام تلقائيًا."
   },
   "search": {
     "searchBy": "البحث بالعنوان / الحظر / الحساب المعروف",
-    "noHistory": "لا يوجد سجل بحث"
+    "noHistory": "لا يوجد سجل بحث",
+    "scanWallet": "مسح حساب محفظة يبدأ بـ \"nano_\""
   },
   "preferences": {
     "viewAll": "اعرض كل التفضيلات",
@@ -158,22 +163,25 @@
       "waitingForTransactions": "في انتظار المعاملات",
       "connectingToBlockchain": "الاتصال بـ BANANO blockchain",
       "reconnectingToBlockchain": "تم قطع الاتصال وإعادة الاتصال بـ BANANO blockchain",
-      "oneBanEqualsOneDoge": "ماذا لو 1 Ban = 1 Doge؟"
+      "oneBanEqualsOneDoge": "ماذا لو 1 Ban = 1 Doge؟",
+      "cpsLocal": "لوحظ CPS على العقدة المحلية",
+      "cpsNetwork": "متوسط CPS عبر عدة عقد تمثيلية"
     },
     "account": {
       "votingWeight": "وزن التصويت",
       "percentNetworkVotingWeight": "٪ وزن تصويت الشبكة",
-      "percentRepresentativeVotingWeight": "٪ من وزن تصويت الممثل",
       "noRepresentative": "لا ممثل",
       "confirmationHeight": "ارتفاع التأكيد",
       "lastTransaction": "آخر معاملة",
-      "pendingTransactions": "المعاملات المعلقة",
       "loadMoreTransactions": "تحميل المزيد من المعاملات",
       "viewTransactions": "عرض المعاملات",
       "notOpenedYet": "لم يتم فتح هذا الحساب بعد",
       "notOpenedYetReason": "بينما عنوان الحساب صالح ، لم يتم نشر أي كتل لسلسلته حتى الآن. إذا تم إرسال BANANO إلى هذا الحساب ، فلا يزال يتعين عليه نشر كتلة مقابلة لجيب الأموال.",
       "missingAccount": "حساب مفقود",
-      "missingAccountInfo": "الحساب غير محدد في URL. استخدم شريط البحث العلوي للبحث عن حساب أو إلحاقه بعنوان URL بعد / حساب /"
+      "missingAccountInfo": "الحساب غير محدد في URL. استخدم شريط البحث العلوي للبحث عن حساب أو إلحاقه بعنوان URL بعد / حساب /",
+      "notVoting": "لا تصوت",
+      "pendingTransactions": "المعاملات جاهزة للاستلام",
+      "pendingTransaction": "المعاملة جاهزة للاستلام"
     },
     "block": {
       "blockSubtype": "نوع الكتلة الفرعي",
@@ -190,7 +198,11 @@
       "missingBlock": "كتلة مفقودة",
       "missingBlockInfo": "لم يتم تحديد الحظر في عنوان URL. استخدم شريط البحث العلوي للبحث عن كتلة أو إلحاقها بعنوان URL بعد / block /",
       "blockNotFound": "الحظر غير موجود",
-      "blockNotFoundInfo": "الكتلة التي طلبتها غير موجودة. من المحتمل أن تكون الكتلة موجودة على شبكة Banano ولكن لم يتم رؤيتها بواسطة العقدة بعد. تأكد من أنك تبحث عن الكتلة الصحيحة أو حاول مرة أخرى لاحقًا."
+      "blockNotFoundInfo": "الكتلة التي طلبتها غير موجودة. من المحتمل أن تكون الكتلة موجودة على شبكة Banano ولكن لم يتم رؤيتها بواسطة العقدة بعد. تأكد من أنك تبحث عن الكتلة الصحيحة أو حاول مرة أخرى لاحقًا.",
+      "successorBlock": "كتلة الخلف",
+      "lastAccountBlock": "هذه الكتلة هي الأحدث في الحساب",
+      "matchingSendBlock": "مطابقة إرسال كتلة",
+      "noMatchingSendBlock": "لم يتم العثور على كتلة مطابقة"
     },
     "representatives": {
       "voteDistribution": "توزيع الأصوات",
@@ -224,7 +236,21 @@
       "percentOfTotal": "{{percent}}٪ من العرض المتداول"
     },
     "knownAccounts": {
-      "totalAccounts": "{{totalAccounts}} إجمالي الحسابات المعروفة"
+      "totalAccounts": "{{totalAccounts}} إجمالي الحسابات المعروفة",
+      "registerKnownAccount": "سجل حساب معروف",
+      "register": "يسجل",
+      "scanWallet": "مسح حساب محفظتك بدءًا من \"nano_\"",
+      "registerDescription": "قم بتسجيل اسم مستعار للحساب في حسابات NanoLooker المعروفة. سيكون حسابك بعد ذلك قابلاً للبحث عن طريق الاسم المستعار ويمكن التعرف عليه بسهولة على المستكشف.",
+      "account": "أدخل حساب \"nano_\" لربطه بالاسم المستعار",
+      "registerNote": "في الخطوة التالية ستطلب إرسال معاملة من حساب \"nano_\" الجاري تسجيله",
+      "invalidAccount": "حساب غير صالح",
+      "waitingNote": "سيتم تسجيل الاسم المستعار الخاص بك بعد إرسال Ӿ1 إلى تبرعات NanoLooker من الحساب الذي تقوم بتسجيله لتأكيد أنه ملك لك.",
+      "registerErrorTaken": "تم تسجيل الاسم المستعار لهذا الحساب بالفعل",
+      "registerError": "غير قادر على إتمام التسجيل",
+      "waitingForTransaction": "في انتظار المعاملة",
+      "viewAccount": "عرض الحساب",
+      "sendFrom": "أرسل Ӿ {{amount}} من",
+      "sendTo": "إلى"
     },
     "largeTransactions": {
       "description": "تحدث المعاملات الكبيرة على BANANO blockchain.",
@@ -244,11 +270,13 @@
       "unknownDormantFunds": "صناديق نائمة غير معروفة",
       "dormantFundsQuarterExample": "الحساب الذي يحتوي على 50 BANANO و 50 BANANO معلقًا قد تمت آخر معاملة له منذ 6 أشهر (ربعان) ، تمت إضافة رصيد قدره 100 BANANO باعتباره \"خامل\" إلى إجمالي الربع التالي.",
       "dormantBanano": "النوم نانو",
-      "ofAvailableSupply": "من العرض المتاح"
+      "ofAvailableSupply": "من العرض المتاح",
+      "richList": "قائمة غنية"
     },
     "news": {
       "allFeeds": "كل الخلاصات",
-      "allAuthors": "كل المؤلفين"
+      "allAuthors": "كل المؤلفين",
+      "allSources": "جميع المصادر"
     },
     "status": {
       "reload": "إعادة تحميل",
@@ -289,7 +317,8 @@
     },
     "exchangeTracker": {
       "description": "كل يوم يتم الحصول على أرصدة حسابات أكثر البورصات شعبية حيث يتم تداول Banano. يمكن استخدام هذا القياس لتحليل الحركات والتقلبات على الشبكة.",
-      "totalSelected": "إجمالي رصيد البورصات المختارة"
+      "totalSelected": "إجمالي رصيد البورصات المختارة",
+      "selectedWallets": "محافظ مختارة"
     },
     "preferences": {
       "description": "إدارة تفضيلاتك لكل قسم. يتم تخزين التفضيلات على المتصفح ، إذا قمت بمسح بياناتك ، فستعود تفضيلاتك إلى الإعدادات الافتراضية.",
@@ -297,7 +326,11 @@
       "searchHistory": "سجل البحث",
       "filterTransactionsRange": "تخصيص تصفية مبالغ المعاملات",
       "filterTransactionsRangeDetailed": "اختر عرض الحركات الواردة فقط ضمن نطاق حد أدنى / أقصى معين للمبلغ المرسل أو المستلم.",
-      "noLimit": "لا حدود"
+      "noLimit": "لا حدود",
+      "nodeConnection": "اتصال العقدة",
+      "connectionDetailed": "قم بتوصيل المستكشف بعقدة أخرى غير NanoLooker",
+      "rpcDomain": "RPC",
+      "websocketDomain": "مقبس ويب"
     },
     "bookmarks": {
       "viewAll": "عرض كل الإشارات المرجعية",
@@ -334,6 +367,68 @@
       "rank": "رتبة",
       "player": "لاعب",
       "frags": "فراجس"
+    },
+    "nanobrowserquest": {
+      "playNow": "العب الان !",
+      "playersOnline": "لاعبين عبر الإنترنت",
+      "playNanoBrowserQuest": "تشغيل NanoBrowserQuest",
+      "welcomeTitle": "العب NanoBrowserQuest واكسب عائدًا صغيرًا مقابل إكمال اللعبة!",
+      "donatePrizePool": "التبرع لمجمع جوائز NanoBrowserQuest",
+      "registerDescription": "NanoBrowserQuest مجاني للعب. إذا كنت تستمتع بالخدمة ، يمكنك تقديم مساهمة صغيرة في مجموعة جوائز NanoBrowserQuest.",
+      "payoutDescription": "سيتم إرسال المدفوعات بعد أن تقتل رئيس النهاية! سيعتمد المبلغ الذي ستحصل عليه على الإنجازات التي فتحتها.",
+      "leaderboard": "ليدربورد",
+      "rank": "مرتبة",
+      "player": "لاعب",
+      "exp": "خبرة",
+      "level": "مستوى",
+      "gameDescription": "NanoBrowserQuest هي نسخة جديدة من لعبة BrowserQuest الشهيرة على شبكة الإنترنت المصغرة MMORPG والتي تم إنشاؤها في الأصل حوالي عام 2012. تدعم اللعبة 200 لاعب في وقت واحد وهي مجانية للعب. يتيح لك NanoBrowserQuest اللعب مع أصدقائك وإكمال الإنجازات داخل اللعبة والحصول على مكافأة صغيرة من Nano بعد إكمال اللعبة.",
+      "howToPlay": "كيف ألعب",
+      "itemUpgrade": "ترقية العنصر",
+      "itemUpgradeDescription": "ترقية العناصر الخاصة بك في السندان في المدينة. اختر العنصر الذي تريد ترقيته واسحبه إلى الفتحة اليسرى. أضف نفس فئة التمرير للترقية إلى إحدى فتحات القسم الأوسط التسعة. إذا نجحت الترقية ، فسيظهر العنصر في الفتحة الموجودة على اليمين. كن حريصًا على أن يكون لديك دائمًا عنصر احتياطي في حالة عدم نجاح الترقية.",
+      "upgradeSuccessRate": "معدل نجاح الترقية",
+      "playerLevel": "مستوى اللاعب",
+      "playerLevelDescription": "كلما زادت مستوى شخصيتك ، كلما حصلت على إحصائيات إضافية مثل زيادة الصحة والأضرار.",
+      "playerLevelDescription2": "يمثل الشريط الأصفر تقدم المستوى الخاص بك ، قم بالمرور فوقه للحصول على٪ أكثر تفصيلاً.",
+      "shortcuts": "الاختصارات",
+      "shortcut": {
+        "i": "اضغط على I أو انقر فوق العناصر السفلية لتبديل المخزون",
+        "c": " اضغط على C أو انقر على شريط الصحة لتبديل معلومات الشخصية",
+        "p": "اضغط على P أو انقر على # Player في الشريط السفلي لعرض اللاعبين عبر الإنترنت",
+        "enter": "اضغط على ENTER أو انقر على فقاعة الدردشة للتحدث إلى اللاعبين القريبين منك",
+        "q": "اضغط على Q أو انقر فوق الكأس لعرض كتاب المهام",
+        "m": "اضغط على M أو انقر فوق مكبر الصوت لتبديل كتم الصوت"
+      },
+      "nanoPotions": "جرعات نانو"
+    },
+    "statistics": {
+      "social": {
+        "title": "المشاركة الاجتماعية للعملات المشفرة / 1 مليار دولار في القيمة السوقية",
+        "redditSubscribers": "عدد مشتركي Reddit لكل مليار دولار",
+        "twitterFollowers": "عدد متابعي تويتر لكل مليار دولار",
+        "githubStars": "عدد نجوم جيثب لكل مليار دولار",
+        "engagementPerBillion": "المشاركة لكل مليار دولار",
+        "marketCap": "القيمة السوقية",
+        "totalEngagement": "إجمالي المشاركة"
+      },
+      "2miners": {
+        "title": "إحصائيات مدفوعات النانو بواسطة تجمع تعدين 2Miners Ethereum",
+        "totalPayouts": "إجمالي مدفوعات NANO بواسطة 2Miners",
+        "payouts": "المدفوعات",
+        "accounts": "حسابات",
+        "accountsDescription": "عدد الحسابات الفريدة التي تلقت عوائد لذلك اليوم.",
+        "uniqueAccounts": "حسابات فريدة",
+        "uniqueAccountsDescription": "عدد الحسابات التي تلقت عائدًا منذ {{date}}",
+        "accountsHolding": "عقد الحسابات",
+        "accountsHoldingDescription": "عدد الحسابات التي تلقت عائدًا منذ {{date}} ولديها رصيد أعلى من 0.001 NANO.",
+        "balanceHolding": "عقد التوازن",
+        "balanceHoldingDescription": "الرصيد المجمع للحسابات التي تلقت عائدًا منذ {{date}} ولديها رصيد أعلى من 0.001 NANO.",
+        "viewPayoutStatistics": "عرض إحصائيات الدفع",
+        "payoutsDescription": "مبلغ NANO الذي تم دفعه لذلك اليوم.",
+        "fiatPayouts": "مدفوعات فيات",
+        "fiatPayoutsDescription": "المبلغ المقدر بالدولار الأمريكي الذي تم دفعه لذلك اليوم.",
+        "totalFiatPayouts": "إجمالي المدفوعات المقدرة بواسطة 2Miners (بالدولار الأمريكي)",
+        "announcement": "مشاهدة الاعلان"
+      }
     }
   }
 }

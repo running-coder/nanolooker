@@ -59,6 +59,7 @@ const AppHeader: React.FC = () => {
               mode="horizontal"
             >
               <SubMenu
+                key="explore-submenu"
                 title={
                   <span onClick={() => history.push("/")}>
                     <ApartmentOutlined />
@@ -103,6 +104,7 @@ const AppHeader: React.FC = () => {
               </Menu.Item>
 
               <SubMenu
+                key="status-submenu"
                 title={
                   <>
                     <DatabaseOutlined />

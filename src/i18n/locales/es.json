@@ -38,7 +38,10 @@
     "node": "Nodo",
     "nodes": "Nodos",
     "cancel": "Cancelar",
-    "comingSoon": "Próximamente, en breve, pronto"
+    "comingSoon": "Próximamente, en breve, pronto",
+    "statistics": "Estadísticas",
+    "continue": "Continuar",
+    "link": "Enlace"
   },
   "nodeHealth": {
     "nodeReloading": "Banano nodo se está recargando",
@@ -49,13 +52,13 @@
     "accountAndBlock": "Cuenta / Bloque",
     "send": "Enviar",
     "receive": "Recibir",
-    "pending": "Pendiente",
     "change": "Cambio",
     "open": "Abierto",
     "state": "Expresar",
     "epoch": "Época",
     "cps": "CPS",
-    "amount": "Monto"
+    "amount": "Monto",
+    "pending": "Cuenta por cobrar"
   },
   "tooltips": {
     "avgConfirmationTime": "El tiempo medio de confirmación se calcula localmente en el nodo. Si el nodo se reinicia o se degrada, el tiempo medio de confirmación puede ser mayor que el del resto de la red.",
@@ -90,7 +93,8 @@
   },
   "search": {
     "searchBy": "Buscar por dirección / bloque / cuenta conocida",
-    "noHistory": "Sin historial de búsqueda"
+    "noHistory": "Sin historial de búsqueda",
+    "scanWallet": "Escanear una cuenta de billetera que comience con \"nano_\""
   },
   "preferences": {
     "viewAll": "Ver todas las preferencias",
@@ -163,17 +167,18 @@
     "account": {
       "votingWeight": "Peso de voto",
       "percentNetworkVotingWeight": "% del peso de la votación de la red",
-      "percentRepresentativeVotingWeight": "% del peso de voto del representante",
       "noRepresentative": "Sin representante",
       "confirmationHeight": "Altura de confirmación",
       "lastTransaction": "Última transacción",
-      "pendingTransactions": "transacciones pendientes",
       "loadMoreTransactions": "Cargar más transacciones",
       "viewTransactions": "Ver transacciones",
       "notOpenedYet": "Esta cuenta aún no se ha abierto",
       "notOpenedYetReason": "Si bien la dirección de la cuenta es válida, aún no se han publicado bloques en su cadena. Si BANANO se ha enviado a esta cuenta, aún necesita publicar un bloque correspondiente para guardar los fondos.",
       "missingAccount": "Cuenta faltante",
-      "missingAccountInfo": "La cuenta no está especificada en la URL. Use la barra de búsqueda superior para buscar una cuenta o añádala en la URL después de /account/"
+      "missingAccountInfo": "La cuenta no está especificada en la URL. Use la barra de búsqueda superior para buscar una cuenta o añádala en la URL después de /account/",
+      "notVoting": "No votar",
+      "pendingTransactions": "Transacciones listas para ser recibidas",
+      "pendingTransaction": "Transacción lista para ser recibida"
     },
     "block": {
       "blockSubtype": "Subtipo de bloque",
@@ -224,7 +229,21 @@
       "percentOfTotal": "{{percent}}% del suministro circulante"
     },
     "knownAccounts": {
-      "totalAccounts": "{{totalAccounts}} Total de cuentas conocidas"
+      "totalAccounts": "{{totalAccounts}} Total de cuentas conocidas",
+      "registerKnownAccount": "Registrar una cuenta conocida",
+      "register": "Registrarse",
+      "scanWallet": "Escanee su cuenta de billetera que comience con \"nano_\"",
+      "registerDescription": "Registre un alias de cuenta en las cuentas conocidas de NanoLooker. Su cuenta se podrá buscar por alias y será fácilmente identificable en el explorador.",
+      "account": "Ingrese una cuenta \"nano_\" para asociarla con el alias",
+      "registerNote": "En el siguiente paso, se le pedirá que envíe una transacción desde la cuenta \"nano_\" que se está registrando.",
+      "invalidAccount": "Cuenta no válida",
+      "waitingNote": "Su alias se registrará después de enviar Ӿ1 a las donaciones de NanoLooker desde la cuenta que está registrando para confirmar que le pertenece.",
+      "registerErrorTaken": "Ya está registrado un alias para esta cuenta",
+      "registerError": "No se pudo completar el registro",
+      "waitingForTransaction": "Esperando transacción",
+      "viewAccount": "Ver cuenta",
+      "sendFrom": "Enviar Ӿ {{cantidad}} de",
+      "sendTo": "Para"
     },
     "largeTransactions": {
       "description": "Grandes transacciones que ocurren en la cadena de bloques BANANO.",
@@ -248,7 +267,8 @@
     },
     "news": {
       "allFeeds": "Todos los feeds",
-      "allAuthors": "Todos los Autores"
+      "allAuthors": "Todos los Autores",
+      "allSources": "Todas las fuentes"
     },
     "status": {
       "reload": "Recargar",
@@ -297,7 +317,11 @@
       "searchHistory": "Buscar Historia",
       "filterTransactionsRange": "Personalizar el filtrado de montos de transacciones",
       "filterTransactionsRangeDetailed": "Elija mostrar solo las transacciones entrantes dentro de un cierto rango mínimo / máximo de la cantidad enviada o recibida.",
-      "noLimit": "no limit"
+      "noLimit": "no limit",
+      "nodeConnection": "Conexión de nodo",
+      "connectionDetailed": "Conecte el explorador a otro nodo que no sea NanoLooker",
+      "rpcDomain": "RPC",
+      "websocketDomain": "Websocket"
     },
     "bookmarks": {
       "viewAll": "Ver todos los marcadores",
@@ -334,6 +358,68 @@
       "rank": "Rango",
       "player": "Jugador",
       "frags": "Fragmentos"
+    },
+    "nanobrowserquest": {
+      "playNow": "Reproducir ahora !",
+      "playersOnline": "Jugadores online",
+      "playNanoBrowserQuest": "Juega NanoBrowserQuest",
+      "welcomeTitle": "¡Juega a NanoBrowserQuest y gana un pequeño pago por completar el juego!",
+      "donatePrizePool": "Done a la bolsa de premios de NanoBrowserQuest",
+      "registerDescription": "NanoBrowserQuest es un juego gratuito. Si disfruta del servicio, puede hacer una pequeña contribución al premio acumulado de NanoBrowserQuest.",
+      "payoutDescription": "¡El pago se enviará después de que mates al BOSS final! La cantidad que obtendrás dependerá de los logros que hayas desbloqueado.",
+      "leaderboard": "Tabla de clasificación",
+      "rank": "Rango",
+      "player": "Jugador",
+      "exp": "Experiencia",
+      "level": "Nivel",
+      "gameDescription": "NanoBrowserQuest es una nueva versión del popular minijuego MMORPG basado en web BrowserQuest que se creó originalmente alrededor de 2012. El juego admite 200 jugadores simultáneos y es gratuito. NanoBrowserQuest te permite jugar con tus amigos, completar logros en el juego y obtener una pequeña recompensa Nano después de completar el juego.",
+      "howToPlay": "Cómo jugar",
+      "itemUpgrade": "Actualización de artículo",
+      "itemUpgradeDescription": "Mejora tus artículos en el Yunque de la ciudad. Elija el elemento que desea actualizar y arrástrelo a la ranura de la izquierda. Agregue una misma clase de desplazamiento de actualización a una de las 9 ranuras de la sección central. Si la actualización tiene éxito, el artículo aparecerá en la ranura de la derecha. Tenga cuidado de tener siempre un elemento de respaldo en caso de que la actualización no se realice correctamente.",
+      "upgradeSuccessRate": "Actualizar la tasa de éxito",
+      "playerLevel": "Nivel de jugador",
+      "playerLevelDescription": "Cuanto más niveles tu personaje, más estadísticas de bonificación recibirás, como mayor salud y daño.",
+      "playerLevelDescription2": "La barra amarilla representa la progresión de su nivel, colóquela para obtener un% más detallado.",
+      "shortcuts": "Atajos",
+      "shortcut": {
+        "i": "Presione I o haga clic en los elementos inferiores para alternar el Inventario",
+        "c": " Presiona C o haz clic en la barra de salud para alternar la información del personaje",
+        "p": "Presione P o haga clic en el # Player en la barra inferior para ver los jugadores en línea",
+        "enter": "Presiona ENTER o haz clic en la burbuja de chat para hablar con los jugadores cerca de ti.",
+        "q": "Pulsa Q o haz clic en el trofeo para ver tu libro de misiones.",
+        "m": "Presione M o haga clic en el altavoz para alternar Silencio"
+      },
+      "nanoPotions": "Pociones NANO"
+    },
+    "statistics": {
+      "social": {
+        "title": "Participación social de las criptomonedas / $ 1 mil millones en capitalización de mercado",
+        "redditSubscribers": "Número de suscriptores de Reddit por mil millones de dólares",
+        "twitterFollowers": "Número de seguidores de Twitter por mil millones de dólares",
+        "githubStars": "Número de estrellas de Github por mil millones de dólares",
+        "engagementPerBillion": "Compromiso por mil millones de dólares",
+        "marketCap": "Tapa del mercado",
+        "totalEngagement": "Compromiso total"
+      },
+      "2miners": {
+        "title": "Estadísticas de nanopagos por grupo de minería Ethereum de 2Miners",
+        "totalPayouts": "Pagos totales de NANO por 2Miners",
+        "payouts": "Pagos",
+        "accounts": "Cuentas",
+        "accountsDescription": "La cantidad de cuentas únicas que recibieron el pago ese día.",
+        "uniqueAccounts": "Cuentas únicas",
+        "uniqueAccountsDescription": "La cantidad de cuentas que recibieron un pago desde el {{date}}",
+        "accountsHolding": "Tenencia de cuentas",
+        "accountsHoldingDescription": "La cantidad de cuentas que recibieron un pago desde el {{date}} y tienen un saldo superior a 0,001 NANO.",
+        "balanceHolding": "Manteniendo el equilibrio",
+        "balanceHoldingDescription": "Saldo combinado de las cuentas que recibieron un pago desde el {{date}} y tienen un saldo superior a 0,001 NANO.",
+        "viewPayoutStatistics": "Ver estadísticas de pago",
+        "payoutsDescription": "La cantidad de NANO que se pagó ese día.",
+        "fiatPayouts": "Pagos de Fiat",
+        "fiatPayoutsDescription": "El monto estimado de $ USD que se pagó ese día.",
+        "totalFiatPayouts": "Pagos totales estimados por 2Miners (USD)",
+        "announcement": "Ver anuncio"
+      }
     }
   }
 }

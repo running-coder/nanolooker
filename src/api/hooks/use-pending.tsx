@@ -1,7 +1,9 @@
 import * as React from "react";
 import { rpc } from "api/rpc";
 import { isValidAccountAddress } from "components/utils";
-import { BURN_ACCOUNT } from "knownAccounts.json";
+import KnownAccounts from "knownAccounts.json";
+
+const { BURN_ACCOUNT } = KnownAccounts;
 
 interface Params {
   count?: string;

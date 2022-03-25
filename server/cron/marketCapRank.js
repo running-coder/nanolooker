@@ -1,6 +1,6 @@
+const MongoClient = require("mongodb").MongoClient;
 const fetch = require("node-fetch");
 const cron = require("node-cron");
-const MongoClient = require("mongodb").MongoClient;
 const { Sentry } = require("../sentry");
 const {
   MONGO_URL,
@@ -24,7 +24,7 @@ cron.schedule("*/20 * * * *", async () => {
   let mongoClient;
 
   try {
-    MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (err, client) => {
+    MongoClient.connect(MONGO_URL, MONGO_OPTIONS, async (err, client) => {
       if (err) {
         throw err;
       }
@@ -36,31 +36,31 @@ cron.schedule("*/20 * * * *", async () => {
         { createdAt: 1 },
         { expireAfterSeconds: EXPIRE_48H },
       );
-    });
 
-    const res = await fetch(
-      "https://api.coingecko.com/api/v3/coins/banano?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false",
-    );
-    const { market_cap_rank: marketCapRank } = await res.json();
-    const hour = getNextHour();
+      const res = await fetch(
+        "https://api.coingecko.com/api/v3/coins/banano?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false",
+      );
+      const { market_cap_rank: marketCapRank } = await res.json();
+      const hour = getNextHour();
 
-    await db
-      .collection(MARKET_CAP_RANK_COLLECTION)
-      .updateOne(
-        {
-          hour,
-        },
-        {
-          $set: {
-            value: marketCapRank,
+      await db
+        .collection(MARKET_CAP_RANK_COLLECTION)
+        .updateOne(
+          {
+            hour,
           },
-          $setOnInsert: { hour, createdAt: new Date() },
-        },
-        { upsert: true },
-      )
-      .then(() => {
-        mongoClient.close();
-      });
+          {
+            $set: {
+              value: marketCapRank,
+            },
+            $setOnInsert: { hour, createdAt: new Date() },
+          },
+          { upsert: true },
+        )
+        .then(() => {
+          mongoClient.close();
+        });
+    });
   } catch (err) {
     console.log("Error", err);
     Sentry.captureException(err);

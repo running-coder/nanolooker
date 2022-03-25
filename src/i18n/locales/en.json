@@ -33,12 +33,15 @@
     "bookmark": "Bookmark",
     "bookmarks": "Bookmarks",
     "ok": "Ok",
+    "continue": "Continue",
     "cancel": "Cancel",
     "executionDate": "Last compilation was on <0>{{date}}</0>",
     "executionTimeAgo": "Last compilation was",
     "node": "Node",
     "nodes": "Nodes",
-    "comingSoon": "Coming soon"
+    "comingSoon": "Coming soon",
+    "statistics": "Statistics",
+    "link": "Link"
   },
   "nodeHealth": {
     "nodeReloading": "Banano node is reloading",
@@ -49,7 +52,7 @@
     "accountAndBlock": "Account / Block",
     "send": "Send",
     "receive": "Receive",
-    "pending": "Pending",
+    "pending": "Receivable",
     "change": "Change",
     "open": "Open",
     "state": "State",
@@ -86,11 +89,13 @@
     "pendingTransactionCount": "The number of pending transactions exceeds the displayed limit of {{count}}.",
     "mnano": "Mnano is the current standard division used in wallets, on exchanges and services. It is referred as 1 BANANO.",
     "versionsByWeight": "For a version to be taking over the network's consensus, it needs to have {{onlineWeightQuorumPercent}}% of the online voting weight from a minimum of {{onlineWeightMinimum}} BANANO.",
-    "onChainVolume": "The sum of all BANANO transactions that have been confirmed on the network. If user A sends 1 BANANO and user B receives 1 BANANO on the same day, 2 BANANO will be added in the daily volume because 2 transactions were broadcasted and confirmed, a send and a receive."
+    "onChainVolume": "The sum of all BANANO transactions that have been confirmed on the network. If user A sends 1 BANANO and user B receives 1 BANANO on the same day, 2 BANANO will be added in the daily volume because 2 transactions were broadcasted and confirmed, a send and a receive.",
+    "pendingTransaction": "Funds were sent to this account but the owner has not yet pocketed the funds. Only the owner of the account can write a received transaction into their blockchain. If this is your account, unlock your wallet, the receiving block is usually automatically broadcasted."
   },
   "search": {
     "searchBy": "Search by Address / Block / Known Account",
-    "noHistory": "No search history"
+    "noHistory": "No search history",
+    "scanWallet": "Scan a wallet account starting with \"nano_\""
   },
   "preferences": {
     "viewAll": "View all preferences",
@@ -158,17 +163,19 @@
       "liveUpdatesDisabled": "Live updates disabled",
       "waitingForTransactions": "Waiting for transactions",
       "connectingToBlockchain": "Connecting to the BANANO blockchain",
-      "reconnectingToBlockchain": "Disconnected, reconnecting to the BANANO blockchain"
+      "reconnectingToBlockchain": "Disconnected, reconnecting to the BANANO blockchain",
+      "cpsLocal": "CPS observed on the local node",
+      "cpsNetwork": "Median CPS across several representative nodes"
     },
     "account": {
       "votingWeight": "Voting weight",
       "notVoting": "Not Voting",
       "percentNetworkVotingWeight": "% of the network voting weight",
-      "percentRepresentativeVotingWeight": "% of the representative's voting weight",
       "noRepresentative": "No Representative",
       "confirmationHeight": "Confirmation height",
       "lastTransaction": "Last transaction",
-      "pendingTransactions": "Pending Transactions",
+      "pendingTransaction": "Transaction ready to be received",
+      "pendingTransactions": "Transactions ready to be received",
       "loadMoreTransactions": "Load more transactions",
       "viewTransactions": "View transactions",
       "notOpenedYet": "This account hasn't been opened yet",
@@ -183,10 +190,14 @@
       "receiver": "Receiver",
       "sender": "Sender",
       "previousBlock": "Previous block",
+      "successorBlock": "Successor block",
+      "matchingSendBlock": "Matching send block",
+      "noMatchingSendBlock": "No matching block found",
       "height": "Block height",
       "signature": "Signature",
       "work": "Work",
       "openAccountBlock": "This Block opened the account",
+      "lastAccountBlock": "This Block is the most recent on the account",
       "originalBlockContent": "Original Block Content",
       "missingBlock": "Missing block",
       "missingBlockInfo": "The block is not specified in the URL. Use the top search bar for searching for a block or append it in the URL after /block/",
@@ -225,7 +236,21 @@
       "percentOfTotal": "{{percent}}%  of the circulating supply"
     },
     "knownAccounts": {
-      "totalAccounts": "{{totalAccounts}} Total Known Accounts"
+      "totalAccounts": "{{totalAccounts}} Total Known Accounts",
+      "registerKnownAccount": "Register a Known Account",
+      "register": "Register",
+      "scanWallet": "Scan your wallet account starting with \"nano_\"",
+      "registerDescription": "Register an account alias in the NanoLooker known accounts. Your account will then be searchable by alias and is going to easily be identifiable on the explorer.",
+      "account": "Enter a \"nano_\" account to be associated with the alias",
+      "registerNote": "On the next step you will be ask to send a transaction from the \"nano_\" account being registered",
+      "invalidAccount": "Invalid account",
+      "waitingNote": "Your alias will be registered after sending Ӿ1 to NanoLooker donations from the account you are registering to confirm it belongs to you.",
+      "registerErrorTaken": "An alias for this account is already registered",
+      "registerError": "Unable to complete registration",
+      "waitingForTransaction": "Waiting for transaction",
+      "viewAccount": "View account",
+      "sendFrom": "Send Ӿ{{amount}} from",
+      "sendTo": "To"
     },
     "largeTransactions": {
       "description": "Large transactions happening on the BANANO blockchain.",
@@ -250,7 +275,8 @@
     },
     "news": {
       "allFeeds": "All Feeds",
-      "allAuthors": "All Authors"
+      "allAuthors": "All Authors",
+      "allSources": "All Sources"
     },
     "status": {
       "reload": "Reload",
@@ -292,7 +318,8 @@
     },
     "exchangeTracker": {
       "description": "Every day a capture of the account balances of the most popular exchanges where Banano is traded is taken. This measurement can be used to analyze movements and fluctuations on the network.",
-      "totalSelected": "Total balance of selected exchanges"
+      "totalSelected": "Total balance of selected exchanges",
+      "selectedWallets": "Selected Wallets"
     },
     "preferences": {
       "description": "Manage your preferences for every sections. The preferences are stored on the browser, if you clear your data your preferences will be back to defaults.",
@@ -300,7 +327,11 @@
       "searchHistory": "Search history",
       "filterTransactionsRange": "Customize transaction amounts filtering",
       "filterTransactionsRangeDetailed": "Choose to only display incoming transactions within a certain min / max range of the sent or received amount.",
-      "noLimit": "No limit"
+      "noLimit": "No limit",
+      "nodeConnection": "Node Connection",
+      "connectionDetailed": "Connect the explorer to another node than NanoLooker",
+      "rpcDomain": "RPC",
+      "websocketDomain": "Websocket"
     },
     "bookmarks": {
       "viewAll": "View all bookmarks",
@@ -310,7 +341,7 @@
       "playNow": "Play Now !",
       "register": "Register",
       "donatePrizePool": "Donate to NanoQuakeJS prize pool",
-      "scanWallet": "Scan your wallet address",
+      "scanWallet": "Scan your wallet account starting with \"nano_\"",
       "registerError": "Unable to complete registration",
       "registerDescription": "NanoQuakeJS is free to play, forever. If you enjoy the service you can make a small contribution to the NanoQuakeJS prize pool.",
       "happyFragging": "Happy fragging!",
@@ -337,6 +368,37 @@
       "rank": "Rank",
       "player": "Player",
       "frags": "Frags"
+    },
+    "nanobrowserquest": {
+      "playNow": "Play Now !",
+      "playersOnline": "Players online",
+      "playNanoBrowserQuest": "Play NanoBrowserQuest",
+      "welcomeTitle": "Play NanoBrowserQuest and earn a small payout for completing the game!",
+      "donatePrizePool": "Donate to NanoBrowserQuest prize pool",
+      "gameDescription": "NanoBrowserQuest is a remake of the popular BrowserQuest web-based MMORPG minigame that was originally created around 2012. The game supports 200 simultaneous players and is free to play. NanoBrowserQuest allows you to play with your friends, complete in-game achievements and get a small Nano reward after completing the game.",
+      "payoutDescription": "Payout will be sent after you kill the end BOSS! The amount you'll get will depend on the achievements you've unlocked.",
+      "leaderboard": "Leaderboard",
+      "rank": "Rank",
+      "player": "Player",
+      "exp": "Experience",
+      "nanoPotions": "NANO Potions",
+      "level": "Level",
+      "howToPlay": "How to play",
+      "itemUpgrade": "Item upgrade",
+      "itemUpgradeDescription": "Upgrade your items at the Anvil in town. Choose the item you want to upgrade and drag it to the left slot. Add a same upgrade scroll class to one of the 9 middle section slots. If the upgrade is successful the item will appear in the slot on the right. Be careful to always have a backup item in case the upgrade does not succeed.",
+      "upgradeSuccessRate": "Upgrade success rate",
+      "playerLevel": "Player level",
+      "playerLevelDescription": "The more you level your character the more you will receive bonus stats such as increased health and damage.",
+      "playerLevelDescription2": "The yellow bar represents your level progression, hover it to get more detailed %.",
+      "shortcuts": "Shortcuts",
+      "shortcut": {
+        "i": "Press I or click on the bottom items to toggle the Inventory",
+        "c": " Press C or click on the health bar to toggle the Character information",
+        "p": "Press P or click on the # Player on the bottom bar to view the online players",
+        "enter": "Press ENTER or click on chat bubble to talk to players near you",
+        "q": "Press Q or click the trophy to view your Quest book",
+        "m": "Press M or click speaker to toggle Mute"
+      }
     }
   }
 }

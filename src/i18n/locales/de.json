@@ -18,7 +18,7 @@
     "balance": "Balance",
     "totalBalance": "Gesamtsaldo",
     "weight": "Gewicht",
-    "notAvailable": "N / A",
+    "notAvailable": "N/V",
     "continueReading": "Weiterlesen",
     "alias": "Alias",
     "search": "Suche",
@@ -37,8 +37,11 @@
     "executionTimeAgo": "Letzte Zusammenstellung war",
     "node": "Knoten",
     "nodes": "Knoten",
-    "cancel": "Stornieren",
-    "comingSoon": "Kommt bald"
+    "cancel": "Abbrechen",
+    "comingSoon": "Kommt bald",
+    "statistics": "Statistiken",
+    "continue": "Weitermachen",
+    "link": "Verknüpfung"
   },
   "nodeHealth": {
     "nodeReloading": "Der Bananoknoten wird neu geladen",
@@ -49,13 +52,13 @@
     "accountAndBlock": "Konto / Block",
     "send": "Senden",
     "receive": "Erhalten",
-    "pending": "steht aus",
     "change": "Veränderung",
     "open": "Öffnen",
     "state": "Zustand",
     "epoch": "Epoche",
     "cps": "CPS",
-    "amount": "Menge"
+    "amount": "Menge",
+    "pending": "Abholbar"
   },
   "tooltips": {
     "avgConfirmationTime": "Die durchschnittliche Bestätigungszeit wird lokal auf dem Knoten berechnet. Wenn der Knoten neu gestartet wird oder sich in einem verschlechterten Zustand befindet, ist die durchschnittliche Bestätigungszeit möglicherweise höher als der Rest des Netzwerks.",
@@ -86,11 +89,13 @@
     "mnano": "Mnano ist die derzeitige Standardabteilung für Brieftaschen, Börsen und Dienstleistungen. Es wird als 1 BANANO bezeichnet.",
     "versionsByWeight": "Damit eine Version den Konsens des Netzwerks übernimmt, muss sie {{onlineWeightQuorumPercent}}% des Online-Abstimmungsgewichts von mindestens {{onlineWeightMinimum}} BANANO haben.",
     "onChainVolume": "Die Summe aller BANANO-Transaktionen, die im Netzwerk bestätigt wurden. Wenn Benutzer A 1 BANANO sendet und Benutzer B 1 BANANO am selben Tag empfängt, werden 2 BANANO zum Tagesvolumen hinzugefügt, da 2 Transaktionen gesendet und bestätigt wurden, ein Senden und ein Empfangen.",
-    "oneBanEqualsOneDoge": "Ein lustiger Vergleich mit unserer Doge Meme Coin Brother-Kette, wenn die Marktkapitalisierung von Banano der von Doge entsprechen würde."
+    "oneBanEqualsOneDoge": "Ein lustiger Vergleich mit unserer Doge Meme Coin Brother-Kette, wenn die Marktkapitalisierung von Banano der von Doge entsprechen würde.",
+    "pendingTransaction": "Gelder wurden auf dieses Konto überwiesen, aber der Eigentümer hat die Gelder noch nicht eingesteckt. Nur der Inhaber des Kontos kann eine empfangene Transaktion in seine Blockchain schreiben. Wenn dies Ihr Konto ist, entsperren Sie Ihr Wallet, der Empfangsblock wird normalerweise automatisch gesendet."
   },
   "search": {
     "searchBy": "Suche nach Adresse / Block / Bekanntem Konto",
-    "noHistory": "Kein Suchverlauf"
+    "noHistory": "Kein Suchverlauf",
+    "scanWallet": "Scannen Sie ein Wallet-Konto, das mit \"nano_\" beginnt"
   },
   "preferences": {
     "viewAll": "Alle Einstellungen anzeigen",
@@ -158,22 +163,25 @@
       "waitingForTransactions": "Warten auf Transaktionen",
       "connectingToBlockchain": "Verbindung zur BANANO-Blockchain herstellen",
       "reconnectingToBlockchain": "Verbindung getrennt, Verbindung zur BANANO-Blockchain wiederhergestellt",
-      "oneBanEqualsOneDoge": "Was ist, wenn 1 Ban = 1 Doge?"
+      "oneBanEqualsOneDoge": "Was ist, wenn 1 Ban = 1 Doge?",
+      "cpsLocal": "CPS auf dem lokalen Knoten beobachtet",
+      "cpsNetwork": "Medianer CPS über mehrere repräsentative Knoten"
     },
     "account": {
       "votingWeight": "Abstimmungsgewicht",
       "percentNetworkVotingWeight": "% des Abstimmungsgewichts des Netzwerks",
-      "percentRepresentativeVotingWeight": "% des Stimmgewichts des Vertreters",
       "noRepresentative": "Kein Vertreter",
       "confirmationHeight": "Bestätigungshöhe",
       "lastTransaction": "Letzte Transaktion",
-      "pendingTransactions": "Ausstehende Transaktionen",
       "loadMoreTransactions": "Laden Sie weitere Transaktionen",
       "viewTransactions": "Transaktionen anzeigen",
       "notOpenedYet": "Dieses Konto wurde noch nicht eröffnet",
       "notOpenedYetReason": "Während die Kontoadresse gültig ist, wurden noch keine Blöcke in ihrer Kette veröffentlicht. Wenn BANANO auf dieses Konto gesendet wurde, muss noch ein entsprechender Block veröffentlicht werden, um das Geld einzustecken.",
       "missingAccount": "Fehlendes Konto",
-      "missingAccountInfo": "Das Konto ist nicht in der URL angegeben. Verwenden Sie die obere Suchleiste, um nach einem Konto zu suchen, oder hängen Sie es an die URL nach /account/ an."
+      "missingAccountInfo": "Das Konto ist nicht in der URL angegeben. Verwenden Sie die obere Suchleiste, um nach einem Konto zu suchen, oder hängen Sie es an die URL nach /account/ an.",
+      "notVoting": "Nicht abstimmend",
+      "pendingTransactions": "empfangsbereite Transaktionen",
+      "pendingTransaction": "Transaktion empfangsbereit"
     },
     "block": {
       "blockSubtype": "Subtyp blockieren",
@@ -190,7 +198,11 @@
       "missingBlock": "Fehlender Block",
       "missingBlockInfo": "Der Block ist in der URL nicht angegeben. Verwenden Sie die obere Suchleiste, um nach einem Block zu suchen, oder hängen Sie ihn an die URL nach /block/ an",
       "blockNotFound": "Block nicht gefunden",
-      "blockNotFoundInfo": "Der von Ihnen angeforderte Block wurde nicht gefunden. Es ist möglich, dass der Block im Banano-Netzwerk vorhanden ist, aber vom Knoten noch nicht gesehen wurde. Stellen Sie sicher, dass Sie nach dem richtigen Block suchen, oder versuchen Sie es später erneut."
+      "blockNotFoundInfo": "Der von Ihnen angeforderte Block wurde nicht gefunden. Es ist möglich, dass der Block im Banano-Netzwerk vorhanden ist, aber vom Knoten noch nicht gesehen wurde. Stellen Sie sicher, dass Sie nach dem richtigen Block suchen, oder versuchen Sie es später erneut.",
+      "successorBlock": "Nachfolgeblock",
+      "lastAccountBlock": "Dieser Block ist der neueste auf dem Konto",
+      "matchingSendBlock": "Passender Sendeblock",
+      "noMatchingSendBlock": "Kein passender Block gefunden"
     },
     "representatives": {
       "voteDistribution": "Stimmenverteilung",
@@ -204,9 +216,9 @@
       "minimumOnlineWeight": "Minimales Online-Gewicht",
       "totalOnlineStake": "Gesamt-Online-Einsatz",
       "totalPeerStake": "Total Peer Stake",
-      "includeOfflineRepresentatives": "Schließen Sie Offline-Vertreter ein",
+      "includeOfflineRepresentatives": "Offline-Vertreter einschließen",
       "viewDelegators": "{{count}} Delegatoren anzeigen",
-      "loadAllRepresentatives": "Laden Sie alle Vertreter",
+      "loadAllRepresentatives": "Alle Vertreter laden",
       "groupByEntities": "Nach Entitäten gruppieren"
     },
     "representative": {
@@ -224,7 +236,21 @@
       "percentOfTotal": "{{percent}}% des Umlaufangebots"
     },
     "knownAccounts": {
-      "totalAccounts": "{{totalAccounts}} bekannte Konten insgesamt"
+      "totalAccounts": "{{totalAccounts}} bekannte Konten insgesamt",
+      "registerKnownAccount": "Registrieren Sie ein bekanntes Konto",
+      "register": "Registrieren",
+      "scanWallet": "Scannen Sie Ihr Wallet-Konto beginnend mit \"nano_\"",
+      "registerDescription": "Registrieren Sie einen Kontoalias in den bekannten NanoLooker-Konten. Ihr Konto ist dann nach Alias durchsuchbar und im Explorer leicht identifizierbar.",
+      "account": "Geben Sie ein \"nano_\"-Konto ein, das mit dem Alias verknüpft werden soll",
+      "registerNote": "Im nächsten Schritt werden Sie aufgefordert, eine Transaktion vom registrierten \"nano_\"-Konto zu senden",
+      "invalidAccount": "Ungültiger Account",
+      "waitingNote": "Ihr Alias wird registriert, nachdem Sie Ӿ1 an NanoLooker-Spenden von dem Konto, das Sie registrieren, gesendet haben, um zu bestätigen, dass es Ihnen gehört.",
+      "registerErrorTaken": "Ein Alias für dieses Konto ist bereits registriert",
+      "registerError": "Registrierung kann nicht abgeschlossen werden",
+      "waitingForTransaction": "Warten auf Transaktion",
+      "viewAccount": "Konto anzeigen",
+      "sendFrom": "Senden Sie Ӿ{{amount}} von",
+      "sendTo": "Zu"
     },
     "largeTransactions": {
       "description": "Große Transaktionen in der BANANO-Blockchain.",
@@ -244,11 +270,13 @@
       "unknownDormantFunds": "Unbekannte ruhende Gelder",
       "dormantFundsQuarterExample": "Ein Konto mit 50 BANANO und 50 ausstehenden BANANO wurde zuletzt vor 6 Monaten (2 Quartale) abgewickelt. Ein Saldo von 100 BANANO wird als \"ruhend\" zur Gesamtsumme des folgenden Quartals hinzugefügt.",
       "dormantBanano": "Ruhende Banano",
-      "ofAvailableSupply": "des verfügbaren Angebots"
+      "ofAvailableSupply": "des verfügbaren Angebots",
+      "richList": "Reiche Liste"
     },
     "news": {
       "allFeeds": "Alle Feeds",
-      "allAuthors": "Alle Autoren"
+      "allAuthors": "Alle Autoren",
+      "allSources": "Alle Quellen"
     },
     "status": {
       "reload": "Aktualisieren",
@@ -297,14 +325,18 @@
       "searchHistory": "Suchverlauf",
       "filterTransactionsRange": "Passen Sie die Filterung der Transaktionsbeträge an",
       "filterTransactionsRangeDetailed": "Wählen Sie diese Option, um eingehende Transaktionen nur innerhalb eines bestimmten Min / Max-Bereichs des gesendeten oder empfangenen Betrags anzuzeigen.",
-      "noLimit": "Keine Begrenzung"
+      "noLimit": "Keine Begrenzung",
+      "nodeConnection": "Knotenverbindung",
+      "connectionDetailed": "Verbinden Sie den Explorer mit einem anderen Knoten als NanoLooker",
+      "rpcDomain": "RPC",
+      "websocketDomain": "Websocket"
     },
     "bookmarks": {
       "viewAll": "Alle Lesezeichen anzeigen",
       "noBookmarksFound": "Keine Lesezeichen gefunden"
     },
     "nanoquakejs": {
-      "playNow": "Jetzt abspielen !",
+      "playNow": "Jetzt spielen!",
       "register": "Registrieren",
       "scanWallet": "Scannen Sie Ihre Wallet-Adresse",
       "registerError": "Registrierung kann nicht abgeschlossen werden",
@@ -334,6 +366,68 @@
       "rank": "Rang",
       "player": "Spieler",
       "frags": "Frags"
+    },
+    "nanobrowserquest": {
+      "playNow": "Jetzt spielen !",
+      "playersOnline": "Spieler online",
+      "playNanoBrowserQuest": "NanoBrowserQuest spielen",
+      "welcomeTitle": "Spielen Sie NanoBrowserQuest und verdienen Sie eine kleine Auszahlung für den Abschluss des Spiels!",
+      "donatePrizePool": "Spenden Sie an den NanoBrowserQuest-Preispool",
+      "registerDescription": "NanoBrowserQuest ist kostenlos spielbar. Wenn Ihnen der Service gefällt, können Sie einen kleinen Beitrag zum NanoBrowserQuest-Preispool leisten.",
+      "payoutDescription": "Die Auszahlung wird gesendet, nachdem Sie den End-BOSS getötet haben! Der Betrag, den Sie erhalten, hängt von den Errungenschaften ab, die Sie freigeschaltet haben.",
+      "leaderboard": "Bestenliste",
+      "rank": "Rang",
+      "player": "Spieler",
+      "exp": "Erfahrung",
+      "level": "Niveau",
+      "gameDescription": "NanoBrowserQuest ist ein Remake des beliebten webbasierten MMORPG-Minispiels BrowserQuest, das ursprünglich um 2012 entwickelt wurde. Das Spiel unterstützt 200 gleichzeitige Spieler und ist kostenlos spielbar. NanoBrowserQuest ermöglicht es dir, mit deinen Freunden zu spielen, Erfolge im Spiel zu erzielen und nach Abschluss des Spiels eine kleine Nano-Belohnung zu erhalten.",
+      "howToPlay": "Spielanleitung",
+      "itemUpgrade": "Artikel-Upgrade",
+      "itemUpgradeDescription": "Verbessere deine Gegenstände am Amboss in der Stadt. Wählen Sie das Element aus, das Sie aktualisieren möchten, und ziehen Sie es in den linken Slot. Füge eine gleiche Upgrade-Scroll-Klasse zu einem der 9 Slots im mittleren Abschnitt hinzu. Wenn das Upgrade erfolgreich ist, wird der Gegenstand rechts im Slot angezeigt. Achten Sie darauf, immer ein Backup-Element zu haben, falls das Upgrade nicht erfolgreich ist.",
+      "upgradeSuccessRate": "Upgrade-Erfolgsrate",
+      "playerLevel": "Spielerlevel",
+      "playerLevelDescription": "Je mehr Sie Ihren Charakter leveln, desto mehr erhalten Sie Bonusstatistiken wie erhöhte Gesundheit und Schaden.",
+      "playerLevelDescription2": "Der gelbe Balken stellt Ihren Level-Fortschritt dar. Bewegen Sie den Mauszeiger darüber, um detailliertere % zu erhalten.",
+      "shortcuts": "Verknüpfungen",
+      "shortcut": {
+        "i": "Drücke I oder klicke auf die unteren Gegenstände, um das Inventar umzuschalten",
+        "c": " Drücke C oder klicke auf die Gesundheitsleiste, um die Charakterinformationen umzuschalten",
+        "p": "Drücke P oder klicke auf # Player in der unteren Leiste, um die Online-Spieler anzuzeigen",
+        "enter": "Drücke die EINGABETASTE oder klicke auf die Chat-Sprechblase, um mit Spielern in deiner Nähe zu sprechen",
+        "q": "Drücke Q oder klicke auf die Trophäe, um dein Quest-Buch anzuzeigen",
+        "m": "Drücken Sie M oder klicken Sie auf den Lautsprecher, um die Stummschaltung umzuschalten"
+      },
+      "nanoPotions": "NANO-Tränke"
+    },
+    "statistics": {
+      "social": {
+        "title": "Soziales Engagement von Kryptowährungen / 1 Milliarde US-Dollar Marktkapitalisierung",
+        "redditSubscribers": "Anzahl der Reddit-Abonnenten pro Milliarde $",
+        "twitterFollowers": "Anzahl der Twitter-Follower pro Milliarde US-Dollar",
+        "githubStars": "Anzahl der Github-Sterne pro Milliarde $",
+        "engagementPerBillion": "Engagement pro Milliarde US-Dollar",
+        "marketCap": "Marktkapitalisierung",
+        "totalEngagement": "Gesamtengagement"
+      },
+      "2miners": {
+        "title": "Nano-Auszahlungsstatistik des 2Miners Ethereum-Mining-Pools",
+        "totalPayouts": "Gesamte NANO-Auszahlungen von 2Miners",
+        "payouts": "Auszahlungen",
+        "accounts": "Konten",
+        "accountsDescription": "Die Anzahl der einzelnen Konten, die an diesem Tag eine Auszahlung erhalten haben.",
+        "uniqueAccounts": "Einzigartige Konten",
+        "uniqueAccountsDescription": "Die Anzahl der Konten, die seit dem {{date}} eine Auszahlung erhalten haben",
+        "accountsHolding": "Kontoführung",
+        "accountsHoldingDescription": "Die Anzahl der Konten, die seit dem {{date}} eine Auszahlung erhalten haben und deren Saldo über 0,001 NANO liegt.",
+        "balanceHolding": "Guthaben halten",
+        "balanceHoldingDescription": "Kombinierter Saldo der Konten, die seit dem {{date}} eine Auszahlung erhalten haben und deren Saldo über 0,001 NANO liegt.",
+        "viewPayoutStatistics": "Auszahlungsstatistik anzeigen",
+        "payoutsDescription": "Der Betrag an NANO, der für diesen Tag ausgezahlt wurde.",
+        "fiatPayouts": "Fiat-Auszahlungen",
+        "fiatPayoutsDescription": "Der geschätzte USD-Betrag, der für diesen Tag ausgezahlt wurde.",
+        "totalFiatPayouts": "Geschätzte Gesamtauszahlungen von 2Miners (USD)",
+        "announcement": "Ankündigung anzeigen"
+      }
     }
   }
 }

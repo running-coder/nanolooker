@@ -29,10 +29,8 @@ const { Title } = Typography;
 
 const Representatives = () => {
   const { t } = useTranslation();
-  const [
-    isIncludeOfflineRepresentatives,
-    setIsIncludeOfflineRepresentatives,
-  ] = React.useState(false);
+  const [isIncludeOfflineRepresentatives, setIsIncludeOfflineRepresentatives] =
+    React.useState(false);
   const [isGroupedByEntities, setIsGroupedByEntities] = React.useState(true);
   const [
     isShowingNonVotingRepresentatives,
@@ -43,10 +41,8 @@ const Representatives = () => {
   );
   const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
   const { theme } = React.useContext(PreferencesContext);
-  const {
-    representatives,
-    isLoading: isRepresentativesLoading,
-  } = React.useContext(RepresentativesContext);
+  const { representatives, isLoading: isRepresentativesLoading } =
+    React.useContext(RepresentativesContext);
 
   const {
     confirmationQuorum: {
@@ -212,8 +208,7 @@ const Representatives = () => {
               </Col>
               <Col xs={24} sm={16}>
                 <Skeleton {...confirmationQuorumSkeletonProps}>
-                  {new BigNumber(principalRepresentativeMinWeight).toFormat()}{" "}
-                  BAN
+                  {new BigNumber(principalRepresentativeMinWeight).toFormat()}
                 </Skeleton>
               </Col>
             </Row>
@@ -234,7 +229,7 @@ const Representatives = () => {
               <Col xs={24} sm={16}>
                 {" "}
                 <Skeleton {...confirmationQuorumSkeletonProps}>
-                  {new BigNumber(rawToRai(onlineWeightMinimum)).toFormat()} BAN
+                  {new BigNumber(rawToRai(onlineWeightMinimum)).toFormat()}
                 </Skeleton>
               </Col>
             </Row>
@@ -244,7 +239,7 @@ const Representatives = () => {
               </Col>
               <Col xs={24} sm={16}>
                 <Skeleton {...confirmationQuorumSkeletonProps}>
-                  {new BigNumber(rawToRai(onlineStakeTotal)).toFormat(0)} BAN
+                  {new BigNumber(rawToRai(onlineStakeTotal)).toFormat(0)}
                 </Skeleton>
               </Col>
             </Row>
@@ -254,7 +249,7 @@ const Representatives = () => {
               </Col>
               <Col xs={24} sm={16}>
                 <Skeleton {...confirmationQuorumSkeletonProps}>
-                  {new BigNumber(rawToRai(peersStakeTotal)).toFormat(0)} BAN
+                  {new BigNumber(rawToRai(peersStakeTotal)).toFormat(0)}
                 </Skeleton>
               </Col>
             </Row>
@@ -332,7 +327,7 @@ const Representatives = () => {
                           display: "block",
                         }}
                       >
-                        {weight} BAN
+                        {weight}
                       </span>
 
                       {isPrincipal ? (

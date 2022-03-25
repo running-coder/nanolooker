@@ -111,7 +111,7 @@ export const getPrefixedAccount = (address: string) => {
   return account;
 };
 
-export const isOpenAccountBlockHash = (hash: string): boolean =>
+export const isNullAccountBlockHash = (hash: string): boolean =>
   /^[0]{64}$/.test(hash);
 
 export const isValidBlockHash = (hash: string): boolean =>

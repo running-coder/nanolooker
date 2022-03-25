@@ -128,7 +128,9 @@ const HomePage = () => {
                 />
                 <LoadingStatistic
                   isLoading={
-                    isMarketStatisticsInitialLoading || isMarketStatisticsError
+                    isMarketStatisticsInitialLoading ||
+                    isMarketStatisticsError ||
+                    !availableSupply
                   }
                   title={t("pages.home.circulatingSupply")}
                   tooltip={t("tooltips.circulatingSupply")}
@@ -260,6 +262,7 @@ const HomePage = () => {
                   }
                   value={`${marketCapRank}`}
                 />
+
                 <LoadingStatistic
                   isLoading={
                     isMarketStatisticsInitialLoading || isMarketStatisticsError

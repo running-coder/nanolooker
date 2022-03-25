@@ -6,6 +6,7 @@ import { Route, Switch } from "react-router-dom";
 import { Layout } from "antd";
 import { PreferencesContext, Theme } from "api/contexts/Preferences";
 import NodeHealth from "components/NodeHealth";
+import Notification from "components/Notification";
 import AppHeader from "components/AppHeader";
 import AppFooter from "components/AppFooter";
 import HomePage from "pages/Home";
@@ -59,6 +60,7 @@ const App: React.FC = () => {
       >
         <NodeHealth />
         <AppHeader />
+        <Notification />
         <Content>
           <Switch>
             <Route exact path="/" component={HomePage} />

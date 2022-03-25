@@ -38,7 +38,10 @@
     "node": "Node",
     "nodes": "Nodes",
     "cancel": "annuleren",
-    "comingSoon": "Binnenkort beschikbaar"
+    "comingSoon": "Binnenkort beschikbaar",
+    "statistics": "Statistieken",
+    "continue": "Doorgaan met",
+    "link": "Koppeling"
   },
   "nodeHealth": {
     "nodeReloading": "Banano node wordt opnieuw geladen",
@@ -49,13 +52,13 @@
     "accountAndBlock": "Account / Block",
     "send": "Verstuur",
     "receive": "Ontvang",
-    "pending": "Wachtend",
     "change": "Verander",
     "open": "Open",
     "state": "Status",
     "epoch": "Epoch",
     "cps": "CPS",
-    "amount": "Aantal"
+    "amount": "Aantal",
+    "pending": "te ontvangen"
   },
   "tooltips": {
     "avgConfirmationTime": "De gemiddelde bevestigingstijd wordt lokaal op de node berekend. Als de node opnieuw wordt opgestart of in slechte staat verkeert, kan de gemiddelde bevestigingstijd langer zijn dan die van de rest van het netwerk.",
@@ -90,7 +93,8 @@
   },
   "search": {
     "searchBy": "Zoeken op adres / block / bekend account",
-    "noHistory": "Geen zoekgeschiedenis"
+    "noHistory": "Geen zoekgeschiedenis",
+    "scanWallet": "Scan een portemonnee-account beginnend met \"nano_\""
   },
   "preferences": {
     "viewAll": "Bekijk alle voorkeuren",
@@ -163,17 +167,18 @@
     "account": {
       "votingWeight": "Stemgewicht",
       "percentNetworkVotingWeight": "% van het stemgewicht van het netwerk",
-      "percentRepresentativeVotingWeight": "% van het stemgewicht van de vertegenwoordiger",
       "noRepresentative": "Geen vertegenwoordiger",
       "confirmationHeight": "Bevestigingshoogte",
       "lastTransaction": "Laatste transactie",
-      "pendingTransactions": "Wachtende Transacties",
       "loadMoreTransactions": "Laadt meer transacties",
       "viewTransactions": "Bekijk transacties",
       "notOpenedYet": "Dit account is nog niet geopend",
       "notOpenedYetReason": "Hoewel het accountadres geldig is, zijn er nog geen blocks naar het netwerk gepubliceerd. Als er BANANO naar dit account is gestuurd, moet er nog een overeenkomstig ontvangst block worden gepubliceerd om het geld te ontvangen.",
       "missingAccount": "Account ontbreekt",
-      "missingAccountInfo": "Het account is niet gespecificeerd in de URL. Gebruik de zoekbalk bovenaan om naar een account te zoeken of voeg deze toe aan de URL achter /account/"
+      "missingAccountInfo": "Het account is niet gespecificeerd in de URL. Gebruik de zoekbalk bovenaan om naar een account te zoeken of voeg deze toe aan de URL achter /account/",
+      "notVoting": "Niet stemmen",
+      "pendingTransactions": "Transacties klaar om te worden ontvangen",
+      "pendingTransaction": "Transactie klaar om te worden ontvangen"
     },
     "block": {
       "blockSubtype": "Block subtype",
@@ -224,7 +229,21 @@
       "percentOfTotal": "{{percent}}% van het aantal munten in circulatie"
     },
     "knownAccounts": {
-      "totalAccounts": "{{totalAccounts}} totaal aantal bekende accounts"
+      "totalAccounts": "{{totalAccounts}} totaal aantal bekende accounts",
+      "registerKnownAccount": "Registreer een bekend account",
+      "register": "Register",
+      "scanWallet": "Scan uw portemonnee-account beginnend met \"nano_\"",
+      "registerDescription": "Registreer een accountalias in de bekende NanoLooker-accounts. Uw account zal dan doorzoekbaar zijn op alias en zal gemakkelijk herkenbaar zijn in de verkenner.",
+      "account": "Voer een \"nano_\"-account in om aan de alias te worden gekoppeld",
+      "registerNote": "Bij de volgende stap wordt u gevraagd om een transactie te verzenden vanaf het \"nano_\"-account dat wordt geregistreerd",
+      "invalidAccount": "Ongeldig account",
+      "waitingNote": "Uw alias wordt geregistreerd na het verzenden van Ӿ1 naar NanoLooker-donaties vanaf het account dat u registreert om te bevestigen dat het van u is.",
+      "registerErrorTaken": "Er is al een alias voor dit account geregistreerd",
+      "registerError": "Kan registratie niet voltooien",
+      "waitingForTransaction": "Wachten op transactie",
+      "viewAccount": "Bekijk account",
+      "sendFrom": "Stuur Ӿ{{amount}} van",
+      "sendTo": "Tot"
     },
     "largeTransactions": {
       "description": "Grote transacties die plaatsvinden op het BANANO netwerk.",
@@ -248,7 +267,8 @@
     },
     "news": {
       "allFeeds": "Alle feeds",
-      "allAuthors": "Alle auteurs"
+      "allAuthors": "Alle auteurs",
+      "allSources": "Alle bronnen"
     },
     "status": {
       "reload": "Herladen",
@@ -297,7 +317,11 @@
       "searchHistory": "Zoekgeschiedenis",
       "filterTransactionsRange": "Pas het filteren van transactiebedragen aan",
       "filterTransactionsRangeDetailed": "Kies ervoor om alleen inkomende transacties weer te geven binnen een bepaald min / max bereik van het verzonden of ontvangen bedrag.",
-      "noLimit": "Geen limiet"
+      "noLimit": "Geen limiet",
+      "nodeConnection": "Knooppuntverbinding",
+      "connectionDetailed": "Verbind de verkenner met een ander knooppunt dan NanoLooker",
+      "rpcDomain": "RPC",
+      "websocketDomain": "Websocket"
     },
     "bookmarks": {
       "viewAll": "Bekijk alle bladwijzers",
@@ -334,6 +358,68 @@
       "rank": "Rang",
       "player": "Speler",
       "frags": "Frags"
+    },
+    "nanobrowserquest": {
+      "playNow": "Nu afspelen !",
+      "playersOnline": "Spelers online",
+      "playNanoBrowserQuest": "Speel NanoBrowserQuest",
+      "welcomeTitle": "Speel NanoBrowserQuest en verdien een kleine uitbetaling voor het voltooien van het spel!",
+      "donatePrizePool": "Doneer aan NanoBrowserQuest prijzenpot",
+      "registerDescription": "NanoBrowserQuest is gratis te spelen. Als u van de service geniet, kunt u een kleine bijdrage leveren aan de NanoBrowserQuest-prijzenpot.",
+      "payoutDescription": "De uitbetaling wordt verzonden nadat je de eindbaas hebt gedood! Het bedrag dat je krijgt, hangt af van de prestaties die je hebt ontgrendeld.",
+      "leaderboard": "Scorebord",
+      "rank": "Rang",
+      "player": "Speler",
+      "exp": "Beleven",
+      "level": "Peil",
+      "gameDescription": "NanoBrowserQuest is een remake van de populaire BrowserQuest webgebaseerde MMORPG-minigame die oorspronkelijk rond 2012 is gemaakt. De game ondersteunt 200 gelijktijdige spelers en is gratis te spelen. Met NanoBrowserQuest kun je met je vrienden spelen, in-game prestaties voltooien en een kleine Nano-beloning krijgen na het voltooien van het spel.",
+      "howToPlay": "Hoe te spelen",
+      "itemUpgrade": "Artikelupgrade",
+      "itemUpgradeDescription": "Upgrade je items bij het Anvil in de stad. Kies het item dat u wilt upgraden en sleep het naar het linkervak. Voeg dezelfde upgrade-scrollklasse toe aan een van de 9 slots in het middengedeelte. Als de upgrade is gelukt, verschijnt het item in de sleuf aan de rechterkant. Zorg ervoor dat u altijd een back-upitem heeft voor het geval de upgrade niet lukt.",
+      "upgradeSuccessRate": "Succespercentage upgrade",
+      "playerLevel": "Spelersniveau",
+      "playerLevelDescription": "Hoe meer je je personage levelt, hoe meer bonusstatistieken je krijgt, zoals meer gezondheid en schade.",
+      "playerLevelDescription2": "De gele balk geeft de voortgang van je niveau aan, beweeg de muisaanwijzer om meer gedetailleerd % te krijgen.",
+      "shortcuts": "Sneltoetsen",
+      "shortcut": {
+        "i": "Druk op I of klik op de onderste items om de inventaris te wisselen",
+        "c": " Druk op C of klik op de gezondheidsbalk om de karakterinformatie te wisselen",
+        "p": "Druk op P of klik op de # Player op de onderste balk om de online spelers te bekijken",
+        "enter": "Druk op ENTER of klik op de chatballon om met spelers bij jou in de buurt te praten",
+        "q": "Druk op Q of klik op de trofee om je Quest-boek te bekijken",
+        "m": "Druk op M of klik op luidspreker om Dempen in te schakelen"
+      },
+      "nanoPotions": "NANO-drankjes"
+    },
+    "statistics": {
+      "social": {
+        "title": "Sociale betrokkenheid van cryptocurrencies / $ 1 miljard aan marktkapitalisatie",
+        "redditSubscribers": "Aantal Reddit-abonnees per $ miljard",
+        "twitterFollowers": "Aantal Twitter-volgers per $ miljard",
+        "githubStars": "Aantal Github-sterren per $ miljard",
+        "engagementPerBillion": "Betrokkenheid per $ miljard",
+        "marketCap": "Marktkapitalisatie",
+        "totalEngagement": "Totale betrokkenheid"
+      },
+      "2miners": {
+        "title": "Nano-uitbetalingsstatistieken door 2Miners Ethereum-mijnpool",
+        "totalPayouts": "Totale NANO-uitbetalingen door 2Miners",
+        "payouts": "Uitbetalingen",
+        "accounts": "rekeningen",
+        "accountsDescription": "Het aantal unieke accounts dat voor die dag een uitbetaling heeft ontvangen.",
+        "uniqueAccounts": "Unieke accounts",
+        "uniqueAccountsDescription": "Het aantal accounts dat een uitbetaling heeft ontvangen sinds {{date}}",
+        "accountsHolding": "Rekeningenhoudend",
+        "accountsHoldingDescription": "Het aantal accounts dat een uitbetaling heeft ontvangen sinds {{date}} en een saldo heeft van meer dan 0,001 NANO.",
+        "balanceHolding": "Balans houden",
+        "balanceHoldingDescription": "Gecombineerd saldo van de accounts die een uitbetaling hebben ontvangen sinds {{date}} en een saldo hebben van meer dan 0,001 NANO.",
+        "viewPayoutStatistics": "Uitbetalingsstatistieken bekijken",
+        "payoutsDescription": "Het bedrag aan NANO dat voor die dag is uitbetaald.",
+        "fiatPayouts": "Fiat-uitbetalingen",
+        "fiatPayoutsDescription": "Het geschatte bedrag van $ USD dat voor die dag is uitbetaald.",
+        "totalFiatPayouts": "Geschatte totale uitbetalingen door 2Miners (USD)",
+        "announcement": "Bekijk aankondiging"
+      }
     }
   }
 }

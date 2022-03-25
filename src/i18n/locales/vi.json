@@ -38,7 +38,10 @@
     "node": "Nút",
     "nodes": "Điểm giao",
     "cancel": "Huỷ bỏ",
-    "comingSoon": "Sắp có"
+    "comingSoon": "Sắp có",
+    "statistics": "Số liệu thống kê",
+    "continue": "Tiếp tục",
+    "link": "Liên kết"
   },
   "nodeHealth": {
     "nodeReloading": "Nút nano đang tải lại",
@@ -49,13 +52,13 @@
     "accountAndBlock": "Tài khoản / Khối",
     "send": "Gửi",
     "receive": "Nhận được",
-    "pending": "Đang chờ xử lý",
     "change": "Thay đổi",
     "open": "Mở",
     "state": "Tiểu bang",
     "epoch": "Epoch",
     "cps": "CPS",
-    "amount": "Số tiền"
+    "amount": "Số tiền",
+    "pending": "Phải thu"
   },
   "tooltips": {
     "avgConfirmationTime": "Thời gian xác nhận trung bình được tính cục bộ trên nút. Nếu nút được khởi động lại hoặc trong tình trạng xuống cấp, thời gian xác nhận trung bình có thể cao hơn phần còn lại của mạng.",
@@ -90,7 +93,8 @@
   },
   "search": {
     "searchBy": "Tìm kiếm theo Địa chỉ / Khối / Tài khoản Đã biết",
-    "noHistory": "Không có lịch sử tìm kiếm"
+    "noHistory": "Không có lịch sử tìm kiếm",
+    "scanWallet": "Quét tài khoản ví bắt đầu bằng \"nano_\""
   },
   "preferences": {
     "viewAll": "Xem tất cả các tùy chọn",
@@ -163,17 +167,18 @@
     "account": {
       "votingWeight": "Số phiếu bầu",
       "percentNetworkVotingWeight": "% trọng lượng biểu quyết của mạng",
-      "percentRepresentativeVotingWeight": "% trọng số biểu quyết của người đại diện",
       "noRepresentative": "Không có đại diện",
       "confirmationHeight": "Chiều cao xác nhận",
       "lastTransaction": "Giao dịch cuối cùng",
-      "pendingTransactions": "Giao dịch đang chờ xử lý",
       "loadMoreTransactions": "Tải nhiều giao dịch hơn",
       "viewTransactions": "Xem các giao dịch",
       "notOpenedYet": "Tài khoản này chưa được mở",
       "notOpenedYetReason": "Mặc dù địa chỉ tài khoản hợp lệ, nhưng chưa có khối nào được xuất bản vào chuỗi của nó. Nếu BANANO đã được gửi đến tài khoản này, nó vẫn cần xuất bản một khối tương ứng để bỏ túi tiền.",
       "missingAccount": "Thiếu tài khoản",
-      "missingAccountInfo": "Tài khoản không được chỉ định trong URL. Sử dụng thanh tìm kiếm trên cùng để tìm kiếm tài khoản hoặc thêm tài khoản vào URL sau /account/"
+      "missingAccountInfo": "Tài khoản không được chỉ định trong URL. Sử dụng thanh tìm kiếm trên cùng để tìm kiếm tài khoản hoặc thêm tài khoản vào URL sau /account/",
+      "notVoting": "Không bỏ phiếu",
+      "pendingTransactions": "Giao dịch đã sẵn sàng để nhận",
+      "pendingTransaction": "Giao dịch đã sẵn sàng để nhận"
     },
     "block": {
       "blockSubtype": "Block con",
@@ -224,7 +229,21 @@
       "percentOfTotal": "{{percent}}% nguồn cung lưu hành"
     },
     "knownAccounts": {
-      "totalAccounts": "{{totalAccounts}} Tổng số tài khoản đã biết"
+      "totalAccounts": "{{totalAccounts}} Tổng số tài khoản đã biết",
+      "registerKnownAccount": "Đăng ký một tài khoản đã biết",
+      "register": "Đăng ký",
+      "scanWallet": "Quét tài khoản ví của bạn bắt đầu bằng \"nano_\"",
+      "registerDescription": "Đăng ký bí danh tài khoản trong các tài khoản NanoLooker đã biết. Sau đó, tài khoản của bạn sẽ có thể tìm kiếm được theo bí danh và sẽ dễ dàng được nhận dạng trên trình khám phá.",
+      "account": "Nhập tài khoản \"nano_\" được liên kết với bí danh",
+      "registerNote": "Ở bước tiếp theo, bạn sẽ được yêu cầu gửi một giao dịch từ tài khoản \"nano_\" đang được đăng ký",
+      "invalidAccount": "Tài khoản không hợp lệ",
+      "waitingNote": "Bí danh của bạn sẽ được đăng ký sau khi gửi Ӿ1 khoản đóng góp cho NanoLooker từ tài khoản bạn đang đăng ký để xác nhận nó thuộc về bạn.",
+      "registerErrorTaken": "Bí danh cho tài khoản này đã được đăng ký",
+      "registerError": "Không thể hoàn thành đăng ký",
+      "waitingForTransaction": "Đang chờ giao dịch",
+      "viewAccount": "Xem tài khoản",
+      "sendFrom": "Gửi Ӿ {{amount}} từ",
+      "sendTo": "Đến"
     },
     "largeTransactions": {
       "description": "Các giao dịch lớn xảy ra trên blockchain BANANO.",
@@ -248,7 +267,8 @@
     },
     "news": {
       "allFeeds": "Tất cả Nguồn cấp dữ liệu",
-      "allAuthors": "Tất cả các tác giả"
+      "allAuthors": "Tất cả các tác giả",
+      "allSources": "Tất cả các nguồn"
     },
     "status": {
       "reload": "Nạp lại",
@@ -297,7 +317,11 @@
       "searchHistory": "Lịch sử tìm kiếm",
       "filterTransactionsRange": "Tùy chỉnh lọc số tiền giao dịch",
       "filterTransactionsRangeDetailed": "Chọn chỉ hiển thị các giao dịch đến trong một phạm vi tối thiểu / tối đa nhất định của số tiền đã gửi hoặc đã nhận.",
-      "noLimit": "Không giới hạn"
+      "noLimit": "Không giới hạn",
+      "nodeConnection": "Kết nối nút",
+      "connectionDetailed": "Kết nối trình thám hiểm với một nút khác ngoài NanoLooker",
+      "rpcDomain": "RPC",
+      "websocketDomain": "Websocket"
     },
     "bookmarks": {
       "viewAll": "Xem tất cả các dấu trang",
@@ -334,6 +358,68 @@
       "rank": "Cấp",
       "player": "Người chơi",
       "frags": "Frags"
+    },
+    "nanobrowserquest": {
+      "playNow": "Bắt đầu chơi !",
+      "playersOnline": "Người chơi trực tuyến",
+      "playNanoBrowserQuest": "Chơi NanoBrowserQuest",
+      "welcomeTitle": "Chơi NanoBrowserQuest và kiếm một khoản thanh toán nhỏ khi hoàn thành trò chơi!",
+      "donatePrizePool": "Quyên góp cho nhóm giải thưởng NanoBrowserQuest",
+      "registerDescription": "NanoBrowserQuest chơi miễn phí. Nếu bạn thích dịch vụ này, bạn có thể đóng góp một phần nhỏ vào giải thưởng NanoBrowserQuest.",
+      "payoutDescription": "Thanh toán sẽ được gửi sau khi bạn tiêu diệt BOSS cuối! Số tiền bạn nhận được sẽ phụ thuộc vào thành tích bạn đã mở khóa.",
+      "leaderboard": "Bảng xếp hạng",
+      "rank": "Thứ hạng",
+      "player": "Người chơi",
+      "exp": "Kinh nghiệm",
+      "level": "Cấp độ",
+      "gameDescription": "NanoBrowserQuest là phiên bản làm lại của minigame MMORPG dựa trên web BrowserQuest ban đầu được tạo ra vào khoảng năm 2012. Trò chơi hỗ trợ 200 người chơi đồng thời và chơi miễn phí. NanoBrowserQuest cho phép bạn chơi với bạn bè, hoàn thành các thành tích trong trò chơi và nhận phần thưởng Nano nhỏ sau khi hoàn thành trò chơi.",
+      "howToPlay": "Cách chơi",
+      "itemUpgrade": "Nâng cấp mặt hàng",
+      "itemUpgradeDescription": "Nâng cấp các vật phẩm của bạn tại Anvil trong thị trấn. Chọn mục bạn muốn nâng cấp và kéo nó sang vị trí bên trái. Thêm một lớp cuộn nâng cấp tương tự vào một trong 9 khe của phần giữa. Nếu nâng cấp thành công, vật phẩm sẽ xuất hiện trong khe bên phải. Hãy cẩn thận để luôn có một mục dự phòng trong trường hợp nâng cấp không thành công.",
+      "upgradeSuccessRate": "Nâng cấp tỷ lệ thành công",
+      "playerLevel": "Cấp độ người chơi",
+      "playerLevelDescription": "Bạn càng lên cấp nhân vật của mình, bạn sẽ nhận được nhiều chỉ số thưởng hơn như tăng máu và sát thương.",
+      "playerLevelDescription2": "Thanh màu vàng thể hiện sự tiến triển cấp độ của bạn, hãy di chuột vào thanh này để nhận% chi tiết hơn.",
+      "shortcuts": "Các phím tắt",
+      "shortcut": {
+        "i": "Nhấn I hoặc nhấp vào các mục dưới cùng để chuyển đổi Khoảng không quảng cáo",
+        "c": " Nhấn C hoặc nhấp vào thanh sức khỏe để chuyển đổi thông tin nhân vật",
+        "p": "Nhấn P hoặc nhấp vào # Người chơi ở thanh dưới cùng để xem những người chơi trực tuyến",
+        "enter": "Nhấn ENTER hoặc nhấp vào bong bóng trò chuyện để nói chuyện với những người chơi ở gần bạn",
+        "q": "Nhấn Q hoặc nhấp vào cúp để xem sách Nhiệm vụ của bạn",
+        "m": "Nhấn M hoặc nhấp vào loa để chuyển đổi Tắt tiếng"
+      },
+      "nanoPotions": "NANO Potions"
+    },
+    "statistics": {
+      "social": {
+        "title": "Tương tác xã hội của tiền điện tử / 1 tỷ đô la trong vốn hóa thị trường",
+        "redditSubscribers": "Số lượng người đăng ký Reddit trên mỗi tỷ đô la",
+        "twitterFollowers": "Số lượng người theo dõi Twitter trên mỗi tỷ đô la",
+        "githubStars": "Số sao Github trên mỗi tỷ đô la",
+        "engagementPerBillion": "Tương tác trên mỗi tỷ đô la",
+        "marketCap": "Vốn hóa thị trường",
+        "totalEngagement": "Tổng tương tác"
+      },
+      "2miners": {
+        "title": "Thống kê thanh toán Nano bởi nhóm khai thác Ethereum của 2Miners",
+        "totalPayouts": "Tổng số tiền thanh toán NANO của 2Miners",
+        "payouts": "Các khoản thanh toán",
+        "accounts": "Tài khoản",
+        "accountsDescription": "Số lượng tài khoản duy nhất đã nhận được khoản thanh toán cho ngày đó.",
+        "uniqueAccounts": "Tài khoản duy nhất",
+        "uniqueAccountsDescription": "Số lượng tài khoản đã nhận được khoản thanh toán kể từ {{date}}",
+        "accountsHolding": "Tài khoản đang nắm giữ",
+        "accountsHoldingDescription": "Số tài khoản đã nhận được khoản thanh toán kể từ {{date}} và có số dư trên 0,001 NANO.",
+        "balanceHolding": "Giữ số dư",
+        "balanceHoldingDescription": "Số dư tổng hợp của các tài khoản đã nhận thanh toán kể từ {{date}} và có số dư trên 0,001 NANO.",
+        "viewPayoutStatistics": "Xem thống kê thanh toán",
+        "payoutsDescription": "Số lượng NANO đã được thanh toán cho ngày hôm đó.",
+        "fiatPayouts": "Các khoản thanh toán Fiat",
+        "fiatPayoutsDescription": "Số tiền USD USD ước tính đã được thanh toán cho ngày hôm đó.",
+        "totalFiatPayouts": "Tổng các khoản thanh toán ước tính của 2Miners (USD)",
+        "announcement": "Xem thông báo"
+      }
     }
   }
 }

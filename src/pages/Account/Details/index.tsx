@@ -24,9 +24,11 @@ import LoadingStatistic from "components/LoadingStatistic";
 import QuestionCircle from "components/QuestionCircle";
 import { rawToRai, timestampToDate, TwoToneColors } from "components/utils";
 import AccountHeader from "../Header";
+import ExtraRow from "./ExtraRow";
 import { Sections } from "../.";
 
 import type { PageParams } from "types/page";
+import type { Transaction } from "types/transaction";
 
 interface AccountDetailsLayoutProps {
   bordered?: boolean;
@@ -37,16 +39,22 @@ export const AccountDetailsLayout = ({
   bordered,
   children,
 }: AccountDetailsLayoutProps) => (
-  <Row>
-    <Col xs={24} xl={12}>
-      <Card size="small" bordered={bordered} className="detail-layout">
-        {children}
-      </Card>
-    </Col>
-  </Row>
+  <Card size="small" bordered={bordered} className="detail-layout">
+    {children}
+  </Card>
 );
 
-const AccountDetails: React.FC = () => {
+interface Props {
+  socketTransactions: Transaction[];
+  socketBalance: number;
+  socketPendingBalance: number;
+}
+
+const AccountDetails: React.FC<Props> = ({
+  socketTransactions,
+  socketBalance,
+  socketPendingBalance,
+}) => {
   const { t } = useTranslation();
   const { section = Sections.TRANSACTIONS } = useParams<PageParams>();
   const { theme, fiat } = React.useContext(PreferencesContext);
@@ -90,10 +98,19 @@ const AccountDetails: React.FC = () => {
     },
   } = React.useContext(ConfirmationQuorumContext);
 
-  const balance = new BigNumber(rawToRai(accountInfo?.balance || 0)).toNumber();
-  const balancePending = new BigNumber(
-    rawToRai(accountInfo?.pending || 0),
-  ).toFormat(8);
+  let balance = new BigNumber(rawToRai(accountInfo?.balance || 0))
+    .plus(socketBalance)
+    .toNumber();
+
+  // @NOTE temporary fix until a solution is found with the websocket messages going below 0
+  if (balance < 0) {
+    balance = 0;
+  }
+
+  const balancePending = new BigNumber(rawToRai(accountInfo?.pending || 0))
+    .plus(socketPendingBalance)
+    .toFormat(8);
+
   const fiatBalance = new BigNumber(balance)
     .times(currentPrice)
     .toFormat(CurrencyDecimal?.[fiat]);
@@ -147,23 +164,22 @@ const AccountDetails: React.FC = () => {
           </Col>
         </Row>
         <Row gutter={6}>
-          <Col xs={24} sm={8} md={6}>
+          <Col xs={24} sm={6} md={4}>
             {t("common.balance")}
           </Col>
-          <Col xs={24} sm={16} md={18}>
+          <Col xs={24} sm={18} md={20}>
             <LoadingStatistic
               isLoading={skeletonProps.loading}
-              suffix="BAN"
               value={balance >= 1 ? balance : new BigNumber(balance).toFormat()}
             />
             <Skeleton {...skeletonProps}>
-              {`${CurrencySymbol?.[fiat]}${fiatBalance} / ${btcBalance} BTC`}
+              {`${CurrencySymbol?.[fiat]} ${fiatBalance} / ${btcBalance} BTC`}
             </Skeleton>
           </Col>
         </Row>
         {representativeAccount?.account ? (
           <Row gutter={6}>
-            <Col xs={24} sm={8} md={6}>
+            <Col xs={24} sm={6} md={4}>
               {t("pages.account.votingWeight")}
               <Tooltip
                 placement="right"
@@ -174,7 +190,7 @@ const AccountDetails: React.FC = () => {
                 <QuestionCircle />
               </Tooltip>
             </Col>
-            <Col xs={24} sm={16} md={18}>
+            <Col xs={24} sm={18} md={20}>
               <>
                 {new BigNumber(representativeAccount.weight).toFormat()}
                 <br />
@@ -187,10 +203,10 @@ const AccountDetails: React.FC = () => {
           </Row>
         ) : null}
         <Row gutter={6}>
-          <Col xs={24} sm={8} md={6}>
+          <Col xs={24} sm={6} md={4}>
             {t("common.representative")}
           </Col>
-          <Col xs={24} sm={16} md={18}>
+          <Col xs={24} sm={18} md={20}>
             <Skeleton
               {...skeletonProps}
               loading={isAccountInfoLoading || isRepresentativesLoading}
@@ -267,37 +283,39 @@ const AccountDetails: React.FC = () => {
             </Skeleton>
           </Col>
         </Row>
-        {parseFloat(accountInfo?.pending) ? (
+        {parseFloat(balancePending) ? (
           <Row gutter={6}>
-            <Col xs={24} sm={8} md={6}>
+            <Col xs={24} sm={6} md={4}>
               {t("transaction.pending")}
               <Tooltip placement="right" title={t("tooltips.pending")}>
                 <QuestionCircle />
               </Tooltip>
             </Col>
-            <Col xs={24} sm={16} md={18}>
-              <Skeleton {...skeletonProps}>{balancePending} BAN</Skeleton>
+            <Col xs={24} sm={18} md={20}>
+              <Skeleton {...skeletonProps}>{balancePending}</Skeleton>
             </Col>
           </Row>
         ) : null}
         <Row gutter={6}>
-          <Col xs={24} sm={8} md={6}>
+          <Col xs={24} sm={6} md={4}>
             {t("pages.account.confirmationHeight")}
             <Tooltip placement="right" title={t("tooltips.confirmationHeight")}>
               <QuestionCircle />
             </Tooltip>
           </Col>
-          <Col xs={24} sm={16} md={18}>
+          <Col xs={24} sm={18} md={20}>
             <Skeleton {...skeletonProps}>
-              {accountInfo.confirmation_height}
+              {new BigNumber(accountInfo.confirmation_height)
+                .plus(socketTransactions.length)
+                .toNumber()}
             </Skeleton>
           </Col>
         </Row>
         <Row gutter={6}>
-          <Col xs={24} sm={8} md={6}>
+          <Col xs={24} sm={6} md={4}>
             {t("pages.account.lastTransaction")}
           </Col>
-          <Col xs={24} sm={16} md={18}>
+          <Col xs={24} sm={18} md={20}>
             <Skeleton {...skeletonProps} loading={isAccountHistoryLoading}>
               {modifiedTimestamp ? (
                 <>
@@ -326,6 +344,7 @@ const AccountDetails: React.FC = () => {
             </Skeleton>
           </Col>
         </Row>
+        <ExtraRow account={account} />
       </>
     </AccountDetailsLayout>
   );

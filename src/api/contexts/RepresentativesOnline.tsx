@@ -7,13 +7,12 @@ export interface RepresentativesOnlineReturn {
   isError: boolean;
 }
 
-export const RepresentativesOnlineContext = React.createContext<RepresentativesOnlineReturn>(
-  {
+export const RepresentativesOnlineContext =
+  React.createContext<RepresentativesOnlineReturn>({
     representatives: [],
     isLoading: false,
     isError: false,
-  },
-);
+  });
 
 const Provider: React.FC = ({ children }) => {
   const [representatives, setRepresentatives] = React.useState<string[]>([]);
@@ -23,12 +22,15 @@ const Provider: React.FC = ({ children }) => {
   const getRepresentativesOnline = async () => {
     setIsError(false);
     setIsLoading(true);
-    const json = await rpc("representatives_online");
+    try {
+      const json = await rpc("representatives_online");
 
-    !json || json.error
-      ? setIsError(true)
-      : setRepresentatives(json.representatives);
-
+      !json || json.error
+        ? setIsError(true)
+        : setRepresentatives(json.representatives);
+    } catch (err) {
+      setIsError(true);
+    }
     setIsLoading(false);
   };
 

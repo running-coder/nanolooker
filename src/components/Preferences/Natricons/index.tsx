@@ -4,8 +4,9 @@ import { Col, Row, Switch, Typography } from "antd";
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import { PreferencesContext } from "api/contexts/Preferences";
 import { Natricon } from "components/Preferences/Natricons/Natricon";
-import { DEVELOPER_FUND_ACCOUNTS } from "knownAccounts.json";
+import KnownAccounts from "knownAccounts.json";
 
+const { DEVELOPER_FUND_ACCOUNTS } = KnownAccounts;
 const { Text } = Typography;
 
 interface Props {
@@ -40,9 +41,7 @@ const NatriconsPreferences: React.FC<Props> = ({ isDetailed }) => {
         </Col>
         {isDetailed ? (
           <Col xs={18}>
-            <Text>
-              {t("preferences.natriconsDetailed")}
-            </Text>
+            <Text>{t("preferences.natriconsDetailed")}</Text>
           </Col>
         ) : null}
 

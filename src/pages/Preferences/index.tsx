@@ -9,6 +9,7 @@ import FiatPreferences from "components/Preferences/Fiat";
 import NatriconsPreferences from "components/Preferences/Natricons";
 import LiveTransactionsPreferences from "components/Preferences/LiveTransactions";
 import FilterTransactionsRangePreferences from "components/Preferences/FilterTransactions/Range";
+import ConnectionPreferences from "components/Preferences/Connection";
 
 const { Title } = Typography;
 
@@ -48,6 +49,14 @@ const PreferencesPage: React.FC = () => {
         <Title level={4}>{t("pages.home.recentTransactions")}</Title>
         <LiveTransactionsPreferences isDetailed />
         <FilterTransactionsRangePreferences isDetailed />
+      </Card>
+      <Card
+        size="small"
+        style={{ marginBottom: "12px" }}
+        className="detail-layout"
+      >
+        <Title level={4}>{t("pages.preferences.nodeConnection")}</Title>
+        <ConnectionPreferences isDetailed />
       </Card>
     </>
   );

@@ -4,7 +4,7 @@ import QuestionCircle from "components/QuestionCircle";
 
 interface LoadingStatisticProps {
   isLoading: boolean;
-  title?: string;
+  title?: string | React.ReactNode;
   tooltip?: string;
   value: any;
   prefix?: string | React.ReactNode;

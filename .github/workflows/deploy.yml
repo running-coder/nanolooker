@@ -11,6 +11,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Setup Node.js
+        id: setup-node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.14.2
+
       - uses: actions/cache@v2
         with:
           path: ~/.npm
@@ -28,7 +34,7 @@ jobs:
       - name: Rsync deployment
         uses: burnett01/rsync-deployments@4.0
         with:
-          switches: -avzr --delete --exclude=".env" --exclude="server/data/"
+          switches: -avzr --delete --exclude=".env" --exclude="server/data/" --exclude="public/cryptocurrencies/logo"
           path: "."
           remote_path: /var/www/www.bananolooker.com
           remote_host: ${{ secrets.DO_HOST_BAN }}

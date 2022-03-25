@@ -1,6 +1,8 @@
 import * as React from "react";
 import find from "lodash/find";
-import { KNOWN_EXCHANGE_ACCOUNTS } from "../../knownAccounts.json";
+import KnownAccounts from "../../knownAccounts.json";
+
+const { KNOWN_EXCHANGE_ACCOUNTS } = KnownAccounts;
 
 export interface KnownAccount {
   account: string;

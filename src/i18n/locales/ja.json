@@ -38,7 +38,10 @@
     "node": "ノード",
     "nodes": "ノード",
     "cancel": "キャンセル",
-    "comingSoon": "近日公開"
+    "comingSoon": "近日公開",
+    "statistics": "統計",
+    "continue": "継続する",
+    "link": "リンク"
   },
   "nodeHealth": {
     "nodeReloading": "Bananoノードがリロードしています",
@@ -49,13 +52,13 @@
     "accountAndBlock": "アカウント/ブロック",
     "send": "送信",
     "receive": "受け取る",
-    "pending": "保留中",
     "change": "変化する",
     "open": "開いた",
     "state": "状態",
     "epoch": "時代",
     "cps": "CPS",
-    "amount": "量"
+    "amount": "量",
+    "pending": "売掛金"
   },
   "tooltips": {
     "avgConfirmationTime": "平均確認時間は、ノードでローカルに計算されます。ノードが再起動された場合、または劣化した状態の場合、平均確認時間はネットワークの他の部分よりも長くなる可能性があります。",
@@ -90,7 +93,8 @@
   },
   "search": {
     "searchBy": "アドレス/ブロック/既知のアカウントで検索",
-    "noHistory": "検索履歴なし"
+    "noHistory": "検索履歴なし",
+    "scanWallet": "「nano_」で始まるウォレットアカウントをスキャンします"
   },
   "preferences": {
     "viewAll": "すべての設定を表示",
@@ -163,17 +167,18 @@
     "account": {
       "votingWeight": "投票の重み",
       "percentNetworkVotingWeight": "ネットワーク投票ウェイトの％",
-      "percentRepresentativeVotingWeight": "代表者の投票ウェイトの％",
       "noRepresentative": "代表者なし",
       "confirmationHeight": "確認高さ",
       "lastTransaction": "最後のトランザクション",
-      "pendingTransactions": "保留中のトランザクション",
       "loadMoreTransactions": "より多くのトランザクションをロードする",
       "viewTransactions": "トランザクションを表示する",
       "notOpenedYet": "このアカウントはまだ開設されていません",
       "notOpenedYetReason": "アカウントアドレスは有効ですが、チェーンにブロックはまだ公開されていません。 BANANOがこのアカウントに送信された場合でも、資金をポケットに入れるために対応するブロックを公開する必要があります。",
       "missingAccount": "アカウントがありません",
-      "missingAccountInfo": "アカウントがURLで指定されていません。上部の検索バーを使用してアカウントを検索するか、URLの /account/ の後に追加します"
+      "missingAccountInfo": "アカウントがURLで指定されていません。上部の検索バーを使用してアカウントを検索するか、URLの /account/ の後に追加します",
+      "notVoting": "投票しない",
+      "pendingTransactions": "受け取る準備ができているトランザクション",
+      "pendingTransaction": "トランザクションを受信する準備ができました"
     },
     "block": {
       "blockSubtype": "ブロックサブタイプ",
@@ -224,7 +229,21 @@
       "percentOfTotal": "循環供給の{{パーセント}}％"
     },
     "knownAccounts": {
-      "totalAccounts": "{{totalAccounts}}既知のアカウントの合計"
+      "totalAccounts": "{{totalAccounts}}既知のアカウントの合計",
+      "registerKnownAccount": "既知のアカウントを登録する",
+      "register": "登録",
+      "scanWallet": "「nano_」で始まるウォレットアカウントをスキャンします",
+      "registerDescription": "NanoLookerの既知のアカウントにアカウントエイリアスを登録します。アカウントはエイリアスで検索可能になり、エクスプローラーで簡単に識別できるようになります。",
+      "account": "エイリアスに関連付ける「nano_」アカウントを入力します",
+      "registerNote": "次のステップでは、登録されている「nano_」アカウントからトランザクションを送信するように求められます",
+      "invalidAccount": "無効なアカウント",
+      "waitingNote": "あなたのエイリアスは、あなたが登録しているアカウントからNanoLookerの寄付にӾ1を送信した後、それがあなたのものであることを確認するために登録されます。",
+      "registerErrorTaken": "このアカウントのエイリアスはすでに登録されています",
+      "registerError": "登録を完了できません",
+      "waitingForTransaction": "トランザクションを待っています",
+      "viewAccount": "アカウントをみる",
+      "sendFrom": "からӾ{{amount}}を送信します",
+      "sendTo": "に"
     },
     "largeTransactions": {
       "description": "BANANOブロックチェーンで発生する大規模なトランザクション。",
@@ -248,7 +267,8 @@
     },
     "news": {
       "allFeeds": "すべてのフィード",
-      "allAuthors": "すべての著者"
+      "allAuthors": "すべての著者",
+      "allSources": "すべてのソース"
     },
     "status": {
       "reload": "リロード",
@@ -297,7 +317,11 @@
       "searchHistory": "検索履歴",
       "filterTransactionsRange": "取引金額のフィルタリングをカスタマイズする",
       "filterTransactionsRangeDetailed": "送信または受信された金額の特定の最小/最大範囲内の着信トランザクションのみを表示するように選択します。",
-      "noLimit": "制限なし"
+      "noLimit": "制限なし",
+      "nodeConnection": "ノード接続",
+      "connectionDetailed": "エクスプローラーをNanoLooker以外のノードに接続します",
+      "rpcDomain": "RPC",
+      "websocketDomain": "Websocket"
     },
     "bookmarks": {
       "viewAll": "すべてのブックマークを表示",
@@ -334,6 +358,68 @@
       "rank": "ランク",
       "player": "プレーヤー",
       "frags": "フラグメント"
+    },
+    "nanobrowserquest": {
+      "playNow": "今すぐプレイ！",
+      "playersOnline": "オンラインプレイヤー",
+      "playNanoBrowserQuest": "NanoBrowserQuestを再生する",
+      "welcomeTitle": "NanoBrowserQuestをプレイして、ゲームを完了するための少額の支払いを獲得してください！",
+      "donatePrizePool": "NanoBrowserQuest賞金プールに寄付する",
+      "registerDescription": "NanoBrowserQuestは無料でプレイできます。このサービスを楽しんでいる場合は、NanoBrowserQuestの賞金プールに少額の寄付をすることができます。",
+      "payoutDescription": "エンドボスを倒すとペイアウトが送られます！獲得できる金額は、ロックを解除した実績によって異なります。",
+      "leaderboard": "リーダーボード",
+      "rank": "ランク",
+      "player": "プレーヤー",
+      "exp": "経験",
+      "level": "レベル",
+      "gameDescription": "NanoBrowserQuestは、もともと2012年頃に作成された人気のBrowserQuest WebベースのMMORPGミニゲームのリメイクです。このゲームは200人の同時プレイヤーをサポートし、無料でプレイできます。 NanoBrowserQuestを使用すると、友達と遊んだり、ゲーム内の実績を完了したり、ゲームの完了後に小さなNano報酬を獲得したりできます。",
+      "howToPlay": "遊び方",
+      "itemUpgrade": "アイテムのアップグレード",
+      "itemUpgradeDescription": "町のアンビルでアイテムをアップグレードしてください。アップグレードするアイテムを選択し、左側のスロットにドラッグします。同じアップグレードスクロールクラスを9つの中央セクションスロットの1つに追加します。アップグレードが成功すると、アイテムが右側のスロットに表示されます。アップグレードが成功しない場合に備えて、常にバックアップ項目を用意するように注意してください。",
+      "upgradeSuccessRate": "アップグレードの成功率",
+      "playerLevel": "プレイヤーレベル",
+      "playerLevelDescription": "キャラクターをレベルアップすればするほど、体力やダメージの増加などのボーナスステータスを受け取ります。",
+      "playerLevelDescription2": "黄色のバーはレベルの進行を表します。カーソルを合わせると、より詳細な％が表示されます。",
+      "shortcuts": "ショートカット",
+      "shortcut": {
+        "i": "Iを押すか、下部のアイテムをクリックして、インベントリを切り替えます",
+        "c": " Cを押すか、ヘルスバーをクリックして、キャラクター情報を切り替えます",
+        "p": "Pを押すか、下部のバーの＃プレーヤーをクリックして、オンラインプレーヤーを表示します",
+        "enter": "ENTERを押すか、チャットバブルをクリックして、近くのプレーヤーと話します",
+        "q": "Qを押すか、トロフィーをクリックして、クエストブックを表示します",
+        "m": "Mを押すか、スピーカーをクリックしてミュートを切り替えます"
+      },
+      "nanoPotions": "ナノポーション"
+    },
+    "statistics": {
+      "social": {
+        "title": "暗号通貨の社会的関与/時価総額10億ドル",
+        "redditSubscribers": "10億ドルあたりのRedditサブスクライバーの数",
+        "twitterFollowers": "10億ドルあたりのTwitterフォロワー数",
+        "githubStars": "10億ドルあたりのGithubスターの数",
+        "engagementPerBillion": "10億ドルあたりのエンゲージメント",
+        "marketCap": "時価総額",
+        "totalEngagement": "トータルエンゲージメント"
+      },
+      "2miners": {
+        "title": "2Minersイーサリアムマイニングプールによるナノペイアウト統計",
+        "totalPayouts": "2Minersによる合計NANO支払い",
+        "payouts": "支払い",
+        "accounts": "アカウント",
+        "accountsDescription": "その日に支払いを受け取った一意のアカウントの数。",
+        "uniqueAccounts": "一意のアカウント",
+        "uniqueAccountsDescription": "{{date}}以降に支払いを受け取ったアカウントの数",
+        "accountsHolding": "保持しているアカウント",
+        "accountsHoldingDescription": "{{date}}以降に支払いを受け取り、残高が0.001NANOを超えるアカウントの数。",
+        "balanceHolding": "バランスを保つ",
+        "balanceHoldingDescription": "{{date}}以降に支払いを受け取り、残高が0.001NANOを超えるアカウントの合計残高。",
+        "viewPayoutStatistics": "支払い統計を表示する",
+        "payoutsDescription": "その日に支払われたNANOの金額。",
+        "fiatPayouts": "フィアットの支払い",
+        "fiatPayoutsDescription": "その日に支払われた推定$ USDの金額。",
+        "totalFiatPayouts": "2Miners（USD）による推定総支払い額",
+        "announcement": "お知らせを見る"
+      }
     }
   }
 }

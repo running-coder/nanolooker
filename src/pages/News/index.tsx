@@ -1,8 +1,6 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
-import orderBy from "lodash/orderBy";
-import uniqBy from "lodash/uniqBy";
 import {
   Button,
   Card,
@@ -16,119 +14,73 @@ import {
 } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import { useParams, useHistory } from "react-router-dom";
+import orderBy from "lodash/orderBy";
 
 import type { PageParams } from "types/page";
 
-const { Title, Text } = Typography;
+import useMedium, { MediumPost, MEDIUM_FEEDS } from "./hooks/use-medium";
+import useYoutube, { YoutubePost } from "./hooks/use-youtube";
 
-const removeHtmlTags = (html: string): string =>
-  html?.replace(/<[\s\S]+?\/?>/g, "");
+import Medium from "./Medium";
+import Youtube from "./Youtube";
 
-enum MEDIUM_FEEDS {
-  BANANO_CURRENCY = "@bananocurrency",
-  DEIV = "@deiv",
-}
-
-const AUTHORS: string[] = [];
+const { Text } = Typography;
 
 const ALL = "all";
 
-interface MediumPost {
-  author: string;
-  categories: string[];
-  description: string;
-  content: string;
-  descriptionLong: string;
-  descriptionShort: string;
-  enclosure: any;
-  guid: string;
-  link: string;
-  pubDate: string;
-  thumbnail: string;
-  title: string;
-  feed?: MEDIUM_FEEDS;
+export enum PostSource {
+  MEDIUM = "MEDIUM",
+  YOUTUBE = "YOUTUBE",
 }
-
-const getMediumPosts = async () => {
-  const mediumPosts = (await Promise.all(
-    Object.values(MEDIUM_FEEDS).map(
-      feed =>
-        new Promise(async (resolve, reject) => {
-          try {
-            const res = await fetch(
-              `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/${feed}`,
-            );
-            const { items } = await res.json();
-
-            const posts: MediumPost[] = items
-              .map(({ description, content, author, ...rest }: MediumPost) => {
-                if (!description) return false;
-
-                const [, descriptionShort, descriptionLong] =
-                  description.match(/(<p>.+?<\/p>)[\s\S]+?(<p>.+?<\/p>)/) || [];
-
-                if (!descriptionShort && !descriptionLong) return false;
-
-                if (!AUTHORS.includes(author)) {
-                  AUTHORS.push(author);
-                }
-
-                return {
-                  ...rest,
-                  author,
-                  descriptionShort: removeHtmlTags(descriptionShort),
-                  descriptionLong: removeHtmlTags(descriptionLong),
-                  feed,
-                };
-              })
-              .filter(Boolean);
-
-            resolve(posts);
-          } catch (err) {
-            reject([]);
-          }
-        }),
-    ),
-  )) as MediumPost[][];
-
-  const orderedPosts = orderBy(
-    mediumPosts.flatMap(x => x),
-    ["pubDate"],
-    ["desc"],
-  );
-
-  const filteredPosts = uniqBy(orderedPosts, "title");
-
-  // @NOTE Add category filtering if needed in the future
-  // filteredPosts.filter(({ categories }) => categories.includes("nano"));
-
-  return filteredPosts;
-};
 
 const NewsPage: React.FC = () => {
   const { t } = useTranslation();
   const history = useHistory();
   const { feed = "" } = useParams<PageParams>();
-  const [isLoading, setIsLoading] = React.useState<boolean>(true);
-  const [posts, setPosts] = React.useState(
-    (Array.from(Array(3).keys()) as unknown) as MediumPost[],
-  );
+  const [posts, setPosts] = React.useState([] as (MediumPost | YoutubePost)[]);
+  const [authors, setAuthors] = React.useState([""]);
+  const {
+    isLoading: isMediumLoading,
+    posts: mediumPosts,
+    authors: mediumAuthors,
+  } = useMedium();
+  const {
+    isLoading: isYoutubeLoading,
+    posts: youtubePosts,
+    authors: youtubeAuthors,
+  } = useYoutube();
   const [feedFilter, setFeedFilter] = React.useState<MEDIUM_FEEDS | string>(
     ALL,
   );
   const [authorFilter, setAuthorFilter] = React.useState<string>(ALL);
+  const [sourceFilter, setSourceFilter] = React.useState<string>(ALL);
 
   React.useEffect(() => {
-    getMediumPosts().then(posts => {
-      if (feed && posts.find(({ feed: postFeed }) => postFeed === feed)) {
-        handleFeedFilter({ key: feed });
-      }
+    const orderedPosts: (MediumPost | YoutubePost)[] = orderBy(
+      [...mediumPosts, ...youtubePosts],
+      ["pubDate"],
+      ["desc"],
+    );
 
-      setPosts(posts);
-      setIsLoading(false);
-    });
+    setPosts(orderedPosts);
+  }, [mediumPosts, youtubePosts]);
+
+  React.useEffect(() => {
+    const orderedAuthors: string[] = [
+      ...mediumAuthors,
+      ...youtubeAuthors,
+    ].sort();
+
+    setAuthors(orderedAuthors);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [mediumAuthors.length, youtubeAuthors.length]);
+
+  React.useEffect(() => {
+    if (feed && posts.find(({ feed: postFeed }) => postFeed === feed)) {
+      handleFeedFilter({ key: feed });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [posts]);
 
   const handleFeedFilter = ({ key }: any) => {
     history.replace(`/news${key !== ALL ? `/${key}` : ""}`);
@@ -139,10 +91,17 @@ const NewsPage: React.FC = () => {
     setAuthorFilter(key);
   };
 
+  const handleSourceFilter = ({ key }: any) => {
+    setSourceFilter(key);
+  };
+
   const filteredPosts = posts
     .filter(({ feed }) => (feedFilter !== ALL ? feedFilter === feed : true))
     .filter(({ author }) =>
       authorFilter !== ALL ? authorFilter === author : true,
+    )
+    .filter(({ source }) =>
+      sourceFilter !== ALL ? sourceFilter === source : true,
     );
 
   return (
@@ -171,7 +130,7 @@ const NewsPage: React.FC = () => {
           overlay={
             <Menu onClick={handleAuthorFilter}>
               <Menu.Item key={ALL}>{t("pages.news.allAuthors")}</Menu.Item>
-              {AUTHORS.map(author => (
+              {authors.map(author => (
                 <Menu.Item key={author}>{author}</Menu.Item>
               ))}
             </Menu>
@@ -182,87 +141,51 @@ const NewsPage: React.FC = () => {
             <DownOutlined />
           </Button>
         </Dropdown>
+
+        <Dropdown
+          overlay={
+            <Menu onClick={handleSourceFilter}>
+              <Menu.Item key={ALL}>{t("pages.news.allSources")}</Menu.Item>
+              {Object.keys(PostSource).map(source => (
+                <Menu.Item key={source}>{source}</Menu.Item>
+              ))}
+            </Menu>
+          }
+        >
+          <Button>
+            {sourceFilter !== ALL ? sourceFilter : t("pages.news.allSources")}{" "}
+            <DownOutlined />
+          </Button>
+        </Dropdown>
       </Space>
 
-      {filteredPosts.map(
-        (
-          {
-            title,
-            pubDate,
-            author,
-            link,
-            thumbnail = "",
-            descriptionShort,
-            descriptionLong,
-          },
-          index,
-        ) => {
-          const hasThumbnail =
-            /.+?\.(jpe?g|png|gif)$/.test(thumbnail) ||
-            thumbnail.startsWith("https://cdn-images");
-
-          return (
-            <Row gutter={[12, 0]} key={index}>
-              <Col xs={24} md={10} lg={8}>
+      <Row gutter={[12, 0]}>
+        {!filteredPosts.length && (isMediumLoading || isYoutubeLoading)
+          ? Array.from({ length: 6 }).map((_value, index) => (
+              <Col xs={24} md={12} lg={8} key={index}>
                 <Card
+                  size="small"
                   bodyStyle={{
-                    padding: 0,
-                    minHeight: isLoading || !hasThumbnail ? "180px" : "auto",
+                    minHeight: "240px",
                   }}
                 >
-                  {!isLoading && hasThumbnail ? (
-                    <a href={link} target="_blank" rel="noopener noreferrer">
-                      <img src={thumbnail} alt={title} width="100%" />
-                    </a>
-                  ) : null}
-                  {!isLoading && !hasThumbnail ? (
-                    <img
-                      alt="Banano news"
-                      src="/nano-background.png"
-                      width="100%"
-                    />
-                  ) : null}
+                  <Skeleton active loading={true}></Skeleton>
                 </Card>
               </Col>
-              <Col xs={24} md={14} lg={16}>
-                <Card size="small">
-                  <Skeleton active loading={isLoading}>
-                    <Title level={4} style={{ marginBottom: 0 }}>
-                      {title}
-                    </Title>
-                    <span
-                      style={{
-                        display: "block",
-                        fontSize: "12px",
-                        marginBottom: "12px",
-                      }}
-                      className="color-muted"
-                    >
-                      {pubDate} {t("common.by")} {author}
-                    </span>
-                    <div
-                      dangerouslySetInnerHTML={{ __html: descriptionShort }}
-                    ></div>
-                    <div
-                      dangerouslySetInnerHTML={{ __html: descriptionLong }}
-                    ></div>
-                    <a
-                      href={link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ marginTop: "12px", display: "inline-block" }}
-                    >
-                      {t("common.continueReading")}
-                    </a>
-                  </Skeleton>
-                </Card>
-              </Col>
-            </Row>
-          );
-        },
-      )}
+            ))
+          : null}
 
-      {!filteredPosts?.length ? (
+        {filteredPosts.map((post: MediumPost | YoutubePost, index) => (
+          <Col xs={24} md={12} lg={8} key={index}>
+            {post.source === PostSource.MEDIUM ? <Medium post={post} /> : null}
+            {post.source === PostSource.YOUTUBE ? (
+              <Youtube post={post} />
+            ) : null}
+          </Col>
+        ))}
+      </Row>
+
+      {!filteredPosts?.length && !isMediumLoading && !isYoutubeLoading ? (
         <Text style={{ display: "block" }}>{t("common.noResults")}</Text>
       ) : null}
     </>

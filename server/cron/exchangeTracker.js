@@ -9,7 +9,7 @@ const {
   MONGO_URL,
   MONGO_DB,
   MONGO_OPTIONS,
-  EXPIRE_1Y,
+  EXPIRE_5Y,
   EXCHANGE_BALANCES_COLLECTION,
 } = require("../constants");
 const accounts = require("../../src/exchanges.json");
@@ -25,7 +25,7 @@ try {
 
     db.collection(EXCHANGE_BALANCES_COLLECTION).createIndex(
       { createdAt: 1 },
-      { expireAfterSeconds: EXPIRE_1Y },
+      { expireAfterSeconds: EXPIRE_5Y },
     );
   });
 } catch (err) {
@@ -52,7 +52,7 @@ const getAccountBalance = async account => {
 
 const getAccountHistory = async (account, latestDate) => {
   const balance = await getAccountBalance(account);
-  const maxDate = Date.now() / 1000 - EXPIRE_1Y;
+  const maxDate = Date.now() / 1000 - EXPIRE_5Y;
   let currentDate = formatDate(new Date().getTime());
   const dailyBalances = [
     {
@@ -187,7 +187,7 @@ const getExchangeBalances = async () => {
           {
             $match: {
               convertedDate: {
-                $gte: new Date(Date.now() - EXPIRE_1Y * 1000),
+                $gte: new Date(Date.now() - EXPIRE_5Y * 1000),
               },
             },
           },

@@ -34,6 +34,7 @@ const useSocket = () => {
     disableLiveTransactions,
   } = React.useContext(PreferencesContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
+  const { websocketDomain } = React.useContext(PreferencesContext);
 
   const visibilityChange = React.useCallback(() => {
     if (document.visibilityState !== "visible") {
@@ -77,7 +78,7 @@ const useSocket = () => {
       window.removeEventListener("visibilitychange", visibilityChange);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filterTransactions]);
+  }, [filterTransactions, knownAccounts]);
 
   const onMessage = React.useCallback(
     (msg: MessageEvent) => {
@@ -119,7 +120,7 @@ const useSocket = () => {
   const connect = React.useCallback(() => {
     isForcedClosed = false;
     setIsConnected(false);
-    ws = new WebSocket("wss://www.bananolooker.com/ws");
+    ws = new WebSocket(websocketDomain || "wss://www.bananolooker.com/ws");
 
     ws.onopen = () => {
       setIsError(false);
