@@ -402,7 +402,10 @@
         "q": "Appuyez sur Q ou cliquez sur le trophée pour afficher votre livre de quêtes",
         "m": "Appuyez sur M ou cliquez sur le haut-parleur pour activer le mode Muet"
       },
-      "nanoPotions": "NANO-potions"
+      "nanoPotions": "NANO-potions",
+      "guide": {
+        "title": "Guide NanoBrowserQuest"
+      }
     },
     "statistics": {
       "social": {

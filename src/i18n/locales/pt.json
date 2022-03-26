@@ -402,7 +402,10 @@
         "q": "Pressione Q ou clique no troféu para ver seu livro da Quest",
         "m": "Pressione M ou clique no alto-falante para alternar entre mudo"
       },
-      "nanoPotions": "Poções NANO"
+      "nanoPotions": "Poções NANO",
+      "guide": {
+        "title": "Guia do NanoBrowserQuest"
+      }
     },
     "statistics": {
       "social": {

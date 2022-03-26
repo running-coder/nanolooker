@@ -431,6 +431,9 @@
         "enter": "Press ENTER or click on chat bubble to talk to players near you",
         "q": "Press Q or click the trophy to view your Quest book",
         "m": "Press M or click speaker to toggle Mute"
+      },
+      "guide": {
+        "title": "NanoBrowserQuest Guide"
       }
     }
   }

@@ -402,7 +402,10 @@
         "q": "Qを押すか、トロフィーをクリックして、クエストブックを表示します",
         "m": "Mを押すか、スピーカーをクリックしてミュートを切り替えます"
       },
-      "nanoPotions": "ナノポーション"
+      "nanoPotions": "ナノポーション",
+      "guide": {
+        "title": "NanoBrowserQuestガイド"
+      }
     },
     "statistics": {
       "social": {

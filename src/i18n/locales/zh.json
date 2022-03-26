@@ -402,7 +402,10 @@
         "q": "按 Q 或单击奖杯以查看您的任务书",
         "m": "按 M 或单击扬声器切换静音"
       },
-      "nanoPotions": "纳米药水"
+      "nanoPotions": "纳米药水",
+      "guide": {
+        "title": "NanoBrowserQuest 指南"
+      }
     },
     "statistics": {
       "social": {

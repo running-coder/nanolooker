@@ -402,7 +402,10 @@
         "q": "Q를 누르거나 트로피를 클릭하여 퀘스트 책을 봅니다.",
         "m": "M을 누르거나 스피커를 클릭하여 음소거 전환"
       },
-      "nanoPotions": "나노 물약"
+      "nanoPotions": "나노 물약",
+      "guide": {
+        "title": "NanoBrowserQuest 가이드"
+      }
     },
     "statistics": {
       "social": {

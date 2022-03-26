@@ -1,19 +1,29 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
+import { useParams } from "react-router-dom";
 import { Card, Row, Col, Skeleton, Space, Typography } from "antd";
 import useNanoBrowserQuestPlayers from "./hooks/use-nanobrowserquest-players";
 import Register from "./Register";
 import Leaderboard from "./Leaderboard";
 import HowToPlay from "./HowToPlay";
+import Guide from "./Guide";
+
+import type { PageParams } from "types/page";
+
+export enum Sections {
+  INDEX = "",
+  GUIDE = "guide",
+}
 
 const { Text, Title } = Typography;
 
 const NanoBrowserQuestPage: React.FC = () => {
   const { t } = useTranslation();
   const { playerCount } = useNanoBrowserQuestPlayers();
+  const { section = Sections.INDEX } = useParams<PageParams>();
 
-  return (
+  return section === Sections.INDEX ? (
     <>
       <Helmet>
         <title>{t("pages.nanobrowserquest.playNanoBrowserQuest")}</title>
@@ -72,30 +82,14 @@ const NanoBrowserQuestPage: React.FC = () => {
           </Card>
 
           <HowToPlay />
-
-          {/* <Card size="small" bordered={false} className="detail-layout">
-            <Row gutter={6}>
-              <Col xs={24} sm={6}>
-                {t("pages.nanoquakejs.currentMap")}
-              </Col>
-              <Col xs={24} sm={18}>
-                <Skeleton
-                  paragraph={false}
-                  loading={!currentMap}
-                  active
-                  title={{ width: "50%" }}
-                >
-                  {currentMap}
-                </Skeleton>
-              </Col>
-            </Row>
-          </Card> */}
         </Col>
         <Col xs={24} md={12}>
           <Leaderboard />
         </Col>
       </Row>
     </>
+  ) : (
+    <Guide />
   );
 };
 

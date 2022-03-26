@@ -402,7 +402,10 @@
         "q": "Drücke Q oder klicke auf die Trophäe, um dein Quest-Buch anzuzeigen",
         "m": "Drücken Sie M oder klicken Sie auf den Lautsprecher, um die Stummschaltung umzuschalten"
       },
-      "nanoPotions": "NANO-Tränke"
+      "nanoPotions": "NANO-Tränke",
+      "guide": {
+        "title": "NanoBrowserQuest-Leitfaden"
+      }
     },
     "statistics": {
       "social": {

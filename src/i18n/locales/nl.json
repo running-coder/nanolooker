@@ -402,7 +402,10 @@
         "q": "Druk op Q of klik op de trofee om je Quest-boek te bekijken",
         "m": "Druk op M of klik op luidspreker om Dempen in te schakelen"
       },
-      "nanoPotions": "NANO-drankjes"
+      "nanoPotions": "NANO-drankjes",
+      "guide": {
+        "title": "NanoBrowserQuest-gids"
+      }
     },
     "statistics": {
       "social": {

@@ -402,7 +402,10 @@
         "q": "Nhấn Q hoặc nhấp vào cúp để xem sách Nhiệm vụ của bạn",
         "m": "Nhấn M hoặc nhấp vào loa để chuyển đổi Tắt tiếng"
       },
-      "nanoPotions": "NANO Potions"
+      "nanoPotions": "NANO Potions",
+      "guide": {
+        "title": "Hướng dẫn NanoBrowserQuest"
+      }
     },
     "statistics": {
       "social": {

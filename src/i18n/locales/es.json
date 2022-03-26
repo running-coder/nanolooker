@@ -402,7 +402,10 @@
         "q": "Pulsa Q o haz clic en el trofeo para ver tu libro de misiones.",
         "m": "Presione M o haga clic en el altavoz para alternar Silencio"
       },
-      "nanoPotions": "Pociones NANO"
+      "nanoPotions": "Pociones NANO",
+      "guide": {
+        "title": "Guía de NanoBrowserQuest"
+      }
     },
     "statistics": {
       "social": {

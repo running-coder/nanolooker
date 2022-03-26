@@ -402,7 +402,10 @@
         "q": "Premi Q o fai clic sul trofeo per visualizzare il tuo libro delle missioni",
         "m": "Premi M o fai clic sull'altoparlante per disattivare l'audio"
       },
-      "nanoPotions": "Pozioni NANO"
+      "nanoPotions": "Pozioni NANO",
+      "guide": {
+        "title": "Guida di NanoBrowserQuest"
+      }
     },
     "statistics": {
       "social": {

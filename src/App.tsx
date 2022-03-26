@@ -95,7 +95,10 @@ const App: React.FC = () => {
             <Route path="/preferences" component={PreferencesPage} />
             <Route path="/bookmarks" component={BookmarksPage} />
             <Route path="/nanoquakejs" component={NanoQuakeJSPage} />
-            <Route path="/nanobrowserquest" component={NanoBrowserQuestPage} />
+            <Route
+              path="/nanobrowserquest/:section?"
+              component={NanoBrowserQuestPage}
+            />
             <Route path="/treasure-hunt/:account?" component={TreasureHunt} />
             <Route path="/statistics/social" component={StatisticsSocial} />
             <Route path="/statistics/2miners" component={Statistics2Miners} />

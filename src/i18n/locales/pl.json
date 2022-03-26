@@ -431,6 +431,9 @@
         "enter": "Naciśnij ENTER lub kliknij na dymek czatu, aby porozmawiać z graczami w pobliżu",
         "q": "Naciśnij Q lub kliknij trofeum, aby zobaczyć książkę zadań",
         "m": "Naciśnij M lub kliknij głośnik, aby włączyć wyciszenie"
+      },
+      "guide": {
+        "title": "Przewodnik po NanoBrowserQu"
       }
     }
   }
