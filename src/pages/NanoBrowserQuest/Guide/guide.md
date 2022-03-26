@@ -90,7 +90,7 @@ Droprate:
 
 **1. Leather belt**
 Attributes:
-Dropped by:
+Dropped by: Crab, Bat, Goblin, Skeleton, Ogre, Snake
 Droprate:
 
 ## Amulets
