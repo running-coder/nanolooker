@@ -108,7 +108,7 @@ Droprate:
 
 **1. Magic Sword**
 Attributes:
-Dropped by: Skeleton Guard
+Dropped by: Skeleton Warrior
 Droprate:
 **2. Blazing Sword**
 Attributes: Attack (15), Magic damage (1)
@@ -130,7 +130,7 @@ Droprate:
 
 **1. Plated belt**
 Attributes:
-Dropped by:
+Dropped by: Evil Eye, Spectre & Death Knight
 Droprate:
 
 ## Amulets
