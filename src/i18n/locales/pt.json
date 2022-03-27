@@ -90,7 +90,8 @@
     "versionsByWeight": "Para que uma versão assuma o consenso da rede, ela precisa ter {{onlineWeightQuorumPercent}}% do peso da votação online de um mínimo de {{onlineWeightMinimum}} NANO.",
     "onChainVolume": "A soma de todas as transações NANO que foram confirmadas na rede. Se o usuário A enviar 1 NANO e o usuário B receber 1 NANO no mesmo dia, 2 NANO serão adicionados no volume diário porque 2 transações foram transmitidas e confirmadas, um envio e um recebimento.",
     "pendingTransactionCount": "O número de transações a receber excede o limite exibido de {{contagem}}.",
-    "pendingTransaction": "Os fundos foram enviados para esta conta, mas o proprietário ainda não embolsou os fundos. Apenas o proprietário da conta pode gravar uma transação recebida em seu blockchain. Se esta for sua conta, desbloqueie sua carteira, o bloqueio de recebimento geralmente é transmitido automaticamente."
+    "pendingTransaction": "Os fundos foram enviados para esta conta, mas o proprietário ainda não embolsou os fundos. Apenas o proprietário da conta pode gravar uma transação recebida em seu blockchain. Se esta for sua conta, desbloqueie sua carteira, o bloqueio de recebimento geralmente é transmitido automaticamente.",
+    "socialStatistics": "As estatísticas são compiladas usando as 100 principais criptomoedas por valor de mercado da CoinGecko."
   },
   "search": {
     "searchBy": "Pesquisar por endereço / bloco",

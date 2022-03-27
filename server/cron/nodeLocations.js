@@ -105,8 +105,6 @@ const doNodeLocations = async () => {
   console.log("Starting doNodeLocations");
 
   try {
-    await connect();
-
     let peers = await getNodePeers();
     let results = [];
 
@@ -128,6 +126,8 @@ const doNodeLocations = async () => {
 
       results = results.concat(locationResults);
     }
+
+    await connect();
 
     db.collection(NODE_LOCATIONS).drop();
     db.collection(NODE_LOCATIONS).insertMany(results);

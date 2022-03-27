@@ -2,7 +2,7 @@ import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
 import BigNumber from "bignumber.js";
-import { Radio, Card, Col, Row, Skeleton, Typography } from "antd";
+import { Radio, Card, Col, Row, Skeleton, Typography, Tooltip } from "antd";
 import {
   TwitterOutlined,
   RedditOutlined,
@@ -13,6 +13,7 @@ import orderBy from "lodash/orderBy";
 import useStatisticsSocial, {
   CryptoCurrency,
 } from "./hooks/use-statistics-social";
+import QuestionCircle from "components/QuestionCircle";
 
 const { Text, Title } = Typography;
 const G = G2.getEngine("canvas");
@@ -156,7 +157,12 @@ const StatisticsSocialPage: React.FC = () => {
       <Helmet>
         <title>{t("pages.statistics.social.title")}</title>
       </Helmet>
-      <Title level={3}>{t("pages.statistics.social.title")}</Title>
+      <Title level={3}>
+        {t("pages.statistics.social.title")}
+        <Tooltip placement="right" title={t("tooltips.socialStatistics")}>
+          <QuestionCircle />
+        </Tooltip>
+      </Title>
       <Card size="small" bordered={false} className="detail-layout">
         <Row>
           <Col xs={24}>

@@ -90,7 +90,8 @@
     "versionsByWeight": "Damit eine Version den Konsens des Netzwerks übernimmt, muss sie {{onlineWeightQuorumPercent}}% des Online-Abstimmungsgewichts von mindestens {{onlineWeightMinimum}} NANO haben.",
     "onChainVolume": "Die Summe aller NANO-Transaktionen, die im Netzwerk bestätigt wurden. Wenn Benutzer A 1 NANO sendet und Benutzer B 1 NANO am selben Tag empfängt, werden 2 NANO zum Tagesvolumen hinzugefügt, da 2 Transaktionen gesendet und bestätigt wurden, ein Senden und ein Empfangen.",
     "pendingTransactionCount": "Die Anzahl der ausstehenden Transaktionen überschreitet das angezeigte Limit von {{count}}.",
-    "pendingTransaction": "Gelder wurden auf dieses Konto überwiesen, aber der Eigentümer hat die Gelder noch nicht eingesteckt. Nur der Inhaber des Kontos kann eine empfangene Transaktion in seine Blockchain schreiben. Wenn dies Ihr Konto ist, entsperren Sie Ihr Wallet, der Empfangsblock wird normalerweise automatisch gesendet."
+    "pendingTransaction": "Gelder wurden auf dieses Konto überwiesen, aber der Eigentümer hat die Gelder noch nicht eingesteckt. Nur der Inhaber des Kontos kann eine empfangene Transaktion in seine Blockchain schreiben. Wenn dies Ihr Konto ist, entsperren Sie Ihr Wallet, der Empfangsblock wird normalerweise automatisch gesendet.",
+    "socialStatistics": "Statistiken werden anhand der Top-100-Kryptowährungen nach Marktkapitalisierung von CoinGecko erstellt."
   },
   "search": {
     "searchBy": "Suche nach Adresse / Block / Bekanntem Konto",

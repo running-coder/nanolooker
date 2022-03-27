@@ -26,11 +26,21 @@ const { rawToRai } = require("../utils");
 let db;
 let mongoClient;
 let isInitialConnectionDone = false;
+
+function isConnected() {
+  return (
+    !!mongoClient &&
+    !!mongoClient.topology &&
+    mongoClient.topology.isConnected()
+  );
+}
+
 const connect = async () =>
   await new Promise((resolve, reject) => {
     try {
       if (mongoClient) {
         mongoClient.close();
+        mongoClient = null;
       }
 
       MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (err, client) => {
@@ -68,7 +78,7 @@ const connect = async () =>
 
 // Every 3 seconds
 cron.schedule("*/3 * * * * *", async () => {
-  if (!isInitialConnectionDone || !mongoClient || !mongoClient.isConnected()) {
+  if (!isInitialConnectionDone || !mongoClient || isConnected()) {
     await connect();
   }
 
@@ -99,7 +109,7 @@ cron.schedule("*/3 * * * * *", async () => {
 });
 
 cron.schedule("*/10 * * * * *", async () => {
-  if (!isInitialConnectionDone || !mongoClient || !mongoClient.isConnected()) {
+  if (!isInitialConnectionDone || !mongoClient || isConnected()) {
     return;
   }
 
