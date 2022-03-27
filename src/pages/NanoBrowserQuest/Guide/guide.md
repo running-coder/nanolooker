@@ -90,7 +90,7 @@ Droprate:
 
 **1. Leather belt**
 Attributes:
-Dropped by:
+Dropped by: Crab, Bat, Goblin, Skeleton, Ogre, Snake
 Droprate:
 
 ## Amulets
@@ -168,12 +168,12 @@ Attributes: Attack (30), Magic damage (1)
 Dropped by:
 Droprate:
 **5. Diamond Sword**
-Attributes:
-Dropped by:
+Attributes: Attack (36), Magic damage (1)
+Dropped by: Cows & Cow King
 Droprate:
 **6. Minotaur Axe**
 Attributes:
-Dropped by:
+Dropped by: Minotaur & Blue Chest
 Droprate:
 
 ## Armors
@@ -191,8 +191,8 @@ Attributes: Defense (30), Health bonus (2)
 Dropped by:
 Droprate:
 **4. Diamond Armor**
-Attributes:
-Dropped by:
+Attributes: Defense (34), Health bonus (2)
+Dropped by: Cows & Cow King
 Droprate:
 
 ## Belts
@@ -202,12 +202,12 @@ Attributes: Defense (10), Health bonus (2)
 Dropped by:
 Droprate:
 **2. Diamond Belt**
-Attributes:
-Dropped by:
+Attributes: Defense (16), Health bonus (2)
+Dropped by: Cows & Cow king
 Droprate:
 **3. Minotaur Belt**
 Attributes:
-Dropped by:
+Dropped by: Minotaur & Blue chest
 Droprate:
 
 ## Amulets
