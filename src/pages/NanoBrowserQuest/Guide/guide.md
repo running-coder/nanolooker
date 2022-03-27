@@ -169,11 +169,11 @@ Dropped by:
 Droprate:
 **5. Diamond Sword**
 Attributes: Attack (36), Magic damage (1)
-Dropped by: Cows & Cowk ing
+Dropped by: Cows & Cow king
 Droprate:
 **6. Minotaur Axe**
 Attributes:
-Dropped by:
+Dropped by: Minotaur & Blue Chest
 Droprate:
 
 ## Armors
@@ -207,7 +207,7 @@ Dropped by: Cows & Cow king
 Droprate:
 **3. Minotaur Belt**
 Attributes:
-Dropped by:
+Dropped by: Minotaur & Blue chest
 Droprate:
 
 ## Amulets
