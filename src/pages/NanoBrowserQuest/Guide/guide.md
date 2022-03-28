@@ -69,29 +69,29 @@ Droprate: N/A
 **2. Axe**
 Attributes: Attack, Magic damage
 Dropped by: Crabs - Skeleton
-Droprate:
+Droprate: 10-15%
 **3. Morningstar**
 Attributes:
 Dropped by: Snake
-Droprate:
+Droprate: 10%
 
 ## Armors
 
 **1. Leather armor**
 Attributes: Defense (3), Health bonus (2)
-Dropped by:
-Droprate:
+Dropped by: Crab & Goblin
+Droprate: 10-15%
 **2. Mail Armor**
 Attributes: Defense (5), Health bonus (2)
-Dropped by:
-Droprate:
+Dropped by: Skeleton & Snake
+Droprate: 10%
 
 ## Belts
 
 **1. Leather belt**
 Attributes:
 Dropped by: Crab, Bat, Goblin, Skeleton, Ogre, Snake
-Droprate:
+Droprate: 10-15%
 
 ## Amulets
 
@@ -99,8 +99,8 @@ Droprate:
 
 **Bronze Ring**
 Attributes:
-Dropped by:
-Droprate:
+Dropped by: Rat, Crab, Bat, Goblin, Skeleton, Ogre, Snake, Skeleton Warrior
+Droprate: 5%
 
 # Medium class items
 
@@ -109,43 +109,43 @@ Droprate:
 **1. Magic Sword**
 Attributes:
 Dropped by: Skeleton Warrior
-Droprate:
+Droprate: 10%
 **2. Blazing Sword**
 Attributes: Attack (15), Magic damage (1)
 Dropped by: Spectre
-Droprate:
+Droprate: 15%
 
 ## Armors
 
 **1. Plate Armor**
 Attributes: Defense (10), Health bonus (2)
-Dropped by: Snake
-Droprate:
+Dropped by: Ogre & Skeleton Warrior
+Droprate: 10-15%
 **2. Ruby Armor**
 Attributes: Defense (15), Health bonus (2)
-Dropped by:
-Droprate:
+Dropped by: Evil Eye
+Droprate: 12%
 
 ## Belts
 
 **1. Plated belt**
 Attributes:
 Dropped by: Evil Eye, Spectre & Death Knight
-Droprate:
+Droprate: 3-5%
 
 ## Amulets
 
 **1. Silver Amulet**
 Attributes:
-Dropped by:
-Droprate:
+Dropped by: Evil Eye, Spectre & Death Knight
+Droprate: 2%
 
 ## Rings
 
 **1. Silver Ring**
 Attributes:
-Dropped by:
-Droprate:
+Dropped by: Ogre, Snake, Skeleton Warrior, Evil Eye, Specre, Death Knight
+Droprate: 2-5%
 
 # High class items
 
@@ -157,53 +157,53 @@ Dropped by: Skeleton King
 Droprate: 80%
 **2. Frozen Axe**
 Attributes: Attack (24), Magic damage (1)
-Dropped by:
-Droprate:
+Dropped by: Vampire Bat & Undead Goblin
+Droprate: 5%
 **3. Frozen Morningstar**
 Attributes: Attack (26), Magic damage (1)
-Dropped by:
-Droprate:
+Dropped by: Werewolf, Yeti
+Droprate: 3%
 **4. Sapphire Sword**
 Attributes: Attack (30), Magic damage (1)
-Dropped by:
-Droprate:
+Dropped by: Skeleton Commander, Cow, Blue Chest
+Droprate: 100% from Skeleton Commander, 1% from Cow
 **5. Diamond Sword**
 Attributes: Attack (36), Magic damage (1)
-Dropped by: Cows & Cow King
+Dropped by: Cow & Cow King
 Droprate:
 **6. Minotaur Axe**
 Attributes:
 Dropped by: Minotaur & Blue Chest
-Droprate:
+Droprate: 10% from Minotaur, ?% from Blue Chest
 
 ## Armors
 
 **1. Sapphire Armor**
 Attributes: Defense (24), Health bonus (2)
-Dropped by:
-Droprate:
+Dropped by: Undead Rat, Werewolf & Yeti
+Droprate: 3-5%
 **2. Horned Armor**
 Attributes: Defense (28), Health bonus (2)
-Dropped by:
+Dropped by: 
 Droprate:
 **3. Frozen Armor**
 Attributes: Defense (30), Health bonus (2)
-Dropped by:
-Droprate:
+Dropped by: Necromancer, Cow, Blue Chest
+Droprate: 100% from Necromancer, 1% from Cow, ?% from Blue Chest
 **4. Diamond Armor**
 Attributes: Defense (34), Health bonus (2)
-Dropped by: Cows & Cow King
+Dropped by: Cow & Cow King
 Droprate:
 
 ## Belts
 
 **1. Frozen Belt**
 Attributes: Defense (10), Health bonus (2)
-Dropped by:
-Droprate:
+Dropped by: Vampire Bat, Undead Goblin, Werewolf, Undead Snake, Wraith
+Droprate: 3-5%
 **2. Diamond Belt**
 Attributes: Defense (16), Health bonus (2)
-Dropped by: Cows & Cow king
+Dropped by: Cow & Cow king
 Droprate:
 **3. Minotaur Belt**
 Attributes:
