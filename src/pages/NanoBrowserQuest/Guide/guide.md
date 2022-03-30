@@ -12,12 +12,16 @@ The items are listed in order of stats (Low - High) with exception for super uni
 
 **Health**
 Basic player health that determines how much damage can be taken
+
 **Absorb**
 Absorbs a part of an enemy hit making health drop less
+
 **Defense**
 Absorbs a part of an enemy hit making health drop less (small bonus increase with player level)
+
 **Health regeneration**
 Regenerates players health at a specific rate
+
 **Block**
 Blocks a hit from enemy. No damage done if blocked. Random chance based on %
 
@@ -25,12 +29,16 @@ Blocks a hit from enemy. No damage done if blocked. Random chance based on %
 
 **Attack**
 Damage dealt by player (small bonus increase with player level)
+
 **Magic damage**
 Both min and max damage increase
+
 **Min damage**
 Minimum damage increase
+
 **Max damage**
 Maximum damage increase
+
 **Critical hit**
 Hits enemy with higher damage. Random chance based on %
 
@@ -38,16 +46,22 @@ Hits enemy with higher damage. Random chance based on %
 
 **Flame damage**
 Same as magic damage but higher damage per level
+
 **Drain**
 Deals damage to an enemy and also adds the same amount back to players health
+
 **Lightning damage**
 Deals ordinary damage as well as damage when hit by enemy
+
 **Super health**
 Same as normal health stat but much higher
+
 **Cold damage**
 At the moment it is the same as flame damage but will get an additional bonus
+
 **Freeze**
 Freeze enemy for x seconds making them unable to attack you
+
 **Penetrate armor**
 Some enemies (at the moment the higher level bosses) are immune to certain kinds of damage. Penetrate armor overrides this
 
@@ -62,14 +76,17 @@ Added experience making the player level up faster
 
 **0. Dagger**
 The default weapon
+
 **1. Sword**
 Attributes: Attack (3), Magic damage (1)
 Dropped by: Spready out in village
+
 **2. Axe**
-Attributes: Attack, Magic damage
+Attributes: Attack (5), Magic damage (1)
 Dropped by (Droprate): Crab (15%), Bat (15%), Goblin(10%), Skeleton(15%)
+
 **3. Morningstar**
-Attributes:
+Attributes: Attack (7), Magic damage (1)
 Dropped by (Droprate): Snake (10%)
 
 ## Armors
@@ -77,6 +94,7 @@ Dropped by (Droprate): Snake (10%)
 **1. Leather armor**
 Attributes: Defense (3), Health bonus (2)
 Dropped by (Droprate): Crab (10%), Goblin (15%)
+
 **2. Mail Armor**
 Attributes: Defense (5), Health bonus (2)
 Dropped by (Droprate): Skeleton (10%), Snake (10%)
@@ -84,15 +102,18 @@ Dropped by (Droprate): Skeleton (10%), Snake (10%)
 ## Belts
 
 **1. Leather belt**
-Attributes:
+Attributes: Defense (2), Health bonus (2)
 Dropped by (Droprate): Crab (10%), Bat (10%), Goblin (10%), Skeleton (10%), Ogre (15%), Snake (10%)
 
 ## Amulets
 
+There are currently no low level amulets
+
 ## Rings
 
 **Bronze Ring**
-Attributes:
+Attributes: Randomzied attributes (Health, Absorb, Defense, Health regeneration, Attack, Magic damage, Min damage,
+Max damage, Experience)
 Dropped by (Droprate): Rat (5%), Crab (5%), Bat (5%), Goblin (5%), Skeleton (5%), Ogre (5%), Snake (5%), Skeleton Warrior (5%)
 
 # Medium class items
@@ -100,8 +121,9 @@ Dropped by (Droprate): Rat (5%), Crab (5%), Bat (5%), Goblin (5%), Skeleton (5%)
 ## Weapons
 
 **1. Magic Sword**
-Attributes:
+Attributes: Attack (10), Magic damage (1)
 Dropped by (Droprate): Skeleton Warrior (10%)
+
 **2. Blazing Sword**
 Attributes: Attack (15), Magic damage (1)
 Dropped by (Droprate): Spectre (15%)
@@ -111,6 +133,7 @@ Dropped by (Droprate): Spectre (15%)
 **1. Plate Armor**
 Attributes: Defense (10), Health bonus (2)
 Dropped by (Droprate): Ogre (15%), Skeleton Warrior (10%)
+
 **2. Ruby Armor**
 Attributes: Defense (15), Health bonus (2)
 Dropped by (Droprate): Evil Eye (12%)
@@ -118,19 +141,21 @@ Dropped by (Droprate): Evil Eye (12%)
 ## Belts
 
 **1. Plated belt**
-Attributes:
+Attributes: Defense (4), Health bonus (2)
 Dropped by (Droprate): Evil Eye (3%), Spectre (3%), Death Knight (5%)
 
 ## Amulets
 
 **1. Silver Amulet**
-Attributes:
+Attributes: Two randomized attributes (Health, Absorb, Defense, Health regeneration, Attack, Magic damage, Min damage,
+Max damage, Experience)
 Dropped by (Droprate): Evil Eye (2%), Spectre (2%), Death Knight (2%)
 
 ## Rings
 
 **1. Silver Ring**
-Attributes:
+Attributes: Two randomzied attributes (Health, Absorb, Defense, Health regeneration, Attack, Magic damage, Min damage,
+Max damage, Experience)
 Dropped by (Droprate): Ogre (2%), Snake (2%), Skeleton Warrior (2%), Evil Eye (4%), Specre (4%), Death Knight (5%)
 
 # High class items
@@ -138,36 +163,48 @@ Dropped by (Droprate): Ogre (2%), Snake (2%), Skeleton Warrior (2%), Evil Eye (4
 ## Weapons
 
 **1. Golden Sword**
-Attributes:
+Attributes: Attack (20), Magic damage (1)
 Dropped by (Droprate): Skeleton King (80%)
+
 **2. Frozen Axe**
 Attributes: Attack (24), Magic damage (1)
 Dropped by (Droprate): Vampire Bat (5%), Undead Goblin (5%)
+
 **3. Frozen Morningstar**
 Attributes: Attack (26), Magic damage (1)
 Dropped by (Droprate): Werewolf (3%), Yeti (3%)
+
 **4. Sapphire Sword**
 Attributes: Attack (30), Magic damage (1)
 Dropped by (Droprate): Skeleton Commander (100%), Cow (1%), Blue Chest (?)
+
 **5. Diamond Sword**
 Attributes: Attack (36), Magic damage (1)
 Dropped by (Droprate): Cow, Cow King
+
 **6. Minotaur Axe**
 Attributes:
 Dropped by (Droprate): Minotaur (10%) & Blue Chest (?)
 
 ## Armors
 
-**1. Sapphire Armor**
+**1. Golden Armor**
+Attributes: Defense (20), Health bonus (2)
+Dropped by (Droprate): Skeleton King (100%)
+
+**2. Sapphire Armor**
 Attributes: Defense (24), Health bonus (2)
 Dropped by (Droprate): Undead Rat (5%), Werewolf (3%), Yeti (3%)
-**2. Horned Armor**
+
+**3. Horned Armor**
 Attributes: Defense (28), Health bonus (2)
 Dropped by (Droprate): Skeleton Guard (3%), Skeleton Commander (5%), Cow (1%)
-**3. Frozen Armor**
+
+**4. Frozen Armor**
 Attributes: Defense (30), Health bonus (2)
 Dropped by (Droprate): Necromancer (100%), Cow (1%), Blue Chest (?)
-**4. Diamond Armor**
+
+**5. Diamond Armor**
 Attributes: Defense (34), Health bonus (2)
 Dropped by (Droprate): Cow (?), Cow King (?)
 
@@ -176,9 +213,11 @@ Dropped by (Droprate): Cow (?), Cow King (?)
 **1. Frozen Belt**
 Attributes: Defense (10), Health bonus (2)
 Dropped by (Droprate): Vampire Bat (3%), Undead Goblin (5%), Werewolf (3%), Undead Snake (5%), Wraith (3%), Cow (1%)
+
 **2. Diamond Belt**
 Attributes: Defense (16), Health bonus (2)
 Dropped by (Droprate): Cow (?), Cow king (?)
+
 **3. Minotaur Belt**
 Attributes:
 Dropped by (Droprate): Minotaur (10%) Blue chest (?)
@@ -186,16 +225,20 @@ Dropped by (Droprate): Minotaur (10%) Blue chest (?)
 ## Amulets
 
 **1. Gold Amulet**
-Attributes:
-Dropped by:
-Droprate:
+Attributes: Two randomized attributes (Health, Absorb, Defense, Health regeneration, Attack, Magic damage, Min damage,
+Max damage, Experience) + Critical hit % or Block %
+Dropped by (Droprate): Undead Goblin (1%), Werewolf (1%), Skeleton Guard (1%), Skeleton Commander (3%), Undead Snake (2%), Wraith (2%), Zombie (2%)
+Necromancer (4%), Cow (1%)
+
 
 ## Rings
 
 **Gold Ring**
-Attributes:
-Dropped by:
-Droprate:
+Attributes: Three randomzied attributes (Health, Absorb, Defense, Health regeneration, Attack, Magic damage, Min damage,
+Max damage, Experience)
+Dropped by (Droprate): Werewolf (2%), Yeti (3%), Skeleton Guard (2%), Skeleton Commander (4%), Undead Snake (3%), Wraith (3%), Zombie (2%)
+Nercomancer (4%), Cow (1%)
+
 
 # Sets
 
