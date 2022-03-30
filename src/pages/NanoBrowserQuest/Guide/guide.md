@@ -2,7 +2,7 @@
 
 This is a guide to all of the items that you can find in NBQ, their basic stats, where to find them and how common/rare they are.
 
-Most items have a unique version with better/more stats. Weapons, armors & belts all have unique counterparts. Amulets and rings do not have counterparts, but instead have what is categorized as "super-uniques" in this guide. These are very rare items with attributes that are unique to them specifically.
+Most items have a unique version with better/more stats. Weapons, armors & belts all have unique counterparts. There is a 1% chance of receiving a unique version when an item is dropped. Amulets and rings do not have counterparts, but instead have what is categorized as "super-uniques" in this guide. These are very rare items with attributes that are unique to them specifically.
 
 The items are listed in order of stats (Low - High) with exception for super uniques as they have attributes which are useful in different situations and cannot be ranked.
 
@@ -13,14 +13,14 @@ The items are listed in order of stats (Low - High) with exception for super uni
 **Health**
 Basic player health that determines how much damage can be taken
 
-**Absorb**
+**Absorbed damage**
 Absorbs a part of an enemy hit making health drop less
 
 **Defense**
 Absorbs a part of an enemy hit making health drop less (small bonus increase with player level)
 
-**Health regeneration**
-Regenerates players health at a specific rate
+**Health regeneration per second**
+Regenerates players health per second at a specific % rate
 
 **Block**
 Blocks a hit from enemy. No damage done if blocked. Random chance based on %
@@ -33,10 +33,10 @@ Damage dealt by player (small bonus increase with player level)
 **Magic damage**
 Both min and max damage increase
 
-**Min damage**
+**Minimim damage**
 Minimum damage increase
 
-**Max damage**
+**Maximum damage**
 Maximum damage increase
 
 **Critical hit**
@@ -47,7 +47,7 @@ Hits enemy with higher damage. Random chance based on %
 **Flame damage**
 Same as magic damage but higher damage per level
 
-**Drain**
+**Drain life**
 Deals damage to an enemy and also adds the same amount back to players health
 
 **Lightning damage**
@@ -63,12 +63,12 @@ At the moment it is the same as flame damage but will get an additional bonus
 Freeze enemy for x seconds making them unable to attack you
 
 **Penetrate armor**
-Some enemies (at the moment the higher level bosses) are immune to certain kinds of damage. Penetrate armor overrides this
+Deals a high level of physical damage, same amount as Flame damage (will get additional properties at a later stage)
 
 ## Various
 
 **Experience**
-Added experience making the player level up faster
+Added experience % making the player level up faster
 
 # Low Class Items
 
@@ -80,30 +80,42 @@ The default weapon
 **1. Sword**
 Attributes: Attack (3), Magic damage (1)
 Dropped by: Spready out in village
+Unique Version: **Faketoshi**
+Attributes:
 
 **2. Axe**
 Attributes: Attack (5), Magic damage (1)
 Dropped by (Droprate): Crab (15%), Bat (15%), Goblin(10%), Skeleton(15%)
+Unique Version: **NonDisclosure Agreement**
+Attributes:
 
 **3. Morningstar**
 Attributes: Attack (7), Magic damage (1)
 Dropped by (Droprate): Snake (10%)
+Unique Version: **Block Latte**
+Attributes:
 
 ## Armors
 
 **1. Leather armor**
 Attributes: Defense (3), Health bonus (2)
 Dropped by (Droprate): Crab (10%), Goblin (15%)
+Unique Version: **Representative**
+Attributes: Defense (5), Healthbonus (2), Absorbed damage (2)
 
 **2. Mail Armor**
 Attributes: Defense (5), Health bonus (2)
 Dropped by (Droprate): Skeleton (10%), Snake (10%)
+Unique Version: **ForeX Guard**
+Attributes: Defense (7), Healthbonus (2), Absorbed damage (2)
 
 ## Belts
 
 **1. Leather belt**
 Attributes: Defense (2), Health bonus (2)
 Dropped by (Droprate): Crab (10%), Bat (10%), Goblin (10%), Skeleton (10%), Ogre (15%), Snake (10%)
+Unique Version: **Proof of Wear**
+Attributes:
 
 ## Amulets
 
@@ -123,26 +135,36 @@ Dropped by (Droprate): Rat (5%), Crab (5%), Bat (5%), Goblin (5%), Skeleton (5%)
 **1. Magic Sword**
 Attributes: Attack (10), Magic damage (1)
 Dropped by (Droprate): Skeleton Warrior (10%)
+Unique Version: **Acyclic Graph**
+Attributes:
 
 **2. Blazing Sword**
 Attributes: Attack (15), Magic damage (1)
 Dropped by (Droprate): Spectre (15%)
+Unique Version: **Volcanic Miner**
+Attributes:
 
 ## Armors
 
 **1. Plate Armor**
 Attributes: Defense (10), Health bonus (2)
 Dropped by (Droprate): Ogre (15%), Skeleton Warrior (10%)
+Unique Version: **Green Alternative**
+Attributes: Defense (12), Healthbonus (2), Absorbed damage (2)
 
 **2. Ruby Armor**
 Attributes: Defense (15), Health bonus (2)
 Dropped by (Droprate): Evil Eye (12%)
+Unique Version: **Appia's Road**
+Attributes: Defense (17), Healthbonus (2), Absorbed damage (2)
 
 ## Belts
 
 **1. Plated belt**
 Attributes: Defense (4), Health bonus (2)
 Dropped by (Droprate): Evil Eye (3%), Spectre (3%), Death Knight (5%)
+Unique Version: **Hodler**
+Attributes:
 
 ## Amulets
 
@@ -165,68 +187,96 @@ Dropped by (Droprate): Ogre (2%), Snake (2%), Skeleton Warrior (2%), Evil Eye (4
 **1. Golden Sword**
 Attributes: Attack (20), Magic damage (1)
 Dropped by (Droprate): Skeleton King (80%)
+Unique Version: **Satoshi's Nephew**
+Attributes:
 
 **2. Frozen Axe**
 Attributes: Attack (24), Magic damage (1)
 Dropped by (Droprate): Vampire Bat (5%), Undead Goblin (5%)
+Unique Version: **Feeless Cutter**
+Attributes:
 
 **3. Frozen Morningstar**
 Attributes: Attack (26), Magic damage (1)
 Dropped by (Droprate): Werewolf (3%), Yeti (3%)
+Unique Version: **Saylormoon**
+Attributes:
 
 **4. Sapphire Sword**
 Attributes: Attack (30), Magic damage (1)
 Dropped by (Droprate): Skeleton Commander (100%), Cow (1%), Blue Chest (?)
+Unique Version: **Broccolish Fury**
+Attributes:
 
 **5. Diamond Sword**
 Attributes: Attack (36), Magic damage (1)
 Dropped by (Droprate): Cow, Cow King
+Unique Version: **Inevitable**
+Attributes:
 
 **6. Minotaur Axe**
 Attributes:
 Dropped by (Droprate): Minotaur (10%) & Blue Chest (?)
+Unique Version: **PoS4QoS**
+Attributes:
 
 ## Armors
 
 **1. Golden Armor**
 Attributes: Defense (20), Health bonus (2)
 Dropped by (Droprate): Skeleton King (100%)
+Unique Version: **Store of Value**
+Attributes: Defense (22), Healthbonus (2), Absorbed damage (2)
 
 **2. Sapphire Armor**
 Attributes: Defense (24), Health bonus (2)
 Dropped by (Droprate): Undead Rat (5%), Werewolf (3%), Yeti (3%)
+Unique Version: **Firano's Hide**
+Attributes: Defense (26), Healthbonus (2), Absorbed damage (2)
 
 **3. Horned Armor**
 Attributes: Defense (28), Health bonus (2)
 Dropped by (Droprate): Skeleton Guard (3%), Skeleton Commander (5%), Cow (1%)
+Unique Version: **RaiBlocks**
+Attributes: Defense (30), Health bonus (2), Absorbed damage (2)
 
 **4. Frozen Armor**
 Attributes: Defense (30), Health bonus (2)
 Dropped by (Droprate): Necromancer (100%), Cow (1%), Blue Chest (?)
+Unique Version: **Wall of Encrypted Energy**
+Attributes:Defense (32), Healthbonus (2), Absorbed damage (2)
 
 **5. Diamond Armor**
 Attributes: Defense (34), Health bonus (2)
 Dropped by (Droprate): Cow (?), Cow King (?)
+Unique Version: **Zero-knowledge Proof**
+Attributes:Defense (38), Healthbonus (2), Absorbed damage (2)
 
 ## Belts
 
 **1. Frozen Belt**
 Attributes: Defense (10), Health bonus (2)
 Dropped by (Droprate): Vampire Bat (3%), Undead Goblin (5%), Werewolf (3%), Undead Snake (5%), Wraith (3%), Cow (1%)
+Unique Version: **Spam Resistor**
+Attributes: Defense (12), Health bonus (2) + one randomized attribute (Attack, Defense, Health, Magic damage, Minimum damage, Maximum damage)
 
 **2. Diamond Belt**
 Attributes: Defense (16), Health bonus (2)
 Dropped by (Droprate): Cow (?), Cow king (?)
+Unique Version: **Election scheduler**
+Attributes: Defense (18), Health bonus (2) + one randomized attribute (Attack, Defense, Health, Magic damage, Minimum damage, Maximum damage)
 
 **3. Minotaur Belt**
 Attributes:
 Dropped by (Droprate): Minotaur (10%) Blue chest (?)
+Unique Version: **TaaC**
+Attributes:Defense (20), Health bonus (2) + one randomized attribute (Attack, Defense, Health, Magic damage, Minimum damage, Maximum damage)
+
 
 ## Amulets
 
 **1. Gold Amulet**
-Attributes: Two randomized attributes (Health, Absorb, Defense, Health regeneration, Attack, Magic damage, Min damage,
-Max damage, Experience) + Critical hit % or Block %
+Attributes: Two randomized attributes (A) + Critical hit % or Block %
 Dropped by (Droprate): Undead Goblin (1%), Werewolf (1%), Skeleton Guard (1%), Skeleton Commander (3%), Undead Snake (2%), Wraith (2%), Zombie (2%)
 Necromancer (4%), Cow (1%)
 
@@ -255,9 +305,11 @@ Your character will receive bonuses by wearing all set items
 ## Other
 
 **1. Cape**
-Attributes: Defense + Random - Attack/Defence/EXP when in a party
-Dropped by: Sold by the Red Wizard in the village and also dropped by Minotaur
-Droprate:
+Attributes: Defense (?) + Randomized - Attack/Defence/EXP when in a party
+Dropped by (Droprate): Sold by the Red Wizard in the village and also dropped by Minotaur (?)
+Unique Version: **Cloak of Levitation**
+Attributes:
+
 
 # Super-uniques
 
