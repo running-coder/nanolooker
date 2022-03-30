@@ -183,7 +183,11 @@
       "notOpenedYet": "To konto nie zostało jeszcze otwarte",
       "notOpenedYetReason": "Chociaż adres konta jest prawidłowy, żadne bloki nie zostały jeszcze opublikowane w jego łańcuchu. Jeśli NANO zostało wysłane na to konto, nadal musi opublikować odpowiedni blok, aby zdobyć środki.",
       "missingAccount": "Brakujące konto",
-      "missingAccountInfo": "Konto nie jest określone w adresie URL. Użyj górnego paska wyszukiwania, aby wyszukać konto lub dołączyć go w adresie URL po /account/"
+      "missingAccountInfo": "Konto nie jest określone w adresie URL. Użyj górnego paska wyszukiwania, aby wyszukać konto lub dołączyć go w adresie URL po /account/",
+      "dailyBalance": "Saldo dzienne dla ostatnich {{count}} transakcji",
+      "dailyBalanceOption": " Bilans dzienny",
+      "byTransaction": "Saldo konta dla ostatnich {{count}} transakcji",
+      "byTransactionOption": "Saldo według transakcji"
     },
     "block": {
       "blockSubtype": "Podtyp bloku",

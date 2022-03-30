@@ -183,7 +183,11 @@
       "missingAccountInfo": "Hesap URL'de belirtilmemiştir. Bir hesabı aramak için üstteki arama çubuğunu kullanın veya URL'ye /account/ sonrasına ekleyin.",
       "notVoting": "Oy Vermemek",
       "pendingTransactions": "Alınmaya hazır işlemler",
-      "pendingTransaction": "İşlem alınmaya hazır"
+      "pendingTransaction": "İşlem alınmaya hazır",
+      "dailyBalance": "Son {{count}} işlem için günlük bakiye",
+      "dailyBalanceOption": " Günlük bakiye",
+      "byTransaction": "Son {{count}} işlem için hesap bakiyesi",
+      "byTransactionOption": "İşlem bazında bakiye"
     },
     "block": {
       "blockSubtype": "Alt türü engelle",

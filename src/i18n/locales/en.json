@@ -183,7 +183,11 @@
       "notOpenedYet": "This account hasn't been opened yet",
       "notOpenedYetReason": "While the account address is valid, no blocks have been published to its chain yet. If NANO has been sent to this account, it still needs to publish a corresponding block to pocket the funds.",
       "missingAccount": "Missing account",
-      "missingAccountInfo": "The account is not specified in the URL. Use the top search bar for searching for an account or append it in the URL after /account/"
+      "missingAccountInfo": "The account is not specified in the URL. Use the top search bar for searching for an account or append it in the URL after /account/",
+      "dailyBalance": "Daily balance for last {{count}} transactions",
+      "dailyBalanceOption": " Daily balance",
+      "byTransaction": "Account balance for last {{count}} transactions",
+      "byTransactionOption": "Balance by transaction"
     },
     "block": {
       "blockSubtype": "Block subtype",

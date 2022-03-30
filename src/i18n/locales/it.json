@@ -183,7 +183,11 @@
       "missingAccountInfo": "L'account non è specificato nell'URL. Usa la barra di ricerca in alto per cercare un account o aggiungilo nell'URL dopo /account/",
       "notVoting": "Non voto",
       "pendingTransactions": "Transazioni pronte per essere ricevute",
-      "pendingTransaction": "Transazione pronta per essere ricevuta"
+      "pendingTransaction": "Transazione pronta per essere ricevuta",
+      "dailyBalance": "Saldo giornaliero per le ultime {{count}} transazioni",
+      "dailyBalanceOption": " Equilibrio giornaliero",
+      "byTransaction": "Saldo del conto per le ultime {{count}} transazioni",
+      "byTransactionOption": "Saldo per transazione"
     },
     "block": {
       "blockSubtype": "Sottotipo di blocco",

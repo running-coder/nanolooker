@@ -183,7 +183,11 @@
       "missingAccountInfo": "アカウントがURLで指定されていません。上部の検索バーを使用してアカウントを検索するか、URLの /account/ の後に追加します",
       "notVoting": "投票しない",
       "pendingTransactions": "受け取る準備ができているトランザクション",
-      "pendingTransaction": "トランザクションを受信する準備ができました"
+      "pendingTransaction": "トランザクションを受信する準備ができました",
+      "dailyBalance": "最後の{{count}}トランザクションの1日の残高",
+      "dailyBalanceOption": " 毎日のバランス",
+      "byTransaction": "最後の{{count}}トランザクションの口座残高",
+      "byTransactionOption": "取引ごとの残高"
     },
     "block": {
       "blockSubtype": "ブロックサブタイプ",

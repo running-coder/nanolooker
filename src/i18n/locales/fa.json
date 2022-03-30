@@ -183,7 +183,11 @@
       "missingAccountInfo": "حساب در URL مشخص نشده است. برای جستجوی حساب از نوار جستجوی بالا استفاده کنید یا آن را در URL بعد از / حساب اضافه کنید /",
       "notVoting": "رای ندادن",
       "pendingTransactions": "معاملات آماده دریافت است",
-      "pendingTransaction": "معامله آماده دریافت است"
+      "pendingTransaction": "معامله آماده دریافت است",
+      "dailyBalance": "موجودی روزانه برای آخرین {{count}} تراکنش",
+      "dailyBalanceOption": " تعادل روزانه",
+      "byTransaction": "موجودی حساب برای آخرین {{count}} تراکنش",
+      "byTransactionOption": "موجودی بر اساس معامله"
     },
     "block": {
       "blockSubtype": "زیر گروه را مسدود کنید",

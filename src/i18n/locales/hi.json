@@ -183,7 +183,11 @@
       "missingAccountInfo": "खाता URL में निर्दिष्ट नहीं है। खाता खोजने के लिए शीर्ष खोज बार का उपयोग करें या URL में /account/ के बाद इसे जोड़ें",
       "notVoting": "मतदान नहीं",
       "pendingTransactions": "लेन-देन प्राप्त करने के लिए तैयार",
-      "pendingTransaction": "लेन-देन प्राप्त करने के लिए तैयार"
+      "pendingTransaction": "लेन-देन प्राप्त करने के लिए तैयार",
+      "dailyBalance": "पिछले {{गिनती}} लेन-देन के लिए दैनिक शेष राशि",
+      "dailyBalanceOption": " दैनिक संतुलन",
+      "byTransaction": "पिछले {{गिनती}} लेन-देन के लिए खाते की शेष राशि",
+      "byTransactionOption": "लेन-देन द्वारा शेष राशि"
     },
     "block": {
       "blockSubtype": "ब्लॉक उपप्रकार",

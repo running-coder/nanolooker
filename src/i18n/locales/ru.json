@@ -183,7 +183,11 @@
       "missingAccountInfo": "Учетная запись не указана в URL. Используйте верхнюю панель поиска для поиска учетной записи или добавьте ее в URL-адрес после /account/",
       "notVoting": "Не голосование",
       "pendingTransactions": "Транзакции готовы к приему",
-      "pendingTransaction": "Транзакция готова к приему"
+      "pendingTransaction": "Транзакция готова к приему",
+      "dailyBalance": "Ежедневный баланс за последние {{count}} транзакции",
+      "dailyBalanceOption": " Дневной баланс",
+      "byTransaction": "Баланс счета за последние {{count}} транзакции",
+      "byTransactionOption": "Баланс по транзакции"
     },
     "block": {
       "blockSubtype": "Подтип блока",

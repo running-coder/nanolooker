@@ -183,7 +183,11 @@
       "missingAccountInfo": "Het account is niet gespecificeerd in de URL. Gebruik de zoekbalk bovenaan om naar een account te zoeken of voeg deze toe aan de URL achter /account/",
       "notVoting": "Niet stemmen",
       "pendingTransactions": "Transacties klaar om te worden ontvangen",
-      "pendingTransaction": "Transactie klaar om te worden ontvangen"
+      "pendingTransaction": "Transactie klaar om te worden ontvangen",
+      "dailyBalance": "Dagelijks saldo voor de laatste {{count}} transacties",
+      "dailyBalanceOption": " Dagelijkse balans",
+      "byTransaction": "Rekeningsaldo voor de laatste {{count}} transacties",
+      "byTransactionOption": "Saldo per transactie"
     },
     "block": {
       "blockSubtype": "Block subtype",

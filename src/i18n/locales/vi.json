@@ -183,7 +183,11 @@
       "missingAccountInfo": "Tài khoản không được chỉ định trong URL. Sử dụng thanh tìm kiếm trên cùng để tìm kiếm tài khoản hoặc thêm tài khoản vào URL sau /account/",
       "notVoting": "Không bỏ phiếu",
       "pendingTransactions": "Giao dịch đã sẵn sàng để nhận",
-      "pendingTransaction": "Giao dịch đã sẵn sàng để nhận"
+      "pendingTransaction": "Giao dịch đã sẵn sàng để nhận",
+      "dailyBalance": "Số dư hàng ngày cho {{count}} giao dịch gần đây nhất",
+      "dailyBalanceOption": " Số dư hàng ngày",
+      "byTransaction": "Số dư tài khoản cho {{count}} giao dịch gần đây nhất",
+      "byTransactionOption": "Số dư theo giao dịch"
     },
     "block": {
       "blockSubtype": "Block con",

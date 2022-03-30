@@ -183,7 +183,11 @@
       "missingAccountInfo": "الحساب غير محدد في URL. استخدم شريط البحث العلوي للبحث عن حساب أو إلحاقه بعنوان URL بعد / حساب /",
       "notVoting": "لا تصوت",
       "pendingTransactions": "المعاملات جاهزة للاستلام",
-      "pendingTransaction": "المعاملة جاهزة للاستلام"
+      "pendingTransaction": "المعاملة جاهزة للاستلام",
+      "dailyBalance": "الرصيد اليومي لآخر {{عدد}} معاملات",
+      "dailyBalanceOption": " الرصيد اليومي",
+      "byTransaction": "رصيد الحساب لآخر معاملات {{count}}",
+      "byTransactionOption": "التوازن عن طريق المعاملة"
     },
     "block": {
       "blockSubtype": "نوع الكتلة الفرعي",

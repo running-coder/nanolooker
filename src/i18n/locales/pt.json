@@ -183,7 +183,11 @@
       "missingAccountInfo": "A conta não está especificada no URL. Use a barra de pesquisa superior para pesquisar uma conta ou anexe-a no URL após /account/",
       "notVoting": "Não votando",
       "pendingTransactions": "Transações prontas para serem recebidas",
-      "pendingTransaction": "Transação pronta para ser recebida"
+      "pendingTransaction": "Transação pronta para ser recebida",
+      "dailyBalance": "Saldo diário das últimas {{count}} transações",
+      "dailyBalanceOption": " Saldo diário",
+      "byTransaction": "Saldo da conta para as últimas {{count}} transações",
+      "byTransactionOption": "Saldo por transação"
     },
     "block": {
       "blockSubtype": "Subtipo de bloco",

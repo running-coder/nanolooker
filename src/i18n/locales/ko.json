@@ -183,7 +183,11 @@
       "missingAccountInfo": "계정이 URL에 지정되지 않았습니다. 계정을 검색하려면 상단 검색 창을 사용하거나 /account/ 뒤의 URL에 추가하세요.",
       "notVoting": "투표하지 않음",
       "pendingTransactions": "받을 준비가 된 거래",
-      "pendingTransaction": "거래를 받을 준비가 되었습니다"
+      "pendingTransaction": "거래를 받을 준비가 되었습니다",
+      "dailyBalance": "마지막 {{count}} 거래에 대한 일일 잔액",
+      "dailyBalanceOption": " 일일 잔액",
+      "byTransaction": "마지막 {{count}} 거래에 대한 계정 잔액",
+      "byTransactionOption": "거래별 잔액"
     },
     "block": {
       "blockSubtype": "블록 하위 유형",

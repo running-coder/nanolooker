@@ -183,7 +183,11 @@
       "missingAccountInfo": "未在URL中指定帐户。使用顶部的搜索栏搜索帐户，或将其附加在 /account/ 之后的URL中",
       "notVoting": "不投票",
       "pendingTransactions": "准备接收的交易",
-      "pendingTransaction": "交易准备好接收"
+      "pendingTransaction": "交易准备好接收",
+      "dailyBalance": "最后 {{count}} 笔交易的每日余额",
+      "dailyBalanceOption": " 每日余额",
+      "byTransaction": "最近 {{count}} 笔交易的账户余额",
+      "byTransactionOption": "交易余额"
     },
     "block": {
       "blockSubtype": "块子类型",
