@@ -244,13 +244,13 @@ Attributes: Defense (30), Health bonus (2), Absorbed damage (2)
 
 **4. Frozen Armor**
 Attributes: Defense (30), Health bonus (2)
-Dropped by (Droprate): Necromancer (100%), Cow (1%), Blue Chest (?)
+Dropped by (Droprate): Necromancer (100%), Cow (1%), Blue Chest (6%)
 Unique Version: **Wall of Encrypted Energy**
 Attributes:Defense (32), Healthbonus (2), Absorbed damage (2)
 
 **5. Diamond Armor**
 Attributes: Defense (34), Health bonus (2)
-Dropped by (Droprate): Cow (?), Cow King (?)
+Dropped by (Droprate): Cow (0.14%), Cow King (10%)
 Unique Version: **Zero-knowledge Proof**
 Attributes:Defense (38), Healthbonus (2), Absorbed damage (2)
 
