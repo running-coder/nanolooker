@@ -6,6 +6,8 @@ Most items have a unique version with better/more stats. Weapons, armors & belts
 
 The items are listed in order of stats (Low - High) with exception for super uniques as they have attributes which are useful in different situations and cannot be ranked.
 
+Items can be upgraded by using the anvil in the village. The attributes described in this guide are for level 1 items. As an item is upgraded, all stats will get a higher number.
+
 # Attributes explained
 
 ## Defensive attributes
@@ -57,13 +59,13 @@ Deals ordinary damage as well as damage when hit by enemy
 Same as normal health stat but much higher
 
 **Cold damage**
-At the moment it is the same as flame damage but will get an additional bonus
+At the moment it is the same as flame damage (will get an additional bonus at a later stage)
 
 **Freeze**
 Freeze enemy for x seconds making them unable to attack you
 
 **Penetrate armor**
-Deals a high level of physical damage, same amount as Flame damage (will get additional properties at a later stage)
+Deals a high level of physical damage, same amount as Flame damage (might get additional properties at a later stage)
 
 ## Various
 
@@ -81,19 +83,19 @@ The default weapon
 Attributes: Attack (3), Magic damage (1)
 Dropped by: Spready out in village
 Unique Version: **Faketoshi**
-Attributes:
+Attributes: Attack (5), Flame damage (2)
 
 **2. Axe**
 Attributes: Attack (5), Magic damage (1)
 Dropped by (Droprate): Crab (15%), Bat (15%), Goblin(10%), Skeleton(15%)
 Unique Version: **NonDisclosure Agreement**
-Attributes:
+Attributes: Attack (7), Flame damage (2)
 
 **3. Morningstar**
 Attributes: Attack (7), Magic damage (1)
 Dropped by (Droprate): Snake (10%)
 Unique Version: **Block Latte**
-Attributes:
+Attributes: Attack (9), Flame damage (2)
 
 ## Armors
 
@@ -115,7 +117,7 @@ Attributes: Defense (7), Healthbonus (2), Absorbed damage (2)
 Attributes: Defense (2), Health bonus (2)
 Dropped by (Droprate): Crab (10%), Bat (10%), Goblin (10%), Skeleton (10%), Ogre (15%), Snake (10%)
 Unique Version: **Proof of Wear**
-Attributes:
+Attributes: Defense (4), Health bonus (2) + one randomized attribute (Attack, Defense, Health, Magic damage, Minimum damage, Maximum damage)
 
 ## Amulets
 
@@ -136,13 +138,13 @@ Dropped by (Droprate): Rat (5%), Crab (5%), Bat (5%), Goblin (5%), Skeleton (5%)
 Attributes: Attack (10), Magic damage (1)
 Dropped by (Droprate): Skeleton Warrior (10%)
 Unique Version: **Acyclic Graph**
-Attributes:
+Attributes: Attack (12), Flame damage (2)
 
 **2. Blazing Sword**
 Attributes: Attack (15), Magic damage (1)
 Dropped by (Droprate): Spectre (15%)
 Unique Version: **Volcanic Miner**
-Attributes:
+Attributes: Attack (17), Flame damage (2)
 
 ## Armors
 
@@ -164,7 +166,7 @@ Attributes: Defense (17), Healthbonus (2), Absorbed damage (2)
 Attributes: Defense (4), Health bonus (2)
 Dropped by (Droprate): Evil Eye (3%), Spectre (3%), Death Knight (5%)
 Unique Version: **Hodler**
-Attributes:
+Attributes: Defense (6), Health bonus (2) + one randomized attribute (Attack, Defense, Health, Magic damage, Minimum damage, Maximum damage)
 
 ## Amulets
 
@@ -188,37 +190,37 @@ Dropped by (Droprate): Ogre (2%), Snake (2%), Skeleton Warrior (2%), Evil Eye (4
 Attributes: Attack (20), Magic damage (1)
 Dropped by (Droprate): Skeleton King (80%)
 Unique Version: **Satoshi's Nephew**
-Attributes:
+Attributes: Attack (22), Flame damage (2)
 
 **2. Frozen Axe**
 Attributes: Attack (24), Magic damage (1)
 Dropped by (Droprate): Vampire Bat (5%), Undead Goblin (5%)
 Unique Version: **Feeless Cutter**
-Attributes:
+Attributes: Attack (26), Flame damage (2)
 
 **3. Frozen Morningstar**
 Attributes: Attack (26), Magic damage (1)
 Dropped by (Droprate): Werewolf (3%), Yeti (3%)
 Unique Version: **Saylormoon**
-Attributes:
+Attributes: Attack (28), Flame damage (2)
 
 **4. Sapphire Sword**
 Attributes: Attack (30), Magic damage (1)
 Dropped by (Droprate): Skeleton Commander (100%), Cow (1%), Blue Chest (?)
 Unique Version: **Broccolish Fury**
-Attributes:
+Attributes: Attack (32), Flame damage (2)
 
 **5. Diamond Sword**
 Attributes: Attack (36), Magic damage (1)
 Dropped by (Droprate): Cow, Cow King
 Unique Version: **Inevitable**
-Attributes:
+Attributes: Attack (40), Flame damage (2)
 
 **6. Minotaur Axe**
-Attributes:
+Attributes: Attack (38), Magic damage (1)
 Dropped by (Droprate): Minotaur (10%) & Blue Chest (?)
 Unique Version: **PoS4QoS**
-Attributes:
+Attributes: Attack (42), Flame damage (2)
 
 ## Armors
 
@@ -264,13 +266,13 @@ Attributes: Defense (12), Health bonus (2) + one randomized attribute (Attack, D
 Attributes: Defense (16), Health bonus (2)
 Dropped by (Droprate): Cow (?), Cow king (?)
 Unique Version: **Election scheduler**
-Attributes: Defense (18), Health bonus (2) + one randomized attribute (Attack, Defense, Health, Magic damage, Minimum damage, Maximum damage)
+Attributes: Defense (20), Health bonus (2) + one randomized attribute (Attack, Defense, Health, Magic damage, Minimum damage, Maximum damage)
 
 **3. Minotaur Belt**
-Attributes:
+Attributes: Defense (18), Healtyh bonus (2)
 Dropped by (Droprate): Minotaur (10%) Blue chest (?)
 Unique Version: **TaaC**
-Attributes:Defense (20), Health bonus (2) + one randomized attribute (Attack, Defense, Health, Magic damage, Minimum damage, Maximum damage)
+Attributes:Defense (22), Health bonus (2) + one randomized attribute (Attack, Defense, Health, Magic damage, Minimum damage, Maximum damage)
 
 
 ## Amulets
@@ -305,10 +307,10 @@ Your character will receive bonuses by wearing all set items
 ## Other
 
 **1. Cape**
-Attributes: Defense (?) + Randomized - Attack/Defence/EXP when in a party
+Attributes: Defense (1) + Either Attack/Defence/EXP % when player is in a party. The second attribute is randomly decided when the items is bought/dropped
 Dropped by (Droprate): Sold by the Red Wizard in the village and also dropped by Minotaur (?)
 Unique Version: **Cloak of Levitation**
-Attributes:
+Attributes: ?
 
 
 # Super-uniques
