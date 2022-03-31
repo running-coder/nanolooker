@@ -22,7 +22,7 @@ Absorbs a part of an enemy hit making health drop less
 Absorbs a part of an enemy hit making health drop less (small bonus increase with player level)
 
 **Health regeneration per second**
-Regenerates players health per second at a specific % rate
+Regenerates players health per second at a specific rate. It is a fixed amount added on top of the default % regeneration rate of (maxHp / 33) per second so if you have 330 max hp and use a +12 regen per second, you'll then regen 22hp per second
 
 **Block**
 Blocks a hit from enemy. No damage done if blocked. Random chance based on %
@@ -47,25 +47,25 @@ Hits enemy with higher damage. Random chance based on %
 ## Unique attributes
 
 **Flame damage**
-Same as magic damage but higher damage per level
+Elemental damage that adds both minimum and maximum damage similar to magic damage but with higher damage per level
 
 **Drain life**
 Deals damage to an enemy and also adds the same amount back to players health
 
 **Lightning damage**
-Deals ordinary damage as well as damage when hit by enemy
+Elemental damage that deals ordinary damage as well as damage when hit by enemy
 
 **Super health**
 Same as normal health stat but much higher
 
 **Cold damage**
-Cold elemental damage. The bonus is reduced when monsters resistant/immuned to cold are attacked
+Cold elemental damage. The damage is reduced if enemies resistant to cold are attacked and blocked if the enemy is immuned to cold
 
 **Freeze**
 Freeze enemy for x seconds making them unable to attack you
 
 **Penetrate armor**
-Deals a high level of physical damage
+Deals a high level of physical damage. Enemies cannot be resistant to physical damage
 
 ## Various
 
