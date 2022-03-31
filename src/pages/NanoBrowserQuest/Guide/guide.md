@@ -59,13 +59,13 @@ Deals ordinary damage as well as damage when hit by enemy
 Same as normal health stat but much higher
 
 **Cold damage**
-At the moment it is the same as flame damage (will get an additional bonus at a later stage)
+Cold elemental damage. The bonus is reduced when monsters resistant/immuned to cold are attacked
 
 **Freeze**
 Freeze enemy for x seconds making them unable to attack you
 
 **Penetrate armor**
-Deals a high level of physical damage, same amount as Flame damage (might get additional properties at a later stage)
+Deals a high level of physical damage
 
 ## Various
 
@@ -206,19 +206,19 @@ Attributes: Attack (28), Flame damage (2)
 
 **4. Sapphire Sword**
 Attributes: Attack (30), Magic damage (1)
-Dropped by (Droprate): Skeleton Commander (100%), Cow (1%), Blue Chest (?)
+Dropped by (Droprate): Skeleton Commander (100%), Cow (1%), Blue Chest (6%)
 Unique Version: **Broccolish Fury**
 Attributes: Attack (32), Flame damage (2)
 
 **5. Diamond Sword**
 Attributes: Attack (36), Magic damage (1)
-Dropped by (Droprate): Cow, Cow King
+Dropped by (Droprate): Cow (0.14%), Cow King (10%)
 Unique Version: **Inevitable**
 Attributes: Attack (40), Flame damage (2)
 
 **6. Minotaur Axe**
 Attributes: Attack (38), Magic damage (1)
-Dropped by (Droprate): Minotaur (10%) & Blue Chest (?)
+Dropped by (Droprate): Minotaur (10%) & Blue Chest (6%)
 Unique Version: **PoS4QoS**
 Attributes: Attack (42), Flame damage (2)
 
@@ -264,13 +264,13 @@ Attributes: Defense (12), Health bonus (2) + one randomized attribute (Attack, D
 
 **2. Diamond Belt**
 Attributes: Defense (16), Health bonus (2)
-Dropped by (Droprate): Cow (?), Cow king (?)
+Dropped by (Droprate): Cow (0.14%), Cow king (10%)
 Unique Version: **Election scheduler**
 Attributes: Defense (20), Health bonus (2) + one randomized attribute (Attack, Defense, Health, Magic damage, Minimum damage, Maximum damage)
 
 **3. Minotaur Belt**
 Attributes: Defense (18), Healtyh bonus (2)
-Dropped by (Droprate): Minotaur (10%) Blue chest (?)
+Dropped by (Droprate): Minotaur (10%) Blue chest (6%)
 Unique Version: **TaaC**
 Attributes:Defense (22), Health bonus (2) + one randomized attribute (Attack, Defense, Health, Magic damage, Minimum damage, Maximum damage)
 
@@ -306,11 +306,11 @@ Your character will receive bonuses by wearing all set items
 
 ## Other
 
-**1. Cape**
-Attributes: Defense (1) + Either Attack/Defence/EXP % when player is in a party. The second attribute is randomly decided when the items is bought/dropped
-Dropped by (Droprate): Sold by the Red Wizard in the village and also dropped by Minotaur (?)
+**Cape**
+Attributes: Defense (1) + one of the following attributes: Attack/Defence/EXP % when player is in a party. The second attribute is randomly decided when the items is bought/dropped
+Dropped by (Droprate): Sold by the Red Wizard in the village, Blue chest (6%)
 Unique Version: **Cloak of Levitation**
-Attributes: ?
+Attributes: Defense (1) + two random attributes (Attack/Defence/EXP %) instead of one 
 
 
 # Super-uniques
