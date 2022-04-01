@@ -126,7 +126,7 @@ There are currently no low level amulets
 ## Rings
 
 **Bronze Ring**
-Attributes: Randomzied attributes (Health, Absorb, Defense, Health regeneration, Attack, Magic damage, Min damage,
+Attributes: Randomzied attribute (Health, Absorb, Defense, Health regeneration, Attack, Magic damage, Min damage,
 Max damage, Experience)
 Dropped by (Droprate): Rat (5%), Crab (5%), Bat (5%), Goblin (5%), Skeleton (5%), Ogre (5%), Snake (5%), Skeleton Warrior (5%)
 
@@ -278,7 +278,8 @@ Attributes:Defense (22), Health bonus (2) + one randomized attribute (Attack, De
 ## Amulets
 
 **1. Gold Amulet**
-Attributes: Two randomized attributes (A) + Critical hit % or Block %
+Attributes: Two randomized attributes (Health, Absorb, Defense, Health regeneration, Attack, Magic damage, Min damage,
+Max damage, Experience) + Critical hit % or Block %
 Dropped by (Droprate): Undead Goblin (1%), Werewolf (1%), Skeleton Guard (1%), Skeleton Commander (3%), Undead Snake (2%), Wraith (2%), Zombie (2%)
 Necromancer (4%), Cow (1%)
 
