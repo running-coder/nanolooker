@@ -222,21 +222,6 @@ const AccountDetails: React.FC<Props> = ({
                   {accountsRepresentative?.account ? (
                     <>
                       <div style={{ display: "flex", margin: "3px 0" }}>
-                        {representative?.version ? (
-                          <Tag
-                            color={
-                              theme === Theme.DARK
-                                ? representative.isLatestVersion
-                                  ? TwoToneColors.RECEIVE_DARK
-                                  : TwoToneColors.WARNING_DARK
-                                : representative.isLatestVersion
-                                ? TwoToneColors.RECEIVE
-                                : TwoToneColors.WARNING
-                            }
-                          >
-                            v{representative?.version}
-                          </Tag>
-                        ) : null}
                         {typeof accountsRepresentative.isOnline ===
                         "boolean" ? (
                           <Tag
@@ -266,6 +251,19 @@ const AccountDetails: React.FC<Props> = ({
                         ) : null}
                         {accountsRepresentative?.isPrincipal ? (
                           <Tag>{t("common.principalRepresentative")}</Tag>
+                        ) : null}
+                        {representative?.version ? (
+                          <Tag
+                            color={
+                              !representative.isLatestVersion
+                                ? theme === Theme.DARK
+                                  ? TwoToneColors.WARNING_DARK
+                                  : TwoToneColors.WARNING
+                                : undefined
+                            }
+                          >
+                            v{representative?.version}
+                          </Tag>
                         ) : null}
                       </div>
 

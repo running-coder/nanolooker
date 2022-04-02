@@ -70,21 +70,6 @@ const AccountRepresentative: React.FC<Props> = ({ account }) => {
                   ? t("common.principalRepresentative")
                   : t("common.representative")}
               </Title>
-              {representative?.version ? (
-                <Tag
-                  color={
-                    theme === Theme.DARK
-                      ? representative?.isLatestVersion
-                        ? TwoToneColors.RECEIVE_DARK
-                        : TwoToneColors.WARNING_DARK
-                      : representative?.isLatestVersion
-                      ? TwoToneColors.RECEIVE
-                      : TwoToneColors.WARNING
-                  }
-                >
-                  v{representative.version}
-                </Tag>
-              ) : null}
               {typeof isOnline === "boolean" ? (
                 <Tag
                   color={
@@ -99,6 +84,19 @@ const AccountRepresentative: React.FC<Props> = ({ account }) => {
                   className={`tag-${isOnline ? "online" : "offline"}`}
                 >
                   {t(`common.${isOnline ? "online" : "offline"}`)}
+                </Tag>
+              ) : null}
+              {representative?.version ? (
+                <Tag
+                  color={
+                    !representative.isLatestVersion
+                      ? theme === Theme.DARK
+                        ? TwoToneColors.WARNING_DARK
+                        : TwoToneColors.WARNING
+                      : undefined
+                  }
+                >
+                  v{representative.version}
                 </Tag>
               ) : null}
             </div>
