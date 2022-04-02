@@ -41,7 +41,8 @@
     "comingSoon": "近日公開",
     "statistics": "統計",
     "continue": "継続する",
-    "link": "リンク"
+    "link": "リンク",
+    "noData": "データなし"
   },
   "nodeHealth": {
     "nodeReloading": "Nanoノードがリロードしています",
@@ -91,7 +92,8 @@
     "onChainVolume": "ネットワーク上で確認されたすべての NANO トランザクションの合計。ユーザー A が同じ日に 1 つの NANO を送信し、ユーザー B が 1 つの NANO を受信した場合、2 つのトランザクションがブロードキャストおよび確認されたため、1 日のボリュームに 2 つの NANO が追加されます。",
     "pendingTransactionCount": "売掛金取引の数が、表示されている制限の{{count}}を超えています。",
     "pendingTransaction": "資金はこの口座に送金されましたが、所有者はまだ資金をポケットに入れていません。アカウントの所有者のみが、受信したトランザクションをブロックチェーンに書き込むことができます。これがあなたのアカウントである場合は、ウォレットのロックを解除してください。通常、受信ブロックは自動的にブロードキャストされます。",
-    "socialStatistics": "統計は、CoinGeckoの時価総額別の上位100の暗号通貨を使用して編集されています。"
+    "socialStatistics": "統計は、CoinGeckoの時価総額別の上位100の暗号通貨を使用して編集されています。",
+    "dailyBalance": "トランザクションチャートは、アカウントに1日を超えるデータがあり、トランザクションにタイムスタンプがある場合にのみ表示されます"
   },
   "search": {
     "searchBy": "アドレス/ブロック/既知のアカウントで検索",
@@ -184,10 +186,9 @@
       "notVoting": "投票しない",
       "pendingTransactions": "受け取る準備ができているトランザクション",
       "pendingTransaction": "トランザクションを受信する準備ができました",
-      "dailyBalance": "最後の{{count}}トランザクションの1日の残高",
       "dailyBalanceOption": " 毎日のバランス",
-      "byTransaction": "最後の{{count}}トランザクションの口座残高",
-      "byTransactionOption": "取引ごとの残高"
+      "byTransactionOption": "取引ごとの残高",
+      "dailyBalance": "最後の{{count}}トランザクション"
     },
     "block": {
       "blockSubtype": "ブロックサブタイプ",

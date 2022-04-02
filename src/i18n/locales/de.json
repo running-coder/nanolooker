@@ -41,7 +41,8 @@
     "comingSoon": "Kommt bald",
     "statistics": "Statistiken",
     "continue": "Weitermachen",
-    "link": "Verknüpfung"
+    "link": "Verknüpfung",
+    "noData": "Keine Daten"
   },
   "nodeHealth": {
     "nodeReloading": "Der Nanoknoten wird neu geladen",
@@ -91,7 +92,8 @@
     "onChainVolume": "Die Summe aller NANO-Transaktionen, die im Netzwerk bestätigt wurden. Wenn Benutzer A 1 NANO sendet und Benutzer B 1 NANO am selben Tag empfängt, werden 2 NANO zum Tagesvolumen hinzugefügt, da 2 Transaktionen gesendet und bestätigt wurden, ein Senden und ein Empfangen.",
     "pendingTransactionCount": "Die Anzahl der ausstehenden Transaktionen überschreitet das angezeigte Limit von {{count}}.",
     "pendingTransaction": "Gelder wurden auf dieses Konto überwiesen, aber der Eigentümer hat die Gelder noch nicht eingesteckt. Nur der Inhaber des Kontos kann eine empfangene Transaktion in seine Blockchain schreiben. Wenn dies Ihr Konto ist, entsperren Sie Ihr Wallet, der Empfangsblock wird normalerweise automatisch gesendet.",
-    "socialStatistics": "Statistiken werden anhand der Top-100-Kryptowährungen nach Marktkapitalisierung von CoinGecko erstellt."
+    "socialStatistics": "Statistiken werden anhand der Top-100-Kryptowährungen nach Marktkapitalisierung von CoinGecko erstellt.",
+    "dailyBalance": "Das Transaktionsdiagramm ist nur sichtbar, wenn das Konto mehr als 1 Tag Daten hat und wenn die Transaktionen Zeitstempel haben"
   },
   "search": {
     "searchBy": "Suche nach Adresse / Block / Bekanntem Konto",
@@ -184,10 +186,9 @@
       "notVoting": "Nicht abstimmend",
       "pendingTransactions": "empfangsbereite Transaktionen",
       "pendingTransaction": "Transaktion empfangsbereit",
-      "dailyBalance": "Tagessaldo für die letzten {{count}} Transaktionen",
       "dailyBalanceOption": " Tagesbilanz",
-      "byTransaction": "Kontostand für die letzten {{count}} Transaktionen",
-      "byTransactionOption": "Saldo nach Transaktion"
+      "byTransactionOption": "Saldo nach Transaktion",
+      "dailyBalance": "Letzte {{count}} Transaktionen"
     },
     "block": {
       "blockSubtype": "Subtyp blockieren",

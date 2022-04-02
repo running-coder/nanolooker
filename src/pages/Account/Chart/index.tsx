@@ -1,12 +1,13 @@
 import * as React from "react";
 import moment from "moment";
 import { Line } from "@antv/g2plot";
-import { Card, Select } from "antd";
+import { Card, Empty, Select, Skeleton, Tooltip } from "antd";
 import { useTranslation } from "react-i18next";
 import BigNumber from "bignumber.js";
 import useAccountHistory from "api/hooks/use-account-history";
 import { AccountInfoContext } from "api/contexts/AccountInfo";
 import { rawToRai, intToString } from "components/utils";
+import QuestionCircle from "components/QuestionCircle";
 
 const { Option } = Select;
 
@@ -25,21 +26,33 @@ enum ChartType {
 const MAX_TRANSACTIONS = 500;
 const Chart: React.FC = () => {
   const { t } = useTranslation();
+  const [hasData, setHasData] = React.useState(false);
   const [dailyData, setDailyData] = React.useState([] as ChartData[]);
   const [transactionData, setTransactionData] = React.useState(
     [] as ChartData[],
   );
   const [chartType, setChartType] = React.useState<ChartType>(ChartType.DAILY);
-  const { account, accountInfo } = React.useContext(AccountInfoContext);
+  const {
+    account,
+    accountInfo,
+    isLoading: isAccountInfoLoading,
+    isError: isAccountInfoError,
+  } = React.useContext(AccountInfoContext);
   const blockCount = parseInt(accountInfo.block_count, 10) || 0;
 
   const {
     accountHistory: { history },
     isLoading: isAccountHistoryLoading,
-  } = useAccountHistory(account, {
-    count: String(MAX_TRANSACTIONS),
-    raw: true,
-  });
+  } = useAccountHistory(
+    account,
+    {
+      count: String(MAX_TRANSACTIONS),
+      raw: true,
+    },
+    {
+      skip: isAccountInfoLoading || isAccountInfoError,
+    },
+  );
 
   React.useEffect(() => {
     return () => {
@@ -126,6 +139,8 @@ const Chart: React.FC = () => {
 
     const data = chartType === ChartType.DAILY ? dailyData : transactionData;
 
+    setHasData(data.length > 1);
+
     const config = {
       data,
       height: 160,
@@ -196,6 +211,7 @@ const Chart: React.FC = () => {
           defaultValue={ChartType.DAILY}
           onChange={setChartType}
           style={{ width: 160 }}
+          disabled={!hasData}
         >
           <Option value={ChartType.DAILY}>
             {t("pages.account.dailyBalanceOption")}
@@ -206,7 +222,34 @@ const Chart: React.FC = () => {
         </Select>
       }
     >
-      <div id="account-tracker-chart" />
+      <Skeleton active loading={isAccountHistoryLoading}>
+        <div
+          id="account-tracker-chart"
+          style={{ display: hasData ? "block" : "none" }}
+        />
+      </Skeleton>
+
+      {!isAccountHistoryLoading && !hasData ? (
+        <Empty
+          image={Empty.PRESENTED_IMAGE_SIMPLE}
+          style={{ padding: "12px" }}
+          description={
+            <>
+              {t("common.noData")}
+              <Tooltip
+                placement="top"
+                title={
+                  <div style={{ marginBottom: "6px" }}>
+                    {t("tooltips.dailyBalance")}
+                  </div>
+                }
+              >
+                <QuestionCircle />
+              </Tooltip>
+            </>
+          }
+        />
+      ) : null}
     </Card>
   );
 };

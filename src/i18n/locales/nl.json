@@ -41,7 +41,8 @@
     "comingSoon": "Binnenkort beschikbaar",
     "statistics": "Statistieken",
     "continue": "Doorgaan met",
-    "link": "Koppeling"
+    "link": "Koppeling",
+    "noData": "Geen gegevens"
   },
   "nodeHealth": {
     "nodeReloading": "Nano node wordt opnieuw geladen",
@@ -91,7 +92,8 @@
     "onChainVolume": "De som van alle NANO-transacties die op het netwerk zijn bevestigd. Als gebruiker A 1 NANO verzendt en gebruiker B 1 NANO op dezelfde dag ontvangt, wordt 2 NANO toegevoegd aan het dagelijkse volume omdat er 2 transacties zijn uitgezonden en bevestigd, een verzenden en een ontvangen.",
     "pendingTransactionCount": "Het aantal te ontvangen transacties overschrijdt de weergegeven limiet van {{count}}.",
     "pendingTransaction": "Er is geld naar deze rekening gestuurd, maar de eigenaar heeft het geld nog niet op zak. Alleen de eigenaar van het account kan een ontvangen transactie in zijn blockchain schrijven. Als dit uw account is, ontgrendel dan uw portemonnee, het ontvangende blok wordt meestal automatisch uitgezonden.",
-    "socialStatistics": "Statistieken worden samengesteld met behulp van top 100 cryptocurrencies per marktkapitalisatie van CoinGecko."
+    "socialStatistics": "Statistieken worden samengesteld met behulp van top 100 cryptocurrencies per marktkapitalisatie van CoinGecko.",
+    "dailyBalance": "Transactiegrafiek is alleen zichtbaar als het account meer dan 1 dag aan gegevens heeft en als de transacties tijdstempels hebben"
   },
   "search": {
     "searchBy": "Zoeken op adres / block / bekend account",
@@ -184,10 +186,9 @@
       "notVoting": "Niet stemmen",
       "pendingTransactions": "Transacties klaar om te worden ontvangen",
       "pendingTransaction": "Transactie klaar om te worden ontvangen",
-      "dailyBalance": "Dagelijks saldo voor de laatste {{count}} transacties",
       "dailyBalanceOption": " Dagelijkse balans",
-      "byTransaction": "Rekeningsaldo voor de laatste {{count}} transacties",
-      "byTransactionOption": "Saldo per transactie"
+      "byTransactionOption": "Saldo per transactie",
+      "dailyBalance": "Laatste {{count}} transacties"
     },
     "block": {
       "blockSubtype": "Block subtype",

@@ -41,7 +41,8 @@
     "comingSoon": "即将推出",
     "statistics": "统计数据",
     "continue": "继续",
-    "link": "关联"
+    "link": "关联",
+    "noData": "没有数据"
   },
   "nodeHealth": {
     "nodeReloading": "纳米节点正在重新加载",
@@ -91,7 +92,8 @@
     "onChainVolume": "网络上已确认的所有 NANO 交易的总和。如果用户 A 发送 1 个 NANO，用户 B 在同一天收到 1 个 NANO，那么每天的交易量会增加 2 个 NANO，因为 2 个交易被广播和确认，一个发送和一个接收。",
     "pendingTransactionCount": "应收交易的数量超过了显示的{{count}} 限制。",
     "pendingTransaction": "资金已发送到此帐户，但所有者尚未将资金收入囊中。只有帐户的所有者才能将收到的交易写入他们的区块链。如果这是您的帐户，请解锁您的钱包，通常会自动广播接收块。",
-    "socialStatistics": "统计数据是使用 CoinGecko 按市值排名前 100 位的加密货币编制的。"
+    "socialStatistics": "统计数据是使用 CoinGecko 按市值排名前 100 位的加密货币编制的。",
+    "dailyBalance": "交易图表仅在账户有超过 1 天的数据并且交易有时间戳时才可见"
   },
   "search": {
     "searchBy": "按地址/阻止/已知帐户搜索",
@@ -184,10 +186,9 @@
       "notVoting": "不投票",
       "pendingTransactions": "准备接收的交易",
       "pendingTransaction": "交易准备好接收",
-      "dailyBalance": "最后 {{count}} 笔交易的每日余额",
       "dailyBalanceOption": " 每日余额",
-      "byTransaction": "最近 {{count}} 笔交易的账户余额",
-      "byTransactionOption": "交易余额"
+      "byTransactionOption": "交易余额",
+      "dailyBalance": "最后 {{count}} 笔交易"
     },
     "block": {
       "blockSubtype": "块子类型",

@@ -40,7 +40,7 @@ const Provider: React.FC = ({ children }) => {
   const [accountInfo, setAccountInfo] = React.useState(
     {} as AccountInfoRPCResponse,
   );
-  const [isLoading, setIsLoading] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(true);
   const [isError, setIsError] = React.useState(false);
 
   const getAccountInfo = async (account: string) => {

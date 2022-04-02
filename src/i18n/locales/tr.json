@@ -41,7 +41,8 @@
     "comingSoon": "Çok yakında",
     "statistics": "İstatistik",
     "continue": "Devam et",
-    "link": "Bağlantı"
+    "link": "Bağlantı",
+    "noData": "Veri yok"
   },
   "nodeHealth": {
     "nodeReloading": "Nano düğüm yeniden yükleniyor",
@@ -91,7 +92,8 @@
     "onChainVolume": "Ağda onaylanan tüm NANO işlemlerinin toplamı. Aynı gün A kullanıcısı 1 NANO gönderir ve B kullanıcısı 1 NANO alırsa, 2 işlem yayınlanıp onaylandığı için gönderme ve alma olmak üzere günlük hacme 2 NANO eklenir.",
     "pendingTransactionCount": "Alacak işlemlerinin sayısı, görüntülenen {{count}} sınırını aşıyor.",
     "pendingTransaction": "Para bu hesaba gönderildi, ancak sahibi henüz parayı cebe indirmedi. Yalnızca hesabın sahibi alınan bir işlemi blok zincirine yazabilir. Bu sizin hesabınızsa, cüzdanınızın kilidini açın, alıcı blok genellikle otomatik olarak yayınlanır.",
-    "socialStatistics": "İstatistikler, CoinGecko'nun piyasa değerine göre en iyi 100 kripto para birimi kullanılarak derlenir."
+    "socialStatistics": "İstatistikler, CoinGecko'nun piyasa değerine göre en iyi 100 kripto para birimi kullanılarak derlenir.",
+    "dailyBalance": "İşlem grafiği yalnızca hesapta 1 günden fazla veri varsa ve işlemlerin zaman damgaları varsa görünür"
   },
   "search": {
     "searchBy": "Adres / Blok / Bilinen Hesap ile Ara",
@@ -184,10 +186,9 @@
       "notVoting": "Oy Vermemek",
       "pendingTransactions": "Alınmaya hazır işlemler",
       "pendingTransaction": "İşlem alınmaya hazır",
-      "dailyBalance": "Son {{count}} işlem için günlük bakiye",
       "dailyBalanceOption": " Günlük bakiye",
-      "byTransaction": "Son {{count}} işlem için hesap bakiyesi",
-      "byTransactionOption": "İşlem bazında bakiye"
+      "byTransactionOption": "İşlem bazında bakiye",
+      "dailyBalance": "Son {{count}} işlem"
     },
     "block": {
       "blockSubtype": "Alt türü engelle",

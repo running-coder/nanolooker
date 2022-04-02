@@ -41,7 +41,8 @@
     "comingSoon": "Bientôt disponible",
     "statistics": "Statistiques",
     "continue": "Continuer",
-    "link": "Lien"
+    "link": "Lien",
+    "noData": "Pas de données"
   },
   "nodeHealth": {
     "nodeReloading": "Le nœud Nano est en cours de rechargement",
@@ -91,7 +92,8 @@
     "onChainVolume": "La somme de toutes les transactions NANO qui ont été confirmées sur le réseau. Si l'utilisateur A envoie 1 NANO et que l'utilisateur B reçoit 1 NANO le même jour, 2 NANO seront ajoutés au volume quotidien car 2 transactions ont été diffusées et confirmées, un envoi et une réception.",
     "pendingTransactionCount": "Le nombre de transactions à recevoir dépasse la limite affichée de {{count}}.",
     "pendingTransaction": "Des fonds ont été envoyés sur ce compte mais le propriétaire n'a pas encore empoché les fonds. Seul le propriétaire du compte peut écrire une transaction reçue dans sa blockchain. S'il s'agit de votre compte, déverrouillez votre portefeuille, le blocage de réception est généralement automatiquement diffusé.",
-    "socialStatistics": "Les statistiques sont compilées à l'aide des 100 principales crypto-monnaies par capitalisation boursière de CoinGecko."
+    "socialStatistics": "Les statistiques sont compilées à l'aide des 100 principales crypto-monnaies par capitalisation boursière de CoinGecko.",
+    "dailyBalance": "Le graphique des transactions n'est visible que si le compte a plus d'un jour de données et si les transactions ont des horodatages"
   },
   "search": {
     "searchBy": "Recherche par Adresse / Bloc / Compte Connu",
@@ -184,10 +186,9 @@
       "notVoting": "Ne pas voter",
       "pendingTransactions": "Transactions prêtes à être reçues",
       "pendingTransaction": "Transaction prête à être reçue",
-      "dailyBalance": "Solde quotidien pour les {{count}} dernières transactions",
       "dailyBalanceOption": " Solde journalier",
-      "byTransaction": "Solde du compte pour les {{count}} dernières transactions",
-      "byTransactionOption": "Solde par transaction"
+      "byTransactionOption": "Solde par transaction",
+      "dailyBalance": "{{count}} dernières transactions"
     },
     "block": {
       "blockSubtype": "Sous-type de bloc",

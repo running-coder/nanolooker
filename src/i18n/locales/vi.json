@@ -41,7 +41,8 @@
     "comingSoon": "Sắp có",
     "statistics": "Số liệu thống kê",
     "continue": "Tiếp tục",
-    "link": "Liên kết"
+    "link": "Liên kết",
+    "noData": "Không có dữ liệu"
   },
   "nodeHealth": {
     "nodeReloading": "Nút nano đang tải lại",
@@ -91,7 +92,8 @@
     "onChainVolume": "Tổng của tất cả các giao dịch NANO đã được xác nhận trên mạng. Nếu người dùng A gửi 1 NANO và người dùng B nhận được 1 NANO trong cùng một ngày, thì 2 NANO sẽ được thêm vào khối lượng hàng ngày vì 2 giao dịch đã được phát và xác nhận, một gửi và một nhận.",
     "pendingTransactionCount": "Số lượng giao dịch phải thu vượt quá giới hạn hiển thị là {{count}}.",
     "pendingTransaction": "Tiền đã được gửi đến tài khoản này nhưng chủ sở hữu vẫn chưa bỏ túi tiền. Chỉ chủ sở hữu tài khoản mới có thể ghi giao dịch đã nhận vào blockchain của họ. Nếu đây là tài khoản của bạn, hãy mở khóa ví của bạn, khối nhận thường được phát tự động.",
-    "socialStatistics": "Thống kê được tổng hợp bằng cách sử dụng 100 loại tiền điện tử hàng đầu theo vốn hóa thị trường từ CoinGecko."
+    "socialStatistics": "Thống kê được tổng hợp bằng cách sử dụng 100 loại tiền điện tử hàng đầu theo vốn hóa thị trường từ CoinGecko.",
+    "dailyBalance": "Biểu đồ giao dịch chỉ hiển thị nếu tài khoản có dữ liệu hơn 1 ngày và nếu các giao dịch có dấu thời gian"
   },
   "search": {
     "searchBy": "Tìm kiếm theo Địa chỉ / Khối / Tài khoản Đã biết",
@@ -184,10 +186,9 @@
       "notVoting": "Không bỏ phiếu",
       "pendingTransactions": "Giao dịch đã sẵn sàng để nhận",
       "pendingTransaction": "Giao dịch đã sẵn sàng để nhận",
-      "dailyBalance": "Số dư hàng ngày cho {{count}} giao dịch gần đây nhất",
       "dailyBalanceOption": " Số dư hàng ngày",
-      "byTransaction": "Số dư tài khoản cho {{count}} giao dịch gần đây nhất",
-      "byTransactionOption": "Số dư theo giao dịch"
+      "byTransactionOption": "Số dư theo giao dịch",
+      "dailyBalance": "{{Count}} giao dịch gần đây nhất"
     },
     "block": {
       "blockSubtype": "Block con",

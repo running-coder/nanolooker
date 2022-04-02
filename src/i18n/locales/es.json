@@ -41,7 +41,8 @@
     "comingSoon": "Próximamente, en breve, pronto",
     "statistics": "Estadísticas",
     "continue": "Continuar",
-    "link": "Enlace"
+    "link": "Enlace",
+    "noData": "Sin datos"
   },
   "nodeHealth": {
     "nodeReloading": "Nano nodo se está recargando",
@@ -91,7 +92,8 @@
     "onChainVolume": "La suma de todas las transacciones NANO que se han confirmado en la red. Si el usuario A envía 1 NANO y el usuario B recibe 1 NANO el mismo día, se agregarán 2 NANO en el volumen diario porque se transmitieron y confirmaron 2 transacciones, un envío y una recepción.",
     "pendingTransactionCount": "El número de transacciones por cobrar excede el límite mostrado de {{count}}.",
     "pendingTransaction": "Se enviaron fondos a esta cuenta, pero el propietario aún no se los ha guardado en el bolsillo. Solo el propietario de la cuenta puede escribir una transacción recibida en su blockchain. Si esta es su cuenta, desbloquee su billetera, el bloqueo de recepción generalmente se transmite automáticamente.",
-    "socialStatistics": "Las estadísticas se compilan utilizando las 100 principales criptomonedas por capitalización de mercado de CoinGecko."
+    "socialStatistics": "Las estadísticas se compilan utilizando las 100 principales criptomonedas por capitalización de mercado de CoinGecko.",
+    "dailyBalance": "El gráfico de transacciones solo es visible si la cuenta tiene más de 1 día de datos y si las transacciones tienen marcas de tiempo"
   },
   "search": {
     "searchBy": "Buscar por dirección / bloque / cuenta conocida",
@@ -184,10 +186,9 @@
       "notVoting": "No votar",
       "pendingTransactions": "Transacciones listas para ser recibidas",
       "pendingTransaction": "Transacción lista para ser recibida",
-      "dailyBalance": "Saldo diario de las últimas {{count}} transacciones",
       "dailyBalanceOption": " Saldo diario",
-      "byTransaction": "Saldo de cuenta de las últimas {{count}} transacciones",
-      "byTransactionOption": "Saldo por transacción"
+      "byTransactionOption": "Saldo por transacción",
+      "dailyBalance": "Últimas {{count}} transacciones"
     },
     "block": {
       "blockSubtype": "Subtipo de bloque",

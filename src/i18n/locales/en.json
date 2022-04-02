@@ -41,7 +41,8 @@
     "nodes": "Nodes",
     "comingSoon": "Coming soon",
     "statistics": "Statistics",
-    "link": "Link"
+    "link": "Link",
+    "noData": "No data"
   },
   "nodeHealth": {
     "nodeReloading": "Nano node is reloading",
@@ -91,7 +92,8 @@
     "versionsByWeight": "For a version to be taking over the network's consensus, it needs to have {{onlineWeightQuorumPercent}}% of the online voting weight from a minimum of {{onlineWeightMinimum}} NANO.",
     "onChainVolume": "The sum of all NANO transactions that have been confirmed on the network. If user A sends 1 NANO and user B receives 1 NANO on the same day, 2 NANO will be added in the daily volume because 2 transactions were broadcasted and confirmed, a send and a receive.",
     "pendingTransaction": "Funds were sent to this account but the owner has not yet pocketed the funds. Only the owner of the account can write a received transaction into their blockchain. If this is your account, unlock your wallet, the receiving block is usually automatically broadcasted.",
-    "socialStatistics": "Statistics are compiled using top 100 cryptocurrencies by market cap from CoinGecko."
+    "socialStatistics": "Statistics are compiled using top 100 cryptocurrencies by market cap from CoinGecko.",
+    "dailyBalance": "Transaction chart is only visible if the account has more than 1 day of data and if the transactions have timestamps"
   },
   "search": {
     "searchBy": "Search by Address / Block / Known Account",
@@ -184,9 +186,8 @@
       "notOpenedYetReason": "While the account address is valid, no blocks have been published to its chain yet. If NANO has been sent to this account, it still needs to publish a corresponding block to pocket the funds.",
       "missingAccount": "Missing account",
       "missingAccountInfo": "The account is not specified in the URL. Use the top search bar for searching for an account or append it in the URL after /account/",
-      "dailyBalance": "Daily balance for last {{count}} transactions",
+      "dailyBalance": "Last {{count}} transactions",
       "dailyBalanceOption": " Daily balance",
-      "byTransaction": "Account balance for last {{count}} transactions",
       "byTransactionOption": "Balance by transaction"
     },
     "block": {

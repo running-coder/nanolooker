@@ -41,7 +41,8 @@
     "nodes": "Węzły",
     "comingSoon": "Wkrótce",
     "statistics": "Statystyki",
-    "link": "Link"
+    "link": "Link",
+    "noData": "Brak danych"
   },
   "nodeHealth": {
     "nodeReloading": "Węzeł Nano jest załadowywany ponownie",
@@ -91,7 +92,8 @@
     "versionsByWeight": "Aby wersja przejęła konsensus sieci, musi mieć {{onlineWeightQuorumPercent}}% wagi głosów online z co najmniej {{onlineWeightMinimum}} NANO.",
     "onChainVolume": "Suma wszystkich transakcji NANO, które zostały potwierdzone w sieci. Jeśli użytkownik A wyśle 1 NANO, a użytkownik B otrzyma 1 NANO tego samego dnia, 2 NANO zostaną dodane do dziennego wolumenu, ponieważ 2 transakcje zostały wyemitowane i potwierdzone, wysłanie i odbiór.",
     "pendingTransaction": "Środki zostały wysłane na to konto, ale właściciel jeszcze ich nie przejął. Tylko właściciel konta może zapisać otrzymaną transakcję w swoim łańcuchu bloków. Jeśli to jest twoje konto, odblokuj portfel, blokada odbioru jest zwykle automatycznie transmitowana.",
-    "socialStatistics": "Statystyki są kompilowane przy użyciu 100 najlepszych kryptowalut według kapitalizacji rynkowej z CoinGecko."
+    "socialStatistics": "Statystyki są kompilowane przy użyciu 100 najlepszych kryptowalut według kapitalizacji rynkowej z CoinGecko.",
+    "dailyBalance": "Wykres transakcji jest widoczny tylko wtedy, gdy konto ma więcej niż 1 dzień danych i jeśli transakcje mają znaczniki czasu"
   },
   "search": {
     "searchBy": "Szukaj według Adresu / Bloku / Znanego konta",
@@ -184,10 +186,9 @@
       "notOpenedYetReason": "Chociaż adres konta jest prawidłowy, żadne bloki nie zostały jeszcze opublikowane w jego łańcuchu. Jeśli NANO zostało wysłane na to konto, nadal musi opublikować odpowiedni blok, aby zdobyć środki.",
       "missingAccount": "Brakujące konto",
       "missingAccountInfo": "Konto nie jest określone w adresie URL. Użyj górnego paska wyszukiwania, aby wyszukać konto lub dołączyć go w adresie URL po /account/",
-      "dailyBalance": "Saldo dzienne dla ostatnich {{count}} transakcji",
       "dailyBalanceOption": " Bilans dzienny",
-      "byTransaction": "Saldo konta dla ostatnich {{count}} transakcji",
-      "byTransactionOption": "Saldo według transakcji"
+      "byTransactionOption": "Saldo według transakcji",
+      "dailyBalance": "Ostatnie {{count}} transakcje"
     },
     "block": {
       "blockSubtype": "Podtyp bloku",
