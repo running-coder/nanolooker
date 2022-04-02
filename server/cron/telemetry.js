@@ -4,6 +4,7 @@ const { nodeCache } = require("../client/cache");
 const { Sentry } = require("../sentry");
 const { TELEMETRY } = require("../constants");
 const { getConfirmationQuorumPeers } = require("./nodeMonitors");
+const { setRepresentatives } = require("../api/representative");
 
 const BASE_DIFFICULTY = 0xfffffff800000000;
 
@@ -15,8 +16,10 @@ const doTelemetryCron = async () => {
     const { metrics } = await rpc("telemetry", {
       raw: true,
     });
-
     const peers = await getConfirmationQuorumPeers();
+
+    // Record representative node version for account page
+    setRepresentatives({ metrics, peers });
 
     const percentiles = calculatePercentiles(metrics, peers);
 

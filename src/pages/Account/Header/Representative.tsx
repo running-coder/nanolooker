@@ -4,6 +4,7 @@ import { Col, Row, Tag, Typography } from "antd";
 import { RepresentativesContext } from "api/contexts/Representatives";
 import { Theme, PreferencesContext } from "api/contexts/Preferences";
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
+import useRepresentative from "api/hooks/use-representative";
 import { TwoToneColors } from "components/utils";
 
 const { Text, Title } = Typography;
@@ -18,12 +19,17 @@ const AccountRepresentative: React.FC<Props> = ({ account }) => {
     {} as any,
   );
   const [alias, setAlias] = React.useState("");
-  const {
-    representatives,
-    isLoading: isRepresentativesLoading,
-  } = React.useContext(RepresentativesContext);
+  const { representatives, isLoading: isRepresentativesLoading } =
+    React.useContext(RepresentativesContext);
   const { theme } = React.useContext(PreferencesContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
+
+  const { representative } = useRepresentative(
+    {
+      account,
+    },
+    { skip: !accountRepresentative?.account },
+  );
 
   React.useEffect(() => {
     if (!account || isRepresentativesLoading || !representatives.length) return;
@@ -64,6 +70,21 @@ const AccountRepresentative: React.FC<Props> = ({ account }) => {
                   ? t("common.principalRepresentative")
                   : t("common.representative")}
               </Title>
+              {representative?.version ? (
+                <Tag
+                  color={
+                    theme === Theme.DARK
+                      ? representative?.isLatestVersion
+                        ? TwoToneColors.RECEIVE_DARK
+                        : TwoToneColors.WARNING_DARK
+                      : representative?.isLatestVersion
+                      ? TwoToneColors.RECEIVE
+                      : TwoToneColors.WARNING
+                  }
+                >
+                  v{representative.version}
+                </Tag>
+              ) : null}
               {typeof isOnline === "boolean" ? (
                 <Tag
                   color={

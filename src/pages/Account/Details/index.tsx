@@ -30,6 +30,7 @@ import { Sections } from "../.";
 
 import type { PageParams } from "types/page";
 import type { Transaction } from "types/transaction";
+import useRepresentative from "api/hooks/use-representative";
 
 interface AccountDetailsLayoutProps {
   bordered?: boolean;
@@ -65,6 +66,9 @@ const AccountDetails: React.FC<Props> = ({
   const [accountsRepresentative, setAccountsRepresentative] = React.useState(
     {} as Representative,
   );
+  const { representative } = useRepresentative({
+    account: accountsRepresentative?.account,
+  });
 
   const {
     marketStatistics: {
@@ -218,6 +222,21 @@ const AccountDetails: React.FC<Props> = ({
                   {accountsRepresentative?.account ? (
                     <>
                       <div style={{ display: "flex", margin: "3px 0" }}>
+                        {representative?.version ? (
+                          <Tag
+                            color={
+                              theme === Theme.DARK
+                                ? representative.isLatestVersion
+                                  ? TwoToneColors.RECEIVE_DARK
+                                  : TwoToneColors.WARNING_DARK
+                                : representative.isLatestVersion
+                                ? TwoToneColors.RECEIVE
+                                : TwoToneColors.WARNING
+                            }
+                          >
+                            v{representative?.version}
+                          </Tag>
+                        ) : null}
                         {typeof accountsRepresentative.isOnline ===
                         "boolean" ? (
                           <Tag

@@ -63,6 +63,7 @@ const { getNodeLocations } = require("./api/nodeLocations");
 const { getNodeMonitors } = require("./api/nodeMonitors");
 const { getDelegatedEntity } = require("./api/delegatedEntity");
 const { getTelemetry } = require("./api/telemetry");
+const { getRepresentative } = require("./api/representative");
 const { Sentry } = require("./sentry");
 
 const app = express();
@@ -141,10 +142,8 @@ app.get("/api/market-statistics", async (req, res) => {
   const cachedConfirmations48h = nodeCache.get(TOTAL_CONFIRMATIONS_48H);
   const cachedVolume48h = nodeCache.get(TOTAL_VOLUME_48H);
 
-  const {
-    btcTransactionFees24h,
-    btcTransactionFees48h,
-  } = await getBtcTransactionFees();
+  const { btcTransactionFees24h, btcTransactionFees48h } =
+    await getBtcTransactionFees();
   const { marketStats, priceStats } = await getCoingeckoStats({
     fiat: req.query.fiat,
     cryptocurrency: req.query.cryptocurrency,
@@ -202,6 +201,14 @@ app.get("/api/node-locations", async (req, res) => {
   const nodeLocations = await getNodeLocations();
 
   res.send(nodeLocations);
+});
+
+app.get("/api/representative", async (req, res) => {
+  const { account } = req.query;
+
+  const representative = await getRepresentative(account);
+
+  res.send(representative);
 });
 
 app.get("/api/delegated-entity", async (req, res) => {

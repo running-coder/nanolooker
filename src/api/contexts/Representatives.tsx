@@ -17,13 +17,12 @@ export interface RepresentativesReturn {
   isError: boolean;
 }
 
-export const RepresentativesContext = React.createContext<RepresentativesReturn>(
-  {
+export const RepresentativesContext =
+  React.createContext<RepresentativesReturn>({
     representatives: [],
     isLoading: true,
     isError: false,
-  },
-);
+  });
 
 let isEnhancedRepresentativeDone = false;
 
@@ -41,9 +40,8 @@ const Provider: React.FC = ({ children }) => {
   const { representatives: representativesOnline } = React.useContext(
     RepresentativesOnlineContext,
   );
-  const { knownAccounts, isLoading: isKnownAccountsLoading } = React.useContext(
-    KnownAccountsContext,
-  );
+  const { knownAccounts, isLoading: isKnownAccountsLoading } =
+    React.useContext(KnownAccountsContext);
 
   const getRepresentatives = async () => {
     setIsError(false);
@@ -55,6 +53,8 @@ const Provider: React.FC = ({ children }) => {
     !json || json.error
       ? setIsError(true)
       : setRepresentatives(json.representatives);
+
+    setIsLoading(false);
   };
 
   React.useEffect(() => {
