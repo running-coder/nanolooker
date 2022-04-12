@@ -47,19 +47,19 @@ Hits enemy with higher damage. Random chance based on %
 ## Unique attributes
 
 **Flame damage**
-Elemental damage that adds both minimum and maximum damage similar to magic damage but with higher damage per level
+Elemental damage that adds both minimum and maximum damage similar to magic damage but with higher damage per item level. The damage is reduced if enemies resistant to the element are attacked and blocked if the enemy is immuned to it
 
 **Drain life**
 Deals damage to an enemy and also adds the same amount back to players health
 
 **Lightning damage**
-Elemental damage that deals ordinary damage as well as damage when hit by enemy
+Elemental damage that deals ordinary damage as well as damage when hit by enemy. The damage is reduced if enemies resistant to the element are attacked and blocked if the enemy is immuned to it
 
 **Super health**
 Same as normal health stat but much higher
 
 **Cold damage**
-Cold elemental damage. The damage is reduced if enemies resistant to cold are attacked and blocked if the enemy is immuned to cold
+Cold elemental damage. The damage is reduced if enemies resistant to the element are attacked and blocked if the enemy is immuned to it
 
 **Freeze**
 Freeze enemy for x seconds making them unable to attack you
@@ -82,18 +82,21 @@ The default weapon
 **1. Sword**
 Attributes: Attack (3), Magic damage (1)
 Dropped by: Spready out in village
+
 Unique Version: **Faketoshi**
 Attributes: Attack (5), Flame damage (2)
 
 **2. Axe**
 Attributes: Attack (5), Magic damage (1)
 Dropped by (Droprate): Crab (15%), Bat (15%), Goblin(10%), Skeleton(15%)
+
 Unique Version: **NonDisclosure Agreement**
 Attributes: Attack (7), Flame damage (2)
 
 **3. Morningstar**
 Attributes: Attack (7), Magic damage (1)
 Dropped by (Droprate): Snake (10%)
+
 Unique Version: **Block Latte**
 Attributes: Attack (9), Flame damage (2)
 
@@ -102,20 +105,23 @@ Attributes: Attack (9), Flame damage (2)
 **1. Leather armor**
 Attributes: Defense (3), Health bonus (2)
 Dropped by (Droprate): Crab (10%), Goblin (15%)
+
 Unique Version: **Representative**
-Attributes: Defense (5), Healthbonus (2), Absorbed damage (2)
+Attributes: Defense (5), Health bonus (2), Absorbed damage (2)
 
 **2. Mail Armor**
 Attributes: Defense (5), Health bonus (2)
 Dropped by (Droprate): Skeleton (10%), Snake (10%)
+
 Unique Version: **ForeX Guard**
-Attributes: Defense (7), Healthbonus (2), Absorbed damage (2)
+Attributes: Defense (7), Health bonus (2), Absorbed damage (2)
 
 ## Belts
 
 **1. Leather belt**
 Attributes: Defense (2), Health bonus (2)
 Dropped by (Droprate): Crab (10%), Bat (10%), Goblin (10%), Skeleton (10%), Ogre (15%), Snake (10%)
+
 Unique Version: **Proof of Wear**
 Attributes: Defense (4), Health bonus (2) + one randomized attribute (Attack, Defense, Health, Magic damage, Minimum damage, Maximum damage)
 
@@ -137,12 +143,14 @@ Dropped by (Droprate): Rat (5%), Crab (5%), Bat (5%), Goblin (5%), Skeleton (5%)
 **1. Magic Sword**
 Attributes: Attack (10), Magic damage (1)
 Dropped by (Droprate): Skeleton Warrior (10%)
+
 Unique Version: **Acyclic Graph**
 Attributes: Attack (12), Flame damage (2)
 
 **2. Blazing Sword**
 Attributes: Attack (15), Magic damage (1)
 Dropped by (Droprate): Spectre (15%)
+
 Unique Version: **Volcanic Miner**
 Attributes: Attack (17), Flame damage (2)
 
@@ -151,20 +159,23 @@ Attributes: Attack (17), Flame damage (2)
 **1. Plate Armor**
 Attributes: Defense (10), Health bonus (2)
 Dropped by (Droprate): Ogre (15%), Skeleton Warrior (10%)
+
 Unique Version: **Green Alternative**
-Attributes: Defense (12), Healthbonus (2), Absorbed damage (2)
+Attributes: Defense (12), Health bonus (2), Absorbed damage (2)
 
 **2. Ruby Armor**
 Attributes: Defense (15), Health bonus (2)
 Dropped by (Droprate): Evil Eye (12%)
+
 Unique Version: **Appia's Road**
-Attributes: Defense (17), Healthbonus (2), Absorbed damage (2)
+Attributes: Defense (17), Health bonus (2), Absorbed damage (2)
 
 ## Belts
 
 **1. Plated belt**
 Attributes: Defense (4), Health bonus (2)
 Dropped by (Droprate): Evil Eye (3%), Spectre (3%), Death Knight (5%)
+
 Unique Version: **Hodler**
 Attributes: Defense (6), Health bonus (2) + one randomized attribute (Attack, Defense, Health, Magic damage, Minimum damage, Maximum damage)
 
@@ -189,36 +200,42 @@ Dropped by (Droprate): Ogre (2%), Snake (2%), Skeleton Warrior (2%), Evil Eye (4
 **1. Golden Sword**
 Attributes: Attack (20), Magic damage (1)
 Dropped by (Droprate): Skeleton King (80%)
+
 Unique Version: **Satoshi's Nephew**
 Attributes: Attack (22), Flame damage (2)
 
 **2. Frozen Axe**
 Attributes: Attack (24), Magic damage (1)
 Dropped by (Droprate): Vampire Bat (5%), Undead Goblin (5%)
+
 Unique Version: **Feeless Cutter**
 Attributes: Attack (26), Flame damage (2)
 
 **3. Frozen Morningstar**
 Attributes: Attack (26), Magic damage (1)
 Dropped by (Droprate): Werewolf (3%), Yeti (3%)
+
 Unique Version: **Saylormoon**
 Attributes: Attack (28), Flame damage (2)
 
 **4. Sapphire Sword**
 Attributes: Attack (30), Magic damage (1)
 Dropped by (Droprate): Skeleton Commander (100%), Cow (1%), Blue Chest (6%)
+
 Unique Version: **Broccolish Fury**
 Attributes: Attack (32), Flame damage (2)
 
 **5. Diamond Sword**
 Attributes: Attack (36), Magic damage (1)
 Dropped by (Droprate): Cow (0.14%), Cow King (10%)
+
 Unique Version: **Inevitable**
 Attributes: Attack (40), Flame damage (2)
 
 **6. Minotaur Axe**
 Attributes: Attack (38), Magic damage (1)
 Dropped by (Droprate): Minotaur (10%) & Blue Chest (6%)
+
 Unique Version: **PoS4QoS**
 Attributes: Attack (42), Flame damage (2)
 
@@ -227,50 +244,58 @@ Attributes: Attack (42), Flame damage (2)
 **1. Golden Armor**
 Attributes: Defense (20), Health bonus (2)
 Dropped by (Droprate): Skeleton King (100%)
+
 Unique Version: **Store of Value**
-Attributes: Defense (22), Healthbonus (2), Absorbed damage (2)
+Attributes: Defense (22), Health bonus (2), Absorbed damage (2)
 
 **2. Sapphire Armor**
 Attributes: Defense (24), Health bonus (2)
 Dropped by (Droprate): Undead Rat (5%), Werewolf (3%), Yeti (3%)
+
 Unique Version: **Firano's Hide**
-Attributes: Defense (26), Healthbonus (2), Absorbed damage (2)
+Attributes: Defense (26), Health bonus (2), Absorbed damage (2)
 
 **3. Horned Armor**
 Attributes: Defense (28), Health bonus (2)
 Dropped by (Droprate): Skeleton Guard (3%), Skeleton Commander (5%), Cow (1%)
+
 Unique Version: **RaiBlocks**
 Attributes: Defense (30), Health bonus (2), Absorbed damage (2)
 
 **4. Frozen Armor**
 Attributes: Defense (30), Health bonus (2)
 Dropped by (Droprate): Necromancer (100%), Cow (1%), Blue Chest (6%)
+
 Unique Version: **Wall of Encrypted Energy**
-Attributes:Defense (32), Healthbonus (2), Absorbed damage (2)
+Attributes:Defense (32), Health bonus (2), Absorbed damage (2)
 
 **5. Diamond Armor**
 Attributes: Defense (34), Health bonus (2)
 Dropped by (Droprate): Cow (0.14%), Cow King (10%)
+
 Unique Version: **Zero-knowledge Proof**
-Attributes:Defense (38), Healthbonus (2), Absorbed damage (2)
+Attributes:Defense (38), Health bonus (2), Absorbed damage (2)
 
 ## Belts
 
 **1. Frozen Belt**
 Attributes: Defense (10), Health bonus (2)
 Dropped by (Droprate): Vampire Bat (3%), Undead Goblin (5%), Werewolf (3%), Undead Snake (5%), Wraith (3%), Cow (1%)
+
 Unique Version: **Spam Resistor**
 Attributes: Defense (12), Health bonus (2) + one randomized attribute (Attack, Defense, Health, Magic damage, Minimum damage, Maximum damage)
 
 **2. Diamond Belt**
 Attributes: Defense (16), Health bonus (2)
 Dropped by (Droprate): Cow (0.14%), Cow king (10%)
+
 Unique Version: **Election scheduler**
 Attributes: Defense (20), Health bonus (2) + one randomized attribute (Attack, Defense, Health, Magic damage, Minimum damage, Maximum damage)
 
 **3. Minotaur Belt**
 Attributes: Defense (18), Healtyh bonus (2)
 Dropped by (Droprate): Minotaur (10%) Blue chest (6%)
+
 Unique Version: **TaaC**
 Attributes:Defense (22), Health bonus (2) + one randomized attribute (Attack, Defense, Health, Magic damage, Minimum damage, Maximum damage)
 
@@ -310,6 +335,7 @@ Your character will receive bonuses by wearing all set items
 **Cape**
 Attributes: Defense (1) + one of the following attributes: Attack/Defence/EXP % when player is in a party. The second attribute is randomly decided when the items is bought/dropped
 Dropped by (Droprate): Sold by the Red Wizard in the village, Blue chest (6%)
+
 Unique Version: **Cloak of Levitation**
 Attributes: Defense (1) + two random attributes (Attack/Defence/EXP %) instead of one 
 
