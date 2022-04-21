@@ -19,7 +19,7 @@ Basic player health that determines how much damage can be taken
 Absorbs a part of an enemy hit making health drop less
 
 **Defense**
-Absorbs a part of an enemy hit making health drop less (small bonus increase with player level)
+Basic defense stat, similar to absorb it blocks a part of an enemy hit making health drop less (small bonus increase with player level)
 
 **Health regeneration per second**
 Regenerates players health per second at a specific rate. It is a fixed amount added on top of the default % regeneration rate of (maxHp / 33) per second so if you have 330 max hp and use a +12 regen per second, you'll then regen 22hp per second
@@ -27,13 +27,18 @@ Regenerates players health per second at a specific rate. It is a fixed amount a
 **Block**
 Blocks a hit from enemy. No damage done if blocked. Random chance based on %
 
+## Discussion
+**Defense vs Absorbed damage**
+
+Defense and Absorbed damage do basically the same thing, blocking a portion of an enemy hit to make the players health decrease less when attacked. The difference between the two attributes is that Absorbed damage gives a higher protection at lower item levels. For example at level +5 an item with Absorbed damage would give the player 10 Absorbed points while the same item with the Defence attribute would only give 8. This is evened out at level +7 (both attributes will give 15 points). Given the bonus that Defense gives based on player level, this stat would be desirable compared to Absorbed damage if the player aims to upgrade the item to +7 or higher.
+
 ## Offensive attributes
 
 **Attack**
-Damage dealt by player (small bonus increase with player level)
+Basic Damage dealt by player. both min and max damage increases when items with attack attribute are equipped (small bonus increase with player level)
 
 **Magic damage**
-Both min and max damage increase
+Both min and max damage increase. Higher amount of damage compared to regular attack attribute (enemies can be immune to this attribute)
 
 **Minimim damage**
 Minimum damage increase
@@ -44,10 +49,15 @@ Maximum damage increase
 **Critical hit**
 Hits enemy with higher damage. Random chance based on %
 
+## Discussion
+**Attack vs Magic vs Min/Max**
+
+Magic damage beats attack at lower player levels because of the higher number per item level. However, as the player starts to level up the Attack added from an item will be higher than indicated by the number because of the level bonus. Enemies can also be immuned to Magic damage, making regular Attack a more reliable attribute. Mix/Max are beaten by both of the other attributes as they only add half of the damage, making them worse attributes in almost all cases. The only exception would be when fighting an enemy that is immuned to Magic damage. 
+
 ## Unique attributes
 
 **Flame damage**
-Elemental damage that adds both minimum and maximum damage similar to magic damage but with higher damage per item level. The damage is reduced if enemies resistant to the element are attacked and blocked if the enemy is immuned to it
+Elemental damage that adds both minimum and maximum damage similar to magic damage but higher per item level. The damage is reduced if enemies resistant to the element are attacked and blocked if the enemy is immuned to it
 
 **Drain life**
 Deals damage to an enemy and also adds the same amount back to players health
@@ -65,7 +75,7 @@ Cold elemental damage. The damage is reduced if enemies resistant to the element
 Freeze enemy for x seconds making them unable to attack you
 
 **Penetrate armor**
-Deals a high level of physical damage. Enemies cannot be resistant to physical damage
+Deals a high level of physical damage (similar to Attack but with a much higher number). Enemies cannot be resistant to physical damage
 
 ## Various
 
@@ -399,3 +409,6 @@ To participate in a party you may type these commands in chat.
 /party remove playerName (as the party leader)
 /party disband (as the party leader)
 ```
+# Tips & Tricks
+
+When looting items remember that unique counterparts look the same as the regular items. When searching/farming for a unique, remember to pick up items and check your inventory. Super uniques have a distinguishable skin but it is always a good idea to pick up drops as items can be hidden underneath one another. This is particularly important when dealing with drops of similar color e.g. Fountain of Youth having a similar color to Rejuvenation Potion.
