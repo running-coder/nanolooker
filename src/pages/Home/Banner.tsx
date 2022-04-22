@@ -152,6 +152,16 @@ const Banner: React.FC = () => {
           <img alt="Go to BananoLooker" src={`/banano.svg`} height="12px" />
         </Button> */}
       </Space>
+
+      <Link to={"/nanobrowserquest"}>
+        <img
+          alt="NanoBrowserQuest Promotion 50% off Freezing Lands expansion"
+          src={`/nanobrowserquest/nbq-promotion-50-off-expansion.jpg`}
+          height="120px"
+          width="532px"
+          style={{ margin: "12px auto 0" }}
+        />
+      </Link>
     </div>
   );
 };
