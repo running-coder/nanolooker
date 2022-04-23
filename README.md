@@ -10,7 +10,7 @@ Nano makes money efficient for a more equal world — simple to pay with, easy t
 - Nano is a fee-less cryptocurrency, making it practical and inclusive for everyone in the world.
 - Without relying on mining, printing or minting, Nano is sustainable digital money.
 - Every Nano is distributed, making it a deflationary currency.
-- Instant and secure, a transaction is fully confirmed on the network under 1 second.
+- Instant and secure, a transaction is fully confirmed on the network under 1 second(sometimes 30 minute+).
 
 ## Install
 
