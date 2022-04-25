@@ -88,5 +88,15 @@
     "alias": "BananoFaucet.club",
     "account": "ban_3rzg5w93ipik4aie3uzafetsfa6dnqdrrsmw9c9dussge7eb5s45xmh4o4pa",
     "link": "https://www.bananofaucet.club/"
+  },
+  {
+    "alias": "nano2go",
+    "account": "ban_14yf998msf8zh1du3zchxbetqqtzjjczp84ntnku1atwttwo558us8ewo16z",
+    "link": "https://nano2go.herokuapp.com/"
+  },
+  {
+    "alias": "BananoForest Faucet",
+    "account": "ban_3sinkoff1yj9z5fougwao1gbjtsmb98u1j5p9kcrndqcc4irdxgzsjbem96e",
+    "link": "https://faucet.bananoforest.com/"
   }
 ]
