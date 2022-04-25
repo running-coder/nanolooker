@@ -2,7 +2,7 @@ version: "3"
 
 services:
   nano-node:
-    image: nanocurrency/nano:V22.1
+    image: nanocurrency/nano
     container_name: nano-node
     hostname: nano-node
     environment:
