@@ -2,6 +2,7 @@ import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Button, Space, Typography } from "antd";
+import Countdown from "react-countdown";
 import { Theme, PreferencesContext } from "api/contexts/Preferences";
 import Search from "components/Search";
 import { Tracker } from "components/utils/analytics";
@@ -153,15 +154,45 @@ const Banner: React.FC = () => {
         </Button> */}
       </Space>
 
-      <Link to={"/nanobrowserquest"}>
-        <img
-          alt="NanoBrowserQuest Promotion 50% off Freezing Lands expansion"
-          src={`/nanobrowserquest/nbq-promotion-50-off-expansion.jpg`}
-          height="120px"
-          width="532px"
-          style={{ margin: "12px auto 0" }}
-        />
-      </Link>
+      <div style={{ position: "relative" }}>
+        <div
+          style={{
+            position: "absolute",
+            left: "40%",
+            top: "40%",
+            fontSize: 24,
+          }}
+        >
+          <Countdown
+            date={"2022-05-02"}
+            intervalDelay={0}
+            precision={3}
+            zeroPadTime={2}
+            renderer={({ days, hours, minutes, seconds, completed }) => {
+              if (completed) {
+                return "Completed";
+              } else {
+                return (
+                  <span>
+                    {days ? `${days}D ` : ""}
+                    {hours}:{minutes}:{`${seconds}`.padStart(2, "0")}
+                  </span>
+                );
+              }
+            }}
+          />
+        </div>
+
+        <Link to={"/nanobrowserquest"}>
+          <img
+            alt="NanoBrowserQuest Promotion 50% off Freezing Lands expansion"
+            src={`/nanobrowserquest/nbq-promotion-50-off-expansion.jpg`}
+            height="120px"
+            width="532px"
+            style={{ margin: "12px auto 0" }}
+          />
+        </Link>
+      </div>
     </div>
   );
 };
