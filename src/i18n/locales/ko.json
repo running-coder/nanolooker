@@ -41,7 +41,8 @@
     "comingSoon": "곧 출시",
     "statistics": "통계",
     "continue": "계속하다",
-    "link": "링크"
+    "link": "링크",
+    "noData": "데이터 없음"
   },
   "nodeHealth": {
     "nodeReloading": "나노 노드가 다시로드됩니다.",
@@ -178,7 +179,10 @@
       "missingAccountInfo": "계정이 URL에 지정되지 않았습니다. 계정을 검색하려면 상단 검색 창을 사용하거나 /account/ 뒤의 URL에 추가하세요.",
       "notVoting": "투표하지 않음",
       "pendingTransactions": "받을 준비가 된 거래",
-      "pendingTransaction": "거래를 받을 준비가 되었습니다"
+      "pendingTransaction": "거래를 받을 준비가 되었습니다",
+      "dailyBalanceOption": " 일일 잔액",
+      "byTransactionOption": "거래별 잔액",
+      "dailyBalance": "마지막 {{count}} 거래"
     },
     "block": {
       "blockSubtype": "블록 하위 유형",
@@ -363,16 +367,16 @@
       "playNow": "지금 플레이하세요!",
       "playersOnline": "온라인 플레이어",
       "playNanoBrowserQuest": "나노브라우저퀘스트 플레이",
-      "welcomeTitle": "NanoBrowserQuest를 플레이하고 게임 완료에 대한 소액의 지불금을 받으세요!",
-      "donatePrizePool": "NanoBrowserQuest 상금 풀에 기부",
-      "registerDescription": "NanoBrowserQuest는 무료로 플레이할 수 있습니다. 서비스가 마음에 들면 NanoBrowserQuest 상금 풀에 약간의 기여를 할 수 있습니다.",
+      "welcomeTitle": "BananoBrowserQuest를 플레이하고 게임 완료에 대한 소액의 지불금을 받으세요!",
+      "donatePrizePool": "BananoBrowserQuest 상금 풀에 기부",
+      "registerDescription": "BananoBrowserQuest는 무료로 플레이할 수 있습니다. 서비스가 마음에 들면 BananoBrowserQuest 상금 풀에 약간의 기여를 할 수 있습니다.",
       "payoutDescription": "최종 보스를 죽이면 지불금이 전송됩니다! 얻을 수 있는 금액은 잠금 해제한 업적에 따라 다릅니다.",
       "leaderboard": "리더보드",
       "rank": "계급",
       "player": "플레이어",
       "exp": "경험",
       "level": "수준",
-      "gameDescription": "NanoBrowserQuest는 원래 2012년경에 제작된 인기 있는 BrowserQuest 웹 기반 MMORPG 미니게임을 리메이크한 것입니다. 이 게임은 200명의 동시 플레이어를 지원하며 무료로 플레이할 수 있습니다. NanoBrowserQuest를 사용하면 친구와 함께 게임 내 업적을 완료하고 게임을 완료한 후 작은 Nano 보상을 받을 수 있습니다.",
+      "gameDescription": "BananoBrowserQuest는 원래 2012년경에 제작된 인기 있는 BrowserQuest 웹 기반 MMORPG 미니게임을 리메이크한 것입니다. 이 게임은 200명의 동시 플레이어를 지원하며 무료로 플레이할 수 있습니다. NanoBrowserQuest를 사용하면 친구와 함께 게임 내 업적을 완료하고 게임을 완료한 후 작은 BAN 보상을 받을 수 있습니다.",
       "howToPlay": "게임 방법",
       "itemUpgrade": "아이템 업그레이드",
       "itemUpgradeDescription": "마을의 모루에서 아이템을 업그레이드하세요. 업그레이드하려는 항목을 선택하고 왼쪽 슬롯으로 끕니다. 9개의 중간 섹션 슬롯 중 하나에 동일한 업그레이드 스크롤 클래스를 추가합니다. 업그레이드에 성공하면 오른쪽 슬롯에 아이템이 나타납니다. 업그레이드에 실패할 경우를 대비하여 항상 백업 항목을 가지고 있도록 주의하십시오.",
@@ -389,36 +393,9 @@
         "q": "Q를 누르거나 트로피를 클릭하여 퀘스트 책을 봅니다.",
         "m": "M을 누르거나 스피커를 클릭하여 음소거 전환"
       },
-      "nanoPotions": "나노 물약"
-    },
-    "statistics": {
-      "social": {
-        "title": "암호화폐 소셜 참여 / 시가총액 10억 달러",
-        "redditSubscribers": "10억 달러당 Reddit 구독자 수",
-        "twitterFollowers": "10억 달러당 트위터 팔로워 수",
-        "githubStars": "10억 달러당 Github 별 수",
-        "engagementPerBillion": "10억 달러당 참여",
-        "marketCap": "시가총액",
-        "totalEngagement": "총 참여"
-      },
-      "2miners": {
-        "title": "2Miners Ethereum 마이닝 풀의 나노 지불 통계",
-        "totalPayouts": "2Miners의 총 NANO 지불금",
-        "payouts": "지불금",
-        "accounts": "계정",
-        "accountsDescription": "해당 날짜에 대한 판매 대금을 받은 고유 계정의 수입니다.",
-        "uniqueAccounts": "고유 계정",
-        "uniqueAccountsDescription": "{{date}} 이후 판매 대금을 받은 계정 수",
-        "accountsHolding": "보유 계좌",
-        "accountsHoldingDescription": "{{date}} 이후 지급금을 받고 잔액이 0.001 NANO 이상인 계정 수.",
-        "balanceHolding": "잔액 보유",
-        "balanceHoldingDescription": "{{date}} 이후에 판매 대금을 받고 잔액이 0.001 NANO 이상인 계정의 합산 잔액.",
-        "viewPayoutStatistics": "지불 통계 보기",
-        "payoutsDescription": "그날 지급된 NANO의 양입니다.",
-        "fiatPayouts": "법정화폐 지급",
-        "fiatPayoutsDescription": "해당 날짜에 지급된 예상 USD 금액입니다.",
-        "totalFiatPayouts": "2Miners의 예상 총 지불금(USD)",
-        "announcement": "공지사항 보기"
+      "nanoPotions": "나노 물약",
+      "guide": {
+        "title": "BananoBrowserQuest 가이드"
       }
     }
   }

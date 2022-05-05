@@ -41,7 +41,8 @@
     "comingSoon": "Sắp có",
     "statistics": "Số liệu thống kê",
     "continue": "Tiếp tục",
-    "link": "Liên kết"
+    "link": "Liên kết",
+    "noData": "Không có dữ liệu"
   },
   "nodeHealth": {
     "nodeReloading": "Nút nano đang tải lại",
@@ -178,7 +179,10 @@
       "missingAccountInfo": "Tài khoản không được chỉ định trong URL. Sử dụng thanh tìm kiếm trên cùng để tìm kiếm tài khoản hoặc thêm tài khoản vào URL sau /account/",
       "notVoting": "Không bỏ phiếu",
       "pendingTransactions": "Giao dịch đã sẵn sàng để nhận",
-      "pendingTransaction": "Giao dịch đã sẵn sàng để nhận"
+      "pendingTransaction": "Giao dịch đã sẵn sàng để nhận",
+      "dailyBalanceOption": " Số dư hàng ngày",
+      "byTransactionOption": "Số dư theo giao dịch",
+      "dailyBalance": "{{Count}} giao dịch gần đây nhất"
     },
     "block": {
       "blockSubtype": "Block con",
@@ -362,17 +366,17 @@
     "nanobrowserquest": {
       "playNow": "Bắt đầu chơi !",
       "playersOnline": "Người chơi trực tuyến",
-      "playNanoBrowserQuest": "Chơi NanoBrowserQuest",
-      "welcomeTitle": "Chơi NanoBrowserQuest và kiếm một khoản thanh toán nhỏ khi hoàn thành trò chơi!",
-      "donatePrizePool": "Quyên góp cho nhóm giải thưởng NanoBrowserQuest",
-      "registerDescription": "NanoBrowserQuest chơi miễn phí. Nếu bạn thích dịch vụ này, bạn có thể đóng góp một phần nhỏ vào giải thưởng NanoBrowserQuest.",
+      "playNanoBrowserQuest": "Chơi BananoBrowserQuest",
+      "welcomeTitle": "Chơi BananoBrowserQuest và kiếm một khoản thanh toán nhỏ khi hoàn thành trò chơi!",
+      "donatePrizePool": "Quyên góp cho nhóm giải thưởng BananoBrowserQuest",
+      "registerDescription": "BananoBrowserQuest chơi miễn phí. Nếu bạn thích dịch vụ này, bạn có thể đóng góp một phần nhỏ vào giải thưởng NanoBrowserQuest.",
       "payoutDescription": "Thanh toán sẽ được gửi sau khi bạn tiêu diệt BOSS cuối! Số tiền bạn nhận được sẽ phụ thuộc vào thành tích bạn đã mở khóa.",
       "leaderboard": "Bảng xếp hạng",
       "rank": "Thứ hạng",
       "player": "Người chơi",
       "exp": "Kinh nghiệm",
       "level": "Cấp độ",
-      "gameDescription": "NanoBrowserQuest là phiên bản làm lại của minigame MMORPG dựa trên web BrowserQuest ban đầu được tạo ra vào khoảng năm 2012. Trò chơi hỗ trợ 200 người chơi đồng thời và chơi miễn phí. NanoBrowserQuest cho phép bạn chơi với bạn bè, hoàn thành các thành tích trong trò chơi và nhận phần thưởng Nano nhỏ sau khi hoàn thành trò chơi.",
+      "gameDescription": "BananoBrowserQuest là phiên bản làm lại của minigame MMORPG dựa trên web BrowserQuest ban đầu được tạo ra vào khoảng năm 2012. Trò chơi hỗ trợ 200 người chơi đồng thời và chơi miễn phí. BananoBrowserQuest cho phép bạn chơi với bạn bè, hoàn thành các thành tích trong trò chơi và nhận phần thưởng BAN nhỏ sau khi hoàn thành trò chơi.",
       "howToPlay": "Cách chơi",
       "itemUpgrade": "Nâng cấp mặt hàng",
       "itemUpgradeDescription": "Nâng cấp các vật phẩm của bạn tại Anvil trong thị trấn. Chọn mục bạn muốn nâng cấp và kéo nó sang vị trí bên trái. Thêm một lớp cuộn nâng cấp tương tự vào một trong 9 khe của phần giữa. Nếu nâng cấp thành công, vật phẩm sẽ xuất hiện trong khe bên phải. Hãy cẩn thận để luôn có một mục dự phòng trong trường hợp nâng cấp không thành công.",
@@ -389,36 +393,9 @@
         "q": "Nhấn Q hoặc nhấp vào cúp để xem sách Nhiệm vụ của bạn",
         "m": "Nhấn M hoặc nhấp vào loa để chuyển đổi Tắt tiếng"
       },
-      "nanoPotions": "NANO Potions"
-    },
-    "statistics": {
-      "social": {
-        "title": "Tương tác xã hội của tiền điện tử / 1 tỷ đô la trong vốn hóa thị trường",
-        "redditSubscribers": "Số lượng người đăng ký Reddit trên mỗi tỷ đô la",
-        "twitterFollowers": "Số lượng người theo dõi Twitter trên mỗi tỷ đô la",
-        "githubStars": "Số sao Github trên mỗi tỷ đô la",
-        "engagementPerBillion": "Tương tác trên mỗi tỷ đô la",
-        "marketCap": "Vốn hóa thị trường",
-        "totalEngagement": "Tổng tương tác"
-      },
-      "2miners": {
-        "title": "Thống kê thanh toán Nano bởi nhóm khai thác Ethereum của 2Miners",
-        "totalPayouts": "Tổng số tiền thanh toán NANO của 2Miners",
-        "payouts": "Các khoản thanh toán",
-        "accounts": "Tài khoản",
-        "accountsDescription": "Số lượng tài khoản duy nhất đã nhận được khoản thanh toán cho ngày đó.",
-        "uniqueAccounts": "Tài khoản duy nhất",
-        "uniqueAccountsDescription": "Số lượng tài khoản đã nhận được khoản thanh toán kể từ {{date}}",
-        "accountsHolding": "Tài khoản đang nắm giữ",
-        "accountsHoldingDescription": "Số tài khoản đã nhận được khoản thanh toán kể từ {{date}} và có số dư trên 0,001 NANO.",
-        "balanceHolding": "Giữ số dư",
-        "balanceHoldingDescription": "Số dư tổng hợp của các tài khoản đã nhận thanh toán kể từ {{date}} và có số dư trên 0,001 NANO.",
-        "viewPayoutStatistics": "Xem thống kê thanh toán",
-        "payoutsDescription": "Số lượng NANO đã được thanh toán cho ngày hôm đó.",
-        "fiatPayouts": "Các khoản thanh toán Fiat",
-        "fiatPayoutsDescription": "Số tiền USD USD ước tính đã được thanh toán cho ngày hôm đó.",
-        "totalFiatPayouts": "Tổng các khoản thanh toán ước tính của 2Miners (USD)",
-        "announcement": "Xem thông báo"
+      "nanoPotions": "NANO Potions",
+      "guide": {
+        "title": "Hướng dẫn NanoBrowserQuest"
       }
     }
   }

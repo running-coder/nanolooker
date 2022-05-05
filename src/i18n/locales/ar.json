@@ -41,7 +41,8 @@
     "comingSoon": "قريبا",
     "statistics": "إحصائيات",
     "continue": "يكمل",
-    "link": "وصلة"
+    "link": "وصلة",
+    "noData": "لايوجد بيانات"
   },
   "nodeHealth": {
     "nodeReloading": "يتم إعادة تحميل عقدة النانو",
@@ -181,7 +182,10 @@
       "missingAccountInfo": "الحساب غير محدد في URL. استخدم شريط البحث العلوي للبحث عن حساب أو إلحاقه بعنوان URL بعد / حساب /",
       "notVoting": "لا تصوت",
       "pendingTransactions": "المعاملات جاهزة للاستلام",
-      "pendingTransaction": "المعاملة جاهزة للاستلام"
+      "pendingTransaction": "المعاملة جاهزة للاستلام",
+      "dailyBalanceOption": " الرصيد اليومي",
+      "byTransactionOption": "التوازن عن طريق المعاملة",
+      "dailyBalance": "آخر {{عدد}} المعاملات"
     },
     "block": {
       "blockSubtype": "نوع الكتلة الفرعي",
@@ -371,17 +375,17 @@
     "nanobrowserquest": {
       "playNow": "العب الان !",
       "playersOnline": "لاعبين عبر الإنترنت",
-      "playNanoBrowserQuest": "تشغيل NanoBrowserQuest",
-      "welcomeTitle": "العب NanoBrowserQuest واكسب عائدًا صغيرًا مقابل إكمال اللعبة!",
-      "donatePrizePool": "التبرع لمجمع جوائز NanoBrowserQuest",
-      "registerDescription": "NanoBrowserQuest مجاني للعب. إذا كنت تستمتع بالخدمة ، يمكنك تقديم مساهمة صغيرة في مجموعة جوائز NanoBrowserQuest.",
+      "playNanoBrowserQuest": "تشغيل BananoBrowserQuest",
+      "welcomeTitle": "العب BananoBrowserQuest واكسب عائدًا صغيرًا مقابل إكمال اللعبة!",
+      "donatePrizePool": "التبرع لمجمع جوائز BananoBrowserQuest",
+      "registerDescription": "BananoBrowserQuest مجاني للعب. إذا كنت تستمتع بالخدمة ، يمكنك تقديم مساهمة صغيرة في مجموعة جوائز NanoBrowserQuest.",
       "payoutDescription": "سيتم إرسال المدفوعات بعد أن تقتل رئيس النهاية! سيعتمد المبلغ الذي ستحصل عليه على الإنجازات التي فتحتها.",
       "leaderboard": "ليدربورد",
       "rank": "مرتبة",
       "player": "لاعب",
       "exp": "خبرة",
       "level": "مستوى",
-      "gameDescription": "NanoBrowserQuest هي نسخة جديدة من لعبة BrowserQuest الشهيرة على شبكة الإنترنت المصغرة MMORPG والتي تم إنشاؤها في الأصل حوالي عام 2012. تدعم اللعبة 200 لاعب في وقت واحد وهي مجانية للعب. يتيح لك NanoBrowserQuest اللعب مع أصدقائك وإكمال الإنجازات داخل اللعبة والحصول على مكافأة صغيرة من Nano بعد إكمال اللعبة.",
+      "gameDescription": "BananoBrowserQuest هي نسخة جديدة من لعبة BrowserQuest الشهيرة على شبكة الإنترنت المصغرة MMORPG والتي تم إنشاؤها في الأصل حوالي عام 2012. تدعم اللعبة 200 لاعب في وقت واحد وهي مجانية للعب. يتيح لك BananoBrowserQuest اللعب مع أصدقائك وإكمال الإنجازات داخل اللعبة والحصول على مكافأة صغيرة من BAN بعد إكمال اللعبة.",
       "howToPlay": "كيف ألعب",
       "itemUpgrade": "ترقية العنصر",
       "itemUpgradeDescription": "ترقية العناصر الخاصة بك في السندان في المدينة. اختر العنصر الذي تريد ترقيته واسحبه إلى الفتحة اليسرى. أضف نفس فئة التمرير للترقية إلى إحدى فتحات القسم الأوسط التسعة. إذا نجحت الترقية ، فسيظهر العنصر في الفتحة الموجودة على اليمين. كن حريصًا على أن يكون لديك دائمًا عنصر احتياطي في حالة عدم نجاح الترقية.",
@@ -398,37 +402,10 @@
         "q": "اضغط على Q أو انقر فوق الكأس لعرض كتاب المهام",
         "m": "اضغط على M أو انقر فوق مكبر الصوت لتبديل كتم الصوت"
       },
-      "nanoPotions": "جرعات نانو"
-    },
-    "statistics": {
-      "social": {
-        "title": "المشاركة الاجتماعية للعملات المشفرة / 1 مليار دولار في القيمة السوقية",
-        "redditSubscribers": "عدد مشتركي Reddit لكل مليار دولار",
-        "twitterFollowers": "عدد متابعي تويتر لكل مليار دولار",
-        "githubStars": "عدد نجوم جيثب لكل مليار دولار",
-        "engagementPerBillion": "المشاركة لكل مليار دولار",
-        "marketCap": "القيمة السوقية",
-        "totalEngagement": "إجمالي المشاركة"
-      },
-      "2miners": {
-        "title": "إحصائيات مدفوعات النانو بواسطة تجمع تعدين 2Miners Ethereum",
-        "totalPayouts": "إجمالي مدفوعات NANO بواسطة 2Miners",
-        "payouts": "المدفوعات",
-        "accounts": "حسابات",
-        "accountsDescription": "عدد الحسابات الفريدة التي تلقت عوائد لذلك اليوم.",
-        "uniqueAccounts": "حسابات فريدة",
-        "uniqueAccountsDescription": "عدد الحسابات التي تلقت عائدًا منذ {{date}}",
-        "accountsHolding": "عقد الحسابات",
-        "accountsHoldingDescription": "عدد الحسابات التي تلقت عائدًا منذ {{date}} ولديها رصيد أعلى من 0.001 NANO.",
-        "balanceHolding": "عقد التوازن",
-        "balanceHoldingDescription": "الرصيد المجمع للحسابات التي تلقت عائدًا منذ {{date}} ولديها رصيد أعلى من 0.001 NANO.",
-        "viewPayoutStatistics": "عرض إحصائيات الدفع",
-        "payoutsDescription": "مبلغ NANO الذي تم دفعه لذلك اليوم.",
-        "fiatPayouts": "مدفوعات فيات",
-        "fiatPayoutsDescription": "المبلغ المقدر بالدولار الأمريكي الذي تم دفعه لذلك اليوم.",
-        "totalFiatPayouts": "إجمالي المدفوعات المقدرة بواسطة 2Miners (بالدولار الأمريكي)",
-        "announcement": "مشاهدة الاعلان"
+      "nanoPotions": "جرعات نانو",
+      "guide": {
+        "title": "دليل NanoBrowserQuest"
       }
-    }
+    }    
   }
 }

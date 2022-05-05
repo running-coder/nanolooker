@@ -35,11 +35,11 @@ const doYoutubePlaylist = async () => {
 
 // https://crontab.guru/#0_0_*_*_*
 // “At midnight.”
-cron.schedule("0 0 * * *", async () => {
-  if (process.env.NODE_ENV === "production") {
-    doYoutubePlaylist();
-  }
-});
+// cron.schedule("0 0 * * *", async () => {
+//   if (process.env.NODE_ENV === "production") {
+//     doYoutubePlaylist();
+//   }
+// });
 
 module.exports = {
   doYoutubePlaylist,

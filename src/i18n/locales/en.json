@@ -41,7 +41,8 @@
     "nodes": "Nodes",
     "comingSoon": "Coming soon",
     "statistics": "Statistics",
-    "link": "Link"
+    "link": "Link",
+    "noData": "No data"
   },
   "nodeHealth": {
     "nodeReloading": "Banano node is reloading",
@@ -181,7 +182,10 @@
       "notOpenedYet": "This account hasn't been opened yet",
       "notOpenedYetReason": "While the account address is valid, no blocks have been published to its chain yet. If BANANO has been sent to this account, it still needs to publish a corresponding block to pocket the funds.",
       "missingAccount": "Missing account",
-      "missingAccountInfo": "The account is not specified in the URL. Use the top search bar for searching for an account or append it in the URL after /account/"
+      "missingAccountInfo": "The account is not specified in the URL. Use the top search bar for searching for an account or append it in the URL after /account/",
+      "dailyBalance": "Last {{count}} transactions",
+      "dailyBalanceOption": " Daily balance",
+      "byTransactionOption": "Balance by transaction"
     },
     "block": {
       "blockSubtype": "Block subtype",
@@ -372,16 +376,16 @@
     "nanobrowserquest": {
       "playNow": "Play Now !",
       "playersOnline": "Players online",
-      "playNanoBrowserQuest": "Play NanoBrowserQuest",
-      "welcomeTitle": "Play NanoBrowserQuest and earn a small payout for completing the game!",
-      "donatePrizePool": "Donate to NanoBrowserQuest prize pool",
-      "gameDescription": "NanoBrowserQuest is a remake of the popular BrowserQuest web-based MMORPG minigame that was originally created around 2012. The game supports 200 simultaneous players and is free to play. NanoBrowserQuest allows you to play with your friends, complete in-game achievements and get a small Nano reward after completing the game.",
+      "playNanoBrowserQuest": "Play BananoBrowserQuest",
+      "welcomeTitle": "Play BananoBrowserQuest and earn a small payout for completing the game!",
+      "donatePrizePool": "Donate to BananoBrowserQuest prize pool",
+      "gameDescription": "BananoBrowserQuest is a remake of the popular BrowserQuest web-based MMORPG minigame that was originally created around 2012. The game supports 200 simultaneous players and is free to play. BananoBrowserQuest allows you to play with your friends, complete in-game achievements and get a small BAN reward after completing the game.",
       "payoutDescription": "Payout will be sent after you kill the end BOSS! The amount you'll get will depend on the achievements you've unlocked.",
       "leaderboard": "Leaderboard",
       "rank": "Rank",
       "player": "Player",
       "exp": "Experience",
-      "nanoPotions": "NANO Potions",
+      "nanoPotions": "BANANO Potions",
       "level": "Level",
       "howToPlay": "How to play",
       "itemUpgrade": "Item upgrade",
@@ -398,6 +402,9 @@
         "enter": "Press ENTER or click on chat bubble to talk to players near you",
         "q": "Press Q or click the trophy to view your Quest book",
         "m": "Press M or click speaker to toggle Mute"
+      },
+      "guide": {
+        "title": "BananoBrowserQuest Guide"
       }
     }
   }

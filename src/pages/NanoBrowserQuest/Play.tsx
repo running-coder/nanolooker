@@ -1,0 +1,28 @@
+import * as React from "react";
+import { useTranslation } from "react-i18next";
+import { Button } from "antd";
+import { Tracker } from "components/utils/analytics";
+
+const Play: React.FC = () => {
+  const { t } = useTranslation();
+  // const [isOpen, setIsOpen] = React.useState(false);
+
+  return (
+    <>
+      <Button
+        type="primary"
+        size="large"
+        shape="round"
+        href={`https://www.bananobrowserquest.com`}
+        target={"_blank"}
+        onClick={() => {
+          Tracker.ga4?.gtag("event", "BananoBrowserQuest - Play", t);
+        }}
+      >
+        {t("pages.nanobrowserquest.playNow")}
+      </Button>
+    </>
+  );
+};
+
+export default Play;

@@ -33,7 +33,8 @@ interface AccountHistoryParams {
 }
 
 interface AccountHistoryOptions {
-  concatHistory: boolean;
+  concatHistory?: boolean;
+  skip?: boolean;
 }
 export interface UseAccountHistoryReturn {
   accountHistory: AccountHistory;
@@ -49,13 +50,15 @@ const useAccountHistory = (
   const [accountHistory, setAccountHistory] = React.useState(
     {} as AccountHistory,
   );
-  const [isLoading, setIsLoading] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(true);
   const [isError, setIsError] = React.useState(false);
 
   const getAccountHistory = async (
     account: string,
     params: AccountHistoryParams,
   ) => {
+    if (options?.skip) return;
+
     setIsError(false);
     setIsLoading(true);
 
@@ -95,10 +98,10 @@ const useAccountHistory = (
   }, [account]);
 
   useDeepCompareEffect(() => {
-    if (!isValidAccountAddress(account)) return;
+    if (!isValidAccountAddress(account) || options?.skip) return;
 
     getAccountHistory(account, params);
-  }, [account, params]);
+  }, [account, params, options?.skip]);
 
   return { accountHistory, isLoading, isError };
 };

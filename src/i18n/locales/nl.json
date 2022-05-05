@@ -41,7 +41,8 @@
     "comingSoon": "Binnenkort beschikbaar",
     "statistics": "Statistieken",
     "continue": "Doorgaan met",
-    "link": "Koppeling"
+    "link": "Koppeling",
+    "noData": "Geen gegevens"
   },
   "nodeHealth": {
     "nodeReloading": "Banano node wordt opnieuw geladen",
@@ -178,7 +179,10 @@
       "missingAccountInfo": "Het account is niet gespecificeerd in de URL. Gebruik de zoekbalk bovenaan om naar een account te zoeken of voeg deze toe aan de URL achter /account/",
       "notVoting": "Niet stemmen",
       "pendingTransactions": "Transacties klaar om te worden ontvangen",
-      "pendingTransaction": "Transactie klaar om te worden ontvangen"
+      "pendingTransaction": "Transactie klaar om te worden ontvangen",
+      "dailyBalanceOption": " Dagelijkse balans",
+      "byTransactionOption": "Saldo per transactie",
+      "dailyBalance": "Laatste {{count}} transacties"
     },
     "block": {
       "blockSubtype": "Block subtype",
@@ -362,17 +366,17 @@
     "nanobrowserquest": {
       "playNow": "Nu afspelen !",
       "playersOnline": "Spelers online",
-      "playNanoBrowserQuest": "Speel NanoBrowserQuest",
-      "welcomeTitle": "Speel NanoBrowserQuest en verdien een kleine uitbetaling voor het voltooien van het spel!",
-      "donatePrizePool": "Doneer aan NanoBrowserQuest prijzenpot",
-      "registerDescription": "NanoBrowserQuest is gratis te spelen. Als u van de service geniet, kunt u een kleine bijdrage leveren aan de NanoBrowserQuest-prijzenpot.",
+      "playNanoBrowserQuest": "Speel BananoBrowserQuest",
+      "welcomeTitle": "Speel BananoBrowserQuest en verdien een kleine uitbetaling voor het voltooien van het spel!",
+      "donatePrizePool": "Doneer aan BananoBrowserQuest prijzenpot",
+      "registerDescription": "BananoBrowserQuest is gratis te spelen. Als u van de service geniet, kunt u een kleine bijdrage leveren aan de NanoBrowserQuest-prijzenpot.",
       "payoutDescription": "De uitbetaling wordt verzonden nadat je de eindbaas hebt gedood! Het bedrag dat je krijgt, hangt af van de prestaties die je hebt ontgrendeld.",
       "leaderboard": "Scorebord",
       "rank": "Rang",
       "player": "Speler",
       "exp": "Beleven",
       "level": "Peil",
-      "gameDescription": "NanoBrowserQuest is een remake van de populaire BrowserQuest webgebaseerde MMORPG-minigame die oorspronkelijk rond 2012 is gemaakt. De game ondersteunt 200 gelijktijdige spelers en is gratis te spelen. Met NanoBrowserQuest kun je met je vrienden spelen, in-game prestaties voltooien en een kleine Nano-beloning krijgen na het voltooien van het spel.",
+      "gameDescription": "BananoBrowserQuest is een remake van de populaire BrowserQuest webgebaseerde MMORPG-minigame die oorspronkelijk rond 2012 is gemaakt. De game ondersteunt 200 gelijktijdige spelers en is gratis te spelen. Met BananoBrowserQuest kun je met je vrienden spelen, in-game prestaties voltooien en een kleine BAN-beloning krijgen na het voltooien van het spel.",
       "howToPlay": "Hoe te spelen",
       "itemUpgrade": "Artikelupgrade",
       "itemUpgradeDescription": "Upgrade je items bij het Anvil in de stad. Kies het item dat u wilt upgraden en sleep het naar het linkervak. Voeg dezelfde upgrade-scrollklasse toe aan een van de 9 slots in het middengedeelte. Als de upgrade is gelukt, verschijnt het item in de sleuf aan de rechterkant. Zorg ervoor dat u altijd een back-upitem heeft voor het geval de upgrade niet lukt.",
@@ -389,36 +393,9 @@
         "q": "Druk op Q of klik op de trofee om je Quest-boek te bekijken",
         "m": "Druk op M of klik op luidspreker om Dempen in te schakelen"
       },
-      "nanoPotions": "NANO-drankjes"
-    },
-    "statistics": {
-      "social": {
-        "title": "Sociale betrokkenheid van cryptocurrencies / $ 1 miljard aan marktkapitalisatie",
-        "redditSubscribers": "Aantal Reddit-abonnees per $ miljard",
-        "twitterFollowers": "Aantal Twitter-volgers per $ miljard",
-        "githubStars": "Aantal Github-sterren per $ miljard",
-        "engagementPerBillion": "Betrokkenheid per $ miljard",
-        "marketCap": "Marktkapitalisatie",
-        "totalEngagement": "Totale betrokkenheid"
-      },
-      "2miners": {
-        "title": "Nano-uitbetalingsstatistieken door 2Miners Ethereum-mijnpool",
-        "totalPayouts": "Totale NANO-uitbetalingen door 2Miners",
-        "payouts": "Uitbetalingen",
-        "accounts": "rekeningen",
-        "accountsDescription": "Het aantal unieke accounts dat voor die dag een uitbetaling heeft ontvangen.",
-        "uniqueAccounts": "Unieke accounts",
-        "uniqueAccountsDescription": "Het aantal accounts dat een uitbetaling heeft ontvangen sinds {{date}}",
-        "accountsHolding": "Rekeningenhoudend",
-        "accountsHoldingDescription": "Het aantal accounts dat een uitbetaling heeft ontvangen sinds {{date}} en een saldo heeft van meer dan 0,001 NANO.",
-        "balanceHolding": "Balans houden",
-        "balanceHoldingDescription": "Gecombineerd saldo van de accounts die een uitbetaling hebben ontvangen sinds {{date}} en een saldo hebben van meer dan 0,001 NANO.",
-        "viewPayoutStatistics": "Uitbetalingsstatistieken bekijken",
-        "payoutsDescription": "Het bedrag aan NANO dat voor die dag is uitbetaald.",
-        "fiatPayouts": "Fiat-uitbetalingen",
-        "fiatPayoutsDescription": "Het geschatte bedrag van $ USD dat voor die dag is uitbetaald.",
-        "totalFiatPayouts": "Geschatte totale uitbetalingen door 2Miners (USD)",
-        "announcement": "Bekijk aankondiging"
+      "nanoPotions": "NANO-drankjes",
+      "guide": {
+        "title": "BananoBrowserQuest-gids"
       }
     }
   }

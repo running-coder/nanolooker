@@ -41,7 +41,8 @@
     "nodes": "Węzły",
     "comingSoon": "Wkrótce",
     "statistics": "Statystyki",
-    "link": "Link"
+    "link": "Link",
+    "noData": "Brak danych"
   },
   "nodeHealth": {
     "nodeReloading": "Banano Node jest przeładowywana",
@@ -178,7 +179,10 @@
       "notOpenedYet": "To konto nie zostało jeszcze otwarte",
       "notOpenedYetReason": "Chociaż adres konta jest prawidłowy, żadne bloki nie zostały jeszcze opublikowane w jego łańcuchu. Jeśli BANANO zostało wysłane na to konto, nadal musi opublikować odpowiedni blok, aby zdobyć środki.",
       "missingAccount": "Brakujące konto",
-      "missingAccountInfo": "Konto nie jest określone w adresie URL. Użyj górnego paska wyszukiwania, aby wyszukać konto lub dołączyć go w adresie URL po /account/"
+      "missingAccountInfo": "Konto nie jest określone w adresie URL. Użyj górnego paska wyszukiwania, aby wyszukać konto lub dołączyć go w adresie URL po /account/",
+      "dailyBalanceOption": " Bilans dzienny",
+      "byTransactionOption": "Saldo według transakcji",
+      "dailyBalance": "Ostatnie {{count}} transakcje"
     },
     "block": {
       "blockSubtype": "Podtyp bloku",
@@ -330,7 +334,7 @@
     "nanoquakejs": {
       "playNow": "Zagraj teraz!",
       "register": "Zarejestruj",
-      "donatePrizePool": "Wspomóż pulę nagród NanoBrowserQuest",
+      "donatePrizePool": "Wspomóż pulę nagród BananoBrowserQuest",
       "scanWallet": "Zeskanuj konto portfela zaczynające się od \"nano_\"",
       "registerError": "Nie można ukończyć rejestracji",
       "registerDescription": "NanoQuakeJS jest darmowy na zawsze. Jeśli spodoba Ci się usługa, możesz wnieść niewielki wkład do puli nagród NanoQuakeJS.",
@@ -362,10 +366,10 @@
     "nanobrowserquest": {
       "playNow": "Zagraj teraz!",
       "playersOnline": "Gracze online",
-      "playNanoBrowserQuest": "Zagraj w NanoBrowserQuest",
-      "welcomeTitle": "Zagraj w NanoBrowserQuest i zdobądź małą wypłatę za ukończenie gry!",
-      "donatePrizePool": "Wspomóż pulę nagród NanoBrowserQuest",
-      "gameDescription": "NanoBrowserQuest to remake popularnej internetowej minigry MMORPG BrowserQuest, która została pierwotnie stworzona około 2012 roku. Gra obsługuje 200 jednoczesnych graczy i jest darmowa. NanoBrowserQuest pozwala grać ze znajomymi, zdobywać osiągnięcia w grze i otrzymać małą nagrodę Nano po ukończeniu gry.",
+      "playNanoBrowserQuest": "Zagraj w BananoBrowserQuest",
+      "welcomeTitle": "Zagraj w BananoBrowserQuest i zdobądź małą wypłatę za ukończenie gry!",
+      "donatePrizePool": "Wspomóż pulę nagród BananoBrowserQuest",
+      "gameDescription": "BananoBrowserQuest to remake popularnej internetowej minigry MMORPG BrowserQuest, która została pierwotnie stworzona około 2012 roku. Gra obsługuje 200 jednoczesnych graczy i jest darmowa. BananoBrowserQuest pozwala grać ze znajomymi, zdobywać osiągnięcia w grze i otrzymać małą nagrodę BAN po ukończeniu gry.",
       "payoutDescription": "Wypłata zostanie wysłana po zabiciu końcowego BOSSA! Kwota, jaką otrzymasz, będzie zależeć od osiągnięć, które odblokowałeś.",
       "leaderboard": "Tablica wyników",
       "rank": "Ranga",
@@ -388,6 +392,9 @@
         "enter": "Naciśnij ENTER lub kliknij na dymek czatu, aby porozmawiać z graczami w pobliżu",
         "q": "Naciśnij Q lub kliknij trofeum, aby zobaczyć książkę zadań",
         "m": "Naciśnij M lub kliknij głośnik, aby włączyć wyciszenie"
+      },
+      "guide": {
+        "title": "Przewodnik po NanoBrowserQu"
       }
     }
   }

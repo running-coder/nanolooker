@@ -568,3 +568,15 @@ body,
   border-color: #ff7875 !important;
   box-shadow: 0 0 0 2px #ff4d4f33 !important;
 }
+
+.guide table,
+.guide th,
+.guide td {
+  border: 1px solid #d9d9d9;
+  border-collapse: collapse;
+}
+
+.guide th,
+.guide td {
+  padding: 0 6px;
+}

@@ -41,7 +41,8 @@
     "comingSoon": "Em breve",
     "statistics": "Estatisticas",
     "continue": "Prosseguir",
-    "link": "Link"
+    "link": "Link",
+    "noData": "Sem dados"
   },
   "nodeHealth": {
     "nodeReloading": "O nó da Banano está recarregando",
@@ -178,7 +179,10 @@
       "missingAccountInfo": "A conta não está especificada no URL. Use a barra de pesquisa superior para pesquisar uma conta ou anexe-a no URL após /account/",
       "notVoting": "Não votando",
       "pendingTransactions": "Transações prontas para serem recebidas",
-      "pendingTransaction": "Transação pronta para ser recebida"
+      "pendingTransaction": "Transação pronta para ser recebida",
+      "dailyBalanceOption": " Saldo diário",
+      "byTransactionOption": "Saldo por transação",
+      "dailyBalance": "Últimas {{count}} transações"
     },
     "block": {
       "blockSubtype": "Subtipo de bloco",
@@ -362,17 +366,17 @@
     "nanobrowserquest": {
       "playNow": "Jogue agora !",
       "playersOnline": "Jogadores online",
-      "playNanoBrowserQuest": "Jogue NanoBrowserQuest",
-      "welcomeTitle": "Jogue NanoBrowserQuest e ganhe um pequeno pagamento por completar o jogo!",
-      "donatePrizePool": "Doe para a premiação NanoBrowserQuest",
-      "registerDescription": "NanoBrowserQuest é grátis para jogar. Se você gosta do serviço, pode fazer uma pequena contribuição para a premiação do NanoBrowserQuest.",
+      "playNanoBrowserQuest": "Jogue BananoBrowserQuest",
+      "welcomeTitle": "Jogue BananoBrowserQuest e ganhe um pequeno pagamento por completar o jogo!",
+      "donatePrizePool": "Doe para a premiação BananoBrowserQuest",
+      "registerDescription": "BananoBrowserQuest é grátis para jogar. Se você gosta do serviço, pode fazer uma pequena contribuição para a premiação do NanoBrowserQuest.",
       "payoutDescription": "O pagamento será enviado depois que você matar o BOSS final! O valor que você receberá dependerá das conquistas que você desbloquear.",
       "leaderboard": "Entre os melhores",
       "rank": "Classificação",
       "player": "Jogador",
       "exp": "Experiência",
       "level": "Nível",
-      "gameDescription": "NanoBrowserQuest é um remake do popular minijogo MMORPG baseado na web BrowserQuest que foi originalmente criado por volta de 2012. O jogo suporta 200 jogadores simultâneos e é gratuito para jogar. O NanoBrowserQuest permite que você jogue com seus amigos, conclua conquistas no jogo e receba uma pequena recompensa do Nano após concluir o jogo.",
+      "gameDescription": "BananoBrowserQuest é um remake do popular minijogo MMORPG baseado na web BrowserQuest que foi originalmente criado por volta de 2012. O jogo suporta 200 jogadores simultâneos e é gratuito para jogar. O BananoBrowserQuest permite que você jogue com seus amigos, conclua conquistas no jogo e receba uma pequena recompensa do BAN após concluir o jogo.",
       "howToPlay": "Como jogar",
       "itemUpgrade": "Upgrade de item",
       "itemUpgradeDescription": "Atualize seus itens na bigorna na cidade. Escolha o item que deseja atualizar e arraste-o para o slot esquerdo. Adicione uma mesma classe de rolagem de atualização a um dos 9 slots da seção intermediária. Se a atualização for bem-sucedida, o item aparecerá no slot à direita. Tenha o cuidado de sempre ter um item de backup caso a atualização não seja bem-sucedida.",
@@ -389,36 +393,9 @@
         "q": "Pressione Q ou clique no troféu para ver seu livro da Quest",
         "m": "Pressione M ou clique no alto-falante para alternar entre mudo"
       },
-      "nanoPotions": "Poções NANO"
-    },
-    "statistics": {
-      "social": {
-        "title": "Engajamento social de criptomoedas / US $ 1 bilhão em valor de mercado",
-        "redditSubscribers": "Número de assinantes do Reddit por $ bilhões",
-        "twitterFollowers": "Número de seguidores no Twitter por $ bilhões",
-        "githubStars": "Número de estrelas no Github por $ bilhões",
-        "engagementPerBillion": "Engajamento por $ bilhões",
-        "marketCap": "Valor de mercado",
-        "totalEngagement": "Engajamento Total"
-      },
-      "2miners": {
-        "title": "Nano estatísticas de pagamento por piscina de mineração 2Miners Ethereum",
-        "totalPayouts": "Pagamentos NANO totais por 2Miners",
-        "payouts": "Pagamentos",
-        "accounts": "Contas",
-        "accountsDescription": "O número de contas exclusivas que receberam pagamentos naquele dia.",
-        "uniqueAccounts": "Contas únicas",
-        "uniqueAccountsDescription": "O número de contas que receberam um pagamento desde {{date}}",
-        "accountsHolding": "Titularidade de contas",
-        "accountsHoldingDescription": "O número de contas que receberam um pagamento desde {{date}} e têm um saldo acima de 0,001 NANO.",
-        "balanceHolding": "Manter o equilíbrio",
-        "balanceHoldingDescription": "Saldo combinado das contas que receberam um pagamento desde {{date}} e têm um saldo acima de 0,001 NANO.",
-        "viewPayoutStatistics": "Ver estatísticas de pagamento",
-        "payoutsDescription": "A quantidade de NANO que foi paga naquele dia.",
-        "fiatPayouts": "Pagamentos Fiat",
-        "fiatPayoutsDescription": "A quantia estimada de $ USD que foi paga naquele dia.",
-        "totalFiatPayouts": "Pagamentos totais estimados por 2Miners (USD)",
-        "announcement": "Ver anúncio"
+      "nanoPotions": "Poções NANO",
+      "guide": {
+        "title": "Guia do NanoBrowserQuest"
       }
     }
   }

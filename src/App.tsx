@@ -26,6 +26,7 @@ import NetworkStatusPage from "pages/NetworkStatus";
 import WhatIsBananoPage from "pages/WhatIsBanano";
 import PreferencesPage from "pages/Preferences";
 import BookmarksPage from "pages/Bookmarks";
+import NanoBrowserQuestPage from "pages/NanoBrowserQuest";
 import "components/utils/analytics";
 
 import "antd/dist/antd.css";
@@ -89,6 +90,10 @@ const App: React.FC = () => {
             <Route path="/what-is-banano" component={WhatIsBananoPage} />
             <Route path="/preferences" component={PreferencesPage} />
             <Route path="/bookmarks" component={BookmarksPage} />
+            <Route
+              path="/bananobrowserquest/:section?"
+              component={NanoBrowserQuestPage}
+            />
           </Switch>
         </Content>
         <AppFooter />

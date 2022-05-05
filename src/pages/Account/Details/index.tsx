@@ -25,10 +25,12 @@ import QuestionCircle from "components/QuestionCircle";
 import { rawToRai, timestampToDate, TwoToneColors } from "components/utils";
 import AccountHeader from "../Header";
 import ExtraRow from "./ExtraRow";
+import Chart from "../Chart";
 import { Sections } from "../.";
 
 import type { PageParams } from "types/page";
 import type { Transaction } from "types/transaction";
+import useRepresentative from "api/hooks/use-representative";
 
 interface AccountDetailsLayoutProps {
   bordered?: boolean;
@@ -64,6 +66,9 @@ const AccountDetails: React.FC<Props> = ({
   const [accountsRepresentative, setAccountsRepresentative] = React.useState(
     {} as Representative,
   );
+  const { representative } = useRepresentative({
+    account: accountsRepresentative?.account,
+  });
 
   const {
     marketStatistics: {
@@ -87,10 +92,8 @@ const AccountDetails: React.FC<Props> = ({
     count: "5",
     raw: true,
   });
-  const {
-    representatives,
-    isLoading: isRepresentativesLoading,
-  } = React.useContext(RepresentativesContext);
+  const { representatives, isLoading: isRepresentativesLoading } =
+    React.useContext(RepresentativesContext);
   const {
     confirmationQuorum: {
       principal_representative_min_weight: principalRepresentativeMinWeight,
@@ -156,197 +159,231 @@ const AccountDetails: React.FC<Props> = ({
     .toNumber();
 
   return (
-    <AccountDetailsLayout bordered={false}>
-      <>
-        <Row gutter={6}>
-          <Col xs={24}>
-            <AccountHeader />
-          </Col>
-        </Row>
-        <Row gutter={6}>
-          <Col xs={24} sm={6} md={4}>
-            {t("common.balance")}
-          </Col>
-          <Col xs={24} sm={18} md={20}>
-            <LoadingStatistic
-              isLoading={skeletonProps.loading}
-              value={balance >= 1 ? balance : new BigNumber(balance).toFormat()}
-            />
-            <Skeleton {...skeletonProps}>
-              {`${CurrencySymbol?.[fiat]} ${fiatBalance} / ${btcBalance} BTC`}
-            </Skeleton>
-          </Col>
-        </Row>
-        {representativeAccount?.account ? (
-          <Row gutter={6}>
-            <Col xs={24} sm={6} md={4}>
-              {t("pages.account.votingWeight")}
-              <Tooltip
-                placement="right"
-                title={t("tooltips.votingWeight", {
-                  minWeight: principalRepresentativeMinWeight,
-                })}
-              >
-                <QuestionCircle />
-              </Tooltip>
-            </Col>
-            <Col xs={24} sm={18} md={20}>
-              <>
-                {new BigNumber(representativeAccount.weight).toFormat()}
-                <br />
-                {new BigNumber(votingWeight).toFormat(
-                  votingWeight > 0.01 ? 2 : 4,
-                )}
-                {t("pages.account.percentNetworkVotingWeight")}
-              </>
-            </Col>
-          </Row>
-        ) : null}
-        <Row gutter={6}>
-          <Col xs={24} sm={6} md={4}>
-            {t("common.representative")}
-          </Col>
-          <Col xs={24} sm={18} md={20}>
-            <Skeleton
-              {...skeletonProps}
-              loading={isAccountInfoLoading || isRepresentativesLoading}
-            >
-              {accountsRepresentative?.account ? (
-                <>
-                  <div style={{ display: "flex", margin: "3px 0" }}>
-                    {typeof accountsRepresentative.isOnline === "boolean" ? (
-                      <Tag
-                        color={
-                          accountsRepresentative.isOnline
-                            ? theme === Theme.DARK
-                              ? TwoToneColors.RECEIVE_DARK
-                              : TwoToneColors.RECEIVE
-                            : theme === Theme.DARK
-                            ? TwoToneColors.SEND_DARK
-                            : TwoToneColors.SEND
-                        }
-                        className={`tag-${
-                          accountsRepresentative.isOnline ? "online" : "offline"
-                        }`}
-                      >
-                        {t(
-                          `common.${
-                            accountsRepresentative.isOnline
-                              ? "online"
-                              : "offline"
-                          }`,
-                        )}
-                      </Tag>
-                    ) : null}
-                    {accountsRepresentative?.isPrincipal ? (
-                      <Tag>{t("common.principalRepresentative")}</Tag>
-                    ) : null}
-                  </div>
-
-                  {accountsRepresentative.alias ? (
-                    <div className="color-important">
-                      {accountsRepresentative.alias}
-                    </div>
-                  ) : null}
-                </>
-              ) : null}
-
-              {!accountsRepresentative?.account &&
-              accountInfo.representative ? (
-                <div style={{ display: "flex", margin: "3px 0" }}>
-                  <Tag
-                    color={
-                      theme === Theme.DARK
-                        ? TwoToneColors.WARNING_DARK
-                        : TwoToneColors.WARNING
-                    }
-                  >
-                    {t("pages.account.notVoting")}
-                  </Tag>
-                </div>
-              ) : null}
-
-              {accountsRepresentative?.account || accountInfo.representative ? (
-                <Link
-                  to={`/account/${accountInfo.representative}${
-                    section === Sections.TRANSACTIONS ? "/delegators" : ""
-                  }`}
-                  className="break-word"
-                >
-                  {accountInfo.representative}
-                </Link>
-              ) : null}
-
-              {!accountsRepresentative?.account && !accountInfo.representative
-                ? t("pages.account.noRepresentative")
-                : null}
-            </Skeleton>
-          </Col>
-        </Row>
-        {parseFloat(balancePending) ? (
-          <Row gutter={6}>
-            <Col xs={24} sm={6} md={4}>
-              {t("transaction.pending")}
-              <Tooltip placement="right" title={t("tooltips.pending")}>
-                <QuestionCircle />
-              </Tooltip>
-            </Col>
-            <Col xs={24} sm={18} md={20}>
-              <Skeleton {...skeletonProps}>{balancePending}</Skeleton>
-            </Col>
-          </Row>
-        ) : null}
-        <Row gutter={6}>
-          <Col xs={24} sm={6} md={4}>
-            {t("pages.account.confirmationHeight")}
-            <Tooltip placement="right" title={t("tooltips.confirmationHeight")}>
-              <QuestionCircle />
-            </Tooltip>
-          </Col>
-          <Col xs={24} sm={18} md={20}>
-            <Skeleton {...skeletonProps}>
-              {new BigNumber(accountInfo.confirmation_height)
-                .plus(socketTransactions.length)
-                .toNumber()}
-            </Skeleton>
-          </Col>
-        </Row>
-        <Row gutter={6}>
-          <Col xs={24} sm={6} md={4}>
-            {t("pages.account.lastTransaction")}
-          </Col>
-          <Col xs={24} sm={18} md={20}>
-            <Skeleton {...skeletonProps} loading={isAccountHistoryLoading}>
-              {modifiedTimestamp ? (
-                <>
-                  {timestampToDate(modifiedTimestamp)}{" "}
-                  <span className="color-muted" style={{ fontSize: "12px" }}>
-                    (
-                    <TimeAgo
-                      datetime={modifiedTimestamp}
-                      live={false}
-                      locale={i18next.language}
-                    />
-                    )
-                  </span>
-                </>
-              ) : (
-                <>
-                  {t("common.unknown")}
+    <Row gutter={6}>
+      <Col xs={24} sm={16} span={12}>
+        <AccountDetailsLayout>
+          <>
+            <Row gutter={6}>
+              <Col xs={24}>
+                <AccountHeader />
+              </Col>
+            </Row>
+            <Row gutter={6}>
+              <Col xs={24} sm={6} md={4}>
+                {t("common.balance")}
+              </Col>
+              <Col xs={24} sm={18} md={20}>
+                <LoadingStatistic
+                  isLoading={skeletonProps.loading}
+                  value={
+                    balance >= 1 ? balance : new BigNumber(balance).toFormat()
+                  }
+                />
+                <Skeleton {...skeletonProps}>
+                  {`${CurrencySymbol?.[fiat]} ${fiatBalance} / ${btcBalance} BTC`}
+                </Skeleton>
+              </Col>
+            </Row>
+            {representativeAccount?.account ? (
+              <Row gutter={6}>
+                <Col xs={24} sm={6} md={4}>
+                  {t("pages.account.votingWeight")}
                   <Tooltip
                     placement="right"
-                    title={t("tooltips.unknownLastTransaction")}
+                    title={t("tooltips.votingWeight", {
+                      minWeight: principalRepresentativeMinWeight,
+                    })}
                   >
                     <QuestionCircle />
                   </Tooltip>
-                </>
-              )}
-            </Skeleton>
-          </Col>
-        </Row>
-        <ExtraRow account={account} />
-      </>
-    </AccountDetailsLayout>
+                </Col>
+                <Col xs={24} sm={18} md={20}>
+                  <>
+                    {new BigNumber(representativeAccount.weight).toFormat()}
+                    <br />
+                    {new BigNumber(votingWeight).toFormat(
+                      votingWeight > 0.01 ? 2 : 4,
+                    )}
+                    {t("pages.account.percentNetworkVotingWeight")}
+                  </>
+                </Col>
+              </Row>
+            ) : null}
+            <Row gutter={6}>
+              <Col xs={24} sm={6} md={4}>
+                {t("common.representative")}
+              </Col>
+              <Col xs={24} sm={18} md={20}>
+                <Skeleton
+                  {...skeletonProps}
+                  loading={isAccountInfoLoading || isRepresentativesLoading}
+                >
+                  {accountsRepresentative?.account ? (
+                    <>
+                      <div style={{ display: "flex", margin: "3px 0" }}>
+                        {typeof accountsRepresentative.isOnline ===
+                        "boolean" ? (
+                          <Tag
+                            color={
+                              accountsRepresentative.isOnline
+                                ? theme === Theme.DARK
+                                  ? TwoToneColors.RECEIVE_DARK
+                                  : TwoToneColors.RECEIVE
+                                : theme === Theme.DARK
+                                ? TwoToneColors.SEND_DARK
+                                : TwoToneColors.SEND
+                            }
+                            className={`tag-${
+                              accountsRepresentative.isOnline
+                                ? "online"
+                                : "offline"
+                            }`}
+                          >
+                            {t(
+                              `common.${
+                                accountsRepresentative.isOnline
+                                  ? "online"
+                                  : "offline"
+                              }`,
+                            )}
+                          </Tag>
+                        ) : null}
+                        {accountsRepresentative?.isPrincipal ? (
+                          <Tag>{t("common.principalRepresentative")}</Tag>
+                        ) : null}
+                        {representative?.version ? (
+                          <Tag
+                            color={
+                              !representative.isLatestVersion
+                                ? theme === Theme.DARK
+                                  ? TwoToneColors.WARNING_DARK
+                                  : TwoToneColors.WARNING
+                                : undefined
+                            }
+                          >
+                            v{representative?.version}
+                          </Tag>
+                        ) : null}
+                      </div>
+
+                      {accountsRepresentative.alias ? (
+                        <div className="color-important">
+                          {accountsRepresentative.alias}
+                        </div>
+                      ) : null}
+                    </>
+                  ) : null}
+
+                  {!accountsRepresentative?.account &&
+                  accountInfo.representative ? (
+                    <div style={{ display: "flex", margin: "3px 0" }}>
+                      <Tag
+                        color={
+                          theme === Theme.DARK
+                            ? TwoToneColors.WARNING_DARK
+                            : TwoToneColors.WARNING
+                        }
+                      >
+                        {t("pages.account.notVoting")}
+                      </Tag>
+                    </div>
+                  ) : null}
+
+                  {accountsRepresentative?.account ||
+                  accountInfo.representative ? (
+                    <Link
+                      to={`/account/${accountInfo.representative}${
+                        section === Sections.TRANSACTIONS ? "/delegators" : ""
+                      }`}
+                      className="break-word"
+                    >
+                      {accountInfo.representative}
+                    </Link>
+                  ) : null}
+
+                  {!accountsRepresentative?.account &&
+                  !accountInfo.representative
+                    ? t("pages.account.noRepresentative")
+                    : null}
+                </Skeleton>
+              </Col>
+            </Row>
+            {parseFloat(balancePending) ? (
+              <Row gutter={6}>
+                <Col xs={24} sm={6} md={4}>
+                  {t("transaction.pending")}
+                  <Tooltip placement="right" title={t("tooltips.pending")}>
+                    <QuestionCircle />
+                  </Tooltip>
+                </Col>
+                <Col xs={24} sm={18} md={20}>
+                  <Skeleton {...skeletonProps}>{balancePending}</Skeleton>
+                </Col>
+              </Row>
+            ) : null}
+            <Row gutter={6}>
+              <Col xs={24} sm={6} md={4}>
+                {t("pages.account.confirmationHeight")}
+                <Tooltip
+                  placement="right"
+                  title={t("tooltips.confirmationHeight")}
+                >
+                  <QuestionCircle />
+                </Tooltip>
+              </Col>
+              <Col xs={24} sm={18} md={20}>
+                <Skeleton {...skeletonProps}>
+                  {new BigNumber(accountInfo.confirmation_height)
+                    .plus(socketTransactions.length)
+                    .toNumber()}
+                </Skeleton>
+              </Col>
+            </Row>
+            <Row gutter={6}>
+              <Col xs={24} sm={6} md={4}>
+                {t("pages.account.lastTransaction")}
+              </Col>
+              <Col xs={24} sm={18} md={20}>
+                <Skeleton {...skeletonProps} loading={isAccountHistoryLoading}>
+                  {modifiedTimestamp ? (
+                    <>
+                      {timestampToDate(modifiedTimestamp)}{" "}
+                      <span
+                        className="color-muted"
+                        style={{ fontSize: "12px" }}
+                      >
+                        (
+                        <TimeAgo
+                          datetime={modifiedTimestamp}
+                          live={false}
+                          locale={i18next.language}
+                        />
+                        )
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      {t("common.unknown")}
+                      <Tooltip
+                        placement="right"
+                        title={t("tooltips.unknownLastTransaction")}
+                      >
+                        <QuestionCircle />
+                      </Tooltip>
+                    </>
+                  )}
+                </Skeleton>
+              </Col>
+            </Row>
+            <ExtraRow account={account} />
+          </>
+        </AccountDetailsLayout>
+      </Col>
+
+      <Col xs={24} sm={8} span={12}>
+        <Chart />
+      </Col>
+    </Row>
   );
 };
 

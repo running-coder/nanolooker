@@ -49,6 +49,7 @@ const { getNodeLocations } = require("./api/nodeLocations");
 const { getNodeMonitors } = require("./api/nodeMonitors");
 const { getDelegatedEntity } = require("./api/delegatedEntity");
 const { getTelemetry } = require("./api/telemetry");
+const { getRepresentative } = require("./api/representative");
 const { Sentry } = require("./sentry");
 
 const app = express();
@@ -143,18 +144,6 @@ app.get("/api/market-statistics", async (req, res) => {
   });
 });
 
-app.get("/api/statistics/social", async (req, res) => {
-  const data = await getCoingeckoMarketCapStats();
-
-  res.send(data);
-});
-
-app.get("/api/statistics/2miners", async (req, res) => {
-  const data = await get2MinersStats();
-
-  res.send(data);
-});
-
 app.get("/api/known-accounts", async (req, res) => {
   const knownAccounts = await getKnownAccounts();
 
@@ -183,6 +172,14 @@ app.get("/api/node-locations", async (req, res) => {
   const nodeLocations = await getNodeLocations();
 
   res.send(nodeLocations);
+});
+
+app.get("/api/representative", async (req, res) => {
+  const { account } = req.query;
+
+  const representative = await getRepresentative(account);
+
+  res.send(representative);
 });
 
 app.get("/api/delegated-entity", async (req, res) => {
@@ -270,7 +267,7 @@ app.get("/api/nanoticker", async (req, res) => {
 });
 
 app.get("/api/youtube-playlist", async (req, res) => {
-  const playlist = await getYoutubePlaylist();
+  const playlist = null; //await getYoutubePlaylist();
 
   res.send(playlist || {});
 });

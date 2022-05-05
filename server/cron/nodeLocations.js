@@ -36,6 +36,7 @@ const getNodePeers = async () => {
 
 let db;
 let mongoClient;
+
 const connect = async () =>
   await new Promise((resolve, reject) => {
     try {
@@ -49,11 +50,12 @@ const connect = async () =>
           { createdAt: 1 },
           { expireAfterSeconds: EXPIRE_48H },
         );
+        resolve();
       });
     } catch (err) {
       Sentry.captureException(err);
+      resolve();
     }
-    resolve();
   });
 
 const getNodeLocation = async ip => {
@@ -105,8 +107,6 @@ const doNodeLocations = async () => {
   console.log("Starting doNodeLocations");
 
   try {
-    await connect();
-
     let peers = await getNodePeers();
     let results = [];
 
@@ -128,6 +128,8 @@ const doNodeLocations = async () => {
 
       results = results.concat(locationResults);
     }
+
+    await connect();
 
     db.collection(NODE_LOCATIONS).drop();
     db.collection(NODE_LOCATIONS).insertMany(results);

@@ -41,7 +41,8 @@
     "comingSoon": "近日公開",
     "statistics": "統計",
     "continue": "継続する",
-    "link": "リンク"
+    "link": "リンク",
+    "noData": "データなし"
   },
   "nodeHealth": {
     "nodeReloading": "Bananoノードがリロードしています",
@@ -178,7 +179,10 @@
       "missingAccountInfo": "アカウントがURLで指定されていません。上部の検索バーを使用してアカウントを検索するか、URLの /account/ の後に追加します",
       "notVoting": "投票しない",
       "pendingTransactions": "受け取る準備ができているトランザクション",
-      "pendingTransaction": "トランザクションを受信する準備ができました"
+      "pendingTransaction": "トランザクションを受信する準備ができました",
+      "dailyBalanceOption": " 毎日のバランス",
+      "byTransactionOption": "取引ごとの残高",
+      "dailyBalance": "最後の{{count}}トランザクション"
     },
     "block": {
       "blockSubtype": "ブロックサブタイプ",
@@ -362,17 +366,17 @@
     "nanobrowserquest": {
       "playNow": "今すぐプレイ！",
       "playersOnline": "オンラインプレイヤー",
-      "playNanoBrowserQuest": "NanoBrowserQuestを再生する",
-      "welcomeTitle": "NanoBrowserQuestをプレイして、ゲームを完了するための少額の支払いを獲得してください！",
-      "donatePrizePool": "NanoBrowserQuest賞金プールに寄付する",
-      "registerDescription": "NanoBrowserQuestは無料でプレイできます。このサービスを楽しんでいる場合は、NanoBrowserQuestの賞金プールに少額の寄付をすることができます。",
+      "playNanoBrowserQuest": "BananoBrowserQuestを再生する",
+      "welcomeTitle": "BananoBrowserQuestをプレイして、ゲームを完了するための少額の支払いを獲得してください！",
+      "donatePrizePool": "BananoBrowserQuest賞金プールに寄付する",
+      "registerDescription": "BananoBrowserQuestは無料でプレイできます。このサービスを楽しんでいる場合は、NanoBrowserQuestの賞金プールに少額の寄付をすることができます。",
       "payoutDescription": "エンドボスを倒すとペイアウトが送られます！獲得できる金額は、ロックを解除した実績によって異なります。",
       "leaderboard": "リーダーボード",
       "rank": "ランク",
       "player": "プレーヤー",
       "exp": "経験",
       "level": "レベル",
-      "gameDescription": "NanoBrowserQuestは、もともと2012年頃に作成された人気のBrowserQuest WebベースのMMORPGミニゲームのリメイクです。このゲームは200人の同時プレイヤーをサポートし、無料でプレイできます。 NanoBrowserQuestを使用すると、友達と遊んだり、ゲーム内の実績を完了したり、ゲームの完了後に小さなNano報酬を獲得したりできます。",
+      "gameDescription": "BananoBrowserQuestは、もともと2012年頃に作成された人気のBrowserQuest WebベースのMMORPGミニゲームのリメイクです。このゲームは200人の同時プレイヤーをサポートし、無料でプレイできます。 NanoBrowserQuestを使用すると、友達と遊んだり、ゲーム内の実績を完了したり、ゲームの完了後に小さなBAN報酬を獲得したりできます。",
       "howToPlay": "遊び方",
       "itemUpgrade": "アイテムのアップグレード",
       "itemUpgradeDescription": "町のアンビルでアイテムをアップグレードしてください。アップグレードするアイテムを選択し、左側のスロットにドラッグします。同じアップグレードスクロールクラスを9つの中央セクションスロットの1つに追加します。アップグレードが成功すると、アイテムが右側のスロットに表示されます。アップグレードが成功しない場合に備えて、常にバックアップ項目を用意するように注意してください。",
@@ -389,36 +393,9 @@
         "q": "Qを押すか、トロフィーをクリックして、クエストブックを表示します",
         "m": "Mを押すか、スピーカーをクリックしてミュートを切り替えます"
       },
-      "nanoPotions": "ナノポーション"
-    },
-    "statistics": {
-      "social": {
-        "title": "暗号通貨の社会的関与/時価総額10億ドル",
-        "redditSubscribers": "10億ドルあたりのRedditサブスクライバーの数",
-        "twitterFollowers": "10億ドルあたりのTwitterフォロワー数",
-        "githubStars": "10億ドルあたりのGithubスターの数",
-        "engagementPerBillion": "10億ドルあたりのエンゲージメント",
-        "marketCap": "時価総額",
-        "totalEngagement": "トータルエンゲージメント"
-      },
-      "2miners": {
-        "title": "2Minersイーサリアムマイニングプールによるナノペイアウト統計",
-        "totalPayouts": "2Minersによる合計NANO支払い",
-        "payouts": "支払い",
-        "accounts": "アカウント",
-        "accountsDescription": "その日に支払いを受け取った一意のアカウントの数。",
-        "uniqueAccounts": "一意のアカウント",
-        "uniqueAccountsDescription": "{{date}}以降に支払いを受け取ったアカウントの数",
-        "accountsHolding": "保持しているアカウント",
-        "accountsHoldingDescription": "{{date}}以降に支払いを受け取り、残高が0.001NANOを超えるアカウントの数。",
-        "balanceHolding": "バランスを保つ",
-        "balanceHoldingDescription": "{{date}}以降に支払いを受け取り、残高が0.001NANOを超えるアカウントの合計残高。",
-        "viewPayoutStatistics": "支払い統計を表示する",
-        "payoutsDescription": "その日に支払われたNANOの金額。",
-        "fiatPayouts": "フィアットの支払い",
-        "fiatPayoutsDescription": "その日に支払われた推定$ USDの金額。",
-        "totalFiatPayouts": "2Miners（USD）による推定総支払い額",
-        "announcement": "お知らせを見る"
+      "nanoPotions": "ナノポーション",
+      "guide": {
+        "title": "BananoBrowserQuestガイド"
       }
     }
   }

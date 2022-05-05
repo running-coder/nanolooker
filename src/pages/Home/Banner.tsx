@@ -65,15 +65,25 @@ const Banner: React.FC = () => {
           <Button ghost>{t("menu.whatIsBanano")}</Button>
         </Link>
 
-        <Button
-          ghost
-          href="https://nanolooker.com"
-          onClick={() => {
-            Tracker.ga4?.gtag("event", "GoToNanoLooker");
-          }}
-        >
-          <img alt="Go to NanoLooker" src={`/nano-white.png`} height="10px" />
-        </Button>
+        {/* <Link to={"/bananobrowserquest"}>
+          <Button
+            ghost
+            style={{ padding: "0 10px" }}
+            onClick={() => {
+              Tracker.ga4?.gtag("event", "BananoBrowserQuest");
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <img
+                alt="Go to BananoBrowserQuest"
+                src={`/nanobrowserquest.png`}
+                height="16px"
+                style={{ marginRight: "6px" }}
+              />
+              BananoBrowserQuest
+            </div>
+          </Button>
+        </Link> */}
       </Space>
     </div>
   );

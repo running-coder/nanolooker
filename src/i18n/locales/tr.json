@@ -41,7 +41,8 @@
     "comingSoon": "Çok yakında",
     "statistics": "İstatistik",
     "continue": "Devam et",
-    "link": "Bağlantı"
+    "link": "Bağlantı",
+    "noData": "Veri yok"
   },
   "nodeHealth": {
     "nodeReloading": "Banano düğüm yeniden yükleniyor",
@@ -178,7 +179,10 @@
       "missingAccountInfo": "Hesap URL'de belirtilmemiştir. Bir hesabı aramak için üstteki arama çubuğunu kullanın veya URL'ye /account/ sonrasına ekleyin.",
       "notVoting": "Oy Vermemek",
       "pendingTransactions": "Alınmaya hazır işlemler",
-      "pendingTransaction": "İşlem alınmaya hazır"
+      "pendingTransaction": "İşlem alınmaya hazır",
+      "dailyBalanceOption": " Günlük bakiye",
+      "byTransactionOption": "İşlem bazında bakiye",
+      "dailyBalance": "Son {{count}} işlem"
     },
     "block": {
       "blockSubtype": "Alt türü engelle",
@@ -362,17 +366,17 @@
     "nanobrowserquest": {
       "playNow": "Şimdi oyna !",
       "playersOnline": "oyuncular çevrimiçi",
-      "playNanoBrowserQuest": "NanoBrowserQuest oyna",
-      "welcomeTitle": "NanoBrowserQuest oynayın ve oyunu tamamladığınız için küçük bir ödeme kazanın!",
-      "donatePrizePool": "NanoBrowserQuest ödül havuzuna bağış yapın",
-      "registerDescription": "NanoBrowserQuest'i oynamak ücretsizdir. Hizmetten hoşlanıyorsanız, NanoBrowserQuest ödül havuzuna küçük bir katkıda bulunabilirsiniz.",
+      "playNanoBrowserQuest": "BananoBrowserQuest oyna",
+      "welcomeTitle": "BananoBrowserQuest oynayın ve oyunu tamamladığınız için küçük bir ödeme kazanın!",
+      "donatePrizePool": "BananoBrowserQuest ödül havuzuna bağış yapın",
+      "registerDescription": "BananoBrowserQuest'i oynamak ücretsizdir. Hizmetten hoşlanıyorsanız, BananoBrowserQuest ödül havuzuna küçük bir katkıda bulunabilirsiniz.",
       "payoutDescription": "Son BOSS'u öldürdükten sonra ödeme gönderilecektir! Alacağınız miktar, kilidini açtığınız başarılara bağlı olacaktır.",
       "leaderboard": "Liderler Sıralaması",
       "rank": "Rütbe",
       "player": "oyuncu",
       "exp": "Tecrübe etmek",
       "level": "Seviye",
-      "gameDescription": "NanoBrowserQuest, orijinal olarak 2012 civarında oluşturulan popüler BrowserQuest web tabanlı MMORPG mini oyununun yeniden çevrimidir. Oyun, aynı anda 200 oyuncuyu destekler ve oynaması ücretsizdir. NanoBrowserQuest, arkadaşlarınızla oynamanıza, oyun içi başarıları tamamlamanıza ve oyunu tamamladıktan sonra küçük bir Nano ödülü kazanmanıza olanak tanır.",
+      "gameDescription": "BananoBrowserQuest, orijinal olarak 2012 civarında oluşturulan popüler BrowserQuest web tabanlı MMORPG mini oyununun yeniden çevrimidir. Oyun, aynı anda 200 oyuncuyu destekler ve oynaması ücretsizdir. NanoBrowserQuest, arkadaşlarınızla oynamanıza, oyun içi başarıları tamamlamanıza ve oyunu tamamladıktan sonra küçük bir BAN ödülü kazanmanıza olanak tanır.",
       "howToPlay": "Nasıl oynanır",
       "itemUpgrade": "Öğe yükseltme",
       "itemUpgradeDescription": "Eşyalarınızı şehirdeki Anvil'de yükseltin. Yükseltmek istediğiniz öğeyi seçin ve soldaki yuvaya sürükleyin. 9 orta bölüm yuvasından birine aynı yükseltme kaydırma sınıfını ekleyin. Yükseltme başarılı olursa, öğe sağdaki yuvada görünecektir. Yükseltmenin başarılı olmaması durumunda her zaman bir yedek öğe bulundurmaya dikkat edin.",
@@ -389,36 +393,9 @@
         "q": "Quest kitabınızı görüntülemek için Q'ya basın veya kupaya tıklayın",
         "m": "Sesi kapatmak için M tuşuna basın veya hoparlörü tıklayın"
       },
-      "nanoPotions": "NANO İksirler"
-    },
-    "statistics": {
-      "social": {
-        "title": "Kripto para birimleri sosyal etkileşimi / Piyasa Değerinde 1 Milyar Dolar",
-        "redditSubscribers": "Milyar Dolar Başına Reddit abone sayısı",
-        "twitterFollowers": "Milyar Dolar Başına Twitter Takipçi Sayısı",
-        "githubStars": "Milyar Dolar Başına Github yıldızlarının sayısı",
-        "engagementPerBillion": "Milyar Dolar Başına Etkileşim",
-        "marketCap": "Piyasa değeri",
-        "totalEngagement": "Toplam Katılım"
-      },
-      "2miners": {
-        "title": "2Miners Ethereum madencilik havuzuna göre nano ödeme istatistikleri",
-        "totalPayouts": "2Miners tarafından toplam NANO ödemeleri",
-        "payouts": "ödemeler",
-        "accounts": "Hesaplar",
-        "accountsDescription": "O gün için ödeme alan benzersiz hesapların sayısı.",
-        "uniqueAccounts": "Benzersiz hesaplar",
-        "uniqueAccountsDescription": "{{date}} tarihinden itibaren ödeme alan hesap sayısı",
-        "accountsHolding": "Hesap tutma",
-        "accountsHoldingDescription": "{{date}} tarihinden itibaren ödeme alan ve bakiyesi 0,001 NANO'nun üzerinde olan hesapların sayısı.",
-        "balanceHolding": "Tutma dengesi",
-        "balanceHoldingDescription": "{{date}} tarihinden itibaren ödeme alan ve 0,001 NANO'nun üzerinde bakiyesi olan hesapların toplam bakiyesi.",
-        "viewPayoutStatistics": "Ödeme istatistiklerini görüntüleyin",
-        "payoutsDescription": "O gün için ödenen NANO miktarı.",
-        "fiatPayouts": "Fiat ödemeleri",
-        "fiatPayoutsDescription": "O gün için ödenen tahmini ABD doları tutarı.",
-        "totalFiatPayouts": "2Miners tarafından tahmini toplam ödemeler (USD)",
-        "announcement": "Duyuruyu Görüntüle"
+      "nanoPotions": "NANO İksirler",
+      "guide": {
+        "title": "BananoBrowserQuest Kılavuzu"
       }
     }
   }
