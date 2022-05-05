@@ -7,12 +7,8 @@ const {
   NANOBROWSERQUEST_LEADERBOARD,
 } = require("../constants");
 
-const {
-  REDIS_PORT,
-  REDIS_HOST,
-  REDIS_PASSWORD,
-  REDIS_NBQ_DB_INDEX,
-} = process.env;
+const { REDIS_PORT, REDIS_HOST, REDIS_PASSWORD, REDIS_NBQ_DB_INDEX } =
+  process.env;
 const client = redis.createClient(REDIS_PORT, REDIS_HOST, {
   password: REDIS_PASSWORD,
 });
@@ -42,27 +38,19 @@ const getNanoBrowserQuestPlayers = async () => {
 const getNanoBrowserQuestLeaderboard = async () => {
   let res;
   try {
-    client.keys("u:*", (error, players) => {
+    client.keys("u:*", (_err, players) => {
       Promise.all(
         players.map(
           player =>
             new Promise(resolve => {
-              client.hmget(
-                player,
-                "hash",
-                "nanoPotions",
-                "exp",
-                // "account",
-                (error, reply) => {
-                  resolve({
-                    player: player.replace("u:", ""),
-                    isCompleted: !!reply[0],
-                    nanoPotions: parseInt(reply[1] || 0),
-                    exp: parseInt(reply[2] || 0),
-                    // account: reply[3],
-                  });
-                },
-              );
+              client.hmget(player, "hash", "network", "exp", (_err, reply) => {
+                resolve({
+                  player: player.replace("u:", ""),
+                  isCompleted: !!reply[0],
+                  network: reply[1],
+                  exp: parseInt(reply[2] || 0),
+                });
+              });
             }),
         ),
       ).then(data => {
