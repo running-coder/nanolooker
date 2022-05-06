@@ -7,14 +7,18 @@ const {
   NANOBROWSERQUEST_LEADERBOARD,
 } = require("../constants");
 
-const { REDIS_PORT, REDIS_HOST, REDIS_PASSWORD, REDIS_NBQ_DB_INDEX } =
-  process.env;
-const client = redis.createClient(REDIS_PORT, REDIS_HOST, {
-  password: REDIS_PASSWORD,
+const {
+  NBQ_REDIS_PORT,
+  NBQ_REDIS_HOST,
+  NBQ_REDIS_PASSWORD,
+  NBQ_REDIS_DB_INDEX,
+} = process.env;
+const client = redis.createClient(NBQ_REDIS_PORT, NBQ_REDIS_HOST, {
+  password: NBQ_REDIS_PASSWORD,
 });
 
 client.on("connect", function () {
-  client.select(REDIS_NBQ_DB_INDEX); // NBQ DB
+  client.select(NBQ_REDIS_DB_INDEX); // NBQ DB
   console.log("Connected to Redis");
 });
 
