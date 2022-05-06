@@ -66,7 +66,7 @@ const NanoBrowserQuestPage: React.FC = () => {
                   alt="NanoBrowserQuest"
                   width="100%"
                   style={{
-                    maxWidth: "400px",
+                    maxWidth: "600px",
                     display: "block",
                     pointerEvents: "none",
                     margin: "0 auto",
