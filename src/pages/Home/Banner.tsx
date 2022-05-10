@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Button, Space, Typography } from "antd";
 import { Theme, PreferencesContext } from "api/contexts/Preferences";
 import Search from "components/Search";
-// import { Tracker } from "components/utils/analytics";
+import { Tracker } from "components/utils/analytics";
 
 const { Title } = Typography;
 
@@ -65,7 +65,7 @@ const Banner: React.FC = () => {
           <Button ghost>{t("menu.whatIsBanano")}</Button>
         </Link>
 
-        {/* <Link to={"/bananobrowserquest"}>
+        <Link to={"/bananobrowserquest"}>
           <Button
             ghost
             style={{ padding: "0 10px" }}
@@ -83,7 +83,7 @@ const Banner: React.FC = () => {
               BananoBrowserQuest
             </div>
           </Button>
-        </Link> */}
+        </Link>
       </Space>
     </div>
   );

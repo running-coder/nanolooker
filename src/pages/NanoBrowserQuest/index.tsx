@@ -62,7 +62,7 @@ const NanoBrowserQuestPage: React.FC = () => {
             <Row>
               <Col xs={24}>
                 <img
-                  src="/nanobrowserquest/nanobrowserquest.jpg"
+                  src="/nanobrowserquest/bananobrowserquest.jpg"
                   alt="NanoBrowserQuest"
                   width="100%"
                   style={{
