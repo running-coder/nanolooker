@@ -160,7 +160,7 @@ const Chart: React.FC = () => {
         formatter: ({ balance, date }: { balance: number; date: string }) => {
           return {
             name: t("common.balance"),
-            value: `Ӿ ${new BigNumber(balance).toFormat(6)}`,
+            value: `BAN ${new BigNumber(balance).toFormat(6)}`,
           };
         },
       },
