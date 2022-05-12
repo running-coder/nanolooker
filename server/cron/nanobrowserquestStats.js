@@ -1,5 +1,6 @@
 const cron = require("node-cron");
 const redis = require("redis");
+const chunk = require("lodash/chunk");
 const { Sentry } = require("../sentry");
 const { nodeCache } = require("../client/cache");
 const {
@@ -13,6 +14,7 @@ const {
   NBQ_REDIS_PASSWORD,
   NBQ_REDIS_DB_INDEX,
 } = process.env;
+
 const client = redis.createClient(NBQ_REDIS_PORT, NBQ_REDIS_HOST, {
   password: NBQ_REDIS_PASSWORD,
 });
@@ -20,6 +22,10 @@ const client = redis.createClient(NBQ_REDIS_PORT, NBQ_REDIS_HOST, {
 client.on("connect", function () {
   client.select(NBQ_REDIS_DB_INDEX); // NBQ DB
   console.log("Connected to Redis");
+
+  if (process.env.NODE_ENV === "production") {
+    getNanoBrowserQuestLeaderboard();
+  }
 });
 
 client.on("error", function (err) {
@@ -42,24 +48,45 @@ const getNanoBrowserQuestPlayers = async () => {
 const getNanoBrowserQuestLeaderboard = async () => {
   let res;
   try {
-    client.keys("u:*", (_err, players) => {
-      Promise.all(
-        players.map(
-          player =>
-            new Promise(resolve => {
-              client.hmget(player, "hash", "network", "exp", (_err, reply) => {
-                resolve({
-                  player: player.replace("u:", ""),
-                  isCompleted: !!reply[0],
-                  network: reply[1],
-                  exp: parseInt(reply[2] || 0),
-                });
-              });
-            }),
-        ),
-      ).then(data => {
-        nodeCache.set(NANOBROWSERQUEST_LEADERBOARD, data);
-      });
+    let playersData = [];
+    const PER_PAGES = 500;
+    client.keys("u:*", async (_err, players) => {
+      const playersChunks = chunk(players, PER_PAGES);
+
+      for (let i = 0; i < playersChunks.length; i++) {
+        const rawPlayerData = await Promise.all(
+          playersChunks[i].map(
+            player =>
+              new Promise(resolve => {
+                client.hmget(
+                  player,
+                  "hash",
+                  "network",
+                  "exp",
+                  (_err, reply) => {
+                    const network = reply[1];
+                    const exp = parseInt(reply[2] || 0);
+
+                    if (network === "ban" || !exp) {
+                      resolve(undefined);
+                    } else {
+                      resolve({
+                        player: player.replace("u:", ""),
+                        isCompleted: !!reply[0],
+                        network,
+                        exp: parseInt(reply[2] || 0),
+                      });
+                    }
+                  },
+                );
+              }),
+          ),
+        );
+
+        playersData = playersData.concat(rawPlayerData.filter(Boolean));
+      }
+
+      nodeCache.set(NANOBROWSERQUEST_LEADERBOARD, playersData);
     });
   } catch (err) {
     console.log("Error", err);
@@ -77,7 +104,3 @@ cron.schedule("*/5 * * * * *", async () => {
 cron.schedule("*/15 * * * *", async () => {
   getNanoBrowserQuestLeaderboard();
 });
-
-if (process.env.NODE_ENV === "production") {
-  getNanoBrowserQuestLeaderboard();
-}
