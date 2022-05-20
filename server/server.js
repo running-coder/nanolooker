@@ -63,7 +63,10 @@ const { getNodeLocations } = require("./api/nodeLocations");
 const { getNodeMonitors } = require("./api/nodeMonitors");
 const { getDelegatedEntity } = require("./api/delegatedEntity");
 const { getTelemetry } = require("./api/telemetry");
-const { getRepresentative } = require("./api/representative");
+const {
+  getRepresentative,
+  getAllRepresentatives,
+} = require("./api/representative");
 const { Sentry } = require("./sentry");
 
 const app = express();
@@ -206,7 +209,9 @@ app.get("/api/node-locations", async (req, res) => {
 app.get("/api/representative", async (req, res) => {
   const { account } = req.query;
 
-  const representative = await getRepresentative(account);
+  const representative = account
+    ? await getRepresentative(account)
+    : getAllRepresentatives();
 
   res.send(representative);
 });
