@@ -38,7 +38,7 @@ let accumulatedLargeTransactionHashes = [];
 // https://github.com/cryptocode/nano-websocket-sample-nodejs/blob/master/index.js
 const ws = new ReconnectingWebSocket("wss://www.nanolooker.com/ws", [], {
   WebSocket: WS,
-  connectionTimeout: 1000,
+  connectionTimeout: 10000,
   maxRetries: 100000,
   maxReconnectionDelay: 2000,
   minReconnectionDelay: 10,
