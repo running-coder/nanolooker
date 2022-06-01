@@ -179,8 +179,6 @@
       "lastTransaction": "마지막 거래",
       "loadMoreTransactions": "더 많은 거래로드",
       "viewTransactions": "거래보기",
-      "notOpenedYet": "이 계정은 아직 개설되지 않았습니다.",
-      "notOpenedYetReason": "계정 주소가 유효하지만 아직 체인에 게시 된 블록이 없습니다. NANO가이 계정으로 전송 된 경우 자금을 보관하려면 해당 블록을 게시해야합니다.",
       "missingAccount": "누락 된 계정",
       "missingAccountInfo": "계정이 URL에 지정되지 않았습니다. 계정을 검색하려면 상단 검색 창을 사용하거나 /account/ 뒤의 URL에 추가하세요.",
       "notVoting": "투표하지 않음",
@@ -188,7 +186,9 @@
       "pendingTransaction": "거래를 받을 준비가 되었습니다",
       "dailyBalanceOption": " 일일 잔액",
       "byTransactionOption": "거래별 잔액",
-      "dailyBalance": "마지막 {{count}} 거래"
+      "dailyBalance": "마지막 {{count}} 거래",
+      "notOpenedYet": "이 계정에는 거래가 없습니다.",
+      "notOpenedYetReason": "계정이 유효하지만 아직 블록이 체인에 추가되지 않았습니다. NANO가 이 계정으로 전송된 경우 사용 중인 서비스가 아직 브로드캐스트하지 않았거나 일시적인 네트워크 상태로 인해 NanoLooker 노드가 아직 트랜잭션을 수신하지 못했을 수 있습니다."
     },
     "block": {
       "blockSubtype": "블록 하위 유형",

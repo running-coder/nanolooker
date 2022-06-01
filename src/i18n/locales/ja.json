@@ -179,8 +179,6 @@
       "lastTransaction": "最後のトランザクション",
       "loadMoreTransactions": "より多くのトランザクションをロードする",
       "viewTransactions": "トランザクションを表示する",
-      "notOpenedYet": "このアカウントはまだ開設されていません",
-      "notOpenedYetReason": "アカウントアドレスは有効ですが、チェーンにブロックはまだ公開されていません。 NANOがこのアカウントに送信された場合でも、資金をポケットに入れるために対応するブロックを公開する必要があります。",
       "missingAccount": "アカウントがありません",
       "missingAccountInfo": "アカウントがURLで指定されていません。上部の検索バーを使用してアカウントを検索するか、URLの /account/ の後に追加します",
       "notVoting": "投票しない",
@@ -188,7 +186,9 @@
       "pendingTransaction": "トランザクションを受信する準備ができました",
       "dailyBalanceOption": " 毎日のバランス",
       "byTransactionOption": "取引ごとの残高",
-      "dailyBalance": "最後の{{count}}トランザクション"
+      "dailyBalance": "最後の{{count}}トランザクション",
+      "notOpenedYet": "このアカウントにはトランザクションがありません",
+      "notOpenedYetReason": "アカウントは有効ですが、チェーンにブロックはまだ追加されていません。 NANOがこのアカウントに送信された場合、使用しているサービスがまだトランザクションをブロードキャストしていないか、一時的なネットワーク状態が原因で、NanoLookerノードがまだトランザクションを受信していない可能性があります。"
     },
     "block": {
       "blockSubtype": "ブロックサブタイプ",

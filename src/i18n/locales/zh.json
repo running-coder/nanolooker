@@ -179,8 +179,6 @@
       "lastTransaction": "最后交易",
       "loadMoreTransactions": "加载更多交易",
       "viewTransactions": "查看交易",
-      "notOpenedYet": "此帐户尚未打开",
-      "notOpenedYetReason": "帐户地址有效时，尚未将任何块发布到其链中。如果NANO已发送到该帐户，它仍需要发布相应的块以将资金放入口袋。",
       "missingAccount": "帐户遗失",
       "missingAccountInfo": "未在URL中指定帐户。使用顶部的搜索栏搜索帐户，或将其附加在 /account/ 之后的URL中",
       "notVoting": "不投票",
@@ -188,7 +186,9 @@
       "pendingTransaction": "交易准备好接收",
       "dailyBalanceOption": " 每日余额",
       "byTransactionOption": "交易余额",
-      "dailyBalance": "最后 {{count}} 笔交易"
+      "dailyBalance": "最后 {{count}} 笔交易",
+      "notOpenedYet": "此帐户没有任何交易",
+      "notOpenedYetReason": "虽然该帐户有效，但尚未将任何块添加到其链中。如果 NANO 已发送到该账户，则可能是 NanoLooker 节点尚未收到交易，因为您正在使用的服务尚未广播它或由于临时网络条件。"
     },
     "block": {
       "blockSubtype": "块子类型",

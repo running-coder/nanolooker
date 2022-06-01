@@ -179,8 +179,6 @@
       "lastTransaction": "Giao dịch cuối cùng",
       "loadMoreTransactions": "Tải nhiều giao dịch hơn",
       "viewTransactions": "Xem các giao dịch",
-      "notOpenedYet": "Tài khoản này chưa được mở",
-      "notOpenedYetReason": "Mặc dù địa chỉ tài khoản hợp lệ, nhưng chưa có khối nào được xuất bản vào chuỗi của nó. Nếu NANO đã được gửi đến tài khoản này, nó vẫn cần xuất bản một khối tương ứng để bỏ túi tiền.",
       "missingAccount": "Thiếu tài khoản",
       "missingAccountInfo": "Tài khoản không được chỉ định trong URL. Sử dụng thanh tìm kiếm trên cùng để tìm kiếm tài khoản hoặc thêm tài khoản vào URL sau /account/",
       "notVoting": "Không bỏ phiếu",
@@ -188,7 +186,9 @@
       "pendingTransaction": "Giao dịch đã sẵn sàng để nhận",
       "dailyBalanceOption": " Số dư hàng ngày",
       "byTransactionOption": "Số dư theo giao dịch",
-      "dailyBalance": "{{Count}} giao dịch gần đây nhất"
+      "dailyBalance": "{{Count}} giao dịch gần đây nhất",
+      "notOpenedYet": "Tài khoản này không có bất kỳ giao dịch nào",
+      "notOpenedYetReason": "Mặc dù tài khoản hợp lệ nhưng chưa có khối nào được thêm vào chuỗi của nó. Nếu NANO đã được gửi đến tài khoản này, có thể nút NanoLooker chưa nhận được giao dịch do dịch vụ bạn đang sử dụng chưa phát sóng hoặc do điều kiện mạng tạm thời."
     },
     "block": {
       "blockSubtype": "Block con",

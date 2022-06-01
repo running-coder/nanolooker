@@ -179,8 +179,6 @@
       "lastTransaction": "Letzte Transaktion",
       "loadMoreTransactions": "Laden Sie weitere Transaktionen",
       "viewTransactions": "Transaktionen anzeigen",
-      "notOpenedYet": "Dieses Konto wurde noch nicht eröffnet",
-      "notOpenedYetReason": "Während die Kontoadresse gültig ist, wurden noch keine Blöcke in ihrer Kette veröffentlicht. Wenn NANO auf dieses Konto gesendet wurde, muss noch ein entsprechender Block veröffentlicht werden, um das Geld einzustecken.",
       "missingAccount": "Fehlendes Konto",
       "missingAccountInfo": "Das Konto ist nicht in der URL angegeben. Verwenden Sie die obere Suchleiste, um nach einem Konto zu suchen, oder hängen Sie es an die URL nach /account/ an.",
       "notVoting": "Nicht abstimmend",
@@ -188,7 +186,9 @@
       "pendingTransaction": "Transaktion empfangsbereit",
       "dailyBalanceOption": " Tagesbilanz",
       "byTransactionOption": "Saldo nach Transaktion",
-      "dailyBalance": "Letzte {{count}} Transaktionen"
+      "dailyBalance": "Letzte {{count}} Transaktionen",
+      "notOpenedYet": "Dieses Konto enthält keine Transaktionen",
+      "notOpenedYetReason": "Während das Konto gültig ist, wurden seiner Kette noch keine Blöcke hinzugefügt. Wenn NANO an dieses Konto gesendet wurde, ist es möglich, dass der NanoLooker-Knoten die Transaktion noch nicht erhalten hat, weil der von Ihnen verwendete Dienst sie noch nicht gesendet hat oder aufgrund vorübergehender Netzwerkbedingungen."
     },
     "block": {
       "blockSubtype": "Subtyp blockieren",

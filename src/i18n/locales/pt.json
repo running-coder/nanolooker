@@ -179,8 +179,6 @@
       "lastTransaction": "Última transação",
       "loadMoreTransactions": "Carregar mais transações",
       "viewTransactions": "Ver transações",
-      "notOpenedYet": "Esta conta ainda não foi aberta",
-      "notOpenedYetReason": "Embora o endereço da conta seja válido, nenhum bloco foi publicado em sua blockchain ainda. Se NANO foi enviado para esta conta, ainda precisa publicar um bloco correspondente para embolsar os fundos.",
       "missingAccount": "Conta faltando",
       "missingAccountInfo": "A conta não está especificada no URL. Use a barra de pesquisa superior para pesquisar uma conta ou anexe-a no URL após /account/",
       "notVoting": "Não votando",
@@ -188,7 +186,9 @@
       "pendingTransaction": "Transação pronta para ser recebida",
       "dailyBalanceOption": " Saldo diário",
       "byTransactionOption": "Saldo por transação",
-      "dailyBalance": "Últimas {{count}} transações"
+      "dailyBalance": "Últimas {{count}} transações",
+      "notOpenedYet": "Esta conta não possui transações",
+      "notOpenedYetReason": "Embora a conta seja válida, nenhum bloco foi adicionado à sua cadeia ainda. Se o NANO foi enviado para esta conta, é possível que o nó NanoLooker ainda não tenha recebido a transação porque o serviço que você está usando ainda não a transmitiu ou devido a condições temporárias da rede."
     },
     "block": {
       "blockSubtype": "Subtipo de bloco",

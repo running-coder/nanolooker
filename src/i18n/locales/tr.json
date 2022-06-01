@@ -179,8 +179,6 @@
       "lastTransaction": "Son işlem",
       "loadMoreTransactions": "Daha fazla işlem yükle",
       "viewTransactions": "İşlemleri görüntüleyin",
-      "notOpenedYet": "Bu hesap henüz açılmadı",
-      "notOpenedYetReason": "Hesap adresi geçerliyken, zincirinde henüz blok yayınlanmamıştır. NANO bu hesaba gönderilmişse, parayı cebe indirmek için yine de karşılık gelen bir blok yayınlaması gerekir.",
       "missingAccount": "Eksik hesap",
       "missingAccountInfo": "Hesap URL'de belirtilmemiştir. Bir hesabı aramak için üstteki arama çubuğunu kullanın veya URL'ye /account/ sonrasına ekleyin.",
       "notVoting": "Oy Vermemek",
@@ -188,7 +186,9 @@
       "pendingTransaction": "İşlem alınmaya hazır",
       "dailyBalanceOption": " Günlük bakiye",
       "byTransactionOption": "İşlem bazında bakiye",
-      "dailyBalance": "Son {{count}} işlem"
+      "dailyBalance": "Son {{count}} işlem",
+      "notOpenedYet": "Bu hesapta herhangi bir işlem yok",
+      "notOpenedYetReason": "Hesap geçerli olmakla birlikte, zincirine henüz blok eklenmedi. Bu hesaba NANO gönderildiyse, kullanmakta olduğunuz hizmetin henüz yayınlamaması veya geçici ağ koşulları nedeniyle NanoLooker düğümü işlemi henüz almamış olabilir."
     },
     "block": {
       "blockSubtype": "Alt türü engelle",

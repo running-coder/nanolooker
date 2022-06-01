@@ -179,8 +179,6 @@
       "lastTransaction": "Laatste transactie",
       "loadMoreTransactions": "Laadt meer transacties",
       "viewTransactions": "Bekijk transacties",
-      "notOpenedYet": "Dit account is nog niet geopend",
-      "notOpenedYetReason": "Hoewel het accountadres geldig is, zijn er nog geen blocks naar het netwerk gepubliceerd. Als er NANO naar dit account is gestuurd, moet er nog een overeenkomstig ontvangst block worden gepubliceerd om het geld te ontvangen.",
       "missingAccount": "Account ontbreekt",
       "missingAccountInfo": "Het account is niet gespecificeerd in de URL. Gebruik de zoekbalk bovenaan om naar een account te zoeken of voeg deze toe aan de URL achter /account/",
       "notVoting": "Niet stemmen",
@@ -188,7 +186,9 @@
       "pendingTransaction": "Transactie klaar om te worden ontvangen",
       "dailyBalanceOption": " Dagelijkse balans",
       "byTransactionOption": "Saldo per transactie",
-      "dailyBalance": "Laatste {{count}} transacties"
+      "dailyBalance": "Laatste {{count}} transacties",
+      "notOpenedYet": "Deze rekening heeft geen transacties",
+      "notOpenedYetReason": "Hoewel het account geldig is, zijn er nog geen blokken aan de keten toegevoegd. Als NANO naar dit account is verzonden, is het mogelijk dat de NanoLooker-node de transactie nog niet heeft ontvangen omdat de service die u gebruikt deze nog niet heeft uitgezonden of vanwege tijdelijke netwerkomstandigheden."
     },
     "block": {
       "blockSubtype": "Block subtype",
