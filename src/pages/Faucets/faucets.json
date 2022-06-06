@@ -98,5 +98,10 @@
     "alias": "BananoForest Faucet",
     "account": "ban_3sinkoff1yj9z5fougwao1gbjtsmb98u1j5p9kcrndqcc4irdxgzsjbem96e",
     "link": "https://faucet.bananoforest.com/"
+  },
+  {
+    "alias": "Pronoun Faucet",
+    "account": "ban_3eeq61ea33jdds5x37otx51esi8wsnxxjc8spjajyq7pj8h3nodkd19pride"
+    "link": "https://banpridefaucet.repl.co/"
   }
 ]
