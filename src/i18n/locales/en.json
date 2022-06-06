@@ -65,7 +65,7 @@
     "avgConfirmationTime": "The average confirmation time is calculated locally on the node. If the node is restarted or in degraded condition, the average confirmation time might be higher than the rest of the network.",
     "circulatingSupply": "The amount of coins that are in circulation. Banano is fully distributed, the supply will never increase.",
     "transactionFees": "Unlike any other cryptocurrencies Banano transactions are fee-less, forever.",
-    "oneBanEqualsOneDoge": "Fun comparison with our doge meme coin brother chain, if the market cap of Banano would be equal to the one of Doge.",
+    "oneBanEqualsOneDoge": "Fun comparison with our Doge meme coin brother chain, if the market cap of Banano would be equal to the one of Doge.",
     "cps": "Confirmations Per Second. The rate of confirmed blocks (send or receive) on the BANANO network. It is sampled over the last minute locally on the node. If the node is restarted or in a degraded condition, the CPS value might be higher or lower than the actual average on the network while the node syncs and reconnects with the other nodes.",
     "votingWeight": "An account with a minimum of {{minWeight}} BANANO or >= 0.1% of the online voting weight delegated to it is required to get the Principal Representative status. When configured on a node which is voting, the votes it produces will be rebroadcasted by other nodes to who receive them, helping the network reach consensus more quickly.",
     "pending": "A transaction state where a block sending funds was published and confirmed by the network, but a matching block receiving those funds has not yet been sent or confirmed.",
@@ -96,7 +96,7 @@
   "search": {
     "searchBy": "Search by Address / Block / Known Account",
     "noHistory": "No search history",
-    "scanWallet": "Scan a wallet account starting with \"nano_\""
+    "scanWallet": "Scan a wallet account starting with \"ban_\""
   },
   "preferences": {
     "viewAll": "View all preferences",
@@ -159,7 +159,7 @@
       "transactionFees": "BANANO transaction fees",
       "exchangeVolume": "Exchange volume",
       "onChainVolume": "On-chain BANANO volume",
-      "oneBanEqualsOneDoge": "What if 1 Ban = 1 Doge?",
+      "oneBanEqualsOneDoge": "What if 1 BAN = 1 DOGE?",
       "recentTransactions": "Recent Transactions",
       "liveUpdatesDisabled": "Live updates disabled",
       "waitingForTransactions": "Waiting for transactions",
@@ -243,17 +243,17 @@
       "totalAccounts": "{{totalAccounts}} Total Known Accounts",
       "registerKnownAccount": "Register a Known Account",
       "register": "Register",
-      "scanWallet": "Scan your wallet account starting with \"nano_\"",
-      "registerDescription": "Register an account alias in the NanoLooker known accounts. Your account will then be searchable by alias and is going to easily be identifiable on the explorer.",
-      "account": "Enter a \"nano_\" account to be associated with the alias",
-      "registerNote": "On the next step you will be ask to send a transaction from the \"nano_\" account being registered",
+      "scanWallet": "Scan your wallet account starting with \"ban_\"",
+      "registerDescription": "Register an account alias in the BananoLooker known accounts. Your account will then be searchable by alias and is going to easily be identifiable on the explorer.",
+      "account": "Enter a \"ban_\" account to be associated with the alias",
+      "registerNote": "On the next step you will be ask to send a transaction from the \"ban_\" account being registered",
       "invalidAccount": "Invalid account",
-      "waitingNote": "Your alias will be registered after sending Ӿ1 to NanoLooker donations from the account you are registering to confirm it belongs to you.",
+      "waitingNote": "Your alias will be registered after sending 1 BAN to BananoLooker donations from the account you are registering to confirm it belongs to you.",
       "registerErrorTaken": "An alias for this account is already registered",
       "registerError": "Unable to complete registration",
       "waitingForTransaction": "Waiting for transaction",
       "viewAccount": "View account",
-      "sendFrom": "Send Ӿ{{amount}} from",
+      "sendFrom": "Send {{amount}} BAN from",
       "sendTo": "To"
     },
     "largeTransactions": {
@@ -333,7 +333,7 @@
       "filterTransactionsRangeDetailed": "Choose to only display incoming transactions within a certain min / max range of the sent or received amount.",
       "noLimit": "No limit",
       "nodeConnection": "Node Connection",
-      "connectionDetailed": "Connect the explorer to another node than NanoLooker",
+      "connectionDetailed": "Connect the explorer to another node than BananoLooker",
       "rpcDomain": "RPC",
       "websocketDomain": "Websocket"
     },
