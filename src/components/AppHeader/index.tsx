@@ -15,6 +15,8 @@ import Preferences from "components/Preferences";
 const { SubMenu } = Menu;
 const { Header } = Layout;
 
+const isTestNet = process.env.REACT_APP_TEST_OR_BETA_NETWORK === "true";
+
 const AppHeader: React.FC = () => {
   const { t } = useTranslation();
   const [activeMenu, setActiveMenu] = React.useState<string>("");
@@ -71,37 +73,43 @@ const AppHeader: React.FC = () => {
                   {t("menu.representatives")}
                   <Link to="/representatives" />
                 </Menu.Item>
-                <Menu.Item key="developer-fund">
-                  {t("menu.developerFund")}
-                  <Link to="/developer-fund" />
-                </Menu.Item>
-                <Menu.Item key="known-accounts">
-                  {t("menu.knownAccounts")}
-                  <Link to="/known-accounts" />
-                </Menu.Item>
-                <Menu.Item key="large-transactions">
-                  {t("menu.largeTransactions")}
-                  <Link to="/large-transactions" />
-                </Menu.Item>
-                <Menu.Item key="distribution">
-                  {t("menu.distribution")}
-                  <Link to="/distribution" />
-                </Menu.Item>
-                <Menu.Item key="exchange-tracker">
-                  {t("menu.exchangeTracker")}
-                  <Link to="/exchange-tracker" />
-                </Menu.Item>
-                <Menu.Item key="faucets">
-                  {t("menu.faucets")}
-                  <Link to="/faucets" />
-                </Menu.Item>
+                {!isTestNet && (
+                  <>
+                    <Menu.Item key="developer-fund">
+                      {t("menu.developerFund")}
+                      <Link to="/developer-fund" />
+                    </Menu.Item>
+                    <Menu.Item key="known-accounts">
+                      {t("menu.knownAccounts")}
+                      <Link to="/known-accounts" />
+                    </Menu.Item>
+                    <Menu.Item key="large-transactions">
+                      {t("menu.largeTransactions")}
+                      <Link to="/large-transactions" />
+                    </Menu.Item>
+                    <Menu.Item key="distribution">
+                      {t("menu.distribution")}
+                      <Link to="/distribution" />
+                    </Menu.Item>
+                    <Menu.Item key="exchange-tracker">
+                      {t("menu.exchangeTracker")}
+                      <Link to="/exchange-tracker" />
+                    </Menu.Item>
+                    <Menu.Item key="faucets">
+                      {t("menu.faucets")}
+                      <Link to="/faucets" />
+                    </Menu.Item>
+                  </>
+                )}
               </SubMenu>
 
-              <Menu.Item key="news">
-                <CalendarOutlined />
-                {t("menu.news")}
-                <Link to="/news" />
-              </Menu.Item>
+              {!isTestNet && (
+                <Menu.Item key="news">
+                  <CalendarOutlined />
+                  {t("menu.news")}
+                  <Link to="/news" />
+                </Menu.Item>
+              )}
 
               <SubMenu
                 key="status-submenu"

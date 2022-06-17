@@ -16,12 +16,8 @@ interface Props {
 
 const ConnectionPreferences: React.FC<Props> = ({ isDetailed }) => {
   const { t } = useTranslation();
-  const {
-    rpcDomain,
-    setRpcDomain,
-    websocketDomain,
-    setWebsocketDomain,
-  } = React.useContext(PreferencesContext);
+  const { rpcDomain, setRpcDomain, websocketDomain, setWebsocketDomain } =
+    React.useContext(PreferencesContext);
   const [isEnabled, setIsEnabled] = React.useState(!!rpcDomain);
   const {
     control,
@@ -126,7 +122,10 @@ const ConnectionPreferences: React.FC<Props> = ({ isDetailed }) => {
                           {...field}
                           type="text"
                           style={{ width: "400px", maxWidth: "100%" }}
-                          placeholder={`wss://www.nanolooker.com/ws`}
+                          placeholder={
+                            process.env.REACT_APP_WS_DOMAIN ||
+                            `wss://www.nanolooker.com/ws`
+                          }
                           maxLength={255}
                           suffix={
                             getValues("websocketDomain") &&

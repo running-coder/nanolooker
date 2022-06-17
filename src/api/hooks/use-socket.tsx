@@ -121,7 +121,11 @@ const useSocket = () => {
     isForcedClosed = false;
     setIsConnected(false);
 
-    ws = new WebSocket(websocketDomain || "wss://www.nanolooker.com/ws");
+    ws = new WebSocket(
+      websocketDomain ||
+        process.env.REACT_APP_WS_DOMAIN ||
+        "wss://www.nanolooker.com/ws",
+    );
 
     ws.onopen = () => {
       setIsError(false);
