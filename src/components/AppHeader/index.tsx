@@ -148,18 +148,20 @@ const AppHeader: React.FC = () => {
           justifyContent: "space-between",
         }}
       >
-        <div
-          className="price-list"
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "center",
-            width: "100%",
-            marginRight: "12px",
-          }}
-        >
-          <Price />
-        </div>
+        {!isTestNet && (
+          <div
+            className="price-list"
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              alignItems: "center",
+              width: "100%",
+              marginRight: "12px",
+            }}
+          >
+            <Price />
+          </div>
+        )}
         <div>
           <Preferences />
         </div>
