@@ -8,7 +8,7 @@ import { Tracker } from "components/utils/analytics";
 
 const { Text, Title } = Typography;
 
-const isTestNet = process.env.REACT_APP_TEST_OR_BETA_NETWORK === "true";
+const isTestNet = process.env.REACT_APP_LIVE_NETWORK === "true";
 
 const Banner: React.FC = () => {
   const { t } = useTranslation();

@@ -11,11 +11,10 @@ import { useHistory, useLocation } from "react-router-dom";
 import Search from "components/Search";
 import Price from "components/Price";
 import Preferences from "components/Preferences";
+import { isLiveNetwork } from "config";
 
 const { SubMenu } = Menu;
 const { Header } = Layout;
-
-const isTestNet = process.env.REACT_APP_TEST_OR_BETA_NETWORK === "true";
 
 const AppHeader: React.FC = () => {
   const { t } = useTranslation();
@@ -73,7 +72,7 @@ const AppHeader: React.FC = () => {
                   {t("menu.representatives")}
                   <Link to="/representatives" />
                 </Menu.Item>
-                {!isTestNet && (
+                {isLiveNetwork && (
                   <>
                     <Menu.Item key="developer-fund">
                       {t("menu.developerFund")}
@@ -103,7 +102,7 @@ const AppHeader: React.FC = () => {
                 )}
               </SubMenu>
 
-              {!isTestNet && (
+              {isLiveNetwork && (
                 <Menu.Item key="news">
                   <CalendarOutlined />
                   {t("menu.news")}
@@ -148,7 +147,7 @@ const AppHeader: React.FC = () => {
           justifyContent: "space-between",
         }}
       >
-        {!isTestNet && (
+        {isLiveNetwork && (
           <div
             className="price-list"
             style={{

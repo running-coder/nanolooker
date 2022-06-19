@@ -123,7 +123,7 @@ const ConnectionPreferences: React.FC<Props> = ({ isDetailed }) => {
                           type="text"
                           style={{ width: "400px", maxWidth: "100%" }}
                           placeholder={
-                            process.env.REACT_APP_WS_DOMAIN ||
+                            process.env.REACT_APP_NANO_WEBSOCKET_URL ||
                             `wss://www.nanolooker.com/ws`
                           }
                           maxLength={255}

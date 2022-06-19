@@ -5,6 +5,7 @@ import { rawToRai } from "components/utils";
 import { usePrevious } from "./use-previous";
 
 import type { Transaction } from "types/transaction";
+import { defaultNanoWebsocketUrl } from "config";
 
 enum Topic {
   CONFIRMATION = "confirmation",
@@ -167,7 +168,7 @@ const useSocket = ({ account }: { account?: string }) => {
 
     ws = new WebSocket(
       websocketDomain ||
-        process.env.REACT_APP_WS_DOMAIN ||
+        defaultNanoWebsocketUrl ||
         "wss://www.nanolooker.com/ws",
     );
 

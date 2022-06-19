@@ -4,6 +4,7 @@ import { PreferencesContext } from "api/contexts/Preferences";
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 
 import type { Transaction } from "types/transaction";
+import { defaultNanoWebsocketUrl } from "config";
 
 enum Topic {
   CONFIRMATION = "confirmation",
@@ -123,7 +124,7 @@ const useSocket = () => {
 
     ws = new WebSocket(
       websocketDomain ||
-        process.env.REACT_APP_WS_DOMAIN ||
+        defaultNanoWebsocketUrl ||
         "wss://www.nanolooker.com/ws",
     );
 

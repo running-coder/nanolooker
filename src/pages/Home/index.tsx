@@ -28,8 +28,7 @@ import StatisticsChange from "components/StatisticsChange";
 import { formatBytes } from "components/utils";
 import Banner from "./Banner";
 import RecentTransactions from "./RecentTransactions";
-
-const isTestNet = process.env.REACT_APP_TEST_OR_BETA_NETWORK === "true";
+import { isLiveNetwork } from "config";
 
 const HomePage = () => {
   const { t } = useTranslation();
@@ -133,7 +132,7 @@ const HomePage = () => {
             size="small"
             title={t("pages.home.network")}
             extra={
-              isTestNet ? (
+              isLiveNetwork ? (
                 <Link to="/statistics/social">
                   {t("pages.home.viewSocialEngagement")}
                 </Link>
@@ -198,7 +197,7 @@ const HomePage = () => {
         <Col
           xs={{ span: 24, order: 2 }}
           md={{ span: 12, order: 2 }}
-          lg={!isTestNet ? 6 : 12}
+          lg={isLiveNetwork ? 6 : 12}
           style={{ width: "100%" }}
         >
           <Card size="small" title={t("pages.home.last24Hours")}>
@@ -242,7 +241,7 @@ const HomePage = () => {
                     value={0}
                   />
                 ) : null}
-                {!isTestNet && (
+                {isLiveNetwork && (
                   <LoadingStatistic
                     isLoading={
                       isMarketStatisticsInitialLoading ||
@@ -267,7 +266,7 @@ const HomePage = () => {
           </Card>
         </Col>
 
-        {!isTestNet && (
+        {isLiveNetwork && (
           <Col
             xs={{ span: 24, order: 1 }}
             md={{ span: 12, order: 3 }}

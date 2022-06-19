@@ -10,7 +10,7 @@ const getNanotickerStats = async () => {
   try {
     const res = await fetch(
       `${
-        process.env.NANOTICKER_DOMAIN || "https://nanoticker.info"
+        process.env.NANOTICKER_BASE_URL || "https://nanoticker.info"
       }/json/stats.json`,
     );
 
