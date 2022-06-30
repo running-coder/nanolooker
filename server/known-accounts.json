@@ -542,5 +542,25 @@
   {
     "alias": "Nanswap faucet",
     "account": "ban_36seefx46pwcpyp6a8kukybamqioam6a7jef88s8esjpubyc8urccebjqgyj"
+  },
+  {
+    "alias": "r/place on-chain NFT (2022)",
+    "account": "ban_1rp1aceaawpub5zyztzs4tn7gcugm5bc3o6oga16bb18bquqm1bjnoomynze"
+  },
+  {
+    "alias": "Crypto For The Homeless donation",
+    "account": "ban_3huffb6oj7uppkxu6su9fii943w61gf4cmyzc9tex6izrf6xqaopwdiiib9b"
+  },
+  {
+    "alias": "Benis",
+    "account": "ban_1benisgqfid7nuaod79ijaa53knw9nd6gssi6ar6qw5d8bj1j5bg6946smy9"
+  },
+  {
+    "alias": "Banano Tor",
+    "account": "ban_3tor3b9sh9ufkgsth1dir3hi6bbwqtcc7xn6zbfhu4ofprktxz8ygysx7rq3"
+  },
+  {
+    "alias": "Defi",
+    "account": "ban_1defi11tou1nbhyp8y4onwsiq5jcur19xe54mcmew1xonnz6e1d1sw74yefu"
   }
 ]
