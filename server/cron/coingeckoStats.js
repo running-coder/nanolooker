@@ -229,9 +229,9 @@ const getMarketCapStats = async () => {
 
       // CoinGecko rate limit is 10 calls per seconds
       if (i && !(i % 10)) {
-        await sleep(3500);
+        await sleep(10000);
       } else {
-        await sleep(process.env.NODE_ENV === "production" ? 1000 : 150);
+        await sleep(process.env.NODE_ENV === "production" ? 2000 : 150);
       }
     }
 
