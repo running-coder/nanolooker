@@ -28,6 +28,7 @@ import StatisticsChange from "components/StatisticsChange";
 import { formatBytes } from "components/utils";
 import Banner from "./Banner";
 import RecentTransactions from "./RecentTransactions";
+import { isLiveNetwork } from "config";
 
 const HomePage = () => {
   const { t } = useTranslation();
@@ -131,9 +132,11 @@ const HomePage = () => {
             size="small"
             title={t("pages.home.network")}
             extra={
-              <Link to="/statistics/social">
-                {t("pages.home.viewSocialEngagement")}
-              </Link>
+              isLiveNetwork ? (
+                <Link to="/statistics/social">
+                  {t("pages.home.viewSocialEngagement")}
+                </Link>
+              ) : null
             }
           >
             <Row gutter={6}>
@@ -194,7 +197,7 @@ const HomePage = () => {
         <Col
           xs={{ span: 24, order: 2 }}
           md={{ span: 12, order: 2 }}
-          lg={6}
+          lg={isLiveNetwork ? 6 : 12}
           style={{ width: "100%" }}
         >
           <Card size="small" title={t("pages.home.last24Hours")}>
@@ -238,82 +241,92 @@ const HomePage = () => {
                     value={0}
                   />
                 ) : null}
-                <LoadingStatistic
-                  isLoading={
-                    isMarketStatisticsInitialLoading || isMarketStatisticsError
-                  }
-                  title={`${t(
-                    "pages.home.bitcoinTransactionFees",
-                  )} (${fiat.toUpperCase()})`}
-                  tooltip={t("tooltips.bitcoinTransactionFees")}
-                  prefix={CurrencySymbol?.[fiat]}
-                  value={btcTransactionFees24h}
-                  suffix={
-                    <StatisticsChange
-                      value={btcTransactionFeesChange24h}
-                      isPercent
-                    />
-                  }
-                />
-              </Col>
-            </Row>
-          </Card>
-        </Col>
-
-        <Col
-          xs={{ span: 24, order: 1 }}
-          md={{ span: 12, order: 3 }}
-          lg={6}
-          style={{ width: "100%" }}
-        >
-          <Card size="small" title={t("pages.home.market")}>
-            <Row gutter={6}>
-              <Col xs={24}>
-                <LoadingStatistic
-                  isLoading={
-                    isMarketStatisticsInitialLoading || isMarketStatisticsError
-                  }
-                  title={t("pages.home.marketCapRank")}
-                  prefix="#"
-                  suffix={
-                    marketCapRank24h ? (
+                {isLiveNetwork && (
+                  <LoadingStatistic
+                    isLoading={
+                      isMarketStatisticsInitialLoading ||
+                      isMarketStatisticsError
+                    }
+                    title={`${t(
+                      "pages.home.bitcoinTransactionFees",
+                    )} (${fiat.toUpperCase()})`}
+                    tooltip={t("tooltips.bitcoinTransactionFees")}
+                    prefix={CurrencySymbol?.[fiat]}
+                    value={btcTransactionFees24h}
+                    suffix={
                       <StatisticsChange
-                        value={marketCapRank24h - marketCapRank}
-                        isNumber
+                        value={btcTransactionFeesChange24h}
+                        isPercent
                       />
-                    ) : null
-                  }
-                  value={`${marketCapRank}`}
-                />
-
-                <LoadingStatistic
-                  isLoading={
-                    isMarketStatisticsInitialLoading || isMarketStatisticsError
-                  }
-                  title={`${t("pages.home.marketCap")} (${fiat.toUpperCase()})`}
-                  prefix={CurrencySymbol?.[fiat]}
-                  suffix={
-                    <StatisticsChange
-                      value={marketCapChangePercentage24h}
-                      isPercent
-                    />
-                  }
-                  value={`${new BigNumber(marketCap).toNumber()}`}
-                />
-                <LoadingStatistic
-                  isLoading={
-                    isMarketStatisticsInitialLoading || isMarketStatisticsError
-                  }
-                  title={`${t(
-                    "pages.home.exchangeVolume",
-                  )} (${fiat.toUpperCase()})`}
-                  prefix={CurrencySymbol?.[fiat]}
-                  value={`${new BigNumber(volume24h).toNumber()}`}
-                />
+                    }
+                  />
+                )}
               </Col>
             </Row>
           </Card>
         </Col>
+
+        {isLiveNetwork && (
+          <Col
+            xs={{ span: 24, order: 1 }}
+            md={{ span: 12, order: 3 }}
+            lg={6}
+            style={{ width: "100%" }}
+          >
+            <Card size="small" title={t("pages.home.market")}>
+              <Row gutter={6}>
+                <Col xs={24}>
+                  <LoadingStatistic
+                    isLoading={
+                      isMarketStatisticsInitialLoading ||
+                      isMarketStatisticsError
+                    }
+                    title={t("pages.home.marketCapRank")}
+                    prefix="#"
+                    suffix={
+                      marketCapRank24h ? (
+                        <StatisticsChange
+                          value={marketCapRank24h - marketCapRank}
+                          isNumber
+                        />
+                      ) : null
+                    }
+                    value={`${marketCapRank}`}
+                  />
+
+                  <LoadingStatistic
+                    isLoading={
+                      isMarketStatisticsInitialLoading ||
+                      isMarketStatisticsError
+                    }
+                    title={`${t(
+                      "pages.home.marketCap",
+                    )} (${fiat.toUpperCase()})`}
+                    prefix={CurrencySymbol?.[fiat]}
+                    suffix={
+                      <StatisticsChange
+                        value={marketCapChangePercentage24h}
+                        isPercent
+                      />
+                    }
+                    value={`${new BigNumber(marketCap).toNumber()}`}
+                  />
+                  <LoadingStatistic
+                    isLoading={
+                      isMarketStatisticsInitialLoading ||
+                      isMarketStatisticsError
+                    }
+                    title={`${t(
+                      "pages.home.exchangeVolume",
+                    )} (${fiat.toUpperCase()})`}
+                    prefix={CurrencySymbol?.[fiat]}
+                    value={`${new BigNumber(volume24h).toNumber()}`}
+                  />
+                </Col>
+              </Row>
+            </Card>
+          </Col>
+        )}
       </Row>
       <RecentTransactions />
     </>

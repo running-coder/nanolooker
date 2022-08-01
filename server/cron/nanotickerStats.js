@@ -8,7 +8,11 @@ const getNanotickerStats = async () => {
   let res;
 
   try {
-    const res = await fetch("https://nanoticker.info/json/stats.json");
+    const res = await fetch(
+      `${
+        process.env.NANOTICKER_BASE_URL || "https://nanoticker.info"
+      }/json/stats.json`,
+    );
 
     const { CPSMedian: cps } = await res.json();
 

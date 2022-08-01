@@ -11,6 +11,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import Search from "components/Search";
 import Price from "components/Price";
 import Preferences from "components/Preferences";
+import { isLiveNetwork } from "config";
 
 const { SubMenu } = Menu;
 const { Header } = Layout;
@@ -71,37 +72,43 @@ const AppHeader: React.FC = () => {
                   {t("menu.representatives")}
                   <Link to="/representatives" />
                 </Menu.Item>
-                <Menu.Item key="developer-fund">
-                  {t("menu.developerFund")}
-                  <Link to="/developer-fund" />
-                </Menu.Item>
-                <Menu.Item key="known-accounts">
-                  {t("menu.knownAccounts")}
-                  <Link to="/known-accounts" />
-                </Menu.Item>
-                <Menu.Item key="large-transactions">
-                  {t("menu.largeTransactions")}
-                  <Link to="/large-transactions" />
-                </Menu.Item>
-                <Menu.Item key="distribution">
-                  {t("menu.distribution")}
-                  <Link to="/distribution" />
-                </Menu.Item>
-                <Menu.Item key="exchange-tracker">
-                  {t("menu.exchangeTracker")}
-                  <Link to="/exchange-tracker" />
-                </Menu.Item>
-                <Menu.Item key="faucets">
-                  {t("menu.faucets")}
-                  <Link to="/faucets" />
-                </Menu.Item>
+                {isLiveNetwork && (
+                  <>
+                    <Menu.Item key="developer-fund">
+                      {t("menu.developerFund")}
+                      <Link to="/developer-fund" />
+                    </Menu.Item>
+                    <Menu.Item key="known-accounts">
+                      {t("menu.knownAccounts")}
+                      <Link to="/known-accounts" />
+                    </Menu.Item>
+                    <Menu.Item key="large-transactions">
+                      {t("menu.largeTransactions")}
+                      <Link to="/large-transactions" />
+                    </Menu.Item>
+                    <Menu.Item key="distribution">
+                      {t("menu.distribution")}
+                      <Link to="/distribution" />
+                    </Menu.Item>
+                    <Menu.Item key="exchange-tracker">
+                      {t("menu.exchangeTracker")}
+                      <Link to="/exchange-tracker" />
+                    </Menu.Item>
+                    <Menu.Item key="faucets">
+                      {t("menu.faucets")}
+                      <Link to="/faucets" />
+                    </Menu.Item>
+                  </>
+                )}
               </SubMenu>
 
-              <Menu.Item key="news">
-                <CalendarOutlined />
-                {t("menu.news")}
-                <Link to="/news" />
-              </Menu.Item>
+              {isLiveNetwork && (
+                <Menu.Item key="news">
+                  <CalendarOutlined />
+                  {t("menu.news")}
+                  <Link to="/news" />
+                </Menu.Item>
+              )}
 
               <SubMenu
                 key="status-submenu"
@@ -140,18 +147,20 @@ const AppHeader: React.FC = () => {
           justifyContent: "space-between",
         }}
       >
-        <div
-          className="price-list"
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "center",
-            width: "100%",
-            marginRight: "12px",
-          }}
-        >
-          <Price />
-        </div>
+        {isLiveNetwork && (
+          <div
+            className="price-list"
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              alignItems: "center",
+              width: "100%",
+              marginRight: "12px",
+            }}
+          >
+            <Price />
+          </div>
+        )}
         <div>
           <Preferences />
         </div>

@@ -31,6 +31,7 @@ import { Sections } from "../.";
 import type { PageParams } from "types/page";
 import type { Transaction } from "types/transaction";
 import useRepresentative from "api/hooks/use-representative";
+import { isLiveNetwork } from "config";
 
 interface AccountDetailsLayoutProps {
   bordered?: boolean;
@@ -180,9 +181,11 @@ const AccountDetails: React.FC<Props> = ({
                     balance >= 1 ? balance : new BigNumber(balance).toFormat()
                   }
                 />
-                <Skeleton {...skeletonProps}>
-                  {`${CurrencySymbol?.[fiat]} ${fiatBalance} / ${btcBalance} BTC`}
-                </Skeleton>
+                {isLiveNetwork && (
+                  <Skeleton {...skeletonProps}>
+                    {`${CurrencySymbol?.[fiat]} ${fiatBalance} / ${btcBalance} BTC`}
+                  </Skeleton>
+                )}
               </Col>
             </Row>
             {representativeAccount?.account ? (

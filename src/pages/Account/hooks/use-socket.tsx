@@ -5,6 +5,7 @@ import { rawToRai } from "components/utils";
 import { usePrevious } from "./use-previous";
 
 import type { Transaction } from "types/transaction";
+import { defaultNanoWebsocketUrl } from "config";
 
 enum Topic {
   CONFIRMATION = "confirmation",
@@ -165,7 +166,11 @@ const useSocket = ({ account }: { account?: string }) => {
     isForcedClosed = false;
     setIsConnected(false);
 
-    ws = new WebSocket(websocketDomain || "wss://www.nanolooker.com/ws");
+    ws = new WebSocket(
+      websocketDomain ||
+        defaultNanoWebsocketUrl ||
+        "wss://www.nanolooker.com/ws",
+    );
 
     ws.onopen = () => {
       clearInterval(pingInterval);
