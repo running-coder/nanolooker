@@ -160,7 +160,10 @@ app.get("/api/market-statistics", async (req, res) => {
     [BITCOIN_TOTAL_TRANSACTION_FEES_24H]: btcTransactionFees24h,
     [BITCOIN_TOTAL_TRANSACTION_FEES_48H]: btcTransactionFees48h,
     ...marketStats,
-    priceStats,
+    priceStats: {
+      ...{ bitcoin: { usd: 0 } },
+      ...priceStats,
+    },
   });
 });
 
