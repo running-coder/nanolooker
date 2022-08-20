@@ -562,5 +562,9 @@
   {
     "alias": "Defi",
     "account": "ban_1defi11tou1nbhyp8y4onwsiq5jcur19xe54mcmew1xonnz6e1d1sw74yefu"
+  },
+  {
+    "alias": "Banano Swiper",
+    "account": "ban_3swiperfi43zpunak44hw6rfbrruwfj1aobm6gwjcbd65sy6b3kjfeunkjxc"
   }
 ]
