@@ -50,7 +50,7 @@
     "leaflet": "^1.7.1",
     "leaflet-extra-markers": "^1.2.1",
     "lodash": "^4.17.15",
-    "moment": "^2.29.2",
+    "moment": "^2.29.4",
     "mongodb": "^3.5.5",
     "node-cache": "^5.1.0",
     "node-cron": "^2.0.3",
