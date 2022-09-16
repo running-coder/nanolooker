@@ -1,4 +1,33 @@
-﻿# Nano Browserquest item guide
+﻿
+ # Nano BrowserQuest
+ 
+ ## Introduction
+ 
+Nano BrowserQuest is based on the orginal BrowserQuest game: https://en.wikipedia.org/wiki/BrowserQuest. It started out as a fork that was identical in gameplay to the original, while integrating Nano (XNO) cryptocurrency transactions. The fork is created by running-coder (also known for creating and maintaining the website https://nanolooker.com/) as a way to promote awareness of the XNO currency. The original idea is similar to that of a faucet website which regularly pays out a small amount of cryptocurrency, commonly involving the user solving captchas or similar tasks. Nano BrowserQuest intended to make the process fun by allowing the user to play a game instead of performing menial tasks to recieve a micro payout in XNO.
+Since it's inception Nano BrowserQuest has been developed into a more complete experience as running-coder steadly improves and expands the game. Bugs from the original game have been fixed, several new items have been implemented and last but not least a big expansion pack is available for purchase. 
+
+## Freezing Lands Expansion
+
+The expansion pack can be bought for XNO by walking to the red wizard in the village and it extends the game significantly. It features an all new map with a winter theme, including new enemies and two new bosses to defeat. There is also a bonus map with it's own boss, and recently a brand new "mega-boss". Beyond this a copious amount of new items and upgrades are available with cool animations and hidden attributes making the player ready to take on the more hardcore challenges present in new stages of the game.
+
+## Future plans
+
+At the current point in time there are several tentative plans to expand the game further. However, since running-coder is the lone creator of the game it all depends on his available time and the support of the community. Dedicated players regularly badger coder for more content :) but only time will tell what the next step is going to be. The hopefull players dream of a trading sytsem for items, future map expansions and more epic loot.
+
+## Aim of the game
+
+The aim of the basic game (without the expansion pack) is basically to defeat the Skeleton King and recieve a small XNO payout. This is done by exploring the original map and killing enemies to gain experience and loot. The player levels up and gets stronger with the experience gained from slaying enemies until he/she is ready to take on the Skeleton King. Higher level enemies are harder to kill but also give more EXP as well as better loot. The player can  upgrade items in the anvil present in the village where the game starts out. This is done by putting the appropriate level of upgrade scroll into the anvil along with the item which the player aims to upgrade. Further description regarding the anvil can be found here: https://nanolooker.com/nanobrowserquest/. Completing achievements will increase the final XNO payout recieved by the player, so aim to get all of them filled before killing the Skeleton King. Venture in all directions, find secret items, fun NPCs and achievments before heading north to kill the final boss.
+
+With the addition of the expansion pack the game ceases to funktion as a faucet, although one of the bosses does give a small payout similar to the Skeleton King. However, the price of the expansion is higher than the payout so players should be aware that going beyond the original game is meant for those who truely enjoy it. Having come this far, the aim is simply enjoyment of the game itself and the community. While progressing in the game and killing bosses are the main aims of the expansion, dedicated players also enjoy farming for rare loot and maxing out their character.
+
+## Miscellaneous
+
+The game features a global chat system for players to keep in touch and a party system enabling players to team up. When in a party, the players help eachother and recieve loot in a turn-based sequence. Other perks to playing in a party includes shared EXP and the fact that items dropped by an enemy killed by a party cannot be looted by other players. Capes which can be bought at the same place as the expansion give the player a powerful boost in stats when joined to a party of atleast one other player.
+ 
+ 
+ 
+ 
+ # Nano BrowserQuest item guide
 
 This is a guide to all of the items that you can find in NBQ, their basic stats, where to find them and how common/rare they are.
 
@@ -15,11 +44,11 @@ Items can be upgraded by using the anvil in the village. The attributes describe
 **Health**
 Basic player health that determines how much damage can be taken
 
-**Absorbed damage**
-Absorbs a part of an enemy hit making health drop less
-
 **Defense**
-Absorbs a part of an enemy hit making health drop less (small bonus increase with player level)
+Basic defense stat, blocks a part of an enemy hit making health drop less (small bonus increase with player level)
+
+**Absorbed damage**
+Similar to defense it absorbs a part of an enemy hit making health drop less
 
 **Health regeneration per second**
 Regenerates players health per second at a specific rate. It is a fixed amount added on top of the default % regeneration rate of (maxHp / 33) per second so if you have 330 max hp and use a +12 regen per second, you'll then regen 22hp per second
@@ -27,13 +56,18 @@ Regenerates players health per second at a specific rate. It is a fixed amount a
 **Block**
 Blocks a hit from enemy. No damage done if blocked. Random chance based on %
 
+## Discussion
+**Defense vs Absorbed damage**
+
+Defense and Absorbed damage do basically the same thing, blocking a portion of an enemy hit to make the players health decrease less when attacked. The difference between the two attributes is that Absorbed damage gives a higher protection at lower item levels. For example at level +5 an item with Absorbed damage would give the player 10 Absorbed points while the same item with the Defense attribute would only give 8. This is evened out at level +7 (both attributes will give 15 points). Given the bonus that Defense gives based on player level, this stat would be desirable compared to Absorbed damage if the player aims to upgrade the item to +7 or higher.
+
 ## Offensive attributes
 
 **Attack**
-Damage dealt by player (small bonus increase with player level)
+Basic Damage dealt by player. both min and max damage increases when items with attack attribute are equipped (small bonus increase with player level)
 
 **Magic damage**
-Both min and max damage increase
+Both min and max damage increase. Higher amount of damage compared to regular attack attribute (enemies can be immune to this attribute)
 
 **Minimim damage**
 Minimum damage increase
@@ -44,10 +78,15 @@ Maximum damage increase
 **Critical hit**
 Hits enemy with higher damage. Random chance based on %
 
+## Discussion
+**Attack vs Magic vs Min/Max**
+
+Magic damage beats attack at lower player levels because of the higher number per item level. However, as the player starts to level up the Attack added from an item will be higher than indicated by the number because of the level bonus. Enemies can also be immuned to Magic damage, making regular Attack a more reliable attribute. Mix/Max are beaten by both of the other attributes as they only add half of the damage, making them worse attributes in almost all cases. The only exception would be when fighting an enemy that is immuned to Magic damage. 
+
 ## Unique attributes
 
 **Flame damage**
-Elemental damage that adds both minimum and maximum damage similar to magic damage but with higher damage per item level. The damage is reduced if enemies resistant to the element are attacked and blocked if the enemy is immuned to it
+Elemental damage that adds both minimum and maximum damage similar to magic damage but higher per item level. The damage is reduced if enemies resistant to the element are attacked and blocked if the enemy is immuned to it
 
 **Drain life**
 Deals damage to an enemy and also adds the same amount back to players health
@@ -65,7 +104,7 @@ Cold elemental damage. The damage is reduced if enemies resistant to the element
 Freeze enemy for x seconds making them unable to attack you
 
 **Penetrate armor**
-Deals a high level of physical damage. Enemies cannot be resistant to physical damage
+Deals a high level of physical damage (similar to Attack but with a much higher number). Enemies cannot be resistant to physical damage
 
 ## Various
 
@@ -399,3 +438,10 @@ To participate in a party you may type these commands in chat.
 /party remove playerName (as the party leader)
 /party disband (as the party leader)
 ```
+# Tips & Tricks
+
+1. When farming for rare items remember that unique counterparts look the same as the regular items. When searching/farming for a unique, remember to pick up items and check your inventory. Super uniques have a distinguishable skin but it is always a good idea to pick up drops as items can be hidden underneath one another. This is particularly important when dealing with drops of similar color e.g. Fountain of Youth having a similar color to Rejuvenation Potion.
+
+2. Use items strategically. If facing a strong enemy or several weaker ones it is a good idea to equip items with defensive attributes. Sometimes attack can be the best defense, in particualr when dealing with several smaller enemies as the faster you take them out, the less damage is inflicted on you as they die. Items with randomized attributes can be switched to fill the needs of a specific situation. When dealing with one strong enemy that takes a long time to kill and also might be strong enough to kill the player/players, aim for defensive stats. The Fountain of Youth ring is currently the most defensively focused item in the game with all defensive stats. This is very useful when going up against a strong enemy. Necromancer DeathWish rings are also very good items for tanking because of the drain stat which deals health back to the player, while still adding more damage compared to fountain rings. 
+
+3. For dedicated farmers looking for rare items, a good strategy is to equip damage mods and find the weakest enemy that drops the desired item. Look for places where there are many of them, make sure that you are strong enough to survive a large amount of said enemies with attack-focused items, and finally run into them and kill them as fast as possible. Remember to pick up all dropped loot to see if there is anything good in your inventory. The Lightning damage attributes (currently found on Rai Stone rings and Holy Cow King Talisman) is excellent for this type of farming as it deals damage consistently to everything around you.  
