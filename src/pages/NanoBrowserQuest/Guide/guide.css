@@ -1,0 +1,60 @@
+.tooltip-nbq-item {
+  font-family: "GraphicPixel";
+  text-align: center;
+  min-width: 200px;
+}
+
+.tooltip-nbq-item div {
+  text-align: center;
+  line-height: normal;
+  font-size: 16px;
+}
+.item-title {
+  font-weight: bold;
+  color: #d16afa;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+.item-title.unique {
+  color: #d3c59c;
+}
+.item-unique {
+  border-color: #d3c59c !important;
+}
+.tooltip-nbq-item .item-class {
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+.item-description {
+  color: #fff;
+  margin-top: 6px;
+}
+.item-bonus,
+.item-set-bonus {
+  color: #35ee35;
+  margin-top: 6px;
+}
+.item-set-description {
+  color: #fff;
+  margin-top: 12px;
+}
+.item-skill {
+  margin-top: 6px;
+  color: #74b5ff;
+}
+.item-description.requirement {
+  color: red;
+}
+
+.item-container {
+  border-radius: 4px;
+  border: solid 2px #928f8c;
+  background: #171717;
+  width: 52px;
+  height: 52px;
+  background-size: 288px;
+  background-position: -96px;
+  margin: 6px 0;
+}
