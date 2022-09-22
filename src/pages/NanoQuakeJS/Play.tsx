@@ -98,7 +98,7 @@ const Play: React.FC = () => {
       </Button>
       {/* <Modal
         title={t("pages.nanoquakejs.chooseLocation")}
-        visible={isOpen}
+        open={isOpen}
         // @ts-ignore
         onOk={() => {
           setIsOpen(false);

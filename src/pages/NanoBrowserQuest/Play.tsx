@@ -5,7 +5,6 @@ import { Tracker } from "components/utils/analytics";
 
 const Play: React.FC = () => {
   const { t } = useTranslation();
-  // const [isOpen, setIsOpen] = React.useState(false);
 
   return (
     <>

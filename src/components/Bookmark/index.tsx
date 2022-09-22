@@ -42,7 +42,7 @@ const Bookmark: React.FC<Props> = ({ type, bookmark, placement = "top" }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [bookmark, bookmarks]);
 
-  const onVisibleChange = (isVisible: boolean) => {
+  const onOpenChange = (isVisible: boolean) => {
     setIsOpened(isVisible);
   };
 
@@ -102,8 +102,8 @@ const Bookmark: React.FC<Props> = ({ type, bookmark, placement = "top" }) => {
         </>
       }
       trigger="click"
-      visible={isOpened}
-      onVisibleChange={onVisibleChange}
+      open={isOpened}
+      onOpenChange={onOpenChange}
     >
       <Button
         shape="circle"

@@ -163,7 +163,7 @@ const Search = ({ isHome = false }) => {
           width: isExpanded ? "650px" : "100%",
           // transitionDelay: `${isExpanded ? 0 : 0.2}s`,
         }}
-        dropdownClassName={`search-autocomplete-dropdown ${
+        popupClassName={`search-autocomplete-dropdown ${
           theme === Theme.DARK ? "theme-dark" : ""
         }`}
         dropdownStyle={{
@@ -273,7 +273,7 @@ const Search = ({ isHome = false }) => {
       </AutoComplete>
       <Modal
         title={t("search.scanWallet")}
-        visible={isOpen}
+        open={isOpen}
         onCancel={() => setIsOpen(false)}
         footer={[
           <Button key="back" onClick={() => setIsOpen(false)}>

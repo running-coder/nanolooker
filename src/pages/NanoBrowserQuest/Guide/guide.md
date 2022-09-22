@@ -109,179 +109,189 @@ Deals a high level of physical damage (similar to Attack but with a much higher 
 **Experience**
 Added experience % making the player level up faster
 
-# Low Class Items
+# Weapons
 
-## Weapons
+| Item                                                                                                                                                                                          | Name                                       | Dropped By                  |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------- | :-------------------------- |
+| ![{"name": "Dagger", "level": 1, "itemClass": "low", "damage": 1, "magicDamage": 1, "requirement": 1}](https://nanobrowserquest.com/img/3/item-dagger.png)                                    | Dagger                                     | Default weapon              |
+| ![{"name": "Sword", "level": 1, "itemClass": "low", "damage": 3, "magicDamage": 1, "requirement": 1}](https://nanobrowserquest.com/img/3/item-sword.png)                                      | Sword                                      | Spready out in village      |
+| ![{"name": "Faketoshi", "level": 1, "itemClass": "low", "damage": 5, "bonus": [3,14], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-sword.png)                 | Faketoshi (unique Sword)                   | Spready out in village      |
+| ![{"name": "Axe", "level": 1, "itemClass": "low", "damage": 5, "magicDamage": 1, "requirement": 2}](https://nanobrowserquest.com/img/3/item-axe.png)                                          | Axe                                        | Crab, Bat, Goblin, Skeleton |
+| ![{"name": "NonDisclosure Agreement", "level": 1, "itemClass": "low", "damage": 7, "bonus": [3,14], "requirement": 2, "isUnique": true}](https://nanobrowserquest.com/img/3/item-axe.png)     | NonDisclosure Agreement (unique Axe)       | Crab, Bat, Goblin, Skeleton |
+| ![{"name": "Morningstar", "level": 1, "itemClass": "low", "damage": 7, "magicDamage": 1, "requirement": 3}](https://nanobrowserquest.com/img/3/item-morningstar.png)                          | Morningstar                                | Snake                       |
+| ![{"name": "Block Latte", "level": 1, "itemClass": "low", "damage": 9, "bonus": [3,14], "requirement": 3, "isUnique": true}](https://nanobrowserquest.com/img/3/item-morningstar.png)         | Block Latte (unique Morningstar)           | Snake                       |
+| ![{"name": "Magic Sword", "level": 1, "itemClass": "medium", "damage": 10, "magicDamage": 1, "requirement": 5}](https://nanobrowserquest.com/img/3/item-bluesword.png)                        | Magic Sword                                | Skeleton Warrior            |
+| ![{"name": "Acyclic Graph", "level": 1, "itemClass": "medium", "damage": 12, "bonus": [3,14], "requirement": 5, "isUnique": true}](https://nanobrowserquest.com/img/3/item-bluesword.png)     | Acyclic Graph (unique Magic Sword)         | Skeleton Warrior            |
+| ![{"name": "Blazing Sword", "level": 1, "itemClass": "medium", "damage": 15, "magicDamage": 1, "requirement": 7}](https://nanobrowserquest.com/img/3/item-redsword.png)                       | Blazing Sword                              | Spectre                     |
+| ![{"name": "Volcanic Miner", "level": 1, "itemClass": "medium", "damage": 17, "bonus": [3,14], "requirement": 7, "isUnique": true}](https://nanobrowserquest.com/img/3/item-redsword.png)     | Volcanic Miner (unique Blazing Sword)      | Spectre                     |
+| ![{"name": "Golden Sword", "level": 1, "itemClass": "high", "damage": 20, "magicDamage": 1, "requirement": 16}](https://nanobrowserquest.com/img/3/item-goldensword.png)                      | Golden Sword                               | Skeleton King               |
+| ![{"name": "Satoshi's Nephew", "level": 1, "itemClass": "high", "damage": 22, "bonus": [3,14], "requirement": 16, "isUnique": true}](https://nanobrowserquest.com/img/3/item-goldensword.png) | Satoshi's Nephew (Unique Golden Sword)     | Skeleton King               |
+| ![{"name": "Frozen Axe", "level": 1, "itemClass": "high", "damage": 24, "magicDamage": 1, "requirement": 18}](https://nanobrowserquest.com/img/3/item-blueaxe.png)                            | Frozen Axe                                 | Vampire bat, Undead Goblin  |
+| ![{"name": "Feeless Cutter", "level": 1, "itemClass": "high", "damage": 26, "bonus": [3,14], "requirement": 18, "isUnique": true}](https://nanobrowserquest.com/img/3/item-blueaxe.png)       | Feeless Cutter (Unique Frozen Axe)         | Vampire bat, Undead Goblin  |
+| ![{"name": "Frozen Morningstar", "level": 1, "itemClass": "high", "damage": 26, "magicDamage": 1, "requirement": 20}](https://nanobrowserquest.com/img/3/item-bluemorningstar.png)            | Frozen Morningstar                         | Werewolf, Yeti              |
+| ![{"name": "Saylormoon", "level": 1, "itemClass": "high", "damage": 28, "bonus": [3,14], "requirement": 20, "isUnique": true}](https://nanobrowserquest.com/img/3/item-bluemorningstar.png)   | Feeless Cutter (Unique Frozen Morningstar) | Werewolf, Yeti              |
+| ![{"name": "Sapphire Sword", "level": 1, "itemClass": "high", "damage": 30, "magicDamage": 1, "requirement": 26}](https://nanobrowserquest.com/img/3/item-frozensword.png)                    | Sapphire Sword                             | Skeleton Commander, Cow     |
+| ![{"name": "Broccolish Fury", "level": 1, "itemClass": "high", "damage": 32, "bonus": [3,14], "requirement": 26, "isUnique": true}](https://nanobrowserquest.com/img/3/item-frozensword.png)  | Broccolish Fury (Unique Sapphire Sword)    | Skeleton Commander, Cow     |
+| ![{"name": "Diamond Sword", "level": 1, "itemClass": "high", "damage": 36, "magicDamage": 1, "requirement": 36}](https://nanobrowserquest.com/img/3/item-diamondsword.png)                    | Diamond Sword                              | Cow, Cow King               |
+| ![{"name": "Inevitable", "level": 1, "itemClass": "high", "damage": 40, "bonus": [3,14], "requirement": 36, "isUnique": true}](https://nanobrowserquest.com/img/3/item-diamondsword.png)      | Inevitable (Unique Diamond Sword)          | Cow, Cow King               |
+| ![{"name": "Minotaur Axe", "level": 1, "itemClass": "high", "damage": 38, "magicDamage": 1, "requirement": 40}](https://nanobrowserquest.com/img/3/item-minotauraxe.png)                      | Minotaur Axe                               | Minotaur                    |
+| ![{"name": "PoS4QoS", "level": 1, "itemClass": "high", "damage": 42, "bonus": [3,14], "requirement": 40, "isUnique": true}](https://nanobrowserquest.com/img/3/item-minotauraxe.png)          | PoS4QoS (Unique Minotaur Axe)              | Minotaur                    |
 
-| Item                                                                                                                                                                                      | Name                                 | Dropped By                  |
-| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------- | :-------------------------- |
-| ![{"name": "Dagger", "level": 1, "itemClass": "low", "damage": 1, "magicDamage": 1, "requirement": 1}](https://nanobrowserquest.com/img/3/item-dagger.png)                                | Dagger                               | Default weapon              |
-| ![{"name": "Sword", "level": 1, "itemClass": "low", "damage": 3, "magicDamage": 1, "requirement": 1}](https://nanobrowserquest.com/img/3/item-sword.png)                                  | Sword                                | Spready out in village      |
-| ![{"name": "Faketoshi", "level": 1, "itemClass": "low", "damage": 5, "bonus": [3,14], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-sword.png)             | Faketoshi (unique Sword)             | Spready out in village      |
-| ![{"name": "Axe", "level": 1, "itemClass": "low", "damage": 5, "magicDamage": 1, "requirement": 1}](https://nanobrowserquest.com/img/3/item-axe.png)                                      | Axe                                  | Crab, Bat, Goblin, Skeleton |
-| ![{"name": "NonDisclosure Agreement", "level": 1, "itemClass": "low", "damage": 7, "bonus": [3,14], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-axe.png) | NonDisclosure Agreement (unique Axe) | Crab, Bat, Goblin, Skeleton |
-| ![{"name": "Morningstar", "level": 1, "itemClass": "low", "damage": 7, "magicDamage": 1, "requirement": 1}](https://nanobrowserquest.com/img/3/item-morningstar.png)                      | Morningstar                          | Snake                       |
-| ![{"name": "Block Latte", "level": 1, "itemClass": "low", "damage": 9, "bonus": [3,14], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-morningstar.png)     | Block Latte (unique Morningstar)     | Snake                       |
+# Armors
 
-## Armors
+| Item                                                                                                                                                                                                                  | Name                                           | Dropped By                              |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------- | :-------------------------------------- |
+| ![{"name": "Leather armor", "level": 1, "itemClass": "low", "defense": 3, "healthBonus": 2, "requirement": 1}](https://nanobrowserquest.com/img/3/item-leatherarmor.png)                                              | Leather armor                                  | Crab, Goblin                            |
+| ![{"name": "Representative", "level": 1, "itemClass": "low", "defense": 5, "healthBonus": 2, "bonus": [6], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-leatherarmor.png)             | Representative (unique Leather armor)          | Crab, Goblin                            |
+| ![{"name": "Mail armor", "level": 1, "itemClass": "low", "defense": 5, "healthBonus": 2, "requirement": 3}](https://nanobrowserquest.com/img/3/item-mailarmor.png)                                                    | Mail armor                                     | Skeleton, Snake                         |
+| ![{"name": "ForeX Guard", "level": 1, "itemClass": "low", "defense": 7, "healthBonus": 2, "bonus": [6], "requirement": 3, "isUnique": true}](https://nanobrowserquest.com/img/3/item-mailarmor.png)                   | ForeX Guard (unique Mail armor)                | Skeleton, Snake                         |
+| ![{"name": "Plate Armor", "level": 1, "itemClass": "medium", "defense": 10, "healthBonus": 2, "requirement": 5}](https://nanobrowserquest.com/img/3/item-platearmor.png)                                              | Plate Armor                                    | Ogre, Skeleton Warrior                  |
+| ![{"name": "Green Alternative", "level": 1, "itemClass": "medium", "defense": 12, "healthBonus": 2, "bonus": [6], "requirement": 5, "isUnique": true}](https://nanobrowserquest.com/img/3/item-platearmor.png)        | Green Alternative (unique Plate Armor)         | Ogre, Skeleton Warrior                  |
+| ![{"name": "Ruby Armor", "level": 1, "itemClass": "medium", "defense": 15, "healthBonus": 2, "requirement": 7}](https://nanobrowserquest.com/img/3/item-redarmor.png)                                                 | Ruby Armor                                     | Evil Eye                                |
+| ![{"name": "Appia's Road", "level": 1, "itemClass": "medium", "defense": 17, "healthBonus": 2, "bonus": [6], "requirement": 7, "isUnique": true}](https://nanobrowserquest.com/img/3/item-redarmor.png)               | Appia's Road (unique Ruby Armor)               | Evil Eye                                |
+| ![{"name": "Golden Armor", "level": 1, "itemClass": "high", "defense": 20, "healthBonus": 2, "requirement": 10}](https://nanobrowserquest.com/img/3/item-goldenarmor.png)                                             | Golden Armor                                   | Skeleton King                           |
+| ![{"name": "Store of Value", "level": 1, "itemClass": "high", "defense": 22, "healthBonus": 2, "bonus": [6], "requirement": 10, "isUnique": true}](https://nanobrowserquest.com/img/3/item-goldenarmor.png)           | Store of Value (unique Golden Armor)           | Skeleton King                           |
+| ![{"name": "Sapphire Armor", "level": 1, "itemClass": "high", "defense": 24, "healthBonus": 2, "requirement": 18}](https://nanobrowserquest.com/img/3/item-bluearmor.png)                                             | Sapphire Armor                                 | Undead Rat, Werewolf, Yeti              |
+| ![{"name": "Firano's Hide", "level": 1, "itemClass": "high", "defense": 26, "healthBonus": 2, "bonus": [6], "requirement": 18, "isUnique": true}](https://nanobrowserquest.com/img/3/item-bluearmor.png)              | Firano's Hide (unique Sapphire Armor)          | Undead Rat, Werewolf, Yeti              |
+| ![{"name": "Horned Armor", "level": 1, "itemClass": "high", "defense": 28, "healthBonus": 2, "requirement": 22}](https://nanobrowserquest.com/img/3/item-hornedarmor.png)                                             | Horned Armor                                   | Skeleton Guard, Skeleton Commander, Cow |
+| ![{"name": "RaiBlocks", "level": 1, "itemClass": "high", "defense": 30, "healthBonus": 2, "bonus": [6], "requirement": 22, "isUnique": true}](https://nanobrowserquest.com/img/3/item-hornedarmor.png)                | RaiBlocks (unique Horned Armor)                | Skeleton Guard, Skeleton Commander, Cow |
+| ![{"name": "Frozen Armor", "level": 1, "itemClass": "high", "defense": 30, "healthBonus": 2, "requirement": 26}](https://nanobrowserquest.com/img/3/item-frozenarmor.png)                                             | Frozen Armor                                   | Necromancer, Cow                        |
+| ![{"name": "Wall of Encrypted Energy", "level": 1, "itemClass": "high", "defense": 32, "healthBonus": 2, "bonus": [6], "requirement": 26, "isUnique": true}](https://nanobrowserquest.com/img/3/item-frozenarmor.png) | Wall of Encrypted Energy (unique Frozen Armor) | Necromancer, Cow                        |
+| ![{"name": "Diamond Armor", "level": 1, "itemClass": "high", "defense": 34, "healthBonus": 2, "requirement": 36}](https://nanobrowserquest.com/img/3/item-diamondarmor.png)                                           | Diamond Armor                                  | Cow, Cow King                           |
+| ![{"name": "Zero-knowledge Proof", "level": 1, "itemClass": "high", "defense": 38, "healthBonus": 2, "bonus": [6], "requirement": 36, "isUnique": true}](https://nanobrowserquest.com/img/3/item-diamondarmor.png)    | Zero-knowledge Proof (unique Diamond Armor)    | Cow, Cow King                           |
 
-| Item                                                                                                                                                                                                      | Name                                  | Dropped By      |
-| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------ | :-------------- |
-| ![{"name": "Leather armor", "level": 1, "itemClass": "low", "defense": 3, "healthBonus": 2, "requirement": 1}](https://nanobrowserquest.com/img/3/item-leatherarmor.png)                                  | Leather armor                         | Crab, Goblin    |
-| ![{"name": "Representative", "level": 1, "itemClass": "low", "defense": 5, "healthBonus": 2, "bonus": [6], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-leatherarmor.png) | Representative (unique Leather armor) | Crab, Goblin    |
-| ![{"name": "Mail armor", "level": 1, "itemClass": "low", "defense": 5, "healthBonus": 2, "requirement": 1}](https://nanobrowserquest.com/img/3/item-mailarmor.png)                                        | Mail armor                            | Skeleton, Snake |
-| ![{"name": "ForeX Guard", "level": 1, "itemClass": "low", "defense": 7, "healthBonus": 2, "bonus": [6], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-mailarmor.png)       | ForeX Guard (unique Mail armor)       | Skeleton, Snake |
+# Sheilds
 
-## Belts
+| Item                                                                                                                                                                          | Name            | Dropped By                                                       |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------- | :--------------------------------------------------------------- |
+| ![{"name": "Wood Shield", "level": 1, "itemClass": "low", "defense": 2, "healthBonus": 2, "requirement": 1}](https://nanobrowserquest.com/img/3/item-shieldwood.png)          | Wood Shield     | Crab, Bat                                                        |
+| ![{"name": "Iron Shield", "level": 1, "itemClass": "low", "defense": 3, "healthBonus": 2, "requirement": 3}](https://nanobrowserquest.com/img/3/item-shieldiron.png)          | Iron Shield     | Goblin, Skeleton                                                 |
+| ![{"name": "Plate Shield", "level": 1, "itemClass": "medium", "defense": 5, "healthBonus": 2, "requirement": 5}](https://nanobrowserquest.com/img/3/item-shieldplate.png)     | Plate Shield    | Ogre, Snake, Skeleton Warrior                                    |
+| ![{"name": "Red Shield", "level": 1, "itemClass": "medium", "defense": 7, "healthBonus": 2, "requirement": 7}](https://nanobrowserquest.com/img/3/item-shieldred.png)         | Red Shield      | Eye, Spectre, Death Knight                                       |
+| ![{"name": "Golden Shield", "level": 1, "itemClass": "high", "defense": 10, "healthBonus": 2, "requirement": 10}](https://nanobrowserquest.com/img/3/item-shieldgolden.png)   | Golden Shield   | Skeleton King                                                    |
+| ![{"name": "Frozen Shield", "level": 1, "itemClass": "high", "defense": 12, "healthBonus": 2, "requirement": 18}](https://nanobrowserquest.com/img/3/item-shieldblue.png)     | Frozen Shield   | Undead Rat, Vampire Bat, Undead Goblin, Werewolf                 |
+| ![{"name": "Horned Shield", "level": 1, "itemClass": "high", "defense": 14, "healthBonus": 2, "requirement": 22}](https://nanobrowserquest.com/img/3/item-shieldhorned.png)   | Horned Shield   | Yeti, Skeleton Guard, Skeleton Commander, Sea Snake, Wraith, Cow |
+| ![{"name": "Sapphire Shield", "level": 1, "itemClass": "high", "defense": 16, "healthBonus": 2, "requirement": 26}](https://nanobrowserquest.com/img/3/item-shieldfrozen.png) | Sapphire Shield | Sea Snake, Wraith, Zombie, Necromancer, Cow                      |
+| ![{"name": "Diamond Shield", "level": 1, "itemClass": "high", "defense": 18, "healthBonus": 2, "requirement": 36}](https://nanobrowserquest.com/img/3/item-shielddiamond.png) | Diamond Shield  | Cow King                                                         |
 
-**Unique belt** has one randomized attribute (Attack, Defense, Health, Magic damage, Minimum damage, Maximum damage) in addition to health bonus
-
-| Item                                                                                                                                                                                                    | Name                                | Dropped By                               |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :---------------------------------- | :--------------------------------------- |
-| ![{"name": "Leather belt", "level": 1, "itemClass": "low", "defense": 3, "healthBonus": 2, "requirement": 1}](https://nanobrowserquest.com/img/3/item-beltleather.png)                                  | Leather Belt                        | Crab, Bat, Goblin, Skeleton, Ogre, Snake |
-| ![{"name": "Proof of Wear", "level": 1, "itemClass": "low", "defense": 5, "healthBonus": 2, "bonus": [4], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-beltleather.png) | Proof of Wear (unique Leather Belt) | Crab, Bat, Goblin, Skeleton, Ogre, Snake |
-
-## Amulets
-
-There are currently no low level amulets
-
-## Rings
-
-**Bronze Ring**
-Attributes: Randomzied attribute (Health, Absorb, Defense, Health regeneration, Attack, Magic damage, Min damage,
-Max damage, Experience)
-
-**Unique Bronze Ring** has 2 random stats of a **Bronze Ring**
-
-| Item                                                                                                                                                                          | Name               | Dropped By                                                     |
-| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------- | :------------------------------------------------------------- |
-| ![{"name": "Bronze ring", "level": 1, "itemClass": "low", "bonus": [2], "requirement": 1}](https://nanobrowserquest.com/img/3/item-ringbronze.png)                            | Bronze Ring        | Rat,Crab, Bat, Goblin, Skeleton, Ogre, Snake, Skeleton Warrior |
-| ![{"name": "Unique Bronze ring", "level": 1, "itemClass": "low", "bonus": [4,5], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-ringbronze.png) | Unique Bronze Ring | Rat,Crab, Bat, Goblin, Skeleton, Ogre, Snake, Skeleton Warrior |
-
-# Medium class items
-
-## Weapons
-
-| Item                                                                                                                                                                                      | Name                                  | Dropped By       |
-| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------ | :--------------- |
-| ![{"name": "Magic Sword", "level": 1, "itemClass": "medium", "damage": 10, "magicDamage": 1, "requirement": 1}](https://nanobrowserquest.com/img/3/item-bluesword.png)                    | Magic Sword                           | Skeleton Warrior |
-| ![{"name": "Acyclic Graph", "level": 1, "itemClass": "medium", "damage": 12, "bonus": [3,14], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-bluesword.png) | Acyclic Graph (unique Magic Sword)    | Skeleton Warrior |
-| ![{"name": "Blazing Sword", "level": 1, "itemClass": "medium", "damage": 15, "magicDamage": 1, "requirement": 1}](https://nanobrowserquest.com/img/3/item-redsword.png)                   | Blazing Sword                         | Spectre          |
-| ![{"name": "Volcanic Miner", "level": 1, "itemClass": "medium", "damage": 17, "bonus": [3,14], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-redsword.png) | Volcanic Miner (unique Blazing Sword) | Spectre          |
-
-## Armors
-
-| Item                                                                                                                                                                                                           | Name                                   | Dropped By             |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------- | :--------------------- |
-| ![{"name": "Plate Armor", "level": 1, "itemClass": "medium", "defense": 10, "healthBonus": 2, "requirement": 1}](https://nanobrowserquest.com/img/3/item-platearmor.png)                                       | Plate Armor                            | Ogre, Skeleton Warrior |
-| ![{"name": "Green Alternative", "level": 1, "itemClass": "medium", "defense": 12, "healthBonus": 2, "bonus": [6], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-platearmor.png) | Green Alternative (unique Plate Armor) | Ogre, Skeleton Warrior |
-| ![{"name": "Ruby Armor", "level": 1, "itemClass": "medium", "defense": 15, "healthBonus": 2, "requirement": 1}](https://nanobrowserquest.com/img/3/item-redarmor.png)                                          | Ruby Armor                             | Evil Eye               |
-| ![{"name": "Appia's Road", "level": 1, "itemClass": "medium", "defense": 17, "healthBonus": 2, "bonus": [6], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-redarmor.png)        | Appia's Road (unique Ruby Armor)       | Evil Eye               |
-
-## Belts
+# Belts
 
 **Unique belt** has one randomized attribute (Attack, Defense, Health, Magic damage, Minimum damage, Maximum damage) in addition to health bonus
 
-| Item                                                                                                                                                                                               | Name                        | Dropped By                      |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------- | :------------------------------ |
-| ![{"name": "Plated belt", "level": 1, "itemClass": "medium", "defense": 4, "healthBonus": 2, "requirement": 1}](https://nanobrowserquest.com/img/3/item-beltplated.png)                            | Plated belt                 | Evil Eye, Spectre, Death Knight |
-| ![{"name": "Hodler", "level": 1, "itemClass": "medium", "defense": 6, "healthBonus": 2, "bonus": [4], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-beltplated.png) | Hodler (unique Plated belt) | Evil Eye, Spectre, Death Knight |
+| Item                                                                                                                                                                                                            | Name                                     | Dropped By                                                      |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------- | :-------------------------------------------------------------- |
+| ![{"name": "Leather belt", "level": 1, "itemClass": "low", "defense": 3, "healthBonus": 2, "requirement": 4}](https://nanobrowserquest.com/img/3/item-beltleather.png)                                          | Leather Belt                             | Crab, Bat, Goblin, Skeleton, Ogre, Snake                        |
+| ![{"name": "Proof of Wear", "level": 1, "itemClass": "low", "defense": 5, "healthBonus": 2, "bonus": [4], "requirement": 4, "isUnique": true}](https://nanobrowserquest.com/img/3/item-beltleather.png)         | Proof of Wear (unique Leather Belt)      | Crab, Bat, Goblin, Skeleton, Ogre, Snake                        |
+| ![{"name": "Plated belt", "level": 1, "itemClass": "medium", "defense": 4, "healthBonus": 2, "requirement": 9}](https://nanobrowserquest.com/img/3/item-beltplated.png)                                         | Plated belt                              | Evil Eye, Spectre, Death Knight                                 |
+| ![{"name": "Hodler", "level": 1, "itemClass": "medium", "defense": 6, "healthBonus": 2, "bonus": [4], "requirement": 9, "isUnique": true}](https://nanobrowserquest.com/img/3/item-beltplated.png)              | Hodler (unique Plated belt)              | Evil Eye, Spectre, Death Knight                                 |
+| ![{"name": "Frozen Belt", "level": 1, "itemClass": "high", "defense": 10, "healthBonus": 2, "requirement": 24}](https://nanobrowserquest.com/img/3/item-beltfrozen.png)                                         | Frozen Belt                              | Vampire Bat, Undead Goblin, Werewolf, Undead Snake, Wraith, Cow |
+| ![{"name": "Spam Resistor", "level": 1, "itemClass": "high", "defense": 10, "healthBonus": 2, "bonus": [4], "requirement": 24, "isUnique": true}](https://nanobrowserquest.com/img/3/item-beltfrozen.png)       | Spam Resistor (unique Frozen Belt)       | Vampire Bat, Undead Goblin, Werewolf, Undead Snake, Wraith, Cow |
+| ![{"name": "Horned Belt", "level": 1, "itemClass": "high", "defense": 12, "healthBonus": 2, "requirement": 24}](https://nanobrowserquest.com/img/3/item-belthorned.png)                                         | Horned Belt                              | Skeleton Guard, Skeleton Commander, Sea Snake, Wraith , Cow     |
+| ![{"name": "Dee-Fye", "level": 1, "itemClass": "high", "defense": 14, "healthBonus": 2, "bonus": [4], "requirement": 28, "isUnique": true}](https://nanobrowserquest.com/img/3/item-belthorned.png)             | Dee-Fye (unique Horned Belt)             | Skeleton Guard, Skeleton Commander, Sea Snake, Wraith , Cow     |
+| ![{"name": "Diamond Belt", "level": 1, "itemClass": "high", "defense": 14, "healthBonus": 2, "requirement": 34}](https://nanobrowserquest.com/img/3/item-beltdiamond.png)                                       | Diamond Belt                             | Cow, Cow King                                                   |
+| ![{"name": "Election Scheduler", "level": 1, "itemClass": "high", "defense": 14, "healthBonus": 2, "bonus": [4], "requirement": 38, "isUnique": true}](https://nanobrowserquest.com/img/3/item-beltdiamond.png) | Election Scheduler (unique Diamond Belt) | Cow, Cow King                                                   |
+| ![{"name": "Minotaur Belt", "level": 1, "itemClass": "high", "defense": 18, "healthBonus": 2, "requirement": 40}](https://nanobrowserquest.com/img/3/item-beltminotaur.png)                                     | Minotaur Belt                            | Minotaur                                                        |
+| ![{"name": "TaaC", "level": 1, "itemClass": "high", "defense": 18, "healthBonus": 2, "bonus": [4], "requirement": 40, "isUnique": true}](https://nanobrowserquest.com/img/3/item-beltminotaur.png)              | TaaC (unique Minotaur Belt)              | Minotaur                                                        |
 
-## Amulets
+# Amulets
 
-**Silver Amulet**
-Attributes: Two randomized attributes (Health, Defense, Attack, Magic damage, Min damage, Max damage)
+**Silver Amulet** Attributes: Two randomized attributes (Health, Defense, Attack, Magic damage, Min damage, Max damage)
 
 **Unique Silver Amulet** has 3 random stats of a **Silver Amulet**
 
-| Item                                                                                                                                                                                   | Name                 | Dropped By                      |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------- | :------------------------------ |
-| ![{"name": "Silver Amulet", "level": 1, "itemClass": "medium", "bonus": [4,5], "requirement": 1}](https://nanobrowserquest.com/img/3/item-amuletsilver.png)                            | Silver Amulet        | Evil Eye, Spectre, Death Knight |
-| ![{"name": "Unique Silver Amulet", "level": 1, "itemClass": "medium", "bonus": [0,1,3], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-amuletsilver.png) | Unique Silver Amulet | Evil Eye, Spectre, Death Knight |
-
-## Rings
-
-**Silver Ring**
-Attributes: Two randomized attributes (Health, Defense, Attack, Magic damage, Min damage, Max damage)
-
-**Unique Silver Ring** has 3 random stats of a **Silver Ring**
-
-| Item                                                                                                                                                                               | Name               | Dropped By                             |
-| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------- | :------------------------------------- |
-| ![{"name": "Silver Ring", "level": 1, "itemClass": "medium", "bonus": [4,5], "requirement": 1}](https://nanobrowserquest.com/img/3/item-ringsilver.png)                            | Silver Ring        | Snake, Evil Eye, Spectre, Death Knight |
-| ![{"name": "Unique Silver Ring", "level": 1, "itemClass": "medium", "bonus": [0,1,3], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-ringsilver.png) | Unique Silver Ring | Snake, Evil Eye, Spectre, Death Knight |
-
-# High class items
-
-## Weapons
-
-| Item                                                                                                                                                                                         | Name                                       | Dropped By                          |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------- | :---------------------------------- |
-| ![{"name": "Golden Sword", "level": 1, "itemClass": "high", "damage": 20, "magicDamage": 1, "requirement": 1}](https://nanobrowserquest.com/img/3/item-goldensword.png)                      | Golden Sword                               | Skeleton King                       |
-| ![{"name": "Satoshi's Nephew", "level": 1, "itemClass": "high", "damage": 22, "bonus": [3,14], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-goldensword.png) | Satoshi's Nephew (Unique Golden Sword)     | Skeleton King                       |
-| ![{"name": "Frozen Axe", "level": 1, "itemClass": "high", "damage": 24, "magicDamage": 1, "requirement": 1}](https://nanobrowserquest.com/img/3/item-blueaxe.png)                            | Frozen Axe                                 | Vampire bat, Undead Goblin          |
-| ![{"name": "Feeless Cutter", "level": 1, "itemClass": "high", "damage": 26, "bonus": [3,14], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-blueaxe.png)       | Feeless Cutter (Unique Frozen Axe)         | Vampire bat, Undead Goblin          |
-| ![{"name": "Frozen Morningstar", "level": 1, "itemClass": "high", "damage": 26, "magicDamage": 1, "requirement": 1}](https://nanobrowserquest.com/img/3/item-bluemorningstar.png)            | Frozen Morningstar                         | Werewolf, Yeti                      |
-| ![{"name": "Saylormoon", "level": 1, "itemClass": "high", "damage": 28, "bonus": [3,14], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-bluemorningstar.png)   | Feeless Cutter (Unique Frozen Morningstar) | Werewolf, Yeti                      |
-| ![{"name": "Sapphire Sword", "level": 1, "itemClass": "high", "damage": 30, "magicDamage": 1, "requirement": 1}](https://nanobrowserquest.com/img/3/item-frozensword.png)                    | Sapphire Sword                             | Skeleton Commander, Cow, Blue Chest |
-| ![{"name": "Broccolish Fury", "level": 1, "itemClass": "high", "damage": 32, "bonus": [3,14], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-frozensword.png)  | Broccolish Fury (Unique Sapphire Sword)    | Skeleton Commander, Cow, Blue Chest |
-| ![{"name": "Diamond Sword", "level": 1, "itemClass": "high", "damage": 36, "magicDamage": 1, "requirement": 1}](https://nanobrowserquest.com/img/3/item-diamondsword.png)                    | Diamond Sword                              | Cow, Cow King                       |
-| ![{"name": "Inevitable", "level": 1, "itemClass": "high", "damage": 40, "bonus": [3,14], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-diamondsword.png)      | Inevitable (Unique Diamond Sword)          | Cow, Cow King                       |
-| ![{"name": "Minotaur Axe", "level": 1, "itemClass": "high", "damage": 38, "magicDamage": 1, "requirement": 1}](https://nanobrowserquest.com/img/3/item-minotauraxe.png)                      | Minotaur Axe                               | Minotaur, Blue Chest                |
-| ![{"name": "PoS4QoS", "level": 1, "itemClass": "high", "damage": 42, "bonus": [3,14], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-minotauraxe.png)          | PoS4QoS (Unique Minotaur Axe)              | Minotaur, Blue Chest                |
-
-## Armors
-
-| Item                                                                                                                                                                                                                 | Name                                           | Dropped By                              |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------- | :-------------------------------------- |
-| ![{"name": "Golden Armor", "level": 1, "itemClass": "high", "defense": 20, "healthBonus": 2, "requirement": 1}](https://nanobrowserquest.com/img/3/item-goldenarmor.png)                                             | Golden Armor                                   | Skeleton King                           |
-| ![{"name": "Store of Value", "level": 1, "itemClass": "high", "defense": 22, "healthBonus": 2, "bonus": [6], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-goldenarmor.png)           | Store of Value (unique Golden Armor)           | Skeleton King                           |
-| ![{"name": "Sapphire Armor", "level": 1, "itemClass": "high", "defense": 24, "healthBonus": 2, "requirement": 1}](https://nanobrowserquest.com/img/3/item-bluearmor.png)                                             | Sapphire Armor                                 | Undead Rat, Werewolf, Yeti              |
-| ![{"name": "Firano's Hide", "level": 1, "itemClass": "high", "defense": 26, "healthBonus": 2, "bonus": [6], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-bluearmor.png)              | Firano's Hide (unique Sapphire Armor)          | Undead Rat, Werewolf, Yeti              |
-| ![{"name": "Horned Armor", "level": 1, "itemClass": "high", "defense": 28, "healthBonus": 2, "requirement": 1}](https://nanobrowserquest.com/img/3/item-hornedarmor.png)                                             | Horned Armor                                   | Skeleton Guard, Skeleton Commander, Cow |
-| ![{"name": "RaiBlocks", "level": 1, "itemClass": "high", "defense": 30, "healthBonus": 2, "bonus": [6], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-hornedarmor.png)                | RaiBlocks (unique Horned Armor)                | Skeleton Guard, Skeleton Commander, Cow |
-| ![{"name": "Frozen Armor", "level": 1, "itemClass": "high", "defense": 30, "healthBonus": 2, "requirement": 1}](https://nanobrowserquest.com/img/3/item-frozenarmor.png)                                             | Frozen Armor                                   | Necromancer, Cow, Blue Chest            |
-| ![{"name": "Wall of Encrypted Energy", "level": 1, "itemClass": "high", "defense": 32, "healthBonus": 2, "bonus": [6], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-frozenarmor.png) | Wall of Encrypted Energy (unique Frozen Armor) | Necromancer, Cow, Blue Chest            |
-| ![{"name": "Diamond Armor", "level": 1, "itemClass": "high", "defense": 34, "healthBonus": 2, "requirement": 1}](https://nanobrowserquest.com/img/3/item-diamondarmor.png)                                           | Diamond Armor                                  | Cow, Cow King                           |
-| ![{"name": "Zero-knowledge Proof", "level": 1, "itemClass": "high", "defense": 38, "healthBonus": 2, "bonus": [6], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-diamondarmor.png)    | Zero-knowledge Proof (unique Diamond Armor)    | Cow, Cow King                           |
-
-## Belts
-
-**Unique belt** has one randomized attribute (Attack, Defense, Health, Magic damage, Minimum damage, Maximum damage) in addition to health bonus
-
-| Item                                                                                                                                                                                                           | Name                                     | Dropped By                                                      |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------- | :-------------------------------------------------------------- |
-| ![{"name": "Frozen Belt", "level": 1, "itemClass": "high", "defense": 10, "healthBonus": 2, "requirement": 1}](https://nanobrowserquest.com/img/3/item-beltfrozen.png)                                         | Frozen Belt                              | Vampire Bat, Undead Goblin, Werewolf, Undead Snake, Wraith, Cow |
-| ![{"name": "Spam Resistor", "level": 1, "itemClass": "high", "defense": 12, "healthBonus": 2, "bonus": [4], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-beltfrozen.png)       | Spam Resistor (unique Frozen Belt)       | Vampire Bat, Undead Goblin, Werewolf, Undead Snake, Wraith, Cow |
-| ![{"name": "Diamond Belt", "level": 1, "itemClass": "high", "defense": 10, "healthBonus": 2, "requirement": 1}](https://nanobrowserquest.com/img/3/item-beltdiamond.png)                                       | Diamond Belt                             | Cow, Cow King                                                   |
-| ![{"name": "Election Scheduler", "level": 1, "itemClass": "high", "defense": 12, "healthBonus": 2, "bonus": [4], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-beltdiamond.png) | Election Scheduler (unique Diamond Belt) | Cow, Cow King                                                   |
-| ![{"name": "Minotaur Belt", "level": 1, "itemClass": "high", "defense": 18, "healthBonus": 2, "requirement": 1}](https://nanobrowserquest.com/img/3/item-beltminotaur.png)                                     | Minotaur Belt                            | Minotaur, Blue Chest                                            |
-| ![{"name": "TaaC", "level": 1, "itemClass": "high", "defense": 22, "healthBonus": 2, "bonus": [4], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-beltminotaur.png)              | TaaC (unique Minotaur Belt)              | Minotaur, Blue Chest                                            |
-
-## Amulets
-
-**Gold Amulet**
-Attributes: Three randomized attributes (Health, Absorb, Defense, Health regeneration, Attack, Magic damage, Min damage,
-Max damage, Experience) + Critical hit % or Block %
+**Gold Amulet** Attributes: 3 randomized attributes (Health, Absorb, Defense, Health regeneration, Attack, Magic damage, Min damage, Max damage, Experience) + Critical hit % or Block %
 
 **Unique Gold Amulet** has 4 random stats of a **Gold Amulet**
 
-| Item                                                                                                                                                                                  | Name               | Dropped By                                                                                                  |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :----------------- | :---------------------------------------------------------------------------------------------------------- |
-| ![{"name": "Gold Amulet", "level": 1, "itemClass": "high", "bonus": [2,4,5,9], "requirement": 1}](https://nanobrowserquest.com/img/3/item-amuletgold.png)                             | Gold Amulet        | Undead Goblin, Werewolf, Skeleton Guard, Skeleton Commander, Undead Snake, Wraith, Zombie, Necromancer, Cow |
-| ![{"name": "Unique Gold Amulet", "level": 1, "itemClass": "high", "bonus": [1,4,7,8,10], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-amuletgold.png) | Unique Gold Amulet | Undead Goblin, Werewolf, Skeleton Guard, Skeleton Commander, Undead Snake, Wraith, Zombie, Necromancer, Cow |
+| Item                                                                                                                                                                                   | Name                 | Dropped By                                                                                                  |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------- | :---------------------------------------------------------------------------------------------------------- |
+| ![{"name": "Silver Amulet", "level": 1, "itemClass": "medium", "bonus": [4,5], "requirement": 9}](https://nanobrowserquest.com/img/3/item-amuletsilver.png)                            | Silver Amulet        | Evil Eye, Spectre, Death Knight                                                                             |
+| ![{"name": "Unique Silver Amulet", "level": 1, "itemClass": "medium", "bonus": [0,1,3], "requirement": 9, "isUnique": true}](https://nanobrowserquest.com/img/3/item-amuletsilver.png) | Unique Silver Amulet | Evil Eye, Spectre, Death Knight                                                                             |
+| ![{"name": "Gold Amulet", "level": 1, "itemClass": "high", "bonus": [2,4,5,9], "requirement": 20}](https://nanobrowserquest.com/img/3/item-amuletgold.png)                             | Gold Amulet          | Undead Goblin, Werewolf, Skeleton Guard, Skeleton Commander, Undead Snake, Wraith, Zombie, Necromancer, Cow |
+| ![{"name": "Unique Gold Amulet", "level": 1, "itemClass": "high", "bonus": [1,4,7,8,10], "requirement": 20, "isUnique": true}](https://nanobrowserquest.com/img/3/item-amuletgold.png) | Unique Gold Amulet   | Undead Goblin, Werewolf, Skeleton Guard, Skeleton Commander, Undead Snake, Wraith, Zombie, Necromancer, Cow |
 
-## Rings
+# Rings
 
-**Gold Ring**
-Attributes: Three randomzied attributes (Health, Absorb, Defense, Health regeneration, Attack, Magic damage, Min damage, Max damage, Experience)
+**Bronze Ring** Attributes: Randomzied attribute (Health, Absorb, Defense, Attack, Magic damage, Min damage, Max damage)
+
+**Unique Bronze Ring** has 2 random stats of a **Bronze Ring**
+
+**Silver Ring** Attributes: Two randomized attributes (Health, Defense, Attack, Magic damage, Min damage, Max damage)
+
+**Unique Silver Ring** has 3 random stats of a **Silver Ring**
+
+**Gold Ring** Attributes: Three randomzied attributes (Health, Absorb, Defense, Health regeneration, Attack, Magic damage, Min damage, Max damage, Experience)
 
 **Unique Gold Ring** has 4 random stats of a **Silver Gold**
 
-| Item                                                                                                                                                                           | Name             | Dropped By                                                                                         |
-| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------- | :------------------------------------------------------------------------------------------------- |
-| ![{"name": "Gold Ring", "level": 1, "itemClass": "high", "bonus": [4,5,7], "requirement": 1}](https://nanobrowserquest.com/img/3/item-ringgold.png)                            | Gold Ring        | Werewolf, Yeti, Skeleton Guard, Skeleton Commander, Undead Snake, Wraith, Zombie, Nercomancer, Cow |
-| ![{"name": "Unique Gold Ring", "level": 1, "itemClass": "high", "bonus": [2,5,6,8], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-ringgold.png) | Unique Gold Ring | Werewolf, Yeti, Skeleton Guard, Skeleton Commander, Undead Snake, Wraith, Zombie, Nercomancer, Cow |
+| Item                                                                                                                                                                               | Name               | Dropped By                                                                                         |
+| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------- | :------------------------------------------------------------------------------------------------- |
+| ![{"name": "Bronze ring", "level": 1, "itemClass": "low", "bonus": [2], "requirement": 1}](https://nanobrowserquest.com/img/3/item-ringbronze.png)                                 | Bronze Ring        | Rat,Crab, Bat, Goblin, Skeleton, Ogre, Snake, Skeleton Warrior                                     |
+| ![{"name": "Unique Bronze ring", "level": 1, "itemClass": "low", "bonus": [4,5], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-ringbronze.png)      | Unique Bronze Ring | Rat,Crab, Bat, Goblin, Skeleton, Ogre, Snake, Skeleton Warrior                                     |
+| ![{"name": "Silver Ring", "level": 1, "itemClass": "medium", "bonus": [4,5], "requirement": 9}](https://nanobrowserquest.com/img/3/item-ringsilver.png)                            | Silver Ring        | Snake, Evil Eye, Spectre, Death Knight                                                             |
+| ![{"name": "Unique Silver Ring", "level": 1, "itemClass": "medium", "bonus": [0,1,3], "requirement": 9, "isUnique": true}](https://nanobrowserquest.com/img/3/item-ringsilver.png) | Unique Silver Ring | Snake, Evil Eye, Spectre, Death Knight                                                             |
+| ![{"name": "Gold Ring", "level": 1, "itemClass": "high", "bonus": [4,5,7], "requirement": 16}](https://nanobrowserquest.com/img/3/item-ringgold.png)                               | Gold Ring          | Werewolf, Yeti, Skeleton Guard, Skeleton Commander, Undead Snake, Wraith, Zombie, Nercomancer, Cow |
+| ![{"name": "Unique Gold Ring", "level": 1, "itemClass": "high", "bonus": [2,5,6,8], "requirement": 16, "isUnique": true}](https://nanobrowserquest.com/img/3/item-ringgold.png)    | Unique Gold Ring   | Werewolf, Yeti, Skeleton Guard, Skeleton Commander, Undead Snake, Wraith, Zombie, Nercomancer, Cow |
+
+# Cape
+
+Attributes: Defense (1) + one of the following attributes: Attack/Defence/EXP % when player is in a party. The second attribute is randomly decided when the items is bought/dropped
+
+Unique Version: **Cloak of Levitation** Attributes: Defense (1) + two random attributes (Attack/Defence/EXP %) instead of one
+
+| Item                                                                                                                                                                      | Name                | Dropped By                                        |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :------------------ | :------------------------------------------------ |
+| ![{"name": "Cape", "level": 1, "itemClass": "high", "bonus": [2], "requirement": 1}](https://nanobrowserquest.com/img/3/item-cape.png)                                    | Cape                | Sold by the Red Wizard in the village, Blue chest |
+| ![{"name": "Cloak of Levitation", "level": 1, "itemClass": "high", "bonus": [4,5], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-cape.png) | Cloak of Levitation | Sold by the Red Wizard in the village, Blue chest |
+
+# Super-uniques
+
+| Item                                                                                                                                                                                           | Name                   | Dropped By                       | Drop Rate                     |
+| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------- | :------------------------------- | :---------------------------- |
+| ![{"name": "Necromancer Death Wish", "level": 1, "itemClass": "high", "bonus": [3,4,5,13], "requirement": 38, "isUnique": true }](https://nanobrowserquest.com/img/3/item-ringnecromancer.png) | Necromancer Death Wish | Necromancer                      | 1%                            |
+| ![{"name": "Rai Stone", "level": 1, "itemClass": "high", "bonus": [0,1,4,15], "requirement": 18, "isUnique": true }](https://nanobrowserquest.com/img/3/item-ringraistone.png)                 | Rai Stone              | Eye and above, Blue Chest        | Cow 0.0083%, Blue Chest 2.33% |
+| ![{"name": "Fountain of Youth", "level": 1, "itemClass": "high", "bonus": [5,6,8,17], "requirement": 26, "isUnique": true }](https://nanobrowserquest.com/img/3/item-ringfountain.png)         | Fountain of Youth      | Frozen Rat and above, Blue Chest | Cow 0.0083%, Blue Chest 2.33% |
+| ![{"name": "Minotaur Hell Freeze", "level": 1, "itemClass": "high", "bonus": [1,4,7,18,19], "requirement": 36, "isUnique": true }](https://nanobrowserquest.com/img/3/item-ringminotaur.png)   | Minotaur Hell Freeze   | Minotaur, Blue Chest             | Minotaur 5%, Blue Chest 2.33% |
+| ![{"name": "Holy Cow King Talisman", "level": 1, "itemClass": "high", "bonus": [4,5,6,9,16], "requirement": 34, "isUnique": true }](https://nanobrowserquest.com/img/3/item-amuletcow.png)     | Holy Cow King Talisman | Cow King                         | 5%                            |
+| ![{"name": "Frozen Heart", "level": 1, "itemClass": "high", "bonus": [2,3,5,10,18,19,20], "requirement": 34, "isUnique": true }](https://nanobrowserquest.com/img/3/item-amuletfrozen.png)     | Frozen Heart           | Cow, Blue Chest                  | Cow 0.0083%, Blue Chest 2.33% |
+
+# Scrolls
+
+These items are used to upgrade the items found in NBQ. It is done by putting the item into the anvil in the village. The item is put in the left square and the scroll in one of the middle squares of the anvil. One of the squares is "lucky" and will grant the player an extra % chance of success. The upgraded item (if successful) will emerge in the right square.
+
+| Item                                                                                                                                                                                                                                                                                                                                      | Name                        | Description                                                               |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------- | :------------------------------------------------------------------------ |
+| ![{"name": "Upgrade scroll", "itemClass": "low", "description": "Upgrade low class items. The chances for a successful upgrade varies depending on the item's level." }](https://nanobrowserquest.com/img/3/item-scrollupgradelow.png)                                                                                                    | Low class upgrade scroll    | Used to upgrade low class items                                           |
+| ![{"name": "Upgrade scroll", "itemClass": "medium", "description": "Upgrade medium class items. The chances for a successful upgrade varies depending on the item's level." }](https://nanobrowserquest.com/img/3/item-scrollupgrademedium.png)                                                                                           | Medium class upgrade scroll | Used to upgrade medium class items                                        |
+| ![{"name": "Superior upgrade scroll", "itemClass": "high", "description": "Upgrade high class item. The chances for a successful upgrade varies depending on the item's level." }](https://nanobrowserquest.com/img/3/item-scrollupgradehigh.png)                                                                                         | Superior upgrade scroll     | Used to upgrade high class items                                          |
+| ![{"name": "Blessed upgrade scroll", "itemClass": "high", "description": "Upgrade high class item. The chances for a successful upgrade varies depending on the item's level. Blessed scrolls gives a higher chance of successful upgrade." }](https://nanobrowserquest.com/img/3/item-scrollupgradeblessed.png)                          | Blessed upgrade scroll      | Used to upgrade high class items with an increased chance of success      |
+| ![{"name": "Transmute scroll", "itemClass": "high", "description": "Transmute a ring or an amulet and generate new random stats or an item to have a chance of making it unique. The chances of transmuting stats is fixed while the chances of getting a unique varies." }](https://nanobrowserquest.com/img/3/item-scrolltransmute.png) | Transmute scroll            | Used to re-roll random attributes or create a unique out of a normal item |
+
+# Various
+
+| Item                                                                                                                                                                                                                            | Name                          | Description                                                               |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :---------------------------- | :------------------------------------------------------------------------ |
+|                                                                                                                                                                                                                                 | Health Potion                 | Restores health to player by 40 hp                                        |
+|                                                                                                                                                                                                                                 | Burger                        | Restores health to player by 100 hp                                       |
+|                                                                                                                                                                                                                                 | Nano Potion                   | Restores health to player by 200 hp                                       |
+|                                                                                                                                                                                                                                 | Rejuvenation Potion           | Restores 33% of the player health                                         |
+|                                                                                                                                                                                                                                 | Firefox Potion                | Restore player health to 100% and grands the player temporary immortality |
+|                                                                                                                                                                                                                                 | Wirts Leg                     | Low level weapon with secret special properties                           |
+| ![{"name": "Skeleton King's Thoracic Cage", "description": "The thoracic cage of the Skeleton King. An unknown magic is still being emitted from the remains." }](https://nanobrowserquest.com/img/3/item-skeletonkingcage.png) | Skeleton King's Thoracic Cage | Secret special properties                                                 |
+| ![{"name": "Necromancer's Heart", "description": "The heart of the Necromancer. An unknown magic is still being emitted from the remains." }](https://nanobrowserquest.com/img/3/item-necromancerheart.png)                     | Necromancer's Heart           | Secret special properties                                                 |
+| ![{"name": "Cow King's horn", "description": "The horn of the Cow King. An unknown magic is still being emitted from the remains." }](https://nanobrowserquest.com/img/3/item-cowkinghorn.png)                                  | Cow King's horn               | Secret special properties                                                 |
+| ![{"name": "Blue Chest", "description": "The chest may contain a very precious item." }](https://nanobrowserquest.com/img/3/item-chestblue.png)                                                                                 | Blue Chest                    | Treasure chest awarded for killing the Minotaur (spawns every 6-8 hours)  |
+
+# Auras
+
+Auras are special animations that are displayed around your player when you are using items that have special powers
+
+| Name                                                | Description                                                                                        |
+| :-------------------------------------------------- | :------------------------------------------------------------------------------------------------- |
+| Drain life (Necromancer ring)                       | Deals extra damage and heals the player for that same amount on each hit                           |
+| Lightning (Rai Stone / Cow King amulet)             | Deals extra lightning damage and hurts the player or mob attacking the player for that same amount |
+| High hp bonus (Fountain of youth / Cow King amulet) | Extra high amount of Health bonus                                                                  |
+| % chances of freeze (Minotaur ring, Frozen Heart)   | Chance to freeze enemies on hit                                                                    |
 
 # Sets
 
@@ -294,63 +304,6 @@ Your character will receive bonuses by wearing all set items
 | armor, belt, weapon | Frozen   | 10 min damage, 3% critical hit, 15 defense      |
 | armor, belt, weapon | Diamond  | 10% exp, 3% block chance, 50 hp                 |
 | belt, ring, weapon  | Minotaur | 15 min damage, 10 defense, 15 cold damage, 50hp |
-
-## Other
-
-**Cape**
-Attributes: Defense (1) + one of the following attributes: Attack/Defence/EXP % when player is in a party. The second attribute is randomly decided when the items is bought/dropped
-Dropped by (Droprate): Sold by the Red Wizard in the village, Blue chest (6%)
-
-Unique Version: **Cloak of Levitation**
-Attributes: Defense (1) + two random attributes (Attack/Defence/EXP %) instead of one
-
-# Super-uniques
-
-| Item | Name                   | Dropped By                       | Drop Rate                     |
-| :--- | :--------------------- | :------------------------------- | :---------------------------- |
-|      | Necromancer Death Wish | Necromancer                      | 1%                            |
-|      | Rai Stone              | Eye and above, Blue Chest        | Cow 0.0083%, Blue Chest 2.33% |
-|      | Fountain of Youth      | Frozen Rat and above, Blue Chest | Cow 0.0083%, Blue Chest 2.33% |
-|      | Minotaur Hell Freeze   | Minotaur, Blue Chest             | Minotaur 5%, Blue Chest 2.33% |
-|      | Holy Cow King Amulet   | Cow King                         | 5%                            |
-|      | Frozen Heart           | Cow, Blue Chest                  | Cow 0.0083%, Blue Chest 2.33% |
-
-# Scrolls
-
-These items are used to upgrade the items found in NBQ. It is done by putting the item into the anvil in the village. The item is put in the left square and the scroll in one of the middle squares of the anvil. One of the squares is "lucky" and will grant the player an extra % chance of success. The upgraded item (if successful) will emerge in the right square.
-
-| Item | Name                        | Description                                                               |
-| :--- | :-------------------------- | :------------------------------------------------------------------------ |
-|      | Low class upgrade scroll    | Used to upgrade low class items                                           |
-|      | Medium class upgrade scroll | Used to upgrade medium class items                                        |
-|      | Superior upgrade scroll     | Used to upgrade high class items                                          |
-|      | Blessed upgrade scroll      | Used to upgrade high class items with an increased chance of success      |
-|      | Transmute scroll            | Used to re-roll random attributes or create a unique out of a normal item |
-
-# Various
-
-| Item | Name                          | Description                                                               |
-| :--- | :---------------------------- | :------------------------------------------------------------------------ |
-|      | Health Potion                 | Restores health to player by 40 hp                                        |
-|      | Burger                        | Restores health to player by 100 hp                                       |
-|      | Nano Potion                   | Restores health to player by 200 hp                                       |
-|      | Rejuvenation Potion           | Restores 33% of the player health                                         |
-|      | Firefox Potion                | Restore player health to 100% and grands the player temporary immortality |
-|      | Wirts Leg                     | Low level weapon with secret special properties                           |
-|      | Skeleton King's Thoracic Cage | Secret special properties                                                 |
-|      | Necromancer's Heart           | Secret special properties                                                 |
-|      | Cow King's horn               | Secret special properties                                                 |
-
-# Auras
-
-Auras are special animations that are displayed around your player when you are using items that have special powers
-
-| Name                                                | Description                                                                                        |
-| :-------------------------------------------------- | :------------------------------------------------------------------------------------------------- |
-| Drain life (Necromancer ring)                       | Deals extra damage and heals the player for that same amount on each hit                           |
-| Lightning (Rai Stone / Cow King amulet)             | Deals extra lightning damage and hurts the player or mob attacking the player for that same amount |
-| High hp bonus (Fountain of youth / Cow King amulet) | Extra high amount of Health bonus                                                                  |
-| % chances of freeze (Minotaur ring, Frozen Heart)   | Chance to freeze enemies on hit                                                                    |
 
 # Party chat commands
 

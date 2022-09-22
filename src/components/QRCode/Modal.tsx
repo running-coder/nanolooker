@@ -33,7 +33,7 @@ const QRCodeModal = ({ header, account, children }: QRCodeModalProps) => {
       })}
       <Modal
         width="300px"
-        visible={isVisible}
+        open={isVisible}
         onCancel={() => setIsVisible(false)}
         footer={[
           <Button

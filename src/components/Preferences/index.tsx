@@ -45,8 +45,8 @@ const Preferences: React.FC = () => {
         </Card>
       }
       trigger="click"
-      visible={isOpen}
-      onVisibleChange={setIsOpen}
+      open={isOpen}
+      onOpenChange={setIsOpen}
     >
       <SettingOutlined />
     </Popover>

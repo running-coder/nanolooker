@@ -170,7 +170,7 @@ const Register: React.FC = () => {
             ? t("pages.nanoquakejs.register")
             : t("pages.nanoquakejs.scanWallet")
         }
-        visible={isOpen}
+        open={isOpen}
         // @ts-ignore
         onOk={
           Sections.REGISTER
