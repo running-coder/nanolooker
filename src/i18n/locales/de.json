@@ -411,7 +411,8 @@
       "nanoPotions": "NANO-Tränke",
       "guide": {
         "title": "NanoBrowserQuest-Leitfaden"
-      }
+      },
+      "playerGuide": "Leitfaden für Spieler"
     },
     "statistics": {
       "social": {

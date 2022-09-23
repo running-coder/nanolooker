@@ -411,7 +411,8 @@
       "nanoPotions": "ナノポーション",
       "guide": {
         "title": "NanoBrowserQuestガイド"
-      }
+      },
+      "playerGuide": "プレイヤーズガイド"
     },
     "statistics": {
       "social": {

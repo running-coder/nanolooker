@@ -411,7 +411,8 @@
       "nanoPotions": "Pozioni NANO",
       "guide": {
         "title": "Guida di NanoBrowserQuest"
-      }
+      },
+      "playerGuide": "Guida del giocatore"
     },
     "statistics": {
       "social": {

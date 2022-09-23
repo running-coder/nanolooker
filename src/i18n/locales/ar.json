@@ -411,7 +411,8 @@
       "nanoPotions": "جرعات نانو",
       "guide": {
         "title": "دليل NanoBrowserQuest"
-      }
+      },
+      "playerGuide": "دليل اللاعب"
     },
     "statistics": {
       "social": {

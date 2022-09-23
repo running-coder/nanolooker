@@ -411,7 +411,8 @@
       "nanoPotions": "معجون های نانو",
       "guide": {
         "title": "راهنمای NanoBrowserQuest"
-      }
+      },
+      "playerGuide": "راهنمای بازیکن"
     },
     "statistics": {
       "social": {

@@ -411,7 +411,8 @@
       "nanoPotions": "纳米药水",
       "guide": {
         "title": "NanoBrowserQuest 指南"
-      }
+      },
+      "playerGuide": "玩家指南"
     },
     "statistics": {
       "social": {

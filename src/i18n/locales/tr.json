@@ -411,7 +411,8 @@
       "nanoPotions": "NANO İksirler",
       "guide": {
         "title": "NanoBrowserQuest Kılavuzu"
-      }
+      },
+      "playerGuide": "Oyuncu Kılavuzu"
     },
     "statistics": {
       "social": {

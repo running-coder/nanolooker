@@ -411,7 +411,8 @@
       "nanoPotions": "NANO-drankjes",
       "guide": {
         "title": "NanoBrowserQuest-gids"
-      }
+      },
+      "playerGuide": "Spelersgids"
     },
     "statistics": {
       "social": {

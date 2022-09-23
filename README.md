@@ -69,6 +69,7 @@ If you think some strings should be corrected open a PR with the corrections on 
 
 - Setup a Google translate API key at https://cloud.google.com/translate
 - Add a file named `translate.json` at the root (same level as `package.json`) with your API credentials from Google. Follow the tutorial on https://medium.com/qunabu-interactive/javascript-functional-google-translate-api-to-translate-json-values-8f8f310dab7f to download your translate.json file
+- Go to Google Cloud Console > Service Accounts > Keys > Add Key (JSON format)
 - Link that file using its path inside the `.env` under the key `GOOGLE_APPLICATION_CREDENTIALS=translate.json`
 - run `npm run translate -- --language=LANGUAGE_CODE` where `LANGUAGE_CODE` is `ru`, `fr`, `es` or any new language supported by Google's API.
 - run `npm run translate` to generate for all languages found in the `src/i18n/locale` from `en.json`

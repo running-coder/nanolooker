@@ -10,7 +10,8 @@ interface ItemAttributes {
   flameDamage: number;
   lightningDamage: number;
   pierceDamage: number;
-  bonus: any[];
+  bonus: number[];
+  partyBonus: any[];
   skill: any;
   requirement: number;
   description: any;
@@ -86,10 +87,22 @@ export const getItemAttributes = (props: ItemAttributes) => {
     lightningDamage,
     pierceDamage,
     bonus = [],
-    skill,
+    skill: rawSkill,
+    partyBonus: rawPartyBonus = [],
     requirement,
     description,
   } = props;
+
+  let skill = null;
+  if (typeof rawSkill === "number") {
+    skill = getSkill(rawSkill, level);
+  }
+
+  let partyBonus = null;
+  if (rawPartyBonus) {
+    partyBonus = getPartyBonus(rawPartyBonus, 1);
+  }
+
   // prettier-ignore
   return <div>
     <div className={`item-title${isUnique ? " unique" : ""}`}>{name}{level ? `(+${level})` : ""}</div>
@@ -104,6 +117,8 @@ export const getItemAttributes = (props: ItemAttributes) => {
     {bonus ? getBonus(bonus, level).map(({ description }) => <div className="item-bonus">{description}</div>):null}
     {description ? <div className="item-description">{description}</div>: null}
     {skill ? <div className="item-skill">{skill.description}</div>: null}
+    {partyBonus?.length ? <div className="item-set-description">Party Bonuses</div> : null}
+    {partyBonus?.map(({ description }) => <div className="item-set-bonus">{description}</div>)}
     {requirement ? <div className="item-description">Required level: {requirement}</div>: null}
   </div>;
 };
@@ -194,3 +209,110 @@ const getBonus = function (rawBonus: number[], level: number) {
 };
 
 const getFrozenTimePerLevel = (itemLevel: number) => 1000 + itemLevel * 150;
+
+const skillDurationMap = {
+  0: () => 900,
+  1: (itemLevel: number) => itemLevel * 500,
+  2: (itemLevel: number) => itemLevel * 500,
+};
+
+const getSkillDescriptionMap = [
+  "+#% Instant health regeneration",
+  "+#% Defense for # seconds",
+];
+
+const skillType = [
+  "regenerateHealthSkill", // 0
+  "defenseSkill", // 1
+];
+
+const getSkill = function (rawSkill: number, level: number) {
+  const regenerateHealthSkillPerLevel = [
+    5, 10, 15, 20, 25, 30, 40, 50, 75, 100,
+  ];
+  const defenseSkillPerLevel = [5, 10, 15, 20, 25, 30, 40, 50, 75, 100];
+
+  const skillPerLevel = [regenerateHealthSkillPerLevel, defenseSkillPerLevel];
+
+  let skill: { type: string; stats: number; description: string } | null = null;
+
+  const type = skillType[rawSkill];
+  const stats = skillPerLevel[rawSkill][level - 1];
+
+  //@ts-ignore
+  let description = getSkillDescriptionMap[rawSkill].replace("#", stats);
+
+  if (["defenseSkill"].includes(type)) {
+    description = description.replace(
+      "#",
+      //@ts-ignore
+      skillDurationMap[rawSkill](level) / 1000,
+    );
+  }
+
+  skill = { type, stats, description };
+
+  return skill;
+};
+
+const getPartyBonusDescriptionMap = [
+  "+#% Attack",
+  "+#% Defense",
+  "+#% Experience",
+  "+# Minimum damage",
+  "+# Maximum damage",
+  "+# Health",
+  "+# Magic damage",
+];
+
+const partyBonusType = [
+  "attackDamage",
+  "defense",
+  "exp",
+  "minDamage",
+  "maxDamage",
+  "health",
+  "magicDamage",
+];
+
+const getPartyBonus = function (rawBonus: number[], level: number) {
+  const attackDamagePerLevel = [1, 2, 3, 4, 6, 8, 11, 15, 20, 30];
+  const defensePerLevel = [1, 2, 3, 4, 6, 8, 11, 15, 20, 30];
+  const expPerLevel = [1, 2, 3, 4, 6, 8, 11, 15, 20, 30];
+  const minDamagePerLevel = [1, 2, 3, 4, 5, 6, 8, 12, 18, 30];
+  const maxDamagePerLevel = [1, 2, 3, 4, 5, 6, 8, 12, 18, 30];
+  const healthPerLevel = [1, 3, 6, 9, 12, 15, 20, 28, 35, 45];
+  const magicDamagePerLevel = [1, 2, 3, 4, 6, 8, 12, 18, 26, 40];
+
+  const bonusPerLevel = [
+    attackDamagePerLevel,
+    defensePerLevel,
+    expPerLevel,
+    minDamagePerLevel,
+    maxDamagePerLevel,
+    healthPerLevel,
+    magicDamagePerLevel,
+  ];
+
+  const bonus: { type: string; stats: number; description: string }[] = [];
+
+  // A glitch in the inventory system allowed for scrolls to be added as rings
+  if (!rawBonus || !Array.isArray(rawBonus)) return bonus;
+  for (let i = 0; i < rawBonus.length; i++) {
+    const type = partyBonusType[rawBonus[i]];
+    const stats = bonusPerLevel[rawBonus[i]][level - 1];
+    const description = getPartyBonusDescriptionMap[rawBonus[i]].replace(
+      "#",
+      // @ts-ignore
+      stats,
+    );
+
+    bonus.push({
+      type,
+      stats,
+      description,
+    });
+  }
+
+  return bonus;
+};
