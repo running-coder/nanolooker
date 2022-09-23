@@ -294,6 +294,37 @@ app.post("/api/nanoquakejs/register", async (req, res, next) => {
   }
 });
 
+app.get("/api/raiblocksmc", async (req, res, next) => {
+  try {
+    // const response = await fetch("https://raiblocksmc.com/api/???");
+    // const json = await response.json();
+    // res.send(json);
+
+    const mockResponse = {
+      onlinePlayers: 12,
+      statistic1: 192201,
+      statistic2: 555,
+      statistic3: "46ms",
+      playerScore: [
+        {
+          rank: 1,
+          player: "Pride",
+          kills: 300,
+        },
+        {
+          rank: 2,
+          player: "running-coder",
+          kills: 199,
+        },
+      ],
+    };
+
+    res.send(mockResponse);
+  } catch (err) {
+    next(err);
+  }
+});
+
 app.get("/api/nanobrowserquest/players", async (req, res, next) => {
   try {
     res.send(nodeCache.get(NANOBROWSERQUEST_PLAYERS) || {});

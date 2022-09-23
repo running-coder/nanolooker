@@ -99,6 +99,20 @@ const Banner: React.FC = () => {
           </Button>
         </Link>
 
+        <Link to={"/raiblocksmc"}>
+          <Button ghost>
+            <img
+              alt="RaiblocksMC"
+              src={`/raiblocksmc/your-icon-svg.svg`}
+              style={{
+                height: "50px",
+                margin: "-20px -6px -30px -20px",
+              }}
+            />{" "}
+            RaiblocksMC
+          </Button>
+        </Link>
+
         {/* <Button
           ghost
           href="https://bananolooker.com"

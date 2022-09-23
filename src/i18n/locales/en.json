@@ -469,6 +469,16 @@
         "title": "NanoBrowserQuest Guide"
       },
       "playerGuide": "Player's Guide"
+    },
+    "raiblocksmc": {
+      "playNow": "Play Now !",
+      "playRaiblocksMC": "Play RaiblocksMC",
+      "playersOnline": "Players online",
+      "gameDescription": "Join this minecraft server, to participate in a unique in-game economy allowing you to earn nano in several ways, sell your items to other players, go hunt hidden Nano Treasures, fight in a unique pvp game mode and a lot more...",
+      "leaderboard": "Leaderboard",
+      "rank": "Rank",
+      "player": "Player",
+      "kills": "Kills"
     }
   }
 }
