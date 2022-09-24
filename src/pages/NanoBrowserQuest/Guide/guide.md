@@ -27,7 +27,7 @@ The game features a global chat system for players to keep in touch and a party 
 
 This is a guide to all of the items that you can find in NBQ, their basic stats, where to find them and how common/rare they are.
 
-Most items have a unique version with better/more stats. Weapons, armors & belts all have unique counterparts. There is a 1% chance of receiving a unique version when an item is dropped. Amulets and rings do not have counterparts, but instead have what is categorized as "super-uniques" in this guide. These are very rare items with attributes that are unique to them specifically.
+Most items have a unique version with better/more stats. Weapons, armors, belts and shields all have unique counterparts. There is a 1% chance of receiving a unique version when an item is dropped. Amulets and rings have counterparts and also what is categorized as "super-uniques" in this guide. These are very rare items with attributes that are unique to this categoy.
 
 The items are listed in order of stats (Low - High) with exception for super uniques as they have attributes which are useful in different situations and cannot be ranked.
 
@@ -66,7 +66,7 @@ Basic Damage dealt by player. both min and max damage increases when items with 
 **Magic damage**
 Both min and max damage increase. Higher amount of damage compared to regular attack attribute (enemies can be immune to this attribute)
 
-**Minimim damage**
+**Minimum damage**
 Minimum damage increase
 
 **Maximum damage**
@@ -79,12 +79,14 @@ Hits enemy with higher damage. Random chance based on %
 
 **Attack vs Magic vs Min/Max**
 
-Magic damage beats attack at lower player levels because of the higher number per item level. However, as the player starts to level up the Attack added from an item will be higher than indicated by the number because of the level bonus. Enemies can also be immuned to Magic damage, making regular Attack a more reliable attribute. Mix/Max are beaten by both of the other attributes as they only add half of the damage, making them worse attributes in almost all cases. The only exception would be when fighting an enemy that is immuned to Magic damage.
+Magic damage beats attack at lower player levels because of the higher number per item level. However, as the player starts to level up the Attack added from an item will be higher than indicated by the number because of the level bonus. Enemies can also be immuned to Magic damage, making regular Attack a more reliable attribute. Min/Max are beaten by both of the other attributes as they only add half of the damage, making them worse attributes in almost all cases. The only exception would be when fighting an enemy that is immuned to Magic damage.
 
 ## Unique attributes
 
 **Flame damage**
 Elemental damage that adds both minimum and maximum damage similar to magic damage but higher per item level. The damage is reduced if enemies resistant to the element are attacked and blocked if the enemy is immuned to it
+
+## Superunique attributes
 
 **Drain life**
 Deals damage to an enemy and also adds the same amount back to players health
@@ -201,7 +203,7 @@ Added experience % making the player level up faster
 
 **Gold Ring** Attributes: Three randomzied attributes (Health, Absorb, Defense, Health regeneration, Attack, Magic damage, Min damage, Max damage, Experience)
 
-**Unique Gold Ring** has 4 random stats of a **Silver Gold**
+**Unique Gold Ring** has 4 random stats of a **Gold Ring**
 
 | Item                                                                                                                                                    | Name        | Unique                                                                                                                                                                             | Name               | Dropped By                                                                                         |
 | :------------------------------------------------------------------------------------------------------------------------------------------------------ | :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------- | :------------------------------------------------------------------------------------------------- |
