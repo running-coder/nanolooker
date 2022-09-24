@@ -66,25 +66,31 @@ const NanoBrowserQuestGuidePage: React.FC = () => {
 
 const Image: React.FC<HTMLImageElement> = ({ src, alt: rawAttributes }) => {
   let title;
-  if (rawAttributes) {
+  if (rawAttributes?.startsWith("{")) {
     title = getItemAttributes(JSON.parse(rawAttributes));
-  }
 
-  return (
-    <Tooltip
-      placement="right"
-      title={title}
-      overlayClassName="tooltip-nbq-item"
-    >
-      <div
-        className="item-container"
-        style={{
-          position: "relative",
-          backgroundImage: `url(${src}) `,
-        }}
-      />
-    </Tooltip>
-  );
+    return (
+      <Tooltip
+        placement="right"
+        title={title}
+        overlayClassName="tooltip-nbq-item"
+      >
+        <div
+          className="item-container"
+          style={{
+            position: "relative",
+            backgroundImage: `url(${src}) `,
+          }}
+        />
+      </Tooltip>
+    );
+  } else {
+    return (
+      <div style={{ padding: "6px" }}>
+        <img src={src} alt={rawAttributes} />
+      </div>
+    );
+  }
 };
 
 export default NanoBrowserQuestGuidePage;

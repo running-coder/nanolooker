@@ -264,12 +264,12 @@ These items are used to upgrade the items found in NBQ. It is done by putting th
 
 Auras are special animations that are displayed around your player when you are using items that have special powers
 
-| Name                                                | Description                                                                                        |
-| :-------------------------------------------------- | :------------------------------------------------------------------------------------------------- |
-| Drain life (Necromancer ring)                       | Deals extra damage and heals the player for that same amount on each hit                           |
-| Lightning (Rai Stone / Cow King amulet)             | Deals extra lightning damage and hurts the player or mob attacking the player for that same amount |
-| High hp bonus (Fountain of youth / Cow King amulet) | Extra high amount of Health bonus                                                                  |
-| % chances of freeze (Minotaur ring, Frozen Heart)   | Chance to freeze enemies on hit                                                                    |
+| Aura                                                            | Name                                                | Description                                                                                        |
+| :-------------------------------------------------------------- | :-------------------------------------------------- | :------------------------------------------------------------------------------------------------- |
+| ![Aura - Drain life](/nanobrowserquest/aura-drainlife.gif)      | Drain life (Necromancer ring)                       | Deals extra damage and heals the player for that same amount on each hit                           |
+| ![Aura - Thunderstorm](/nanobrowserquest/aura-thunderstorm.gif) | Lightning (Rai Stone / Cow King amulet)             | Deals extra lightning damage and hurts the player or mob attacking the player for that same amount |
+| ![Aura - High health](/nanobrowserquest/aura-highhealth.gif)    | High hp bonus (Fountain of youth / Cow King amulet) | Extra high amount of Health bonus                                                                  |
+| ![Aura - Freeze](/nanobrowserquest/aura-freeze.gif)             | % chances of freeze (Minotaur ring, Frozen Heart)   | Chance to freeze enemies on hit                                                                    |
 
 # Sets
 
