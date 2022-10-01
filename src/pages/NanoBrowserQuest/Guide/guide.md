@@ -31,7 +31,7 @@ Most items have a unique version with better/more stats. Weapons, armors, belts 
 
 The items are listed in order of stats (Low - High) with exception for super uniques as they have attributes which are useful in different situations and cannot be ranked.
 
-Items can be upgraded by using the anvil in the village. The attributes described in this guide are for level 1 items. As an item is upgraded, all stats will get a higher number.
+Items can be upgraded by using the anvil in the village. As an item is upgraded, all stats will get a higher number.
 
 # Attributes explained
 
@@ -94,7 +94,7 @@ Deals damage to an enemy and also adds the same amount back to players health
 **Lightning damage**
 Elemental damage that deals ordinary damage as well as damage when hit by enemy. The damage is reduced if enemies resistant to the element are attacked and blocked if the enemy is immuned to it
 
-**Super health**
+**Super health/High hp bonus**
 Same as normal health stat but much higher
 
 **Cold damage**
@@ -227,8 +227,8 @@ Unique Version: **Cloak of Levitation** Attributes: Defense (1) + two random att
 | Item                                                                                                                                                                                           | Name                   | Dropped By                       | Drop Rate                     |
 | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------- | :------------------------------- | :---------------------------- |
 | ![{"name": "Necromancer Death Wish", "level": 1, "itemClass": "high", "bonus": [3,4,5,13], "requirement": 38, "isUnique": true }](https://nanobrowserquest.com/img/3/item-ringnecromancer.png) | Necromancer Death Wish | Necromancer                      | 1%                            |
-| ![{"name": "Rai Stone", "level": 1, "itemClass": "high", "bonus": [0,1,4,15], "requirement": 18, "isUnique": true }](https://nanobrowserquest.com/img/3/item-ringraistone.png)                 | Rai Stone              | Eye and above, Blue Chest        | Cow 0.0083%, Blue Chest 2.33% |
-| ![{"name": "Fountain of Youth", "level": 1, "itemClass": "high", "bonus": [5,6,8,17], "requirement": 26, "isUnique": true }](https://nanobrowserquest.com/img/3/item-ringfountain.png)         | Fountain of Youth      | Frozen Rat and above, Blue Chest | Cow 0.0083%, Blue Chest 2.33% |
+| ![{"name": "Rai Stone", "level": 1, "itemClass": "high", "bonus": [0,1,4,15], "requirement": 18, "isUnique": true }](https://nanobrowserquest.com/img/3/item-ringraistone.png)                 | Rai Stone              | Eye and above, Blue Chest        | Eye and above 0.0083%, Blue Chest 2.33% |
+| ![{"name": "Fountain of Youth", "level": 1, "itemClass": "high", "bonus": [5,6,8,17], "requirement": 26, "isUnique": true }](https://nanobrowserquest.com/img/3/item-ringfountain.png)         | Fountain of Youth      | Frozen Rat and above, Blue Chest | Frozen Rat and above 0.0083%, Blue Chest 2.33% |
 | ![{"name": "Minotaur Hell Freeze", "level": 1, "itemClass": "high", "bonus": [1,4,7,18,19], "requirement": 36, "isUnique": true }](https://nanobrowserquest.com/img/3/item-ringminotaur.png)   | Minotaur Hell Freeze   | Minotaur, Blue Chest             | Minotaur 5%, Blue Chest 2.33% |
 | ![{"name": "Holy Cow King Talisman", "level": 1, "itemClass": "high", "bonus": [4,5,6,9,16], "requirement": 34, "isUnique": true }](https://nanobrowserquest.com/img/3/item-amuletcow.png)     | Holy Cow King Talisman | Cow King                         | 5%                            |
 | ![{"name": "Frozen Heart", "level": 1, "itemClass": "high", "bonus": [2,3,5,10,18,19,20], "requirement": 34, "isUnique": true }](https://nanobrowserquest.com/img/3/item-amuletfrozen.png)     | Frozen Heart           | Cow, Blue Chest                  | Cow 0.0083%, Blue Chest 2.33% |
@@ -268,7 +268,7 @@ Auras are special animations that are displayed around your player when you are 
 | :-------------------------------------------------------------- | :-------------------------------------------------- | :------------------------------------------------------------------------------------------------- |
 | ![Aura - Drain life](/nanobrowserquest/aura-drainlife.gif)      | Drain life (Necromancer ring)                       | Deals extra damage and heals the player for that same amount on each hit                           |
 | ![Aura - Thunderstorm](/nanobrowserquest/aura-thunderstorm.gif) | Lightning (Rai Stone / Cow King amulet)             | Deals extra lightning damage and hurts the player or mob attacking the player for that same amount |
-| ![Aura - High health](/nanobrowserquest/aura-highhealth.gif)    | High hp bonus (Fountain of youth / Cow King amulet) | Extra high amount of Health bonus                                                                  |
+| ![Aura - High health](/nanobrowserquest/aura-highhealth.gif)    | High hp bonus (Fountain of youth)                   | Extra high amount of Health bonus                                                                  |
 | ![Aura - Freeze](/nanobrowserquest/aura-freeze.gif)             | % chances of freeze (Minotaur ring, Frozen Heart)   | Chance to freeze enemies on hit                                                                    |
 
 # Sets
@@ -279,9 +279,9 @@ Your character will receive bonuses by wearing all set items
 | :------------------ | :------- | :---------------------------------------------- |
 | armor, belt         | Leather  | 3 max damage, 15 hp                             |
 | armor, belt         | Plated   | 4 attack, 4 defense                             |
-| armor, belt, weapon | Frozen   | 10 min damage, 3% critical hit, 15 defense      |
-| armor, belt, weapon | Diamond  | 10% exp, 3% block chance, 50 hp                 |
-| belt, ring, weapon  | Minotaur | 15 min damage, 10 defense, 15 cold damage, 50hp |
+| armor, belt, weapon, shield | Sapphire   | 10 min damage, 3% critical hit, 15 defense      |
+| armor, belt, weapon, shield | Diamond  | 10% exp, 3% block chance, 50 hp                 |
+| belt, ring, weapon  | Minotaur | 15 min damage, 10 defense, 15 cold damage, 25% Reduced chance of being frozen |
 
 # Party chat commands
 
