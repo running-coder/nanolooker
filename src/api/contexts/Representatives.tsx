@@ -52,7 +52,7 @@ const Provider: React.FC = ({ children }) => {
 
     !json || json.error
       ? setIsError(true)
-      : setRepresentatives(json.representatives);
+      : setRepresentatives(json.representatives || []);
 
     setIsLoading(false);
   };

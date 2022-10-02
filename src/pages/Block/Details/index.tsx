@@ -34,12 +34,7 @@ const BlockDetails: React.FC = () => {
   const { t } = useTranslation();
   const { theme, fiat } = React.useContext(PreferencesContext);
   const {
-    marketStatistics: {
-      currentPrice,
-      priceStats: { bitcoin: { [fiat]: btcCurrentPrice = 0 } } = {
-        bitcoin: { [fiat]: 0 },
-      },
-    },
+    marketStatistics: { currentPrice, priceStats },
     isInitialLoading: isMarketStatisticsInitialLoading,
   } = React.useContext(MarketStatisticsContext);
   const {
@@ -76,7 +71,7 @@ const BlockDetails: React.FC = () => {
   } = blockInfo || {};
 
   const modifiedTimestamp = Number(blockInfo?.local_timestamp) * 1000;
-
+  const btcCurrentPrice = priceStats?.bitcoin?.[fiat] || 0;
   const amount = new BigNumber(rawToRai(blockInfo?.amount || 0)).toNumber();
   const fiatAmount = new BigNumber(amount)
     .times(currentPrice)

@@ -33,16 +33,12 @@ const RichList: React.FC = () => {
   });
   const { fiat } = React.useContext(PreferencesContext);
   const {
-    marketStatistics: {
-      currentPrice,
-      priceStats: { bitcoin: { [fiat]: btcCurrentPrice = 0 } } = {
-        bitcoin: { [fiat]: 0 },
-      },
-    },
+    marketStatistics: { currentPrice, priceStats },
   } = React.useContext(MarketStatisticsContext);
   const { availableSupply = 123123123 } = useAvailableSupply();
   const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
 
+  const btcCurrentPrice = priceStats?.bitcoin?.[fiat] || 0;
   const startIndex = (currentPage - 1) * perPage + 1;
 
   return (
@@ -153,9 +149,8 @@ const RichList: React.FC = () => {
                     current: currentPage,
                     disabled: false,
                     onChange: (page: number) => {
-                      const element = document.getElementById(
-                        "rich-list-title",
-                      );
+                      const element =
+                        document.getElementById("rich-list-title");
                       element?.scrollIntoView();
 
                       setCurrentPage?.(page);

@@ -41,18 +41,11 @@ const DeveloperFund: React.FC = () => {
   let totalBalance: number = 0;
   const { fiat } = React.useContext(PreferencesContext);
   const {
-    marketStatistics: {
-      currentPrice,
-      priceStats: { bitcoin: { [fiat]: btcCurrentPrice = 0 } } = {
-        bitcoin: { [fiat]: 0 },
-      },
-    },
+    marketStatistics: { currentPrice, priceStats },
     isInitialLoading: isMarketStatisticsInitialLoading,
   } = React.useContext(MarketStatisticsContext);
-  const {
-    accountsBalances,
-    isLoading: isAccountsBalancesLoading,
-  } = useAccountsBalances(DEVELOPER_FUND_ACCOUNTS);
+  const { accountsBalances, isLoading: isAccountsBalancesLoading } =
+    useAccountsBalances(DEVELOPER_FUND_ACCOUNTS);
   const { availableSupply } = useAvailableSupply();
   const { developerFundTransactions } = useDeveloperAccountFund();
   const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
@@ -82,6 +75,7 @@ const DeveloperFund: React.FC = () => {
     ["desc"],
   );
 
+  const btcCurrentPrice = priceStats?.bitcoin?.[fiat] || 0;
   const fiatBalance = new BigNumber(totalBalance)
     .times(currentPrice)
     .toFormat(CurrencyDecimal?.[fiat]);
@@ -96,8 +90,11 @@ const DeveloperFund: React.FC = () => {
     loading: isAccountsBalancesLoading || isMarketStatisticsInitialLoading,
   };
 
-  const { amount, local_timestamp = 0, hash: lastTransactionHash } =
-    developerFundTransactions?.[0] || {};
+  const {
+    amount,
+    local_timestamp = 0,
+    hash: lastTransactionHash,
+  } = developerFundTransactions?.[0] || {};
   const modifiedTimestamp = Number(local_timestamp) * 1000;
   const lastTransactionAmount = new BigNumber(rawToRai(amount || 0)).toNumber();
 

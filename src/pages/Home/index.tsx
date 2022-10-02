@@ -45,9 +45,7 @@ const HomePage = () => {
     marketCap,
     marketCapChangePercentage24h,
     volume24h,
-    priceStats: { bitcoin: { [fiat]: btcCurrentPrice = 0 } } = {
-      bitcoin: { [fiat]: 0 },
-    },
+    priceStats,
   } = marketStatistics;
 
   const { count } = React.useContext(BlockCountContext);
@@ -63,6 +61,7 @@ const HomePage = () => {
     formatBytes(0),
   );
 
+  const btcCurrentPrice = priceStats?.bitcoin?.[fiat] || 0;
   const btcTransactionFees24h =
     marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_24H] && btcCurrentPrice
       ? new BigNumber(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_24H])
