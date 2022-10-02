@@ -9,6 +9,7 @@ import { AccountInfoContext } from "api/contexts/AccountInfo";
 import { DelegatorsContext } from "api/contexts/Delegators";
 import { RepresentativesContext } from "api/contexts/Representatives";
 import TransactionsTable from "pages/Account/Transactions";
+import TransactionsFilters from "pages/Account/Transactions/filters";
 
 import type { Transaction } from "types/transaction";
 
@@ -44,9 +45,8 @@ const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
     },
   );
   const { representatives } = React.useContext(RepresentativesContext);
-  const { delegators: allDelegators, getDelegators } = React.useContext(
-    DelegatorsContext,
-  );
+  const { delegators: allDelegators, getDelegators } =
+    React.useContext(DelegatorsContext);
 
   React.useEffect(() => {
     getDelegators();
@@ -93,6 +93,8 @@ const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
           </Link>
         ) : null}
       </div>
+
+      <TransactionsFilters />
 
       <TransactionsTable
         scrollTo="totalTransactions"
