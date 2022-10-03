@@ -13,6 +13,7 @@ import {
   Tooltip,
   Typography,
 } from "antd";
+import moment from "moment";
 import { useForm, Controller } from "react-hook-form";
 // import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { TwoToneColors } from "components/utils";
@@ -20,7 +21,7 @@ import { Theme, PreferencesContext } from "api/contexts/Preferences";
 import QuestionCircle from "components/QuestionCircle";
 
 import type { Subtype } from "types/transaction";
-import type { CheckboxChangeEvent } from "antd/es/checkbox";
+import type { RangePickerProps } from "antd/es/date-picker";
 
 const { Text } = Typography;
 const { RangePicker } = DatePicker;
@@ -55,9 +56,9 @@ const TagRender = (props: any) => {
 const TransactionsFilters = () => {
   const { t } = useTranslation();
 
+  const [isLoading, setIsLoading] = React.useState(false);
   // const isLargeAndHigher = useMediaQuery("(min-width: 992px)");
 
-  const [isIncludeNoTimestamp, setIsIncludeNoTimestamp] = React.useState(true);
   const [options] = React.useState(
     [
       { value: "send" },
@@ -75,30 +76,47 @@ const TransactionsFilters = () => {
     control,
     handleSubmit,
     setValue,
-    getValues,
+    // getValues,
     formState: { errors, isValid },
   } = useForm({
     defaultValues: {
       subType: Object.values(options)
         .filter(option => option.value !== "open")
         .map(({ value }) => value),
+      senderType: "include",
+      sender: "",
+      dateRange: null,
+      receiverType: "include",
+      receiver: "",
+      minAmount: undefined,
+      maxAmount: undefined,
+      startHeight: undefined,
+      endHeight: undefined,
+      includeNoTimestamp: true,
+      excludeUnknownAccounts: false,
     },
     mode: "onChange",
   });
 
-  const onChange = ({ target: { checked } }: CheckboxChangeEvent) => {
-    setIsIncludeNoTimestamp(checked);
-    console.log(`checked = ${checked}`);
-  };
-
   const onSubmit = (data: any) => {
     console.log("~~~~data", data);
+
+    setIsLoading(true);
+
+    // @TODO prepare the data to be sent
+    setTimeout(() => setIsLoading(false), 3000);
   };
+
+  const disabledDate: RangePickerProps["disabledDate"] = current =>
+    current && current > moment().endOf("day");
 
   return (
     <Card size="small">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]}>
+        <Row
+          gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]}
+          style={isLoading ? { opacity: 0.6, pointerEvents: "none" } : {}}
+        >
           <Col xs={24} sm={12} md={8} lg={5}>
             <div>
               <Text>{t("pages.block.blockSubtype")}</Text>
@@ -126,18 +144,49 @@ const TransactionsFilters = () => {
               </Text>
             </div>
             <Input.Group compact style={{ display: "flex" }}>
-              <Select defaultValue="include">
+              <Select
+                defaultValue="include"
+                onChange={senderType => {
+                  setValue("senderType", senderType);
+                }}
+              >
                 <Option value="include">{t("common.include")}</Option>
                 <Option value="exclude">{t("common.exclude")}</Option>
               </Select>
-              <Input style={{ flexGrow: 1 }} placeholder="nano_" />
+              <Controller
+                render={({ field }) => (
+                  <Input
+                    {...field}
+                    style={{ flexGrow: 1 }}
+                    placeholder="nano_"
+                  />
+                )}
+                control={control}
+                name="sender"
+              />
             </Input.Group>
           </Col>
           <Col xs={24} sm={12} md={8} lg={5}>
             <div>
               <Text>{t("pages.account.dateRange")}</Text>
             </div>
-            <RangePicker style={{ width: "100%" }} />
+            <Controller
+              render={({ field }) => (
+                // @ts-ignore
+                <RangePicker
+                  {...field}
+                  style={{ width: "100%" }}
+                  defaultPickerValue={[
+                    moment().add(-1, "month"),
+                    moment().add(-1, "month"),
+                  ]}
+                  allowEmpty={[true, true]}
+                  disabledDate={disabledDate}
+                />
+              )}
+              control={control}
+              name="dateRange"
+            />
             <div>
               <Text>
                 {t("pages.block.receiver")}
@@ -147,11 +196,26 @@ const TransactionsFilters = () => {
               </Text>
             </div>
             <Input.Group compact style={{ display: "flex" }}>
-              <Select defaultValue="include">
+              <Select
+                defaultValue="include"
+                onChange={receiverType => {
+                  setValue("receiverType", receiverType);
+                }}
+              >
                 <Option value="include">{t("common.include")}</Option>
                 <Option value="exclude">{t("common.exclude")}</Option>
               </Select>
-              <Input style={{ flexGrow: 1 }} placeholder="nano_" />
+              <Controller
+                render={({ field }) => (
+                  <Input
+                    {...field}
+                    style={{ flexGrow: 1 }}
+                    placeholder="nano_"
+                  />
+                )}
+                control={control}
+                name="receiver"
+              />
             </Input.Group>
           </Col>
           <Col xs={24} sm={12} md={8} lg={5}>
@@ -164,19 +228,19 @@ const TransactionsFilters = () => {
               </Text>
             </div>
             <Input.Group compact style={{ width: "100%" }}>
-              <Input
-                style={{ width: "44%" }}
-                placeholder="Minimum"
-                type="number"
-                // onBlur={({ target: {value}}) => {
-                //   if (parseFloat(value) < 0.01) {
-                //     set
-                //   }
-                // }}
-                // onChange={}
+              <Controller
+                render={({ field }) => (
+                  <Input
+                    {...field}
+                    style={{ width: "44%" }}
+                    placeholder="Minimum"
+                    type="number"
+                  />
+                )}
+                control={control}
+                name="minAmount"
               />
               <Input
-                className="site-input-split"
                 style={{
                   width: "10%",
                   borderLeft: 0,
@@ -188,27 +252,39 @@ const TransactionsFilters = () => {
                 placeholder="-"
                 disabled
               />
-              <Input
-                className="site-input-right"
-                style={{
-                  width: "45%",
-                }}
-                placeholder="Maximum"
-                type="number"
+              <Controller
+                render={({ field }) => (
+                  <Input
+                    {...field}
+                    style={{
+                      width: "45%",
+                    }}
+                    placeholder="Maximum"
+                    type="number"
+                  />
+                )}
+                control={control}
+                name="maxAmount"
               />
             </Input.Group>
             <div>
               <Text>{t("pages.block.height")}</Text>
             </div>
             <Input.Group compact style={{ width: "100%" }}>
-              <Input
-                style={{ width: "44%" }}
-                placeholder="Start"
-                type="number"
-                step={1}
+              <Controller
+                render={({ field }) => (
+                  <Input
+                    {...field}
+                    style={{ width: "44%" }}
+                    placeholder="Start"
+                    type="number"
+                    step={1}
+                  />
+                )}
+                control={control}
+                name="startHeight"
               />
               <Input
-                className="site-input-split"
                 style={{
                   width: "10%",
                   borderLeft: 0,
@@ -220,14 +296,20 @@ const TransactionsFilters = () => {
                 placeholder="-"
                 disabled
               />
-              <Input
-                className="site-input-right"
-                style={{
-                  width: "45%",
-                }}
-                placeholder="End"
-                type="number"
-                step={1}
+              <Controller
+                render={({ field }) => (
+                  <Input
+                    {...field}
+                    style={{
+                      width: "45%",
+                    }}
+                    placeholder="End"
+                    type="number"
+                    step={1}
+                  />
+                )}
+                control={control}
+                name="endHeight"
               />
             </Input.Group>
           </Col>
@@ -235,31 +317,44 @@ const TransactionsFilters = () => {
             <div>
               <Text>{t("pages.account.advancedOptions")}</Text>
             </div>
-            <Checkbox onChange={onChange} checked={isIncludeNoTimestamp}>
-              {t("pages.account.includeNoTimestamp")}
-              <Tooltip
-                placement="right"
-                title={t("tooltips.unknownTransactionDate")}
-              >
-                <QuestionCircle />
-              </Tooltip>
-            </Checkbox>
+            <Controller
+              render={({ field }) => (
+                <Checkbox {...field} checked={field.value}>
+                  {t("pages.account.includeNoTimestamp")}
+                </Checkbox>
+              )}
+              control={control}
+              name="includeNoTimestamp"
+            />
+            <Tooltip
+              placement="right"
+              title={t("tooltips.unknownTransactionDate")}
+            >
+              <QuestionCircle style={{ marginLeft: 0 }} />
+            </Tooltip>
             <br />
-            <Checkbox>{t("pages.account.excludeUnknownAccounts")}</Checkbox>
-            <br />
-            <Checkbox>Only show blocks from exchanges</Checkbox>
+            <Controller
+              render={({ field }) => (
+                <Checkbox {...field} checked={field.value}>
+                  {t("pages.account.excludeUnknownAccounts")}
+                </Checkbox>
+              )}
+              control={control}
+              name="excludeUnknownAccounts"
+            />
           </Col>
           <Col xs={24} sm={24} md={12} lg={3}>
             <div style={{ textAlign: "right" }}>
               <Button
                 type="primary"
-                // disabled={!isValid}
+                loading={isLoading}
+                disabled={!isValid}
                 onClick={handleSubmit(onSubmit)}
               >
                 {t("pages.account.applyFilters")}
               </Button>
-              <br />
-              <Button>Export to CSV</Button>
+              {/* <br />
+              <Button>Export to CSV</Button> */}
             </div>
           </Col>
         </Row>
