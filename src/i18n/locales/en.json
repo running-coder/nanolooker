@@ -42,7 +42,9 @@
     "comingSoon": "Coming soon",
     "statistics": "Statistics",
     "link": "Link",
-    "noData": "No data"
+    "noData": "No data",
+    "include": "Include",
+    "exclude": "Exclude"
   },
   "nodeHealth": {
     "nodeReloading": "Nano node is reloading",
@@ -96,7 +98,7 @@
     "dailyBalance": "Transaction chart is only visible if the account has more than 1 day of data and if the transactions have timestamps",
     "senderFilter": "Filter blocks to include only or exclude all send transactions from a specific address. To filter multiple addresses, separate them with a comma.",
     "receiverFilter": "Filter blocks to include only or exclude all send transactions from a specific address. To filter multiple addresses, separate them with a comma.",
-    "amountFilter": "Filter transactions by transaction amount. The minimum amount is 1 NANO and the maximum is unlimited."
+    "amountFilter": "Filter transactions by transaction amount. The minimum amount is 0.01 NANO and the maximum is unlimited."
   },
   "search": {
     "searchBy": "Search by Address / Block / Known Account",
@@ -195,7 +197,8 @@
       "dateRange": "Date range",
       "includeNoTimestamp": "Include blocks with no date",
       "excludeUnknownAccounts": "Only show blocks from known accounts",
-      "advancedOptions": "Advanced options"
+      "advancedOptions": "Advanced options",
+      "applyFilters": "Apply filters"
     },
     "block": {
       "blockSubtype": "Block subtype",
