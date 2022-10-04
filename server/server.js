@@ -57,6 +57,11 @@ const {
   getDelegatorsPage,
   getAllDelegatorsCount,
 } = require("./api/delegators");
+const {
+  getIsAccountFilterable,
+  getFilteredTransactions,
+} = require("./api/transactionFilters");
+
 const { getRichListPage, getRichListAccount } = require("./api/richList");
 const { getParticipant, getParticipantsPage } = require("./api/participants");
 const { getNodeLocations } = require("./api/nodeLocations");
@@ -68,6 +73,7 @@ const {
   getAllRepresentatives,
 } = require("./api/representative");
 const { Sentry } = require("./sentry");
+const { isValidAccountAddress } = require("./utils");
 
 const app = express();
 
@@ -112,10 +118,28 @@ app.get("/api/delegators", async (req, res) => {
   let data;
   const { account, page } = req.query;
 
-  if (account) {
+  if (isValidAccountAddress(account)) {
     data = await getDelegatorsPage({ account, page });
   } else {
     data = await getAllDelegatorsCount();
+  }
+
+  res.send(data);
+});
+
+app.get("/api/transaction-filters", async (req, res) => {
+  let data;
+  let isFilterable = false;
+  const { account, filters } = req.query;
+
+  if (isValidAccountAddress(account)) {
+    isFilterable = await getIsAccountFilterable(account);
+
+    if (isFilterable && filters) {
+      data = await getFilteredTransactions({ account, filters });
+    } else {
+      data = { isFilterable };
+    }
   }
 
   res.send(data);

@@ -2,7 +2,8 @@ import * as React from "react";
 import differenceBy from "lodash/differenceBy";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Button, Typography } from "antd";
+import { Button, Tooltip, Typography } from "antd";
+import { FilterOutlined } from "@ant-design/icons";
 import BigNumber from "bignumber.js";
 import useAccountHistory from "api/hooks/use-account-history";
 import { AccountInfoContext } from "api/contexts/AccountInfo";
@@ -10,10 +11,12 @@ import { DelegatorsContext } from "api/contexts/Delegators";
 import { RepresentativesContext } from "api/contexts/Representatives";
 import TransactionsTable from "pages/Account/Transactions";
 import TransactionsFilters from "pages/Account/Transactions/filters";
+import { useIsFilterable } from "pages/Account/hooks/use-transaction-filters";
 
 import type { Transaction } from "types/transaction";
 
 const TRANSACTIONS_PER_PAGE = 25;
+const MAX_TRANSACTION_FILTERS = 10_000;
 const { Title } = Typography;
 
 interface Props {
@@ -22,6 +25,7 @@ interface Props {
 
 const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
   const { t } = useTranslation();
+  const [isFiltersVisible, setIsFiltersVisible] = React.useState(false);
   const { account, accountInfo } = React.useContext(AccountInfoContext);
   const isPaginated = Number(accountInfo?.block_count) <= 250;
   const showPaginate = Number(accountInfo?.block_count) > TRANSACTIONS_PER_PAGE;
@@ -47,11 +51,19 @@ const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
   const { representatives } = React.useContext(RepresentativesContext);
   const { delegators: allDelegators, getDelegators } =
     React.useContext(DelegatorsContext);
+  const {
+    isLoading: isFilterableLoading,
+    isFilterable,
+    getIsFilterable,
+  } = useIsFilterable(account);
+  const isTransactionFiltersEnabled =
+    parseInt(accountInfo.confirmation_height) <= MAX_TRANSACTION_FILTERS;
 
   React.useEffect(() => {
     getDelegators();
     setCurrentPage(1);
     setCurrentHead(undefined);
+    setIsFiltersVisible(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [account]);
 
@@ -80,9 +92,35 @@ const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
           justifyContent: "space-between",
         }}
       >
-        <Title level={3}>
-          {count} {t(`common.transaction${count !== 1 ? "s" : ""}`)}
-        </Title>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <Title level={3}>
+            {count} {t(`common.transaction${count !== 1 ? "s" : ""}`)}
+          </Title>
+
+          <Tooltip
+            title={
+              !isTransactionFiltersEnabled
+                ? t("tooltips.filterTransactions")
+                : ""
+            }
+          >
+            <Button
+              loading={isFilterableLoading}
+              size="small"
+              disabled={!isTransactionFiltersEnabled}
+              type={isFiltersVisible ? "primary" : "default"}
+              onClick={() => {
+                if (isFilterable === null) {
+                  getIsFilterable();
+                }
+                setIsFiltersVisible(!isFiltersVisible);
+              }}
+              style={{ marginLeft: "12px", marginBottom: "0.5em" }}
+              icon={<FilterOutlined />}
+            />
+          </Tooltip>
+        </div>
+
         {representative && delegatorsCount ? (
           <Link to={`/account/${account}/delegators`}>
             <Button size="small" style={{ marginTop: "6px" }}>
@@ -94,7 +132,9 @@ const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
         ) : null}
       </div>
 
-      <TransactionsFilters />
+      {isFiltersVisible && !isFilterableLoading ? (
+        <TransactionsFilters isFilterable={isFilterable} />
+      ) : null}
 
       <TransactionsTable
         scrollTo="totalTransactions"

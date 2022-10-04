@@ -48,7 +48,9 @@ const useNodeMonitors = (): Return => {
       const json = await res.json();
 
       !json || json.error ? setIsError(true) : setNodeMonitors(json);
-    } catch (err) {}
+    } catch (err) {
+      setIsError(true);
+    }
     setIsLoading(false);
   };
 
