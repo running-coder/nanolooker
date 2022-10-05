@@ -31,7 +31,7 @@ interface AccountHistoryParams {
   account_filter?: string[];
 }
 
-export interface UsePeersReturn {
+export interface Return {
   accountHistory: AccountHistory;
   isLoading: boolean;
   isError: boolean;
@@ -40,7 +40,7 @@ export interface UsePeersReturn {
 const Provider = (
   account: string,
   params: AccountHistoryParams,
-): UsePeersReturn => {
+): Return => {
   const [accountHistory, setAccountHistory] = React.useState(
     {} as AccountHistory,
   );

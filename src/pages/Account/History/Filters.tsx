@@ -1,0 +1,396 @@
+import * as React from "react";
+import { useTranslation } from "react-i18next";
+import {
+  Button,
+  Card,
+  Checkbox,
+  Col,
+  DatePicker,
+  Input,
+  Row,
+  Select,
+  Tag,
+  Tooltip,
+  Typography,
+} from "antd";
+import moment from "moment";
+import { useForm, Controller } from "react-hook-form";
+
+// import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { TwoToneColors } from "components/utils";
+import { Theme, PreferencesContext } from "api/contexts/Preferences";
+import { AccountHistoryFilterContext } from "api/contexts/AccountHistoryFilter";
+import QuestionCircle from "components/QuestionCircle";
+
+import type { Subtype } from "types/transaction";
+import type { RangePickerProps } from "antd/es/date-picker";
+
+const { Text } = Typography;
+const { RangePicker } = DatePicker;
+const { Option } = Select;
+
+const TagRender = (props: any) => {
+  const { label, value, closable, onClose } = props;
+  const { theme } = React.useContext(PreferencesContext);
+  const themeColor = `${value.toUpperCase()}${
+    theme === Theme.DARK ? "_DARK" : ""
+  }`;
+
+  const onPreventMouseDown = (event: React.MouseEvent<HTMLSpanElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
+  };
+  return (
+    <Tag
+      // @ts-ignore
+      color={TwoToneColors[themeColor]}
+      style={{ textTransform: "capitalize" }}
+      className={`tag-${value}`}
+      onMouseDown={onPreventMouseDown}
+      closable={closable}
+      onClose={onClose}
+    >
+      {label}
+    </Tag>
+  );
+};
+
+type IncludeExclude = "include" | "exclude";
+
+export interface HistoryFilters {
+  subType: Subtype[];
+  senderType: IncludeExclude;
+  sender?: string;
+  dateRange: [any, any] | null;
+  receiverType: IncludeExclude;
+  receiver?: string;
+  minAmount?: number;
+  maxAmount?: number;
+  startHeight?: number;
+  endHeight?: number;
+  includeNoTimestamp?: boolean;
+  excludeUnknownAccounts?: boolean;
+}
+
+const Filters: React.FC = () => {
+  const { t } = useTranslation();
+  // const [isLoading, setIsLoading] = React.useState(false);
+  const { isLoading, isError, history, setFilters } = React.useContext(
+    AccountHistoryFilterContext,
+  );
+
+  // const isLargeAndHigher = useMediaQuery("(min-width: 992px)");
+
+  console.log("~~~~history", history);
+
+  const [options] = React.useState(
+    [
+      { value: "send" },
+      { value: "receive" },
+      { value: "change" },
+      { value: "open" },
+    ].map(option => ({
+      // @TODO update on language change
+      label: t(`transaction.${option.value}`),
+      value: option.value as Subtype,
+    })),
+  );
+
+  const defaultFilters = {
+    subType: Object.values(options)
+      .filter(option => option.value !== "open")
+      .map(({ value }) => value),
+    senderType: "include",
+    sender: "",
+    dateRange: null,
+    receiverType: "include",
+    receiver: "",
+    minAmount: undefined,
+    maxAmount: undefined,
+    startHeight: undefined,
+    endHeight: undefined,
+    includeNoTimestamp: true,
+    excludeUnknownAccounts: false,
+  } as HistoryFilters;
+
+  const {
+    control,
+    handleSubmit,
+    setValue,
+    // getValues,
+    formState: { errors, isValid, isDirty },
+  } = useForm({
+    defaultValues: defaultFilters,
+    mode: "onChange",
+  });
+
+  // React.useEffect(() => {
+  //   // @NOTE save filters?
+  //   setFilters(defaultFilters);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [account]);
+
+  const onSubmit = (filters: any) => {
+    // console.log("~~~~errors", errors);
+    console.log("~~~~filters", filters);
+
+    setFilters(filters);
+  };
+
+  const disabledDate: RangePickerProps["disabledDate"] = current =>
+    current && current > moment().endOf("day");
+
+  return (
+    <Card size="small">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Row
+          gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]}
+          style={isLoading ? { opacity: 0.6, pointerEvents: "none" } : {}}
+        >
+          <Col xs={24} sm={12} md={8} lg={5}>
+            <div>
+              <Text>{t("pages.block.blockSubtype")}</Text>
+            </div>
+            <Controller
+              render={({ field }) => (
+                <Select
+                  {...field}
+                  style={{ width: "100%" }}
+                  mode="multiple"
+                  showArrow
+                  tagRender={TagRender}
+                  options={options}
+                />
+              )}
+              control={control}
+              name="subType"
+            />
+            <div style={{ marginTop: 6 }}>
+              <Text>
+                {t("pages.block.sender")}
+                <Tooltip placement="right" title={t("tooltips.senderFilter")}>
+                  <QuestionCircle />
+                </Tooltip>
+              </Text>
+            </div>
+            <Input.Group compact style={{ display: "flex" }}>
+              <Select
+                defaultValue="include"
+                onChange={(senderType: IncludeExclude) => {
+                  setValue("senderType", senderType);
+                }}
+              >
+                <Option value="include">{t("common.include")}</Option>
+                <Option value="exclude">{t("common.exclude")}</Option>
+              </Select>
+              <Controller
+                render={({ field }) => (
+                  <Input
+                    {...field}
+                    style={{ flexGrow: 1 }}
+                    placeholder="nano_"
+                  />
+                )}
+                control={control}
+                name="sender"
+              />
+            </Input.Group>
+          </Col>
+          <Col xs={24} sm={12} md={8} lg={5}>
+            <div>
+              <Text>{t("pages.account.dateRange")}</Text>
+            </div>
+            <Controller
+              render={({ field }) => (
+                // @ts-ignore
+                <RangePicker
+                  {...field}
+                  style={{ width: "100%" }}
+                  defaultPickerValue={[
+                    moment().add(-1, "month"),
+                    moment().add(-1, "month"),
+                  ]}
+                  allowEmpty={[true, true]}
+                  disabledDate={disabledDate}
+                />
+              )}
+              control={control}
+              name="dateRange"
+            />
+            <div style={{ marginTop: 6 }}>
+              <Text>
+                {t("pages.block.receiver")}
+                <Tooltip placement="right" title={t("tooltips.receiverFilter")}>
+                  <QuestionCircle />
+                </Tooltip>
+              </Text>
+            </div>
+            <Input.Group compact style={{ display: "flex" }}>
+              <Select
+                defaultValue="include"
+                onChange={(receiverType: IncludeExclude) => {
+                  setValue("receiverType", receiverType);
+                }}
+              >
+                <Option value="include">{t("common.include")}</Option>
+                <Option value="exclude">{t("common.exclude")}</Option>
+              </Select>
+              <Controller
+                render={({ field }) => (
+                  <Input
+                    {...field}
+                    style={{ flexGrow: 1 }}
+                    placeholder="nano_"
+                  />
+                )}
+                control={control}
+                name="receiver"
+              />
+            </Input.Group>
+          </Col>
+          <Col xs={24} sm={12} md={8} lg={5}>
+            <div>
+              <Text>
+                {t("transaction.amount")}
+                <Tooltip placement="right" title={t("tooltips.amountFilter")}>
+                  <QuestionCircle />
+                </Tooltip>
+              </Text>
+            </div>
+            <Input.Group compact style={{ width: "100%" }}>
+              <Controller
+                render={({ field }) => (
+                  <Input
+                    {...field}
+                    style={{ width: "44%" }}
+                    placeholder="Minimum"
+                    type="number"
+                  />
+                )}
+                control={control}
+                name="minAmount"
+              />
+              <Input
+                style={{
+                  width: "10%",
+                  borderLeft: 0,
+                  borderRight: 0,
+                  pointerEvents: "none",
+                  backgroundColor: "transparent",
+                  textAlign: "center",
+                }}
+                placeholder="-"
+                disabled
+              />
+              <Controller
+                render={({ field }) => (
+                  <Input
+                    {...field}
+                    style={{
+                      width: "45%",
+                    }}
+                    placeholder="Maximum"
+                    type="number"
+                  />
+                )}
+                control={control}
+                name="maxAmount"
+              />
+            </Input.Group>
+            <div style={{ marginTop: 6 }}>
+              <Text>{t("pages.block.height")}</Text>
+            </div>
+            <Input.Group compact style={{ width: "100%" }}>
+              <Controller
+                render={({ field }) => (
+                  <Input
+                    {...field}
+                    style={{ width: "44%" }}
+                    placeholder="Start"
+                    type="number"
+                    step={1}
+                  />
+                )}
+                control={control}
+                name="startHeight"
+              />
+              <Input
+                style={{
+                  width: "10%",
+                  borderLeft: 0,
+                  borderRight: 0,
+                  pointerEvents: "none",
+                  backgroundColor: "transparent",
+                  textAlign: "center",
+                }}
+                placeholder="-"
+                disabled
+              />
+              <Controller
+                render={({ field }) => (
+                  <Input
+                    {...field}
+                    style={{
+                      width: "45%",
+                    }}
+                    placeholder="End"
+                    type="number"
+                    step={1}
+                  />
+                )}
+                control={control}
+                name="endHeight"
+              />
+            </Input.Group>
+          </Col>
+          <Col xs={24} sm={12} md={12} lg={6}>
+            <div>
+              <Text>{t("pages.account.advancedOptions")}</Text>
+            </div>
+            <Controller
+              render={({ field }) => (
+                <Checkbox {...field} checked={field.value}>
+                  {t("pages.account.includeNoTimestamp")}
+                </Checkbox>
+              )}
+              control={control}
+              name="includeNoTimestamp"
+            />
+            <Tooltip
+              placement="right"
+              title={t("tooltips.unknownTransactionDate")}
+            >
+              <QuestionCircle style={{ marginLeft: 0 }} />
+            </Tooltip>
+            <br />
+            <Controller
+              render={({ field }) => (
+                <Checkbox {...field} checked={field.value}>
+                  {t("pages.account.excludeUnknownAccounts")}
+                </Checkbox>
+              )}
+              control={control}
+              name="excludeUnknownAccounts"
+            />
+          </Col>
+          <Col xs={24} sm={24} md={12} lg={3}>
+            <div style={{ textAlign: "right" }}>
+              <Button
+                type={isDirty ? "primary" : "default"}
+                loading={isLoading}
+                disabled={!isValid}
+                onClick={handleSubmit(onSubmit)}
+              >
+                {t("pages.account.applyFilters")}
+              </Button>
+              {/* <br />
+              <Button>Export to CSV</Button> */}
+            </div>
+          </Col>
+        </Row>
+      </form>
+    </Card>
+  );
+};
+
+export default Filters;

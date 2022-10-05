@@ -12,6 +12,7 @@ import RepresentativesOnlineProvider from "./RepresentativesOnline";
 import ConfirmationQuorumProvider from "./ConfirmationQuorum";
 import BlockCountProvider from "./BlockCount";
 import ConfirmationHistoryProvider from "./ConfirmationHistory";
+import AccountHistoryFilterProvider from "./AccountHistoryFilter";
 import DelegatorsProvider from "./Delegators";
 
 const IndexProvider: React.FC = ({ children }) => {
@@ -22,23 +23,25 @@ const IndexProvider: React.FC = ({ children }) => {
           <KnownAccountsProvider>
             <BookmarksProvider>
               <AccountInfoProvider>
-                <BlockInfoProvider>
-                  <BlocksInfoProvider>
-                    <ConfirmationQuorumProvider>
-                      <RepresentativesOnlineProvider>
-                        <RepresentativesProvider>
-                          <BlockCountProvider>
-                            <ConfirmationHistoryProvider>
-                              <DelegatorsProvider>
-                                {children}
-                              </DelegatorsProvider>
-                            </ConfirmationHistoryProvider>
-                          </BlockCountProvider>
-                        </RepresentativesProvider>
-                      </RepresentativesOnlineProvider>
-                    </ConfirmationQuorumProvider>
-                  </BlocksInfoProvider>
-                </BlockInfoProvider>
+                <AccountHistoryFilterProvider>
+                  <BlockInfoProvider>
+                    <BlocksInfoProvider>
+                      <ConfirmationQuorumProvider>
+                        <RepresentativesOnlineProvider>
+                          <RepresentativesProvider>
+                            <BlockCountProvider>
+                              <ConfirmationHistoryProvider>
+                                <DelegatorsProvider>
+                                  {children}
+                                </DelegatorsProvider>
+                              </ConfirmationHistoryProvider>
+                            </BlockCountProvider>
+                          </RepresentativesProvider>
+                        </RepresentativesOnlineProvider>
+                      </ConfirmationQuorumProvider>
+                    </BlocksInfoProvider>
+                  </BlockInfoProvider>
+                </AccountHistoryFilterProvider>
               </AccountInfoProvider>
             </BookmarksProvider>
           </KnownAccountsProvider>

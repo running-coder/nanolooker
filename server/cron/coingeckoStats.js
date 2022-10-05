@@ -116,8 +116,8 @@ const getMarketStats = async fiats => {
       nodeCache.set(`${COINGECKO_MARKET_STATS}-${fiat}`, marketStats);
     }
   } catch (err) {
-    console.log("Error", err);
-    Sentry.captureException(err, { extra: { res } });
+    // rate limited
+    // Sentry.captureException(err, { extra: { res } });
   }
 };
 

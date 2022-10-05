@@ -9,9 +9,9 @@ import useAccountHistory from "api/hooks/use-account-history";
 import { AccountInfoContext } from "api/contexts/AccountInfo";
 import { DelegatorsContext } from "api/contexts/Delegators";
 import { RepresentativesContext } from "api/contexts/Representatives";
+import { AccountHistoryFilterContext } from "api/contexts/AccountHistoryFilter";
 import TransactionsTable from "pages/Account/Transactions";
-import TransactionsFilters from "pages/Account/Transactions/filters";
-import { useIsFilterable } from "pages/Account/hooks/use-transaction-filters";
+import Filters from "pages/Account/History/Filters";
 
 import type { Transaction } from "types/transaction";
 
@@ -51,19 +51,20 @@ const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
   const { representatives } = React.useContext(RepresentativesContext);
   const { delegators: allDelegators, getDelegators } =
     React.useContext(DelegatorsContext);
-  const {
-    isLoading: isFilterableLoading,
-    isFilterable,
-    getIsFilterable,
-  } = useIsFilterable(account);
   const isTransactionFiltersEnabled =
     parseInt(accountInfo.confirmation_height) <= MAX_TRANSACTION_FILTERS;
+  const {
+    history: historyFilter,
+    isLoading: isFiltersLoading,
+    setFilters,
+  } = React.useContext(AccountHistoryFilterContext);
 
   React.useEffect(() => {
     getDelegators();
     setCurrentPage(1);
     setCurrentHead(undefined);
     setIsFiltersVisible(false);
+    setFilters(null);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [account]);
 
@@ -105,13 +106,13 @@ const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
             }
           >
             <Button
-              loading={isFilterableLoading}
+              loading={isFiltersLoading && !isFiltersVisible}
               size="small"
               disabled={!isTransactionFiltersEnabled}
               type={isFiltersVisible ? "primary" : "default"}
               onClick={() => {
-                if (isFilterable === null) {
-                  getIsFilterable();
+                if (!isFiltersVisible) {
+                  setFilters({});
                 }
                 setIsFiltersVisible(!isFiltersVisible);
               }}
@@ -132,13 +133,11 @@ const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
         ) : null}
       </div>
 
-      {isFiltersVisible && !isFilterableLoading ? (
-        <TransactionsFilters isFilterable={isFilterable} />
-      ) : null}
+      {isFiltersVisible ? <Filters /> : null}
 
       <TransactionsTable
         scrollTo="totalTransactions"
-        data={data}
+        data={isFiltersVisible ? historyFilter : data}
         isLoading={isAccountHistoryLoading}
         isPaginated={isPaginated}
         showPaginate={showPaginate}
