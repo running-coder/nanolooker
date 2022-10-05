@@ -103,9 +103,8 @@ const getHistoryFilters = async ({ account, filters }) => {
           ...rest
         }) => ({
           account_origin: account,
-          type,
           representative,
-          subtype,
+          subtype: subtype || type,
           account: rest.account,
           amount: parseInt(amount, 10),
           local_timestamp: parseInt(local_timestamp || "0", 10),

@@ -89,6 +89,7 @@ const Filters: React.FC = () => {
       { value: "receive" },
       { value: "change" },
       { value: "open" },
+      { value: "epoch" },
     ].map(option => ({
       // @TODO update on language change
       label: t(`transaction.${option.value}`),
@@ -98,7 +99,7 @@ const Filters: React.FC = () => {
 
   const defaultFilters = {
     subType: Object.values(options)
-      .filter(option => option.value !== "open")
+      .filter(option => !["open", "epoch"].includes(option.value))
       .map(({ value }) => value),
     senderType: "include",
     sender: "",

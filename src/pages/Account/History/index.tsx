@@ -2,6 +2,7 @@ import * as React from "react";
 import differenceBy from "lodash/differenceBy";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import chunk from "lodash/chunk";
 import { Button, Tooltip, Typography } from "antd";
 import { FilterOutlined } from "@ant-design/icons";
 import BigNumber from "bignumber.js";
@@ -68,6 +69,12 @@ const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [account]);
 
+  React.useEffect(() => {
+    if (!isFiltersLoading) {
+      setCurrentPage(1);
+    }
+  }, [isFiltersLoading]);
+
   let count = new BigNumber(accountInfo?.block_count || 0).toNumber();
   const delegatorsCount = allDelegators[account];
   const representative = representatives.find(
@@ -83,6 +90,12 @@ const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
       count += diff.length;
     }
   }
+
+  const dataFilter = isFiltersVisible
+    ? chunk(historyFilter, TRANSACTIONS_PER_PAGE)[currentPage - 1]
+    : [];
+
+  console.log("~~~historyFilter", historyFilter);
 
   return (
     <>
@@ -135,20 +148,34 @@ const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
 
       {isFiltersVisible ? <Filters /> : null}
 
-      <TransactionsTable
-        scrollTo="totalTransactions"
-        data={isFiltersVisible ? historyFilter : data}
-        isLoading={isAccountHistoryLoading}
-        isPaginated={isPaginated}
-        showPaginate={showPaginate}
-        pageSize={TRANSACTIONS_PER_PAGE}
-        currentPage={currentPage}
-        totalPages={Number(accountInfo?.block_count) || 0}
-        setCurrentPage={setCurrentPage}
-        setCurrentHead={
-          previousHead ? () => setCurrentHead(previousHead) : null
-        }
-      />
+      {isFiltersVisible ? (
+        <TransactionsTable
+          scrollTo="totalTransactions"
+          data={dataFilter}
+          isLoading={isFiltersLoading}
+          isPaginated={true}
+          showPaginate={historyFilter.length >= TRANSACTIONS_PER_PAGE}
+          pageSize={TRANSACTIONS_PER_PAGE}
+          currentPage={currentPage}
+          totalPages={historyFilter.length || 0}
+          setCurrentPage={setCurrentPage}
+        />
+      ) : (
+        <TransactionsTable
+          scrollTo="totalTransactions"
+          data={data}
+          isLoading={isAccountHistoryLoading}
+          isPaginated={isPaginated}
+          showPaginate={showPaginate}
+          pageSize={TRANSACTIONS_PER_PAGE}
+          currentPage={currentPage}
+          totalPages={Number(accountInfo?.block_count) || 0}
+          setCurrentPage={setCurrentPage}
+          setCurrentHead={
+            previousHead ? () => setCurrentHead(previousHead) : null
+          }
+        />
+      )}
     </>
   );
 };
