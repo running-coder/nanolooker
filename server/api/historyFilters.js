@@ -109,7 +109,7 @@ const getHistoryFilters = async ({ account, filters: rawFilters }) => {
           local_timestamp: parseInt(local_timestamp || "0", 10),
           height: parseInt(height, 10),
           hash,
-          confirmed,
+          confirmed: toBoolean(confirmed),
         }),
       );
 
@@ -121,8 +121,8 @@ const getHistoryFilters = async ({ account, filters: rawFilters }) => {
     const {
       minAmount,
       maxAmount,
-      startHeight,
-      endHeight,
+      fromHeight,
+      toHeight,
       dateRange,
       includeNoTimestamp,
       excludeUnknownAccounts,
@@ -134,10 +134,10 @@ const getHistoryFilters = async ({ account, filters: rawFilters }) => {
     const filters = {
       ...(minAmount ? { minAmount: Math.abs(parseFloat(minAmount)) } : null),
       ...(maxAmount ? { maxAmount: Math.abs(parseFloat(maxAmount)) } : null),
-      ...(startHeight
-        ? { startHeight: Math.abs(parseInt(startHeight)) }
+      ...(fromHeight
+        ? { fromHeight: Math.abs(parseInt(fromHeight)) }
         : null),
-      ...(endHeight ? { endHeight: Math.abs(parseInt(endHeight)) } : null),
+      ...(toHeight ? { toHeight: Math.abs(parseInt(toHeight)) } : null),
       dateRange: dateRange
         ? dateRange.map(date => (date ? parseInt(date.slice(0, -3)) : date))
         : [],
@@ -176,11 +176,11 @@ const getHistoryFilters = async ({ account, filters: rawFilters }) => {
               },
             }
           : null),
-        ...(filters.startHeight || filters.endHeight
+        ...(filters.fromHeight || filters.toHeight
           ? {
               height: {
-                ...(filters.startHeight ? { $gte: filters.startHeight } : null),
-                ...(filters.endHeight ? { $lte: filters.endHeight } : null),
+                ...(filters.fromHeight ? { $gte: filters.fromHeight } : null),
+                ...(filters.toHeight ? { $lte: filters.toHeight } : null),
               },
             }
           : null),

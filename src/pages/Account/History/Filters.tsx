@@ -21,6 +21,8 @@ import { Theme, PreferencesContext } from "api/contexts/Preferences";
 import { AccountHistoryFilterContext } from "api/contexts/AccountHistoryFilter";
 import QuestionCircle from "components/QuestionCircle";
 
+import Export from "./Export";
+
 import type { Subtype } from "types/transaction";
 import type { RangePickerProps } from "antd/es/date-picker";
 import type { Moment } from "moment";
@@ -66,8 +68,8 @@ export interface HistoryFilters {
   receiver?: string;
   minAmount?: number;
   maxAmount?: number;
-  startHeight?: number;
-  endHeight?: number;
+  fromHeight?: number;
+  toHeight?: number;
   includeNoTimestamp?: boolean;
   excludeUnknownAccounts?: boolean;
 }
@@ -103,8 +105,8 @@ const Filters: React.FC = () => {
     receiver: "",
     minAmount: undefined,
     maxAmount: undefined,
-    startHeight: undefined,
-    endHeight: undefined,
+    fromHeight: undefined,
+    toHeight: undefined,
     includeNoTimestamp: true,
     excludeUnknownAccounts: false,
   } as HistoryFilters;
@@ -204,6 +206,10 @@ const Filters: React.FC = () => {
                     moment().add(-1, "month"),
                     moment().add(-1, "month"),
                   ]}
+                  placeholder={[
+                    t("pages.account.startDate"),
+                    t("pages.account.endDate"),
+                  ]}
                   allowEmpty={[true, true]}
                   disabledDate={disabledDate}
                 />
@@ -251,7 +257,7 @@ const Filters: React.FC = () => {
                   <Input
                     {...field}
                     style={{ width: "44%" }}
-                    placeholder="Minimum"
+                    placeholder={t("pages.account.minimum")}
                     type="number"
                     min="0"
                   />
@@ -278,7 +284,7 @@ const Filters: React.FC = () => {
                     style={{
                       width: "45%",
                     }}
-                    placeholder="Maximum"
+                    placeholder={t("pages.account.minimum")}
                     type="number"
                     min="0"
                   />
@@ -296,14 +302,14 @@ const Filters: React.FC = () => {
                   <Input
                     {...field}
                     style={{ width: "44%" }}
-                    placeholder="Start"
+                    placeholder={t("pages.account.from")}
                     type="number"
                     step={1}
                     min="0"
                   />
                 )}
                 control={control}
-                name="startHeight"
+                name="fromHeight"
               />
               <Input
                 style={{
@@ -324,14 +330,14 @@ const Filters: React.FC = () => {
                     style={{
                       width: "45%",
                     }}
-                    placeholder="End"
+                    placeholder={t("pages.account.to")}
                     type="number"
                     step={1}
                     min="0"
                   />
                 )}
                 control={control}
-                name="endHeight"
+                name="toHeight"
               />
             </Input.Group>
           </Col>
@@ -375,8 +381,9 @@ const Filters: React.FC = () => {
               >
                 {t("pages.account.applyFilters")}
               </Button>
-              {/* <br />
-              <Button>Export to CSV</Button> */}
+              <div style={{ marginTop: 12 }}>
+                <Export />
+              </div>
             </div>
           </Col>
         </Row>
