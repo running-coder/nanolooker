@@ -42,7 +42,9 @@
     "statistics": "统计数据",
     "continue": "继续",
     "link": "关联",
-    "noData": "没有数据"
+    "noData": "没有数据",
+    "include": "包括",
+    "exclude": "排除"
   },
   "nodeHealth": {
     "nodeReloading": "纳米节点正在重新加载",
@@ -78,7 +80,7 @@
     "knownExchangeBalance": "从分布图中排除{{knownExchangeList}}。这些帐户合计持有{{knownExchangeBalance}} NANO",
     "unchecked": "Nano节点已下载但尚未处理的块（事务）。节点软件将未经检查的其他节点的所有块下载，对其进行处理并添加到块计数中，确认每个帐户的边界块，然后将其标记为固定。",
     "cemented": "通过将帐户的确认高度（在节点数据库中）设置为现在已确认交易的更高区块高度，当特定节点将已确认交易标记为本地不可逆时。固井是节点级别的操作。",
-    "unknownLastTransaction": "交易日期于2019年2月引入。在此日期之前，交易时间未在节点上本地记录。上次交易日期未知的原因是，该日期在记录日期之前或在NanoLooker节点投入使用之前已得到确认。",
+    "unknownTransactionDate": "交易日期于2019年2月引入。在此日期之前，交易时间未在节点上本地记录。上次交易日期未知的原因是，该日期在记录日期之前或在NanoLooker节点投入使用之前已得到确认。",
     "confirmationHeight": "存储在本地节点数据库中的数字，代表帐户链中已确认的最高（最新）区块。与块高有关（但不同于）。",
     "blockHeight": "一个局部整数值，表示帐户链中一个区块的顺序。例如，帐户中的第15个区块的区块高度为15。与确认高度相关（但不同于）。",
     "bookmarks": "{{type，capitalize}}书签已保存在您的设备上。您可以通过为它们命名为别名来管理已知的{{type}}。",
@@ -93,7 +95,10 @@
     "pendingTransactionCount": "应收交易的数量超过了显示的{{count}} 限制。",
     "pendingTransaction": "资金已发送到此帐户，但所有者尚未将资金收入囊中。只有帐户的所有者才能将收到的交易写入他们的区块链。如果这是您的帐户，请解锁您的钱包，通常会自动广播接收块。",
     "socialStatistics": "统计数据是使用 CoinGecko 按市值排名前 100 位的加密货币编制的。",
-    "dailyBalance": "交易图表仅在账户有超过 1 天的数据并且交易有时间戳时才可见"
+    "dailyBalance": "交易图表仅在账户有超过 1 天的数据并且交易有时间戳时才可见",
+    "senderFilter": "过滤块以仅包含或排除来自特定地址的所有发送交易。要过滤多个地址，请用逗号分隔它们。",
+    "receiverFilter": "过滤块以仅包含或排除来自特定地址的所有发送交易。要过滤多个地址，请用逗号分隔它们。",
+    "filterTransactions": "只能过滤等于或少于 5,000 笔已确认交易的账户"
   },
   "search": {
     "searchBy": "按地址/阻止/已知帐户搜索",
@@ -188,7 +193,12 @@
       "byTransactionOption": "交易余额",
       "dailyBalance": "最后 {{count}} 笔交易",
       "notOpenedYet": "此帐户没有任何交易",
-      "notOpenedYetReason": "虽然该帐户有效，但尚未将任何块添加到其链中。如果 NANO 已发送到该账户，则可能是 NanoLooker 节点尚未收到交易，因为您正在使用的服务尚未广播它或由于临时网络条件。"
+      "notOpenedYetReason": "虽然该帐户有效，但尚未将任何块添加到其链中。如果 NANO 已发送到该账户，则可能是 NanoLooker 节点尚未收到交易，因为您正在使用的服务尚未广播它或由于临时网络条件。",
+      "dateRange": "日期范围",
+      "includeNoTimestamp": "包括没有日期的块",
+      "excludeUnknownAccounts": "仅显示来自已知帐户的块",
+      "advancedOptions": "高级选项",
+      "applyFilters": "应用过滤器"
     },
     "block": {
       "blockSubtype": "块子类型",

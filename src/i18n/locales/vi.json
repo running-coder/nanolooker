@@ -42,7 +42,9 @@
     "statistics": "Số liệu thống kê",
     "continue": "Tiếp tục",
     "link": "Liên kết",
-    "noData": "Không có dữ liệu"
+    "noData": "Không có dữ liệu",
+    "include": "Bao gồm",
+    "exclude": "Loại trừ"
   },
   "nodeHealth": {
     "nodeReloading": "Nút nano đang tải lại",
@@ -78,7 +80,7 @@
     "knownExchangeBalance": "Loại trừ {{knownExchangeList}} khỏi biểu đồ phân phối. Các tài khoản đó kết hợp giữ {{knownExchangeBalance}} NANO",
     "unchecked": "Các khối (giao dịch) đã được tải xuống nhưng chưa được xử lý bởi nút Nano. Phần mềm nút tải xuống tất cả các bocks từ các nút khác dưới dạng không được chọn, xử lý chúng và thêm vào số lượng khối, xác nhận các khối biên giới cho mỗi tài khoản và sau đó đánh dấu chúng là đã gắn kết.",
     "cemented": "Khi một nút cụ thể đánh dấu một giao dịch đã xác nhận là không thể đảo ngược cục bộ bằng cách đặt chiều cao xác nhận của tài khoản (trong cơ sở dữ liệu nút) thành chiều cao khối hiện tại cao hơn của giao dịch đã xác nhận. Xi măng là một hoạt động ở cấp độ nút.",
-    "unknownLastTransaction": "Ngày giao dịch được giới thiệu vào tháng 2 năm 2019. Trước ngày đó, thời gian giao dịch không được ghi lại cục bộ trên các nút. Lý do tại sao ngày giao dịch cuối cùng không được xác định là vì nó đã được xác nhận trước khi ngày tháng được ghi lại hoặc trước khi nút NanoLooker đi vào hoạt động.",
+    "unknownTransactionDate": "Ngày giao dịch được giới thiệu vào tháng 2 năm 2019. Trước ngày đó, thời gian giao dịch không được ghi lại cục bộ trên các nút. Lý do tại sao ngày giao dịch cuối cùng không được xác định là vì nó đã được xác nhận trước khi ngày tháng được ghi lại hoặc trước khi nút NanoLooker đi vào hoạt động.",
     "confirmationHeight": "Một số được lưu trữ trong cơ sở dữ liệu nút cục bộ đại diện cho khối được xác nhận cao nhất (gần đây nhất) trong chuỗi tài khoản. Liên quan đến (nhưng khác với) chiều cao khối.",
     "blockHeight": "Giá trị số nguyên cục bộ đại diện cho thứ tự của một khối trong chuỗi tài khoản. Ví dụ: khối thứ 15 trong tài khoản sẽ có chiều cao khối là 15. Liên quan đến (nhưng khác với) chiều cao xác nhận.",
     "bookmarks": "Dấu trang {{type, capitalize}} được lưu trên thiết bị của bạn. Bạn có thể quản lý các {{type}} đã biết của mình bằng cách đặt bí danh cho chúng.",
@@ -93,7 +95,10 @@
     "pendingTransactionCount": "Số lượng giao dịch phải thu vượt quá giới hạn hiển thị là {{count}}.",
     "pendingTransaction": "Tiền đã được gửi đến tài khoản này nhưng chủ sở hữu vẫn chưa bỏ túi tiền. Chỉ chủ sở hữu tài khoản mới có thể ghi giao dịch đã nhận vào blockchain của họ. Nếu đây là tài khoản của bạn, hãy mở khóa ví của bạn, khối nhận thường được phát tự động.",
     "socialStatistics": "Thống kê được tổng hợp bằng cách sử dụng 100 loại tiền điện tử hàng đầu theo vốn hóa thị trường từ CoinGecko.",
-    "dailyBalance": "Biểu đồ giao dịch chỉ hiển thị nếu tài khoản có dữ liệu hơn 1 ngày và nếu các giao dịch có dấu thời gian"
+    "dailyBalance": "Biểu đồ giao dịch chỉ hiển thị nếu tài khoản có dữ liệu hơn 1 ngày và nếu các giao dịch có dấu thời gian",
+    "senderFilter": "Lọc các khối để chỉ bao gồm hoặc loại trừ tất cả các giao dịch gửi từ một địa chỉ cụ thể. Để lọc nhiều địa chỉ, hãy phân tách chúng bằng dấu phẩy.",
+    "receiverFilter": "Lọc các khối để chỉ bao gồm hoặc loại trừ tất cả các giao dịch gửi từ một địa chỉ cụ thể. Để lọc nhiều địa chỉ, hãy phân tách chúng bằng dấu phẩy.",
+    "filterTransactions": "Chỉ những tài khoản có số lượng bằng hoặc ít hơn 5.000 giao dịch được xác nhận mới có thể được lọc"
   },
   "search": {
     "searchBy": "Tìm kiếm theo Địa chỉ / Khối / Tài khoản Đã biết",
@@ -188,7 +193,12 @@
       "byTransactionOption": "Số dư theo giao dịch",
       "dailyBalance": "{{Count}} giao dịch gần đây nhất",
       "notOpenedYet": "Tài khoản này không có bất kỳ giao dịch nào",
-      "notOpenedYetReason": "Mặc dù tài khoản hợp lệ nhưng chưa có khối nào được thêm vào chuỗi của nó. Nếu NANO đã được gửi đến tài khoản này, có thể nút NanoLooker chưa nhận được giao dịch do dịch vụ bạn đang sử dụng chưa phát sóng hoặc do điều kiện mạng tạm thời."
+      "notOpenedYetReason": "Mặc dù tài khoản hợp lệ nhưng chưa có khối nào được thêm vào chuỗi của nó. Nếu NANO đã được gửi đến tài khoản này, có thể nút NanoLooker chưa nhận được giao dịch do dịch vụ bạn đang sử dụng chưa phát sóng hoặc do điều kiện mạng tạm thời.",
+      "dateRange": "Phạm vi ngày",
+      "includeNoTimestamp": "Bao gồm các khối không có ngày tháng",
+      "excludeUnknownAccounts": "Chỉ hiển thị các khối từ các tài khoản đã biết",
+      "advancedOptions": "Tùy chọn nâng cao",
+      "applyFilters": "Áp dụng các bộ lọc"
     },
     "block": {
       "blockSubtype": "Block con",

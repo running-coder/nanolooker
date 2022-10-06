@@ -42,7 +42,9 @@
     "statistics": "Statistiche",
     "continue": "Continua",
     "link": "Collegamento",
-    "noData": "Nessun dato"
+    "noData": "Nessun dato",
+    "include": "Includere",
+    "exclude": "Escludere"
   },
   "nodeHealth": {
     "nodeReloading": "Il nano nodo si sta ricaricando",
@@ -78,7 +80,7 @@
     "knownExchangeBalance": "Escludi {{knownExchangeList}} dal grafico di distribuzione. Questi account combinati detengono {{knownExchangeBalance}} NANO",
     "unchecked": "Blocchi (transazioni) che sono stati scaricati ma non ancora elaborati dal nodo Nano. Il software del nodo scarica tutti i blocchi da altri nodi come deselezionati, li elabora e li aggiunge al conteggio dei blocchi, conferma i blocchi di frontiera per ogni account e quindi li contrassegna come cementati.",
     "cemented": "Quando un nodo specifico contrassegna una transazione confermata come irreversibile localmente impostando l'altezza di conferma dell'account (nel database del nodo) all'altezza del blocco ora più alta della transazione confermata. La cementazione è un'operazione a livello di nodo.",
-    "unknownLastTransaction": "Le date delle transazioni sono state introdotte nel febbraio 2019. Prima di quella data, i tempi delle transazioni non erano registrati localmente sui nodi. Il motivo per cui la data dell'ultima transazione è sconosciuta è perché è stata confermata prima che le date fossero registrate o prima che il nodo NanoLooker fosse in servizio.",
+    "unknownTransactionDate": "Le date delle transazioni sono state introdotte nel febbraio 2019. Prima di quella data, i tempi delle transazioni non erano registrati localmente sui nodi. Il motivo per cui la data dell'ultima transazione è sconosciuta è perché è stata confermata prima che le date fossero registrate o prima che il nodo NanoLooker fosse in servizio.",
     "confirmationHeight": "Un numero memorizzato nel database del nodo locale che rappresenta il blocco confermato più alto (più recente) in una catena di account. Correlato a (ma diverso da) l'altezza del blocco.",
     "blockHeight": "Un valore intero locale che rappresenta l'ordine di un blocco in una catena di account. Ad esempio, il quindicesimo blocco in un account avrebbe un'altezza di blocco di 15. Correlato a (ma diverso da) altezza di conferma.",
     "bookmarks": "I segnalibri {{type, capitalize}} vengono salvati sul tuo dispositivo. Puoi gestire i tuoi {{type}} noti assegnando loro degli alias.",
@@ -93,7 +95,10 @@
     "pendingTransactionCount": "Il numero di transazioni ricevibili supera il limite visualizzato di {{count}}.",
     "pendingTransaction": "I fondi sono stati inviati a questo conto ma il proprietario non ha ancora intascato i fondi. Solo il proprietario dell'account può scrivere una transazione ricevuta nella propria blockchain. Se questo è il tuo account, sblocca il tuo portafoglio, il blocco di ricezione viene solitamente trasmesso automaticamente.",
     "socialStatistics": "Le statistiche vengono compilate utilizzando le prime 100 criptovalute per capitalizzazione di mercato di CoinGecko.",
-    "dailyBalance": "Il grafico delle transazioni è visibile solo se l'account ha più di 1 giorno di dati e se le transazioni hanno timestamp"
+    "dailyBalance": "Il grafico delle transazioni è visibile solo se l'account ha più di 1 giorno di dati e se le transazioni hanno timestamp",
+    "senderFilter": "Filtra i blocchi per includere o escludere solo tutte le transazioni di invio da un indirizzo specifico. Per filtrare più indirizzi, separali con una virgola.",
+    "receiverFilter": "Filtra i blocchi per includere o escludere solo tutte le transazioni di invio da un indirizzo specifico. Per filtrare più indirizzi, separali con una virgola.",
+    "filterTransactions": "Possono essere filtrati solo gli account con meno di 5.000 transazioni confermate"
   },
   "search": {
     "searchBy": "Cerca per indirizzo / blocco / account noto",
@@ -188,7 +193,12 @@
       "byTransactionOption": "Saldo per transazione",
       "dailyBalance": "Ultime {{count}} transazioni",
       "notOpenedYet": "Questo account non ha transazioni",
-      "notOpenedYetReason": "Mentre l'account è valido, non sono stati ancora aggiunti blocchi alla sua catena. Se NANO è stato inviato a questo account, è possibile che il nodo NanoLooker non abbia ancora ricevuto la transazione perché il servizio che stai utilizzando non l'ha ancora trasmessa o per condizioni di rete temporanee."
+      "notOpenedYetReason": "Mentre l'account è valido, non sono stati ancora aggiunti blocchi alla sua catena. Se NANO è stato inviato a questo account, è possibile che il nodo NanoLooker non abbia ancora ricevuto la transazione perché il servizio che stai utilizzando non l'ha ancora trasmessa o per condizioni di rete temporanee.",
+      "dateRange": "Intervallo di date",
+      "includeNoTimestamp": "Includi blocchi senza data",
+      "excludeUnknownAccounts": "Mostra solo i blocchi di account conosciuti",
+      "advancedOptions": "Opzioni avanzate",
+      "applyFilters": "Applicare filtri"
     },
     "block": {
       "blockSubtype": "Sottotipo di blocco",

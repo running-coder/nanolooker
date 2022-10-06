@@ -42,7 +42,9 @@
     "comingSoon": "Coming soon",
     "statistics": "Statistics",
     "link": "Link",
-    "noData": "No data"
+    "noData": "No data",
+    "include": "Include",
+    "exclude": "Exclude"
   },
   "nodeHealth": {
     "nodeReloading": "Nano node is reloading",
@@ -78,7 +80,7 @@
     "knownExchangeBalance": "Exclude {{knownExchangeList}} from the distribution chart. Those accounts combined holds {{knownExchangeBalance}} NANO",
     "unchecked": "Blocks (transactions) that have been downloaded but not yet processed by the Nano node. The node software downloads all bocks from other nodes as unchecked, processes them and adds to block count, confirms the frontier blocks for each account, and then marks them as cemented.",
     "cemented": "When a specific node marks a confirmed transaction as locally irreversible by setting the account's confirmation height (in the node database) to the now higher block height of the confirmed transaction. Cementing is a node-level operation.",
-    "unknownLastTransaction": "Transaction dates were introduced in February 2019. Prior to that date, the transaction times were not recorded locally on the nodes. The reason why the last transaction date is unknown is because it was confirmed before the dates were recorded or before the NanoLooker node was in service.",
+    "unknownTransactionDate": "Transaction dates were introduced in February 2019. Prior to that date, the transaction times were not recorded locally on the nodes. The reason why a transaction date is unknown is because it was confirmed before the dates were recorded or before the NanoLooker node was in service.",
     "confirmationHeight": "A number stored in the local node database that represents the highest (most recent) confirmed block in an account chain. Related to (but different from) block height.",
     "blockHeight": "A local integer value that represents the order of a block in an account chain. For example, the 15th block in an account would have a block height of 15. Related to (but different from) confirmation height.",
     "bookmarks": "{{type, capitalize}} bookmarks are saved on your device. You can manage your known {{type}}s by giving them aliases.",
@@ -93,7 +95,10 @@
     "onChainVolume": "The sum of all NANO transactions that have been confirmed on the network. If user A sends 1 NANO and user B receives 1 NANO on the same day, 2 NANO will be added in the daily volume because 2 transactions were broadcasted and confirmed, a send and a receive.",
     "pendingTransaction": "Funds were sent to this account but the owner has not yet pocketed the funds. Only the owner of the account can write a received transaction into their blockchain. If this is your account, unlock your wallet, the receiving block is usually automatically broadcasted.",
     "socialStatistics": "Statistics are compiled using top 100 cryptocurrencies by market cap from CoinGecko.",
-    "dailyBalance": "Transaction chart is only visible if the account has more than 1 day of data and if the transactions have timestamps"
+    "dailyBalance": "Transaction chart is only visible if the account has more than 1 day of data and if the transactions have timestamps",
+    "senderFilter": "Filter blocks to include only or exclude all send transactions from a specific address. To filter multiple addresses, separate them with a comma.",
+    "receiverFilter": "Filter blocks to include only or exclude all send transactions from a specific address. To filter multiple addresses, separate them with a comma.",
+    "filterTransactions": "Only accounts with equal or less than 5,000 confirmed transactions can be filtered"
   },
   "search": {
     "searchBy": "Search by Address / Block / Known Account",
@@ -188,7 +193,12 @@
       "missingAccountInfo": "The account is not specified in the URL. Use the top search bar for searching for an account or append it in the URL after /account/",
       "dailyBalance": "Last {{count}} transactions",
       "dailyBalanceOption": " Daily balance",
-      "byTransactionOption": "Balance by transaction"
+      "byTransactionOption": "Balance by transaction",
+      "dateRange": "Date range",
+      "includeNoTimestamp": "Include blocks with no date",
+      "excludeUnknownAccounts": "Only show blocks from known accounts",
+      "advancedOptions": "Advanced options",
+      "applyFilters": "Apply filters"
     },
     "block": {
       "blockSubtype": "Block subtype",

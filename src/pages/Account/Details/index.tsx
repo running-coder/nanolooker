@@ -363,7 +363,7 @@ const AccountDetails: React.FC<Props> = ({
                       {t("common.unknown")}
                       <Tooltip
                         placement="right"
-                        title={t("tooltips.unknownLastTransaction")}
+                        title={t("tooltips.unknownTransactionDate")}
                       >
                         <QuestionCircle />
                       </Tooltip>

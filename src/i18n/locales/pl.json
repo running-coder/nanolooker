@@ -42,7 +42,9 @@
     "comingSoon": "Wkrótce",
     "statistics": "Statystyki",
     "link": "Link",
-    "noData": "Brak danych"
+    "noData": "Brak danych",
+    "include": "Włączać",
+    "exclude": "Wykluczać"
   },
   "nodeHealth": {
     "nodeReloading": "Węzeł Nano jest załadowywany ponownie",
@@ -78,7 +80,7 @@
     "knownExchangeBalance": "Wyklucz {{knownExchangeList}} z wykresu dystrybucji. Te łączne konta posiadają {{knownExchangeBalance}} NANO",
     "unchecked": "Bloki (transakcje), które zostały pobrane, ale nie zostały jeszcze przetworzone przez węzeł Nano. Oprogramowanie węzła pobiera wszystkie bloki z innych węzłów jako niezaznaczone, przetwarza je i dodaje do liczby bloków, potwierdza bloki graniczne dla każdego konta, a następnie oznacza je jako zacementowane.",
     "cemented": "Gdy określony węzeł oznacza potwierdzoną transakcję jako lokalnie nieodwracalną, ustawiając wysokość potwierdzenia konta (w bazie danych węzłów) na wyższą teraz wysokość bloku potwierdzonej transakcji. Cementowanie jest operacją na poziomie węzła.",
-    "unknownLastTransaction": "Daty transakcji zostały wprowadzone w lutym 2019 r. Przed tą datą czasy transakcji nie były rejestrowane lokalnie na węzłach. Powodem, dla którego data ostatniej transakcji jest nieznana, jest to, że została potwierdzona przed zapisaniem dat lub przed uruchomieniem węzła NanoLooker.",
+    "unknownTransactionDate": "Daty transakcji zostały wprowadzone w lutym 2019 r. Przed tą datą czasy transakcji nie były rejestrowane lokalnie na węzłach. Powodem, dla którego data ostatniej transakcji jest nieznana, jest to, że została potwierdzona przed zapisaniem dat lub przed uruchomieniem węzła NanoLooker.",
     "confirmationHeight": "Liczba przechowywana w lokalnej bazie danych węzła, która reprezentuje najwyższy (ostatni) potwierdzony blok w łańcuchu kont. Powiązany z (ale inny od) wysokością bloku.",
     "blockHeight": "Lokalna wartość całkowita reprezentująca kolejność bloku w łańcuchu kont. Na przykład piętnasty blok na koncie miałby wysokość bloku 15. W stosunku (ale różniący się od) wysokości potwierdzenia.",
     "bookmarks": "{{type, capitalize}} zakładek zostało zapisanych na Twoim urządzeniu. Możesz zarządzać znanymi {{type}} dając im aliasy.",
@@ -93,7 +95,10 @@
     "onChainVolume": "Suma wszystkich transakcji NANO, które zostały potwierdzone w sieci. Jeśli użytkownik A wyśle 1 NANO, a użytkownik B otrzyma 1 NANO tego samego dnia, 2 NANO zostaną dodane do dziennego wolumenu, ponieważ 2 transakcje zostały wyemitowane i potwierdzone, wysłanie i odbiór.",
     "pendingTransaction": "Środki zostały wysłane na to konto, ale właściciel jeszcze ich nie przejął. Tylko właściciel konta może zapisać otrzymaną transakcję w swoim łańcuchu bloków. Jeśli to jest twoje konto, odblokuj portfel, blokada odbioru jest zwykle automatycznie transmitowana.",
     "socialStatistics": "Statystyki są kompilowane przy użyciu 100 najlepszych kryptowalut według kapitalizacji rynkowej z CoinGecko.",
-    "dailyBalance": "Wykres transakcji jest widoczny tylko wtedy, gdy konto ma więcej niż 1 dzień danych i jeśli transakcje mają znaczniki czasu"
+    "dailyBalance": "Wykres transakcji jest widoczny tylko wtedy, gdy konto ma więcej niż 1 dzień danych i jeśli transakcje mają znaczniki czasu",
+    "senderFilter": "Filtruj bloki, aby uwzględnić lub wykluczyć wszystkie transakcje wysyłania z określonego adresu. Aby filtrować wiele adresów, oddziel je przecinkami.",
+    "receiverFilter": "Filtruj bloki, aby uwzględnić lub wykluczyć wszystkie transakcje wysyłania z określonego adresu. Aby filtrować wiele adresów, oddziel je przecinkami.",
+    "filterTransactions": "Tylko konta z potwierdzonymi transakcjami równymi lub mniejszymi niż 5000 mogą być filtrowane"
   },
   "search": {
     "searchBy": "Szukaj według Adresu / Bloku / Znanego konta",
@@ -188,7 +193,12 @@
       "byTransactionOption": "Saldo według transakcji",
       "dailyBalance": "Ostatnie {{count}} transakcje",
       "notOpenedYet": "Na tym koncie nie ma żadnych transakcji",
-      "notOpenedYetReason": "Chociaż konto jest ważne, żadne bloki nie zostały jeszcze dodane do jego łańcucha. Jeśli NANO zostało wysłane na to konto, możliwe, że węzeł NanoLooker nie otrzymał jeszcze transakcji, ponieważ usługa, z której korzystasz, jeszcze jej nie wyemitowała lub z powodu tymczasowych warunków sieciowych."
+      "notOpenedYetReason": "Chociaż konto jest ważne, żadne bloki nie zostały jeszcze dodane do jego łańcucha. Jeśli NANO zostało wysłane na to konto, możliwe, że węzeł NanoLooker nie otrzymał jeszcze transakcji, ponieważ usługa, z której korzystasz, jeszcze jej nie wyemitowała lub z powodu tymczasowych warunków sieciowych.",
+      "dateRange": "Zakres dat",
+      "includeNoTimestamp": "Uwzględnij bloki bez daty",
+      "excludeUnknownAccounts": "Pokaż tylko bloki ze znanych kont",
+      "advancedOptions": "Zaawansowane opcje",
+      "applyFilters": "Zastosuj filtry"
     },
     "block": {
       "blockSubtype": "Podtyp bloku",

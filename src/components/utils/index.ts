@@ -18,7 +18,7 @@ export enum TwoToneColors {
   CHANGE_DARK = "#722ed1",
   PENDING = "blue",
   PENDING_DARK = "#1890ff",
-  SEND = "#e04576",
+  SEND = "red",
   SEND_DARK = "#e04576",
   RECEIVE = "green",
   RECEIVE_DARK = "#16c784",
@@ -27,8 +27,6 @@ export enum TwoToneColors {
   WARNING = "volcano",
   WARNING_DARK = "#f50",
 }
-
-// @TODO: map subtype to color?
 
 function sleep(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms));

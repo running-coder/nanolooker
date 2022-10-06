@@ -42,7 +42,9 @@
     "statistics": "Statistiques",
     "continue": "Continuer",
     "link": "Lien",
-    "noData": "Pas de données"
+    "noData": "Pas de données",
+    "include": "Inclure",
+    "exclude": "Exclure"
   },
   "nodeHealth": {
     "nodeReloading": "Le nœud Nano est en cours de rechargement",
@@ -78,7 +80,7 @@
     "knownExchangeBalance": "Exclure {{knownExchangeList}} du diagramme de distribution. Ces comptes combinés contiennent {{knownExchangeBalance}} NANO",
     "unchecked": "Blocs (transactions) qui ont été téléchargés mais pas encore traités par le nœud Nano. Le logiciel de nœud télécharge tous les bocks des autres nœuds comme non vérifiés, les traite et les ajoute au nombre de blocs, confirme les blocs de frontière pour chaque compte, puis les marque comme cimentés.",
     "cemented": "Lorsqu'un nœud spécifique marque une transaction confirmée comme irréversible localement en définissant la hauteur de confirmation du compte (dans la base de données des nœuds) sur la hauteur de bloc désormais plus élevée de la transaction confirmée. Le cimentage est une opération au niveau du nœud.",
-    "unknownLastTransaction": "Les dates de transaction ont été introduites en février 2019. Avant cette date, les heures de transaction n'étaient pas enregistrées localement sur les nœuds. La raison pour laquelle la date de la dernière transaction est inconnue est qu'elle a été confirmée avant l'enregistrement des dates ou avant la mise en service du nœud NanoLooker.",
+    "unknownTransactionDate": "Les dates de transaction ont été introduites en février 2019. Avant cette date, les heures de transaction n'étaient pas enregistrées localement sur les nœuds. La raison pour laquelle la date de la dernière transaction est inconnue est qu'elle a été confirmée avant l'enregistrement des dates ou avant la mise en service du nœud NanoLooker.",
     "confirmationHeight": "Nombre stocké dans la base de données des nœuds locaux qui représente le bloc confirmé le plus élevé (le plus récent) d'une chaîne de comptes. Lié à (mais différent de) la hauteur du bloc.",
     "blockHeight": "Valeur entière locale qui représente l'ordre d'un bloc dans une chaîne de comptes. Par exemple, le 15e bloc d'un compte aurait une hauteur de bloc de 15. Lié à (mais différent de) la hauteur de confirmation.",
     "bookmarks": "Les {{type, capitalize}} favoris sont enregistrés sur votre appareil. Vous pouvez gérer vos {{type}} connus en leur donnant des alias.",
@@ -93,7 +95,10 @@
     "pendingTransactionCount": "Le nombre de transactions à recevoir dépasse la limite affichée de {{count}}.",
     "pendingTransaction": "Des fonds ont été envoyés sur ce compte mais le propriétaire n'a pas encore empoché les fonds. Seul le propriétaire du compte peut écrire une transaction reçue dans sa blockchain. S'il s'agit de votre compte, déverrouillez votre portefeuille, le blocage de réception est généralement automatiquement diffusé.",
     "socialStatistics": "Les statistiques sont compilées à l'aide des 100 principales crypto-monnaies par capitalisation boursière de CoinGecko.",
-    "dailyBalance": "Le graphique des transactions n'est visible que si le compte a plus d'un jour de données et si les transactions ont des horodatages"
+    "dailyBalance": "Le graphique des transactions n'est visible que si le compte a plus d'un jour de données et si les transactions ont des horodatages",
+    "senderFilter": "Filtrez les blocs pour inclure uniquement ou exclure toutes les transactions d'envoi à partir d'une adresse spécifique. Pour filtrer plusieurs adresses, séparez-les par une virgule.",
+    "receiverFilter": "Filtrez les blocs pour inclure uniquement ou exclure toutes les transactions d'envoi à partir d'une adresse spécifique. Pour filtrer plusieurs adresses, séparez-les par une virgule.",
+    "filterTransactions": "Seuls les comptes avec un nombre égal ou inférieur à 5 000 transactions confirmées peuvent être filtrés"
   },
   "search": {
     "searchBy": "Recherche par Adresse / Bloc / Compte Connu",
@@ -188,7 +193,12 @@
       "byTransactionOption": "Solde par transaction",
       "dailyBalance": "{{count}} dernières transactions",
       "notOpenedYet": "Ce compte n'a aucune transaction",
-      "notOpenedYetReason": "Tant que le compte est valide, aucun bloc n'a encore été ajouté à sa chaîne. Si NANO a été envoyé à ce compte, il est possible que le nœud NanoLooker n'ait pas encore reçu la transaction car le service que vous utilisez ne l'a pas encore diffusée ou en raison de conditions réseau temporaires."
+      "notOpenedYetReason": "Tant que le compte est valide, aucun bloc n'a encore été ajouté à sa chaîne. Si NANO a été envoyé à ce compte, il est possible que le nœud NanoLooker n'ait pas encore reçu la transaction car le service que vous utilisez ne l'a pas encore diffusée ou en raison de conditions réseau temporaires.",
+      "dateRange": "Plage de dates",
+      "includeNoTimestamp": "Inclure les blocs sans date",
+      "excludeUnknownAccounts": "Afficher uniquement les blocs des comptes connus",
+      "advancedOptions": "Options avancées",
+      "applyFilters": "Appliquer des filtres"
     },
     "block": {
       "blockSubtype": "Sous-type de bloc",
