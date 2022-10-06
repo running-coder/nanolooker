@@ -103,10 +103,10 @@ const Banner: React.FC = () => {
           <Button ghost>
             <img
               alt="RaiblocksMC"
-              src={`/raiblocksmc/your-icon-svg.svg`}
+              src={`/raiblocksmc/server-icon.svg`}
               style={{
-                height: "50px",
-                margin: "-20px -6px -30px -20px",
+                height: "25px",
+                margin: "-1px 4px 4px -6px",
               }}
             />{" "}
             RaiblocksMC

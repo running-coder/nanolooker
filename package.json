@@ -5,7 +5,7 @@
   "scripts": {
     "analyze": "source-map-explorer 'dist/static/js/*.js'",
     "start": "GENERATE_SOURCEMAP=false react-scripts start",
-    "start:server": "nodemon server/server.js",
+    "start:server": "NODE_EXTRA_CA_CERTS=node_modules/node_extra_ca_certs_mozilla_bundle/ca_bundle/ca_intermediate_root_bundle.pem nodemon server/server.js",
     "restart": "",
     "build": "react-scripts build && rm -rf dist && mv build dist",
     "lint": "eslint --ext js,ts,tsx src",
@@ -55,6 +55,7 @@
     "lodash": "^4.17.15",
     "moment": "^2.29.2",
     "mongodb": "^3.5.5",
+    "node_extra_ca_certs_mozilla_bundle": "^1.0.5",
     "node-cache": "^5.1.0",
     "node-cron": "^2.0.3",
     "node-fetch": "^2.6.7",
