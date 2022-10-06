@@ -16,7 +16,6 @@ import {
 import moment from "moment";
 import { useForm, Controller } from "react-hook-form";
 
-// import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { TwoToneColors } from "components/utils";
 import { Theme, PreferencesContext } from "api/contexts/Preferences";
 import { AccountHistoryFilterContext } from "api/contexts/AccountHistoryFilter";
@@ -24,6 +23,7 @@ import QuestionCircle from "components/QuestionCircle";
 
 import type { Subtype } from "types/transaction";
 import type { RangePickerProps } from "antd/es/date-picker";
+import type { Moment } from "moment";
 
 const { Text } = Typography;
 const { RangePicker } = DatePicker;
@@ -74,14 +74,9 @@ export interface HistoryFilters {
 
 const Filters: React.FC = () => {
   const { t } = useTranslation();
-  // const [isLoading, setIsLoading] = React.useState(false);
-  const { isLoading, isError, history, setFilters } = React.useContext(
+  const { isLoading, setFilters } = React.useContext(
     AccountHistoryFilterContext,
   );
-
-  // const isLargeAndHigher = useMediaQuery("(min-width: 992px)");
-
-  console.log("~~~~history", history);
 
   const [options] = React.useState(
     [
@@ -118,22 +113,20 @@ const Filters: React.FC = () => {
     control,
     handleSubmit,
     setValue,
-    // getValues,
-    formState: { errors, isValid, isDirty },
+    formState: { isValid, isDirty },
   } = useForm({
     defaultValues: defaultFilters,
     mode: "onChange",
   });
 
-  // React.useEffect(() => {
-  //   // @NOTE save filters?
-  //   setFilters(defaultFilters);
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [account]);
+  const onSubmit = (rawFilters: HistoryFilters) => {
+    const { dateRange, ...rest } = rawFilters;
 
-  const onSubmit = (filters: any) => {
-    // console.log("~~~~errors", errors);
-    console.log("~~~~filters", filters);
+    const filters = {
+      dateRange:
+        dateRange?.map((date: Moment | null) => date?.format("x")) || null,
+      ...rest,
+    };
 
     setFilters(filters);
   };
@@ -250,14 +243,8 @@ const Filters: React.FC = () => {
             </Input.Group>
           </Col>
           <Col xs={24} sm={12} md={8} lg={5}>
-            <div>
-              <Text>
-                {t("transaction.amount")}
-                <Tooltip placement="right" title={t("tooltips.amountFilter")}>
-                  <QuestionCircle />
-                </Tooltip>
-              </Text>
-            </div>
+            <Text>{t("transaction.amount")}</Text>
+
             <Input.Group compact style={{ width: "100%" }}>
               <Controller
                 render={({ field }) => (
@@ -266,6 +253,7 @@ const Filters: React.FC = () => {
                     style={{ width: "44%" }}
                     placeholder="Minimum"
                     type="number"
+                    min="0"
                   />
                 )}
                 control={control}
@@ -292,6 +280,7 @@ const Filters: React.FC = () => {
                     }}
                     placeholder="Maximum"
                     type="number"
+                    min="0"
                   />
                 )}
                 control={control}
@@ -310,6 +299,7 @@ const Filters: React.FC = () => {
                     placeholder="Start"
                     type="number"
                     step={1}
+                    min="0"
                   />
                 )}
                 control={control}
@@ -337,6 +327,7 @@ const Filters: React.FC = () => {
                     placeholder="End"
                     type="number"
                     step={1}
+                    min="0"
                   />
                 )}
                 control={control}

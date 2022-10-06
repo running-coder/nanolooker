@@ -42,7 +42,7 @@ const Provider: React.FC = ({ children }) => {
         },
       );
 
-      console.log("~~~~DO QUERY!!");
+      console.log("~~~~TRACK DO QUERY");
 
       const res = await fetch(`/api/transaction-filters${query}`);
       const data = await res.json();

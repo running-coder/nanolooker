@@ -17,7 +17,7 @@ import Filters from "pages/Account/History/Filters";
 import type { Transaction } from "types/transaction";
 
 const TRANSACTIONS_PER_PAGE = 25;
-const MAX_TRANSACTION_FILTERS = 10_000;
+const MAX_TRANSACTION_FILTERS = 5_000;
 const { Title } = Typography;
 
 interface Props {
@@ -95,6 +95,7 @@ const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
     ? chunk(historyFilter, TRANSACTIONS_PER_PAGE)[currentPage - 1]
     : [];
 
+  // @TODO display the number of filtered history
   console.log("~~~historyFilter", historyFilter);
 
   return (

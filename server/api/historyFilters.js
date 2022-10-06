@@ -7,7 +7,8 @@ const {
   MONGO_DB,
   TRANSACTION_COLLECTION,
 } = require("../constants");
-const { isValidAccountAddress } = require("../utils");
+const { getKnownAccounts } = require("./knownAccounts");
+const { isValidAccountAddress, raiToRaw, toBoolean } = require("../utils");
 
 let db;
 let mongoClient;
@@ -50,7 +51,7 @@ const getIsAccountFilterable = async account => {
 
     const { confirmation_height: confirmationHeight } = res;
 
-    if (parseInt(confirmationHeight) <= 10_000) {
+    if (parseInt(confirmationHeight) <= 5_000) {
       isFilterable = true;
     }
   } catch (err) {
@@ -61,7 +62,7 @@ const getIsAccountFilterable = async account => {
   return isFilterable;
 };
 
-const getHistoryFilters = async ({ account, filters }) => {
+const getHistoryFilters = async ({ account, filters: rawFilters }) => {
   let data = [];
   try {
     if (!(await getIsAccountFilterable(account))) {
@@ -85,9 +86,6 @@ const getHistoryFilters = async ({ account, filters }) => {
       reverse: true,
       offset: highestBlock?.[0]?.height || undefined,
     });
-
-    // console.log("~~~~highestBlock", highestBlock);
-    // console.log("~~~~history", history);
 
     if (history?.length) {
       const filteredHistory = history.map(
@@ -119,14 +117,116 @@ const getHistoryFilters = async ({ account, filters }) => {
       });
     }
 
-    console.log("~~~~filters", filters);
+    const {
+      minAmount,
+      maxAmount,
+      startHeight,
+      endHeight,
+      dateRange,
+      includeNoTimestamp,
+      excludeUnknownAccounts,
+      receiver,
+      sender,
+      ...rest
+    } = rawFilters || {};
+
+    const filters = {
+      ...(minAmount ? { minAmount: Math.abs(parseFloat(minAmount)) } : null),
+      ...(maxAmount ? { maxAmount: Math.abs(parseFloat(maxAmount)) } : null),
+      ...(startHeight
+        ? { startHeight: Math.abs(parseInt(startHeight)) }
+        : null),
+      ...(endHeight ? { endHeight: Math.abs(parseInt(endHeight)) } : null),
+      dateRange: dateRange
+        ? dateRange.map(date => (date ? parseInt(date.slice(0, -3)) : date))
+        : null,
+
+      includeNoTimestamp: toBoolean(includeNoTimestamp),
+      excludeUnknownAccounts: toBoolean(excludeUnknownAccounts),
+      receiver: receiver
+        ? receiver
+            .split(",")
+            .map(account => account.trim())
+            .filter(account => isValidAccountAddress(account))
+        : [],
+      sender: sender
+        ? sender
+            .split(",")
+            .map(account => account.trim())
+            .filter(account => isValidAccountAddress(account))
+        : [],
+      ...rest,
+    };
 
     data = await db
       .collection(TRANSACTION_COLLECTION)
       .find({
         account_origin: account,
         ...(filters?.subType ? { subtype: { $in: filters.subType } } : null),
+        ...(filters?.minAmount || filters?.maxAmount
+          ? {
+              amount: {
+                ...(filters?.minAmount
+                  ? { $gte: raiToRaw(filters.minAmount) }
+                  : null),
+                ...(filters?.maxAmount
+                  ? { $lte: raiToRaw(filters.maxAmount) }
+                  : null),
+              },
+            }
+          : null),
+        ...(filters?.startHeight || filters?.endHeight
+          ? {
+              height: {
+                ...(filters?.startHeight
+                  ? { $gte: filters.startHeight }
+                  : null),
+                ...(filters?.endHeight ? { $lte: filters.endHeight } : null),
+              },
+            }
+          : null),
+        ...(filters?.dateRange?.length
+          ? {
+              local_timestamp: {
+                ...(filters.dateRange[0]
+                  ? { $gte: filters.dateRange[0] }
+                  : null),
+                ...(filters.dateRange[1]
+                  ? { $lte: filters.dateRange[1] }
+                  : null),
+              },
+            }
+          : null),
+        ...(filters.sender.length
+          ? {
+              subtype: "receive",
+              account:
+                filters.senderType === "include"
+                  ? { $in: filters.sender }
+                  : { $nin: filters.sender },
+            }
+          : null),
+        ...(filters.receiver.length
+          ? {
+              subtype: "send",
+              account:
+                filters.receiverType === "include"
+                  ? { $in: filters.receiver }
+                  : { $nin: filters.receiver },
+            }
+          : null),
+        ...(!filters.includeNoTimestamp
+          ? { local_timestamp: { $ne: 0 } }
+          : null),
+        ...(filters.excludeUnknownAccounts
+          ? {
+              account: {
+                $in: (await getKnownAccounts()).map(({ account }) => account),
+              },
+            }
+          : null),
       })
+      // .explain();
       .sort({ height: -1 })
       .toArray();
 
