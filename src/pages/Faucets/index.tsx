@@ -90,7 +90,7 @@ const FaucetsPage: React.FC = () => {
           }: {
             alias: string;
             account: string;
-            link: string;
+            link?: string;
             byLink?: string;
           } = faucets.find(({ account }) => account === historyAccount)!;
 
@@ -146,15 +146,19 @@ const FaucetsPage: React.FC = () => {
                 >
                   {account}
                 </Link>
-                <br />
-                <a
-                  href={link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="break-word"
-                >
-                  {link}
-                </a>
+                {link ? (
+                  <>
+                    <br />
+                    <a
+                      href={link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="break-word"
+                    >
+                      {link}
+                    </a>
+                  </>
+                ) : null}
               </Col>
             </Row>
           ) : null;
