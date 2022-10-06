@@ -42,7 +42,9 @@
     "statistics": "Statistiken",
     "continue": "Weitermachen",
     "link": "Verknüpfung",
-    "noData": "Keine Daten"
+    "noData": "Keine Daten",
+    "include": "Enthalten",
+    "exclude": "Ausschließen"
   },
   "nodeHealth": {
     "nodeReloading": "Der Nanoknoten wird neu geladen",
@@ -93,7 +95,10 @@
     "pendingTransactionCount": "Die Anzahl der ausstehenden Transaktionen überschreitet das angezeigte Limit von {{count}}.",
     "pendingTransaction": "Gelder wurden auf dieses Konto überwiesen, aber der Eigentümer hat die Gelder noch nicht eingesteckt. Nur der Inhaber des Kontos kann eine empfangene Transaktion in seine Blockchain schreiben. Wenn dies Ihr Konto ist, entsperren Sie Ihr Wallet, der Empfangsblock wird normalerweise automatisch gesendet.",
     "socialStatistics": "Statistiken werden anhand der Top-100-Kryptowährungen nach Marktkapitalisierung von CoinGecko erstellt.",
-    "dailyBalance": "Das Transaktionsdiagramm ist nur sichtbar, wenn das Konto mehr als 1 Tag Daten hat und wenn die Transaktionen Zeitstempel haben"
+    "dailyBalance": "Das Transaktionsdiagramm ist nur sichtbar, wenn das Konto mehr als 1 Tag Daten hat und wenn die Transaktionen Zeitstempel haben",
+    "senderFilter": "Filtern Sie Blöcke, um nur alle Sendetransaktionen von einer bestimmten Adresse einzuschließen oder auszuschließen. Um mehrere Adressen zu filtern, trennen Sie sie durch ein Komma.",
+    "receiverFilter": "Filtern Sie Blöcke, um nur alle Sendetransaktionen von einer bestimmten Adresse einzuschließen oder auszuschließen. Um mehrere Adressen zu filtern, trennen Sie sie durch ein Komma.",
+    "filterTransactions": "Nur Konten mit gleich oder weniger als 5.000 bestätigten Transaktionen können gefiltert werden"
   },
   "search": {
     "searchBy": "Suche nach Adresse / Block / Bekanntem Konto",
@@ -188,7 +193,12 @@
       "byTransactionOption": "Saldo nach Transaktion",
       "dailyBalance": "Letzte {{count}} Transaktionen",
       "notOpenedYet": "Dieses Konto enthält keine Transaktionen",
-      "notOpenedYetReason": "Während das Konto gültig ist, wurden seiner Kette noch keine Blöcke hinzugefügt. Wenn NANO an dieses Konto gesendet wurde, ist es möglich, dass der NanoLooker-Knoten die Transaktion noch nicht erhalten hat, weil der von Ihnen verwendete Dienst sie noch nicht gesendet hat oder aufgrund vorübergehender Netzwerkbedingungen."
+      "notOpenedYetReason": "Während das Konto gültig ist, wurden seiner Kette noch keine Blöcke hinzugefügt. Wenn NANO an dieses Konto gesendet wurde, ist es möglich, dass der NanoLooker-Knoten die Transaktion noch nicht erhalten hat, weil der von Ihnen verwendete Dienst sie noch nicht gesendet hat oder aufgrund vorübergehender Netzwerkbedingungen.",
+      "dateRange": "Datumsbereich",
+      "includeNoTimestamp": "Blöcke ohne Datum einbeziehen",
+      "excludeUnknownAccounts": "Nur Blöcke von bekannten Konten anzeigen",
+      "advancedOptions": "Erweiterte Optionen",
+      "applyFilters": "Filter anwenden"
     },
     "block": {
       "blockSubtype": "Subtyp blockieren",

@@ -42,7 +42,9 @@
     "statistics": "Số liệu thống kê",
     "continue": "Tiếp tục",
     "link": "Liên kết",
-    "noData": "Không có dữ liệu"
+    "noData": "Không có dữ liệu",
+    "include": "Bao gồm",
+    "exclude": "Loại trừ"
   },
   "nodeHealth": {
     "nodeReloading": "Nút nano đang tải lại",
@@ -93,7 +95,10 @@
     "pendingTransactionCount": "Số lượng giao dịch phải thu vượt quá giới hạn hiển thị là {{count}}.",
     "pendingTransaction": "Tiền đã được gửi đến tài khoản này nhưng chủ sở hữu vẫn chưa bỏ túi tiền. Chỉ chủ sở hữu tài khoản mới có thể ghi giao dịch đã nhận vào blockchain của họ. Nếu đây là tài khoản của bạn, hãy mở khóa ví của bạn, khối nhận thường được phát tự động.",
     "socialStatistics": "Thống kê được tổng hợp bằng cách sử dụng 100 loại tiền điện tử hàng đầu theo vốn hóa thị trường từ CoinGecko.",
-    "dailyBalance": "Biểu đồ giao dịch chỉ hiển thị nếu tài khoản có dữ liệu hơn 1 ngày và nếu các giao dịch có dấu thời gian"
+    "dailyBalance": "Biểu đồ giao dịch chỉ hiển thị nếu tài khoản có dữ liệu hơn 1 ngày và nếu các giao dịch có dấu thời gian",
+    "senderFilter": "Lọc các khối để chỉ bao gồm hoặc loại trừ tất cả các giao dịch gửi từ một địa chỉ cụ thể. Để lọc nhiều địa chỉ, hãy phân tách chúng bằng dấu phẩy.",
+    "receiverFilter": "Lọc các khối để chỉ bao gồm hoặc loại trừ tất cả các giao dịch gửi từ một địa chỉ cụ thể. Để lọc nhiều địa chỉ, hãy phân tách chúng bằng dấu phẩy.",
+    "filterTransactions": "Chỉ những tài khoản có số lượng bằng hoặc ít hơn 5.000 giao dịch được xác nhận mới có thể được lọc"
   },
   "search": {
     "searchBy": "Tìm kiếm theo Địa chỉ / Khối / Tài khoản Đã biết",
@@ -188,7 +193,12 @@
       "byTransactionOption": "Số dư theo giao dịch",
       "dailyBalance": "{{Count}} giao dịch gần đây nhất",
       "notOpenedYet": "Tài khoản này không có bất kỳ giao dịch nào",
-      "notOpenedYetReason": "Mặc dù tài khoản hợp lệ nhưng chưa có khối nào được thêm vào chuỗi của nó. Nếu NANO đã được gửi đến tài khoản này, có thể nút NanoLooker chưa nhận được giao dịch do dịch vụ bạn đang sử dụng chưa phát sóng hoặc do điều kiện mạng tạm thời."
+      "notOpenedYetReason": "Mặc dù tài khoản hợp lệ nhưng chưa có khối nào được thêm vào chuỗi của nó. Nếu NANO đã được gửi đến tài khoản này, có thể nút NanoLooker chưa nhận được giao dịch do dịch vụ bạn đang sử dụng chưa phát sóng hoặc do điều kiện mạng tạm thời.",
+      "dateRange": "Phạm vi ngày",
+      "includeNoTimestamp": "Bao gồm các khối không có ngày tháng",
+      "excludeUnknownAccounts": "Chỉ hiển thị các khối từ các tài khoản đã biết",
+      "advancedOptions": "Tùy chọn nâng cao",
+      "applyFilters": "Áp dụng các bộ lọc"
     },
     "block": {
       "blockSubtype": "Block con",

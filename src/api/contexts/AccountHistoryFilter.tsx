@@ -1,6 +1,6 @@
 import * as React from "react";
 import qs from "qs";
-// import useDeepCompareEffect from "use-deep-compare-effect";
+
 import { isValidAccountAddress } from "components/utils";
 
 import type { History } from "./AccountHistory";
@@ -41,8 +41,6 @@ const Provider: React.FC = ({ children }) => {
           addQueryPrefix: true,
         },
       );
-
-      console.log("~~~~TRACK DO QUERY");
 
       const res = await fetch(`/api/transaction-filters${query}`);
       const data = await res.json();

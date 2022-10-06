@@ -42,7 +42,9 @@
     "statistics": "统计数据",
     "continue": "继续",
     "link": "关联",
-    "noData": "没有数据"
+    "noData": "没有数据",
+    "include": "包括",
+    "exclude": "排除"
   },
   "nodeHealth": {
     "nodeReloading": "纳米节点正在重新加载",
@@ -93,7 +95,10 @@
     "pendingTransactionCount": "应收交易的数量超过了显示的{{count}} 限制。",
     "pendingTransaction": "资金已发送到此帐户，但所有者尚未将资金收入囊中。只有帐户的所有者才能将收到的交易写入他们的区块链。如果这是您的帐户，请解锁您的钱包，通常会自动广播接收块。",
     "socialStatistics": "统计数据是使用 CoinGecko 按市值排名前 100 位的加密货币编制的。",
-    "dailyBalance": "交易图表仅在账户有超过 1 天的数据并且交易有时间戳时才可见"
+    "dailyBalance": "交易图表仅在账户有超过 1 天的数据并且交易有时间戳时才可见",
+    "senderFilter": "过滤块以仅包含或排除来自特定地址的所有发送交易。要过滤多个地址，请用逗号分隔它们。",
+    "receiverFilter": "过滤块以仅包含或排除来自特定地址的所有发送交易。要过滤多个地址，请用逗号分隔它们。",
+    "filterTransactions": "只能过滤等于或少于 5,000 笔已确认交易的账户"
   },
   "search": {
     "searchBy": "按地址/阻止/已知帐户搜索",
@@ -188,7 +193,12 @@
       "byTransactionOption": "交易余额",
       "dailyBalance": "最后 {{count}} 笔交易",
       "notOpenedYet": "此帐户没有任何交易",
-      "notOpenedYetReason": "虽然该帐户有效，但尚未将任何块添加到其链中。如果 NANO 已发送到该账户，则可能是 NanoLooker 节点尚未收到交易，因为您正在使用的服务尚未广播它或由于临时网络条件。"
+      "notOpenedYetReason": "虽然该帐户有效，但尚未将任何块添加到其链中。如果 NANO 已发送到该账户，则可能是 NanoLooker 节点尚未收到交易，因为您正在使用的服务尚未广播它或由于临时网络条件。",
+      "dateRange": "日期范围",
+      "includeNoTimestamp": "包括没有日期的块",
+      "excludeUnknownAccounts": "仅显示来自已知帐户的块",
+      "advancedOptions": "高级选项",
+      "applyFilters": "应用过滤器"
     },
     "block": {
       "blockSubtype": "块子类型",

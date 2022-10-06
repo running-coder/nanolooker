@@ -28,8 +28,6 @@ export enum TwoToneColors {
   WARNING_DARK = "#f50",
 }
 
-// @TODO: map subtype to color?
-
 function sleep(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }

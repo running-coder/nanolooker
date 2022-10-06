@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation, Trans } from "react-i18next";
 import {
   Button,
   Card,
@@ -87,7 +87,7 @@ const Filters: React.FC = () => {
       { value: "epoch" },
     ].map(option => ({
       // @TODO update on language change
-      label: t(`transaction.${option.value}`),
+      label: <Trans i18nKey={`transaction.${option.value}`} />,
       value: option.value as Subtype,
     })),
   );
@@ -113,7 +113,7 @@ const Filters: React.FC = () => {
     control,
     handleSubmit,
     setValue,
-    formState: { isValid, isDirty },
+    formState: { errors, isValid, isDirty },
   } = useForm({
     defaultValues: defaultFilters,
     mode: "onChange",

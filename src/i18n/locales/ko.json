@@ -42,7 +42,9 @@
     "statistics": "통계",
     "continue": "계속하다",
     "link": "링크",
-    "noData": "데이터 없음"
+    "noData": "데이터 없음",
+    "include": "포함",
+    "exclude": "들어오지 못하게 하다"
   },
   "nodeHealth": {
     "nodeReloading": "나노 노드가 다시로드됩니다.",
@@ -93,7 +95,10 @@
     "pendingTransactionCount": "받을 수 있는 거래 수가 표시된 한도인 {{count}}개를 초과했습니다.",
     "pendingTransaction": "자금이 이 계좌로 송금되었지만 소유자는 아직 자금을 주머니에 넣지 않았습니다. 계정 소유자만 수신된 트랜잭션을 자신의 블록체인에 쓸 수 있습니다. 이것이 귀하의 계정이라면 지갑을 잠금 해제하십시오. 수신 블록은 일반적으로 자동으로 방송됩니다.",
     "socialStatistics": "통계는 CoinGecko의 시가 총액 기준 상위 100개 암호화폐를 사용하여 집계됩니다.",
-    "dailyBalance": "거래 차트는 계정에 1일 이상의 데이터가 있고 거래에 타임스탬프가 있는 경우에만 표시됩니다."
+    "dailyBalance": "거래 차트는 계정에 1일 이상의 데이터가 있고 거래에 타임스탬프가 있는 경우에만 표시됩니다.",
+    "senderFilter": "특정 주소의 모든 전송 트랜잭션만 포함하거나 제외하도록 차단을 필터링합니다. 여러 주소를 필터링하려면 쉼표로 구분하세요.",
+    "receiverFilter": "특정 주소의 모든 전송 트랜잭션만 포함하거나 제외하도록 차단을 필터링합니다. 여러 주소를 필터링하려면 쉼표로 구분하세요.",
+    "filterTransactions": "확인된 거래가 5,000건 이하인 계정만 필터링할 수 있습니다."
   },
   "search": {
     "searchBy": "주소 / 차단 / 알려진 계정으로 검색",
@@ -188,7 +193,12 @@
       "byTransactionOption": "거래별 잔액",
       "dailyBalance": "마지막 {{count}} 거래",
       "notOpenedYet": "이 계정에는 거래가 없습니다.",
-      "notOpenedYetReason": "계정이 유효하지만 아직 블록이 체인에 추가되지 않았습니다. NANO가 이 계정으로 전송된 경우 사용 중인 서비스가 아직 브로드캐스트하지 않았거나 일시적인 네트워크 상태로 인해 NanoLooker 노드가 아직 트랜잭션을 수신하지 못했을 수 있습니다."
+      "notOpenedYetReason": "계정이 유효하지만 아직 블록이 체인에 추가되지 않았습니다. NANO가 이 계정으로 전송된 경우 사용 중인 서비스가 아직 브로드캐스트하지 않았거나 일시적인 네트워크 상태로 인해 NanoLooker 노드가 아직 트랜잭션을 수신하지 못했을 수 있습니다.",
+      "dateRange": "날짜 범위",
+      "includeNoTimestamp": "날짜가 없는 블록 포함",
+      "excludeUnknownAccounts": "알려진 계정의 차단만 표시",
+      "advancedOptions": "고급 옵션",
+      "applyFilters": "필터 적용"
     },
     "block": {
       "blockSubtype": "블록 하위 유형",

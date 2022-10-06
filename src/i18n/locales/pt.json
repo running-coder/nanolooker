@@ -42,7 +42,9 @@
     "statistics": "Estatisticas",
     "continue": "Prosseguir",
     "link": "Link",
-    "noData": "Sem dados"
+    "noData": "Sem dados",
+    "include": "Incluir",
+    "exclude": "Excluir"
   },
   "nodeHealth": {
     "nodeReloading": "O nó da Nano está recarregando",
@@ -93,7 +95,10 @@
     "pendingTransactionCount": "O número de transações a receber excede o limite exibido de {{contagem}}.",
     "pendingTransaction": "Os fundos foram enviados para esta conta, mas o proprietário ainda não embolsou os fundos. Apenas o proprietário da conta pode gravar uma transação recebida em seu blockchain. Se esta for sua conta, desbloqueie sua carteira, o bloqueio de recebimento geralmente é transmitido automaticamente.",
     "socialStatistics": "As estatísticas são compiladas usando as 100 principais criptomoedas por valor de mercado da CoinGecko.",
-    "dailyBalance": "O gráfico de transações só é visível se a conta tiver mais de 1 dia de dados e se as transações tiverem carimbos de data/hora"
+    "dailyBalance": "O gráfico de transações só é visível se a conta tiver mais de 1 dia de dados e se as transações tiverem carimbos de data/hora",
+    "senderFilter": "Filtre os blocos para incluir apenas ou excluir todas as transações de envio de um endereço específico. Para filtrar vários endereços, separe-os com uma vírgula.",
+    "receiverFilter": "Filtre os blocos para incluir apenas ou excluir todas as transações de envio de um endereço específico. Para filtrar vários endereços, separe-os com uma vírgula.",
+    "filterTransactions": "Apenas contas com igual ou inferior a 5.000 transações confirmadas podem ser filtradas"
   },
   "search": {
     "searchBy": "Pesquisar por endereço / bloco",
@@ -188,7 +193,12 @@
       "byTransactionOption": "Saldo por transação",
       "dailyBalance": "Últimas {{count}} transações",
       "notOpenedYet": "Esta conta não possui transações",
-      "notOpenedYetReason": "Embora a conta seja válida, nenhum bloco foi adicionado à sua cadeia ainda. Se o NANO foi enviado para esta conta, é possível que o nó NanoLooker ainda não tenha recebido a transação porque o serviço que você está usando ainda não a transmitiu ou devido a condições temporárias da rede."
+      "notOpenedYetReason": "Embora a conta seja válida, nenhum bloco foi adicionado à sua cadeia ainda. Se o NANO foi enviado para esta conta, é possível que o nó NanoLooker ainda não tenha recebido a transação porque o serviço que você está usando ainda não a transmitiu ou devido a condições temporárias da rede.",
+      "dateRange": "Período",
+      "includeNoTimestamp": "Incluir blocos sem data",
+      "excludeUnknownAccounts": "Mostrar apenas blocos de contas conhecidas",
+      "advancedOptions": "Opções avançadas",
+      "applyFilters": "Aplicar filtros"
     },
     "block": {
       "blockSubtype": "Subtipo de bloco",

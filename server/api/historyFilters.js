@@ -226,13 +226,13 @@ const getHistoryFilters = async ({ account, filters: rawFilters }) => {
             }
           : null),
       })
-      // .explain();
       .sort({ height: -1 })
       .toArray();
+    // .explain();
 
     mongoClient.close();
   } catch (err) {
-    console.log("~~~~err", err);
+    Sentry.captureException(err);
   }
 
   return data;

@@ -26,6 +26,8 @@ interface Props {
 
 const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
   const { t } = useTranslation();
+  const [isInitialHistoryFilterLoading, setIsInitialHistoryFilterLoading] =
+    React.useState(false);
   const [isFiltersVisible, setIsFiltersVisible] = React.useState(false);
   const { account, accountInfo } = React.useContext(AccountInfoContext);
   const isPaginated = Number(accountInfo?.block_count) <= 250;
@@ -72,10 +74,15 @@ const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
   React.useEffect(() => {
     if (!isFiltersLoading) {
       setCurrentPage(1);
+      setIsInitialHistoryFilterLoading(false);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isFiltersLoading]);
 
-  let count = new BigNumber(accountInfo?.block_count || 0).toNumber();
+  let count =
+    isFiltersVisible && !isInitialHistoryFilterLoading
+      ? historyFilter.length
+      : new BigNumber(accountInfo?.block_count || 0).toNumber();
   const delegatorsCount = allDelegators[account];
   const representative = representatives.find(
     ({ account: representativeAccount }) => representativeAccount === account,
@@ -94,9 +101,6 @@ const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
   const dataFilter = isFiltersVisible
     ? chunk(historyFilter, TRANSACTIONS_PER_PAGE)[currentPage - 1]
     : [];
-
-  // @TODO display the number of filtered history
-  console.log("~~~historyFilter", historyFilter);
 
   return (
     <>
@@ -120,13 +124,14 @@ const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
             }
           >
             <Button
-              loading={isFiltersLoading && !isFiltersVisible}
+              loading={isFiltersLoading && isInitialHistoryFilterLoading}
               size="small"
               disabled={!isTransactionFiltersEnabled}
               type={isFiltersVisible ? "primary" : "default"}
               onClick={() => {
                 if (!isFiltersVisible) {
                   setFilters({});
+                  setIsInitialHistoryFilterLoading(true);
                 }
                 setIsFiltersVisible(!isFiltersVisible);
               }}
