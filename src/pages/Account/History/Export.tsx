@@ -1,6 +1,16 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { Button, Checkbox, Input, Modal, Select, Tree, Typography } from "antd";
+import {
+  Button,
+  Checkbox,
+  Col,
+  Input,
+  Modal,
+  Row,
+  Select,
+  Tree,
+  Typography,
+} from "antd";
 import pick from "lodash/pick";
 
 import { AccountHistoryFilterContext } from "api/contexts/AccountHistoryFilter";
@@ -8,6 +18,17 @@ import { rawToRai } from "components/utils";
 
 const { Text } = Typography;
 const { Option } = Select;
+
+type ExportKeys = {
+  account: boolean;
+  subtype: boolean;
+  amount: boolean;
+  local_timestamp: boolean;
+  height: boolean;
+  hash: boolean;
+  representative: boolean;
+  confirmed: boolean;
+};
 
 const Export: React.FC = () => {
   const { t } = useTranslation();
@@ -18,7 +39,7 @@ const Export: React.FC = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [fileName, setFileName] = React.useState(`export`);
   const [delimiter, setDelimiter] = React.useState(",");
-  const [values, setValues] = React.useState({
+  const [values, setValues] = React.useState<ExportKeys>({
     account: true,
     subtype: true,
     amount: true,
@@ -108,37 +129,71 @@ const Export: React.FC = () => {
         }}
         cancelText={t("common.cancel")}
       >
-        <Tree
-          treeData={treeData}
-          selectable={false}
-          // draggable
-          // onDrop={() => {}}
-        />
-        <div style={{ marginTop: 6 }}>
-          <Text>{t("pages.account.delimiter")}</Text>
-        </div>
-        <Select
-          defaultValue={delimiter}
-          onChange={delimiter => {
-            setDelimiter(delimiter);
-          }}
-          style={{ minWidth: 200 }}
-        >
-          <Option value=",">{t("pages.account.delimiterComma")} (,)</Option>
-          <Option value=";">{t("pages.account.delimiterSemicolon")} (;)</Option>
-          <Option value="\t">{t("pages.account.delimiterTab")} (\t)</Option>
-          <Option value="s">{t("pages.account.delimiterSpace")} ( )</Option>
-          <Option value="|">{t("pages.account.delimiterPipe")} (|)</Option>
-        </Select>
+        <Row>
+          <Col xs={24}>
+            <Tree
+              treeData={treeData}
+              selectable={false}
+              draggable
+              onDrop={({ dragNodesKeys, dropPosition }) => {
+                setValues(prevValues => {
+                  const currentIndex = Object.keys(prevValues).findIndex(
+                    key => key === dragNodesKeys[0],
+                  );
+                  const order = Object.keys(prevValues);
+                  order.splice(
+                    dropPosition === -1 ? 0 : dropPosition,
+                    0,
+                    dragNodesKeys[0] as string,
+                  );
+                  order.splice(
+                    currentIndex + (currentIndex > dropPosition ? 1 : 0),
+                    1,
+                  );
 
-        <div style={{ marginTop: 6 }}>
-          <Text>{t("pages.account.fileName")}</Text>
-        </div>
-        <Input
-          defaultValue={fileName}
-          onChange={({ target: { value } }) => setFileName(value)}
-          addonAfter=".csv"
-        />
+                  return order.reduce((acc, key) => {
+                    // @ts-ignore
+                    acc[key] = prevValues[key];
+                    return acc;
+                  }, {} as ExportKeys);
+                });
+              }}
+            />
+          </Col>
+        </Row>
+        <Row gutter={12}>
+          <Col xs={24} sm={12}>
+            <div style={{ marginTop: 6 }}>
+              <Text>{t("pages.account.delimiter")}</Text>
+            </div>
+            <Select
+              defaultValue={delimiter}
+              onChange={delimiter => {
+                setDelimiter(delimiter);
+              }}
+              style={{ width: "100%" }}
+            >
+              <Option value=",">{t("pages.account.delimiterComma")} (,)</Option>
+              <Option value=";">
+                {t("pages.account.delimiterSemicolon")} (;)
+              </Option>
+              <Option value="\t">{t("pages.account.delimiterTab")} (\t)</Option>
+              <Option value="s">{t("pages.account.delimiterSpace")} ( )</Option>
+              <Option value="|">{t("pages.account.delimiterPipe")} (|)</Option>
+            </Select>
+          </Col>
+          <Col xs={24} sm={12}>
+            <div style={{ marginTop: 6 }}>
+              <Text>{t("pages.account.fileName")}</Text>
+            </div>
+
+            <Input
+              defaultValue={fileName}
+              onChange={({ target: { value } }) => setFileName(value)}
+              addonAfter=".csv"
+            />
+          </Col>
+        </Row>
       </Modal>
     </>
   );
