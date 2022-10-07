@@ -130,5 +130,9 @@
   {
     "alias": "Operation-Solidarity.org Donations",
     "account": "nano_3b8z36fczhoypqaoyxynjpfzjwz977adx1sssj4nebz579fch5te6bqdgbic"
+  },
+  {
+    "alias": "Wirex Hot Wallet",
+    "account": "nano_3b1hjazupgwycgachczp7namyk1r7gwyu1q7duyh44h3axqjjksto9pkz6nf"
   }
 ]
