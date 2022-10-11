@@ -5,10 +5,9 @@ const {
   RAIBLOCKSMC_INFO,
   RAIBLOCKSMC_LEADERBOARDS,
   EXPIRE_5M,
-  EXPIRE_1M
+  EXPIRE_1M,
 } = require("../constants");
 const fetch = require("node-fetch");
-
 
 const getRaiblocksMCInfo = async () => {
   let info = nodeCache.get(RAIBLOCKSMC_INFO);
@@ -32,9 +31,7 @@ const getRaiblocksMCInfo = async () => {
   });
 };
 
-
 const getRaiblocksMCLeaderboards = async () => {
-
   let leaderboards = nodeCache.get(RAIBLOCKSMC_LEADERBOARDS);
 
   if (leaderboards) {
@@ -43,7 +40,9 @@ const getRaiblocksMCLeaderboards = async () => {
 
   return new Promise(async resolve => {
     try {
-      const res = await fetch("https://raiblocksmc-play.com:4567/leaderboards-stats");
+      const res = await fetch(
+        "https://raiblocksmc-play.com:4567/leaderboards-stats",
+      );
       leaderboards = (await res.json()) || {};
 
       nodeCache.set(RAIBLOCKSMC_LEADERBOARDS, leaderboards, EXPIRE_5M);
@@ -57,6 +56,6 @@ const getRaiblocksMCLeaderboards = async () => {
 };
 
 module.exports = {
-  getRaiblocksMCInfo, getRaiblocksMCLeaderboards
+  getRaiblocksMCInfo,
+  getRaiblocksMCLeaderboards,
 };
-

@@ -1,14 +1,13 @@
 import * as React from "react";
 
 export interface Leaderboards {
-  // define your statistic keys
   treasureHunt: TreasureHunt[];
   pvp: Pvp[];
   shops: Market[];
-  referral: Referral[]
+  referral: Referral[];
 }
 
-export interface Referral{
+export interface Referral {
   rank: number;
   player: String;
   playersReferred: number;
@@ -32,7 +31,7 @@ export interface Pvp {
 export interface Market {
   rank: number;
   shop: string;
-  numberOfTransactions: number,
+  numberOfTransactions: number;
   shopOwner: string;
   totalNanoReceived: number;
 }
@@ -54,7 +53,6 @@ const useRaiblocksMCLeaderboards = () => {
       });
       const json = await res.json();
       setLeaderboards(json);
-
     } catch (err) {
       setIsError(true);
     }

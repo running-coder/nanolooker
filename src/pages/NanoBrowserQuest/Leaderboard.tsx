@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Card, Row, Col, Pagination, Skeleton, Typography } from "antd";
-import Trophy, {fontSizeToRankMap} from "../GamesUtils/Trophy";
+import Trophy, { fontSizeToRankMap } from "components/Trophy";
 import chunk from "lodash/chunk";
 import useNanoBrowserQuestLeaderboard from "./hooks/use-nanobrowserquest-leaderboard";
 import { getLevel } from "./utils";

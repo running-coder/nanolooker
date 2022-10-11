@@ -105,8 +105,9 @@ const Banner: React.FC = () => {
               alt="RaiblocksMC"
               src={`/raiblocksmc/server-icon.svg`}
               style={{
-                height: "25px",
-                margin: "-1px 4px 4px -6px",
+                height: "18px",
+                margin: "2px 4px 4px -6px",
+                filter: "brightness(0) invert(1)",
               }}
             />{" "}
             RaiblocksMC

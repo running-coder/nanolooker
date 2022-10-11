@@ -1,7 +1,7 @@
 import * as React from "react";
 
 export interface Statistics {
-  serverStatus: String, // Server
+  serverStatus: String; // Server
   onlinePlayers: String[];
   playersRegistered: number;
   numberOfTransactions: number;
@@ -43,7 +43,6 @@ const useRaiblocksMCInfo = () => {
       });
       const json = await res.json();
       setStatistics(json);
-
     } catch (err) {
       setIsError(true);
     }

@@ -1,7 +1,6 @@
 import * as React from "react";
 import { TrophyTwoTone } from "@ant-design/icons";
 
-
 const Trophy: React.FC<{ rank: number }> = ({ rank }) => {
   let color: null | string = null;
   if (rank === 1) {
