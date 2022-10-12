@@ -469,6 +469,60 @@
         "title": "NanoBrowserQuest Guide"
       },
       "playerGuide": "Player's Guide"
+    },
+    "raiblocksmc": {
+      "playNow": "Play Now !",
+      "donatePrizePool": "Donate to RaiblocksMC prize pool",
+      "playRaiblocksMC": "Play RaiblocksMC",
+      "playersOnline": "Players online",
+      "gameDescription": "Join this minecraft server, to participate in a unique in-game economy allowing you to earn nano in several ways: sell your items to other players, go hunt hidden Nano Treasures, fight in a unique pvp game mode and a lot more...",
+      "leaderboards": "Leaderboards",
+      "rank": "Rank",
+      "player": "Player",
+      "kills": "Kills",
+      "earned": "Ӿ Earned",
+      "shop": "Shop",
+      "treasures": "Treasures",
+      "playersReferred": "Referrals",
+      "serverStatus": "Server status",
+      "onlinePlayers": "Players online",
+      "treasureHuntReward": "Current reward",
+      "treasureHuntResetIn": "Reset in",
+      "treasureHuntCoordinates": "Coordinates",
+      "treasureHuntTotalPayout": "Total Treasure Hunt payout",
+      "playersInPvpWorld": "Players",
+      "pvpWorldPlayerBounty": "Bounty",
+      "pvpWorldPlayerBountyAmount": "Bounty reward",
+      "pvpWorldTotalPayout": "Player revenues",
+      "playersRegistered": "Registered players",
+      "numberOfTransactions": "Transactions",
+      "activePlayers7d": "Active players (7d)",
+      "playerReferralsCount": "Referrals count",
+      "totalReferralsPayout": "Referrer revenues",
+      "numberOfShops": "Number of shops",
+      "numberOfItemsListed": "Items listed",
+      "numberOfItemsSold": "Items sold",
+      "totalShopRevenues": "Shop revenues",
+      "leaderboardTabs": {
+        "treasureHunt": "Treasure Hunt",
+        "pvp": "PvP",
+        "market": "Market",
+        "referral": "Referral"
+      },
+      "statsDividers": {
+        "server": "Server",
+        "treasure": "Treasure Hunt",
+        "pvp": "PvP World",
+        "referral": "Referral",
+        "market": "Market"
+      },
+      "tooltips": {
+        "treasure": "The Treasure is a chest hidden somewhere in the server that reward it's finder in Nano. The Treasure changes location every hour and by doing so increases it's reward by ",
+        "market": "The market is a simple interface accessible in game that let you access every items sold in player's shops so you can purchase the wanted item at the lowest price",
+        "pvp": "The PvpWorld allow players to wager for their survival against other players & allows you to receive other players join fee by killing them, currently",
+        "referral": "The server referral system allows you to receive a percentage of the server's profit on every transactions the players you invited are going to make (such as  plot claiming, shop taxes, vip purchase) and will reward the person invited with"
+      },
+      "whyDonate": "Donations will be used to fund future Treasure Hunts, create community events and assist me with server expenses."
     }
   }
 }

@@ -1,49 +1,53 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Card, Row, Col, Pagination, Skeleton, Typography } from "antd";
-import Trophy, { fontSizeToRankMap } from "components/Trophy";
 import chunk from "lodash/chunk";
-import useNanoBrowserQuestLeaderboard from "./hooks/use-nanobrowserquest-leaderboard";
-import { getLevel } from "./utils";
+import Trophy, { fontSizeToRankMap } from "components/Trophy";
 
-const { Text, Title } = Typography;
+import type { TreasureHunt } from "../hooks/use-raiblocksmc-leaderboards";
 
-const Leaderboard: React.FC = () => {
+const { Text } = Typography;
+
+interface Props {
+  treasureHuntLeaderboard: TreasureHunt[];
+}
+
+const TreasureHuntLeaderboard: React.FC<Props> = ({
+  treasureHuntLeaderboard,
+}) => {
   const { t } = useTranslation();
-  const { leaderboard, isLoading } = useNanoBrowserQuestLeaderboard();
-  const pageSize = 20;
+  const pageSize = 15;
   const [currentPage, setCurrentPage] = React.useState(1);
   const [paginatedTopScores, setPaginatedTopScores] = React.useState(
-    [] as any[][],
+    [] as TreasureHunt[][],
   );
 
   React.useEffect(() => {
-    setPaginatedTopScores(chunk(leaderboard, pageSize));
-  }, [leaderboard]);
+    setPaginatedTopScores(chunk(treasureHuntLeaderboard, pageSize));
+  }, [treasureHuntLeaderboard]);
 
   return (
     <>
-      <Title level={3}>{t("pages.nanobrowserquest.leaderboard")}</Title>
       <Card size="small" bordered={false} className="detail-layout">
         <Row gutter={12}>
-          <Col xs={3}>{t("pages.nanobrowserquest.rank")}</Col>
-          <Col xs={12}>{t("pages.nanobrowserquest.player")}</Col>
-          <Col xs={3}>{t("pages.nanobrowserquest.level")}</Col>
-          <Col xs={6}>{t("pages.nanobrowserquest.exp")}</Col>
+          <Col xs={4}>{t("pages.raiblocksmc.rank")}</Col>
+          <Col xs={10}>{t("pages.raiblocksmc.player")}</Col>
+          <Col xs={5}>{t("pages.raiblocksmc.treasures")}</Col>
+          <Col xs={5}>{t("pages.raiblocksmc.earned")}</Col>
         </Row>
-        {isLoading ? (
+        {!treasureHuntLeaderboard?.length ? (
           Array.from(Array(5).keys()).map(index => (
             <Row gutter={12} key={index}>
-              <Col xs={3}>
+              <Col xs={4}>
                 <Skeleton loading={true} paragraph={false} active />
               </Col>
-              <Col xs={12}>
+              <Col xs={10}>
                 <Skeleton loading={true} paragraph={false} active />
               </Col>
-              <Col xs={3}>
+              <Col xs={5}>
                 <Skeleton loading={true} paragraph={false} active />
               </Col>
-              <Col xs={6}>
+              <Col xs={5}>
                 <Skeleton loading={true} paragraph={false} active />
               </Col>
             </Row>
@@ -51,34 +55,34 @@ const Leaderboard: React.FC = () => {
         ) : (
           <>
             {paginatedTopScores[currentPage - 1]?.map(
-              ({ rank, player, exp, nanoPotions }) => (
+              ({ rank, player, numberOfTreasures, totalNanoReceived }) => (
                 <Row gutter={12} key={rank}>
-                  <Col xs={3}>
+                  <Col xs={4}>
                     <Text
                       style={{ fontSize: fontSizeToRankMap[rank] ?? "auto" }}
                     >
                       #{rank} <Trophy rank={rank} />
                     </Text>
                   </Col>
-                  <Col xs={12}>
+                  <Col xs={10}>
                     <Text
                       style={{ fontSize: fontSizeToRankMap[rank] ?? "auto" }}
                     >
                       {player}
                     </Text>
                   </Col>
-                  <Col xs={3}>
+                  <Col xs={5}>
                     <Text
                       style={{ fontSize: fontSizeToRankMap[rank] ?? "auto" }}
                     >
-                      {getLevel(exp)}
+                      {numberOfTreasures}
                     </Text>
                   </Col>
-                  <Col xs={6}>
+                  <Col xs={5}>
                     <Text
                       style={{ fontSize: fontSizeToRankMap[rank] ?? "auto" }}
                     >
-                      {exp}
+                      Ӿ {totalNanoReceived}
                     </Text>
                   </Col>
                 </Row>
@@ -89,7 +93,7 @@ const Leaderboard: React.FC = () => {
                 <Pagination
                   size="small"
                   {...{
-                    total: leaderboard.length,
+                    total: treasureHuntLeaderboard.length,
                     pageSize,
                     current: currentPage,
                     disabled: false,
@@ -108,4 +112,4 @@ const Leaderboard: React.FC = () => {
   );
 };
 
-export default Leaderboard;
+export default TreasureHuntLeaderboard;
