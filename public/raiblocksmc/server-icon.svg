@@ -1,43 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">  <image id="image0" width="32" height="32" x="0" y="0"
-    href="data:image/png;base64,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
-AAAASUVORK5CYII=" />
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+ "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="64.000000pt" height="64.000000pt" viewBox="0 0 64.000000 64.000000"
+ preserveAspectRatio="xMidYMid meet">
+<metadata>
+Created by potrace 1.16, written by Peter Selinger 2001-2019
+</metadata>
+<g transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M192 549 l-122 -72 0 -158 0 -158 124 -70 c68 -39 129 -71 136 -71 7
+0 68 32 136 71 l124 70 0 159 0 158 -124 71 c-68 39 -129 71 -137 71 -8 0 -69
+-32 -137 -71z m251 -23 l109 -63 -38 -24 -37 -23 -74 40 -74 39 -67 -37 -68
+-37 -44 20 -45 20 80 46 c44 25 94 54 110 64 17 10 32 19 35 19 3 0 54 -29
+113 -64z m-273 -221 l0 -94 75 -41 c71 -39 75 -43 75 -77 0 -19 -4 -33 -8 -31
+-4 2 -56 30 -115 63 l-107 60 0 128 0 127 40 -20 40 -20 0 -95z m400 3 l0
+-123 -110 -63 c-60 -34 -112 -62 -115 -62 -3 0 -5 15 -5 34 0 33 4 37 75 76
+l75 41 0 89 0 88 33 20 c17 11 35 21 40 21 4 1 7 -54 7 -121z"/>
+</g>
 </svg>
