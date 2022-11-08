@@ -16,8 +16,11 @@ const setRepresentatives = async ({ metrics, peers }) => {
   const representatives = {};
 
   try {
-    const { node_vendor } = await rpc("version");
-    const version = parseInt(node_vendor.replace(/[^\d.]/g, ""));
+    const response = await rpc("version");
+    const [, major, minor, patch = 0] = /(\d+).(\d+)(\.\d+)?/.exec(
+      response.node_vendor,
+    );
+    const version = parseInt(`${major}${minor}${patch}`);
 
     peers
       .map(peer => {
