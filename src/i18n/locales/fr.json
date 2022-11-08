@@ -186,7 +186,7 @@
       "viewTransactions": "Voir les transactions",
       "missingAccount": "Compte manquant",
       "missingAccountInfo": "Le compte n'est pas spécifié dans l'URL. Utilisez la barre de recherche pour rechercher un compte ou ajoutez-le dans l'URL après /account/",
-      "notVoting": "Ne pas voter",
+      "notVoting": "Ne vote pas",
       "pendingTransactions": "Transactions prêtes à être reçues",
       "pendingTransaction": "Transaction prête à être reçue",
       "dailyBalanceOption": " Solde journalier",
