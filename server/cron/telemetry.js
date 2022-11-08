@@ -190,10 +190,9 @@ const calculateAverage = (values, percentile) => {
 cron.schedule("*/10 * * * *", async () => {
   if (process.env.NODE_ENV !== "production") return;
 
-  // @NOTE Telemetry is not available on Banano
-  // doTelemetryCron();
+     doTelemetryCron();
 });
 
-// if (process.env.NODE_ENV === "production") {
-//   doTelemetryCron();
-// }
+if (process.env.NODE_ENV === "production") {
+     doTelemetryCron();
+}
