@@ -112,8 +112,12 @@
     "account": "nano_1o5rr464r8bgu4h3jnt5yn4a6tbd5shbbpwk6aj6sunf8dzdpmke6q4tgtkj"
   },
   {
-    "alias": "Bitvavo",
+    "alias": "Bitvavo Hot Wallet",
     "account": "nano_3wat6ci5a55s895eec64i4ihfd9ry3bdxnpb776mj1srjedqfdf4k11rcmg4"
+  },
+  {
+    "alias": "Bitvavo Cold Wallet",
+    "account": "nano_1pkmwnxufbbigr4mpn7b8oxdsfw4kymodu3nyri13wf1kaqetwaeoogdgphb"
   },
   {
     "alias": "Flowhub",
