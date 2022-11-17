@@ -17,13 +17,16 @@ interface Props {
 const Bookmark: React.FC<Props> = ({ type, bookmark, placement = "top" }) => {
   const { t } = useTranslation();
   const { theme } = React.useContext(PreferencesContext);
-  const { bookmarks, addBookmark, removeBookmark } = React.useContext(
-    BookmarksContext,
-  );
+  const { bookmarks, addBookmark, removeBookmark } =
+    React.useContext(BookmarksContext);
   const [isOpened, setIsOpened] = React.useState(false);
   const [isBookmarked, setIsBookmarked] = React.useState(false);
   const [alias, setAlias] = React.useState(bookmarks?.[type]?.[bookmark]);
   const inputRef = React.createRef<InputRef>();
+
+  React.useEffect(() => {
+    setAlias(bookmarks?.[type]?.[bookmark]);
+  }, [bookmarks, bookmark, type]);
 
   const onChange = (e: React.ChangeEventHandler<HTMLInputElement>) => {
     // @ts-ignore

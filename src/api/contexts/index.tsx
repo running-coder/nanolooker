@@ -20,8 +20,8 @@ const IndexProvider: React.FC = ({ children }) => {
     <PreferencesProvider>
       <MarketStatisticsProvider>
         <NodeStatusProvider>
-          <KnownAccountsProvider>
-            <BookmarksProvider>
+          <BookmarksProvider>
+            <KnownAccountsProvider>
               <AccountInfoProvider>
                 <AccountHistoryFilterProvider>
                   <BlockInfoProvider>
@@ -43,8 +43,8 @@ const IndexProvider: React.FC = ({ children }) => {
                   </BlockInfoProvider>
                 </AccountHistoryFilterProvider>
               </AccountInfoProvider>
-            </BookmarksProvider>
-          </KnownAccountsProvider>
+            </KnownAccountsProvider>
+          </BookmarksProvider>
         </NodeStatusProvider>
       </MarketStatisticsProvider>
     </PreferencesProvider>
