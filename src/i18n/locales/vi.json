@@ -94,7 +94,7 @@
     "onChainVolume": "Tổng của tất cả các giao dịch NANO đã được xác nhận trên mạng. Nếu người dùng A gửi 1 NANO và người dùng B nhận được 1 NANO trong cùng một ngày, thì 2 NANO sẽ được thêm vào khối lượng hàng ngày vì 2 giao dịch đã được phát và xác nhận, một gửi và một nhận.",
     "pendingTransactionCount": "Số lượng giao dịch phải thu vượt quá giới hạn hiển thị là {{count}}.",
     "pendingTransaction": "Tiền đã được gửi đến tài khoản này nhưng chủ sở hữu vẫn chưa bỏ túi tiền. Chỉ chủ sở hữu tài khoản mới có thể ghi giao dịch đã nhận vào blockchain của họ. Nếu đây là tài khoản của bạn, hãy mở khóa ví của bạn, khối nhận thường được phát tự động.",
-    "socialStatistics": "Thống kê được tổng hợp bằng cách sử dụng 100 loại tiền điện tử hàng đầu theo vốn hóa thị trường từ CoinGecko.",
+    "socialStatistics": "Thống kê được tổng hợp bằng cách sử dụng 200 loại tiền điện tử hàng đầu theo vốn hóa thị trường từ CoinGecko.",
     "dailyBalance": "Biểu đồ giao dịch chỉ hiển thị nếu tài khoản có dữ liệu hơn 1 ngày và nếu các giao dịch có dấu thời gian",
     "senderFilter": "Lọc các khối để chỉ bao gồm hoặc loại trừ tất cả các giao dịch gửi từ một địa chỉ cụ thể. Để lọc nhiều địa chỉ, hãy phân tách chúng bằng dấu phẩy.",
     "receiverFilter": "Lọc các khối để chỉ bao gồm hoặc loại trừ tất cả các giao dịch gửi từ một địa chỉ cụ thể. Để lọc nhiều địa chỉ, hãy phân tách chúng bằng dấu phẩy.",

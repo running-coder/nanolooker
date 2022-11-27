@@ -94,7 +94,7 @@
     "onChainVolume": "La somma di tutte le transazioni NANO che sono state confermate sulla rete. Se l'utente A invia 1 NANO e l'utente B riceve 1 NANO nello stesso giorno, verranno aggiunti 2 NANO nel volume giornaliero perché sono state trasmesse e confermate 2 transazioni, una di invio e una di ricezione.",
     "pendingTransactionCount": "Il numero di transazioni ricevibili supera il limite visualizzato di {{count}}.",
     "pendingTransaction": "I fondi sono stati inviati a questo conto ma il proprietario non ha ancora intascato i fondi. Solo il proprietario dell'account può scrivere una transazione ricevuta nella propria blockchain. Se questo è il tuo account, sblocca il tuo portafoglio, il blocco di ricezione viene solitamente trasmesso automaticamente.",
-    "socialStatistics": "Le statistiche vengono compilate utilizzando le prime 100 criptovalute per capitalizzazione di mercato di CoinGecko.",
+    "socialStatistics": "Le statistiche vengono compilate utilizzando le prime 200 criptovalute per capitalizzazione di mercato di CoinGecko.",
     "dailyBalance": "Il grafico delle transazioni è visibile solo se l'account ha più di 1 giorno di dati e se le transazioni hanno timestamp",
     "senderFilter": "Filtra i blocchi per includere o escludere solo tutte le transazioni di invio da un indirizzo specifico. Per filtrare più indirizzi, separali con una virgola.",
     "receiverFilter": "Filtra i blocchi per includere o escludere solo tutte le transazioni di invio da un indirizzo specifico. Per filtrare più indirizzi, separali con una virgola.",

@@ -94,7 +94,7 @@
     "versionsByWeight": "Aby wersja przejęła konsensus sieci, musi mieć {{onlineWeightQuorumPercent}}% wagi głosów online z co najmniej {{onlineWeightMinimum}} NANO.",
     "onChainVolume": "Suma wszystkich transakcji NANO, które zostały potwierdzone w sieci. Jeśli użytkownik A wyśle 1 NANO, a użytkownik B otrzyma 1 NANO tego samego dnia, 2 NANO zostaną dodane do dziennego wolumenu, ponieważ 2 transakcje zostały wyemitowane i potwierdzone, wysłanie i odbiór.",
     "pendingTransaction": "Środki zostały wysłane na to konto, ale właściciel jeszcze ich nie przejął. Tylko właściciel konta może zapisać otrzymaną transakcję w swoim łańcuchu bloków. Jeśli to jest twoje konto, odblokuj portfel, blokada odbioru jest zwykle automatycznie transmitowana.",
-    "socialStatistics": "Statystyki są kompilowane przy użyciu 100 najlepszych kryptowalut według kapitalizacji rynkowej z CoinGecko.",
+    "socialStatistics": "Statystyki są kompilowane przy użyciu 200 najlepszych kryptowalut według kapitalizacji rynkowej z CoinGecko.",
     "dailyBalance": "Wykres transakcji jest widoczny tylko wtedy, gdy konto ma więcej niż 1 dzień danych i jeśli transakcje mają znaczniki czasu",
     "senderFilter": "Filtruj bloki, aby uwzględnić lub wykluczyć wszystkie transakcje wysyłania z określonego adresu. Aby filtrować wiele adresów, oddziel je przecinkami.",
     "receiverFilter": "Filtruj bloki, aby uwzględnić lub wykluczyć wszystkie transakcje wysyłania z określonego adresu. Aby filtrować wiele adresów, oddziel je przecinkami.",
