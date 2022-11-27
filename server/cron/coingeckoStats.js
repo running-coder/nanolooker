@@ -126,7 +126,7 @@ const getMarketCapStats = async () => {
   await mkdir(LOGO_PATH, { recursive: true });
 
   const ids = [];
-  const top = process.env.NODE_ENV === "production" ? 100 : 10;
+  const top = process.env.NODE_ENV === "production" ? 200 : 10;
 
   try {
     let res = await fetch(
@@ -228,9 +228,9 @@ const getMarketCapStats = async () => {
 
         // CoinGecko rate limit is 10 calls per seconds
         if (i && !(i % 10)) {
-          await sleep(10000);
+          await sleep(15000);
         } else {
-          await sleep(process.env.NODE_ENV === "production" ? 2000 : 150);
+          await sleep(process.env.NODE_ENV === "production" ? 3000 : 150);
         }
       }
 
