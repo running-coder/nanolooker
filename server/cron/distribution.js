@@ -147,6 +147,10 @@ const getDistribution = async () => {
       );
 
       const richList = {};
+      // @NOTE Temporary account prefix to track for Arthur
+      const addressToTrack1 = "nano_1d8nqmfbfgrwgz4ei9gqtghj3edzenod1dht7m71c";
+      const addressToTrack2 =
+        "nano_348oxjkniaj6e7kxam1rztjbmokyadxgiqjbqyfw4pnp8d4zn37p4m";
 
       await Promise.all(
         Object.entries(balances).map(
@@ -154,6 +158,14 @@ const getDistribution = async () => {
             const balance = rawToRai(rawBalance);
             const pending = rawToRai(rawPending);
             const total = new BigNumber(balance).plus(pending).toNumber();
+
+            if (
+              account.startsWith(addressToTrack1) ||
+              account.startsWith(addressToTrack2)
+            ) {
+              richList[account] = total;
+              return;
+            }
 
             if (total < MIN_TOTAL) return;
 
@@ -248,11 +260,8 @@ const doDistributionCron = async () => {
     const startTime = new Date();
     console.log("Distribution cron started");
 
-    const {
-      distribution,
-      dormantFunds,
-      knownExchanges,
-    } = await getDistribution();
+    const { distribution, dormantFunds, knownExchanges } =
+      await getDistribution();
 
     fs.writeFileSync(DISTRIBUTION_PATH, JSON.stringify(distribution, null, 2));
     fs.writeFileSync(DORMANT_FUNDS_PATH, JSON.stringify(dormantFunds, null, 2));
