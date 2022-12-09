@@ -42,7 +42,9 @@
     "statistics": "統計",
     "continue": "継続する",
     "link": "リンク",
-    "noData": "データなし"
+    "noData": "データなし",
+    "include": "含む",
+    "exclude": "除外"
   },
   "nodeHealth": {
     "nodeReloading": "Bananoノードがリロードしています",
@@ -90,7 +92,13 @@
     "mnano": "Mnanoは、ウォレット、取引所、サービスで使用されている現在の標準部門です。 1NANOと呼ばれます。",
     "versionsByWeight": "ネットワークのコンセンサスを引き継ぐバージョンの場合、最小の{{onlineWeightMinimum}} BANANOからのオンライン投票の重みの67％が必要です。",
     "onChainVolume": "ネットワーク上で確認されたすべての BANANO トランザクションの合計。ユーザー A が同じ日に 1 つの BANANO を送信し、ユーザー B が 1 つの BANANO を受信した場合、2 つのトランザクションがブロードキャストおよび確認されたため、1 日のボリュームに 2 つの BANANO が追加されます。",
-    "oneBanEqualsOneDoge": "Bananoの時価総額がDogeの時価総額と等しい場合、私たちのドージミームコインブラザーチェーンとの楽しい比較。"
+    "oneBanEqualsOneDoge": "Bananoの時価総額がDogeの時価総額と等しい場合、私たちのドージミームコインブラザーチェーンとの楽しい比較。",
+    "pendingTransaction": "資金はこの口座に送金されましたが、所有者はまだ資金をポケットに入れていません。アカウントの所有者のみが、受け取ったトランザクションをブロックチェーンに書き込むことができます。これがあなたのアカウントの場合、ウォレットのロックを解除すると、受信ブロックは通常自動的にブロードキャストされます。",
+    "socialStatistics": "統計は、CoinGecko の時価総額上位 200 の暗号通貨を使用してまとめられています。",
+    "dailyBalance": "アカウントに 1 日以上のデータがあり、トランザクションにタイムスタンプがある場合にのみ、トランザクション チャートが表示されます。",
+    "senderFilter": "ブロックをフィルタリングして、特定のアドレスからのすべての送信トランザクションのみを含めるか除外します。複数のアドレスをフィルタリングするには、カンマで区切ります。",
+    "receiverFilter": "ブロックをフィルタリングして、特定のアドレスからのすべての送信トランザクションのみを含めるか除外します。複数のアドレスをフィルタリングするには、カンマで区切ります。",
+    "filterTransactions": "確認済みトランザクションが 5,000 以下のアカウントのみをフィルタリングできます"
   },
   "search": {
     "searchBy": "アドレス/ブロック/既知のアカウントで検索",
@@ -163,7 +171,10 @@
       "waitingForTransactions": "トランザクションを待っています",
       "connectingToBlockchain": "BANANOブロックチェーンに接続する",
       "reconnectingToBlockchain": "切断され、BANANOブロックチェーンに再接続されます",
-      "oneBanEqualsOneDoge": "1禁止= 1ドージの場合はどうなりますか？"
+      "oneBanEqualsOneDoge": "1禁止= 1ドージの場合はどうなりますか？",
+      "cpsLocal": "ローカル ノードで観測された CPS",
+      "cpsNetwork": "いくつかの代表的なノードの CPS 中央値",
+      "viewSocialEngagement": "ソーシャルエンゲージメントを見る"
     },
     "account": {
       "votingWeight": "投票の重み",
@@ -182,7 +193,29 @@
       "pendingTransaction": "トランザクションを受信する準備ができました",
       "dailyBalanceOption": " 毎日のバランス",
       "byTransactionOption": "取引ごとの残高",
-      "dailyBalance": "最後の{{count}}トランザクション"
+      "dailyBalance": "最後の{{count}}トランザクション",
+      "dateRange": "日付範囲",
+      "includeNoTimestamp": "日付のないブロックを含める",
+      "excludeUnknownAccounts": "既知のアカウントからのブロックのみを表示",
+      "advancedOptions": "高度なオプション",
+      "applyFilters": "フィルターを適用する",
+      "fields": "田畑",
+      "delimiter": "デリミタ",
+      "delimiterComma": "コンマ",
+      "delimiterSemicolon": "セミコロン",
+      "delimiterTab": "タブ",
+      "delimiterSpace": "スペース",
+      "delimiterPipe": "パイプ",
+      "fileName": "ファイル名",
+      "minimum": "最小",
+      "maximum": "最大",
+      "from": "から",
+      "to": "に",
+      "startDate": "開始日",
+      "endDate": "終了日",
+      "exportToCsv": "CSVにエクスポート",
+      "export": "書き出す",
+      "exportTransactions": "{{count}} 件のトランザクションを CSV にエクスポート"
     },
     "block": {
       "blockSubtype": "ブロックサブタイプ",
@@ -199,7 +232,11 @@
       "missingBlock": "ブロックがありません",
       "missingBlockInfo": "ブロックがURLで指定されていません。上部の検索バーを使用してブロックを検索するか、URLの /block/ の後に追加します",
       "blockNotFound": "ブロックが見つかりません",
-      "blockNotFoundInfo": "リクエストしたブロックが見つかりません。ブロックがBananoネットワーク上に存在するが、ノードによってまだ認識されていない可能性があります。正しいブロックを検索していることを確認するか、後で再試行してください。"
+      "blockNotFoundInfo": "リクエストしたブロックが見つかりません。ブロックがBananoネットワーク上に存在するが、ノードによってまだ認識されていない可能性があります。正しいブロックを検索していることを確認するか、後で再試行してください。",
+      "successorBlock": "後続ブロック",
+      "matchingSendBlock": "一致する送信ブロック",
+      "noMatchingSendBlock": "一致するブロックが見つかりません",
+      "lastAccountBlock": "このブロックはアカウントの最新のものです"
     },
     "representatives": {
       "voteDistribution": "投票の分配",
@@ -241,12 +278,12 @@
       "account": "エイリアスに関連付ける「nano_」アカウントを入力します",
       "registerNote": "次のステップでは、登録されている「nano_」アカウントからトランザクションを送信するように求められます",
       "invalidAccount": "無効なアカウント",
-      "waitingNote": "あなたのエイリアスは、あなたが登録しているアカウントからNanoLookerの寄付にӾ1を送信した後、それがあなたのものであることを確認するために登録されます。",
+      "waitingNote": "あなたのエイリアスは、あなたが登録しているアカウントからNanoLookerの寄付にBAN1を送信した後、それがあなたのものであることを確認するために登録されます。",
       "registerErrorTaken": "このアカウントのエイリアスはすでに登録されています",
       "registerError": "登録を完了できません",
       "waitingForTransaction": "トランザクションを待っています",
       "viewAccount": "アカウントをみる",
-      "sendFrom": "からӾ{{amount}}を送信します",
+      "sendFrom": "からBAN{{amount}}を送信します",
       "sendTo": "に"
     },
     "largeTransactions": {
@@ -267,7 +304,9 @@
       "unknownDormantFunds": "不明な休眠資金",
       "dormantFundsQuarterExample": "50個のBANANOと50個の保留中のBANANOを保持するアカウントは、6か月前（2四半期）に最後に取引され、残りの100個のBANANOが次の四半期の合計に「休止」として追加されます。",
       "dormantBanano": "眠っているBANANO",
-      "ofAvailableSupply": "利用可能な供給の"
+      "ofAvailableSupply": "利用可能な供給の",
+      "dormantNano": "バナナ休眠",
+      "richList": "リッチリスト"
     },
     "news": {
       "allFeeds": "すべてのフィード",
@@ -309,11 +348,13 @@
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0>ノードの帯域幅制限は<1>{{limitedBandwidthCap}}</1>です。",
       "nodeVersions": "ノードバージョン",
       "latestVersion": "最新バージョン",
-      "database": "データベース"
+      "database": "データベース",
+      "versionsByWeight": "投票の重みによるバージョン"
     },
     "exchangeTracker": {
       "description": "Bananoが取引されている最も人気のある取引所の口座残高を毎日取得します。この測定値は、ネットワーク上の動きや変動を分析するために使用できます。",
-      "totalSelected": "選択した取引所の合計残高"
+      "totalSelected": "選択した取引所の合計残高",
+      "selectedWallets": "厳選されたウォレット"
     },
     "preferences": {
       "description": "すべてのセクションの設定を管理します。プリファレンスはブラウザに保存されます。データをクリアすると、プリファレンスはデフォルトに戻ります。",
@@ -396,6 +437,18 @@
       "nanoPotions": "ナノポーション",
       "guide": {
         "title": "BananoBrowserQuestガイド"
+      },
+      "playerGuide": "プレイヤーズガイド"
+    },
+    "statistics": {
+      "social": {
+        "title": "暗号通貨のソーシャル エンゲージメント / 時価総額 10 億ドル",
+        "redditSubscribers": "10 億ドルあたりの Reddit サブスクライバー数",
+        "twitterFollowers": "10 億ドルあたりの Twitter フォロワー数",
+        "githubStars": "10 億ドルあたりの Github スターの数",
+        "engagementPerBillion": "10 億ドルあたりのエンゲージメント",
+        "marketCap": "時価総額",
+        "totalEngagement": "トータルエンゲージメント"
       }
     }
   }

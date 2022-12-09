@@ -42,7 +42,9 @@
     "statistics": "Statistiques",
     "continue": "Continuer",
     "link": "Lien",
-    "noData": "Pas de données"
+    "noData": "Pas de données",
+    "include": "Inclure",
+    "exclude": "Exclure"
   },
   "nodeHealth": {
     "nodeReloading": "Le nœud Banano est en cours de rechargement",
@@ -90,7 +92,13 @@
     "mnano": "Mnano est la division standard actuelle utilisée dans les portefeuilles, sur les échanges et les services. Il est appelé 1 BANANO.",
     "versionsByWeight": "Pour qu'une version reprenne le consensus du réseau, elle doit avoir {{onlineWeightQuorumPercent}}% du poids du vote en ligne sur un minimum de {{onlineWeightMinimum}} BANANO.",
     "onChainVolume": "La somme de toutes les transactions BANANO qui ont été confirmées sur le réseau. Si l'utilisateur A envoie 1 BANANO et que l'utilisateur B reçoit 1 BANANO le même jour, 2 BANANO seront ajoutés au volume quotidien car 2 transactions ont été diffusées et confirmées, un envoi et une réception.",
-    "oneBanEqualsOneDoge": "Comparaison amusante avec notre chaîne de frère de pièce de monnaie doge meme, si la capitalisation boursière de Banano était égale à celle de Doge."
+    "oneBanEqualsOneDoge": "Comparaison amusante avec notre chaîne de frère de pièce de monnaie doge meme, si la capitalisation boursière de Banano était égale à celle de Doge.",
+    "pendingTransaction": "Les fonds ont été envoyés sur ce compte mais le propriétaire n'a pas encore empoché les fonds. Seul le propriétaire du compte peut écrire une transaction reçue dans sa blockchain. S'il s'agit de votre compte, déverrouillez votre portefeuille, le bloc de réception est généralement automatiquement diffusé.",
+    "socialStatistics": "Les statistiques sont compilées à l'aide des 200 principales crypto-monnaies par capitalisation boursière de CoinGecko.",
+    "dailyBalance": "Le graphique des transactions n'est visible que si le compte a plus d'un jour de données et si les transactions ont des horodatages",
+    "senderFilter": "Filtrez les blocs pour inclure uniquement ou exclure toutes les transactions d'envoi à partir d'une adresse spécifique. Pour filtrer plusieurs adresses, séparez-les par une virgule.",
+    "receiverFilter": "Filtrez les blocs pour inclure uniquement ou exclure toutes les transactions d'envoi à partir d'une adresse spécifique. Pour filtrer plusieurs adresses, séparez-les par une virgule.",
+    "filterTransactions": "Seuls les comptes avec un nombre égal ou inférieur à 5 000 transactions confirmées peuvent être filtrés"
   },
   "search": {
     "searchBy": "Recherche par Adresse / Bloc / Compte Connu",
@@ -163,7 +171,10 @@
       "waitingForTransactions": "En attente de nouvelles transactions",
       "connectingToBlockchain": "Connexion à la blockchain BANANO",
       "reconnectingToBlockchain": "Déconnecté, reconnection en cours à la blockchain BANANO",
-      "oneBanEqualsOneDoge": "Et si 1 Ban = 1 Doge?"
+      "oneBanEqualsOneDoge": "Et si 1 Ban = 1 Doge?",
+      "cpsLocal": "CPS observé sur le nœud local",
+      "cpsNetwork": "CPS médian sur plusieurs nœuds représentatifs",
+      "viewSocialEngagement": "Voir l'engagement social"
     },
     "account": {
       "votingWeight": "Poids du vote",
@@ -177,12 +188,34 @@
       "notOpenedYetReason": "Bien que l'adresse du compte soit valide, aucun bloc n'a encore été publié dans sa chaîne. Si BANANO a été envoyé sur ce compte, il doit encore publier un bloc correspondant pour empocher les fonds.",
       "missingAccount": "Compte manquant",
       "missingAccountInfo": "Le compte n'est pas spécifié dans l'URL. Utilisez la barre de recherche pour rechercher un compte ou ajoutez-le dans l'URL après /account/",
-      "notVoting": "Ne pas voter",
+      "notVoting": "Ne vote pas",
       "pendingTransactions": "Transactions prêtes à être reçues",
       "pendingTransaction": "Transaction prête à être reçue",
       "dailyBalanceOption": " Solde journalier",
       "byTransactionOption": "Solde par transaction",
-      "dailyBalance": "{{count}} dernières transactions"
+      "dailyBalance": "{{count}} dernières transactions",
+      "dateRange": "Plage de dates",
+      "includeNoTimestamp": "Inclure les blocs sans date",
+      "excludeUnknownAccounts": "Afficher uniquement les blocs des comptes connus",
+      "advancedOptions": "Options avancées",
+      "applyFilters": "Appliquer des filtres",
+      "fields": "Des champs",
+      "delimiter": "Délimiteur",
+      "delimiterComma": "Virgule",
+      "delimiterSemicolon": "Point-virgule",
+      "delimiterTab": "Languette",
+      "delimiterSpace": "Espace",
+      "delimiterPipe": "Tuyau",
+      "fileName": "Nom de fichier",
+      "minimum": "Le minimum",
+      "maximum": "Maximum",
+      "from": "De",
+      "to": "À",
+      "startDate": "Date de début",
+      "endDate": "Date de fin",
+      "exportToCsv": "Exporter vers CSV",
+      "export": "Exporter",
+      "exportTransactions": "Exporter {{count}} transactions vers CSV"
     },
     "block": {
       "blockSubtype": "Sous-type de bloc",
@@ -199,7 +232,11 @@
       "missingBlock": "Bloc manquant",
       "missingBlockInfo": "Le bloc n'est pas spécifié dans l'URL. Utilisez la barre de recherche pour rechercher un bloc ou ajoutez-le dans l'URL après /block/",
       "blockNotFound": "Bloc non trouvé",
-      "blockNotFoundInfo": "Le bloc que vous avez demandé est introuvable. Il est possible que le bloc soit présent sur le réseau Banano mais n'ait pas encore été vu par le nœud. Assurez-vous que vous recherchez le bon bloc ou réessayez plus tard."
+      "blockNotFoundInfo": "Le bloc que vous avez demandé est introuvable. Il est possible que le bloc soit présent sur le réseau Banano mais n'ait pas encore été vu par le nœud. Assurez-vous que vous recherchez le bon bloc ou réessayez plus tard.",
+      "successorBlock": "Bloc successeur",
+      "matchingSendBlock": "Bloc d'envoi correspondant",
+      "noMatchingSendBlock": "Aucun bloc correspondant trouvé",
+      "lastAccountBlock": "Ce bloc est le plus récent sur le compte"
     },
     "representatives": {
       "voteDistribution": "Répartition des votes",
@@ -241,12 +278,12 @@
       "account": "Saisissez un compte \"nano_\" à associer à l'alias",
       "registerNote": "À l'étape suivante, il vous sera demandé d'envoyer une transaction à partir du compte \"nano_\" en cours d'enregistrement",
       "invalidAccount": "Compte invalide",
-      "waitingNote": "Votre alias sera enregistré après l'envoi de Ӿ1 à NanoLooker depuis le compte que vous enregistrez pour confirmer qu'il vous appartient.",
+      "waitingNote": "Votre alias sera enregistré après l'envoi de BAN1 à NanoLooker depuis le compte que vous enregistrez pour confirmer qu'il vous appartient.",
       "registerErrorTaken": "Un alias pour ce compte est déjà enregistré",
       "registerError": "Impossible de terminer l'inscription",
       "waitingForTransaction": "En attente de transaction",
       "viewAccount": "Voir le compte",
-      "sendFrom": "Envoyer Ӿ{{montant}} de",
+      "sendFrom": "Envoyer BAN{{montant}} de",
       "sendTo": "À"
     },
     "largeTransactions": {
@@ -267,7 +304,9 @@
       "unknownDormantFunds": "Fonds dormants inconnus",
       "dormantFundsQuarterExample": "Un compte qui détient 50 BANANO et 50 BANANO en attente ont effectué la dernière transaction il y a 6 mois (2 trimestres), un solde de 100 BANANO est ajouté comme «dormant» au total du trimestre suivant.",
       "dormantBanano": "BANANO dormant",
-      "ofAvailableSupply": "de l'offre disponible"
+      "ofAvailableSupply": "de l'offre disponible",
+      "dormantNano": "Banane dormante",
+      "richList": "Liste enrichie"
     },
     "news": {
       "allFeeds": "Tous les flux",
@@ -309,11 +348,13 @@
       "limitedBandwidthCap": "Les nœuds <0>{{limitedBandwidthCapCount}}</0> ont une limite de bande passante de <1>{{limitedBandwidthCap}}</1>.",
       "nodeVersions": "Versions des nœuds",
       "latestVersion": "Dernière version",
-      "database": "Base de données"
+      "database": "Base de données",
+      "versionsByWeight": "Versions par poids de vote"
     },
     "exchangeTracker": {
       "description": "Chaque jour, une capture du solde des comptes des plateformes d'échanges les plus populaires où Banano est négocié est pris. Cette mesure peut permettre d'analyser les mouvements et fluctuations sur le réseau.",
-      "totalSelected": "Solde total des échanges sélectionnés"
+      "totalSelected": "Solde total des échanges sélectionnés",
+      "selectedWallets": "Portefeuilles sélectionnés"
     },
     "preferences": {
       "description": "Gérez vos préférences pour chaque section. Les préférences sont stockées sur le navigateur, si vous effacez vos données, vos préférences seront rétablies par défaut.",
@@ -396,6 +437,18 @@
       "nanoPotions": "NANO-potions",
       "guide": {
         "title": "Guide NanoBrowserQuest"
+      },
+      "playerGuide": "Guide du joueur"
+    },
+    "statistics": {
+      "social": {
+        "title": "Engagement social des crypto-monnaies / 1 milliard de dollars de capitalisation boursière",
+        "redditSubscribers": "Nombre d'abonnés Reddit par milliard de dollars",
+        "twitterFollowers": "Nombre d'abonnés Twitter par milliard de dollars",
+        "githubStars": "Nombre d'étoiles Github par milliard de dollars",
+        "engagementPerBillion": "Engagement par milliard de dollars",
+        "marketCap": "Capitalisation boursière",
+        "totalEngagement": "Engagement total"
       }
     }
   }

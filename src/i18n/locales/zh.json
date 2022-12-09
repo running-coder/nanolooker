@@ -42,7 +42,9 @@
     "statistics": "统计数据",
     "continue": "继续",
     "link": "关联",
-    "noData": "没有数据"
+    "noData": "没有数据",
+    "include": "包括",
+    "exclude": "排除"
   },
   "nodeHealth": {
     "nodeReloading": "纳米节点正在重新加载",
@@ -90,7 +92,13 @@
     "mnano": "Mnano是目前用于钱包，交易所和服务的标准部门。它被称为1 BANANO。",
     "versionsByWeight": "为了使版本能够取代网络的共识，它需要至少具有{{onlineWeightMinimum}} BANANO的67％的在线投票权。",
     "onChainVolume": "网络上已确认的所有 BANANO 交易的总和。如果用户 A 发送 1 个 BANANO，用户 B 在同一天收到 1 个 BANANO，那么每天的交易量会增加 2 个 BANANO，因为 2 个交易被广播和确认，一个发送和一个接收。",
-    "oneBanEqualsOneDoge": "如果Banano的市值与Doge相等，可以与我们的doge meme投币式兄弟连锁店进行有趣的比较。"
+    "oneBanEqualsOneDoge": "如果Banano的市值与Doge相等，可以与我们的doge meme投币式兄弟连锁店进行有趣的比较。",
+    "pendingTransaction": "资金已发送到此帐户，但所有者尚未将资金收入囊中。只有账户所有者才能将收到的交易写入他们的区块链。如果这是你的账户，解锁你的钱包，接收区块通常会自动广播。",
+    "socialStatistics": "统计数据是使用 CoinGecko 的市值排名前 200 的加密货币编制的。",
+    "dailyBalance": "交易图表只有在账户有超过 1 天的数据并且交易有时间戳时才可见",
+    "senderFilter": "过滤块以仅包含或排除来自特定地址的所有发送交易。要过滤多个地址，请用逗号分隔它们。",
+    "receiverFilter": "过滤块以仅包含或排除来自特定地址的所有发送交易。要过滤多个地址，请用逗号分隔它们。",
+    "filterTransactions": "只能过滤确认交易等于或少于 5,000 笔的账户"
   },
   "search": {
     "searchBy": "按地址/阻止/已知帐户搜索",
@@ -163,7 +171,10 @@
       "waitingForTransactions": "等待交易",
       "connectingToBlockchain": "连接到BANANO区块链",
       "reconnectingToBlockchain": "断开连接，重新连接到BANANO区块链",
-      "oneBanEqualsOneDoge": "如果1个禁令= 1个总督该怎么办？"
+      "oneBanEqualsOneDoge": "如果1个禁令= 1个总督该怎么办？",
+      "cpsLocal": "在本地节点上观察到的 CPS",
+      "cpsNetwork": "多个代表性节点的 CPS 中值",
+      "viewSocialEngagement": "查看社交参与"
     },
     "account": {
       "votingWeight": "投票权重",
@@ -182,7 +193,29 @@
       "pendingTransaction": "交易准备好接收",
       "dailyBalanceOption": " 每日余额",
       "byTransactionOption": "交易余额",
-      "dailyBalance": "最后 {{count}} 笔交易"
+      "dailyBalance": "最后 {{count}} 笔交易",
+      "dateRange": "日期范围",
+      "includeNoTimestamp": "包括没有日期的块",
+      "excludeUnknownAccounts": "仅显示来自已知帐户的块",
+      "advancedOptions": "高级选项",
+      "applyFilters": "应用过滤器",
+      "fields": "字段",
+      "delimiter": "分隔符",
+      "delimiterComma": "逗号",
+      "delimiterSemicolon": "分号",
+      "delimiterTab": "标签",
+      "delimiterSpace": "空间",
+      "delimiterPipe": "管道",
+      "fileName": "文件名",
+      "minimum": "最低限度",
+      "maximum": "最大",
+      "from": "从",
+      "to": "至",
+      "startDate": "开始日期",
+      "endDate": "结束日期",
+      "exportToCsv": "导出为 CSV",
+      "export": "出口",
+      "exportTransactions": "将 {{count}} 个交易导出到 CSV"
     },
     "block": {
       "blockSubtype": "块子类型",
@@ -199,7 +232,11 @@
       "missingBlock": "丢失的块",
       "missingBlockInfo": "URL中未指定该块。使用顶部搜索栏搜索块或将其附加在 /block/ 之后的URL中",
       "blockNotFound": "找不到区块",
-      "blockNotFoundInfo": "找不到您要求的封锁。该块可能存在于Banano网络上，但尚未被节点看到。确保您正在搜索正确的块，或者稍后再试。"
+      "blockNotFoundInfo": "找不到您要求的封锁。该块可能存在于Banano网络上，但尚未被节点看到。确保您正在搜索正确的块，或者稍后再试。",
+      "successorBlock": "后继块",
+      "matchingSendBlock": "匹配发送块",
+      "noMatchingSendBlock": "找不到匹配的块",
+      "lastAccountBlock": "此区块是帐户上的最新区块"
     },
     "representatives": {
       "voteDistribution": "投票分配",
@@ -241,12 +278,12 @@
       "account": "输入要与别名关联的“nano_”帐户",
       "registerNote": "在下一步中，您将被要求从正在注册的“nano_”帐户发送交易",
       "invalidAccount": "无效账户",
-      "waitingNote": "从您注册的帐户向 NanoLooker 捐款发送 Ӿ1 以确认它属于您后，您的别名将被注册。",
+      "waitingNote": "从您注册的帐户向 NanoLooker 捐款发送 BAN1 以确认它属于您后，您的别名将被注册。",
       "registerErrorTaken": "此帐户的别名已注册",
       "registerError": "无法完成注册",
       "waitingForTransaction": "等待交易",
       "viewAccount": "查看账户",
-      "sendFrom": "发送 Ӿ{{amount}} 来自",
+      "sendFrom": "发送 BAN{{amount}} 来自",
       "sendTo": "到"
     },
     "largeTransactions": {
@@ -267,7 +304,9 @@
       "unknownDormantFunds": "未知的休眠资金",
       "dormantFundsQuarterExample": "拥有50个BANANO和50个未决BANANO的帐户最近一次交易是在6个月前（2个季度），余额100个BANANO作为“休眠”添加到了下一个季度的总数中。",
       "dormantBanano": "睡觉的BANANO",
-      "ofAvailableSupply": "可用供应量"
+      "ofAvailableSupply": "可用供应量",
+      "dormantNano": "香蕉休眠",
+      "richList": "富豪榜"
     },
     "news": {
       "allFeeds": "所有提要",
@@ -309,11 +348,13 @@
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> 个节点的带宽限制为 <1>{{limitedBandwidthCap}}</1>。",
       "nodeVersions": "节点版本",
       "latestVersion": "最新版本",
-      "database": "数据库"
+      "database": "数据库",
+      "versionsByWeight": "按投票权重的版本"
     },
     "exchangeTracker": {
       "description": "每天都会记录Banano交易所在的最受欢迎交易所的账户余额。此度量可用于分析网络上的移动和波动。",
-      "totalSelected": "所选交易所的总余额"
+      "totalSelected": "所选交易所的总余额",
+      "selectedWallets": "精选钱包"
     },
     "preferences": {
       "description": "管理每个部分的首选项。首选项存储在浏览器中，如果您清除数据，则首选项将恢复为默认值。",
@@ -396,6 +437,18 @@
       "nanoPotions": "纳米药水",
       "guide": {
         "title": "BananoBrowserQuest 指南"
+      },
+      "playerGuide": "玩家指南"
+    },
+    "statistics": {
+      "social": {
+        "title": "加密货币社会参与度/市值 10 亿美元",
+        "redditSubscribers": "每 10 亿美元的 Reddit 订阅者数量",
+        "twitterFollowers": "每 10 亿美元的 Twitter 关注者数量",
+        "githubStars": "每十亿美元的 Github 星数",
+        "engagementPerBillion": "每 10 亿美元的参与度",
+        "marketCap": "市值",
+        "totalEngagement": "全面参与"
       }
     }
   }

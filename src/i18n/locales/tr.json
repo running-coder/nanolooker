@@ -42,7 +42,9 @@
     "statistics": "İstatistik",
     "continue": "Devam et",
     "link": "Bağlantı",
-    "noData": "Veri yok"
+    "noData": "Veri yok",
+    "include": "Katmak",
+    "exclude": "Hariç tutmak"
   },
   "nodeHealth": {
     "nodeReloading": "Banano düğüm yeniden yükleniyor",
@@ -90,7 +92,13 @@
     "mnano": "Mnano, cüzdanlarda, borsalarda ve hizmetlerde kullanılan mevcut standart bölümdür. 1 BANANO olarak anılır.",
     "versionsByWeight": "Bir sürümün ağın fikir birliğini devralması için, minimum {{onlineWeightMinimum}} BANANO'dan çevrimiçi oy ağırlığının% 67'sine sahip olması gerekir.",
     "onChainVolume": "Ağda onaylanan tüm BANANO işlemlerinin toplamı. Aynı gün A kullanıcısı 1 BANANO gönderir ve B kullanıcısı 1 BANANO alırsa, 2 işlem yayınlanıp onaylandığı için gönderme ve alma olmak üzere günlük hacme 2 BANANO eklenir.",
-    "oneBanEqualsOneDoge": "Banano'nun piyasa değeri Doge'ninki ile eşit olsaydı, doge meme madeni para kardeş zincirimizle eğlenceli bir karşılaştırma."
+    "oneBanEqualsOneDoge": "Banano'nun piyasa değeri Doge'ninki ile eşit olsaydı, doge meme madeni para kardeş zincirimizle eğlenceli bir karşılaştırma.",
+    "pendingTransaction": "Bu hesaba para gönderildi, ancak hesap sahibi parayı henüz cebe indirmedi. Yalnızca hesabın sahibi, blok zincirine alınan bir işlemi yazabilir. Bu sizin hesabınızsa, cüzdanınızın kilidini açın, alıcı blok genellikle otomatik olarak yayınlanır.",
+    "socialStatistics": "İstatistikler, CoinGecko'nun piyasa değerine göre en iyi 200 kripto para birimi kullanılarak derlenmiştir.",
+    "dailyBalance": "İşlem grafiği, yalnızca hesapta 1 günden fazla veri varsa ve işlemlerin zaman damgaları varsa görünür.",
+    "senderFilter": "Belirli bir adresten yalnızca tüm gönderme işlemlerini dahil etmek veya hariç tutmak için blokları filtreleyin. Birden çok adresi filtrelemek için bunları virgülle ayırın.",
+    "receiverFilter": "Belirli bir adresten yalnızca tüm gönderme işlemlerini dahil etmek veya hariç tutmak için blokları filtreleyin. Birden çok adresi filtrelemek için bunları virgülle ayırın.",
+    "filterTransactions": "Yalnızca 5.000'e eşit veya daha az onaylı işlemi olan hesaplar filtrelenebilir"
   },
   "search": {
     "searchBy": "Adres / Blok / Bilinen Hesap ile Ara",
@@ -163,7 +171,10 @@
       "waitingForTransactions": "İşlemler bekleniyor",
       "connectingToBlockchain": "BANANO blok zincirine bağlanma",
       "reconnectingToBlockchain": "Bağlantı kesildi, BANANO blok zincirine yeniden bağlanılıyor",
-      "oneBanEqualsOneDoge": "Ya 1 Yasak = 1 Doge?"
+      "oneBanEqualsOneDoge": "Ya 1 Yasak = 1 Doge?",
+      "cpsLocal": "Yerel düğümde gözlemlenen CPS",
+      "cpsNetwork": "Birkaç temsili düğümde medyan CPS",
+      "viewSocialEngagement": "Sosyal Etkileşimi Görüntüle"
     },
     "account": {
       "votingWeight": "Oy ağırlığı",
@@ -182,7 +193,29 @@
       "pendingTransaction": "İşlem alınmaya hazır",
       "dailyBalanceOption": " Günlük bakiye",
       "byTransactionOption": "İşlem bazında bakiye",
-      "dailyBalance": "Son {{count}} işlem"
+      "dailyBalance": "Son {{count}} işlem",
+      "dateRange": "Tarih aralığı",
+      "includeNoTimestamp": "Tarihsiz blokları dahil et",
+      "excludeUnknownAccounts": "Yalnızca bilinen hesaplardan gelen blokları göster",
+      "advancedOptions": "Gelişmiş seçenekler",
+      "applyFilters": "Filtreleri uygula",
+      "fields": "Alanlar",
+      "delimiter": "sınırlayıcı",
+      "delimiterComma": "Virgül",
+      "delimiterSemicolon": "Noktalı virgül",
+      "delimiterTab": "Sekme",
+      "delimiterSpace": "Uzay",
+      "delimiterPipe": "Boru",
+      "fileName": "Dosya adı",
+      "minimum": "Asgari",
+      "maximum": "Maksimum",
+      "from": "İtibaren",
+      "to": "İle",
+      "startDate": "Başlangıç tarihi",
+      "endDate": "Bitiş tarihi",
+      "exportToCsv": "CSV'ye aktar",
+      "export": "İhracat",
+      "exportTransactions": "{{count}} işlemi CSV'ye aktar"
     },
     "block": {
       "blockSubtype": "Alt türü engelle",
@@ -199,7 +232,11 @@
       "missingBlock": "Eksik blok",
       "missingBlockInfo": "Blok URL'de belirtilmemiştir. Bir blok aramak için üstteki arama çubuğunu kullanın veya bunu URL'ye /block/ sonrasına ekleyin.",
       "blockNotFound": "Blok bulunamadı",
-      "blockNotFoundInfo": "İstediğiniz blok bulunamadı. Bloğun Banano ağında mevcut olması ancak düğüm tarafından henüz görülmemiş olması mümkündür. Doğru bloğu aradığınızdan emin olun veya daha sonra tekrar deneyin."
+      "blockNotFoundInfo": "İstediğiniz blok bulunamadı. Bloğun Banano ağında mevcut olması ancak düğüm tarafından henüz görülmemiş olması mümkündür. Doğru bloğu aradığınızdan emin olun veya daha sonra tekrar deneyin.",
+      "successorBlock": "Ardıl blok",
+      "matchingSendBlock": "Eşleşen gönderme bloğu",
+      "noMatchingSendBlock": "Eşleşen blok bulunamadı",
+      "lastAccountBlock": "Bu Blok, hesaptaki en son bloktur."
     },
     "representatives": {
       "voteDistribution": "Oy dağıtımı",
@@ -241,12 +278,12 @@
       "account": "Takma adla ilişkilendirilecek bir \"nano_\" hesabı girin",
       "registerNote": "Bir sonraki adımda, kaydedilmekte olan \"nano_\" hesabından bir işlem göndermeniz istenecektir.",
       "invalidAccount": "Geçersiz hesap",
-      "waitingNote": "Takma adınız, size ait olduğunu onaylamak için kaydettiğiniz hesaptan NanoLooker bağışlarına Ӿ1 gönderdikten sonra kaydedilecektir.",
+      "waitingNote": "Takma adınız, size ait olduğunu onaylamak için kaydettiğiniz hesaptan NanoLooker bağışlarına BAN1 gönderdikten sonra kaydedilecektir.",
       "registerErrorTaken": "Bu hesap için bir takma ad zaten kayıtlı",
       "registerError": "Kayıt tamamlanamadı",
       "waitingForTransaction": "işlem bekleniyor",
       "viewAccount": "Hesabı görüntüle",
-      "sendFrom": "Şuradan Ӿ{{amount}} gönder:",
+      "sendFrom": "Şuradan BAN{{amount}} gönder:",
       "sendTo": "NS"
     },
     "largeTransactions": {
@@ -267,7 +304,9 @@
       "unknownDormantFunds": "Bilinmeyen faal olmayan fonlar",
       "dormantFundsQuarterExample": "50 BANANO ve 50 bekleyen BANANO tutan bir hesap en son 6 ay önce işlem görmüş (2 çeyrek), 100 BANANO bakiyesi bir sonraki çeyreğin toplamına \"hareketsiz\" olarak eklenmiştir.",
       "dormantBanano": "BANANO uyuyor",
-      "ofAvailableSupply": "mevcut arzın"
+      "ofAvailableSupply": "mevcut arzın",
+      "dormantNano": "muz uykuda",
+      "richList": "Zengin Liste"
     },
     "news": {
       "allFeeds": "Tüm Beslemeler",
@@ -309,11 +348,13 @@
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> düğümlerinin bant genişliği sınırı <1>{{limitedBandwidthCap}}</1>.",
       "nodeVersions": "Düğüm sürümleri",
       "latestVersion": "En son sürüm",
-      "database": "Veri tabanı"
+      "database": "Veri tabanı",
+      "versionsByWeight": "Oy ağırlığına göre sürümler"
     },
     "exchangeTracker": {
       "description": "Her gün, Banano'nun işlem gördüğü en popüler borsaların hesap bakiyelerinin bir kaydı alınır. Bu ölçüm, ağdaki hareketleri ve dalgalanmaları analiz etmek için kullanılabilir.",
-      "totalSelected": "Seçilen borsaların toplam bakiyesi"
+      "totalSelected": "Seçilen borsaların toplam bakiyesi",
+      "selectedWallets": "Seçilmiş Cüzdanlar"
     },
     "preferences": {
       "description": "Her bölüm için tercihlerinizi yönetin. Tercihler tarayıcıda saklanır, verilerinizi temizlerseniz tercihleriniz varsayılanlara geri döner.",
@@ -396,6 +437,18 @@
       "nanoPotions": "NANO İksirler",
       "guide": {
         "title": "BananoBrowserQuest Kılavuzu"
+      },
+      "playerGuide": "Oyuncu Rehberi"
+    },
+    "statistics": {
+      "social": {
+        "title": "Kripto para birimleri sosyal etkileşimi / 1 Milyar Dolarlık Piyasa Değeri",
+        "redditSubscribers": "Milyar Dolar başına Reddit abone sayısı",
+        "twitterFollowers": "Milyar Dolar başına Twitter takipçi sayısı",
+        "githubStars": "Milyar Dolar başına Github yıldızı sayısı",
+        "engagementPerBillion": "Milyar Dolar Başına Etkileşim",
+        "marketCap": "Piyasa değeri",
+        "totalEngagement": "Toplam Etkileşim"
       }
     }
   }

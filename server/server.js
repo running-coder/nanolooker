@@ -30,7 +30,10 @@ const {
   NANOBROWSERQUEST_LEADERBOARD,
 } = require("./constants");
 
-const { getCoingeckoStats } = require("./api/coingeckoStats");
+const {
+  getCoingeckoStats,
+  getCoingeckoMarketCapStats,
+} = require("./api/coingeckoStats");
 const {
   getDeveloperFundTransactions,
 } = require("./api/developerFundTransactions");
@@ -44,14 +47,20 @@ const {
   getDelegatorsPage,
   getAllDelegatorsCount,
 } = require("./api/delegators");
+const { getHistoryFilters } = require("./api/historyFilters");
+
 const { getRichListPage, getRichListAccount } = require("./api/richList");
 const { getParticipant, getParticipantsPage } = require("./api/participants");
 const { getNodeLocations } = require("./api/nodeLocations");
 const { getNodeMonitors } = require("./api/nodeMonitors");
 const { getDelegatedEntity } = require("./api/delegatedEntity");
 const { getTelemetry } = require("./api/telemetry");
-const { getRepresentative } = require("./api/representative");
+const {
+  getRepresentative,
+  getAllRepresentatives,
+} = require("./api/representative");
 const { Sentry } = require("./sentry");
+const { isValidAccountAddress } = require("./utils");
 
 const app = express();
 
@@ -96,11 +105,19 @@ app.get("/api/delegators", async (req, res) => {
   let data;
   const { account, page } = req.query;
 
-  if (account) {
+  if (isValidAccountAddress(account)) {
     data = await getDelegatorsPage({ account, page });
   } else {
     data = await getAllDelegatorsCount();
   }
+
+  res.send(data);
+});
+
+app.get("/api/transaction-filters", async (req, res) => {
+  const { account, filters } = req.query;
+
+  const data = await getHistoryFilters({ account, filters });
 
   res.send(data);
 });
@@ -140,9 +157,18 @@ app.get("/api/market-statistics", async (req, res) => {
     [TOTAL_CONFIRMATIONS_48H]: cachedConfirmations48h,
     [TOTAL_VOLUME_48H]: cachedVolume48h,
     ...marketStats,
-    priceStats,
     dogeMarketStats,
+    priceStats: {
+      ...{ bitcoin: { usd: 0 } },
+      ...priceStats,
+    },
   });
+});
+
+app.get("/api/statistics/social", async (req, res) => {
+  const data = await getCoingeckoMarketCapStats();
+
+  res.send(data);
 });
 
 app.get("/api/known-accounts", async (req, res) => {
@@ -178,7 +204,9 @@ app.get("/api/node-locations", async (req, res) => {
 app.get("/api/representative", async (req, res) => {
   const { account } = req.query;
 
-  const representative = await getRepresentative(account);
+  const representative = account
+    ? await getRepresentative(account)
+    : getAllRepresentatives();
 
   res.send(representative);
 });

@@ -42,7 +42,9 @@
     "comingSoon": "Coming soon",
     "statistics": "Statistics",
     "link": "Link",
-    "noData": "No data"
+    "noData": "No data",
+    "include": "Include",
+    "exclude": "Exclude"
   },
   "nodeHealth": {
     "nodeReloading": "Banano node is reloading",
@@ -82,7 +84,7 @@
     "confirmationHeight": "A number stored in the local node database that represents the highest (most recent) confirmed block in an account chain. Related to (but different from) block height.",
     "blockHeight": "A local integer value that represents the order of a block in an account chain. For example, the 15th block in an account would have a block height of 15. Related to (but different from) confirmation height.",
     "bookmarks": "{{type, capitalize}} bookmarks are saved on your device. You can manage your known {{type}}s by giving them aliases.",
-    "groupByEntities": "Regroup all voting weight that is split into different principal representatives into single entities. For example an exchange can have multiple wallets and split their weight but in reality it can be counted as a single weight if the were to regroup it.",
+    "groupByEntities": "Regroup all voting weight that is split into different principal representatives into single entities. For example an exchange can have multiple wallets and split their weight but in reality it can be counted as a single weight if they were to regroup it.",
     "telemetry": "Metrics from other nodes on the network. All the metrics are collected and averaged to represent different states on the network. P corresponds to percentile, p50 is calculated by excluding the bottom 50% while the p95 is excluding the bottom 5% of the different values to calculate the average.",
     "ledgerSize": "The total amount of disk space required to store every Banano transactions up to now. The ledger size is calculated on 1024 base not 1000.",
     "bandwidthCap": "Banano nodes are able to throttle their bandwidth to limit the amount of messages that can be sent or received. 0 means unlimited bandwidth.",
@@ -91,7 +93,12 @@
     "mnano": "Mnano is the current standard division used in wallets, on exchanges and services. It is referred as 1 BANANO.",
     "versionsByWeight": "For a version to be taking over the network's consensus, it needs to have {{onlineWeightQuorumPercent}}% of the online voting weight from a minimum of {{onlineWeightMinimum}} BANANO.",
     "onChainVolume": "The sum of all BANANO transactions that have been confirmed on the network. If user A sends 1 BANANO and user B receives 1 BANANO on the same day, 2 BANANO will be added in the daily volume because 2 transactions were broadcasted and confirmed, a send and a receive.",
-    "pendingTransaction": "Funds were sent to this account but the owner has not yet pocketed the funds. Only the owner of the account can write a received transaction into their blockchain. If this is your account, unlock your wallet, the receiving block is usually automatically broadcasted."
+    "pendingTransaction": "Funds were sent to this account but the owner has not yet pocketed the funds. Only the owner of the account can write a received transaction into their blockchain. If this is your account, unlock your wallet, the receiving block is usually automatically broadcasted.",
+    "socialStatistics": "Statistics are compiled using top 200 cryptocurrencies by market cap from CoinGecko.",
+    "dailyBalance": "Transaction chart is only visible if the account has more than 1 day of data and if the transactions have timestamps",
+    "senderFilter": "Filter blocks to include only or exclude all send transactions from a specific address. To filter multiple addresses, separate them with a comma.",
+    "receiverFilter": "Filter blocks to include only or exclude all send transactions from a specific address. To filter multiple addresses, separate them with a comma.",
+    "filterTransactions": "Only accounts with equal or less than 5,000 confirmed transactions can be filtered"
   },
   "search": {
     "searchBy": "Search by Address / Block / Known Account",
@@ -166,7 +173,8 @@
       "connectingToBlockchain": "Connecting to the BANANO blockchain",
       "reconnectingToBlockchain": "Disconnected, reconnecting to the BANANO blockchain",
       "cpsLocal": "CPS observed on the local node",
-      "cpsNetwork": "Median CPS across several representative nodes"
+      "cpsNetwork": "Median CPS across several representative nodes",
+      "viewSocialEngagement": "View Social Engagement"
     },
     "account": {
       "votingWeight": "Voting weight",
@@ -185,7 +193,29 @@
       "missingAccountInfo": "The account is not specified in the URL. Use the top search bar for searching for an account or append it in the URL after /account/",
       "dailyBalance": "Last {{count}} transactions",
       "dailyBalanceOption": " Daily balance",
-      "byTransactionOption": "Balance by transaction"
+      "byTransactionOption": "Balance by transaction",
+      "dateRange": "Date range",
+      "includeNoTimestamp": "Include blocks with no date",
+      "excludeUnknownAccounts": "Only show blocks from known accounts",
+      "advancedOptions": "Advanced options",
+      "applyFilters": "Apply filters",
+      "exportToCsv": "Export to CSV",
+      "export": "Export",
+      "exportTransactions": "Export {{count}} transactions to CSV",
+      "fields": "Fields",
+      "delimiter": "Delimiter",
+      "delimiterComma": "Comma",
+      "delimiterSemicolon": "Semicolon",
+      "delimiterTab": "Tab",
+      "delimiterSpace": "Space",
+      "delimiterPipe": "Pipe",
+      "fileName": "File name",
+      "minimum": "Minimum",
+      "maximum": "Maximum",
+      "from": "From",
+      "to": "To",
+      "startDate": "Start date",
+      "endDate": "End date"
     },
     "block": {
       "blockSubtype": "Block subtype",
@@ -325,6 +355,17 @@
       "totalSelected": "Total balance of selected exchanges",
       "selectedWallets": "Selected Wallets"
     },
+    "statistics": {
+      "social": {
+        "title": "Cryptocurrencies social engagement / $1 Billion in Market Cap",
+        "redditSubscribers": "Number of Reddit subscribers per $Billion",
+        "twitterFollowers": "Number of Twitter followers per $Billion",
+        "githubStars": "Number of Github stars per $Billion",
+        "engagementPerBillion": "Engagement per $Billion",
+        "marketCap": "Market Cap",
+        "totalEngagement": "Total Engagement"
+      }
+    },
     "preferences": {
       "description": "Manage your preferences for every sections. The preferences are stored on the browser, if you clear your data your preferences will be back to defaults.",
       "general": "General settings",
@@ -340,38 +381,6 @@
     "bookmarks": {
       "viewAll": "View all bookmarks",
       "noBookmarksFound": "No bookmarks found"
-    },
-    "nanoquakejs": {
-      "playNow": "Play Now !",
-      "register": "Register",
-      "donatePrizePool": "Donate to NanoQuakeJS prize pool",
-      "scanWallet": "Scan your wallet account starting with \"nano_\"",
-      "registerError": "Unable to complete registration",
-      "registerDescription": "NanoQuakeJS is free to play, forever. If you enjoy the service you can make a small contribution to the NanoQuakeJS prize pool.",
-      "happyFragging": "Happy fragging!",
-      "inGameUsername": "In-game username",
-      "accountReceivePayouts": "Account to receive payouts",
-      "registerNote": "The username and account are stored in the browser data.",
-      "invalidAccount": "Invalid account",
-      "playersOnline": "Players online",
-      "welcomeTitle": "Jump into the Arena and get paid in BANANO for your Frags!",
-      "welcomeDescription": "Welcome to the Arena, where high-ranking warriors are transformed into spineless mush. Abandoning every ounce of common sense and any trace of doubt, you lunge onto a stage of harrowing landscapes and veiled abysses. Your new environment rejects you with lava pits and atmospheric hazards as legions of foes surround you, testing the gut reaction that brought you here in the first place. Your new mantra: fight or be finished.",
-      "welcomeDescription2": "Play the 1999 best selling first-person shooter game with your friends and other players around the world earning BANANO for fragging each other!",
-      "gameplay": "Gameplay",
-      "registerErrorUsername": "Username is already taken for a different address",
-      "playNanoquakejs": "Play NanoQuakeJS",
-      "trailer": "Trailer",
-      "payoutDescription": "Payouts will be sent to each players at the end of each round. Make sure your in-game player name matches your registered username so that the associated account can be receiving payouts.",
-      "currentMap": "Current map",
-      "totalFrags": "Total Frags",
-      "gamesPlayed": "Games Played",
-      "launchGame": "Launch Game",
-      "chooseLocation": "Choose a server location",
-      "chooseLocationDescription": "Choose the closest location to benefit from the best in-game experience.",
-      "leaderboard": "Season 3 Leaderboard",
-      "rank": "Rank",
-      "player": "Player",
-      "frags": "Frags"
     },
     "nanobrowserquest": {
       "playNow": "Play Now !",
@@ -405,7 +414,8 @@
       },
       "guide": {
         "title": "BananoBrowserQuest Guide"
-      }
+      },
+      "playerGuide": "Player's Guide"
     }
   }
 }

@@ -1,11 +1,14 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
-import { Card, Row, Col, Typography } from "antd";
+import { Card, Row, Col, Tooltip, Typography } from "antd";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 import guide from "./guide.md";
+import { getItemAttributes } from "./utils";
+
+import "./guide.css";
 
 const { Title } = Typography;
 
@@ -14,14 +17,10 @@ const NanoBrowserQuestGuidePage: React.FC = () => {
 
   const [markdown, setMarkdown] = React.useState("");
 
-  // useEffect with an empty dependency array (`[]`) runs only once
   React.useEffect(() => {
     fetch(guide)
       .then(response => response.text())
       .then(text => {
-        // Logs a string of Markdown content.
-        // Now you could use e.g. <rexxars/react-markdown> to render it.
-        // console.log(text);
         setMarkdown(text);
       });
   }, []);
@@ -44,10 +43,16 @@ const NanoBrowserQuestGuidePage: React.FC = () => {
               {t("common.by")} oldschooler &amp; running-coder
             </span>
           </Title>
-          <Card size="small" bordered={false} className="detail-layout guide">
+          <Card size="small" bordered={false} className="guide">
             <Row gutter={[12, 0]}>
               <Col xs={24}>
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  components={{
+                    //@ts-ignore
+                    img: Image,
+                  }}
+                >
                   {markdown}
                 </ReactMarkdown>
               </Col>
@@ -57,6 +62,35 @@ const NanoBrowserQuestGuidePage: React.FC = () => {
       </Row>
     </>
   );
+};
+
+const Image: React.FC<HTMLImageElement> = ({ src, alt: rawAttributes }) => {
+  let title;
+  if (rawAttributes?.startsWith("{")) {
+    title = getItemAttributes(JSON.parse(rawAttributes));
+
+    return (
+      <Tooltip
+        placement="right"
+        title={title}
+        overlayClassName="tooltip-nbq-item"
+      >
+        <div
+          className="item-container"
+          style={{
+            position: "relative",
+            backgroundImage: `url(${src}) `,
+          }}
+        />
+      </Tooltip>
+    );
+  } else {
+    return (
+      <div style={{ padding: "6px" }}>
+        <img src={src} alt={rawAttributes} />
+      </div>
+    );
+  }
 };
 
 export default NanoBrowserQuestGuidePage;

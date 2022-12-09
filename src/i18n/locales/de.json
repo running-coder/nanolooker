@@ -42,7 +42,9 @@
     "statistics": "Statistiken",
     "continue": "Weitermachen",
     "link": "Verknüpfung",
-    "noData": "Keine Daten"
+    "noData": "Keine Daten",
+    "include": "Enthalten",
+    "exclude": "Ausschließen"
   },
   "nodeHealth": {
     "nodeReloading": "Der Bananoknoten wird neu geladen",
@@ -91,7 +93,12 @@
     "versionsByWeight": "Damit eine Version den Konsens des Netzwerks übernimmt, muss sie {{onlineWeightQuorumPercent}}% des Online-Abstimmungsgewichts von mindestens {{onlineWeightMinimum}} BANANO haben.",
     "onChainVolume": "Die Summe aller BANANO-Transaktionen, die im Netzwerk bestätigt wurden. Wenn Benutzer A 1 BANANO sendet und Benutzer B 1 BANANO am selben Tag empfängt, werden 2 BANANO zum Tagesvolumen hinzugefügt, da 2 Transaktionen gesendet und bestätigt wurden, ein Senden und ein Empfangen.",
     "oneBanEqualsOneDoge": "Ein lustiger Vergleich mit unserer Doge Meme Coin Brother-Kette, wenn die Marktkapitalisierung von Banano der von Doge entsprechen würde.",
-    "pendingTransaction": "Gelder wurden auf dieses Konto überwiesen, aber der Eigentümer hat die Gelder noch nicht eingesteckt. Nur der Inhaber des Kontos kann eine empfangene Transaktion in seine Blockchain schreiben. Wenn dies Ihr Konto ist, entsperren Sie Ihr Wallet, der Empfangsblock wird normalerweise automatisch gesendet."
+    "pendingTransaction": "Gelder wurden auf dieses Konto überwiesen, aber der Eigentümer hat die Gelder noch nicht eingesteckt. Nur der Inhaber des Kontos kann eine empfangene Transaktion in seine Blockchain schreiben. Wenn dies Ihr Konto ist, entsperren Sie Ihr Wallet, der Empfangsblock wird normalerweise automatisch gesendet.",
+    "socialStatistics": "Statistiken werden anhand der Top-200-Kryptowährungen nach Marktkapitalisierung von CoinGecko erstellt.",
+    "dailyBalance": "Das Transaktionsdiagramm ist nur sichtbar, wenn das Konto mehr als 1 Tag Daten hat und wenn die Transaktionen Zeitstempel haben",
+    "senderFilter": "Filtern Sie Blöcke, um nur alle Sendetransaktionen von einer bestimmten Adresse einzuschließen oder auszuschließen. Um mehrere Adressen zu filtern, trennen Sie sie durch ein Komma.",
+    "receiverFilter": "Filtern Sie Blöcke, um nur alle Sendetransaktionen von einer bestimmten Adresse einzuschließen oder auszuschließen. Um mehrere Adressen zu filtern, trennen Sie sie durch ein Komma.",
+    "filterTransactions": "Nur Konten mit gleich oder weniger als 5.000 bestätigten Transaktionen können gefiltert werden"
   },
   "search": {
     "searchBy": "Suche nach Adresse / Block / Bekanntem Konto",
@@ -106,7 +113,7 @@
     "languageDetailed": "Wählen Sie die gewünschte Sprache. BananoLooker sucht nach Mitwirkenden, um die Übersetzung des Explorers zu verbessern. <0>Mithelfen</0>",
     "watch": "Beobachten Sie andere Kryptowährungen",
     "watchSearch": "Suche nach Kryptowährungen",
-    "watchDetailed": "Beobachten Sie den Preis anderer Kryptowährungen in den Top 100. Die aktuellen Marktpreise und die 24-Stunden-Änderung werden in der oberen Leiste angezeigt. Sie können Ihre Auswahl auch per Drag & Drop neu anordnen.",
+    "watchDetailed": "Beobachten Sie den Preis anderer Kryptowährungen in den Top 200. Die aktuellen Marktpreise und die 24-Stunden-Änderung werden in der oberen Leiste angezeigt. Sie können Ihre Auswahl auch per Drag & Drop neu anordnen.",
     "fiatCurrency": "Fiatwährung",
     "fiatCurrencyDetailed": "Fiat-Geld ist eine von der Regierung ausgegebene Währung. Wählen Sie eine Fiat-Währung, um den Preis von Banano zu vergleichen.",
     "natricons": "MonKeys",
@@ -166,7 +173,8 @@
       "reconnectingToBlockchain": "Verbindung getrennt, Verbindung zur BANANO-Blockchain wiederhergestellt",
       "oneBanEqualsOneDoge": "Was ist, wenn 1 Ban = 1 Doge?",
       "cpsLocal": "CPS auf dem lokalen Knoten beobachtet",
-      "cpsNetwork": "Medianer CPS über mehrere repräsentative Knoten"
+      "cpsNetwork": "Medianer CPS über mehrere repräsentative Knoten",
+      "viewSocialEngagement": "Soziales Engagement anzeigen"
     },
     "account": {
       "votingWeight": "Abstimmungsgewicht",
@@ -185,7 +193,29 @@
       "pendingTransaction": "Transaktion empfangsbereit",
       "dailyBalanceOption": " Tagesbilanz",
       "byTransactionOption": "Saldo nach Transaktion",
-      "dailyBalance": "Letzte {{count}} Transaktionen"
+      "dailyBalance": "Letzte {{count}} Transaktionen",
+      "dateRange": "Datumsbereich",
+      "includeNoTimestamp": "Blöcke ohne Datum einbeziehen",
+      "excludeUnknownAccounts": "Nur Blöcke von bekannten Konten anzeigen",
+      "advancedOptions": "Erweiterte Optionen",
+      "applyFilters": "Filter anwenden",
+      "fields": "Felder",
+      "delimiter": "Trennzeichen",
+      "delimiterComma": "Komma",
+      "delimiterSemicolon": "Semikolon",
+      "delimiterTab": "Tab",
+      "delimiterSpace": "Platz",
+      "delimiterPipe": "Rohr",
+      "fileName": "Dateiname",
+      "minimum": "Minimum",
+      "maximum": "Maximal",
+      "from": "Aus",
+      "to": "Zu",
+      "startDate": "Anfangsdatum",
+      "endDate": "Endtermin",
+      "exportToCsv": "In CSV exportieren",
+      "export": "Export",
+      "exportTransactions": "{{count}} Transaktionen in CSV exportieren"
     },
     "block": {
       "blockSubtype": "Subtyp blockieren",
@@ -248,12 +278,12 @@
       "account": "Geben Sie ein \"nano_\"-Konto ein, das mit dem Alias verknüpft werden soll",
       "registerNote": "Im nächsten Schritt werden Sie aufgefordert, eine Transaktion vom registrierten \"nano_\"-Konto zu senden",
       "invalidAccount": "Ungültiger Account",
-      "waitingNote": "Ihr Alias wird registriert, nachdem Sie Ӿ1 an NanoLooker-Spenden von dem Konto, das Sie registrieren, gesendet haben, um zu bestätigen, dass es Ihnen gehört.",
+      "waitingNote": "Ihr Alias wird registriert, nachdem Sie BAN1 an NanoLooker-Spenden von dem Konto, das Sie registrieren, gesendet haben, um zu bestätigen, dass es Ihnen gehört.",
       "registerErrorTaken": "Ein Alias für dieses Konto ist bereits registriert",
       "registerError": "Registrierung kann nicht abgeschlossen werden",
       "waitingForTransaction": "Warten auf Transaktion",
       "viewAccount": "Konto anzeigen",
-      "sendFrom": "Senden Sie Ӿ{{amount}} von",
+      "sendFrom": "Senden Sie BAN{{amount}} von",
       "sendTo": "Zu"
     },
     "largeTransactions": {
@@ -275,7 +305,8 @@
       "dormantFundsQuarterExample": "Ein Konto mit 50 BANANO und 50 ausstehenden BANANO wurde zuletzt vor 6 Monaten (2 Quartale) abgewickelt. Ein Saldo von 100 BANANO wird als \"ruhend\" zur Gesamtsumme des folgenden Quartals hinzugefügt.",
       "dormantBanano": "Ruhende Banano",
       "ofAvailableSupply": "des verfügbaren Angebots",
-      "richList": "Reiche Liste"
+      "richList": "Reiche Liste",
+      "dormantNano": "Banane ruhend"
     },
     "news": {
       "allFeeds": "Alle Feeds",
@@ -317,11 +348,13 @@
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> Knoten haben eine Bandbreitenbeschränkung von <1>{{limitedBandwidthCap}}</1>.",
       "nodeVersions": "Knotenversionen",
       "latestVersion": "Letzte Version",
-      "database": "Datenbank"
+      "database": "Datenbank",
+      "versionsByWeight": "Versionen nach Stimmengewicht"
     },
     "exchangeTracker": {
       "description": "Jeden Tag wird eine Erfassung der Kontensalden der beliebtesten Börsen vorgenommen, an denen Banano gehandelt wird. Mit dieser Messung können Bewegungen und Schwankungen im Netzwerk analysiert werden.",
-      "totalSelected": "Gesamtsaldo ausgewählter Börsen"
+      "totalSelected": "Gesamtsaldo ausgewählter Börsen",
+      "selectedWallets": "Ausgewählte Brieftaschen"
     },
     "preferences": {
       "description": "Verwalten Sie Ihre Einstellungen für jeden Abschnitt. Die Einstellungen werden im Browser gespeichert. Wenn Sie Ihre Daten löschen, werden Ihre Einstellungen auf die Standardeinstellungen zurückgesetzt.",
@@ -404,6 +437,37 @@
       "nanoPotions": "NANO-Tränke",
       "guide": {
         "title": "BananoBrowserQuest-Leitfaden"
+      },
+      "playerGuide": "Leitfaden für Spieler"
+    },
+    "statistics": {
+      "social": {
+        "title": "Soziales Engagement von Kryptowährungen / 1 Milliarde US-Dollar Marktkapitalisierung",
+        "redditSubscribers": "Anzahl der Reddit-Abonnenten pro Milliarde $",
+        "twitterFollowers": "Anzahl der Twitter-Follower pro Milliarde US-Dollar",
+        "githubStars": "Anzahl der Github-Sterne pro Milliarde $",
+        "engagementPerBillion": "Engagement pro Milliarde US-Dollar",
+        "marketCap": "Marktkapitalisierung",
+        "totalEngagement": "Gesamtengagement"
+      },
+      "2miners": {
+        "title": "Nano-Auszahlungsstatistik des 2Miners Ethereum-Mining-Pools",
+        "totalPayouts": "Gesamte NANO-Auszahlungen von 2Miners",
+        "payouts": "Auszahlungen",
+        "accounts": "Konten",
+        "accountsDescription": "Die Anzahl der einzelnen Konten, die an diesem Tag eine Auszahlung erhalten haben.",
+        "uniqueAccounts": "Einzigartige Konten",
+        "uniqueAccountsDescription": "Die Anzahl der Konten, die seit dem {{date}} eine Auszahlung erhalten haben",
+        "accountsHolding": "Kontoführung",
+        "accountsHoldingDescription": "Die Anzahl der Konten, die seit dem {{date}} eine Auszahlung erhalten haben und deren Saldo über 0,001 NANO liegt.",
+        "balanceHolding": "Guthaben halten",
+        "balanceHoldingDescription": "Kombinierter Saldo der Konten, die seit dem {{date}} eine Auszahlung erhalten haben und deren Saldo über 0,001 NANO liegt.",
+        "viewPayoutStatistics": "Auszahlungsstatistik anzeigen",
+        "payoutsDescription": "Der Betrag an NANO, der für diesen Tag ausgezahlt wurde.",
+        "fiatPayouts": "Fiat-Auszahlungen",
+        "fiatPayoutsDescription": "Der geschätzte USD-Betrag, der für diesen Tag ausgezahlt wurde.",
+        "totalFiatPayouts": "Geschätzte Gesamtauszahlungen von 2Miners (USD)",
+        "announcement": "Ankündigung anzeigen"
       }
     }
   }

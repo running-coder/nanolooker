@@ -1,5 +1,6 @@
 const cron = require("node-cron");
 const BigNumber = require("bignumber.js");
+const uniqBy = require("lodash/uniqBy");
 const { doDelegatedEntitiesCron } = require("./delegatedEntity");
 const { rawToRai } = require("../utils");
 const { rpc } = require("../rpc");
@@ -7,6 +8,7 @@ const { nodeCache } = require("../client/cache");
 const { Sentry } = require("../sentry");
 const { KNOWN_ACCOUNTS, KNOWN_ACCOUNTS_BALANCE } = require("../constants");
 let knownAccounts = require("../known-accounts.json");
+const faucetAccounts = require("../../src/pages/Faucets/faucets.json");
 
 // Custom known-account list
 knownAccounts = knownAccounts.concat([
@@ -15,6 +17,8 @@ knownAccounts = knownAccounts.concat([
     account: "ban_1gxx3dbrprrh9ycf1p5wo9qgmftppg6z7688njum14aybjkaiweqmwpuu9py",
   },
 ]);
+
+knownAccounts = uniqBy(knownAccounts.concat(faucetAccounts), "account");
 
 const doKnownAccountsBalanceCron = async () => {
   let knownAccountsBalance = [];

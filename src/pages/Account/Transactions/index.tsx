@@ -13,11 +13,11 @@ import {
   Tooltip,
   Typography,
 } from "antd";
-import { SyncOutlined } from "@ant-design/icons";
+import { CheckCircleOutlined, SyncOutlined } from "@ant-design/icons";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import TimeAgo from "timeago-react";
 import BigNumber from "bignumber.js";
-import { rawToRai } from "components/utils";
+import { rawToRai, toBoolean } from "components/utils";
 import { Colors, TwoToneColors } from "components/utils";
 import { Natricon } from "components/Preferences/Natricons/Natricon";
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
@@ -152,11 +152,17 @@ const TransactionsTable = ({
                   >
                     <Tooltip
                       placement="right"
-                      title={t(
-                        `pages.block.${
-                          confirmed === false ? "pending" : "confirmed"
-                        }Status`,
-                      )}
+                      title={
+                        typeof confirmed !== "undefined"
+                          ? t(
+                              `pages.block.${
+                                toBoolean(confirmed) === false
+                                  ? "pending"
+                                  : "confirmed"
+                              }Status`,
+                            )
+                          : null
+                      }
                     >
                       <Tag
                         // @ts-ignore
@@ -164,7 +170,13 @@ const TransactionsTable = ({
                         style={{ textTransform: "capitalize" }}
                         className={`tag-${subtype || type}`}
                         icon={
-                          confirmed === false ? <SyncOutlined spin /> : null
+                          typeof confirmed !== "undefined" ? (
+                            toBoolean(confirmed) === false ? (
+                              <SyncOutlined spin />
+                            ) : (
+                              <CheckCircleOutlined />
+                            )
+                          ) : null
                         }
                       >
                         {t(`transaction.${transactionType}`)}

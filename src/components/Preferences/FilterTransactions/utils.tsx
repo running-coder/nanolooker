@@ -9,22 +9,22 @@ export const units: Unit[] = [
     raw: Infinity,
   },
   {
-    unit: "Ӿ1000",
+    unit: "1000",
     raw: 1e33,
     display: "1000 Ban",
   },
   {
-    unit: "Ӿ1",
+    unit: "BAN1",
     raw: 1e30,
     display: "1 Ban",
   },
   {
-    unit: "Ӿ0.001",
+    unit: "0.001",
     raw: 1e27,
     display: `0.001 Ban`,
   },
   {
-    unit: "Ӿ0.000001",
+    unit: "0.000001",
     raw: 1e24,
     display: `0.000001 Ban`,
   },

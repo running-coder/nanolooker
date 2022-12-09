@@ -42,7 +42,9 @@
     "statistics": "통계",
     "continue": "계속하다",
     "link": "링크",
-    "noData": "데이터 없음"
+    "noData": "데이터 없음",
+    "include": "포함",
+    "exclude": "들어오지 못하게 하다"
   },
   "nodeHealth": {
     "nodeReloading": "나노 노드가 다시로드됩니다.",
@@ -90,7 +92,13 @@
     "mnano": "Mnano는 지갑, 거래소 및 서비스에서 사용되는 현재 표준 부서입니다. 1 BANANO라고합니다.",
     "versionsByWeight": "버전이 네트워크의 합의를 인수하려면 최소 {{onlineWeightMinimum}} BANANO에서 온라인 투표 가중치의 67 %를 가져야합니다.",
     "onChainVolume": "네트워크에서 확인 된 모든 BANANO 거래의 합계입니다. 사용자 A가 1 개의 BANANO를 전송하고 사용자 B가 같은 날에 1 개의 BANANO를 받으면 2 개의 트랜잭션이 브로드 캐스트되고 확인되었으므로 전송 및 수신 1 개로 일일 볼륨에 2 개의 BANANO가 추가됩니다.",
-    "oneBanEqualsOneDoge": "Banano의 시가 총액이 Doge의 시가 총액과 같으면 총독 밈 동전 형제 체인과의 재미있는 비교."
+    "oneBanEqualsOneDoge": "Banano의 시가 총액이 Doge의 시가 총액과 같으면 총독 밈 동전 형제 체인과의 재미있는 비교.",
+    "pendingTransaction": "자금이 이 계좌로 송금되었지만 소유자가 아직 자금을 입금하지 않았습니다. 계정 소유자만이 받은 트랜잭션을 블록체인에 쓸 수 있습니다. 이것이 귀하의 계정인 경우 지갑을 잠금 해제하면 일반적으로 수신 블록이 자동으로 브로드캐스팅됩니다.",
+    "socialStatistics": "통계는 CoinGecko의 시가 총액 상위 200개 암호화폐를 사용하여 집계됩니다.",
+    "dailyBalance": "트랜잭션 차트는 계정에 1일 이상의 데이터가 있고 트랜잭션에 타임스탬프가 있는 경우에만 표시됩니다.",
+    "senderFilter": "블록을 필터링하여 특정 주소의 모든 전송 트랜잭션만 포함하거나 제외합니다. 여러 주소를 필터링하려면 쉼표로 구분하십시오.",
+    "receiverFilter": "블록을 필터링하여 특정 주소의 모든 전송 트랜잭션만 포함하거나 제외합니다. 여러 주소를 필터링하려면 쉼표로 구분하십시오.",
+    "filterTransactions": "확인된 거래가 5,000건 이하인 계정만 필터링할 수 있습니다."
   },
   "search": {
     "searchBy": "주소 / 차단 / 알려진 계정으로 검색",
@@ -163,7 +171,10 @@
       "waitingForTransactions": "거래를 기다리는 중",
       "connectingToBlockchain": "BANANO 블록 체인에 연결",
       "reconnectingToBlockchain": "연결 해제, BANANO 블록 체인에 다시 연결",
-      "oneBanEqualsOneDoge": "1 Ban = 1 Doge이면 어떨까요?"
+      "oneBanEqualsOneDoge": "1 Ban = 1 Doge이면 어떨까요?",
+      "cpsLocal": "로컬 노드에서 관찰된 CPS",
+      "cpsNetwork": "여러 대표 노드에 걸친 중간 CPS",
+      "viewSocialEngagement": "소셜 참여 보기"
     },
     "account": {
       "votingWeight": "투표 가중치",
@@ -182,7 +193,29 @@
       "pendingTransaction": "거래를 받을 준비가 되었습니다",
       "dailyBalanceOption": " 일일 잔액",
       "byTransactionOption": "거래별 잔액",
-      "dailyBalance": "마지막 {{count}} 거래"
+      "dailyBalance": "마지막 {{count}} 거래",
+      "dateRange": "날짜 범위",
+      "includeNoTimestamp": "날짜가 없는 블록 포함",
+      "excludeUnknownAccounts": "알려진 계정의 차단만 표시",
+      "advancedOptions": "고급 옵션",
+      "applyFilters": "필터 적용",
+      "fields": "필드",
+      "delimiter": "구분자",
+      "delimiterComma": "반점",
+      "delimiterSemicolon": "세미콜론",
+      "delimiterTab": "탭",
+      "delimiterSpace": "우주",
+      "delimiterPipe": "파이프",
+      "fileName": "파일 이름",
+      "minimum": "최저한의",
+      "maximum": "최고",
+      "from": "에서",
+      "to": "에게",
+      "startDate": "시작일",
+      "endDate": "종료일",
+      "exportToCsv": "CSV로 내보내기",
+      "export": "내보내다",
+      "exportTransactions": "거래 {{count}}개를 CSV로 내보내기"
     },
     "block": {
       "blockSubtype": "블록 하위 유형",
@@ -199,7 +232,11 @@
       "missingBlock": "누락 된 블록",
       "missingBlockInfo": "URL에 블록이 지정되지 않았습니다. 블록을 검색하려면 상단 검색 창을 사용하거나 /block/ 뒤에 URL에 추가하세요.",
       "blockNotFound": "블록을 찾을 수 없습니다.",
-      "blockNotFoundInfo": "요청하신 블록을 찾을 수 없습니다. 블록이 Banano 네트워크에 있지만 아직 노드에 표시되지 않았을 수 있습니다. 올바른 블록을 찾고 있는지 확인하거나 나중에 다시 시도하십시오."
+      "blockNotFoundInfo": "요청하신 블록을 찾을 수 없습니다. 블록이 Banano 네트워크에 있지만 아직 노드에 표시되지 않았을 수 있습니다. 올바른 블록을 찾고 있는지 확인하거나 나중에 다시 시도하십시오.",
+      "successorBlock": "후속 블록",
+      "matchingSendBlock": "일치하는 전송 블록",
+      "noMatchingSendBlock": "일치하는 블록이 없습니다.",
+      "lastAccountBlock": "이 블록은 계정의 가장 최근 블록입니다."
     },
     "representatives": {
       "voteDistribution": "투표 배포",
@@ -241,12 +278,12 @@
       "account": "별칭과 연결할 \"nano_\" 계정을 입력하세요.",
       "registerNote": "다음 단계에서 등록 중인 \"nano_\" 계정에서 트랜잭션을 보내도록 요청받을 것입니다.",
       "invalidAccount": "잘못된 계정",
-      "waitingNote": "귀하의 별칭은 귀하의 소유임을 확인하기 위해 등록 중인 계정에서 Ӿ1을 NanoLooker 기부금으로 보낸 후 등록됩니다.",
+      "waitingNote": "귀하의 별칭은 귀하의 소유임을 확인하기 위해 등록 중인 계정에서 BAN1을 NanoLooker 기부금으로 보낸 후 등록됩니다.",
       "registerErrorTaken": "이 계정의 별칭은 이미 등록되어 있습니다.",
       "registerError": "등록을 완료할 수 없습니다",
       "waitingForTransaction": "거래 대기 중",
       "viewAccount": "계정 보기",
-      "sendFrom": "에서 Ӿ{{amount}} 보내기",
+      "sendFrom": "에서 BAN{{amount}} 보내기",
       "sendTo": "NS"
     },
     "largeTransactions": {
@@ -267,7 +304,9 @@
       "unknownDormantFunds": "알 수없는 휴면 자금",
       "dormantFundsQuarterExample": "50 개의 BANANO와 50 개의 보류중인 BANANO를 보유한 계정은 6 개월 전에 (2 분기) 마지막으로 거래되었으며, 100 BANANO의 잔액은 다음 분기의 합계에 \"휴면\"으로 추가됩니다.",
       "dormantBanano": "잠자는 나노",
-      "ofAvailableSupply": "사용 가능한 공급"
+      "ofAvailableSupply": "사용 가능한 공급",
+      "dormantNano": "바나나 휴면",
+      "richList": "리치 리스트"
     },
     "news": {
       "allFeeds": "모든 피드",
@@ -309,11 +348,13 @@
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> 노드의 대역폭 제한은 <1>{{limitedBandwidthCap}}</1>입니다.",
       "nodeVersions": "노드 버전",
       "latestVersion": "최신 버전",
-      "database": "데이터 베이스"
+      "database": "데이터 베이스",
+      "versionsByWeight": "투표 가중치별 버전"
     },
     "exchangeTracker": {
       "description": "Banano가 거래되는 가장 인기있는 거래소의 계정 잔액을 매일 캡처합니다. 이 측정은 네트워크의 움직임과 변동을 분석하는 데 사용할 수 있습니다.",
-      "totalSelected": "선택한 거래소의 총 잔액"
+      "totalSelected": "선택한 거래소의 총 잔액",
+      "selectedWallets": "선택한 지갑"
     },
     "preferences": {
       "description": "모든 섹션에 대한 기본 설정을 관리합니다. 기본 설정은 브라우저에 저장되며, 데이터를 지우면 기본 설정이 기본값으로 돌아갑니다.",
@@ -396,6 +437,18 @@
       "nanoPotions": "나노 물약",
       "guide": {
         "title": "BananoBrowserQuest 가이드"
+      },
+      "playerGuide": "플레이어 가이드"
+    },
+    "statistics": {
+      "social": {
+        "title": "암호화폐 소셜 참여 / 시가 총액 10억 달러",
+        "redditSubscribers": "10억 달러당 Reddit 구독자 수",
+        "twitterFollowers": "10억 달러당 트위터 팔로워 수",
+        "githubStars": "10억 달러당 Github 별 수",
+        "engagementPerBillion": "10억 달러당 참여",
+        "marketCap": "시가 총액",
+        "totalEngagement": "총 참여"
       }
     }
   }

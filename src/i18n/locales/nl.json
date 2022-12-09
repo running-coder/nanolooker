@@ -42,7 +42,9 @@
     "statistics": "Statistieken",
     "continue": "Doorgaan met",
     "link": "Koppeling",
-    "noData": "Geen gegevens"
+    "noData": "Geen gegevens",
+    "include": "Erbij betrekken",
+    "exclude": "Uitsluiten"
   },
   "nodeHealth": {
     "nodeReloading": "Banano node wordt opnieuw geladen",
@@ -90,7 +92,13 @@
     "mnano": "Mnano is de huidige standaarddivisie die wordt gebruikt in portefeuilles, beurzen en services. Het wordt 1 BANANO genoemd.",
     "versionsByWeight": "Om een versie de consensus van het netwerk te laten overnemen, moet deze {{onlineWeightQuorumPercent}}% van het online stemgewicht hebben van minimaal {{onlineWeightMinimum}} BANANO.",
     "onChainVolume": "De som van alle BANANO-transacties die op het netwerk zijn bevestigd. Als gebruiker A 1 BANANO verzendt en gebruiker B 1 BANANO op dezelfde dag ontvangt, wordt 2 BANANO toegevoegd aan het dagelijkse volume omdat er 2 transacties zijn uitgezonden en bevestigd, een verzenden en een ontvangen.",
-    "oneBanEqualsOneDoge": "Leuke vergelijking met onze doge meme-broederketen, als de marktkapitalisatie van Banano gelijk zou zijn aan die van Doge."
+    "oneBanEqualsOneDoge": "Leuke vergelijking met onze doge meme-broederketen, als de marktkapitalisatie van Banano gelijk zou zijn aan die van Doge.",
+    "pendingTransaction": "Er is geld naar deze rekening overgemaakt, maar de eigenaar heeft het geld nog niet gestort. Alleen de eigenaar van het account kan een ontvangen transactie in zijn blockchain schrijven. Als dit uw account is, ontgrendelt u uw portemonnee, het ontvangende blok wordt meestal automatisch uitgezonden.",
+    "socialStatistics": "Statistieken worden samengesteld met behulp van de top 200 cryptocurrencies op basis van marktkapitalisatie van CoinGecko.",
+    "dailyBalance": "Transactiegrafiek is alleen zichtbaar als de rekening meer dan 1 dag aan gegevens heeft en als de transacties tijdstempels hebben",
+    "senderFilter": "Filterblokken om alleen alle verzendtransacties vanaf een specifiek adres op te nemen of uit te sluiten. Als u meerdere adressen wilt filteren, scheidt u ze met een komma.",
+    "receiverFilter": "Filterblokken om alleen alle verzendtransacties vanaf een specifiek adres op te nemen of uit te sluiten. Als u meerdere adressen wilt filteren, scheidt u ze met een komma.",
+    "filterTransactions": "Alleen rekeningen met gelijk aan of minder dan 5.000 bevestigde transacties kunnen worden gefilterd"
   },
   "search": {
     "searchBy": "Zoeken op adres / block / bekend account",
@@ -163,7 +171,10 @@
       "waitingForTransactions": "Wachten op transacties",
       "connectingToBlockchain": "Verbinding maken met het BANANO netwerk",
       "reconnectingToBlockchain": "Verbinding verbroken, opnieuw verbinding maken met het BANANO netwerk",
-      "oneBanEqualsOneDoge": "Wat als 1 Ban = 1 Doge?"
+      "oneBanEqualsOneDoge": "Wat als 1 Ban = 1 Doge?",
+      "cpsLocal": "CPS waargenomen op het lokale knooppunt",
+      "cpsNetwork": "Mediane CPS over verschillende representatieve knooppunten",
+      "viewSocialEngagement": "Bekijk sociale betrokkenheid"
     },
     "account": {
       "votingWeight": "Stemgewicht",
@@ -182,7 +193,29 @@
       "pendingTransaction": "Transactie klaar om te worden ontvangen",
       "dailyBalanceOption": " Dagelijkse balans",
       "byTransactionOption": "Saldo per transactie",
-      "dailyBalance": "Laatste {{count}} transacties"
+      "dailyBalance": "Laatste {{count}} transacties",
+      "dateRange": "Datumbereik",
+      "includeNoTimestamp": "Blokken zonder datum opnemen",
+      "excludeUnknownAccounts": "Toon alleen blokken van bekende accounts",
+      "advancedOptions": "Geavanceerde mogelijkheden",
+      "applyFilters": "Filters toepassen",
+      "fields": "Velden",
+      "delimiter": "scheidingsteken",
+      "delimiterComma": "Komma",
+      "delimiterSemicolon": "Puntkomma",
+      "delimiterTab": "Tab",
+      "delimiterSpace": "Ruimte",
+      "delimiterPipe": "Pijp",
+      "fileName": "Bestandsnaam",
+      "minimum": "Minimum",
+      "maximum": "Maximaal",
+      "from": "Van",
+      "to": "Tot",
+      "startDate": "Startdatum",
+      "endDate": "Einddatum",
+      "exportToCsv": "Exporteren naar CSV",
+      "export": "Exporteren",
+      "exportTransactions": "Exporteer {{count}} transacties naar CSV"
     },
     "block": {
       "blockSubtype": "Block subtype",
@@ -199,7 +232,11 @@
       "missingBlock": "Ontbrekend block",
       "missingBlockInfo": "Het block is niet gespecificeerd in de URL. Gebruik de zoekbalk bovenaan om naar een block te zoeken of voeg het toe aan de URL na /block/",
       "blockNotFound": "Block niet gevonden",
-      "blockNotFoundInfo": "Het block dat u heeft aangevraagd, is niet gevonden. Het is mogelijk dat het block aanwezig is op het Banano netwerk, maar nog gezien moet worden door de node. Zorg ervoor dat u naar het juiste block zoekt of probeer het later opnieuw."
+      "blockNotFoundInfo": "Het block dat u heeft aangevraagd, is niet gevonden. Het is mogelijk dat het block aanwezig is op het Banano netwerk, maar nog gezien moet worden door de node. Zorg ervoor dat u naar het juiste block zoekt of probeer het later opnieuw.",
+      "successorBlock": "Opvolger blok",
+      "matchingSendBlock": "Bijpassend verzendblok",
+      "noMatchingSendBlock": "Geen overeenkomend blok gevonden",
+      "lastAccountBlock": "Dit blok is het meest recente op het account"
     },
     "representatives": {
       "voteDistribution": "Stemverdeling",
@@ -241,12 +278,12 @@
       "account": "Voer een \"nano_\"-account in om aan de alias te worden gekoppeld",
       "registerNote": "Bij de volgende stap wordt u gevraagd om een transactie te verzenden vanaf het \"nano_\"-account dat wordt geregistreerd",
       "invalidAccount": "Ongeldig account",
-      "waitingNote": "Uw alias wordt geregistreerd na het verzenden van Ӿ1 naar NanoLooker-donaties vanaf het account dat u registreert om te bevestigen dat het van u is.",
+      "waitingNote": "Uw alias wordt geregistreerd na het verzenden van BAN1 naar NanoLooker-donaties vanaf het account dat u registreert om te bevestigen dat het van u is.",
       "registerErrorTaken": "Er is al een alias voor dit account geregistreerd",
       "registerError": "Kan registratie niet voltooien",
       "waitingForTransaction": "Wachten op transactie",
       "viewAccount": "Bekijk account",
-      "sendFrom": "Stuur Ӿ{{amount}} van",
+      "sendFrom": "Stuur BAN{{amount}} van",
       "sendTo": "Tot"
     },
     "largeTransactions": {
@@ -267,7 +304,9 @@
       "unknownDormantFunds": "Onbekende latente gelden",
       "dormantFundsQuarterExample": "Een account met 50 BANANO en 50 BANANO in afwachting heeft voor het laatst 6 maanden geleden (2 kwartalen) transacties uitgevoerd, een saldo van 100 BANANO wordt als \"latent\" toegevoegd aan het totaal van het volgende kwartaal.",
       "dormantBanano": "Latente BANANO",
-      "ofAvailableSupply": "van de beschikbare voorraad"
+      "ofAvailableSupply": "van de beschikbare voorraad",
+      "dormantNano": "Banaan Slapend",
+      "richList": "Rijke lijst"
     },
     "news": {
       "allFeeds": "Alle feeds",
@@ -309,11 +348,13 @@
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> nodes hebben een bandbreedtelimiet van <1>{{limitedBandwidthCap}}</1>.",
       "nodeVersions": "Node versies",
       "latestVersion": "Nieuwste versie",
-      "database": "Database"
+      "database": "Database",
+      "versionsByWeight": "Versies op stemgewicht"
     },
     "exchangeTracker": {
       "description": "Elke dag wordt een opname gemaakt van de accountsaldo's van de meest populaire exchanges waar Banano wordt verhandeld. Deze meting kan worden gebruikt om bewegingen en fluctuaties op het netwerk te analyseren.",
-      "totalSelected": "Totaal saldo van geselecteerde beurzen"
+      "totalSelected": "Totaal saldo van geselecteerde beurzen",
+      "selectedWallets": "Geselecteerde portefeuilles"
     },
     "preferences": {
       "description": "Beheer uw voorkeuren voor elke sectie. De voorkeuren worden in de browser opgeslagen, als u uw gegevens wist, worden uw voorkeuren teruggezet naar de standaardinstellingen.",
@@ -396,6 +437,18 @@
       "nanoPotions": "NANO-drankjes",
       "guide": {
         "title": "BananoBrowserQuest-gids"
+      },
+      "playerGuide": "Spelersgids"
+    },
+    "statistics": {
+      "social": {
+        "title": "Maatschappelijke betrokkenheid bij cryptocurrencies / $ 1 miljard aan marktkapitalisatie",
+        "redditSubscribers": "Aantal Reddit-abonnees per miljard dollar",
+        "twitterFollowers": "Aantal Twitter-volgers per miljard dollar",
+        "githubStars": "Aantal Github-sterren per miljard dollar",
+        "engagementPerBillion": "Betrokkenheid per miljard dollar",
+        "marketCap": "Marktkapitalisatie",
+        "totalEngagement": "Totale betrokkenheid"
       }
     }
   }

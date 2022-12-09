@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button, Col, Row, Space, Typography } from "antd";
 import QRCodeModal from "components/QRCode/Modal";
@@ -25,6 +26,21 @@ const Register: React.FC = () => {
         <Col xs={24}>
           <Space size={12} align="center" direction="vertical">
             <Play />
+
+            <Link to="/nanobrowserquest/guide">
+              <Button
+                type="primary"
+                size="large"
+                shape="round"
+                style={{
+                  background: "#fffbe6",
+                  borderColor: "#ffe58f",
+                  color: "#d48806",
+                }}
+              >
+                {t("pages.nanobrowserquest.playerGuide")}
+              </Button>
+            </Link>
 
             <QRCodeModal
               account={NANOBROWSERQUEST_DONATION_ACCOUNT}

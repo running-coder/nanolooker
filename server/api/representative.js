@@ -12,12 +12,19 @@ const getRepresentative = account => {
   return representative || {};
 };
 
+const getAllRepresentatives = () => {
+  return nodeCache.get(REPRESENTATIVE);
+};
+
 const setRepresentatives = async ({ metrics, peers }) => {
   const representatives = {};
 
   try {
-    const { node_vendor } = await rpc("version");
-    const version = parseInt(node_vendor.replace(/[^\d.]/g, ""));
+    const response = await rpc("version");
+    const [, major, minor, patch = 0] = /(\d+).(\d+)(\.\d+)?/.exec(
+      response.node_vendor,
+    );
+    const version = parseInt(`${major}${minor}${patch}`);
 
     peers
       .map(peer => {
@@ -27,13 +34,15 @@ const setRepresentatives = async ({ metrics, peers }) => {
 
         if (metric) {
           const {
-            major_version: major,
-            minor_version: minor,
-            patch_version: patch,
+            major_version: majorVersion,
+            minor_version: minorVersion,
+            patch_version: patchVersion,
           } = metric;
 
-          metric.version = `${major}.${minor}.${patch}`;
-          metric.isLatestVersion = parseInt(major) >= version;
+          metric.version = `${majorVersion}.${minorVersion}.${patchVersion}`;
+          metric.isLatestVersion =
+            parseInt(`${majorVersion}${minorVersion}${patchVersion}`) >=
+            parseInt(version);
         }
 
         representatives[peer.account] = metric;
@@ -51,4 +60,5 @@ const setRepresentatives = async ({ metrics, peers }) => {
 module.exports = {
   getRepresentative,
   setRepresentatives,
+  getAllRepresentatives,
 };

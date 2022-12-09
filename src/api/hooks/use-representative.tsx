@@ -9,7 +9,7 @@ export interface RepresentativeReturn {
 }
 
 interface Params {
-  account: string;
+  account?: string;
 }
 
 interface Options {
@@ -17,7 +17,7 @@ interface Options {
 }
 
 const useRepresentative = (
-  { account }: Params,
+  { account }: Params = {},
   options?: Options,
 ): RepresentativeReturn => {
   const [representative, setRepresentative] = React.useState();
@@ -28,12 +28,14 @@ const useRepresentative = (
     setIsLoading(true);
     setIsError(false);
     try {
-      const query = qs.stringify(
-        { account },
-        {
-          addQueryPrefix: true,
-        },
-      );
+      const query = account
+        ? qs.stringify(
+            { account },
+            {
+              addQueryPrefix: true,
+            },
+          )
+        : "";
 
       const res = await fetch(`/api/representative${query}`);
       const json = await res.json();
@@ -47,7 +49,7 @@ const useRepresentative = (
   };
 
   React.useEffect(() => {
-    if (!isValidAccountAddress(account) || options?.skip) return;
+    if ((account && !isValidAccountAddress(account)) || options?.skip) return;
 
     getRepresentative();
     // eslint-disable-next-line react-hooks/exhaustive-deps

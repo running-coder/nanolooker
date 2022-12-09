@@ -30,12 +30,7 @@ const DeveloperFund: React.FC = () => {
   let totalBalance: number = 0;
   const { fiat } = React.useContext(PreferencesContext);
   const {
-    marketStatistics: {
-      currentPrice,
-      priceStats: { bitcoin: { [fiat]: btcCurrentPrice = 0 } } = {
-        bitcoin: { [fiat]: 0 },
-      },
-    },
+    marketStatistics: { currentPrice, priceStats },
     isInitialLoading: isMarketStatisticsInitialLoading,
   } = React.useContext(MarketStatisticsContext);
   const { accountsBalances, isLoading: isAccountsBalancesLoading } =
@@ -69,6 +64,7 @@ const DeveloperFund: React.FC = () => {
     ["desc"],
   );
 
+  const btcCurrentPrice = priceStats?.bitcoin?.[fiat] || 0;
   const fiatBalance = new BigNumber(totalBalance)
     .times(currentPrice)
     .toFormat(CurrencyDecimal?.[fiat]);

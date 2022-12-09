@@ -42,7 +42,9 @@
     "statistics": "آمار",
     "continue": "ادامه هید",
     "link": "ارتباط دادن",
-    "noData": "بدون اطلاعات"
+    "noData": "بدون اطلاعات",
+    "include": "عبارتند از",
+    "exclude": "مستثنی کردن"
   },
   "nodeHealth": {
     "nodeReloading": "گره نانو در حال بارگیری مجدد است",
@@ -90,7 +92,13 @@
     "mnano": "Mnano بخش استاندارد فعلی است که در کیف پول ، مبادلات و خدمات استفاده می شود. به عنوان 1 BANANO شناخته می شود.",
     "versionsByWeight": "برای اینکه یک نسخه از اجماع شبکه پذیرفته شود ، باید 67٪ از وزن رای گیری آنلاین را از حداقل {{onlineWeightMinimum}} BANANO داشته باشد.",
     "onChainVolume": "مجموع تمام تراکنش های BANANO که در شبکه تأیید شده اند. اگر کاربر A 1 BANANO ارسال کند و کاربر B 1 BANANO در همان روز دریافت کند ، 2 BANANO به حجم روزانه اضافه می شود زیرا 2 تراکنش پخش و تأیید شده است ، ارسال و دریافت.",
-    "oneBanEqualsOneDoge": "اگر سرپوش بازار Banano برابر با Doge باشد ، مقایسه سرگرم کننده ای با زنجیره برادر سکه doge meme خود خواهیم داشت."
+    "oneBanEqualsOneDoge": "اگر سرپوش بازار Banano برابر با Doge باشد ، مقایسه سرگرم کننده ای با زنجیره برادر سکه doge meme خود خواهیم داشت.",
+    "pendingTransaction": "وجوه به این حساب ارسال شد اما مالک هنوز وجوه را به جیب نزده است. فقط صاحب حساب می تواند تراکنش دریافتی را در بلاک چین خود بنویسد. اگر این حساب شما است، قفل کیف پول خود را باز کنید، بلوک دریافت معمولاً به طور خودکار پخش می شود.",
+    "socialStatistics": "آمارها با استفاده از 200 ارز دیجیتال برتر بر اساس ارزش بازار از CoinGecko جمع‌آوری می‌شوند.",
+    "dailyBalance": "نمودار تراکنش فقط در صورتی قابل مشاهده است که حساب بیش از 1 روز داده داشته باشد و تراکنش ها دارای مهر زمانی باشند.",
+    "senderFilter": "بلوک‌ها را فیلتر کنید تا فقط شامل تمام تراکنش‌های ارسالی از یک آدرس خاص باشد یا حذف شود. برای فیلتر کردن چندین آدرس، آنها را با کاما جدا کنید.",
+    "receiverFilter": "بلوک‌ها را فیلتر کنید تا فقط شامل تمام تراکنش‌های ارسالی از یک آدرس خاص باشد یا حذف شود. برای فیلتر کردن چندین آدرس، آنها را با کاما جدا کنید.",
+    "filterTransactions": "فقط حساب هایی با تراکنش های مشابه یا کمتر از 5000 تایید شده می توانند فیلتر شوند"
   },
   "search": {
     "searchBy": "جستجو براساس آدرس / مسدود کردن / حساب شناخته شده",
@@ -163,7 +171,10 @@
       "waitingForTransactions": "منتظر معاملات",
       "connectingToBlockchain": "اتصال به زنجیره بلوک BANANO",
       "reconnectingToBlockchain": "اتصال قطع شد ، دوباره به زنجیره بلوک BANANO متصل شدید",
-      "oneBanEqualsOneDoge": "چه می شود اگر 1 Ban = 1 Doge؟"
+      "oneBanEqualsOneDoge": "چه می شود اگر 1 Ban = 1 Doge؟",
+      "cpsLocal": "CPS روی گره محلی مشاهده شد",
+      "cpsNetwork": "CPS میانه در چندین گره نماینده",
+      "viewSocialEngagement": "مشاهده تعامل اجتماعی"
     },
     "account": {
       "votingWeight": "وزن رای گیری",
@@ -182,7 +193,29 @@
       "pendingTransaction": "معامله آماده دریافت است",
       "dailyBalanceOption": " تعادل روزانه",
       "byTransactionOption": "موجودی بر اساس معامله",
-      "dailyBalance": "آخرین {{count}} تراکنش"
+      "dailyBalance": "آخرین {{count}} تراکنش",
+      "dateRange": "محدوده زمانی",
+      "includeNoTimestamp": "شامل بلوک های بدون تاریخ",
+      "excludeUnknownAccounts": "فقط بلوک های حساب های شناخته شده را نشان دهید",
+      "advancedOptions": "گزینه های پیشرفته",
+      "applyFilters": "فیلترها را اعمال کنید",
+      "fields": "زمینه های",
+      "delimiter": "حائل، جداکننده",
+      "delimiterComma": "کاما",
+      "delimiterSemicolon": "نقطه ویرگول",
+      "delimiterTab": "Tab",
+      "delimiterSpace": "فضا",
+      "delimiterPipe": "لوله",
+      "fileName": "نام فایل",
+      "minimum": "کمترین",
+      "maximum": "بیشترین",
+      "from": "از جانب",
+      "to": "به",
+      "startDate": "تاریخ شروع",
+      "endDate": "تاریخ پایان",
+      "exportToCsv": "صادرات به CSV",
+      "export": "صادرات",
+      "exportTransactions": "{{count}} تراکنش را به CSV صادر کنید"
     },
     "block": {
       "blockSubtype": "زیر گروه را مسدود کنید",
@@ -245,12 +278,12 @@
       "account": "یک حساب \"nano_\" وارد کنید تا با نام مستعار مرتبط شود",
       "registerNote": "در مرحله بعد از شما خواسته می شود که تراکنش را از حساب \"nano_\" در حال ثبت ارسال کنید",
       "invalidAccount": "حساب نامعتبر",
-      "waitingNote": "نام مستعار شما پس از ارسال Ӿ1 به NanoLooker کمک‌های مالی از حسابی که در حال ثبت نام هستید ثبت می‌شود تا تایید شود که متعلق به شماست.",
+      "waitingNote": "نام مستعار شما پس از ارسال BAN1 به NanoLooker کمک‌های مالی از حسابی که در حال ثبت نام هستید ثبت می‌شود تا تایید شود که متعلق به شماست.",
       "registerErrorTaken": "نام مستعار برای این حساب قبلا ثبت شده است",
       "registerError": "امکان تکمیل ثبت نام وجود ندارد",
       "waitingForTransaction": "در انتظار معامله",
       "viewAccount": "مشاهده اکانت",
-      "sendFrom": "ارسال Ӿ{{مقدار}} از",
+      "sendFrom": "ارسال BAN{{مقدار}} از",
       "sendTo": "به"
     },
     "largeTransactions": {
@@ -271,7 +304,9 @@
       "unknownDormantFunds": "صندوق های خاموش ناشناخته",
       "dormantFundsQuarterExample": "حسابی که دارای 50 BANANO و 50 BANANO معلق است آخرین بار 6 ماه پیش (2 چهارم) معامله کرده است ، مانده 100 BANANO به عنوان \"خاموش\" به کل سه ماهه بعدی اضافه می شود.",
       "dormantBanano": "خواب نانو",
-      "ofAvailableSupply": "از عرضه موجود"
+      "ofAvailableSupply": "از عرضه موجود",
+      "dormantNano": "موز خوابیده",
+      "richList": "لیست ثروتمند"
     },
     "news": {
       "allFeeds": "همه فیدها",
@@ -313,7 +348,8 @@
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> گره ها محدودیت پهنای باند <1> {{limitedBandwidthCap}}</1> را دارند.",
       "nodeVersions": "نسخه های گره",
       "latestVersion": "آخرین نسخه",
-      "database": "پایگاه داده"
+      "database": "پایگاه داده",
+      "versionsByWeight": "نسخه ها بر اساس وزن رای"
     },
     "exchangeTracker": {
       "description": "هر روز از موجودی حساب محبوب ترین صرافی هایی که نانو در آن تجارت می شود گرفته می شود. از این اندازه گیری می توان برای تجزیه و تحلیل حرکات و نوسانات موجود در شبکه استفاده کرد.",
@@ -401,6 +437,18 @@
       "nanoPotions": "معجون های نانو",
       "guide": {
         "title": "راهنمای NanoBrowserQuest"
+      },
+      "playerGuide": "راهنمای بازیکن"
+    },
+    "statistics": {
+      "social": {
+        "title": "مشارکت اجتماعی ارزهای دیجیتال / 1 میلیارد دلار ارزش بازار",
+        "redditSubscribers": "تعداد مشترکین Reddit در هر میلیارد دلار",
+        "twitterFollowers": "تعداد فالوورهای توییتر در هر میلیارد دلار",
+        "githubStars": "تعداد ستاره های Github در هر میلیارد دلار",
+        "engagementPerBillion": "نامزدی در هر میلیارد دلار",
+        "marketCap": "ارزش بازار",
+        "totalEngagement": "تعامل کامل"
       }
     }
   }

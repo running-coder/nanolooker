@@ -42,7 +42,9 @@
     "statistics": "Số liệu thống kê",
     "continue": "Tiếp tục",
     "link": "Liên kết",
-    "noData": "Không có dữ liệu"
+    "noData": "Không có dữ liệu",
+    "include": "Bao gồm",
+    "exclude": "Loại trừ"
   },
   "nodeHealth": {
     "nodeReloading": "Nút nano đang tải lại",
@@ -90,7 +92,13 @@
     "mnano": "Mnano là bộ phận tiêu chuẩn hiện tại được sử dụng trong ví, trên các sàn giao dịch và dịch vụ. Nó được gọi là 1 BANANO.",
     "versionsByWeight": "Để một phiên bản chiếm được sự đồng thuận của mạng, phiên bản đó cần có {{onlineWeightQuorumPercent}}% trọng lượng bỏ phiếu trực tuyến từ tối thiểu là {{onlineWeightMinimum}} BANANO.",
     "onChainVolume": "Tổng của tất cả các giao dịch BANANO đã được xác nhận trên mạng. Nếu người dùng A gửi 1 BANANO và người dùng B nhận được 1 BANANO trong cùng một ngày, thì 2 BANANO sẽ được thêm vào khối lượng hàng ngày vì 2 giao dịch đã được phát và xác nhận, một gửi và một nhận.",
-    "oneBanEqualsOneDoge": "So sánh thú vị với chuỗi anh em doge meme coin của chúng tôi, nếu vốn hóa thị trường của Banano sẽ bằng với Doge."
+    "oneBanEqualsOneDoge": "So sánh thú vị với chuỗi anh em doge meme coin của chúng tôi, nếu vốn hóa thị trường của Banano sẽ bằng với Doge.",
+    "pendingTransaction": "Tiền đã được gửi đến tài khoản này nhưng chủ sở hữu vẫn chưa bỏ tiền vào túi. Chỉ chủ sở hữu tài khoản mới có thể ghi giao dịch đã nhận vào chuỗi khối của họ. Nếu đây là tài khoản của bạn, hãy mở khóa ví của bạn, khối nhận thường được tự động phát.",
+    "socialStatistics": "Số liệu thống kê được tổng hợp bằng cách sử dụng 200 loại tiền điện tử hàng đầu theo giới hạn thị trường từ CoinGecko.",
+    "dailyBalance": "Biểu đồ giao dịch chỉ hiển thị nếu tài khoản có dữ liệu trong hơn 1 ngày và nếu giao dịch có dấu thời gian",
+    "senderFilter": "Lọc các khối để chỉ bao gồm hoặc loại trừ tất cả các giao dịch gửi từ một địa chỉ cụ thể. Để lọc nhiều địa chỉ, hãy phân tách chúng bằng dấu phẩy.",
+    "receiverFilter": "Lọc các khối để chỉ bao gồm hoặc loại trừ tất cả các giao dịch gửi từ một địa chỉ cụ thể. Để lọc nhiều địa chỉ, hãy phân tách chúng bằng dấu phẩy.",
+    "filterTransactions": "Chỉ những tài khoản có bằng hoặc ít hơn 5.000 giao dịch được xác nhận mới có thể được lọc"
   },
   "search": {
     "searchBy": "Tìm kiếm theo Địa chỉ / Khối / Tài khoản Đã biết",
@@ -163,7 +171,10 @@
       "waitingForTransactions": "Chờ giao dịch",
       "connectingToBlockchain": "Kết nối với chuỗi khối BANANO",
       "reconnectingToBlockchain": "Đã ngắt kết nối, đang kết nối lại với chuỗi khối BANANO",
-      "oneBanEqualsOneDoge": "Nếu 1 Cấm = 1 Doge thì sao?"
+      "oneBanEqualsOneDoge": "Nếu 1 Cấm = 1 Doge thì sao?",
+      "cpsLocal": "CPS được quan sát trên nút cục bộ",
+      "cpsNetwork": "CPS trung bình trên một số nút đại diện",
+      "viewSocialEngagement": "Xem tương tác xã hội"
     },
     "account": {
       "votingWeight": "Số phiếu bầu",
@@ -182,7 +193,29 @@
       "pendingTransaction": "Giao dịch đã sẵn sàng để nhận",
       "dailyBalanceOption": " Số dư hàng ngày",
       "byTransactionOption": "Số dư theo giao dịch",
-      "dailyBalance": "{{Count}} giao dịch gần đây nhất"
+      "dailyBalance": "{{Count}} giao dịch gần đây nhất",
+      "dateRange": "Phạm vi ngày",
+      "includeNoTimestamp": "Bao gồm các khối không có ngày tháng",
+      "excludeUnknownAccounts": "Chỉ hiển thị các khối từ các tài khoản đã biết",
+      "advancedOptions": "Tùy chọn nâng cao",
+      "applyFilters": "Áp dụng các bộ lọc",
+      "fields": "Lĩnh vực",
+      "delimiter": "Dấu phân cách",
+      "delimiterComma": "Dấu phẩy",
+      "delimiterSemicolon": "Dấu chấm phẩy",
+      "delimiterTab": "Chuyển hướng",
+      "delimiterSpace": "Không gian",
+      "delimiterPipe": "Đường ống",
+      "fileName": "Tên tệp",
+      "minimum": "Tối thiểu",
+      "maximum": "Tối đa",
+      "from": "Từ",
+      "to": "Đến",
+      "startDate": "Ngày bắt đầu",
+      "endDate": "Ngày cuối",
+      "exportToCsv": "Xuất sang CSV",
+      "export": "Xuất khẩu",
+      "exportTransactions": "Xuất giao dịch {{count}} sang CSV"
     },
     "block": {
       "blockSubtype": "Block con",
@@ -199,7 +232,11 @@
       "missingBlock": "Thiếu khối",
       "missingBlockInfo": "Khối không được chỉ định trong URL. Sử dụng thanh tìm kiếm trên cùng để tìm kiếm một khối hoặc thêm khối đó vào URL sau /block/",
       "blockNotFound": "Không tìm thấy khối",
-      "blockNotFoundInfo": "Không tìm thấy khối bạn yêu cầu. Có thể khối hiện diện trên mạng Banano nhưng nút vẫn chưa được nhìn thấy. Đảm bảo rằng bạn đang tìm kiếm đúng khối hoặc thử lại sau."
+      "blockNotFoundInfo": "Không tìm thấy khối bạn yêu cầu. Có thể khối hiện diện trên mạng Banano nhưng nút vẫn chưa được nhìn thấy. Đảm bảo rằng bạn đang tìm kiếm đúng khối hoặc thử lại sau.",
+      "successorBlock": "khối kế tiếp",
+      "matchingSendBlock": "Khối gửi phù hợp",
+      "noMatchingSendBlock": "Không tìm thấy khối phù hợp",
+      "lastAccountBlock": "Khối này là khối mới nhất trên tài khoản"
     },
     "representatives": {
       "voteDistribution": "Phân phối phiếu bầu",
@@ -241,12 +278,12 @@
       "account": "Nhập tài khoản \"nano_\" được liên kết với bí danh",
       "registerNote": "Ở bước tiếp theo, bạn sẽ được yêu cầu gửi một giao dịch từ tài khoản \"nano_\" đang được đăng ký",
       "invalidAccount": "Tài khoản không hợp lệ",
-      "waitingNote": "Bí danh của bạn sẽ được đăng ký sau khi gửi Ӿ1 khoản đóng góp cho NanoLooker từ tài khoản bạn đang đăng ký để xác nhận nó thuộc về bạn.",
+      "waitingNote": "Bí danh của bạn sẽ được đăng ký sau khi gửi BAN1 khoản đóng góp cho NanoLooker từ tài khoản bạn đang đăng ký để xác nhận nó thuộc về bạn.",
       "registerErrorTaken": "Bí danh cho tài khoản này đã được đăng ký",
       "registerError": "Không thể hoàn thành đăng ký",
       "waitingForTransaction": "Đang chờ giao dịch",
       "viewAccount": "Xem tài khoản",
-      "sendFrom": "Gửi Ӿ {{amount}} từ",
+      "sendFrom": "Gửi BAN {{amount}} từ",
       "sendTo": "Đến"
     },
     "largeTransactions": {
@@ -267,7 +304,9 @@
       "unknownDormantFunds": "Các quỹ không hoạt động không xác định",
       "dormantFundsQuarterExample": "Một tài khoản có 50 BANANO và 50 BANANO đang chờ xử lý đã giao dịch lần cuối cách đây 6 tháng (2 quý), số dư 100 BANANO được thêm vào là \"không hoạt động\" vào tổng số của quý tiếp theo.",
       "dormantBanano": "Ngủ BANANO",
-      "ofAvailableSupply": "nguồn cung cấp có sẵn"
+      "ofAvailableSupply": "nguồn cung cấp có sẵn",
+      "dormantNano": "chuối ngủ đông",
+      "richList": "Danh sách phong phú"
     },
     "news": {
       "allFeeds": "Tất cả Nguồn cấp dữ liệu",
@@ -309,11 +348,13 @@
       "limitedBandwidthCap": "Các nút <0>{{limitedBandwidthCapCount}}</0> có giới hạn băng thông là <1>{{limitedBandwidthCap}}</1>.",
       "nodeVersions": "Phiên bản nút",
       "latestVersion": "Phiên bản mới nhất",
-      "database": "Cơ sở dữ liệu"
+      "database": "Cơ sở dữ liệu",
+      "versionsByWeight": "Phiên bản theo trọng lượng biểu quyết"
     },
     "exchangeTracker": {
       "description": "Mỗi ngày, việc nắm bắt số dư tài khoản của các sàn giao dịch phổ biến nhất nơi Banano được giao dịch sẽ được thực hiện. Phép đo này có thể được sử dụng để phân tích các chuyển động và dao động trên mạng.",
-      "totalSelected": "Tổng số dư của các trao đổi đã chọn"
+      "totalSelected": "Tổng số dư của các trao đổi đã chọn",
+      "selectedWallets": "Ví đã chọn"
     },
     "preferences": {
       "description": "Quản lý tùy chọn của bạn cho mọi phần. Các tùy chọn được lưu trữ trên trình duyệt, nếu bạn xóa dữ liệu của mình, tùy chọn của bạn sẽ trở lại mặc định.",
@@ -396,6 +437,18 @@
       "nanoPotions": "NANO Potions",
       "guide": {
         "title": "Hướng dẫn NanoBrowserQuest"
+      },
+      "playerGuide": "hướng dẫn người chơi"
+    },
+    "statistics": {
+      "social": {
+        "title": "Tương tác xã hội với tiền điện tử / Vốn hóa thị trường 1 tỷ đô la",
+        "redditSubscribers": "Số người đăng ký Reddit trên một tỷ đô la",
+        "twitterFollowers": "Số người theo dõi Twitter trên mỗi tỷ đô la",
+        "githubStars": "Số sao Github trên một tỷ đô la",
+        "engagementPerBillion": "Tương tác trên một tỷ đô la",
+        "marketCap": "Vốn hóa thị trường",
+        "totalEngagement": "Tổng số tương tác"
       }
     }
   }

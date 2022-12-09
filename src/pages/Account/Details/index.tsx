@@ -71,12 +71,7 @@ const AccountDetails: React.FC<Props> = ({
   });
 
   const {
-    marketStatistics: {
-      currentPrice,
-      priceStats: { bitcoin: { [fiat]: btcCurrentPrice = 0 } } = {
-        bitcoin: { [fiat]: 0 },
-      },
-    },
+    marketStatistics: { currentPrice, priceStats },
     isInitialLoading: isMarketStatisticsInitialLoading,
   } = React.useContext(MarketStatisticsContext);
   const {
@@ -114,6 +109,7 @@ const AccountDetails: React.FC<Props> = ({
     .plus(socketPendingBalance)
     .toFormat(8);
 
+  const btcCurrentPrice = priceStats?.bitcoin?.[fiat] || 0;
   const fiatBalance = new BigNumber(balance)
     .times(currentPrice)
     .toFormat(CurrencyDecimal?.[fiat]);
@@ -366,7 +362,7 @@ const AccountDetails: React.FC<Props> = ({
                       {t("common.unknown")}
                       <Tooltip
                         placement="right"
-                        title={t("tooltips.unknownLastTransaction")}
+                        title={t("tooltips.unknownTransactionDate")}
                       >
                         <QuestionCircle />
                       </Tooltip>

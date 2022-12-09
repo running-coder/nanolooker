@@ -27,6 +27,7 @@ import WhatIsBananoPage from "pages/WhatIsBanano";
 import PreferencesPage from "pages/Preferences";
 import BookmarksPage from "pages/Bookmarks";
 import NanoBrowserQuestPage from "pages/NanoBrowserQuest";
+import StatisticsSocial from "pages/Statistics/Social";
 import "components/utils/analytics";
 
 import "antd/dist/antd.css";
@@ -94,6 +95,7 @@ const App: React.FC = () => {
               path="/bananobrowserquest/:section?"
               component={NanoBrowserQuestPage}
             />
+            <Route path="/statistics/social" component={StatisticsSocial} />
           </Switch>
         </Content>
         <AppFooter />

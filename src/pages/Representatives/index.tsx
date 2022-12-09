@@ -24,6 +24,7 @@ import { DelegatorsContext } from "api/contexts/Delegators";
 import QuestionCircle from "components/QuestionCircle";
 import { rawToRai, TwoToneColors } from "components/utils";
 import PieChart from "./PieChart";
+import useRepresentative from "api/hooks/use-representative";
 
 const { Title } = Typography;
 
@@ -43,6 +44,7 @@ const Representatives = () => {
   const { theme } = React.useContext(PreferencesContext);
   const { representatives, isLoading: isRepresentativesLoading } =
     React.useContext(RepresentativesContext);
+  const { representative: telemetryRepresentatives } = useRepresentative();
 
   const {
     confirmationQuorum: {
@@ -313,6 +315,8 @@ const Representatives = () => {
             {filteredRepresentatives.map(
               ({ account, weight, isOnline, isPrincipal, alias }) => {
                 const delegatorsCount = allDelegators[account];
+                const telemetryRepresentative =
+                  telemetryRepresentatives?.[account];
                 return (
                   <Row gutter={6} key={account}>
                     <Col
@@ -367,6 +371,20 @@ const Representatives = () => {
                         ) : null}
                         {isPrincipal ? (
                           <Tag>{t("common.principalRepresentative")}</Tag>
+                        ) : null}
+
+                        {telemetryRepresentative?.version ? (
+                          <Tag
+                            color={
+                              !telemetryRepresentative.isLatestVersion
+                                ? theme === Theme.DARK
+                                  ? TwoToneColors.WARNING_DARK
+                                  : TwoToneColors.WARNING
+                                : undefined
+                            }
+                          >
+                            v{telemetryRepresentative.version}
+                          </Tag>
                         ) : null}
                       </div>
 

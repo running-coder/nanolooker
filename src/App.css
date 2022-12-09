@@ -258,6 +258,7 @@ h3.ant-typography,
 }
 
 .bottom-gradient {
+  pointer-events: none;
   position: absolute;
   width: 100%;
   height: 50px;

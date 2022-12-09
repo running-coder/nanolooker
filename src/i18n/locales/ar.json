@@ -42,7 +42,9 @@
     "statistics": "إحصائيات",
     "continue": "يكمل",
     "link": "وصلة",
-    "noData": "لايوجد بيانات"
+    "noData": "لايوجد بيانات",
+    "include": "تضمن",
+    "exclude": "استبعاد"
   },
   "nodeHealth": {
     "nodeReloading": "يتم إعادة تحميل عقدة النانو",
@@ -91,7 +93,12 @@
     "versionsByWeight": "لكي يستحوذ الإصدار على إجماع الشبكة ، يجب أن يحصل على 67٪ من وزن التصويت عبر الإنترنت من الحد الأدنى من {{onlineWeightMinimum}} BANANO.",
     "onChainVolume": "مجموع جميع معاملات BANANO التي تم تأكيدها على الشبكة. إذا أرسل المستخدم A 1 BANANO وتلقى المستخدم B 1 BANANO في نفس اليوم ، فسيتم إضافة 2 BANANO في المجلد اليومي لأنه تم بث معاملتين وتأكيدهما ، إرسال واستلام.",
     "oneBanEqualsOneDoge": "مقارنة ممتعة مع سلسلة العملات المعدنية الخاصة بنا من Doge meme ، إذا كانت القيمة السوقية لـ Banano ستكون مساوية لقيمة Doge.",
-    "pendingTransaction": "تم إرسال الأموال إلى هذا الحساب ولكن المالك لم يضع الأموال في جيبه بعد. يمكن فقط لمالك الحساب كتابة معاملة مستلمة في blockchain الخاص به. إذا كان هذا هو حسابك ، فافتح محفظتك ، وعادة ما يتم بث كتلة الاستلام تلقائيًا."
+    "pendingTransaction": "تم إرسال الأموال إلى هذا الحساب ولكن المالك لم يضع الأموال في جيبه بعد. يمكن فقط لمالك الحساب كتابة معاملة مستلمة في blockchain الخاص به. إذا كان هذا هو حسابك ، فافتح محفظتك ، وعادة ما يتم بث كتلة الاستلام تلقائيًا.",
+    "socialStatistics": "يتم تجميع الإحصاءات باستخدام أفضل 200 عملة مشفرة حسب القيمة السوقية من CoinGecko.",
+    "dailyBalance": "يكون مخطط المعاملة مرئيًا فقط إذا كان الحساب يحتوي على أكثر من يوم واحد من البيانات وإذا كانت المعاملات تحتوي على طوابع زمنية",
+    "senderFilter": "كتل تصفية لتضمين فقط أو استبعاد جميع معاملات الإرسال من عنوان معين. لتصفية عناوين متعددة ، افصل بينها بفاصلة.",
+    "receiverFilter": "كتل تصفية لتضمين فقط أو استبعاد جميع معاملات الإرسال من عنوان معين. لتصفية عناوين متعددة ، افصل بينها بفاصلة.",
+    "filterTransactions": "يمكن فقط تصفية الحسابات التي تساوي أو تقل عن 5000 معاملة مؤكدة"
   },
   "search": {
     "searchBy": "البحث بالعنوان / الحظر / الحساب المعروف",
@@ -166,7 +173,8 @@
       "reconnectingToBlockchain": "تم قطع الاتصال وإعادة الاتصال بـ BANANO blockchain",
       "oneBanEqualsOneDoge": "ماذا لو 1 Ban = 1 Doge؟",
       "cpsLocal": "لوحظ CPS على العقدة المحلية",
-      "cpsNetwork": "متوسط CPS عبر عدة عقد تمثيلية"
+      "cpsNetwork": "متوسط CPS عبر عدة عقد تمثيلية",
+      "viewSocialEngagement": "عرض المشاركة الاجتماعية"
     },
     "account": {
       "votingWeight": "وزن التصويت",
@@ -185,7 +193,29 @@
       "pendingTransaction": "المعاملة جاهزة للاستلام",
       "dailyBalanceOption": " الرصيد اليومي",
       "byTransactionOption": "التوازن عن طريق المعاملة",
-      "dailyBalance": "آخر {{عدد}} المعاملات"
+      "dailyBalance": "آخر {{عدد}} المعاملات",
+      "dateRange": "نطاق الموعد",
+      "includeNoTimestamp": "تضمين الكتل بدون تاريخ",
+      "excludeUnknownAccounts": "إظهار الكتل من الحسابات المعروفة فقط",
+      "advancedOptions": "خيارات متقدمة",
+      "applyFilters": "تطبيق المرشحات",
+      "fields": "مجالات",
+      "delimiter": "محدد",
+      "delimiterComma": "فاصلة",
+      "delimiterSemicolon": "فاصلة منقوطة",
+      "delimiterTab": "فاتورة غير مدفوعة",
+      "delimiterSpace": "مساحة",
+      "delimiterPipe": "يضخ",
+      "fileName": "اسم الملف",
+      "minimum": "الحد الأدنى",
+      "maximum": "أقصى",
+      "from": "من",
+      "to": "إلى",
+      "startDate": "تاريخ البدء",
+      "endDate": "تاريخ الانتهاء",
+      "exportToCsv": "تصدير إلى CSV",
+      "export": "يصدّر",
+      "exportTransactions": "تصدير {{عدد}} المعاملات إلى CSV"
     },
     "block": {
       "blockSubtype": "نوع الكتلة الفرعي",
@@ -248,12 +278,12 @@
       "account": "أدخل حساب \"nano_\" لربطه بالاسم المستعار",
       "registerNote": "في الخطوة التالية ستطلب إرسال معاملة من حساب \"nano_\" الجاري تسجيله",
       "invalidAccount": "حساب غير صالح",
-      "waitingNote": "سيتم تسجيل الاسم المستعار الخاص بك بعد إرسال Ӿ1 إلى تبرعات NanoLooker من الحساب الذي تقوم بتسجيله لتأكيد أنه ملك لك.",
+      "waitingNote": "سيتم تسجيل الاسم المستعار الخاص بك بعد إرسال BAN1 إلى تبرعات NanoLooker من الحساب الذي تقوم بتسجيله لتأكيد أنه ملك لك.",
       "registerErrorTaken": "تم تسجيل الاسم المستعار لهذا الحساب بالفعل",
       "registerError": "غير قادر على إتمام التسجيل",
       "waitingForTransaction": "في انتظار المعاملة",
       "viewAccount": "عرض الحساب",
-      "sendFrom": "أرسل Ӿ {{amount}} من",
+      "sendFrom": "أرسل BAN {{amount}} من",
       "sendTo": "إلى"
     },
     "largeTransactions": {
@@ -275,7 +305,8 @@
       "dormantFundsQuarterExample": "الحساب الذي يحتوي على 50 BANANO و 50 BANANO معلقًا قد تمت آخر معاملة له منذ 6 أشهر (ربعان) ، تمت إضافة رصيد قدره 100 BANANO باعتباره \"خامل\" إلى إجمالي الربع التالي.",
       "dormantBanano": "النوم نانو",
       "ofAvailableSupply": "من العرض المتاح",
-      "richList": "قائمة غنية"
+      "richList": "قائمة غنية",
+      "dormantNano": "الموز نائم"
     },
     "news": {
       "allFeeds": "كل الخلاصات",
@@ -317,7 +348,8 @@
       "limitedBandwidthCap": "<0>{{limitedBandwidthCapCount}}</0> العقد لها حد النطاق الترددي <1> {{limitedBandwidthCap}} </1>.",
       "nodeVersions": "إصدارات العقدة",
       "latestVersion": "احدث اصدار",
-      "database": "قاعدة البيانات"
+      "database": "قاعدة البيانات",
+      "versionsByWeight": "الإصدارات من خلال وزن التصويت"
     },
     "exchangeTracker": {
       "description": "كل يوم يتم الحصول على أرصدة حسابات أكثر البورصات شعبية حيث يتم تداول Banano. يمكن استخدام هذا القياس لتحليل الحركات والتقلبات على الشبكة.",
@@ -405,7 +437,19 @@
       "nanoPotions": "جرعات نانو",
       "guide": {
         "title": "دليل NanoBrowserQuest"
+      },
+      "playerGuide": "دليل اللاعب"
+    },
+    "statistics": {
+      "social": {
+        "title": "المشاركة الاجتماعية للعملات المشفرة / 1 مليار دولار في القيمة السوقية",
+        "redditSubscribers": "عدد مشتركي Reddit لكل مليار دولار",
+        "twitterFollowers": "عدد متابعي تويتر لكل مليار دولار",
+        "githubStars": "عدد نجوم جيثب لكل مليار دولار",
+        "engagementPerBillion": "المشاركة لكل مليار دولار",
+        "marketCap": "القيمة السوقية",
+        "totalEngagement": "إجمالي المشاركة"
       }
-    }    
+    }
   }
 }

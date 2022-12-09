@@ -12,6 +12,7 @@ const {
   MONGO_OPTIONS,
   MONGO_DB,
   COINGECKO_MARKET_STATS,
+  COINGECKO_MARKET_CAP_STATS,
   COINGECKO_DOGE_MARKET_STATS,
   COINGECKO_ALL_PRICE_STATS,
   COINGECKO_PRICE_STATS,
@@ -20,7 +21,7 @@ const {
 } = require("../constants");
 
 const defaultFiats = ["usd"];
-const secondaryFiats = ["cad", "eur", "gbp", "cny", "jpy", "pln"];
+const secondaryFiats = ["cad", "eur"];
 
 const { writeFile, mkdir, copy } = promises;
 
@@ -148,11 +149,149 @@ const getDogeMarketStats = async fiats => {
 
       nodeCache.set(`${COINGECKO_DOGE_MARKET_STATS}-${fiat}`, marketStats);
     }
+  } catch (err) {}
+};
+
+const getMarketCapStats = async () => {
+  await connect();
+  await mkdir(LOGO_PATH, { recursive: true });
+
+  const ids = [];
+  const top = process.env.NODE_ENV === "production" ? 200 : 5;
+
+  try {
+    let res = await fetch(
+      `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${top}&page=1&sparkline=false&market_data=false`,
+    );
+
+    const cryptocurrencies = await res.json();
+
+    if (cryptocurrencies.length) {
+      // If banano is excluded from the top X, still include it to be requested
+      if (!cryptocurrencies.find(({ id }) => id === "banano")) {
+        cryptocurrencies.push({ id: "banano", symbol: "ban", name: "Banano" });
+      }
+
+      for (let i = 0; i < cryptocurrencies.length; i++) {
+        const { id, symbol, name } = cryptocurrencies[i];
+
+        ids.push(id);
+        res = await fetch(
+          `https://api.coingecko.com/api/v3/coins/${id}?tickers=false&sparkline=false`,
+        );
+
+        try {
+          const {
+            market_data: {
+              market_cap: { usd: marketCap },
+            },
+            market_cap_rank: marketCapRank,
+            image: { small: image },
+            fully_diluted_valuation: fullyDilutedValuation,
+            community_data: {
+              twitter_followers: twitterFollowers,
+              reddit_subscribers: redditSubscribers,
+            },
+            developer_data: { stars: githubStars },
+          } = await res.json();
+
+          const cryptocurrency = {
+            id,
+            symbol,
+            name,
+            image,
+            marketCap,
+            marketCapRank,
+            fullyDilutedValuation,
+            twitterFollowers,
+            redditSubscribers,
+            githubStars,
+            twitterFollowersPerBillion: twitterFollowers
+              ? new BigNumber(1_000_000_000)
+                  .times(twitterFollowers)
+                  .dividedBy(marketCap)
+                  .integerValue()
+                  .toNumber()
+              : null,
+            redditSubscribersPerBillion: redditSubscribers
+              ? new BigNumber(1_000_000_000)
+                  .times(redditSubscribers)
+                  .dividedBy(marketCap)
+                  .integerValue()
+                  .toNumber()
+              : null,
+            githubStarsPerBillion: githubStars
+              ? new BigNumber(1_000_000_000)
+                  .times(githubStars)
+                  .dividedBy(marketCap)
+                  .integerValue()
+                  .toNumber()
+              : null,
+          };
+
+          await db.collection(MARKET_CAP_STATS_COLLECTION).findOneAndUpdate(
+            {
+              id,
+            },
+            {
+              $set: cryptocurrency,
+            },
+            { upsert: true },
+          );
+
+          try {
+            const logoPath = join(LOGO_PATH, `${symbol}.png`);
+
+            if (!existsSync(logoPath)) {
+              const response = await fetch(image);
+              const buffer = await response.buffer();
+              writeFile(logoPath, buffer);
+            }
+          } catch (err) {
+            console.error(err);
+          }
+
+          console.log(`Fetched ${i}: ${id}`);
+        } catch (err1) {
+          console.log(`Err Fetching ${i}: ${id}`, err1);
+          Sentry.captureException(err1);
+        }
+
+        // CoinGecko rate limit is 10 calls per seconds
+        if (i && !(i % 10)) {
+          await sleep(15000);
+        } else {
+          await sleep(process.env.NODE_ENV === "production" ? 3000 : 150);
+        }
+      }
+
+      // Delete entries that are gone from the top 150
+      await db.collection(MARKET_CAP_STATS_COLLECTION).deleteMany({
+        id: { $nin: ids },
+      });
+    }
+
+    const marketCapStats = await db
+      .collection(MARKET_CAP_STATS_COLLECTION)
+      .find()
+      .toArray();
+
+    nodeCache.set(COINGECKO_MARKET_CAP_STATS, marketCapStats);
+
+    fse.copy(LOGO_PATH, DIST_LOGO_PATH);
+
+    mongoClient.close();
   } catch (err) {
     console.log("Error", err);
-    Sentry.captureException(err, { extra: { res } });
+    Sentry.captureException(err);
   }
 };
+
+// https://crontab.guru/every-day-at-1am
+// “At 01:00.”
+cron.schedule("0 1 * * *", async () => {
+  getMarketCapStats();
+});
 
 // Every 50 seconds
 cron.schedule("*/50 * * * * *", async () => {
@@ -175,4 +314,5 @@ if (process.env.NODE_ENV === "production") {
   getPriceStats(secondaryFiats);
   getMarketStats(secondaryFiats);
   getDogeMarketStats(secondaryFiats);
+  getMarketCapStats();
 }

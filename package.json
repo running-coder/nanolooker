@@ -5,7 +5,7 @@
   "scripts": {
     "analyze": "source-map-explorer 'dist/static/js/*.js'",
     "start": "GENERATE_SOURCEMAP=false react-scripts start",
-    "start:server": "nodemon server/server.js",
+    "start:server": "NODE_EXTRA_CA_CERTS=server/cert/lets-encrypt-r3.pem nodemon server/server.js",
     "restart": "",
     "build": "react-scripts build && rm -rf dist && mv build dist",
     "lint": "eslint --ext js,ts,tsx src",
@@ -28,13 +28,16 @@
       "last 1 safari version"
     ]
   },
+  "overrides": {
+    "autoprefixer": "10.4.5"
+  },
   "dependencies": {
     "@antv/g2plot": "^2.3.39",
     "@google-cloud/translate": "^6.2.0",
-    "@material-ui/core": "^4.9.1",
+    "@material-ui/core": "^4.12.4",
     "@sentry/node": "^6.19.2",
-    "@umijs/plugin-antd": "^0.15.0",
-    "antd": "^4.15.4",
+    "@umijs/plugin-antd": "^0.15.2",
+    "antd": "^4.23.2",
     "bignumber.js": "^9.0.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
@@ -47,7 +50,7 @@
     "html5-qrcode": "github:mebjas/html5-qrcode#master",
     "i18next": "^19.9.0",
     "i18next-browser-languagedetector": "^6.0.1",
-    "leaflet": "^1.7.1",
+    "leaflet": "^1.8.0",
     "leaflet-extra-markers": "^1.2.1",
     "lodash": "^4.17.15",
     "moment": "^2.29.2",
@@ -66,17 +69,17 @@
     "react-helmet": "^6.1.0",
     "react-hook-form": "^7.7.1",
     "react-i18next": "^11.8.8",
-    "react-leaflet": "^3.1.0",
+    "react-leaflet": "^3.2.5",
     "react-markdown": "^8.0.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^5.0.0",
+    "react-scripts": "^5.0.1",
     "reconnecting-websocket": "^4.4.0",
     "redis": "^3.1.2",
     "remark-gfm": "^3.0.1",
     "rimraf": "^3.0.2",
     "source-map-explorer": "^2.5.2",
     "timeago-react": "^3.0.0",
-    "use-deep-compare-effect": "^1.3.0",
+    "use-deep-compare-effect": "^1.8.1",
     "ws": "^7.5.7",
     "yargs": "^16.2.0"
   },
@@ -111,8 +114,8 @@
     "@types/testing-library__jest-dom": "^5.0.0",
     "@types/testing-library__react": "^9.1.2",
     "@types/ws": "^7.2.2",
-    "@typescript-eslint/eslint-plugin": "^4.15.2",
-    "@typescript-eslint/parser": "^5.16.0",
+    "@typescript-eslint/eslint-plugin": "^5.38.0",
+    "@typescript-eslint/parser": "^5.38.0",
     "babel-plugin-module-resolver": "^4.1.0",
     "eslint": "^8.11.0",
     "eslint-config-prettier": "^8.1.0",
@@ -124,8 +127,8 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "nodemon": "^2.0.7",
+    "nodemon": "^2.0.20",
     "prettier": "^2.2.1",
-    "typescript": "^4.3.2"
+    "typescript": "^4.8.3"
   }
 }

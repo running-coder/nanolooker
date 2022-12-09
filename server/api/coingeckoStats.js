@@ -20,7 +20,7 @@ const {
 
 const DEFAULT_FIAT = "usd";
 
-const allowedFiats = ["usd", "cad", "eur", "gbp", "cny", "jpy", "pln"];
+const allowedFiats = ["usd", "cad", "eur"];
 
 const getCoingeckoStats = async ({ fiat, cryptocurrency }) => {
   fiat = allowedFiats.includes(fiat) ? fiat : DEFAULT_FIAT;

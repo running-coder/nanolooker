@@ -42,7 +42,9 @@
     "statistics": "Statistiche",
     "continue": "Continua",
     "link": "Collegamento",
-    "noData": "Nessun dato"
+    "noData": "Nessun dato",
+    "include": "Includere",
+    "exclude": "Escludere"
   },
   "nodeHealth": {
     "nodeReloading": "Il nano nodo si sta ricaricando",
@@ -90,7 +92,13 @@
     "mnano": "Mnano è l'attuale divisione standard utilizzata nei portafogli, negli scambi e nei servizi. È indicato come 1 BANANO.",
     "versionsByWeight": "Affinché una versione abbia il consenso della rete, deve avere il {{onlineWeightQuorumPercent}}% del peso del voto online da un minimo di {{onlineWeightMinimum}} BANANO.",
     "onChainVolume": "La somma di tutte le transazioni BANANO che sono state confermate sulla rete. Se l'utente A invia 1 BANANO e l'utente B riceve 1 BANANO nello stesso giorno, verranno aggiunti 2 BANANO nel volume giornaliero perché sono state trasmesse e confermate 2 transazioni, una di invio e una di ricezione.",
-    "oneBanEqualsOneDoge": "Divertente il confronto con il nostro doge meme coin catena fratello, se la capitalizzazione di mercato di Banano fosse uguale a quella di Doge."
+    "oneBanEqualsOneDoge": "Divertente il confronto con il nostro doge meme coin catena fratello, se la capitalizzazione di mercato di Banano fosse uguale a quella di Doge.",
+    "pendingTransaction": "I fondi sono stati inviati a questo conto ma il proprietario non ha ancora intascato i fondi. Solo il proprietario dell'account può scrivere una transazione ricevuta nella propria blockchain. Se questo è il tuo account, sblocca il tuo portafoglio, il blocco di ricezione viene solitamente trasmesso automaticamente.",
+    "socialStatistics": "Le statistiche vengono compilate utilizzando le prime 200 criptovalute per capitalizzazione di mercato di CoinGecko.",
+    "dailyBalance": "Il grafico delle transazioni è visibile solo se l'account ha più di 1 giorno di dati e se le transazioni hanno timestamp",
+    "senderFilter": "Filtra i blocchi per includere solo o escludere tutte le transazioni di invio da un indirizzo specifico. Per filtrare più indirizzi, separali con una virgola.",
+    "receiverFilter": "Filtra i blocchi per includere solo o escludere tutte le transazioni di invio da un indirizzo specifico. Per filtrare più indirizzi, separali con una virgola.",
+    "filterTransactions": "È possibile filtrare solo gli account con transazioni confermate uguali o inferiori a 5.000"
   },
   "search": {
     "searchBy": "Cerca per indirizzo / blocco / account noto",
@@ -163,7 +171,10 @@
       "waitingForTransactions": "In attesa di transazioni",
       "connectingToBlockchain": "Connessione alla blockchain BANANO",
       "reconnectingToBlockchain": "Disconnesso, ricollegandosi alla blockchain BANANO",
-      "oneBanEqualsOneDoge": "E se 1 Ban = 1 Doge?"
+      "oneBanEqualsOneDoge": "E se 1 Ban = 1 Doge?",
+      "cpsLocal": "CPS osservato sul nodo locale",
+      "cpsNetwork": "CPS mediano su diversi nodi rappresentativi",
+      "viewSocialEngagement": "Visualizza Impegno sociale"
     },
     "account": {
       "votingWeight": "Peso di voto",
@@ -182,7 +193,29 @@
       "pendingTransaction": "Transazione pronta per essere ricevuta",
       "dailyBalanceOption": " Equilibrio giornaliero",
       "byTransactionOption": "Saldo per transazione",
-      "dailyBalance": "Ultime {{count}} transazioni"
+      "dailyBalance": "Ultime {{count}} transazioni",
+      "dateRange": "Intervallo di date",
+      "includeNoTimestamp": "Includi blocchi senza data",
+      "excludeUnknownAccounts": "Mostra solo i blocchi di account conosciuti",
+      "advancedOptions": "Opzioni avanzate",
+      "applyFilters": "Applicare filtri",
+      "fields": "Campi",
+      "delimiter": "Delimitatore",
+      "delimiterComma": "Virgola",
+      "delimiterSemicolon": "Punto e virgola",
+      "delimiterTab": "Tab",
+      "delimiterSpace": "Spazio",
+      "delimiterPipe": "Tubo",
+      "fileName": "Nome del file",
+      "minimum": "Minimo",
+      "maximum": "Massimo",
+      "from": "Da",
+      "to": "Per",
+      "startDate": "Data d'inizio",
+      "endDate": "Data di fine",
+      "exportToCsv": "Esporta in CSV",
+      "export": "Esportare",
+      "exportTransactions": "Esporta {{count}} transazioni in CSV"
     },
     "block": {
       "blockSubtype": "Sottotipo di blocco",
@@ -199,7 +232,11 @@
       "missingBlock": "Blocco mancante",
       "missingBlockInfo": "Il blocco non è specificato nell'URL. Usa la barra di ricerca in alto per cercare un blocco o aggiungilo nell'URL dopo /block/",
       "blockNotFound": "Blocco non trovato",
-      "blockNotFoundInfo": "Il blocco richiesto non è stato trovato. È possibile che il blocco sia presente sulla rete Banano ma non sia ancora stato visto dal nodo. Assicurati di cercare il blocco corretto o riprova più tardi."
+      "blockNotFoundInfo": "Il blocco richiesto non è stato trovato. È possibile che il blocco sia presente sulla rete Banano ma non sia ancora stato visto dal nodo. Assicurati di cercare il blocco corretto o riprova più tardi.",
+      "successorBlock": "Blocco successore",
+      "matchingSendBlock": "Blocco di invio corrispondente",
+      "noMatchingSendBlock": "Nessun blocco corrispondente trovato",
+      "lastAccountBlock": "Questo blocco è il più recente sull'account"
     },
     "representatives": {
       "voteDistribution": "Distribuzione dei voti",
@@ -241,12 +278,12 @@
       "account": "Inserisci un account \"nano_\" da associare all'alias",
       "registerNote": "Nella fase successiva ti verrà chiesto di inviare una transazione dal conto \"nano_\" in fase di registrazione",
       "invalidAccount": "Account non valido",
-      "waitingNote": "Il tuo alias verrà registrato dopo aver inviato Ӿ1 a donazioni a NanoLooker dall'account che stai registrando per confermare che ti appartiene.",
+      "waitingNote": "Il tuo alias verrà registrato dopo aver inviato BAN1 a donazioni a NanoLooker dall'account che stai registrando per confermare che ti appartiene.",
       "registerErrorTaken": "È già stato registrato un alias per questo account",
       "registerError": "Impossibile completare la registrazione",
       "waitingForTransaction": "In attesa di transazione",
       "viewAccount": "Vedere l'account",
-      "sendFrom": "Invia Ӿ{{importo}} da",
+      "sendFrom": "Invia BAN{{importo}} da",
       "sendTo": "Per"
     },
     "largeTransactions": {
@@ -267,7 +304,9 @@
       "unknownDormantFunds": "Fondi dormienti sconosciuti",
       "dormantFundsQuarterExample": "Un account che detiene 50 BANANO e 50 BANANO in sospeso ha effettuato l'ultima transazione 6 mesi fa (2 trimestri), un saldo di 100 BANANO viene aggiunto come \"dormiente\" al totale del trimestre successivo.",
       "dormantBanano": "Dormire BANANO",
-      "ofAvailableSupply": "di fornitura disponibile"
+      "ofAvailableSupply": "di fornitura disponibile",
+      "dormantNano": "Banana dormiente",
+      "richList": "Elenco ricco"
     },
     "news": {
       "allFeeds": "Tutti i feed",
@@ -309,11 +348,13 @@
       "limitedBandwidthCap": "I nodi <0>{{limitedBandwidthCapCount}}</0> hanno un limite di larghezza di banda di <1>{{limitedBandwidthCap}}</1>.",
       "nodeVersions": "Versioni dei nodi",
       "latestVersion": "Ultima versione",
-      "database": "Banca dati"
+      "database": "Banca dati",
+      "versionsByWeight": "Versioni per peso di voto"
     },
     "exchangeTracker": {
       "description": "Ogni giorno viene eseguita una cattura dei saldi dei conti delle borse più popolari in cui viene scambiato Banano. Questa misurazione può essere utilizzata per analizzare i movimenti e le fluttuazioni sulla rete.",
-      "totalSelected": "Saldo totale delle borse selezionate"
+      "totalSelected": "Saldo totale delle borse selezionate",
+      "selectedWallets": "Portafogli selezionati"
     },
     "preferences": {
       "description": "Gestisci le tue preferenze per ogni sezione. Le preferenze vengono memorizzate nel browser, se cancelli i tuoi dati le tue preferenze torneranno ai valori predefiniti.",
@@ -396,6 +437,18 @@
       "nanoPotions": "Pozioni NANO",
       "guide": {
         "title": "Guida di NanoBrowserQuest"
+      },
+      "playerGuide": "Guida del giocatore"
+    },
+    "statistics": {
+      "social": {
+        "title": "Coinvolgimento sociale delle criptovalute / $ 1 miliardo di capitalizzazione di mercato",
+        "redditSubscribers": "Numero di abbonati Reddit per miliardo di dollari",
+        "twitterFollowers": "Numero di follower su Twitter per miliardo di dollari",
+        "githubStars": "Numero di stelle Github per miliardo di dollari",
+        "engagementPerBillion": "Coinvolgimento per miliardo di dollari",
+        "marketCap": "Cap. di mercato",
+        "totalEngagement": "Impegno totale"
       }
     }
   }

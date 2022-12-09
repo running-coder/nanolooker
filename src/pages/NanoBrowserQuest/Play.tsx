@@ -1,11 +1,11 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+
 import { Button } from "antd";
 import { Tracker } from "components/utils/analytics";
 
 const Play: React.FC = () => {
   const { t } = useTranslation();
-  // const [isOpen, setIsOpen] = React.useState(false);
 
   return (
     <>
@@ -21,6 +21,7 @@ const Play: React.FC = () => {
       >
         {t("pages.nanobrowserquest.playNow")}
       </Button>
+      <br />
     </>
   );
 };
