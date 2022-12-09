@@ -27,7 +27,7 @@ const Register: React.FC = () => {
           <Space size={12} align="center" direction="vertical">
             <Play />
 
-            <Link to="/nanobrowserquest/guide">
+            <Link to="/bananobrowserquest/guide">
               <Button
                 type="primary"
                 size="large"
