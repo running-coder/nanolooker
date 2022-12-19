@@ -138,5 +138,9 @@
   {
     "alias": "Wirex Hot Wallet",
     "account": "nano_3b1hjazupgwycgachczp7namyk1r7gwyu1q7duyh44h3axqjjksto9pkz6nf"
+  },
+  {
+    "alias": "Community Binance Refund Bot",
+    "account": "nano_3refundzdd7ytewm9dabcuxg1dk87gsxsqeb54h38dq4d9j35bkxm3b5e6sb"
   }
 ]
