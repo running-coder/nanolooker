@@ -2,7 +2,7 @@
 
 ![image](https://user-images.githubusercontent.com/19352322/115473119-212dff00-a209-11eb-922c-ba37838318f6.png)
 
-## What is Nano ?
+## What is Nano?
 
 The goal of Nano is to create an efficient cryptocurrency, one that could be used for daily payments, by anyone in the world, without the emissions that come with Bitcoin.
 Nano makes money efficient for a more equal world — simple to pay with, easy to accept and open to all.
