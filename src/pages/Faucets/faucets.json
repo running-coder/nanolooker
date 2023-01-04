@@ -7,22 +7,22 @@
   {
     "alias": "BananoFaucet",
     "account": "ban_1faucetjuiyuwnz94j4c7s393r95sk5ac7p5usthmxct816osgqh3qd1caet",
-    "link": "https://bananofaucet.cc/"
+    "link": "https://bananofaucet.cc"
   },
   {
     "alias": "MonkeyTalks",
     "account": "ban_1monkeyt1x77a1rp9bwtthajb8odapbmnzpyt8357ac8a1bcron34i3r9y66",
-    "link": "https://monkeytalks.cc/"
+    "link": "https://monkeytalks.cc"
   },
   {
     "alias": "TNV Banano Faucet",
     "account": "ban_3uf1gx114fqm9ppiwp3sw1mywzzr9d8uwhrw9e85zpgdt48eopruqnqpdb68",
-    "link": "https://banano-faucet.herokuapp.com/"
+    "link": "https://banano-faucet.herokuapp.com"
   },
   {
     "alias": "Prussia's Banano Faucet",
     "account": "ban_3346kkobb11qqpo17imgiybmwrgibr7yi34mwn5j6uywyke8f7fnfp94uyps",
-    "link": "https://faucet.prussia.dev/"
+    "link": "https://faucet.prussia.dev"
   },
   {
     "alias": "iMalFect's Banano Faucet",
@@ -32,7 +32,7 @@
   {
     "alias": "BananoTime!'s Banano Faucet",
     "account": "ban_39665maxw96iifne3izma1icdmomxy3o5z35hqzh9s13xw7si4opp5xxyg8g",
-    "link": "https://faucet.bananotime.com/"
+    "link": "https://faucet.bananotime.com"
   },
   {
     "alias": "Bonobo Banano faucet",
@@ -47,80 +47,119 @@
   {
     "alias": "Only-Bans.cc",
     "account": "ban_1on1ybanskzzsqize1477wximtkdzrftmxqtajtwh4p4tg1w6awn1hq677cp",
-    "link": "https://www.only-bans.cc/"
+    "link": "https://www.only-bans.cc"
   },
   {
     "alias": "BanBucket",
     "account": "ban_1j3rqseffoin7x5z5y1ehaqe1n7todza41kdf4oyga8phps3ea31u39ruchu",
-    "link": "https://www.banbucket.ninja/"
+    "link": "https://www.banbucket.ninja"
   },
   {
     "alias": "K3i's Free Banano Faucet",
     "account": "ban_3byzbsf7tfcbwopqfqd4tw63u78ydnk8hbrqz5u5fh9ywptpwnonfb4bjzi6",
-    "link": "https://bananofaucet.online/"
+    "link": "https://bananofaucet.online"
   },
   {
     "alias": "Banhub",
     "account": "ban_1zgdj86ohh7zbcoqkc8t7n15x9cnyfrefm6wsignd88xdozo9tsn8cg8jtsn",
-    "link": "https://banhub.com/"
+    "link": "https://banhub.com"
   },
   {
     "alias": "BananoDrip",
     "account": "ban_3bdrip3ir5d9y3i1qi5z47pwcmd6jm39xzzzxnebrwfyoje63qa5dmnhm8f9",
-    "link": "https://bananodrip.com/"
+    "link": "https://bananodrip.com"
   },
   {
     "alias": "Perry’s Banano Faucet",
     "account": "ban_3tn9xt9sxbyw9injikki3yis5fbn6m47x37gco5cw6e6x6z7z4639cdgzke6",
-    "link": "https://banfaucet.perrypal21.repl.co/"
+    "link": "https://banfaucet.perrypal21.repl.co"
   },
   {
     "alias": "BauCorp",
     "account": "ban_3x8hzeb8spb6e36y7yjgo6esmeahgphq1mhp545ofouuu5enrne5nzwkdasb",
-    "link": "https://baucarp.herokuapp.com/"
+    "link": "https://baucarp.herokuapp.com"
   },
   {
     "alias": "Nord Banano Faucet",
     "account": "ban_1sexmes51h4udqk58dt3rbbpkssbircc7giryewd59q3t5fmfe9crbewjk5y",
-    "link": "https://nord.valejo.net/"
+    "link": "https://nord.valejo.net"
   },
   {
     "alias": "BananoFaucet.club",
     "account": "ban_3rzg5w93ipik4aie3uzafetsfa6dnqdrrsmw9c9dussge7eb5s45xmh4o4pa",
-    "link": "https://www.bananofaucet.club/"
+    "link": "https://www.bananofaucet.club"
   },
   {
     "alias": "nano2go",
     "account": "ban_14yf998msf8zh1du3zchxbetqqtzjjczp84ntnku1atwttwo558us8ewo16z",
-    "link": "https://nano2go.herokuapp.com/"
+    "link": "https://nano2go.herokuapp.com"
   },
   {
     "alias": "BananoForest Faucet",
     "account": "ban_3sinkoff1yj9z5fougwao1gbjtsmb98u1j5p9kcrndqcc4irdxgzsjbem96e",
-    "link": "https://faucet.bananoforest.com/"
+    "link": "https://faucet.bananoforest.com"
   },
   {
     "alias": "Pronoun Faucet",
     "account": "ban_3eeq61ea33jdds5x37otx51esi8wsnxxjc8spjajyq7pj8h3nodkd19pride",
-    "link": "https://banpridefaucet.repl.co/"
+    "link": "https://banpridefaucet.repl.co"
   },
   {
     "alias": "Gorilla Nation",
     "account": "ban_1gori11a7fz3tee6aydqxcehttzbuk93pjsctanfkgqmesa3dmo1cyw89xex",
-    "link": "https://gorillanation.cc/"
+    "link": "https://gorillanation.cc"
   },
   {
     "alias": "Barrel O' Bananos",
     "account": "ban_1barre1777qqdcg86788tk6ojy9jmkyb8ridreezbgkhr7btnoqcntejrxhf",
-    "link": "https://www.devinmontes.com/"
+    "link": "https://www.devinmontes.com"
   },
   {
     "alias": "GoBanano",
     "account": "ban_3w91yp9ufjhpzt98xzddfmnoo8bm51ic3fp3mmx4mqbocqqde7dii1w8g4b6",
-    "link": "https://gobanano.com/"
+    "link": "https://gobanano.com"
   },
   {
     "alias": "BananoTime! Giveaway Bot",
     "account": "ban_3sbqs38uoi9z34z5xeof5y4qjfc41n9rgr4hhhcu5zh5two9xrh4she1n8hs"
+  },
+  {
+    "alias": "EARNS.CC Banano Faucet",
+    "account": "ban_3ze6byhismfpj8jhuda6fq1a7nkniq7t5soet9k58y3egt3rco66j69fdksg",
+    "link": "https://ban.earns.cc"
+  },
+  {
+    "alias": "Banoboto's Future Faucet",
+    "account": "ban_3jzi3modbcrfq7gds5nmudstw3kghndqb1k48twhqxds3ytyj4k7cf79q5ij",
+    "link": "https://faucet.banoboto.repl.co"
+  },
+  {
+    "alias": "Try Banano!",
+    "account": "ban_3x4ya94gh6b8to54su8xy7nwys9n1mn5ydjn6sq4smq9fx9qi4qw1bguab7o",
+    "link": "https://trybanano.com"
+  },
+  {
+    "alias": "i can haz nano",
+    "account": "ban_1monkecrqoqr6j6qzhtd9i8x49ujdnoqt7ramt9jmhd543icsrx5accoqtd5",
+    "link": "https://icanhaznano.monke42.tk"
+  },
+  {
+    "alias": "Yet Another BAN Faucet",
+    "account": "ban_1monkecrqoqr6j6qzhtd9i8x49ujdnoqt7ramt9jmhd543icsrx5accoqtd5",
+    "link": "https://yet-another-ban-faucet.herokuapp.com"
+  },
+  {
+    "alias": "CSquared's Banano Dispensary",
+    "account": "ban_3jyqzypmcn94dmyp7eb3k85sug1568xwehzx738o5jniaxaf1jpxdakjz96r",
+    "link": "https://getban.csquared.nz"
+  },
+  {
+    "alias": "Wise Tribe Faucet",
+    "link": "https://faucet.wisetribe.digital"
+  },
+  {
+    "alias": "Banano Forager",
+    "account": "ban_1picturessx4aedsf59gm6qjkm6e3od4384m1qpfnotgsuoczbmhdb3e1zkh",
+    "link": "https://banano.pictures"
   }
 ]
