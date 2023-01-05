@@ -103,7 +103,7 @@
   "search": {
     "searchBy": "Zoeken op adres / block / bekend account",
     "noHistory": "Geen zoekgeschiedenis",
-    "scanWallet": "Scan een portemonnee-account beginnend met \"nano_\""
+    "scanWallet": "Scan een portemonnee-account beginnend met \"ban_\""
   },
   "preferences": {
     "viewAll": "Bekijk alle voorkeuren",
@@ -273,10 +273,10 @@
       "totalAccounts": "{{totalAccounts}} totaal aantal bekende accounts",
       "registerKnownAccount": "Registreer een bekend account",
       "register": "Register",
-      "scanWallet": "Scan uw portemonnee-account beginnend met \"nano_\"",
+      "scanWallet": "Scan uw portemonnee-account beginnend met \"ban_\"",
       "registerDescription": "Registreer een accountalias in de bekende NanoLooker-accounts. Uw account zal dan doorzoekbaar zijn op alias en zal gemakkelijk herkenbaar zijn in de verkenner.",
-      "account": "Voer een \"nano_\"-account in om aan de alias te worden gekoppeld",
-      "registerNote": "Bij de volgende stap wordt u gevraagd om een transactie te verzenden vanaf het \"nano_\"-account dat wordt geregistreerd",
+      "account": "Voer een \"ban_\"-account in om aan de alias te worden gekoppeld",
+      "registerNote": "Bij de volgende stap wordt u gevraagd om een transactie te verzenden vanaf het \"ban_\"-account dat wordt geregistreerd",
       "invalidAccount": "Ongeldig account",
       "waitingNote": "Uw alias wordt geregistreerd na het verzenden van BAN1 naar NanoLooker-donaties vanaf het account dat u registreert om te bevestigen dat het van u is.",
       "registerErrorTaken": "Er is al een alias voor dit account geregistreerd",

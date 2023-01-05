@@ -103,7 +103,7 @@
   "search": {
     "searchBy": "Adres / Blok / Bilinen Hesap ile Ara",
     "noHistory": "Arama geçmişi yok",
-    "scanWallet": "\"nano_\" ile başlayan bir cüzdan hesabını tarayın"
+    "scanWallet": "\"ban_\" ile başlayan bir cüzdan hesabını tarayın"
   },
   "preferences": {
     "viewAll": "Tüm tercihleri görüntüleyin",
@@ -273,10 +273,10 @@
       "totalAccounts": "{{totalAccounts}} Toplam Bilinen Hesaplar",
       "registerKnownAccount": "Bilinen Bir Hesap Kaydolun",
       "register": "Kayıt olmak",
-      "scanWallet": "\"nano_\" ile başlayan cüzdan hesabınızı tarayın",
+      "scanWallet": "\"ban_\" ile başlayan cüzdan hesabınızı tarayın",
       "registerDescription": "NanoLooker bilinen hesaplarında bir hesap takma adı kaydedin. Hesabınız daha sonra takma adla aranabilir ve gezginde kolayca tanımlanabilir.",
-      "account": "Takma adla ilişkilendirilecek bir \"nano_\" hesabı girin",
-      "registerNote": "Bir sonraki adımda, kaydedilmekte olan \"nano_\" hesabından bir işlem göndermeniz istenecektir.",
+      "account": "Takma adla ilişkilendirilecek bir \"ban_\" hesabı girin",
+      "registerNote": "Bir sonraki adımda, kaydedilmekte olan \"ban_\" hesabından bir işlem göndermeniz istenecektir.",
       "invalidAccount": "Geçersiz hesap",
       "waitingNote": "Takma adınız, size ait olduğunu onaylamak için kaydettiğiniz hesaptan NanoLooker bağışlarına BAN1 gönderdikten sonra kaydedilecektir.",
       "registerErrorTaken": "Bu hesap için bir takma ad zaten kayıtlı",

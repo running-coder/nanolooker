@@ -103,7 +103,7 @@
   "search": {
     "searchBy": "Pesquisar por endereço / bloco",
     "noHistory": "Sem histórico de pesquisa",
-    "scanWallet": "Digitalize uma conta de carteira começando com \"nano_\""
+    "scanWallet": "Digitalize uma conta de carteira começando com \"ban_\""
   },
   "preferences": {
     "viewAll": "Ver todas as preferências",
@@ -273,10 +273,10 @@
       "totalAccounts": "{{totalAccounts}} Total de contas conhecidas",
       "registerKnownAccount": "Registrar uma conta conhecida",
       "register": "Registro",
-      "scanWallet": "Digitalize sua conta da carteira começando com \"nano_\"",
+      "scanWallet": "Digitalize sua conta da carteira começando com \"ban_\"",
       "registerDescription": "Registre um apelido de conta nas contas conhecidas do NanoLooker. Sua conta será então pesquisável por alias e será facilmente identificável no explorador.",
-      "account": "Insira uma conta \"nano_\" para ser associada ao alias",
-      "registerNote": "Na próxima etapa, você será solicitado a enviar uma transação da conta \"nano_\" que está sendo registrada",
+      "account": "Insira uma conta \"ban_\" para ser associada ao alias",
+      "registerNote": "Na próxima etapa, você será solicitado a enviar uma transação da conta \"ban_\" que está sendo registrada",
       "invalidAccount": "Conta inválida",
       "waitingNote": "Seu alias será registrado após enviar BAN1 para NanoLooker doações da conta que você está registrando para confirmar que pertence a você.",
       "registerErrorTaken": "Um alias para esta conta já está registrado",

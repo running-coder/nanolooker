@@ -103,7 +103,7 @@
   "search": {
     "searchBy": "Buscar por dirección / bloque / cuenta conocida",
     "noHistory": "Sin historial de búsqueda",
-    "scanWallet": "Escanear una cuenta de billetera que comience con \"nano_\""
+    "scanWallet": "Escanear una cuenta de billetera que comience con \"ban_\""
   },
   "preferences": {
     "viewAll": "Ver todas las preferencias",
@@ -273,10 +273,10 @@
       "totalAccounts": "{{totalAccounts}} Total de cuentas conocidas",
       "registerKnownAccount": "Registrar una cuenta conocida",
       "register": "Registrarse",
-      "scanWallet": "Escanee su cuenta de billetera que comience con \"nano_\"",
+      "scanWallet": "Escanee su cuenta de billetera que comience con \"ban_\"",
       "registerDescription": "Registre un alias de cuenta en las cuentas conocidas de NanoLooker. Su cuenta se podrá buscar por alias y será fácilmente identificable en el explorador.",
-      "account": "Ingrese una cuenta \"nano_\" para asociarla con el alias",
-      "registerNote": "En el siguiente paso, se le pedirá que envíe una transacción desde la cuenta \"nano_\" que se está registrando.",
+      "account": "Ingrese una cuenta \"ban_\" para asociarla con el alias",
+      "registerNote": "En el siguiente paso, se le pedirá que envíe una transacción desde la cuenta \"ban_\" que se está registrando.",
       "invalidAccount": "Cuenta no válida",
       "waitingNote": "Su alias se registrará después de enviar BAN1 a las donaciones de NanoLooker desde la cuenta que está registrando para confirmar que le pertenece.",
       "registerErrorTaken": "Ya está registrado un alias para esta cuenta",

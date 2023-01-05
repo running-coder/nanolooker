@@ -103,7 +103,7 @@
   "search": {
     "searchBy": "Recherche par Adresse / Bloc / Compte Connu",
     "noHistory": "Aucun historique de recherche",
-    "scanWallet": "Scannez un compte de portefeuille commençant par \"nano_\""
+    "scanWallet": "Scannez un compte de portefeuille commençant par \"ban_\""
   },
   "preferences": {
     "viewAll": "Voir toutes les préférences",
@@ -273,10 +273,10 @@
       "totalAccounts": "{{totalAccounts}} Comptes connus",
       "registerKnownAccount": "Enregistrer un compte connu",
       "register": "S'inscrire",
-      "scanWallet": "Scannez votre compte portefeuille commençant par \"nano_\"",
+      "scanWallet": "Scannez votre compte portefeuille commençant par \"ban_\"",
       "registerDescription": "Enregistrez un alias de compte dans les comptes connus de NanoLooker. Votre compte sera alors consultable par alias et va être facilement identifiable sur l'explorateur.",
-      "account": "Saisissez un compte \"nano_\" à associer à l'alias",
-      "registerNote": "À l'étape suivante, il vous sera demandé d'envoyer une transaction à partir du compte \"nano_\" en cours d'enregistrement",
+      "account": "Saisissez un compte \"ban_\" à associer à l'alias",
+      "registerNote": "À l'étape suivante, il vous sera demandé d'envoyer une transaction à partir du compte \"ban_\" en cours d'enregistrement",
       "invalidAccount": "Compte invalide",
       "waitingNote": "Votre alias sera enregistré après l'envoi de BAN1 à NanoLooker depuis le compte que vous enregistrez pour confirmer qu'il vous appartient.",
       "registerErrorTaken": "Un alias pour ce compte est déjà enregistré",

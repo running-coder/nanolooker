@@ -103,7 +103,7 @@
   "search": {
     "searchBy": "주소 / 차단 / 알려진 계정으로 검색",
     "noHistory": "검색 기록 없음",
-    "scanWallet": "\"nano_\"로 시작하는 지갑 계정 스캔"
+    "scanWallet": "\"ban_\"로 시작하는 지갑 계정 스캔"
   },
   "preferences": {
     "viewAll": "모든 환경 설정보기",
@@ -273,10 +273,10 @@
       "totalAccounts": "{{totalAccounts}} 총 알려진 계정",
       "registerKnownAccount": "알려진 계정 등록",
       "register": "등록하다",
-      "scanWallet": "\"nano_\"로 시작하는 지갑 계정을 스캔하세요.",
+      "scanWallet": "\"ban_\"로 시작하는 지갑 계정을 스캔하세요.",
       "registerDescription": "NanoLooker 알려진 계정에 계정 별칭을 등록합니다. 그러면 귀하의 계정은 별칭으로 검색할 수 있으며 탐색기에서 쉽게 식별할 수 있습니다.",
-      "account": "별칭과 연결할 \"nano_\" 계정을 입력하세요.",
-      "registerNote": "다음 단계에서 등록 중인 \"nano_\" 계정에서 트랜잭션을 보내도록 요청받을 것입니다.",
+      "account": "별칭과 연결할 \"ban_\" 계정을 입력하세요.",
+      "registerNote": "다음 단계에서 등록 중인 \"ban_\" 계정에서 트랜잭션을 보내도록 요청받을 것입니다.",
       "invalidAccount": "잘못된 계정",
       "waitingNote": "귀하의 별칭은 귀하의 소유임을 확인하기 위해 등록 중인 계정에서 BAN1을 NanoLooker 기부금으로 보낸 후 등록됩니다.",
       "registerErrorTaken": "이 계정의 별칭은 이미 등록되어 있습니다.",

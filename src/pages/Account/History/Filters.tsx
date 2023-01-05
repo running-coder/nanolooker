@@ -184,7 +184,7 @@ const Filters: React.FC = () => {
                   <Input
                     {...field}
                     style={{ flexGrow: 1 }}
-                    placeholder="nano_"
+                    placeholder="ban_"
                   />
                 )}
                 control={control}
@@ -240,7 +240,7 @@ const Filters: React.FC = () => {
                   <Input
                     {...field}
                     style={{ flexGrow: 1 }}
-                    placeholder="nano_"
+                    placeholder="ban_"
                   />
                 )}
                 control={control}

@@ -103,7 +103,7 @@
   "search": {
     "searchBy": "Suche nach Adresse / Block / Bekanntem Konto",
     "noHistory": "Kein Suchverlauf",
-    "scanWallet": "Scannen Sie ein Wallet-Konto, das mit \"nano_\" beginnt"
+    "scanWallet": "Scannen Sie ein Wallet-Konto, das mit \"ban_\" beginnt"
   },
   "preferences": {
     "viewAll": "Alle Einstellungen anzeigen",
@@ -273,10 +273,10 @@
       "totalAccounts": "{{totalAccounts}} bekannte Konten insgesamt",
       "registerKnownAccount": "Registrieren Sie ein bekanntes Konto",
       "register": "Registrieren",
-      "scanWallet": "Scannen Sie Ihr Wallet-Konto beginnend mit \"nano_\"",
+      "scanWallet": "Scannen Sie Ihr Wallet-Konto beginnend mit \"ban_\"",
       "registerDescription": "Registrieren Sie einen Kontoalias in den bekannten NanoLooker-Konten. Ihr Konto ist dann nach Alias durchsuchbar und im Explorer leicht identifizierbar.",
-      "account": "Geben Sie ein \"nano_\"-Konto ein, das mit dem Alias verknüpft werden soll",
-      "registerNote": "Im nächsten Schritt werden Sie aufgefordert, eine Transaktion vom registrierten \"nano_\"-Konto zu senden",
+      "account": "Geben Sie ein \"ban_\"-Konto ein, das mit dem Alias verknüpft werden soll",
+      "registerNote": "Im nächsten Schritt werden Sie aufgefordert, eine Transaktion vom registrierten \"ban_\"-Konto zu senden",
       "invalidAccount": "Ungültiger Account",
       "waitingNote": "Ihr Alias wird registriert, nachdem Sie BAN1 an NanoLooker-Spenden von dem Konto, das Sie registrieren, gesendet haben, um zu bestätigen, dass es Ihnen gehört.",
       "registerErrorTaken": "Ein Alias für dieses Konto ist bereits registriert",
@@ -449,25 +449,6 @@
         "engagementPerBillion": "Engagement pro Milliarde US-Dollar",
         "marketCap": "Marktkapitalisierung",
         "totalEngagement": "Gesamtengagement"
-      },
-      "2miners": {
-        "title": "Nano-Auszahlungsstatistik des 2Miners Ethereum-Mining-Pools",
-        "totalPayouts": "Gesamte NANO-Auszahlungen von 2Miners",
-        "payouts": "Auszahlungen",
-        "accounts": "Konten",
-        "accountsDescription": "Die Anzahl der einzelnen Konten, die an diesem Tag eine Auszahlung erhalten haben.",
-        "uniqueAccounts": "Einzigartige Konten",
-        "uniqueAccountsDescription": "Die Anzahl der Konten, die seit dem {{date}} eine Auszahlung erhalten haben",
-        "accountsHolding": "Kontoführung",
-        "accountsHoldingDescription": "Die Anzahl der Konten, die seit dem {{date}} eine Auszahlung erhalten haben und deren Saldo über 0,001 NANO liegt.",
-        "balanceHolding": "Guthaben halten",
-        "balanceHoldingDescription": "Kombinierter Saldo der Konten, die seit dem {{date}} eine Auszahlung erhalten haben und deren Saldo über 0,001 NANO liegt.",
-        "viewPayoutStatistics": "Auszahlungsstatistik anzeigen",
-        "payoutsDescription": "Der Betrag an NANO, der für diesen Tag ausgezahlt wurde.",
-        "fiatPayouts": "Fiat-Auszahlungen",
-        "fiatPayoutsDescription": "Der geschätzte USD-Betrag, der für diesen Tag ausgezahlt wurde.",
-        "totalFiatPayouts": "Geschätzte Gesamtauszahlungen von 2Miners (USD)",
-        "announcement": "Ankündigung anzeigen"
       }
     }
   }

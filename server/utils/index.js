@@ -11,7 +11,7 @@ const raiToRaw = rai => {
 };
 
 // 02LV are not present in addresses
-const ACCOUNT_REGEX = /((nano|xrb)_)?[13][13-9a-km-uw-z]{59}/;
+const ACCOUNT_REGEX = /(ban_)?[13][13-9a-km-uw-z]{59}/;
 
 const isValidAccountAddress = address =>
   new RegExp(`^${ACCOUNT_REGEX.toString().replace(/\//g, "")}$`, "i").test(

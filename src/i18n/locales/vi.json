@@ -103,7 +103,7 @@
   "search": {
     "searchBy": "Tìm kiếm theo Địa chỉ / Khối / Tài khoản Đã biết",
     "noHistory": "Không có lịch sử tìm kiếm",
-    "scanWallet": "Quét tài khoản ví bắt đầu bằng \"nano_\""
+    "scanWallet": "Quét tài khoản ví bắt đầu bằng \"ban_\""
   },
   "preferences": {
     "viewAll": "Xem tất cả các tùy chọn",
@@ -273,10 +273,10 @@
       "totalAccounts": "{{totalAccounts}} Tổng số tài khoản đã biết",
       "registerKnownAccount": "Đăng ký một tài khoản đã biết",
       "register": "Đăng ký",
-      "scanWallet": "Quét tài khoản ví của bạn bắt đầu bằng \"nano_\"",
+      "scanWallet": "Quét tài khoản ví của bạn bắt đầu bằng \"ban_\"",
       "registerDescription": "Đăng ký bí danh tài khoản trong các tài khoản NanoLooker đã biết. Sau đó, tài khoản của bạn sẽ có thể tìm kiếm được theo bí danh và sẽ dễ dàng được nhận dạng trên trình khám phá.",
-      "account": "Nhập tài khoản \"nano_\" được liên kết với bí danh",
-      "registerNote": "Ở bước tiếp theo, bạn sẽ được yêu cầu gửi một giao dịch từ tài khoản \"nano_\" đang được đăng ký",
+      "account": "Nhập tài khoản \"ban_\" được liên kết với bí danh",
+      "registerNote": "Ở bước tiếp theo, bạn sẽ được yêu cầu gửi một giao dịch từ tài khoản \"ban_\" đang được đăng ký",
       "invalidAccount": "Tài khoản không hợp lệ",
       "waitingNote": "Bí danh của bạn sẽ được đăng ký sau khi gửi BAN1 khoản đóng góp cho NanoLooker từ tài khoản bạn đang đăng ký để xác nhận nó thuộc về bạn.",
       "registerErrorTaken": "Bí danh cho tài khoản này đã được đăng ký",

@@ -103,7 +103,7 @@
   "search": {
     "searchBy": "アドレス/ブロック/既知のアカウントで検索",
     "noHistory": "検索履歴なし",
-    "scanWallet": "「nano_」で始まるウォレットアカウントをスキャンします"
+    "scanWallet": "「ban_」で始まるウォレットアカウントをスキャンします"
   },
   "preferences": {
     "viewAll": "すべての設定を表示",
@@ -273,10 +273,10 @@
       "totalAccounts": "{{totalAccounts}}既知のアカウントの合計",
       "registerKnownAccount": "既知のアカウントを登録する",
       "register": "登録",
-      "scanWallet": "「nano_」で始まるウォレットアカウントをスキャンします",
+      "scanWallet": "「ban_」で始まるウォレットアカウントをスキャンします",
       "registerDescription": "NanoLookerの既知のアカウントにアカウントエイリアスを登録します。アカウントはエイリアスで検索可能になり、エクスプローラーで簡単に識別できるようになります。",
-      "account": "エイリアスに関連付ける「nano_」アカウントを入力します",
-      "registerNote": "次のステップでは、登録されている「nano_」アカウントからトランザクションを送信するように求められます",
+      "account": "エイリアスに関連付ける「ban_」アカウントを入力します",
+      "registerNote": "次のステップでは、登録されている「ban_」アカウントからトランザクションを送信するように求められます",
       "invalidAccount": "無効なアカウント",
       "waitingNote": "あなたのエイリアスは、あなたが登録しているアカウントからNanoLookerの寄付にBAN1を送信した後、それがあなたのものであることを確認するために登録されます。",
       "registerErrorTaken": "このアカウントのエイリアスはすでに登録されています",

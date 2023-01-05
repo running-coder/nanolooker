@@ -103,7 +103,7 @@
   "search": {
     "searchBy": "Szukaj według Adresu / Bloku / Znanego konta",
     "noHistory": "Brak historii wyszukiwania",
-    "scanWallet": "Skanuj konto portfela zaczynające się od \"nano_\""
+    "scanWallet": "Skanuj konto portfela zaczynające się od \"ban_\""
   },
   "preferences": {
     "viewAll": "Zobacz wszystkie preferencje",
@@ -273,10 +273,10 @@
       "totalAccounts": "Wszystkie znane konta: {{totalAccounts}}",
       "registerKnownAccount": "Zarejestruj znane konto",
       "register": "Zarejestruj",
-      "scanWallet": "Zeskanuj konto portfela zaczynające się od \"nano_\"",
+      "scanWallet": "Zeskanuj konto portfela zaczynające się od \"ban_\"",
       "registerDescription": "Zarejestruj alias konta w znanych kontach NanoLooker. Twoje konto będzie następnie możliwe do przeszukania za pomocą aliasu i będzie łatwe do zidentyfikowania w eksploratorze.",
-      "account": "Wprowadź konto \"nano_\", które ma być kojarzone z aliasem",
-      "registerNote": "W następnym kroku będziesz poproszony o wysłanie transakcji z zarejestrowanego konta \"nano_\"",
+      "account": "Wprowadź konto \"ban_\", które ma być kojarzone z aliasem",
+      "registerNote": "W następnym kroku będziesz poproszony o wysłanie transakcji z zarejestrowanego konta \"ban_\"",
       "invalidAccount": "Nieprawidłowe konto",
       "waitingNote": "Twój alias zostanie zarejestrowaniu po wpłaceniu BAN1 darownizy dla NanoLooker z konta, które rejestrujesz, aby potwierdzić, że należy do ciebie.",
       "registerErrorTaken": "Alias dla tego konta jest już zarejestrowany",
@@ -376,7 +376,7 @@
       "playNow": "Zagraj teraz!",
       "register": "Zarejestruj",
       "donatePrizePool": "Wspomóż pulę nagród BananoBrowserQuest",
-      "scanWallet": "Zeskanuj konto portfela zaczynające się od \"nano_\"",
+      "scanWallet": "Zeskanuj konto portfela zaczynające się od \"ban_\"",
       "registerError": "Nie można ukończyć rejestracji",
       "registerDescription": "NanoQuakeJS jest darmowy na zawsze. Jeśli spodoba Ci się usługa, możesz wnieść niewielki wkład do puli nagród NanoQuakeJS.",
       "happyFragging": "Szczęśliwego zabijania!",

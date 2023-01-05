@@ -134,9 +134,7 @@ const getHistoryFilters = async ({ account, filters: rawFilters }) => {
     const filters = {
       ...(minAmount ? { minAmount: Math.abs(parseFloat(minAmount)) } : null),
       ...(maxAmount ? { maxAmount: Math.abs(parseFloat(maxAmount)) } : null),
-      ...(fromHeight
-        ? { fromHeight: Math.abs(parseInt(fromHeight)) }
-        : null),
+      ...(fromHeight ? { fromHeight: Math.abs(parseInt(fromHeight)) } : null),
       ...(toHeight ? { toHeight: Math.abs(parseInt(toHeight)) } : null),
       dateRange: dateRange
         ? dateRange.map(date => (date ? parseInt(date.slice(0, -3)) : date))

@@ -103,7 +103,7 @@
   "search": {
     "searchBy": "按地址/阻止/已知帐户搜索",
     "noHistory": "没有搜寻记录",
-    "scanWallet": "扫描以“nano_”开头的钱包账户"
+    "scanWallet": "扫描以“ban_”开头的钱包账户"
   },
   "preferences": {
     "viewAll": "查看所有首选项",
@@ -273,10 +273,10 @@
       "totalAccounts": "{{totalAccounts}}个已知帐户总数",
       "registerKnownAccount": "注册一个已知帐户",
       "register": "登记",
-      "scanWallet": "扫描以“nano_”开头的钱包账户",
+      "scanWallet": "扫描以“ban_”开头的钱包账户",
       "registerDescription": "在 NanoLooker 已知帐户中注册帐户别名。然后您的帐户将可以通过别名进行搜索，并且可以在资源管理器上轻松识别。",
-      "account": "输入要与别名关联的“nano_”帐户",
-      "registerNote": "在下一步中，您将被要求从正在注册的“nano_”帐户发送交易",
+      "account": "输入要与别名关联的“ban_”帐户",
+      "registerNote": "在下一步中，您将被要求从正在注册的“ban_”帐户发送交易",
       "invalidAccount": "无效账户",
       "waitingNote": "从您注册的帐户向 NanoLooker 捐款发送 BAN1 以确认它属于您后，您的别名将被注册。",
       "registerErrorTaken": "此帐户的别名已注册",
