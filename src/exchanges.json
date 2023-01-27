@@ -70,5 +70,9 @@
   {
     "name": "Wirex Hot Wallet",
     "account": "nano_3b1hjazupgwycgachczp7namyk1r7gwyu1q7duyh44h3axqjjksto9pkz6nf"
+  },
+  {
+    "alias": "ChangeNow.io",
+    "account": "nano_1ed95h4er3wotpjksn1aemq3m1y5677qfzi9be6zumkjo3wxw5oy7j8zm6mo"
   }
 ]
