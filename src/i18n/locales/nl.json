@@ -215,7 +215,9 @@
       "endDate": "Einddatum",
       "exportToCsv": "Exporteren naar CSV",
       "export": "Exporteren",
-      "exportTransactions": "Exporteer {{count}} transacties naar CSV"
+      "exportTransactions": "Exporteer {{count}} transacties naar CSV",
+      "reverse": "Keer de transactievolgorde om",
+      "sumAmounts": "Tel de bedragen bij elkaar op"
     },
     "block": {
       "blockSubtype": "Block subtype",

@@ -215,7 +215,9 @@
       "endDate": "अंतिम तिथि",
       "exportToCsv": "सीएसवी में निर्यात करें",
       "export": "निर्यात करना",
-      "exportTransactions": "{{count}} लेन-देन को CSV में निर्यात करें"
+      "exportTransactions": "{{count}} लेन-देन को CSV में निर्यात करें",
+      "reverse": "लेन-देन के क्रम को उलट दें",
+      "sumAmounts": "राशियों का योग करें"
     },
     "block": {
       "blockSubtype": "ब्लॉक उपप्रकार",

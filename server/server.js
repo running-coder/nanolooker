@@ -130,10 +130,9 @@ app.get("/api/delegators", async (req, res) => {
 
 app.get("/api/transaction-filters", async (req, res) => {
   const { account, filters } = req.query;
+  const { sum, data } = await getHistoryFilters({ account, filters });
 
-  const data = await getHistoryFilters({ account, filters });
-
-  res.send(data);
+  res.send({ sum, data });
 });
 
 app.get("/api/large-transactions", async (req, res) => {

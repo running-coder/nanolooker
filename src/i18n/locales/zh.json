@@ -215,7 +215,9 @@
       "endDate": "结束日期",
       "exportToCsv": "导出为 CSV",
       "export": "出口",
-      "exportTransactions": "将 {{count}} 个交易导出到 CSV"
+      "exportTransactions": "将 {{count}} 个交易导出到 CSV",
+      "reverse": "反转交易顺序",
+      "sumAmounts": "合计金额"
     },
     "block": {
       "blockSubtype": "块子类型",

@@ -197,6 +197,8 @@
       "dateRange": "Date range",
       "includeNoTimestamp": "Include blocks with no date",
       "excludeUnknownAccounts": "Only show blocks from known accounts",
+      "reverse": "Reverse the transaction order",
+      "sumAmounts": "Sum the amounts",
       "advancedOptions": "Advanced options",
       "applyFilters": "Apply filters",
       "exportToCsv": "Export to CSV",

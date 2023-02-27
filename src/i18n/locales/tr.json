@@ -215,7 +215,9 @@
       "endDate": "Bitiş tarihi",
       "exportToCsv": "CSV'ye aktar",
       "export": "İhracat",
-      "exportTransactions": "{{count}} işlemi CSV'ye aktar"
+      "exportTransactions": "{{count}} işlemi CSV'ye aktar",
+      "reverse": "İşlem sırasını tersine çevir",
+      "sumAmounts": "Tutarları topla"
     },
     "block": {
       "blockSubtype": "Alt türü engelle",

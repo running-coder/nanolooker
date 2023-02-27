@@ -215,7 +215,9 @@
       "endDate": "تاریخ پایان",
       "exportToCsv": "صادرات به CSV",
       "export": "صادرات",
-      "exportTransactions": "{{count}} تراکنش را به CSV صادر کنید"
+      "exportTransactions": "{{count}} تراکنش را به CSV صادر کنید",
+      "reverse": "دستور معامله را معکوس کنید",
+      "sumAmounts": "مبالغ را جمع کنید"
     },
     "block": {
       "blockSubtype": "زیر گروه را مسدود کنید",

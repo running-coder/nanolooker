@@ -215,7 +215,9 @@
       "endDate": "Data di fine",
       "exportToCsv": "Esporta in CSV",
       "export": "Esportare",
-      "exportTransactions": "Esporta {{count}} transazioni in CSV"
+      "exportTransactions": "Esporta {{count}} transazioni in CSV",
+      "reverse": "Invertire l'ordine di transazione",
+      "sumAmounts": "Somma gli importi"
     },
     "block": {
       "blockSubtype": "Sottotipo di blocco",

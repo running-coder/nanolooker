@@ -39,6 +39,7 @@ export const TransactionsLayout: React.FC = ({ children }) => (
 interface TransactionsTableProps {
   scrollTo?: string;
   data: any;
+  sumAmount?: number;
   isLoading: boolean;
   showPaginate?: boolean;
   isPaginated?: boolean;
@@ -52,6 +53,7 @@ interface TransactionsTableProps {
 const TransactionsTable = ({
   scrollTo,
   data,
+  sumAmount,
   isLoading,
   showPaginate,
   isPaginated,
@@ -98,6 +100,9 @@ const TransactionsTable = ({
           </Col>
           <Col xs={0} lg={5}>
             {t("transaction.amount")}
+            {sumAmount
+              ? ` (Ӿ ${new BigNumber(rawToRai(sumAmount)).toFormat()})`
+              : null}
           </Col>
           <Col xs={0} lg={3} style={{ textAlign: "right" }}>
             {t("common.date")}

@@ -215,7 +215,9 @@
       "endDate": "تاريخ الانتهاء",
       "exportToCsv": "تصدير إلى CSV",
       "export": "يصدّر",
-      "exportTransactions": "تصدير {{عدد}} المعاملات إلى CSV"
+      "exportTransactions": "تصدير {{عدد}} المعاملات إلى CSV",
+      "reverse": "اعكس أمر المعاملة",
+      "sumAmounts": "اجمع المبالغ"
     },
     "block": {
       "blockSubtype": "نوع الكتلة الفرعي",

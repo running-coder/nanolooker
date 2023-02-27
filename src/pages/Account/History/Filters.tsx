@@ -72,6 +72,8 @@ export interface HistoryFilters {
   toHeight?: number;
   includeNoTimestamp?: boolean;
   excludeUnknownAccounts?: boolean;
+  reverse?: boolean;
+  sum?: boolean;
 }
 
 const Filters: React.FC = () => {
@@ -109,6 +111,8 @@ const Filters: React.FC = () => {
     toHeight: undefined,
     includeNoTimestamp: true,
     excludeUnknownAccounts: false,
+    reverse: false,
+    sum: false,
   } as HistoryFilters;
 
   const {
@@ -369,6 +373,26 @@ const Filters: React.FC = () => {
               )}
               control={control}
               name="excludeUnknownAccounts"
+            />
+            <br />
+            <Controller
+              render={({ field }) => (
+                <Checkbox {...field} checked={field.value}>
+                  {t("pages.account.reverse")}
+                </Checkbox>
+              )}
+              control={control}
+              name="reverse"
+            />
+            <br />
+            <Controller
+              render={({ field }) => (
+                <Checkbox {...field} checked={field.value}>
+                  {t("pages.account.sumAmounts")}
+                </Checkbox>
+              )}
+              control={control}
+              name="sum"
             />
           </Col>
           <Col xs={24} sm={24} md={12} lg={3}>

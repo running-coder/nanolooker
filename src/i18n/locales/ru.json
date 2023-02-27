@@ -215,7 +215,9 @@
       "endDate": "Дата окончания",
       "exportToCsv": "Экспорт в CSV",
       "export": "Экспорт",
-      "exportTransactions": "Экспортировать {{count}} транзакций в CSV"
+      "exportTransactions": "Экспортировать {{count}} транзакций в CSV",
+      "reverse": "Отменить порядок транзакции",
+      "sumAmounts": "Суммируйте суммы"
     },
     "block": {
       "blockSubtype": "Подтип блока",

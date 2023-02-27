@@ -215,7 +215,9 @@
       "endDate": "Ngày cuối",
       "exportToCsv": "Xuất sang CSV",
       "export": "Xuất khẩu",
-      "exportTransactions": "Xuất giao dịch {{count}} sang CSV"
+      "exportTransactions": "Xuất giao dịch {{count}} sang CSV",
+      "reverse": "đảo ngược thứ tự giao dịch",
+      "sumAmounts": "Tổng số tiền"
     },
     "block": {
       "blockSubtype": "Block con",

@@ -215,7 +215,9 @@
       "endDate": "終了日",
       "exportToCsv": "CSVにエクスポート",
       "export": "書き出す",
-      "exportTransactions": "{{count}} 件のトランザクションを CSV にエクスポート"
+      "exportTransactions": "{{count}} 件のトランザクションを CSV にエクスポート",
+      "reverse": "取引順序を逆にする",
+      "sumAmounts": "金額を合計する"
     },
     "block": {
       "blockSubtype": "ブロックサブタイプ",

@@ -215,7 +215,9 @@
       "endDate": "Endtermin",
       "exportToCsv": "In CSV exportieren",
       "export": "Export",
-      "exportTransactions": "{{count}} Transaktionen in CSV exportieren"
+      "exportTransactions": "{{count}} Transaktionen in CSV exportieren",
+      "reverse": "Kehren Sie die Transaktionsreihenfolge um",
+      "sumAmounts": "Summe die Beträge"
     },
     "block": {
       "blockSubtype": "Subtyp blockieren",

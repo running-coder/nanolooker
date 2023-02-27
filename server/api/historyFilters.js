@@ -1,4 +1,5 @@
 const MongoClient = require("mongodb").MongoClient;
+const BigNumber = require("bignumber.js");
 const { rpc } = require("../rpc");
 const { Sentry } = require("../sentry");
 const {
@@ -64,6 +65,8 @@ const getIsAccountFilterable = async account => {
 
 const getHistoryFilters = async ({ account, filters: rawFilters }) => {
   let data = [];
+  let sum = 0;
+
   try {
     if (!(await getIsAccountFilterable(account))) {
       return data;
@@ -134,9 +137,7 @@ const getHistoryFilters = async ({ account, filters: rawFilters }) => {
     const filters = {
       ...(minAmount ? { minAmount: Math.abs(parseFloat(minAmount)) } : null),
       ...(maxAmount ? { maxAmount: Math.abs(parseFloat(maxAmount)) } : null),
-      ...(fromHeight
-        ? { fromHeight: Math.abs(parseInt(fromHeight)) }
-        : null),
+      ...(fromHeight ? { fromHeight: Math.abs(parseInt(fromHeight)) } : null),
       ...(toHeight ? { toHeight: Math.abs(parseInt(toHeight)) } : null),
       dateRange: dateRange
         ? dateRange.map(date => (date ? parseInt(date.slice(0, -3)) : date))
@@ -225,16 +226,22 @@ const getHistoryFilters = async ({ account, filters: rawFilters }) => {
             }
           : null),
       })
-      .sort({ height: -1 })
+      .sort({ height: toBoolean(rawFilters.reverse) ? 1 : -1 })
       .toArray();
     // .explain();
 
     mongoClient.close();
+
+    if (toBoolean(rawFilters.sum)) {
+      data.forEach(({ amount }) => {
+        sum = new BigNumber(sum).plus(amount || 0).toNumber();
+      });
+    }
   } catch (err) {
     Sentry.captureException(err);
   }
 
-  return data;
+  return { sum, data };
 };
 
 module.exports = {

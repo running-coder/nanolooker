@@ -215,7 +215,9 @@
       "endDate": "종료일",
       "exportToCsv": "CSV로 내보내기",
       "export": "내보내다",
-      "exportTransactions": "거래 {{count}}개를 CSV로 내보내기"
+      "exportTransactions": "거래 {{count}}개를 CSV로 내보내기",
+      "reverse": "거래 순서를 반대로",
+      "sumAmounts": "금액 합계"
     },
     "block": {
       "blockSubtype": "블록 하위 유형",

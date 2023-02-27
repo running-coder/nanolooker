@@ -57,6 +57,7 @@ const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
   const isTransactionFiltersEnabled =
     parseInt(accountInfo.confirmation_height) <= MAX_TRANSACTION_FILTERS;
   const {
+    sum: sumAmount,
     history: historyFilter,
     isLoading: isFiltersLoading,
     setFilters,
@@ -158,6 +159,7 @@ const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
         <TransactionsTable
           scrollTo="totalTransactions"
           data={dataFilter}
+          sumAmount={sumAmount}
           isLoading={isFiltersLoading}
           isPaginated={true}
           showPaginate={historyFilter.length >= TRANSACTIONS_PER_PAGE}
