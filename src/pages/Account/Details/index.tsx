@@ -110,13 +110,16 @@ const AccountDetails: React.FC<Props> = ({
     .toFormat(8);
 
   const btcCurrentPrice = priceStats?.bitcoin?.[fiat] || 0;
+
   const fiatBalance = new BigNumber(balance)
     .times(currentPrice)
     .toFormat(CurrencyDecimal?.[fiat]);
-  const btcBalance = new BigNumber(balance)
-    .times(currentPrice)
-    .dividedBy(btcCurrentPrice)
-    .toFormat(12);
+  const btcBalance = btcCurrentPrice
+    ? new BigNumber(balance)
+        .times(currentPrice)
+        .dividedBy(btcCurrentPrice)
+        .toFormat(12)
+    : null;
 
   const lastTransaction = (history || []).find(
     ({ local_timestamp, subtype = "" }) =>
@@ -177,7 +180,9 @@ const AccountDetails: React.FC<Props> = ({
                   }
                 />
                 <Skeleton {...skeletonProps}>
-                  {`${CurrencySymbol?.[fiat]} ${fiatBalance} / ${btcBalance} BTC`}
+                  {`${CurrencySymbol?.[fiat]} ${fiatBalance}${
+                    btcBalance ? ` / ${btcBalance} BTC` : ""
+                  }`}
                 </Skeleton>
               </Col>
             </Row>

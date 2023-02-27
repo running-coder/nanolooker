@@ -79,10 +79,12 @@ const DeveloperFund: React.FC = () => {
   const fiatBalance = new BigNumber(totalBalance)
     .times(currentPrice)
     .toFormat(CurrencyDecimal?.[fiat]);
-  const btcBalance = new BigNumber(totalBalance)
-    .times(currentPrice)
-    .dividedBy(btcCurrentPrice)
-    .toFormat(12);
+  const btcBalance = btcCurrentPrice
+    ? new BigNumber(totalBalance)
+        .times(currentPrice)
+        .dividedBy(btcCurrentPrice)
+        .toFormat(12)
+    : null;
 
   const skeletonProps = {
     active: true,
@@ -142,7 +144,9 @@ const DeveloperFund: React.FC = () => {
                   value={totalBalance}
                 />
                 <Skeleton {...skeletonProps}>
-                  {`${CurrencySymbol?.[fiat]} ${fiatBalance} / ${btcBalance} BTC`}
+                  {`${CurrencySymbol?.[fiat]} ${fiatBalance}${
+                    btcBalance ? ` / ${btcBalance} BTC` : ""
+                  } `}
                 </Skeleton>
               </Col>
             </Row>

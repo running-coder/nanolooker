@@ -76,19 +76,23 @@ const BlockDetails: React.FC = () => {
   const fiatAmount = new BigNumber(amount)
     .times(currentPrice)
     .toFormat(CurrencyDecimal?.[fiat]);
-  const btcAmount = new BigNumber(amount)
-    .times(currentPrice)
-    .dividedBy(btcCurrentPrice)
-    .toFormat(12);
+  const btcAmount = btcCurrentPrice
+    ? new BigNumber(amount)
+        .times(currentPrice)
+        .dividedBy(btcCurrentPrice)
+        .toFormat(12)
+    : null;
 
   const balance = new BigNumber(rawToRai(blockInfo?.balance || 0)).toNumber();
   const fiatBalance = new BigNumber(balance)
     .times(currentPrice)
     .toFormat(CurrencyDecimal?.[fiat]);
-  const btcBalance = new BigNumber(balance)
-    .times(currentPrice)
-    .dividedBy(btcCurrentPrice)
-    .toFormat(12);
+  const btcBalance = btcCurrentPrice
+    ? new BigNumber(balance)
+        .times(currentPrice)
+        .dividedBy(btcCurrentPrice)
+        .toFormat(12)
+    : null;
 
   let linkAccountLabel = "";
   if (subtype === "send") {
@@ -213,7 +217,9 @@ const BlockDetails: React.FC = () => {
                   }
                   title={{ width: isSmallAndLower ? "100%" : "33%" }}
                 >
-                  {`${CurrencySymbol?.[fiat]} ${fiatAmount} / ${btcAmount} BTC`}
+                  {`${CurrencySymbol?.[fiat]} ${fiatAmount}${
+                    btcAmount ? ` / ${btcAmount} BTC` : ""
+                  }`}
                 </Skeleton>
               </Col>
             </Row>
@@ -236,7 +242,9 @@ const BlockDetails: React.FC = () => {
                   }
                   title={{ width: isSmallAndLower ? "100%" : "33%" }}
                 >
-                  {`${CurrencySymbol?.[fiat]} ${fiatBalance} / ${btcBalance} BTC`}
+                  {`${CurrencySymbol?.[fiat]} ${fiatBalance}${
+                    btcBalance ? ` / ${btcBalance} BTC` : ""
+                  }`}
                 </Skeleton>
               </Col>
             </Row>
