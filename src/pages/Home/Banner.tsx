@@ -142,21 +142,6 @@ const Banner: React.FC = () => {
           </Button>
         </Link>
 
-        <Link to={"/raiblocksmc"}>
-          <Button ghost>
-            <img
-              alt="RaiblocksMC"
-              src={`/raiblocksmc/server-icon.svg`}
-              style={{
-                height: "18px",
-                margin: "2px 4px 4px -6px",
-                filter: "brightness(0) invert(1)",
-              }}
-            />{" "}
-            RaiblocksMC
-          </Button>
-        </Link>
-
         {/* <Button
           ghost
           href="https://bananolooker.com"

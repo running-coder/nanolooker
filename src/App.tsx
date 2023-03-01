@@ -28,7 +28,6 @@ import PreferencesPage from "pages/Preferences";
 import BookmarksPage from "pages/Bookmarks";
 import NanoQuakeJSPage from "pages/NanoQuakeJS";
 import NanoBrowserQuestPage from "pages/NanoBrowserQuest";
-import RaiblocksMCPage from "pages/RaiblocksMC";
 import TreasureHunt from "pages/TreasureHunt";
 import StatisticsSocial from "pages/Statistics/Social";
 import Statistics2Miners from "pages/Statistics/2Miners";
@@ -100,7 +99,6 @@ const App: React.FC = () => {
               path="/nanobrowserquest/:section?"
               component={NanoBrowserQuestPage}
             />
-            <Route path="/raiblocksmc" component={RaiblocksMCPage} />
             <Route path="/treasure-hunt/:account?" component={TreasureHunt} />
             <Route path="/statistics/social" component={StatisticsSocial} />
             <Route path="/statistics/2miners" component={Statistics2Miners} />

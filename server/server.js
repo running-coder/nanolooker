@@ -70,10 +70,6 @@ const {
   getAllRepresentatives,
 } = require("./api/representative");
 const { Sentry } = require("./sentry");
-const {
-  getRaiblocksMCInfo,
-  getRaiblocksMCLeaderboards,
-} = require("./cron/raiblocksMCStats");
 const { isValidAccountAddress } = require("./utils");
 
 const app = express();
@@ -292,24 +288,6 @@ app.post("/api/nanoquakejs/register", async (req, res, next) => {
     });
     const json = await response.json();
     res.send(json);
-  } catch (err) {
-    next(err);
-  }
-});
-
-app.get("/api/raiblocksmc/info", async (req, res, next) => {
-  try {
-    const data = await getRaiblocksMCInfo();
-    res.send(data);
-  } catch (err) {
-    next(err);
-  }
-});
-
-app.get("/api/raiblocksmc/leaderboards", async (req, res, next) => {
-  try {
-    const data = await getRaiblocksMCLeaderboards();
-    res.send(data);
   } catch (err) {
     next(err);
   }
