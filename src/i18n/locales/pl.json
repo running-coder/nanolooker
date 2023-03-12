@@ -47,8 +47,8 @@
     "exclude": "Wykluczać"
   },
   "nodeHealth": {
-    "nodeReloading": "Banano Node jest przeładowywana",
-    "nodeReady": "Banano Node jest gotowa"
+    "nodeReloading": "Węzeł Banano jest załadowywany ponownie",
+    "nodeReady": "Węzeł Banano jest gotowy"
   },
   "transaction": {
     "type": "Typ",
@@ -64,41 +64,41 @@
     "amount": "Ilość"
   },
   "tooltips": {
-    "avgConfirmationTime": "Średni czas potwierdzenia jest obliczany lokalnie w Banano Node. Jeśli Banano Node zostanie zrestartowany lub w stanie zdegradowanym, średni czas potwierdzenia może być dłuższy niż w pozostałej części sieci.",
+    "avgConfirmationTime": "Średni czas potwierdzenia jest obliczany lokalnie w węźle banano. Jeśli węzeł zostanie zrestartowany lub w stanie zdegradowanym, średni czas potwierdzenia może być dłuższy niż w pozostałej części sieci.",
     "circulatingSupply": "Liczba monet znajdujących się w obiegu. Banano jest w pełni dystrybuowane, podaż nigdy nie wzrośnie.",
     "transactionFees": "W przeciwieństwie do innych kryptowalut transakcje Banano są zawsze bez opłat.",
-    "cps": "Potwierdzenia na sekundę. Liczba potwierdzonych bloków (wysyłanie lub odbieranie) w sieci BANANO. Jest próbkowany lokalnie w Banano Node w ciągu ostatniej minuty. Jeśli węzeł zostanie zrestartowany lub w złym stanie, wartość CPS może być wyższa lub niższa od rzeczywistej średniej w sieci, podczas gdy węzeł synchronizuje się i ponownie łączy z innymi węzłami.",
+    "cps": "Potwierdzenia na sekundę.  Współczynnik potwierdzonych bloków (wysyłanych lub odbieranych) w sieci BANANO. Próbki pobiera się w ciągu ostatniej minuty lokalnie w węźle. Jeśli węzeł jest zrestartowany lub w stanie pogorszonym, wartość CPS może być wyższa lub niższa niż rzeczywista średnia w sieci, podczas gdy węzeł synchronizuje się i ponownie łączy z innymi węzłami.",
     "votingWeight": "Aby uzyskać status głównego przedstawiciela, wymagane jest konto z co najmniej {{minWeight}} BANANO lub >= 0,1% oddelegowanej wagi głosowania online. Po skonfigurowaniu na węźle, który głosuje, głosy, które generuje, będą ponownie transmitowane przez inne węzły, które je otrzymują, pomagając sieci szybciej osiągnąć konsensus.",
     "pending": "Stan transakcji, w którym blok wysyłający środki został opublikowany i potwierdzony przez sieć, ale pasujący blok otrzymujący te środki nie został jeszcze wysłany ani potwierdzony.",
     "nakamotoCoefficient": "Współczynnik Nakamoto jest sposobem kwantyfikacji decentralizacji łańcucha bloków lub innego zdecentralizowanego systemu. Jest to liczba jednostek potrzebnych do skompromitowania co najmniej jednego podstawowego podsystemu. W przypadku Banano ponad {{onlineWeightQuorumPercent}}% głosów w głosowaniu online głównych przedstawicieli musiałoby zostać naruszone.",
     "representatives": "Aby zoptymalizować wyniki, brane są pod uwagę tylko konta z wagą głosu >= 1000 BANANO, ale zwykle konta z wagą głosu> 0, ale < 0,1% wagi głosu online.",
     "principalRepresentatives": "Aby uzyskać status głównego przedstawiciela, wymagane jest konto z co najmniej {{primaryRepresentativeMinWeight}} BANANO lub >= 0,1% oddelegowanej wagi głosów online. Po skonfigurowaniu na węźle, który głosuje, głosy, które generuje, będą ponownie transmitowane przez inne węzły, które je otrzymują, pomagając sieci szybciej osiągnąć konsensus.",
     "onlinePrincipalRepresentatives": "Konta przedstawicieli online, które niedawno głosowały.",
-    "lastTransaction": "Ostatnia transakcja wysłana z dowolnego z kont {{totalAccounts}}.",
-    "largeTransactions": "Tylko transakcje wysyłania 10 000 BANANO lub więcej są tymczasowo zapisywane na jeden tydzień.",
+    "lastTransaction": "Ostatnio wysłano transakcję z dowolnego z {{totalAccounts}} kont.",
+    "largeTransactions": "Tylko transakcje od 10 000 BANANO są tymczasowo zapisywane na jeden tydzień.",
     "knownExchangeBalance": "Wyklucz {{knownExchangeList}} z wykresu dystrybucji. Te konta łącznie posiadają {{knownExchangeBalance}} BANANO",
-    "unchecked": "Bloki (transakcje), które zostały pobrane, ale nie zostały jeszcze przetworzone przez Node Banano. Oprogramowanie węzła pobiera wszystkie blokady z innych węzłów jako niezaznaczone, przetwarza je i dodaje do liczby bloków, potwierdza bloki graniczne dla każdego konta, a następnie oznacza je jako zacementowane.",
+    "unchecked": "Bloki (transakcje), które zostały pobrane, ale nie zostały jeszcze przetworzone przez węzeł Banano. Oprogramowanie węzła pobiera wszystkie blokady z innych węzłów jako niezaznaczone, przetwarza je i dodaje do liczby bloków, potwierdza bloki graniczne dla każdego konta, a następnie oznacza je jako zacementowane.",
     "cemented": "Gdy określony węzeł oznacza potwierdzoną transakcję jako lokalnie nieodwracalną, ustawiając wysokość potwierdzenia konta (w bazie danych węzłów) na wyższą teraz wysokość bloku potwierdzonej transakcji. Cementowanie jest operacją na poziomie węzła.",
     "unknownLastTransaction": "Daty transakcji zostały wprowadzone w lutym 2019 r. Przed tą datą czasy transakcji nie były rejestrowane lokalnie na węzłach. Powodem, dla którego data ostatniej transakcji jest nieznana, jest to, że została potwierdzona przed zapisaniem dat lub przed uruchomieniem węzła BananoLooker.",
     "confirmationHeight": "Liczba przechowywana w bazie danych węzłów lokalnych, która reprezentuje najwyższy (najnowszy) potwierdzony blok w łańcuchu kont. Związane z (ale różniące się od) wysokości bloku.",
-    "blockHeight": "Lokalna liczba całkowita, która reprezentuje kolejność bloku w łańcuchu kont. Na przykład piętnasty blok na koncie miałby wysokość 15. Związany z (ale różną od) wysokości potwierdzenia.",
+    "blockHeight": "Lokalna wartość całkowita reprezentująca kolejność bloku w łańcuchu kont. Na przykład piętnasty blok na koncie miałby wysokość bloku 15. W stosunku (ale różniący się od) wysokości potwierdzenia.",
     "bookmarks": "Zakładki {{type, capitalize}} są zapisywane na Twoim urządzeniu. Możesz zarządzać swoimi znanymi {{type}}, nadając im aliasy.",
     "groupByEntities": "Przegrupuj wszystkie wagi głosów, które są podzielone na różnych głównych przedstawicieli w pojedyncze jednostki. Na przykład giełda może mieć wiele portfeli i podzielić ich wagę, ale w rzeczywistości można ją policzyć jako jedną wagę, jeśli miałyby ją przegrupować.",
     "telemetry": "Metryki z innych węzłów w sieci. Wszystkie metryki są zbierane i uśredniane, aby przedstawić różne stany w sieci. P odpowiada percentylowi, p50 jest obliczane poprzez wykluczenie dolnych 50%, podczas gdy p95 wyklucza dolne 5% różnych wartości w celu obliczenia średniej.",
     "ledgerSize": "Całkowita ilość miejsca na dysku wymagana do przechowywania wszystkich dotychczasowych transakcji Banano. Rozmiar księgi jest obliczany na podstawie 1024, a nie 1000.",
-    "bandwidthCap": "Banano Node mogą ograniczać przepustowość, aby ograniczyć liczbę wiadomości, które mogą być wysyłane lub odbierane. 0 oznacza nieograniczoną przepustowość.",
-    "uptime": "Czas od ostatniego restartu Banano Node.",
-    "pendingTransactionCount": "Liczba oczekujących transakcji przekracza wyświetlany limit {{count}}.",
-    "mnano": "Mnano to obecny standardowy podział stosowany w portfelach, giełdach i usługach. Nazywa się 1 BANANO.",
+    "bandwidthCap": "Węzły Banano są w stanie ograniczyć przepustowość, aby ograniczyć liczbę wiadomości, które mogą być wysyłane lub odbierane. 0 oznacza nieograniczoną przepustowość.",
+    "uptime": "Czas od ostatniego restartu węzła.",
+    "pendingTransactionCount": "Liczba transakcji dostępnych do odebrania przekracza wyświetlany limit z {{count}}.",
+    "mnano": "Mnano to obecny standardowy podział stosowany w portfelach, giełdach i usługach. Jest określany jako 1 BANANO.",
     "versionsByWeight": "Aby wersja przejęła konsensus sieci, musi mieć {{onlineWeightQuorumPercent}}% głosów online z co najmniej {{onlineWeightMinimum}} BANANO.",
     "onChainVolume": "Suma wszystkich transakcji BANANO, które zostały potwierdzone w sieci. Jeśli użytkownik A wyśle 1 BANANO, a użytkownik B otrzyma 1 BANANO tego samego dnia, 2 BANANO zostaną dodane do dziennego wolumenu, ponieważ 2 transakcje zostały wyemitowane i potwierdzone, wysłanie i odbiór.",
-    "oneBanEqualsOneDoge": "Zabawne porównanie z naszym łańcuchem braci doge memów, jeśli kapitalizacja rynkowa Banano byłaby równa kapitalizacji Doge.",
-    "pendingTransaction": "Środki zostały wysłane na to konto, ale właściciel jeszcze ich nie wpłacił. Tylko właściciel konta może zapisać otrzymaną transakcję w swoim blockchainie. Jeśli to twoje konto, odblokuj swój portfel, blok odbiorczy jest zwykle emitowany automatycznie.",
+    "oneBanEqualsOneDoge": "Zabawne porównanie z naszym bratnim łańcuchem DogeCoin, jeśli kapitalizacja rynkowa Banano byłaby równa kapitalizacji Doge.",
+    "pendingTransaction": "Środki zostały wysłane na to konto, ale właściciel jeszcze ich nie przejął. Tylko właściciel konta może zapisać otrzymaną transakcję w swoim łańcuchu bloków. Jeśli to jest twoje konto, odblokuj portfel, blokada odbioru jest zwykle automatycznie transmitowana.",
     "socialStatistics": "Statystyki są opracowywane przy użyciu 200 największych kryptowalut według kapitalizacji rynkowej z CoinGecko.",
-    "dailyBalance": "Wykres transakcji jest widoczny tylko wtedy, gdy konto ma więcej niż 1 dzień danych i jeśli transakcje mają znaczniki czasu",
+    "dailyBalance": "Wykres transakcji jest widoczny tylko wtedy, gdy konto ma więcej niż 1 dzień danych i jeśli transakcje posiadają znaczniki czasu",
     "senderFilter": "Filtruj bloki, aby uwzględniać lub wykluczać wszystkie transakcje wysyłania z określonego adresu. Aby filtrować wiele adresów, oddziel je przecinkami.",
     "receiverFilter": "Filtruj bloki, aby uwzględniać lub wykluczać wszystkie transakcje wysyłania z określonego adresu. Aby filtrować wiele adresów, oddziel je przecinkami.",
-    "filterTransactions": "Filtrować można tylko konta z równą lub mniejszą niż 5000 potwierdzonych transakcji"
+    "filterTransactions": "Filtrować można tylko konta z równą lub mniejszą niż 5000 liczbą potwierdzonych transakcji"
   },
   "search": {
     "searchBy": "Szukaj według Adresu / Bloku / Znanego konta",
@@ -111,16 +111,16 @@
     "darkModeDetailed": "Przełącz się z trybu jasnego lub ciemnego, aby poprawić jakość przeglądania stron w zależności od twojego otoczenia.",
     "language": "Język",
     "languageDetailed": "Wybierz żądany język. BananoLooker szuka ludzi, którzy pomogą ulepszyć tłumaczenie eksploratora. <0>Przekaż</0>",
-    "watch": "Obserwuj inne kryptowaluty",
+    "watch": "Zobacz inne kryptowaluty",
     "watchSearch": "Szukaj kryptowalut",
     "watchDetailed": "Obserwuj ceny innych kryptowalut w pierwszej setce. Aktualne ceny rynkowe i zmiany w ciągu 24 godzin pojawią się na górnym pasku. Możesz również zmienić kolejność wyboru, korzystając z metody przeciągnij i upuść.",
     "fiatCurrency": "Waluta Fiat",
-    "fiatCurrencyDetailed": "Pieniądz fiat jest walutą emitowaną przez rząd. Wybierz walutę fiducjarną, aby porównać cenę Banano.",
+    "fiatCurrencyDetailed": "Waluty fiducjarne są wyemitowane przez rząd. Wybierz walutę fiducjarną, aby porównać cenę Nano.",
     "natricons": "Natricony",
     "natriconsDetailed": "Natricony są przyjazną, znajomą twarzą dla adresów Banano. Używaj ich na stronach konta, wszędzie tam, gdzie w pobliżu znajduje się adres Banano.",
     "liveTransactions": "Włącz aktualizacje na żywo",
     "liveTransactionsDetailed": "Oglądaj transakcje na żywo zachodzące w sieci Banano. Dostępne na stronie głównej.",
-    "contribute": "Pomóż rozwinąć Bananolooker",
+    "contribute": "Pomóż w rozwijaniu Bananolooker",
     "filterTransactionsRange": "Uwzględnij zakresy kwot",
     "filterTransactionsRangeDetailed": "Ustaw niestandardowy zakres filtrowania",
     "filterTransactions": "Ukryj kwoty poniżej 1 BANANO"
@@ -132,20 +132,20 @@
     "knownAccounts": "Znane konta",
     "largeTransactions": "Duże transakcje",
     "distribution": "Dystrybucja",
-    "exchangeTracker": "Eksplorator Giełd",
-    "faucets": "Krany Banano",
+    "exchangeTracker": "Eksplorator giełd",
+    "faucets": "Kraniki Banano",
     "news": "Aktualności",
     "status": "Status",
     "networkStatus": "Status sieci",
-    "nodeStatus": "Stan Banano node",
+    "nodeStatus": "Status węzła",
     "whatIsBanano": "Co to jest Banano?",
-    "earnBanano": "Zarabiaj Banano",
+    "earnBanano": "Zarób Banano",
     "preferences": "Preferencje"
   },
   "footer": {
     "createdBy": "Stworzono przez {{creator}}",
     "donations": {
-      "donate": "Daj Dotację",
+      "donate": "Wesprzyj",
       "title": "Konto darowizn BananoLooker"
     }
   },
@@ -166,7 +166,7 @@
       "transactionFees": "Opłaty transakcyjne BANANO",
       "exchangeVolume": "Wolumen wymiany",
       "onChainVolume": "Objętość BANANO w łańcuchu",
-      "recentTransactions": "ostatnie tranzakcje",
+      "recentTransactions": "Pstatnie transakcje",
       "liveUpdatesDisabled": "Aktualizacje na żywo wyłączone",
       "waitingForTransactions": "Czekam na transakcje",
       "connectingToBlockchain": "Łączenie się z blockchainem BANANO",
@@ -260,7 +260,7 @@
       "noDelegatorsFound": "Nie znaleziono delegatorów"
     },
     "faucets": {
-      "description": "Dzięki kranom możesz bezpłatnie odebrać niewielkie ilości BANANO. Dzięki tym sumom możesz przekonać się, jak łatwo jest błyskawicznie wysyłać i odbierać BANANO na całym świecie w zdecentralizowanej sieci."
+      "description": "Dzięki kraniką możesz bezpłatnie odebrać niewielkie ilości BANANO. Dzięki tym sumom możesz przekonać się, jak łatwo jest błyskawicznie wysyłać i odbierać BANANO na całym świecie w zdecentralizowanej sieci."
     },
     "developerFund": {
       "description": "Fundusz deweloperski jest podzielony na {{count}} konta. Fundusz wspiera rozwój Banano, projekty społecznościowe i nagrody <0>Folding @ Home</0>.",
@@ -278,7 +278,7 @@
       "account": "Wprowadź konto \"ban_\", które ma być kojarzone z aliasem",
       "registerNote": "W następnym kroku będziesz poproszony o wysłanie transakcji z zarejestrowanego konta \"ban_\"",
       "invalidAccount": "Nieprawidłowe konto",
-      "waitingNote": "Twój alias zostanie zarejestrowaniu po wpłaceniu BAN1 darownizy dla NanoLooker z konta, które rejestrujesz, aby potwierdzić, że należy do ciebie.",
+      "waitingNote": "Twój alias zostanie zarejestrowaniu po wpłaceniu 1BAN darownizy dla NanoLooker z konta, które rejestrujesz, aby potwierdzić, że należy do ciebie.",
       "registerErrorTaken": "Alias dla tego konta jest już zarejestrowany",
       "registerError": "Nie można ukończyć rejestracji",
       "waitingForTransaction": "Oczekiwanie na transakcję",
@@ -297,7 +297,7 @@
       "summaryMinBalance": "Każde konto z saldem poniżej <0>0,001</0> jest wykluczone",
       "includeKnownExchanges": "Uwzględnij znane giełdy",
       "logScale": "Skala logarytmiczna",
-      "dormantFunds": "Uśpione fundusze",
+      "dormantFunds": "Nieaktywne fundusze",
       "dormantFundsExperiment": "Jest to eksperyment mający na celu zrozumienie, ile kont jest aktywnych w łańcuchu bloków Banano. Dla każdego z kont {{totalAccounts}} rejestrowana jest data ostatniej transakcji w węźle lokalnym. Saldo i oczekujące kwoty, które zawiera każde konto, są oznaczone jako aktywne w miesiącu, w którym przeprowadzono ostatnią transakcję. W następnym miesiącu saldo i oczekujące zostaną oznaczone jako nieaktywne.",
       "availableSupply": "Banano dostępne dostawy",
       "knownAccountBalances": "Znane salda kont",
@@ -305,8 +305,8 @@
       "dormantFundsQuarterExample": "Rachunek, na którym znajduje się 50 BANANO i 50 oczekujących na transakcje BANANO, ostatnio dokonano transakcji 6 miesięcy temu (2 kwartały), saldo 100 BANANO jest dodawane jako „nieaktywne” do sumy z następnego kwartału.",
       "dormantBanano": "Śpiąca BANANO",
       "ofAvailableSupply": "dostępnej podaży",
-      "dormantNano": "Uśpiony banan",
-      "richList": "Bogata lista"
+      "dormantNano": "Niekatywne banano",
+      "richList": "Lista Bogaczy"
     },
     "news": {
       "allFeeds": "Wszystkie kanały",
@@ -353,7 +353,7 @@
     },
     "exchangeTracker": {
       "description": "Codziennie zbierane są salda kont najpopularniejszych giełd, na których handluje się Banano. Pomiar ten można wykorzystać do analizy ruchów i fluktuacji w sieci.",
-      "totalSelected": "Łączne saldo wybranych giełd",
+      "totalSelected": "Całkowite saldo wybranych giełd",
       "selectedWallets": "Wybrane portfele"
     },
     "preferences": {
