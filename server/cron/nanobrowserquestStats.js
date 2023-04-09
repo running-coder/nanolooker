@@ -54,6 +54,8 @@ const getNanoBrowserQuestLeaderboard = async () => {
       const playersChunks = chunk(players, PER_PAGES);
 
       for (let i = 0; i < playersChunks.length; i++) {
+        if (playersChunks[i] === "u:running-coder") continue;
+
         const rawPlayerData = await Promise.all(
           playersChunks[i].map(
             player =>
