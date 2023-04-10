@@ -1,4 +1,4 @@
-﻿# Nano BrowserQuest
+# Nano BrowserQuest
 
 ## Introduction
 
@@ -286,6 +286,104 @@ Your character will receive bonuses by wearing all set items
 | armor, belt, weapon, shield | Sapphire | 10 min damage, 3% critical hit, 15 defense                                    |
 | armor, belt, weapon, shield | Diamond  | 10% exp, 3% block chance, 60 hp                                               |
 | belt, ring, weapon          | Minotaur | 15 min damage, 10 defense, 15 cold damage, 25% Reduced chance of being frozen |
+|armor, belt, weapon, shield  |	Emerald		|	15 attack damage, 10 defense, 20 poison damage, 15 all resistance                                          |
+| belt, weapon, shield  |	Executioner	|	20 attack damage, 40 max damage, 15 exp, 10 all resistance                                                 |
+|armor, belt, weapon, shield  |	Templar		|	15 min damage, 5 attack damage, 25 defense, 15 all resistance                                              |
+|armor, weapon, shield        |	Dragon		|	15 min damage, 25 attack damage, 20 defense, 50 flame resistance                                           |
+|armor, belt, weapon, shield  |	Moon		|	20 pierce damage, 10 all resistance, 10 prevent regenerate health, 20 skill timeout, 20 attack speed       |
+|armor, belt, weapon, shield  |	Mystical	|	15 attack damage, 20 magic damage, 20 poison damage, 10 all resistance, 20 magic find                      |
+|armor, belt, weapon, shield  |	Demon		|	30 flame damage, 20 drain life, 30 lightning resistance, 50 flame resistance, 20 attack speed              |
+
+# Runes
+
+Runes have been added with the Lost Temple Addon, they can drop anywhere from Freezing the freezing Lands waypoint onwards.
+
+| #  | NAME | IMAGE     | STAT BONUSES                                                      |
+|----|------|-----------|-------------------------------------------------------------------|
+| 1  | SAT  |![{"name": "SAT Rune", "level": 1, "itemClass": "low","healthBonus": 10, "requirement": 1}](https://nanobrowserquest.com/img/2/item-rune-sat.png)           | +10 Health                                                        |
+| 2  | AL   |![{"name": "AL Rune", "level": 2, "itemClass": "low"}](https://nanobrowserquest.com/img/2/item-rune-al.png)           | +4 Minimum damage                                                 |
+| 3  | BUL  |![{"name": "BUL Rune", "level": 3, "itemClass": "low"}](https://nanobrowserquest.com/img/2/item-rune-bul.png)           | +4 Maximum damage                                                 |
+| 4  | NAN  |![{"name": "NAN Rune", "level": 4, "itemClass": "low"}](https://nanobrowserquest.com/img/2/item-rune-nan.png)           | +4 Magic damage                                                   |
+| 5  | MIR  |![{"name": "MIR Rune", "level": 6, "itemClass": "medium"}](https://nanobrowserquest.com/img/2/item-rune-mir.png)           | +4 Attack                                                         |
+| 6  | GEL  |![{"name": "GEL Rune", "level": 8, "itemClass": "medium"}](https://nanobrowserquest.com/img/2/item-rune-gel.png)           | +4 Absorbed damage                                                |
+| 7  | DO   |![{"name": "DO Rune", "level": 10, "itemClass": "high"}](https://nanobrowserquest.com/img/2/item-rune-do.png)           | +4 Defense                                                        |
+| 8  | BAN  |![{"name": "BAN Rune", "level": 12, "itemClass": "high"}](https://nanobrowserquest.com/img/2/item-rune-ban.png)           | +4% Experience                                                    |
+| 9  | VIE  |![{"name": "VIE Rune", "level": 14, "itemClass": "high"}](https://nanobrowserquest.com/img/2/item-rune-vie.png)           | +10 health regeneration per second                                |
+| 10 | UM   |![{"name": "UM Rune", "level": 16, "itemClass": "high"}](https://nanobrowserquest.com/img/2/item-rune-um.png)           | +10 Flame damage                                                  |
+| 11 | HEX  |![{"name": "HEX Rune", "level": 18, "itemClass": "high"}](https://nanobrowserquest.com/img/2/item-rune-hex.png)           | +5 Lightning damage                                               |
+| 12 | ZAL  |![{"name": "ZAL Rune", "level": 20, "itemClass": "high"}](https://nanobrowserquest.com/img/2/item-rune-zal.png)           | +5 Pierce armor attack                                            |
+| 13 | SOL  |![{"name": "SOL Rune", "level": 22, "itemClass": "high"}](https://nanobrowserquest.com/img/2/item-rune-sol.png)           | -5% Chance of being frozen                                        |
+| 14 | ETH  |![{"name": "ETH Rune", "level": 24, "itemClass": "high"}](https://nanobrowserquest.com/img/2/item-rune-eth.png)           | +10 Poison damage                                                 |
+| 15 | BTC  |           | +10% Magic resistance                                             |
+| 16 | VAX  |           | +10% Flame resistance                                             |
+| 17 | POR  |           | +10% Lightning resistance                                         |
+| 18 | LAS  |           | +10% Cold resistance                                              |
+| 19 | DUR  |           | +4% All resistances                                               |
+| 20 | FAL  |           | +8% Magic damage                                                  |
+| 21 | KUL  |           | +8% Lightning damage                                              |
+| 22 | MER  |           | +8% Flame damage                                                  |
+| 23 | QUA  |           | +8% Cold damage                                                   |
+| 24 | GUL  |           | +8% Poison damage                                                 |
+| 25 | BER  |           | -6% Skill timeout                                                 |
+| 26 | CHAM |           | +10% Poison resistance                                            |
+| 27 | TOR  |           | +10 Cold damage, +5% Freeze the enemy for # seconds               |
+| 28 | XNO  |           | +10% Attack speed                                                 |
+| 29 | JAH  |           | +6% Magic find                                                    |
+| 30 | SHI  |           | +8% All resistances                                               |
+| 31 | VOD  |           | +10 health regeneration per second, +10% Prevent enemy health regeneration |
+
+# Runewords
+
+You can use Runewords to get extra bonusses by putting runes in socketed normal (not Unique) items in the correct order.
+
+**Weapons**
+| NAME                   | RUNES                                   | STAT BONUSES                                                                                                                               |
+|------------------------|-----------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| Sub Second Confirmation | :runeal::runesat::runemir::runenan:     | +20 Health, +8 Minimum damage, +6 Magic damage, +6 Attack                                                                                 |
+| Decentralizer          | :runemir::runedo::runebul:              | +12 Maximum damage, +10 Magic damage, +4 Attack                                                                                           |
+| Smart contract         | :runemir::runebul::runeal::runebul::runemir: | +12 Attack, +12 Maximum damage, +6 Minimum damage                                                                                         |
+| Lightweight Node       | :runebul::runeum::runeal::runebul::runemir::runezal: | +6 Attack, +12 Flame damage, +10 Pierce armor attack, +6 Minimum damage, +12 Maximum damage                                              |
+| Buy the dip            | :runeban::runenan::runemir::runeal::runebtc: | +10 Minimum damage, +10 Attack, +10 Magic damage, +15% Magic resistance, +10% Experience                                                  |
+| Block blade            | :runedo::runeum::runehex::runedo::runezal::runemer: | +18 Defense, +13 Attack, +20 Flame damage, +15% Flame damage, +35% Flame resistance, +25 health regeneration per second                 |
+| Cold Wallet            | :runelas::runetor::runemir::runetor::runeal::runevie: | +10 Minimum damage, +20 Attack, +30 Cold damage, +15% Freeze the enemy for # seconds, +15% Cold resistance, +25 health regeneration per second |
+| Hot Wallet             | :runebul::runemir::runezal::runeum::runevax: | +10 Maximum damage, +15 Attack, +20 Flame damage, +15% Flame resistance, +10 Pierce armor attack                                         |
+| Living Whitepaper      | :runeber::runegul::runecham::runeeth::runeeth: | +35 Poison damage, +20% Poison resistance, +20% Poison damage, -20% Skill timeout, +20 Pierce armor attack                                 |
+| Can't the devs do something | :runefal::runebtc::runexno::runezal::runexno::runefal: | +30% Magic damage, +20% Magic resistance, +24% Attack speed, +20 Pierce armor attack, +8% Critical hit                                      |
+| ASIC                   | :runemer::runequa::runevod::runemer::runekul::runefal: | +20 Attack, +15% All resistances, +10% Critical hit, +30 health regeneration per second, +20% Prevent enemy health regeneration            |
+
+
+
+**Armors**
+
+| NAME                        | RUNES                               | STAT BONUSES                                                                                          |
+|-----------------------------|-------------------------------------|-------------------------------------------------------------------------------------------------------|
+| Melon Tusk                  | :runedo::runelas::runesol::runevod::runejah::runepor: | +20 Defense, +15% Magic find, +10% Lightning resistance, +20 health regeneration per second, +20% Prevent enemy health regeneration, +10% Cold resistance, -20% Chance of being frozen |
+| EIP-1559                    | :runeeth::runebtc::runexno:         | +15 Defense, +20 Absorbed damage, +30% Magic resistance, +30% Poison resistance, +20 Poison damage   |
+| SHA-256                     | :runebtc::runebul::runesol::runegel::runedo:  | +20 Defense, +5 Absorbed damage, -20% Chance of being frozen, +30% Cold resistance, +15 Maximum damage |
+| Double Spend                | :runevie::runedo::runedur::runelas::runevax::runecham:  | +10% Experience, +120 Health, +18 Defense, +20% All resistances, -20% Chance of being frozen         |
+| Web3                        | :runeeth::runesol::runezal::runehex: | +10% Experience, +20 Defense, +20 Magic damage, +30% Magic resistance, +20% Magic damage             |
+| Know Your Customer          | :runenan::runebtc::runefal::runeban: | +15% Experience, +20 Defense, +20 Magic damage, +30% Magic resistance, +20% Magic damage             |
+| The Maxi                    | :runebtc::runebtc::runebtc::runebtc::runebtc::runebtc: | +15 Maximum damage, +100 Health, +30 Defense, +20% All resistances                                   |
+| The Validator               | :runeum::runemer::runepor::runeum::runejah::runemer: | +20 Defense, +40 Flame damage, +20% Flame resistance, +15% Flame damage, +15% Magic find             |
+| Jungle Gorilla              | :runeban::runepor::runekul::runepor::runehex::runeber: | +15 Defense, +20 Lightning damage, +35% Lightning resistance, +20% Lightning damage, -15% Skill timeout |
+| Not Your Key Not Your Crypto | :runequa::runeban::runetor::runequa::runelas::runetor: | +20 Defense, +40 Cold damage, +30% Cold resistance, +15% Cold damage, +20% Freeze the enemy for # seconds |
+| Growing Seed                | :runeeth::runeeth::runegul::runecham::runevie::runegul: | +25 health regeneration per second, +30 Defense, +50 Poison damage, +40% Poison resistance, +25% Poison damage |
+| Fortune Favors The Brave    | :runeshi::runedo::runevod::runejah::runeber::runegel: | +20 Defense, +15 Absorbed damage, +18% All resistances, +30 health regeneration per second, +20% Prevent enemy health regeneration, +20% Magic find, -20% Skill timeout |
+
+**Shields**
+
+| NAME                     | RUNES                               | STAT BONUSES                                                                                                            |
+|--------------------------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| Pump and Dump            | :runegel::runebul::runeal::runesat::runedo: | +60 Health, +10 Defense, +10 Absorbed damage, +6 Attack, +6 Minimum damage                                              |
+| Confirmations Per Second | :runevie::runenan::runeal::runemir::runeum::runeban: | +10% Experience, +12 Minimum damage, +10 Attack, +15 Flame damage, +20 health regeneration per second, +10 Magic damage |
+| King Gorilla             | :runevie::runeban::runedo::runevie::runeban::runedo: | +10 Minimum damage, +10 Attack, +20 Defense, +300 Health, +30 health regeneration per second                             |
+| Open Representative Voting | :runesol::runebtc::runevie::runepor::runefal::runevie: | -20% Chance of being frozen, +20% Magic resistance, +25% Lightning resistance, +40 health regeneration per second, +20% Magic damage |
+| Ordinals                 | :runesol::runebtc::runeum::runelas::runesat: | +30 Defense, +25% Lightning resistance, +25% Cold resistance, +25 health regeneration per second, +18% Flame damage    |
+| Ascending Bootstrapping  | :runemer::runequa::runegul::runeber::runekul::runefal: | +20% Magic damage, +20% Lightning damage, +20% Flame damage, +20% Cold damage, +20% Poison damage, -20% Skill timeout  |
+| Bucketing System         | :runesol::runetor::runeshi::runevod::runelas::runefal: | +20 Cold damage, +16% Magic damage, +16% All resistances, +10% Freeze the enemy for # seconds, +10% Cold resistance, +20% Cold damage, -15% Chance of being frozen |
+| Echo Chamber             | :runejah::runeshi::runejah::runeber::runeeth::runegul: | +40 Poison damage, +25 Cold damage, +40% Magic find, -20% Skill timeout, +16% All resistances, +25% Poison damage      |
+
+
 
 # Party chat commands
 
