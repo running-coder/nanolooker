@@ -286,6 +286,17 @@ Your character will receive bonuses by wearing all set items
 | armor, belt, weapon, shield | Sapphire | 10 min damage, 3% critical hit, 15 defense                                    |
 | armor, belt, weapon, shield | Diamond  | 10% exp, 3% block chance, 60 hp                                               |
 | belt, ring, weapon          | Minotaur | 15 min damage, 10 defense, 15 cold damage, 25% Reduced chance of being frozen |
+|armor, belt, weapon, shield  |	Emerald		|	15 attack damage, 10 defense, 20 poison damage, 15 all resistance                                          |
+| belt, weapon, shield  |	Executioner	|	20 attack damage, 40 max damage, 15 exp, 10 all resistance                                                 |
+|armor, belt, weapon, shield  |	Templar		|	15 min damage, 5 attack damage, 25 defense, 15 all resistance                                              |
+|armor, weapon, shield        |	Dragon		|	15 min damage, 25 attack damage, 20 defense, 50 flame resistance                                           |
+|armor, belt, weapon, shield  |	Moon		|	20 pierce damage, 10 all resistance, 10 prevent regenerate health, 20 skill timeout, 20 attack speed       |
+|armor, belt, weapon, shield  |	Mystical	|	15 attack damage, 20 magic damage, 20 poison damage, 10 all resistance, 20 magic find                      |
+|armor, belt, weapon, shield  |	Demon		|	30 flame damage, 20 drain life, 30 lightning resistance, 50 flame resistance, 20 attack speed              |
+
+
+
+
 
 # Party chat commands
 
