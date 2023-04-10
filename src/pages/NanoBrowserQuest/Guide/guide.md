@@ -296,7 +296,7 @@ Your character will receive bonuses by wearing all set items
 
 # Runes
 
-Runes have been added with the Lost Temple Addon, they can drop anywhere from Freezing the freezing Lands waypoint onwards.
+Runes have been added with the Lost Temple Addon, they can drop anywhere from the "freezing Lands" waypoint onwards.
 
 | #  | NAME | IMAGE     | STAT BONUSES                                                      |
 |----|------|-----------|-------------------------------------------------------------------|
