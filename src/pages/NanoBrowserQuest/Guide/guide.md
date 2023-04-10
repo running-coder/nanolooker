@@ -290,7 +290,7 @@ Your character will receive bonuses by wearing all set items
 | belt, weapon, shield  |	Executioner	|	20 attack damage, 40 max damage, 15 exp, 10 all resistance                                                 |
 |armor, belt, weapon, shield  |	Templar		|	15 min damage, 5 attack damage, 25 defense, 15 all resistance                                              |
 |armor, weapon, shield        |	Dragon		|	15 min damage, 25 attack damage, 20 defense, 50 flame resistance                                           |
-|armor, belt, weapon, shield  |	Moon		|	12 defense, 25 pierce damage, 12 all resistance, 20 skill timeout, 20 attack speed       |
+|armor, belt, weapon, shield, amulet  |	Moon		|	12 defense, 25 pierce damage, 12 all resistance, 20 skill timeout, 20 attack speed       |
 |armor, belt, weapon, shield  |	Mystical	|	15 defense, 15 attack damage, 20 magic damage, 20 poison damage, 10 all resistance, 20 magic find                      |
 |armor, belt, weapon, shield  |	Demon		|	40 flame damage, 18 drain life, 30 lightning resistance, 50 flame resistance, 20 attack speed              |
 
