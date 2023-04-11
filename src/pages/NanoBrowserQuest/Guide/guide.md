@@ -3,8 +3,6 @@
 ## Table of Contents
 1. [Introduction](#Introduction)
 2. [Expansions](#Expansions)
-   1. [Freezing Lands Expansion](#Expansion1)
-   2. [The Lost Temple](#Expansion2)
 3. [Aim of the game](#Aim)
 4. [Item Guide](#Items)
    1. [Attributes explained](#Attributes)
@@ -37,14 +35,19 @@ Since it's inception Nano BrowserQuest has been developed into a more complete e
 ## Expansions
 
 <a id="Expansion1"></a>
-** Freezing Lands Expansion **
+**Freezing Lands Expansion**
 
 The expansion is for free now and it extends the game significantly. It features an all new map with a winter theme, including new enemies and two new bosses to defeat. There is also a bonus map with it's own boss, and recently a brand new "mega-boss". Beyond this a copious amount of new items and upgrades are available with cool animations and hidden attributes making the player ready to take on the more hardcore challenges present in new stages of the game.
 
 <a id="Expansion2"></a>
-** The Lost Temple **
+**The Lost Temple**
 
-The latest extension adds new content to the game and changed alot of game mechanics that can be accessed throughout the whole game like minibosses, sockets and runewords. You can also have an offensive skill now that can be used by hovering over the enemy and pressing 1.
+This remarkable update brings new content and game mechanics, including minibosses, sockets, and runewords, adding excitement and depth to the gameplay.
+The new world features new Waypoints, many new bosses and various secrets.
+
+There are new offensive skills that can be activated by hovering over an enemy and pressing the '1' key. To utilize this skill, you must first equip a weapon imbued with the spell as an attribute.
+
+The addon can be purchased by the red wizard for XNO or BAN depending on what version of the game you're in.
 
 <a id="Aim"></a>
 ## Aim of the game
@@ -356,23 +359,24 @@ Runes have been added with the Lost Temple Addon, they can drop anywhere from th
 | 12 | ZAL  |![{"name": "ZAL Rune", "level": 20, "itemClass": "high"}](https://nanobrowserquest.com/img/2/item-rune-zal.png)           | +5 Pierce armor attack                                            |
 | 13 | SOL  |![{"name": "SOL Rune", "level": 22, "itemClass": "high"}](https://nanobrowserquest.com/img/2/item-rune-sol.png)           | -5% Chance of being frozen                                        |
 | 14 | ETH  |![{"name": "ETH Rune", "level": 24, "itemClass": "high"}](https://nanobrowserquest.com/img/2/item-rune-eth.png)           | +10 Poison damage                                                 |
-| 15 | BTC  |           | +10% Magic resistance                                             |
-| 16 | VAX  |           | +10% Flame resistance                                             |
-| 17 | POR  |           | +10% Lightning resistance                                         |
-| 18 | LAS  |           | +10% Cold resistance                                              |
-| 19 | DUR  |           | +4% All resistances                                               |
-| 20 | FAL  |           | +8% Magic damage                                                  |
-| 21 | KUL  |           | +8% Lightning damage                                              |
-| 22 | MER  |           | +8% Flame damage                                                  |
-| 23 | QUA  |           | +8% Cold damage                                                   |
-| 24 | GUL  |           | +8% Poison damage                                                 |
-| 25 | BER  |           | -6% Skill timeout                                                 |
-| 26 | CHAM |           | +10% Poison resistance                                            |
-| 27 | TOR  |           | +10 Cold damage, +5% Freeze the enemy for # seconds               |
-| 28 | XNO  |           | +10% Attack speed                                                 |
-| 29 | JAH  |           | +6% Magic find                                                    |
-| 30 | SHI  |           | +8% All resistances                                               |
-| 31 | VOD  |           | +10 health regeneration per second, +10% Prevent enemy health regeneration |
+| 15 | BTC  |![{"name": "BTC Rune"}](https://nanobrowserquest.com/img/2/item-rune-btc.png)             | +10% Magic resistance                |
+| 16 | VAX  |![{"name": "VAX Rune"}](https://nanobrowserquest.com/img/2/item-rune-vax.png)             | +10% Flame resistance                |
+| 17 | POR  |![{"name": "POR Rune"}](https://nanobrowserquest.com/img/2/item-rune-por.png)             | +10% Lightning resistance            |
+| 18 | LAS  |![{"name": "LAS Rune"}](https://nanobrowserquest.com/img/2/item-rune-las.png)             | +10% Cold resistance                 |
+| 19 | DUR  |![{"name": "DUR Rune"}](https://nanobrowserquest.com/img/2/item-rune-dur.png)             | +4% All resistances                  |
+| 20 | FAL  |![{"name": "FAL Rune"}](https://nanobrowserquest.com/img/2/item-rune-fal.png)             | +8% Magic damage                     |
+| 21 | KUL  |![{"name": "KUL Rune"}](https://nanobrowserquest.com/img/2/item-rune-kul.png)             | +8% Lightning damage                 |
+| 22 | MER  |![{"name": "MER Rune"}](https://nanobrowserquest.com/img/2/item-rune-mer.png)             | +8% Flame damage                     |
+| 23 | QUA  |![{"name": "QUA Rune"}](https://nanobrowserquest.com/img/2/item-rune-qua.png)             | +8% Cold damage                      |
+| 24 | GUL  |![{"name": "GUL Rune"}](https://nanobrowserquest.com/img/2/item-rune-gul.png)             | +8% Poison damage                    |
+| 25 | BER  |![{"name": "BER Rune"}](https://nanobrowserquest.com/img/2/item-rune-ber.png)             | -6% Skill timeout                    |
+| 26 | CHAM |![{"name": "CHAM Rune"}](https://nanobrowserquest.com/img/2/item-rune-cham.png)           | +10% Poison resistance               |
+| 27 | TOR  |![{"name": "TOR Rune"}](https://nanobrowserquest.com/img/2/item-rune-tor.png)             | +10 Cold damage, +5% Freeze the enemy for # seconds |
+| 28 | XNO  |![{"name": "XNO Rune"}](https://nanobrowserquest.com/img/2/item-rune-xno.png)             | +10% Attack speed                    |
+| 29 | JAH  |![{"name": "JAH Rune"}](https://nanobrowserquest.com/img/2/item-rune-jah.png)             | +6% Magic find                       |
+| 30 | SHI  |![{"name": "SHI Rune"}](https://nanobrowserquest.com/img/2/item-rune-shi.png)             | +8% All resistances                  |
+| 31 | VOD  |![{"name": "VOD Rune"}](https://nanobrowserquest.com/img/2/item-rune-vod.png)             | +10 health regeneration per second, +10% Prevent enemy
+
 <a id="Runewords"></a>
 ## Runewords
 
