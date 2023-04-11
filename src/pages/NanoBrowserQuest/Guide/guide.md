@@ -21,33 +21,40 @@
 7. [Runes](#Runes)
   1. [Runewords](#Runewords)
 8. [Party chat commands](#Party)
-9. [Tips & Tricks](#Tricks)
+9. [Trading Items](#Trade)
+10. [Tips & Tricks](#Tricks)
 
   
   
 <a id="Introduction"></a>
-## Introduction
+# Introduction
 
 Nano BrowserQuest is based on the orginal BrowserQuest game: https://en.wikipedia.org/wiki/BrowserQuest. It started out as a fork that was identical in gameplay to the original, while integrating Nano (XNO) cryptocurrency transactions. The fork is created by running-coder (also known for creating and maintaining the website https://nanolooker.com/) as a way to promote awareness of the XNO currency. The original idea is similar to that of a faucet website which regularly pays out a small amount of cryptocurrency, commonly involving the user solving captchas or similar tasks. Nano BrowserQuest intended to make the process fun by allowing the user to play a game instead of performing menial tasks to recieve a micro payout in XNO.
 Since it's inception Nano BrowserQuest has been developed into a more complete experience as running-coder steadly improves and expands the game. Bugs from the original game have been fixed, several new items have been implemented and last but not least a big expansion pack is available for purchase.
 
 <a id="Expansions"></a>
-## Expansions
+# Expansions
 
 <a id="Expansion1"></a>
-**Freezing Lands Expansion**
+## Freezing Lands Expansion
+
+![Freezing Lands](https://img001.prntscr.com/file/img001/zwG6GZBYTTeyeG-WskxOCQ.png)
 
 The expansion is for free now and it extends the game significantly. It features an all new map with a winter theme, including new enemies and two new bosses to defeat. There is also a bonus map with it's own boss, and recently a brand new "mega-boss". Beyond this a copious amount of new items and upgrades are available with cool animations and hidden attributes making the player ready to take on the more hardcore challenges present in new stages of the game.
 
 <a id="Expansion2"></a>
-**The Lost Temple**
+## The Lost Temple
+
+![The Lost Temple](https://img001.prntscr.com/file/img001/_52Z5eJ3Sd2fdVz5Fc0GpA.png)
 
 This remarkable update brings new content and game mechanics, including minibosses, sockets, and runewords, adding excitement and depth to the gameplay.
 The new world features new Waypoints, many new bosses and various secrets.
 
 There are new offensive skills that can be activated by hovering over an enemy and pressing the '1' key. To utilize this skill, you must first equip a weapon imbued with the spell as an attribute.
 
-The addon can be purchased by the red wizard for XNO or BAN depending on what version of the game you're in.
+The addon can be purchased by the red wizard for XNO ![XNO](https://nanobrowserquest.com/img/3/xno.png)
+ or BAN ![BAN](https://nanobrowserquest.com/img/3/ban.png)
+ depending on what version of the game you're in.
 
 <a id="Aim"></a>
 ## Aim of the game
@@ -445,6 +452,21 @@ To participate in a party you may type these commands in chat.
 /party remove playerName (as the party leader)
 /party disband (as the party leader)
 ```
+
+
+<a id="Trade"></a>
+# Trading Items
+
+To trade Items between players a player must have defeated the skelleton king.
+You can use the trade command in the town with a player that is less than 3 tiles away from you.
+
+**Be aware that this command is case sensitive**
+
+```
+/trade PlayerName
+```
+
+![Trading](https://img001.prntscr.com/file/img001/E89XpOAQQbKEFcTOtB64mA.png)
 
 <a id="Tricks"></a>
 # Tips & Tricks
