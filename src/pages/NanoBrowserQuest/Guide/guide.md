@@ -1,5 +1,7 @@
 # Nano BrowserQuest
 
+![GameGuide](https://img001.prntscr.com/file/img001/D5bJ5XKWRLStCIKg_exGUQ.png)
+
 ## Table of Contents
 1. [Introduction](#Introduction)
 2. [Expansions](#Expansions)
