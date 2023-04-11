@@ -342,7 +342,7 @@ Your character will receive bonuses by wearing all set items
 | belt, weapon, shield  |	Executioner	|	20 attack damage, 40 max damage, 15 exp, 10 all resistance                                                 |
 |armor, belt, weapon, shield  |	Templar		|	15 min damage, 5 attack damage, 25 defense, 15 all resistance                                              |
 |armor, weapon, shield        |	Dragon		|	15 min damage, 25 attack damage, 20 defense, 50 flame resistance                                           |
-|armor, belt, weapon, shield, amulet  |	Moon		|	12 defense, 25 pierce damage, 12 all resistance, 20 skill timeout, 20 attack speed       |
+|armor, belt, weapon, shield, amulet  |	Moon		|	12 defense, 25 pierce damage,120 health, 12 all resistance, 20 skill timeout, 20 attack speed       |
 |armor, belt, weapon, shield  |	Mystical	|	15 defense, 15 attack damage, 20 magic damage, 20 poison damage, 10 all resistance, 20 magic find                      |
 |armor, belt, weapon, shield  |	Demon		|	40 flame damage, 18 drain life, 30 lightning resistance, 50 flame resistance, 20 attack speed              |
 <a id="Runes"></a>
@@ -461,6 +461,9 @@ To trade Items between players a player must have defeated the skelleton king.
 You can use the trade command in the town with a player that is less than 3 tiles away from you.
 
 **Be aware that this command is case sensitive**
+
+Make sure to join the Nano Browserquest discord to trade your items:
+<a href="https://discord.gg/GerkX8BfYy">Join Discord</a>
 
 ```
 /trade PlayerName
