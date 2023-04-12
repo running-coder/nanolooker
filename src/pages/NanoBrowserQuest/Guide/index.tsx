@@ -7,6 +7,7 @@ import remarkGfm from "remark-gfm";
 
 import guide from "./guide.md";
 import { getItemAttributes } from "./utils";
+import Header from "./components/Header";
 
 import "./guide.css";
 
@@ -40,7 +41,7 @@ const NanoBrowserQuestGuidePage: React.FC = () => {
                 fontSize: "12px",
               }}
             >
-              {t("common.by")} oldschooler &amp; running-coder
+              {t("common.by")} oldschooler, mika &amp; running-coder
             </span>
           </Title>
           <Card size="small" bordered={false} className="guide">
@@ -48,9 +49,13 @@ const NanoBrowserQuestGuidePage: React.FC = () => {
               <Col xs={24}>
                 <ReactMarkdown
                   remarkPlugins={[remarkGfm]}
+                  renderers={{ heading: Header }}
                   components={{
                     //@ts-ignore
                     img: Image,
+                    h1: Header,
+                    h2: Header,
+                    h3: Header,
                   }}
                 >
                   {markdown}
