@@ -57,7 +57,7 @@ depending on what version of the game you're in.
 
 The aim of the basic game (without the expansion pack) is basically to defeat the Skeleton King and recieve a small XNO payout. This is done by exploring the original map and killing enemies to gain experience and loot. The player levels up and gets stronger with the experience gained from slaying enemies until he/she is ready to take on the Skeleton King. Higher level enemies are harder to kill but also give more EXP as well as better loot. The player can upgrade items in the anvil present in the village where the game starts out. This is done by putting the appropriate level of upgrade scroll into the anvil along with the item which the player aims to upgrade. Further description regarding the anvil can be found here: https://nanolooker.com/nanobrowserquest/. Completing achievements will increase the final XNO payout recieved by the player, so aim to get all of them filled before killing the Skeleton King. Venture in all directions, find secret items, fun NPCs and achievments before heading north to kill the final boss.
 
-With the addition of the expansion pack the game ceases to funktion as a faucet, although one of the bosses does give a small payout similar to the Skeleton King. However, the price of the expansion is higher than the payout so players should be aware that going beyond the original game is meant for those who truely enjoy it. Having come this far, the aim is simply enjoyment of the game itself and the community. While progressing in the game and killing bosses are the main aims of the expansion, dedicated players also enjoy farming for rare loot and maxing out their character.
+With the addition of expansion packs, the game ceases to funktion as a faucet. The price of getting the latest expansion is higher than the Skeleton King payout so players should be aware that going beyond the original game is meant for those who truely enjoy it. Having come this far, the aim is simply enjoyment of the game itself and the community. While progressing in the game and killing bosses are the main aims of the expansion, dedicated players also enjoy farming for rare loot and maxing out their character.
 
 # Nano BrowserQuest item guide
 
@@ -88,6 +88,12 @@ Regenerates players health per second at a specific rate. It is a fixed amount a
 **Block**
 Blocks a hit from enemy. No damage done if blocked. Random chance based on %
 
+**-% Chance of being frozen**
+The attribute lessens the risk of being frozen by enemies that are cold enchanted
+
+**Defensive skill**
+These are found on shields and adds a defensive attribute which is activated by pressing "2". Dropped items have one of three random attributes which are: "Increased % defense for x seconds", % Instant health regeneration or % All resistance for x seconds. The % increases with the items level.
+
 ## Discussion
 
 **Defense vs Absorbed damage**
@@ -99,8 +105,9 @@ Defense and Absorbed damage do basically the same thing, blocking a portion of a
 **Attack**
 Basic Damage dealt by player. both min and max damage increases when items with attack attribute are equipped (small bonus increase with player level)
 
-**Magic damage**
-Both min and max damage increase. Higher amount of damage compared to regular attack attribute (enemies can be immune to this attribute)
+**Elemental damage**
+Both min and max damage increase. Higher amount of damage compared to regular attack attribute (enemies can be immune or resistant to these attributes)
+Elemental damage comes in the following forms: Magic, Flame, Cold, Poison, Lightning. 
 
 **Minimum damage**
 Minimum damage increase
@@ -111,36 +118,33 @@ Maximum damage increase
 **Critical hit**
 Hits enemy with higher damage. Random chance based on %
 
+**Penetrate armor**
+Deals a high level of physical damage (similar to Attack with a much higher number but without the player level bonus). Enemies cannot be resistant to physical damage
+
+**Offensive (ranged) skill**
+These skills are found on weapons and adds an offensive attribute which is activated by pressing "1" while hovering over an enemy with the mouse. There are four different random attributes that can be found on dropped weapons, based on the different elemental attacks: Magic, Flame, Lightning and Poison.
+
 ## Discussion
 
-**Attack vs Magic vs Min/Max**
+**Attack vs Elemental vs Min/Max**
 
-Magic damage beats attack at lower player levels because of the higher number per item level. However, as the player starts to level up the Attack added from an item will be higher than indicated by the number because of the level bonus. Enemies can also be immuned to Magic damage, making regular Attack a more reliable attribute. Min/Max are beaten by both of the other attributes as they only add half of the damage, making them worse attributes in almost all cases. The only exception would be when fighting an enemy that is immuned to Magic damage.
+Elemental damage beats attack at lower player levels because of the higher number per item level. However, as the player starts to level up the Attack added from an item will be higher than indicated by the number because the attribute has a bonus based on the players level. Enemies can also be immuned to Elemental damage, making regular Attack a more reliable attribute. Min/Max are beaten by both of the other attributes as they only add half of the damage, making them worse attributes in almost all cases. The only exception would be when fighting an enemy that is immuned/resistant to Elemental damage. 
 
-## Unique attributes
+Lightning & Poison damage work slightly different compared to Magic and Flame. Lightning is unique as it deals ordinary damage as well as damage when hit by enemies. This is great when being attacked by multiple enemies as it deals damage to alla of them. The exception to this is when Lightning is used as an offensive skill with ranged attack. Poison is special because it continues to do damage after the initial hit as long as the enemy is poisoned.
 
-**Flame damage**
-Elemental damage that adds both minimum and maximum damage similar to magic damage but higher per item level. The damage is reduced if enemies resistant to the element are attacked and blocked if the enemy is immuned to it
 
 ## Superunique attributes
 
 **Drain life**
 Deals damage to an enemy and also adds the same amount back to players health
 
-**Lightning damage**
-Elemental damage that deals ordinary damage as well as damage when hit by enemy. The damage is reduced if enemies resistant to the element are attacked and blocked if the enemy is immuned to it
 
 **Super health/High hp bonus**
 Same as normal health stat but much higher
 
-**Cold damage**
-Cold elemental damage. The damage is reduced if enemies resistant to the element are attacked and blocked if the enemy is immuned to it
-
 **Freeze**
 Freeze enemy for x seconds making them unable to attack you
 
-**Penetrate armor**
-Deals a high level of physical damage (similar to Attack but with a much higher number). Enemies cannot be resistant to physical damage
 
 ## Various
 
