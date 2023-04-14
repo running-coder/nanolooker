@@ -88,6 +88,12 @@ Regenerates players health per second at a specific rate. It is a fixed amount a
 **Block**
 Blocks a hit from enemy. No damage done if blocked. Random chance based on %
 
+**-% Chance of being frozen**
+The attribute lessens the risk of being frozen by enemies that are cold enchanted
+
+**Defensive skill**
+These are found on shields and adds a defensive attribute which is activated by pressing "2". Dropped items have one of three random attributes which are: "Increased % defense for x seconds", % Instant health regeneration or % All resistance for x seconds. The % increases with the items level.
+
 ## Discussion
 
 **Defense vs Absorbed damage**
@@ -115,13 +121,16 @@ Hits enemy with higher damage. Random chance based on %
 **Penetrate armor**
 Deals a high level of physical damage (similar to Attack with a much higher number but without the player level bonus). Enemies cannot be resistant to physical damage
 
+**Offensive (ranged) skill**
+These skills are found on weapons and adds an offensive attribute which is activated by pressing "1" while hovering over an enemy with the mouse. There are four different random attributes that can be found on dropped weapons, based on the different elemental attacks: Magic, Flame, Lightning and Poison.
+
 ## Discussion
 
 **Attack vs Elemental vs Min/Max**
 
 Elemental damage beats attack at lower player levels because of the higher number per item level. However, as the player starts to level up the Attack added from an item will be higher than indicated by the number because the attribute has a bonus based on the players level. Enemies can also be immuned to Elemental damage, making regular Attack a more reliable attribute. Min/Max are beaten by both of the other attributes as they only add half of the damage, making them worse attributes in almost all cases. The only exception would be when fighting an enemy that is immuned/resistant to Elemental damage. 
 
-Lightning damage is a bit unique as it deals ordinary damage as well as damage when hit by enemy (great when being attacked by multiple enemies as it deals damage to alla of them).
+Lightning & Poison damage are a bit unique. Lightning as it deals ordinary damage as well as damage when hit by enemies which is great when being attacked by multiple enemies as it deals damage to alla of them. The exception to this is when Lightning is used as an offensive skill with ranged attack. Poison is special because it continues to do damage after the initial hit as long as the enemy is poisoned.
 
 
 ## Superunique attributes
