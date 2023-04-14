@@ -103,8 +103,6 @@ Basic Damage dealt by player. both min and max damage increases when items with 
 Both min and max damage increase. Higher amount of damage compared to regular attack attribute (enemies can be immune or resistant to these attributes)
 Elemental damage comes in the following forms: Magic, Flame, Cold, Poison, Lightning. 
 
-Magic and Flame can be included in weapons while the other attributes are a bit special as they are only found on super uniques, runes/skulls and as offensive, ranged skills.
-
 **Minimum damage**
 Minimum damage increase
 
@@ -121,7 +119,9 @@ Deals a high level of physical damage (similar to Attack with a much higher numb
 
 **Attack vs Elemental vs Min/Max**
 
-Elemental damage beats attack at lower player levels because of the higher number per item level. However, as the player starts to level up the Attack added from an item will be higher than indicated by the number because the attribute has a bonus based on the players level. Enemies can also be immuned to Elemental damage, making regular Attack a more reliable attribute. Min/Max are beaten by both of the other attributes as they only add half of the damage, making them worse attributes in almost all cases. The only exception would be when fighting an enemy that is immuned/resistant to Elemental damage.
+Elemental damage beats attack at lower player levels because of the higher number per item level. However, as the player starts to level up the Attack added from an item will be higher than indicated by the number because the attribute has a bonus based on the players level. Enemies can also be immuned to Elemental damage, making regular Attack a more reliable attribute. Min/Max are beaten by both of the other attributes as they only add half of the damage, making them worse attributes in almost all cases. The only exception would be when fighting an enemy that is immuned/resistant to Elemental damage. 
+
+Lightning damage is a bit unique as it deals ordinary damage as well as damage when hit by enemy (great when being attacked by multiple enemies as it deals damage to alla of them).
 
 
 ## Superunique attributes
@@ -129,8 +129,6 @@ Elemental damage beats attack at lower player levels because of the higher numbe
 **Drain life**
 Deals damage to an enemy and also adds the same amount back to players health
 
-**Lightning damage**
-Elemental damage that deals ordinary damage as well as damage when hit by enemy (great when being attacked by multiple enemies aas it deals damage to alla of them). The damage is reduced if enemies resistant to the element are attacked and blocked if the enemy is immuned to it
 
 **Super health/High hp bonus**
 Same as normal health stat but much higher
