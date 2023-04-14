@@ -332,7 +332,7 @@ Your character will receive bonuses by wearing all set items
 
 # Runes
 
-Runes have been added with the Lost Temple Addon, they can drop anywhere from the "freezing Lands" waypoint onwards.
+The Lost Temple Addon introduces Runes that can drop from any enemy, but the chances of finding higher tier ones increase when defeating higher level foes. Keep defeating enemies to increase your chances of discovering these powerful artifacts.
 
 | #   | NAME | IMAGE                                                                                                                                             | STAT BONUSES                                           |
 | --- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
@@ -421,7 +421,9 @@ You can use Runewords to get extra bonusses by putting runes in socketed normal 
 
 The game features a global chat system for players to keep in touch and a party system enabling players to team up. When in a party, the players help eachother and recieve loot in a turn-based sequence. Other perks to playing in a party includes shared EXP and the fact that items dropped by an enemy killed by a party cannot be looted by other players. Capes which can be bought at the same place as the expansion give the player a powerful boost in stats when joined to a party of atleast one other player.
 
-To participate in a party you may type these commands in chat.
+To Invite someone you can also right click them and select "Party". When someone invites you to a party you get a message in the chat and the sword Icon on the bottom right will light up.
+
+There is the following party commands as well.
 
 ```
 /party create
@@ -438,6 +440,10 @@ To trade Items between players a player must have defeated the skelleton king.
 You can use the trade command in the town with a player that is less than 3 tiles away from you.
 
 **Be aware that this command is case sensitive**
+
+Now you can also right click a player to open a trade.
+
+![TradeMenu](https://user-images.githubusercontent.com/130382596/231968846-4b136f26-7a88-4175-977c-c1a9525ad279.png)
 
 Make sure to join the Nano Browserquest discord to trade your items:
 <a href="https://discord.gg/GerkX8BfYy">Join Discord</a>
