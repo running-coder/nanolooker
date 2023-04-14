@@ -92,7 +92,10 @@ Blocks a hit from enemy. No damage done if blocked. Random chance based on %
 The attribute lessens the risk of being frozen by enemies that are cold enchanted
 
 **Defensive skill**
-These are found on shields and adds a defensive attribute which is activated by pressing "2". Dropped items have one of three random attributes which are: "Increased % defense for x seconds", % Instant health regeneration or % All resistance for x seconds. The % increases with the items level.
+Defensive skills add a defensive attribute to shields which is activated by pressing "2". Dropped shields have one of three random attributes which are: "Increased % defense for x seconds", % Instant health regeneration or % All resistance for x seconds. The % increases with the items level.
+
+**Elemental resistance**
+Just like some enemies, the player can also be resistant to elemental damage. Certain items carry a % resistance against the five different elements present in the game. As an example, this means that if a player has 50% total resistance towards Flame damage, a hit of 100 Flame damage will only do 50 damage points.
 
 ## Discussion
 
@@ -106,8 +109,9 @@ Defense and Absorbed damage do basically the same thing, blocking a portion of a
 Basic Damage dealt by player. both min and max damage increases when items with attack attribute are equipped (small bonus increase with player level)
 
 **Elemental damage**
-Both min and max damage increase. Higher amount of damage compared to regular attack attribute (enemies can be immune or resistant to these attributes)
-Elemental damage comes in the following forms: Magic, Flame, Cold, Poison, Lightning. 
+Both min and max damage increase. Higher amount of damage compared to regular attack, however enemies can be immune or resistant to these attributes. Elemental damage attributes come in both normal "damage points" as well as in %. The idea is that if the player has high points on a certain element he/she should equip items with the same elemental % bonus to get as big of a boost as possible.
+
+The five different elements of NBQ are: Magic, Flame, Cold, Poison, Lightning. 
 
 **Minimum damage**
 Minimum damage increase
@@ -122,15 +126,15 @@ Hits enemy with higher damage. Random chance based on %
 Deals a high level of physical damage (similar to Attack with a much higher number but without the player level bonus). Enemies cannot be resistant to physical damage
 
 **Offensive (ranged) skill**
-These skills are found on weapons and adds an offensive attribute which is activated by pressing "1" while hovering over an enemy with the mouse. There are four different random attributes that can be found on dropped weapons, based on the different elemental attacks: Magic, Flame, Lightning and Poison.
+Offensive skills add an offensive attribute to the players weapon. It is activated by pressing "1" while hovering over an enemy with the mouse. There are five different random attributes that can be found on dropped weapons, based on the different elemental attacks: Magic, Flame, Cold, Lightning and Poison.
 
 ## Discussion
 
 **Attack vs Elemental vs Min/Max**
 
-Elemental damage beats attack at lower player levels because of the higher number per item level. However, as the player starts to level up the Attack added from an item will be higher than indicated by the number because the attribute has a bonus based on the players level. Enemies can also be immuned to Elemental damage, making regular Attack a more reliable attribute. Min/Max are beaten by both of the other attributes as they only add half of the damage, making them worse attributes in almost all cases. The only exception would be when fighting an enemy that is immuned/resistant to Elemental damage. 
+Elemental damage beats attack at lower player levels because of the higher number per item level. However, as the player starts to level up, the Attack added from an item will be higher than indicated by the number because the attribute has a bonus based on the players level. Enemies can also be immuned to Elemental damage, making regular Attack a more reliable attribute. Min/Max are beaten by both of the other attributes as they only add half of the damage, making them worse attributes in almost all cases. The only exception would be when fighting an enemy that is immuned/resistant to a specific Elemental damage. 
 
-Lightning & Poison damage work slightly different compared to Magic and Flame. Lightning is unique as it deals ordinary damage as well as damage when hit by enemies. This is great when being attacked by multiple enemies as it deals damage to alla of them. The exception to this is when Lightning is used as an offensive skill with ranged attack. Poison is special because it continues to do damage after the initial hit as long as the enemy is poisoned.
+Lightning & Poison damage work slightly different compared to Magic and Flame (and atleast for now, Cold as well). Lightning is unique as it deals ordinary damage as well as damage when hit by enemies. This is great when being attacked by multiple enemies as it deals damage to alla of them. The exception to this is when Lightning is used as an offensive skill with ranged attack. Poison is special because it continues to do damage after the initial hit as long as the enemy is poisoned.
 
 
 ## Superunique attributes
