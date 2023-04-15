@@ -230,6 +230,10 @@ Added experience % making the player level up faster
 
 **Unique Gold Amulet** has 4 random stats of a **Gold Amulet**
 
+**Platinum Amulet** has 3 basic attributes, critical- or block hit, 1 higher attribute and 2 resistances
+
+**Unique Platinum Amulet** has 3 basic attributes, critical- or block hit, 1 higher attribute and all resistances (resistance to all 5 elements)
+
 | Item                                                                                                                                                        | Name          | Unique                                                                                                                                                                                 | Name                 | Dropped By                                                                                                  |
 | :---------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------- | :---------------------------------------------------------------------------------------------------------- |
 | ![{"name": "Silver Amulet", "level": 1, "itemClass": "medium", "bonus": [4,5], "requirement": 9}](https://nanobrowserquest.com/img/3/item-amuletsilver.png) | Silver Amulet | ![{"name": "Unique Silver Amulet", "level": 1, "itemClass": "medium", "bonus": [0,1,3], "requirement": 9, "isUnique": true}](https://nanobrowserquest.com/img/3/item-amuletsilver.png) | Unique Silver Amulet | Evil Eye, Spectre, Death Knight                                                                             |
@@ -248,6 +252,10 @@ Added experience % making the player level up faster
 **Gold Ring** Attributes: Three randomzied attributes (Health, Absorb, Defense, Health regeneration, Attack, Magic damage, Min damage, Max damage, Experience)
 
 **Unique Gold Ring** has 4 random stats of a **Gold Ring**
+
+**Platinum Ring** has 3 basic attributes, 1 higher attribute and 2 reststance attribute
+
+**Unique Platinum Ring** has 3 basic attributes, 1 higher attribute and all resistance (resistance to all 5 elements)
 
 | Item                                                                                                                                                    | Name        | Unique                                                                                                                                                                             | Name               | Dropped By                                                                                         |
 | :------------------------------------------------------------------------------------------------------------------------------------------------------ | :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------- | :------------------------------------------------------------------------------------------------- |
