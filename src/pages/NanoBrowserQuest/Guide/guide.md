@@ -128,6 +128,12 @@ Deals a high level of physical damage (similar to Attack with a much higher numb
 **Offensive (ranged) skill**
 Offensive skills add an offensive attribute to the players weapon. It is activated by pressing "1" while hovering over an enemy with the mouse. There are five different random attributes that can be found on dropped weapons, based on the different elemental attacks: Magic, Flame, Cold, Lightning and Poison.
 
+**Increased attack speed**
+Increases the players attack speed a certain % and makes the player do damage faster.
+
+**Lower elemental resistance**
+This attribute lowers resistance to elemental damage by a certain %. For example, an enemy that is 50% resistant to Flame damage would only be 40% resistant if the player has an item with 10% equipped. An enemy that is immune to Flame damage would in the same case only be 90% resistant. This only affects the attacks of the player with "Lower elemental resistance" equipped. The attribute exists for all individual elements as well as in "Lower all resistance" form.
+
 ## Discussion
 
 **Attack vs Elemental vs Min/Max**
@@ -154,6 +160,9 @@ Freeze enemy for x seconds making them unable to attack you
 
 **Experience**
 Added experience % making the player level up faster
+
+**Magic Find**
+Adds a % chance of getting non-potion drops
 
 # Weapons
 
@@ -296,6 +305,7 @@ These items are used to upgrade the items found in NBQ. It is done by putting th
 | ![{"name": "Superior upgrade scroll", "itemClass": "high", "description": "Upgrade high class item. The chances for a successful upgrade varies depending on the item's level." }](https://nanobrowserquest.com/img/3/item-scrollupgradehigh.png)                                                                                         | Superior upgrade scroll     | Used to upgrade high class items                                          |
 | ![{"name": "Blessed upgrade scroll", "itemClass": "high", "description": "Upgrade high class item. The chances for a successful upgrade varies depending on the item's level. Blessed scrolls gives a higher chance of successful upgrade." }](https://nanobrowserquest.com/img/3/item-scrollupgradeblessed.png)                          | Blessed upgrade scroll      | Used to upgrade high class items with an increased chance of success      |
 | ![{"name": "Transmute scroll", "itemClass": "high", "description": "Transmute a ring or an amulet and generate new random stats or an item to have a chance of making it unique. The chances of transmuting stats is fixed while the chances of getting a unique varies." }](https://nanobrowserquest.com/img/3/item-scrolltransmute.png) | Transmute scroll            | Used to re-roll random attributes or create a unique out of a normal item |
+| ![{"name": "Legendary upgrade scroll", "itemClass": "legendary", "description": "Upgrade legendary class item. The chances for a successful upgrade varies depending on the item's level." }](https://nanobrowserquest.com/img/3/item-scrollupgradelegendary.png)) | Legendary upgrade scroll     | Used to upgrade legendary class items                    |
 
 # Various (Potions ie.)
 
