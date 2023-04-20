@@ -72,7 +72,13 @@ const NanoBrowserQuestGuidePage: React.FC = () => {
 const Image: React.FC<HTMLImageElement> = ({ src, alt: rawAttributes }) => {
   let title;
   if (rawAttributes?.startsWith("{")) {
-    title = getItemAttributes(JSON.parse(rawAttributes));
+    try {
+      title = getItemAttributes(JSON.parse(rawAttributes));
+    } catch (err) {
+      console.log("`~~~rawAttributes", rawAttributes);
+      // console.log("`~~~rawAttributes", JSON.parse(rawAttributes));
+      // console.log("`~~~title", title);
+    }
 
     return (
       <Tooltip

@@ -287,11 +287,13 @@ const skillDurationMap = {
 const getSkillDescriptionMap = [
   "+#% Instant health regeneration",
   "+#% Defense for # seconds",
+  "+#% All resistances for # seconds",
 ];
 
 const skillType = [
   "regenerateHealthSkill", // 0
   "defenseSkill", // 1
+  "resistancesSkill", // 2
 ];
 
 const getSkill = function (rawSkill: number, level: number) {
@@ -299,8 +301,13 @@ const getSkill = function (rawSkill: number, level: number) {
     5, 10, 15, 20, 25, 30, 40, 50, 75, 100,
   ];
   const defenseSkillPerLevel = [5, 10, 15, 20, 25, 30, 40, 50, 75, 100];
+  const resistanceSkillPerLevel = [5, 10, 15, 20, 25, 30, 40, 50, 75, 90];
 
-  const skillPerLevel = [regenerateHealthSkillPerLevel, defenseSkillPerLevel];
+  const skillPerLevel = [
+    regenerateHealthSkillPerLevel,
+    defenseSkillPerLevel,
+    resistanceSkillPerLevel,
+  ];
 
   let skill: { type: string; stats: number; description: string } | null = null;
 
@@ -310,7 +317,7 @@ const getSkill = function (rawSkill: number, level: number) {
   //@ts-ignore
   let description = getSkillDescriptionMap[rawSkill].replace("#", stats);
 
-  if (["defenseSkill"].includes(type)) {
+  if (type === "defenseSkill" || type === "resistancesSkill") {
     description = description.replace(
       "#",
       //@ts-ignore
