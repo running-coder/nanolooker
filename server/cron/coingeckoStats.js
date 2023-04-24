@@ -230,7 +230,7 @@ const getMarketCapStats = async () => {
         if (i && !(i % 10)) {
           await sleep(15000);
         } else {
-          await sleep(process.env.NODE_ENV === "production" ? 3000 : 150);
+          await sleep(process.env.NODE_ENV === "production" ? 10_000 : 150);
         }
       }
 
