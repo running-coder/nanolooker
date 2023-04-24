@@ -332,6 +332,8 @@ Unique Version: **Cloak of Levitation** Attributes: Defense (1) + two random att
 | ![{"name": "Touch of Heaven Ring", "level": 1, "itemClass": "legendary", "bonus": [5,11,18,28,31,32], "requirement": 51, "isUnique": true }](https://nanobrowserquest.com/img/3/item-ringheaven.png)  | Touch of Heaven Ring   | ?                                | ?                                              |
 | ![{"name": "Conqueror Ring", "level": 1, "itemClass": "legendary", "bonus": [0,1,2,5,6,8,21,22,23], "requirement": 51, "isUnique": true }](https://nanobrowserquest.com/img/3/item-ringconqueror.png) | Conqueror Ring         | ?                                | ?                                              |
 | ![{"name": "Oculus", "level": 1, "itemClass": "legendary", "bonus": [2,4,8,15,22,24,27,30], "requirement": 55, "isUnique": true }](https://nanobrowserquest.com/img/3/item-ringmystical.png)          | Oculus                 | ?                                | ?                                              |
+| ![{"name": "Wizard Ring", "level": 1, "itemClass": "legendary", "bonus": [4,15,18,28,31,32,35], "requirement": 51, "isUnique": true }](https://nanobrowserquest.com/img/3/item-ringwizard.png)          | Wizard Ring                 | ?                                | ?                                              |
+| ![{"name": "Dragon Eye", "level": 1, "itemClass": "legendary", "bonus": [0,1,6,8,9,22,23,28,37], "requirement": 59, "isUnique": true }](https://nanobrowserquest.com/img/3/item-amuletdragon.png)          | Dragon Eye                 | ?                                | ?                                              |
 
 # Scrolls
 
@@ -362,6 +364,9 @@ These items are used to upgrade the items found in NBQ. It is done by putting th
 | ![{"name": "Necromancer's Heart", "description": "The heart of the Necromancer. An unknown magic is still being emitted from the remains." }](https://nanobrowserquest.com/img/3/item-necromancerheart.png)                     | Necromancer's Heart           | Secret special properties                                                 |
 | ![{"name": "Cow King's horn", "description": "The horn of the Cow King. An unknown magic is still being emitted from the remains." }](https://nanobrowserquest.com/img/3/item-cowkinghorn.png)                                  | Cow King's horn               | Secret special properties                                                 |
 | ![{"name": "Blue Chest", "description": "The chest may contain a very precious item." }](https://nanobrowserquest.com/img/3/item-chestblue.png)                                                                                 | Blue Chest                    | Treasure chest awarded for killing the Minotaur (spawns every 6-8 hours)  |
+| ![{"name": "Green Chest", "description": "The chest may contain a very precious item." }](https://nanobrowserquest.com/img/3/item-chestgreen.png)                                                                                 | Green Chest                    | Treasure chest awarded to players above level 56 for killing the Minotaur. Contains higher rewards compared to Blue Chest   |
+| ![{"name": "Red Chest", "description": "The chest may contain a very precious item." }](https://nanobrowserquest.com/img/3/item-chestred.png)                                                                                 | Red Chest                    | Treasure chest awarded for killing The Butcher. Contains the most epic rewards the game has to offer  |
+| ![{"name": "Socket Stone", "itemClass": "legendary", "description": "Creates a random number of sockets in a non-socketed item." }]       (https://nanobrowserquest.com/img/3/item-stonesocket.png)                | Socket Stone                    | Can be used to create more sockets on items that have this possibility (Weapons, Armors and shields). Can also be used to remove items already put into sockets. This comes with a 50% chance of getting the socketed item back but no risk of burning the base item. Any number of sockets can be created. Chance is random, higher socket numbers being less likely. Once an item has 3 or more sockets (4 on unique items), the stones will no longer work. At this point the player will have to use a Transmute Scroll with 25% risk or Blessed Transmute with 1% risk of burning the item.  |
 
 # Auras
 
@@ -391,11 +396,11 @@ Your character will receive bonuses by wearing all set items
 | belt, ring, weapon                  | Minotaur    | 15 min damage, 10 defense, 15 cold damage, 25% Reduced chance of being frozen                     |
 | armor, belt, weapon, shield         | Emerald     | 15 attack damage, 10 defense, 20 poison damage, 15 all resistance                                 |
 | belt, weapon, shield                | Executioner | 20 attack damage, 40 max damage, 15 exp, 10 all resistance                                        |
-| armor, belt, weapon, shield         | Templar     | 15 min damage, 5 attack damage, 25 defense, 15 all resistance                                     |
+| armor, belt, weapon, shield         | Templar     | 20 min damage, 10 attack damage, 50 health, 25 defense, 15 all resistance                         |
 | armor, weapon, shield               | Dragon      | 15 min damage, 25 attack damage, 20 defense, 50 flame resistance                                  |
 | armor, belt, weapon, shield, amulet | Moon        | 12 defense, 25 pierce damage,120 health, 12 all resistance, 20 skill timeout, 20 attack speed     |
-| armor, belt, weapon, shield         | Mystical    | 15 defense, 15 attack damage, 20 magic damage, 20 poison damage, 10 all resistance, 20 magic find |
-| armor, belt, weapon, shield         | Demon       | 40 flame damage, 18 drain life, 30 lightning resistance, 50 flame resistance, 20 attack speed     |
+| armor, belt, weapon, shield         | Mystical    | 15 defense, 15 attack damage, 20 magic damage, 20 poison damage, 12 all resistance, 20 magic find |
+| armor, belt, weapon, shield         | Demon       | 40 flame damage, 18 drain life, 30 lightning resistance, 50 flame resistance, 120 health, 20 attack speed     |
 
 # Runes
 
@@ -488,9 +493,9 @@ You can use Runewords to get extra bonusses by putting runes in socketed normal 
 
 The game features a global chat system for players to keep in touch and a party system enabling players to team up. When in a party, the players help eachother and recieve loot in a turn-based sequence. Other perks to playing in a party includes shared EXP and the fact that items dropped by an enemy killed by a party cannot be looted by other players. Capes which can be bought at the same place as the expansion give the player a powerful boost in stats when joined to a party of atleast one other player.
 
-To Invite someone you can also right click them and select "Party". When someone invites you to a party you get a message in the chat and the sword Icon on the bottom right will light up.
+To Invite someone, you right click them and select "Party". When someone invites you to a party you get a message in the chat and the sword Icon on the bottom right will light up.
 
-There is the following party commands as well.
+There are the following party commands as well for those who prefer to use the console.
 
 ```
 /party create
@@ -504,20 +509,20 @@ There is the following party commands as well.
 # Trading Items
 
 To trade Items between players a player must have defeated the skelleton king.
-You can use the trade command in the town with a player that is less than 3 tiles away from you.
+You can only trade in the town/village with a player that is less than 3 tiles away from you.
+
+
+
+Right click a player and select "Trade" to open a menu where the players select the items they want to trade with eachother.
+
+You can also type /trade "player name" in the console to open the same function
 
 **Be aware that this command is case sensitive**
-
-Now you can also right click a player to open a trade.
 
 ![TradeMenu](https://user-images.githubusercontent.com/130382596/231968846-4b136f26-7a88-4175-977c-c1a9525ad279.png)
 
 Make sure to join the Nano Browserquest discord to trade your items:
-<a href="https://discord.gg/GerkX8BfYy">Join Discord</a>
 
-```
-/trade PlayerName
-```
 
 ![Trading](https://user-images.githubusercontent.com/19352322/231320855-acb9361b-f438-4bef-bab5-b44d3acdb04a.png)
 
