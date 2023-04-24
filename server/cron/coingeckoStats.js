@@ -114,6 +114,8 @@ const getMarketStats = async fiats => {
       };
 
       nodeCache.set(`${COINGECKO_MARKET_STATS}-${fiat}`, marketStats);
+
+      await sleep(20000);
     }
   } catch (err) {
     // rate limited
@@ -276,15 +278,15 @@ cron.schedule("0 1 * * *", async () => {
   getMarketCapStats();
 });
 
-// Every 30 seconds
-cron.schedule("*/30 * * * * *", async () => {
+// Every 2 minute
+cron.schedule("*/2 * * * *", async () => {
   getPriceStats(defaultFiats);
   getMarketStats(defaultFiats);
 });
 
-// https://crontab.guru/#*/2_*_*_*_*
-// At every 2nd minute.
-cron.schedule("*/2 * * * *", async () => {
+// https://crontab.guru/#*/10_*_*_*_*
+// At every 10nd minute.
+cron.schedule("*/10 * * * *", async () => {
   getPriceStats(secondaryFiats);
   getMarketStats(secondaryFiats);
 });
