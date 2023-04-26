@@ -148,6 +148,8 @@ const getDogeMarketStats = async fiats => {
       };
 
       nodeCache.set(`${COINGECKO_DOGE_MARKET_STATS}-${fiat}`, marketStats);
+
+      await sleep(20000);
     }
   } catch (err) {}
 };
@@ -181,6 +183,12 @@ const getMarketCapStats = async () => {
         );
 
         try {
+          const json = await res.json();
+
+          if (json.status && json.status.error_code) {
+            throw new Error("Rate limited");
+          }
+
           const {
             market_data: {
               market_cap: { usd: marketCap },
@@ -193,7 +201,7 @@ const getMarketCapStats = async () => {
               reddit_subscribers: redditSubscribers,
             },
             developer_data: { stars: githubStars },
-          } = await res.json();
+          } = json;
 
           const cryptocurrency = {
             id,
@@ -254,14 +262,13 @@ const getMarketCapStats = async () => {
           console.log(`Fetched ${i}: ${id}`);
         } catch (err1) {
           console.log(`Err Fetching ${i}: ${id}`, err1);
-          Sentry.captureException(err1);
         }
 
         // CoinGecko rate limit is 10 calls per seconds
         if (i && !(i % 10)) {
           await sleep(15000);
         } else {
-          await sleep(process.env.NODE_ENV === "production" ? 3000 : 150);
+          await sleep(process.env.NODE_ENV === "production" ? 10000 : 150);
         }
       }
 
@@ -269,6 +276,15 @@ const getMarketCapStats = async () => {
       await db.collection(MARKET_CAP_STATS_COLLECTION).deleteMany({
         id: { $nin: ids },
       });
+    } else {
+      console.log(
+        `Failed to get top ${top} cryptocurrencies`,
+        cryptocurrencies,
+      );
+      await sleep(10000);
+
+      getMarketCapStats();
+      return;
     }
 
     const marketCapStats = await db
@@ -293,15 +309,15 @@ cron.schedule("0 1 * * *", async () => {
   getMarketCapStats();
 });
 
-// Every 50 seconds
-cron.schedule("*/50 * * * * *", async () => {
+// Every 2 minute
+cron.schedule("*/2 * * * *", async () => {
   getPriceStats(defaultFiats);
   getMarketStats(defaultFiats);
 });
 
 // https://crontab.guru/#*/3_*_*_*_*
-// At every 3nd minute.
-cron.schedule("*/3 * * * *", async () => {
+// At every 10nd minute.
+cron.schedule("*/10 * * * *", async () => {
   getPriceStats(secondaryFiats);
   getMarketStats(secondaryFiats);
 });
