@@ -79,10 +79,12 @@ const expToLevelMap = [
   3_550_000, // 71
 ];
 
-export const getLevel = (exp: number) => {
-  for (let i = 1; i < expToLevelMap.length; i++) {
+export const getLevel = function (exp: number) {
+  var i = 1;
+  for (i = 1; i < expToLevelMap.length; i++) {
     if (exp < expToLevelMap[i]) {
       return i;
     }
   }
+  return i;
 };
