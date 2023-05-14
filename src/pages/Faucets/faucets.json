@@ -149,11 +149,6 @@
     "link": "https://yet-another-ban-faucet.herokuapp.com"
   },
   {
-    "alias": "CSquared's Banano Dispensary",
-    "account": "ban_3jyqzypmcn94dmyp7eb3k85sug1568xwehzx738o5jniaxaf1jpxdakjz96r",
-    "link": "https://getban.csquared.nz"
-  },
-  {
     "alias": "Wise Tribe Faucet",
     "link": "https://faucet.wisetribe.digital"
   },
@@ -161,5 +156,10 @@
     "alias": "Banano Forager",
     "account": "ban_1picturessx4aedsf59gm6qjkm6e3od4384m1qpfnotgsuoczbmhdb3e1zkh",
     "link": "https://banano.pictures"
+  },
+  {
+    "alias": "Nanosquares",
+    "account": "ban_3nuq9s1ot8dzk4i1w1zxejnk6qgbr7zgaw9rxagokbwdxw96z4fbk85girf6",
+    "link": "https://nanosquares.io/"
   }
 ]
