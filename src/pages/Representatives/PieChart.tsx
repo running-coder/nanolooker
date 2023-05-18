@@ -1,17 +1,19 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { Card, Col, Row, Skeleton, Switch, Tooltip, Typography } from "antd";
+
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import { Pie } from "@antv/g2plot";
+import { Card, Col, Row, Skeleton, Switch, Tooltip, Typography } from "antd";
 import BigNumber from "bignumber.js";
 import forEach from "lodash/forEach";
 import orderBy from "lodash/orderBy";
-import { Theme, PreferencesContext } from "api/contexts/Preferences";
+
+import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
+import { PreferencesContext,Theme } from "api/contexts/Preferences";
 import {
   Representative,
   RepresentativesContext,
 } from "api/contexts/Representatives";
-import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
 import { KnownAccountsBalance } from "api/hooks/use-known-accounts-balance";
 import QuestionCircle from "components/QuestionCircle";
 

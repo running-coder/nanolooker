@@ -1,16 +1,19 @@
 import * as React from "react";
-import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
+
 import { Card, Typography } from "antd";
+
+import { AccountInfoContext } from "api/contexts/AccountInfo";
 import { isValidAccountAddress } from "components/utils";
+
+import AccountDelegators from "./Delegators";
 import AccountDetails from "./Details";
 import AccountDetailsUnopened from "./Details/Unopened";
-import AccountPendingHistory from "./Pending";
 import AccountHistory from "./History";
-import AccountDelegators from "./Delegators";
-import { AccountInfoContext } from "api/contexts/AccountInfo";
 import useSockets from "./hooks/use-socket";
+import AccountPendingHistory from "./Pending";
 
 import type { PageParams } from "types/page";
 

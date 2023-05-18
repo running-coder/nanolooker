@@ -1,11 +1,13 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { MapContainer, Marker, Popup,TileLayer } from "react-leaflet";
 import { Link } from "react-router-dom";
+
 import { Typography } from "antd";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import * as L from "leaflet-extra-markers";
-import { NodeMonitor } from "api/hooks/use-node-monitors";
+
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
+import { NodeMonitor } from "api/hooks/use-node-monitors";
 
 const { Title } = Typography;
 

@@ -1,6 +1,7 @@
 import * as React from "react";
-import { toBoolean } from "components/utils";
+
 import { DEFAULT_UNITS } from "components/Preferences/FilterTransactions/utils";
+import { toBoolean } from "components/utils";
 
 export enum Theme {
   LIGHT = "light",

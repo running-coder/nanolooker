@@ -1,11 +1,14 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { Col, Row, Switch, Typography } from "antd";
+
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
+import { Col, Row, Switch, Typography } from "antd";
 import isEqual from "lodash/isEqual";
+
 import { PreferencesContext } from "api/contexts/Preferences";
-import { units, DEFAULT_UNITS } from "./utils";
+
+import { DEFAULT_UNITS,units } from "./utils";
 
 const { Text } = Typography;
 

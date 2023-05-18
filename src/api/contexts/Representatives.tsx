@@ -1,7 +1,9 @@
 import * as React from "react";
+
 import { rpc } from "api/rpc";
-import { KnownAccountsContext } from "./KnownAccounts";
+
 import { ConfirmationQuorumContext } from "./ConfirmationQuorum";
+import { KnownAccountsContext } from "./KnownAccounts";
 import { RepresentativesOnlineContext } from "./RepresentativesOnline";
 
 export interface Representative {

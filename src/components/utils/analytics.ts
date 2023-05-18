@@ -1,14 +1,16 @@
 import GA4React from "ga-4-react";
 import { GA4ReactResolveInterface } from "ga-4-react/dist/models/gtagModels";
 import isEqual from "lodash/isEqual";
+
+import { getBookmarks } from "api/contexts/Bookmarks";
 import {
-  LOCALSTORAGE_KEYS,
-  Theme,
   Fiat,
   getFilterTransactionsRange,
+  LOCALSTORAGE_KEYS,
+  Theme,
 } from "api/contexts/Preferences";
 import { DEFAULT_UNITS } from "components/Preferences/FilterTransactions/utils";
-import { getBookmarks } from "api/contexts/Bookmarks";
+
 import { toBoolean } from ".";
 
 const TRACKER = process.env.REACT_APP_GOOGLE_MEASUREMENT_ID;

@@ -1,9 +1,12 @@
 import * as React from "react";
+import { DragDropContext, Draggable,Droppable } from "react-beautiful-dnd";
 import { useTranslation } from "react-i18next";
+
 import { AutoComplete, Col, Row, Typography } from "antd";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+
 import { PreferencesContext } from "api/contexts/Preferences";
 import DeleteButton from "components/DeleteButton";
+
 import dataSource from "./supported-cryptocurrency.json";
 
 const { Option } = AutoComplete;

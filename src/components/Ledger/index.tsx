@@ -1,10 +1,12 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+
 import { Card } from "antd";
 import BigNumber from "bignumber.js";
+
+import { NodeStatusContext } from "api/contexts/NodeStatus";
 import useAvailableSupply from "api/hooks/use-available-supply";
 import useFrontierCount from "api/hooks/use-frontier-count";
-import { NodeStatusContext } from "api/contexts/NodeStatus";
 import LoadingStatistic from "components/LoadingStatistic";
 import { formatBytes } from "components/utils";
 

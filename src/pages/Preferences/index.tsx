@@ -1,15 +1,17 @@
 import * as React from "react";
-import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
+
 import { Card, Typography } from "antd";
-import ThemePreference from "components/Preferences/Theme";
-import LanguagePreferences from "components/Preferences/Language";
+
+import ConnectionPreferences from "components/Preferences/Connection";
 import CryptocurrencyPreferences from "components/Preferences/Cryptocurrency";
 import FiatPreferences from "components/Preferences/Fiat";
-import NatriconsPreferences from "components/Preferences/Natricons";
-import LiveTransactionsPreferences from "components/Preferences/LiveTransactions";
 import FilterTransactionsRangePreferences from "components/Preferences/FilterTransactions/Range";
-import ConnectionPreferences from "components/Preferences/Connection";
+import LanguagePreferences from "components/Preferences/Language";
+import LiveTransactionsPreferences from "components/Preferences/LiveTransactions";
+import NatriconsPreferences from "components/Preferences/Natricons";
+import ThemePreference from "components/Preferences/Theme";
 
 const { Title } = Typography;
 

@@ -1,8 +1,10 @@
 import * as React from "react";
+
+import { ArrowDownOutlined,ArrowUpOutlined } from "@ant-design/icons";
 import BigNumber from "bignumber.js";
-import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons";
+
+import { PreferencesContext,Theme } from "api/contexts/Preferences";
 import { Colors } from "components/utils";
-import { Theme, PreferencesContext } from "api/contexts/Preferences";
 
 interface StatisticsChangeProps {
   value: number;

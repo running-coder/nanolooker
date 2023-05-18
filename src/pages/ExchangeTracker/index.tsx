@@ -1,16 +1,19 @@
 import * as React from "react";
-import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
-import moment from "moment";
-import foreach from "lodash/forEach";
-import orderBy from "lodash/orderBy";
-import BigNumber from "bignumber.js";
+import { useTranslation } from "react-i18next";
+
+import { WalletOutlined } from "@ant-design/icons";
 import { Line } from "@antv/g2plot";
 import { Card, Tag, Typography } from "antd";
-import { WalletOutlined } from "@ant-design/icons";
+import BigNumber from "bignumber.js";
+import foreach from "lodash/forEach";
+import orderBy from "lodash/orderBy";
+import moment from "moment";
+
 import LoadingStatistic from "components/LoadingStatistic";
-import { tagColors, lineColors } from "./utils";
+
 import exchangeWallets from "../../exchanges.json";
+import { lineColors,tagColors } from "./utils";
 
 const { Text, Title } = Typography;
 

@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import { TrophyTwoTone } from "@ant-design/icons";
 
 const Trophy: React.FC<{ rank: number }> = ({ rank }) => {

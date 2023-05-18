@@ -2,13 +2,16 @@ import * as React from "react";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { Card, Row, Col, Skeleton, Space, Typography } from "antd";
-import { Natricon } from "components/Preferences/Natricons/Natricon";
+
+import { Card, Col, Row, Skeleton, Space, Typography } from "antd";
 import BigNumber from "bignumber.js";
-import useNanoQuakeJS from "./hooks/use-nanoquakejs-scores";
+
 import { PreferencesContext } from "api/contexts/Preferences";
-import Register from "./Register";
+import { Natricon } from "components/Preferences/Natricons/Natricon";
+
+import useNanoQuakeJS from "./hooks/use-nanoquakejs-scores";
 import Leaderboard from "./Leaderboard";
+import Register from "./Register";
 
 const { Text, Title } = Typography;
 

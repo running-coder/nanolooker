@@ -1,9 +1,11 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+
 import { Col, Row, Tag, Typography } from "antd";
-import { RepresentativesContext } from "api/contexts/Representatives";
-import { Theme, PreferencesContext } from "api/contexts/Preferences";
+
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
+import { PreferencesContext,Theme } from "api/contexts/Preferences";
+import { RepresentativesContext } from "api/contexts/Representatives";
 import useRepresentative from "api/hooks/use-representative";
 import { TwoToneColors } from "components/utils";
 

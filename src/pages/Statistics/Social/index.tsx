@@ -1,19 +1,22 @@
 import * as React from "react";
-import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
-import BigNumber from "bignumber.js";
-import { Radio, Card, Col, Row, Skeleton, Typography, Tooltip } from "antd";
+import { useTranslation } from "react-i18next";
+
 import {
-  TwitterOutlined,
-  RedditOutlined,
   GithubOutlined,
+  RedditOutlined,
+  TwitterOutlined,
 } from "@ant-design/icons";
 import { Bar, G2 } from "@antv/g2plot";
+import { Card, Col, Radio, Row, Skeleton, Tooltip,Typography } from "antd";
+import BigNumber from "bignumber.js";
 import orderBy from "lodash/orderBy";
+
+import QuestionCircle from "components/QuestionCircle";
+
 import useStatisticsSocial, {
   CryptoCurrency,
 } from "./hooks/use-statistics-social";
-import QuestionCircle from "components/QuestionCircle";
 
 const { Text, Title } = Typography;
 const G = G2.getEngine("canvas");

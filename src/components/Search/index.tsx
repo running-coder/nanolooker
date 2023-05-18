@@ -1,6 +1,14 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router-dom";
+
+import {
+  BlockOutlined,
+  CameraOutlined,
+  HistoryOutlined,
+  SearchOutlined,
+  WalletOutlined,
+} from "@ant-design/icons";
 import {
   Alert,
   AutoComplete,
@@ -10,27 +18,21 @@ import {
   Menu,
   Modal,
 } from "antd";
+
+import { BookmarksContext } from "api/contexts/Bookmarks";
+import { KnownAccount, KnownAccountsContext } from "api/contexts/KnownAccounts";
+import { PreferencesContext,Theme } from "api/contexts/Preferences";
+import DeleteButton from "components/DeleteButton";
 import {
-  CameraOutlined,
-  BlockOutlined,
-  HistoryOutlined,
-  SearchOutlined,
-  WalletOutlined,
-} from "@ant-design/icons";
-import {
-  isValidAccountAddress,
-  isValidBlockHash,
-  getPrefixedAccount,
   getAccountAddressFromText,
   getAccountBlockHashFromText,
+  getPrefixedAccount,
+  isValidAccountAddress,
+  isValidBlockHash,
 } from "components/utils";
-import DeleteButton from "components/DeleteButton";
 
 import useSearch from "./hooks/use-search";
 import useSearchHistory from "./hooks/use-search-history";
-import { Theme, PreferencesContext } from "api/contexts/Preferences";
-import { KnownAccount, KnownAccountsContext } from "api/contexts/KnownAccounts";
-import { BookmarksContext } from "api/contexts/Bookmarks";
 
 const Search = ({ isHome = false }) => {
   const { t } = useTranslation();

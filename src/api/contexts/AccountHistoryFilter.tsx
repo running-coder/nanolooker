@@ -1,11 +1,13 @@
 import * as React from "react";
+
 import qs from "qs";
 
 import { isValidAccountAddress } from "components/utils";
 
+import { AccountInfoContext } from "./AccountInfo";
+
 import type { History } from "./AccountHistory";
 import type { HistoryFilters } from "pages/Account/History/Filters";
-import { AccountInfoContext } from "./AccountInfo";
 
 interface Return {
   sum: number;

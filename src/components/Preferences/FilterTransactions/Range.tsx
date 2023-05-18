@@ -1,10 +1,13 @@
 import * as React from "react";
-import { useTranslation, Trans } from "react-i18next";
+import { Trans,useTranslation } from "react-i18next";
+
+import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { Col, Row, Slider, Switch, Tooltip, Typography } from "antd";
-import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
+
 import { PreferencesContext } from "api/contexts/Preferences";
 import QuestionCircle from "components/QuestionCircle";
+
 import { units } from "./utils";
 
 const { Text } = Typography;

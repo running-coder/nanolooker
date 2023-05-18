@@ -1,10 +1,12 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { Button, Card, Skeleton, Tooltip } from "antd";
+
 import { ReloadOutlined } from "@ant-design/icons";
-import { refreshActionDelay } from "components/utils";
+import { Button, Card, Skeleton, Tooltip } from "antd";
+
 import { BlockCountContext } from "api/contexts/BlockCount";
 import LoadingStatistic from "components/LoadingStatistic";
+import { refreshActionDelay } from "components/utils";
 
 const POLL_INTERVAL = 1000 * 30;
 

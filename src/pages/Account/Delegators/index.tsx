@@ -1,6 +1,8 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {
   Button,
   Card,
@@ -11,11 +13,11 @@ import {
   Skeleton,
   Typography,
 } from "antd";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import BigNumber from "bignumber.js";
+
 import { AccountInfoContext } from "api/contexts/AccountInfo";
-import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 import { DelegatorsContext } from "api/contexts/Delegators";
+import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 import useDelegators from "api/hooks/use-delegators";
 
 const { Title } = Typography;

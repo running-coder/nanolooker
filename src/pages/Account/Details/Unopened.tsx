@@ -1,6 +1,8 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+
 import { Typography } from "antd";
+
 import { AccountDetailsLayout } from ".";
 
 const { Text, Title } = Typography;

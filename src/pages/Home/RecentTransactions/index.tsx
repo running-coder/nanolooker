@@ -1,16 +1,19 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { Card, Typography } from "antd";
+
 import {
   CloseCircleFilled,
   CloseCircleTwoTone,
   SyncOutlined,
 } from "@ant-design/icons";
-import { TwoToneColors } from "components/utils";
-import ConfirmationsPerSecond from "components/ConfirmationsPerSecond";
+import { Card, Typography } from "antd";
+
+import { PreferencesContext,Theme } from "api/contexts/Preferences";
 import useSockets from "api/hooks/use-socket";
-import { Theme, PreferencesContext } from "api/contexts/Preferences";
+import ConfirmationsPerSecond from "components/ConfirmationsPerSecond";
 import RecentTransactionsPreferences from "components/Preferences/RecentTransactions";
+import { TwoToneColors } from "components/utils";
+
 import Timeline from "./Timeline";
 
 const { Text } = Typography;

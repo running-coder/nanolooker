@@ -1,31 +1,34 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { Card, Col, Row } from "antd";
 import BigNumber from "bignumber.js";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import useAvailableSupply from "api/hooks/use-available-supply";
-import {
-  PreferencesContext,
-  CurrencySymbol,
-  CurrencyDecimal,
-} from "api/contexts/Preferences";
+
 import { BlockCountContext } from "api/contexts/BlockCount";
 import { ConfirmationHistoryContext } from "api/contexts/ConfirmationHistory";
-import { RepresentativesContext } from "api/contexts/Representatives";
-import { NodeStatusContext } from "api/contexts/NodeStatus";
 import {
+  BITCOIN_TOTAL_TRANSACTION_FEES_24H,
+  BITCOIN_TOTAL_TRANSACTION_FEES_48H,
   MarketStatisticsContext,
   TOTAL_CONFIRMATIONS_24H,
   TOTAL_CONFIRMATIONS_48H,
   TOTAL_VOLUME_24H,
   TOTAL_VOLUME_48H,
-  BITCOIN_TOTAL_TRANSACTION_FEES_24H,
-  BITCOIN_TOTAL_TRANSACTION_FEES_48H,
 } from "api/contexts/MarketStatistics";
+import { NodeStatusContext } from "api/contexts/NodeStatus";
+import {
+  CurrencyDecimal,
+  CurrencySymbol,
+  PreferencesContext,
+} from "api/contexts/Preferences";
+import { RepresentativesContext } from "api/contexts/Representatives";
+import useAvailableSupply from "api/hooks/use-available-supply";
 import LoadingStatistic from "components/LoadingStatistic";
 import StatisticsChange from "components/StatisticsChange";
 import { formatBytes } from "components/utils";
+
 import Banner from "./Banner";
 import RecentTransactions from "./RecentTransactions";
 

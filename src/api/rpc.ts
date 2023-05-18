@@ -37,6 +37,7 @@ export const rpc = async (action: string, params?: any) => {
     json = await res.json();
 
     if (!json && isRPCAvailable) {
+      console.log("Invalid RPC response for ", { action, params });
       dispatchRPCStateChange();
     } else if (!isRPCAvailable) {
       isRPCAvailable = true;

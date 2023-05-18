@@ -1,5 +1,13 @@
 import * as React from "react";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { Link, useHistory,useParams } from "react-router-dom";
+
+import {
+  CheckCircleTwoTone,
+  CloseCircleOutlined,
+  SearchOutlined,
+  TwitterOutlined,
+} from "@ant-design/icons";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {
   Button,
   Card,
@@ -12,15 +20,10 @@ import {
   Space,
   Typography,
 } from "antd";
-import {
-  CheckCircleTwoTone,
-  CloseCircleOutlined,
-  TwitterOutlined,
-  SearchOutlined,
-} from "@ant-design/icons";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { Theme, PreferencesContext } from "api/contexts/Preferences";
+
+import { PreferencesContext,Theme } from "api/contexts/Preferences";
 import { isValidAccountAddress, TwoToneColors } from "components/utils";
+
 import useParticipants from "./hooks/use-participants";
 import Rules from "./Rules";
 

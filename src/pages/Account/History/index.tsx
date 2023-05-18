@@ -1,18 +1,20 @@
 import * as React from "react";
-import differenceBy from "lodash/differenceBy";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import chunk from "lodash/chunk";
-import { Button, Tooltip, Typography } from "antd";
+import { Link } from "react-router-dom";
+
 import { FilterOutlined } from "@ant-design/icons";
+import { Button, Tooltip, Typography } from "antd";
 import BigNumber from "bignumber.js";
-import useAccountHistory from "api/hooks/use-account-history";
+import chunk from "lodash/chunk";
+import differenceBy from "lodash/differenceBy";
+
+import { AccountHistoryFilterContext } from "api/contexts/AccountHistoryFilter";
 import { AccountInfoContext } from "api/contexts/AccountInfo";
 import { DelegatorsContext } from "api/contexts/Delegators";
 import { RepresentativesContext } from "api/contexts/Representatives";
-import { AccountHistoryFilterContext } from "api/contexts/AccountHistoryFilter";
-import TransactionsTable from "pages/Account/Transactions";
+import useAccountHistory from "api/hooks/use-account-history";
 import Filters from "pages/Account/History/Filters";
+import TransactionsTable from "pages/Account/Transactions";
 
 import type { Transaction } from "types/transaction";
 

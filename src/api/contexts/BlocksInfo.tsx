@@ -1,8 +1,11 @@
 import * as React from "react";
+
 import useDeepCompareEffect from "use-deep-compare-effect";
+
 import { rpc } from "api/rpc";
-import { BlockInfo } from "./BlockInfo";
 import { isValidBlockHash } from "components/utils";
+
+import { BlockInfo } from "./BlockInfo";
 
 export interface Response {
   blocks: {

@@ -1,11 +1,13 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import find from "lodash/find";
-import { Card, Slider, Typography } from "antd";
+
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { Card, Slider, Typography } from "antd";
 import BigNumber from "bignumber.js";
-import useFrontierCount from "api/hooks/use-frontier-count";
+import find from "lodash/find";
+
 import useAvailableSupply from "api/hooks/use-available-supply";
+import useFrontierCount from "api/hooks/use-frontier-count";
 
 const { Text, Title } = Typography;
 

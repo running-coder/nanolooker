@@ -1,5 +1,7 @@
 import * as React from "react";
+
 import qs from "qs";
+
 import { PreferencesContext } from "./Preferences";
 
 export const TOTAL_CONFIRMATIONS_24H = "TOTAL_CONFIRMATIONS_24H";

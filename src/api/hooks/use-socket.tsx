@@ -1,7 +1,9 @@
 import * as React from "react";
+
 import find from "lodash/find";
-import { PreferencesContext } from "api/contexts/Preferences";
+
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
+import { PreferencesContext } from "api/contexts/Preferences";
 
 import type { Transaction } from "types/transaction";
 

@@ -1,5 +1,7 @@
 import * as React from "react";
+
 import { Skeleton, Statistic, Tooltip } from "antd";
+
 import QuestionCircle from "components/QuestionCircle";
 
 interface LoadingStatisticProps {

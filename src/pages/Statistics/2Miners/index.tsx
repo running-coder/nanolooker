@@ -1,16 +1,18 @@
 import * as React from "react";
-import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
-import flatten from "lodash/flatten";
-import BigNumber from "bignumber.js";
-import { Card, Col, Row, Skeleton, Typography } from "antd";
+import { useTranslation } from "react-i18next";
+
 import { Line } from "@antv/g2plot";
-import useStatisticsSocial from "./hooks/use-statistics-2miners";
+import { Card, Col, Row, Skeleton, Typography } from "antd";
+import BigNumber from "bignumber.js";
+import flatten from "lodash/flatten";
+
+import LoadingStatistic from "components/LoadingStatistic";
 import { ACCOUNT_2MINERS } from "pages/Account/Details/ExtraRow";
 import AccountHeader from "pages/Account/Header/Account";
-import LoadingStatistic from "components/LoadingStatistic";
-
 import TransactionsTable from "pages/Account/Transactions";
+
+import useStatisticsSocial from "./hooks/use-statistics-2miners";
 
 const { Text, Title } = Typography;
 

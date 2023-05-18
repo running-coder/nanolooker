@@ -1,11 +1,14 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { Card, Col, Empty, Row, Skeleton, Tag, Typography } from "antd";
+
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { Card, Col, Empty, Row, Skeleton, Tag, Typography } from "antd";
 import BigNumber from "bignumber.js";
-import { Theme, PreferencesContext } from "api/contexts/Preferences";
+
+import { PreferencesContext,Theme } from "api/contexts/Preferences";
 import { TwoToneColors } from "components/utils";
+
 import { Node } from ".";
 
 const { Text, Title } = Typography;

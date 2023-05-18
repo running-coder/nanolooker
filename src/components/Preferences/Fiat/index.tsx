@@ -1,8 +1,10 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+
 import { Col, Row, Select, Typography } from "antd";
-import { PreferencesContext, Fiat } from "api/contexts/Preferences";
+
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
+import { Fiat,PreferencesContext } from "api/contexts/Preferences";
 
 const { Option } = Select;
 const { Text } = Typography;

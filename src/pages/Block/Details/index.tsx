@@ -1,31 +1,34 @@
 import * as React from "react";
-import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { Card, Col, Row, Skeleton, Tag, Tooltip, Typography } from "antd";
+
 import { CheckCircleOutlined, SyncOutlined } from "@ant-design/icons";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import TimeAgo from "timeago-react";
+import { Card, Col, Row, Skeleton, Tag, Tooltip, Typography } from "antd";
 import BigNumber from "bignumber.js";
-import {
-  Theme,
-  PreferencesContext,
-  CurrencySymbol,
-  CurrencyDecimal,
-} from "api/contexts/Preferences";
-import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
+import TimeAgo from "timeago-react";
+
 import { BlocksInfoContext } from "api/contexts/BlocksInfo";
+import { KnownAccountsContext } from "api/contexts/KnownAccounts";
+import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 import {
-  toBoolean,
-  TwoToneColors,
-  rawToRai,
-  timestampToDate,
+  CurrencyDecimal,
+  CurrencySymbol,
+  PreferencesContext,
+  Theme,
+} from "api/contexts/Preferences";
+import LoadingStatistic from "components/LoadingStatistic";
+import {
+  isNullAccountBlockHash,
   isValidAccountAddress,
   isValidBlockHash,
-  isNullAccountBlockHash,
+  rawToRai,
+  timestampToDate,
+  toBoolean,
+  TwoToneColors,
 } from "components/utils";
-import { KnownAccountsContext } from "api/contexts/KnownAccounts";
-import LoadingStatistic from "components/LoadingStatistic";
+import i18next from "i18next";
+
 import BlockHeader from "../Header";
 
 const { Text, Title } = Typography;

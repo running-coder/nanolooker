@@ -1,12 +1,15 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useParams } from "react-router-dom";
-import { Button, Modal, Typography } from "antd";
+
 import { SearchOutlined } from "@ant-design/icons";
-import Copy from "components/Copy";
+import { Button, Modal, Typography } from "antd";
+
 import { DONATION_ACCOUNT } from "components/AppFooter";
-import { NANOQUAKEJS_DONATION_ACCOUNT } from "pages/NanoQuakeJS/Register";
+import Copy from "components/Copy";
 import { NANOBROWSERQUEST_DONATION_ACCOUNT } from "pages/NanoBrowserQuest/Register";
+import { NANOQUAKEJS_DONATION_ACCOUNT } from "pages/NanoQuakeJS/Register";
+
 import QRCode from ".";
 
 import type { PageParams } from "types/page";

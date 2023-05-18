@@ -1,17 +1,19 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { Button, Card, Tooltip } from "antd";
+
 import { ReloadOutlined } from "@ant-design/icons";
+import { Button, Card, Tooltip } from "antd";
 import BigNumber from "bignumber.js";
-import {
-  secondsToTime,
-  refreshActionDelay,
-  formatBytes,
-} from "components/utils";
+
 import { NodeStatusContext } from "api/contexts/NodeStatus";
 import useUptime from "api/hooks/use-uptime";
 import useVersion from "api/hooks/use-version";
 import LoadingStatistic from "components/LoadingStatistic";
+import {
+  formatBytes,
+  refreshActionDelay,
+  secondsToTime,
+} from "components/utils";
 
 const Node: React.FC = () => {
   const { t } = useTranslation();

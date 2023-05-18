@@ -1,7 +1,9 @@
 import * as React from "react";
-import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {
   Button,
   Card,
@@ -12,19 +14,20 @@ import {
   Tooltip,
   Typography,
 } from "antd";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import BigNumber from "bignumber.js";
-import { Theme, PreferencesContext } from "api/contexts/Preferences";
+
+import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
+import { DelegatorsContext } from "api/contexts/Delegators";
+import { PreferencesContext,Theme } from "api/contexts/Preferences";
 import {
   Representative,
   RepresentativesContext,
 } from "api/contexts/Representatives";
-import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
-import { DelegatorsContext } from "api/contexts/Delegators";
+import useRepresentative from "api/hooks/use-representative";
 import QuestionCircle from "components/QuestionCircle";
 import { rawToRai, TwoToneColors } from "components/utils";
+
 import PieChart from "./PieChart";
-import useRepresentative from "api/hooks/use-representative";
 
 const { Title } = Typography;
 

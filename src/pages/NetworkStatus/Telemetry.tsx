@@ -1,6 +1,7 @@
 import * as React from "react";
-import i18next from "i18next";
-import { useTranslation, Trans } from "react-i18next";
+import { Trans,useTranslation } from "react-i18next";
+
+import { DownOutlined } from "@ant-design/icons";
 import {
   Button,
   Card,
@@ -11,12 +12,14 @@ import {
   Tooltip,
   Typography,
 } from "antd";
-import { DownOutlined } from "@ant-design/icons";
 import TimeAgo from "timeago-react";
+
 import useTelemetry, { Percentiles } from "api/hooks/use-telemetry";
-import QuestionCircle from "components/QuestionCircle";
 import LoadingStatistic from "components/LoadingStatistic";
-import { secondsToTime, formatBytes } from "components/utils";
+import QuestionCircle from "components/QuestionCircle";
+import { formatBytes,secondsToTime } from "components/utils";
+import i18next from "i18next";
+
 import PieChart from "./PieChart";
 
 const { Title } = Typography;

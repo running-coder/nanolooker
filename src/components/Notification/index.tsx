@@ -1,7 +1,9 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+
 import { Alert } from "antd";
+
 import { PreferencesContext } from "api/contexts/Preferences";
 
 const Notification: React.FC = () => {

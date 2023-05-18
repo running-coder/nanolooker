@@ -1,10 +1,11 @@
 import * as React from "react";
-import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { Card, Typography } from "antd";
+
 import { RedditOutlined } from "@ant-design/icons";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { Card, Typography } from "antd";
 
 const { Title } = Typography;
 

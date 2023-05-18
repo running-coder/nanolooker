@@ -1,10 +1,12 @@
 import * as React from "react";
+
 // import find from "lodash/find";
 import useDeepCompareEffect from "use-deep-compare-effect";
+
 import { rpc } from "api/rpc";
 import { isValidAccountAddress } from "components/utils";
 
-import type { Type, Subtype } from "types/transaction";
+import type { Subtype,Type } from "types/transaction";
 
 interface History {
   type: Type;

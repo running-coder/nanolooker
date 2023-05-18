@@ -1,11 +1,12 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { Button, Card, Statistic, Skeleton, Tooltip } from "antd";
+
 import { ReloadOutlined } from "@ant-design/icons";
+import { Button, Card, Skeleton, Statistic, Tooltip } from "antd";
+
 import useActiveDifficulty, {
   UseActiveDifficultyReturn,
 } from "api/hooks/use-active-difficulty";
-
 import { refreshActionDelay } from "components/utils";
 
 const ActiveDifficulty: React.FC = () => {

@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import orderBy from "lodash/orderBy";
 
 export interface Player {

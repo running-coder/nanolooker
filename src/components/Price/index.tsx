@@ -1,14 +1,16 @@
 import * as React from "react";
+
 import { Skeleton } from "antd";
 import BigNumber from "bignumber.js";
-import {
-  PreferencesContext,
-  CurrencySymbol,
-  CurrencyDecimal,
-} from "api/contexts/Preferences";
+
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
-import StatisticsChange from "components/StatisticsChange";
+import {
+  CurrencyDecimal,
+  CurrencySymbol,
+  PreferencesContext,
+} from "api/contexts/Preferences";
 import SupportedCryptocurrency from "components/Preferences/Cryptocurrency/supported-cryptocurrency.json";
+import StatisticsChange from "components/StatisticsChange";
 
 const Price = () => {
   const { cryptocurrency } = React.useContext(PreferencesContext);

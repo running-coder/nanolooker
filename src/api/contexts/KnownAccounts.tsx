@@ -1,7 +1,10 @@
 import * as React from "react";
+
 import find from "lodash/find";
-import KnownAccounts from "../../knownAccounts.json";
+
 import { BookmarksContext } from "api/contexts/Bookmarks";
+
+import KnownAccounts from "../../knownAccounts.json";
 
 const { KNOWN_EXCHANGE_ACCOUNTS } = KnownAccounts;
 

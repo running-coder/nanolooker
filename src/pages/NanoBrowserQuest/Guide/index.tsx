@@ -1,15 +1,17 @@
+import "./guide.css";
+
 import * as React from "react";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
-import { Card, Row, Col, Tooltip, Typography } from "antd";
 import ReactMarkdown from "react-markdown";
+
+import { Card, Col, Row, Tooltip, Typography } from "antd";
 import remarkGfm from "remark-gfm";
+
+import Header from "./components/Header";
 
 import guide from "./guide.md";
 import { getItemAttributes } from "./utils";
-import Header from "./components/Header";
-
-import "./guide.css";
 
 const { Title } = Typography;
 

@@ -1,14 +1,16 @@
 import * as React from "react";
-import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import { Link, useHistory } from "react-router-dom";
-import { Tag, Timeline, Typography } from "antd";
+
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import TimeAgo from "timeago-react";
+import { Tag, Timeline, Typography } from "antd";
 import BigNumber from "bignumber.js";
+import TimeAgo from "timeago-react";
+
+import { PreferencesContext,Theme } from "api/contexts/Preferences";
 import { Colors, TwoToneColors } from "components/utils";
 import { rawToRai } from "components/utils";
-import { Theme, PreferencesContext } from "api/contexts/Preferences";
+import i18next from "i18next";
 import { Transaction } from "types/transaction";
 
 const { Text } = Typography;

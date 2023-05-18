@@ -1,36 +1,39 @@
 import React, { ReactElement } from "react";
-import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import { Link, useParams } from "react-router-dom";
+
 import { Card, Col, Row, Skeleton, Tag, Tooltip } from "antd";
-import find from "lodash/find";
 import BigNumber from "bignumber.js";
+import find from "lodash/find";
 import TimeAgo from "timeago-react";
-import useAccountHistory from "api/hooks/use-account-history";
-import {
-  Theme,
-  PreferencesContext,
-  CurrencySymbol,
-  CurrencyDecimal,
-} from "api/contexts/Preferences";
-import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
+
 import { AccountInfoContext } from "api/contexts/AccountInfo";
+import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
+import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
+import {
+  CurrencyDecimal,
+  CurrencySymbol,
+  PreferencesContext,
+  Theme,
+} from "api/contexts/Preferences";
 import {
   Representative,
   RepresentativesContext,
 } from "api/contexts/Representatives";
-import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
+import useAccountHistory from "api/hooks/use-account-history";
+import useRepresentative from "api/hooks/use-representative";
 import LoadingStatistic from "components/LoadingStatistic";
 import QuestionCircle from "components/QuestionCircle";
 import { rawToRai, timestampToDate, TwoToneColors } from "components/utils";
+import i18next from "i18next";
+
+import { Sections } from "../.";
+import Chart from "../Chart";
 import AccountHeader from "../Header";
 import ExtraRow from "./ExtraRow";
-import Chart from "../Chart";
-import { Sections } from "../.";
 
 import type { PageParams } from "types/page";
 import type { Transaction } from "types/transaction";
-import useRepresentative from "api/hooks/use-representative";
 
 interface AccountDetailsLayoutProps {
   bordered?: boolean;

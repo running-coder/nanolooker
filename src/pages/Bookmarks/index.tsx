@@ -1,7 +1,9 @@
 import * as React from "react";
-import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
+
 import { Card, Col, Empty, Row, Typography } from "antd";
+
 import { BookmarksContext } from "api/contexts/Bookmarks";
 import AccountHeader from "pages/Account/Header/Account";
 

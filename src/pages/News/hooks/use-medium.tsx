@@ -1,6 +1,8 @@
 import * as React from "react";
+
 import orderBy from "lodash/orderBy";
 import uniqBy from "lodash/uniqBy";
+
 import { PostSource } from "../";
 
 export enum MEDIUM_FEEDS {

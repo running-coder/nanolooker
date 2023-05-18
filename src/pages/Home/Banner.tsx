@@ -1,8 +1,10 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+
 import { Button, Space, Typography } from "antd";
-import { Theme, PreferencesContext } from "api/contexts/Preferences";
+
+import { PreferencesContext,Theme } from "api/contexts/Preferences";
 import Search from "components/Search";
 import { Tracker } from "components/utils/analytics";
 

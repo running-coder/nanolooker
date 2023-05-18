@@ -1,13 +1,16 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { Card, Col, Popover, Row } from "antd";
+
 import { SettingOutlined } from "@ant-design/icons";
-import { Theme, PreferencesContext } from "api/contexts/Preferences";
-import ThemePreferences from "./Theme";
+import { Card, Col, Popover, Row } from "antd";
+
+import { PreferencesContext,Theme } from "api/contexts/Preferences";
+
 import CryptocurrencyPreferences from "./Cryptocurrency";
 import FiatPreferences from "./Fiat";
 import LanguagePreferences from "./Language";
+import ThemePreferences from "./Theme";
 
 const Preferences: React.FC = () => {
   const { t } = useTranslation();

@@ -1,7 +1,10 @@
 import * as React from "react";
+
 import BigNumber from "bignumber.js";
+
 import { PreferencesContext } from "api/contexts/Preferences";
 import { rawToRai } from "components/utils";
+
 import { usePrevious } from "./use-previous";
 
 import type { Transaction } from "types/transaction";

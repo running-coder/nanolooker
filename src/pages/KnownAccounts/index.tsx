@@ -1,10 +1,12 @@
 import * as React from "react";
-import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { Button, Input, Table, Typography } from "antd";
+
 import { SearchOutlined } from "@ant-design/icons";
+import { Button, Input, Table, Typography } from "antd";
 import BigNumber from "bignumber.js";
+
 import useKnownAccountsBalance from "api/hooks/use-known-accounts-balance";
 
 const { Title } = Typography;

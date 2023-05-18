@@ -1,7 +1,9 @@
 import * as React from "react";
-import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+
+import { CheckCircleOutlined, SyncOutlined } from "@ant-design/icons";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {
   Button,
   Card,
@@ -13,16 +15,16 @@ import {
   Tooltip,
   Typography,
 } from "antd";
-import { CheckCircleOutlined, SyncOutlined } from "@ant-design/icons";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import TimeAgo from "timeago-react";
 import BigNumber from "bignumber.js";
+import TimeAgo from "timeago-react";
+
+import { History } from "api/contexts/AccountHistory";
+import { KnownAccountsContext } from "api/contexts/KnownAccounts";
+import { PreferencesContext,Theme } from "api/contexts/Preferences";
+import { Natricon } from "components/Preferences/Natricons/Natricon";
 import { rawToRai, toBoolean } from "components/utils";
 import { Colors, TwoToneColors } from "components/utils";
-import { Natricon } from "components/Preferences/Natricons/Natricon";
-import { KnownAccountsContext } from "api/contexts/KnownAccounts";
-import { Theme, PreferencesContext } from "api/contexts/Preferences";
-import { History } from "api/contexts/AccountHistory";
+import i18next from "i18next";
 
 const { Text } = Typography;
 

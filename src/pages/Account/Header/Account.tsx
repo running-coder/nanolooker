@@ -1,13 +1,15 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import { Button, Row, Col } from "antd";
-import { WalletOutlined, QrcodeOutlined } from "@ant-design/icons";
+
+import { QrcodeOutlined,WalletOutlined } from "@ant-design/icons";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import Copy from "components/Copy";
-import QRCodeModal from "components/QRCode/Modal";
-import Bookmark from "components/Bookmark";
-import { Natricon } from "components/Preferences/Natricons/Natricon";
+import { Button, Col,Row } from "antd";
+
 import { PreferencesContext } from "api/contexts/Preferences";
+import Bookmark from "components/Bookmark";
+import Copy from "components/Copy";
+import { Natricon } from "components/Preferences/Natricons/Natricon";
+import QRCodeModal from "components/QRCode/Modal";
 
 interface Props {
   account: string;

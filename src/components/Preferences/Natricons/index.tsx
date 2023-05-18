@@ -1,10 +1,12 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { Col, Row, Switch, Typography } from "antd";
+
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
+import { Col, Row, Switch, Typography } from "antd";
+import KnownAccounts from "knownAccounts.json";
+
 import { PreferencesContext } from "api/contexts/Preferences";
 import { Natricon } from "components/Preferences/Natricons/Natricon";
-import KnownAccounts from "knownAccounts.json";
 
 const { DEVELOPER_FUND_ACCOUNTS } = KnownAccounts;
 const { Text } = Typography;

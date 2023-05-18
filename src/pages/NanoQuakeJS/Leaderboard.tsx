@@ -1,8 +1,10 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { Card, Row, Col, Pagination, Skeleton, Typography } from "antd";
-import Trophy, { fontSizeToRankMap } from "components/Trophy";
+
+import { Card, Col, Pagination, Row, Skeleton, Typography } from "antd";
 import chunk from "lodash/chunk";
+
+import Trophy, { fontSizeToRankMap } from "components/Trophy";
 
 import type { PlayerScore } from "./hooks/use-nanoquakejs-scores";
 

@@ -1,8 +1,10 @@
 import * as React from "react";
-import i18next from "i18next";
 import { Trans, useTranslation } from "react-i18next";
+
 import { Col, Row, Select, Typography } from "antd";
+
 import { LOCALSTORAGE_KEYS } from "api/contexts/Preferences";
+import i18next from "i18next";
 
 const { Option } = Select;
 const { Text } = Typography;

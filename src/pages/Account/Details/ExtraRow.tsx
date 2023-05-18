@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+
 import { Col, Row } from "antd";
 
 export const ACCOUNT_2MINERS =

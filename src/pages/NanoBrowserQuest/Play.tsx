@@ -2,6 +2,7 @@ import * as React from "react";
 import { useTranslation } from "react-i18next";
 
 import { Button } from "antd";
+
 import { Tracker } from "components/utils/analytics";
 
 const Play: React.FC = () => {

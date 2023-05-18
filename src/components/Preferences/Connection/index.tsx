@@ -1,12 +1,14 @@
 import * as React from "react";
+import { Controller,useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { Button, Col, Input, Row, Space, Switch, Typography } from "antd";
+
 import {
+  CheckCircleTwoTone,
   CheckOutlined,
   CloseOutlined,
-  CheckCircleTwoTone,
 } from "@ant-design/icons";
-import { useForm, Controller } from "react-hook-form";
+import { Button, Col, Input, Row, Space, Switch, Typography } from "antd";
+
 import { PreferencesContext } from "api/contexts/Preferences";
 
 const { Text } = Typography;

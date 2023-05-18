@@ -1,19 +1,21 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { Card, Col, Pagination, Row, Skeleton, Typography } from "antd";
 import BigNumber from "bignumber.js";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import useRichList from "api/hooks/use-rich-list";
-import useAvailableSupply from "api/hooks/use-available-supply";
-import {
-  PreferencesContext,
-  CurrencySymbol,
-  CurrencyDecimal,
-} from "api/contexts/Preferences";
-import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
-import { roundOff } from "components/utils";
 import KnownAccounts from "knownAccounts.json";
+
+import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
+import {
+  CurrencyDecimal,
+  CurrencySymbol,
+  PreferencesContext,
+} from "api/contexts/Preferences";
+import useAvailableSupply from "api/hooks/use-available-supply";
+import useRichList from "api/hooks/use-rich-list";
+import { roundOff } from "components/utils";
 
 const { BURN_ACCOUNT } = KnownAccounts;
 const { Title } = Typography;

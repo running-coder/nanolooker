@@ -1,20 +1,23 @@
 import * as React from "react";
-import i18next from "i18next";
-import { useTranslation, Trans } from "react-i18next";
 import { Helmet } from "react-helmet";
-import { Card, Switch, Tooltip, Typography } from "antd";
+import { Trans,useTranslation } from "react-i18next";
+
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import { Column } from "@antv/g2plot";
-import isInteger from "lodash/isInteger";
-import useDeepCompareEffect from "use-deep-compare-effect";
+import { Card, Switch, Tooltip, Typography } from "antd";
 import BigNumber from "bignumber.js";
+import isInteger from "lodash/isInteger";
+import TimeAgo from "timeago-react";
+import useDeepCompareEffect from "use-deep-compare-effect";
+
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 import useDistribution, { DistributionIndex } from "api/hooks/use-distribution";
-import RichList from "./RichList";
-import DormantFunds from "./DormantFunds";
 import QuestionCircle from "components/QuestionCircle";
 import { intToString } from "components/utils";
-import TimeAgo from "timeago-react";
+import i18next from "i18next";
+
+import DormantFunds from "./DormantFunds";
+import RichList from "./RichList";
 
 const { Text, Title } = Typography;
 

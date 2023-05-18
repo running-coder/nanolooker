@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import { LOCALSTORAGE_KEYS } from "api/contexts/Preferences";
 
 export type BookmarkTypes = "account" | "block";
