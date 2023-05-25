@@ -26,7 +26,7 @@ jobs:
           npm run build
 
       - name: Rsync deployment
-        uses: burnett01/rsync-deployments@4.0
+        uses: burnett01/rsync-deployments@5.2.1
         with:
           switches: -avzr --delete --exclude=".env" --exclude="server/data/" --exclude="public/cryptocurrencies/logo"
           path: "."
