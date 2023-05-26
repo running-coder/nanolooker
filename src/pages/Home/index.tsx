@@ -273,7 +273,9 @@ const HomePage = () => {
               <Col xs={24}>
                 <LoadingStatistic
                   isLoading={
-                    isMarketStatisticsInitialLoading || isMarketStatisticsError
+                    !marketCapRank ||
+                    isMarketStatisticsInitialLoading ||
+                    isMarketStatisticsError
                   }
                   title={t("pages.home.marketCapRank")}
                   prefix="#"
@@ -290,7 +292,9 @@ const HomePage = () => {
 
                 <LoadingStatistic
                   isLoading={
-                    isMarketStatisticsInitialLoading || isMarketStatisticsError
+                    !marketCap ||
+                    isMarketStatisticsInitialLoading ||
+                    isMarketStatisticsError
                   }
                   title={`${t("pages.home.marketCap")} (${fiat.toUpperCase()})`}
                   prefix={CurrencySymbol?.[fiat]}
@@ -304,7 +308,9 @@ const HomePage = () => {
                 />
                 <LoadingStatistic
                   isLoading={
-                    isMarketStatisticsInitialLoading || isMarketStatisticsError
+                    !volume24h ||
+                    isMarketStatisticsInitialLoading ||
+                    isMarketStatisticsError
                   }
                   title={`${t(
                     "pages.home.exchangeVolume",
