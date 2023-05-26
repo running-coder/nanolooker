@@ -1,9 +1,9 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
 
 import { CheckCircleOutlined, SyncOutlined } from "@ant-design/icons";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { Card, Col, Row, Skeleton, Tag, Tooltip, Typography } from "antd";
 import BigNumber from "bignumber.js";
 import TimeAgo from "timeago-react";
@@ -46,7 +46,7 @@ const BlockDetails: React.FC = () => {
     isLoading: isBlocksInfoLoading,
   } = React.useContext(BlocksInfoContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
-  const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
+  const isSmallAndLower = !useMediaQuery({ query: "(min-width: 576px)" });
 
   const skeletonProps = {
     active: true,
@@ -123,7 +123,7 @@ const BlockDetails: React.FC = () => {
   return (
     <>
       {!isBlocksInfoLoading && !blockInfo ? (
-        <Card bordered={false}>
+        <Card>
           <Title level={3}>{t("pages.block.blockNotFound")}</Title>
           <Text>{t("pages.block.blockNotFoundInfo")}</Text>
         </Card>
@@ -132,7 +132,6 @@ const BlockDetails: React.FC = () => {
         <>
           <Card
             size="small"
-            bordered={false}
             className="detail-layout"
             style={{ marginBottom: "12px" }}
           >

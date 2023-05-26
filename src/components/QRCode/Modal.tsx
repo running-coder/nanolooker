@@ -49,7 +49,7 @@ const QRCodeModal = ({ header, account, children }: QRCodeModalProps) => {
         ]}
       >
         {header}
-        <div style={{ textAlign: "center" }}>
+        <div style={{ textAlign: "center", margin: "10px 0" }}>
           <QRCode account={account} />
         </div>
         <>

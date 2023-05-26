@@ -9,7 +9,7 @@ import moment from "moment";
 import { AccountInfoContext } from "api/contexts/AccountInfo";
 import useAccountHistory from "api/hooks/use-account-history";
 import QuestionCircle from "components/QuestionCircle";
-import { intToString,rawToRai } from "components/utils";
+import { intToString, rawToRai } from "components/utils";
 
 const { Option } = Select;
 
@@ -199,14 +199,9 @@ const Chart: React.FC = () => {
   return (
     <Card
       size="small"
-      title={t(
-        `pages.account.${
-          chartType === ChartType.DAILY ? "dailyBalance" : "byTransaction"
-        }`,
-        {
-          count: blockCount > MAX_TRANSACTIONS ? MAX_TRANSACTIONS : blockCount,
-        },
-      )}
+      title={t("pages.account.dailyBalance", {
+        count: blockCount > MAX_TRANSACTIONS ? MAX_TRANSACTIONS : blockCount,
+      })}
       extra={
         <Select
           size="small"

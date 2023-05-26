@@ -23,7 +23,11 @@ export const BlockCountContext = React.createContext<Return & Response>({
   isError: false,
 });
 
-const Provider: React.FC = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const Provider: React.FC<Props> = ({ children }) => {
   const [blockCount, setBlockCount] = React.useState({} as Response);
   const [isLoading, setIsLoading] = React.useState(true);
   const [isError, setIsError] = React.useState(false);

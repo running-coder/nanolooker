@@ -11,7 +11,7 @@ const HowToPlay: React.FC = () => {
   return (
     <>
       <Title level={3}>{t("pages.nanobrowserquest.howToPlay")}</Title>
-      <Card size="small" bordered={false} className="detail-layout">
+      <Card size="small" className="detail-layout">
         <Title level={4}>{t("pages.nanobrowserquest.itemUpgrade")}</Title>
         <Text>{t("pages.nanobrowserquest.itemUpgradeDescription")}</Text>
         <img

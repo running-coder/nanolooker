@@ -30,6 +30,10 @@ i18n
         return value;
       },
     },
+    react: {
+      transKeepBasicHtmlNodesFor: ["br", "strong", "i", "p", "u"],
+      useSuspense: false,
+    },
   });
 
 export default i18n;

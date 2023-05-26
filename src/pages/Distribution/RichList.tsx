@@ -1,8 +1,8 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
 
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { Card, Col, Pagination, Row, Skeleton, Typography } from "antd";
 import BigNumber from "bignumber.js";
 import KnownAccounts from "knownAccounts.json";
@@ -38,7 +38,7 @@ const RichList: React.FC = () => {
     marketStatistics: { currentPrice, priceStats },
   } = React.useContext(MarketStatisticsContext);
   const { availableSupply = 123123123 } = useAvailableSupply();
-  const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
+  const isSmallAndLower = !useMediaQuery({ query: "(min-width: 576px)" });
 
   const btcCurrentPrice = priceStats?.bitcoin?.[fiat] || 0;
   const startIndex = (currentPage - 1) * perPage + 1;
@@ -48,7 +48,7 @@ const RichList: React.FC = () => {
       <Title level={3} id="rich-list-title">
         {t("pages.distribution.richList")}
       </Title>
-      <Card size="small" bordered={false} className="detail-layout">
+      <Card size="small" className="detail-layout">
         {!isSmallAndLower ? (
           <>
             <Row gutter={6}>

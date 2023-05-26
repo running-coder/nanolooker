@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { Button, Space, Typography } from "antd";
 
-import { PreferencesContext,Theme } from "api/contexts/Preferences";
+import { PreferencesContext, Theme } from "api/contexts/Preferences";
 import Search from "components/Search";
 import { Tracker } from "components/utils/analytics";
 
@@ -71,7 +71,7 @@ const Banner: React.FC = () => {
           ghost
           href="https://pasino.com/?user_id=18828"
           target="_blank"
-          style={{ padding: "0 10px" }}
+          style={{ padding: "0 10px", display: "flex" }}
           onClick={() => {
             Tracker.ga4?.gtag("event", "SponsorPasino");
           }}

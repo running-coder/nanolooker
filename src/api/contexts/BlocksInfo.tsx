@@ -34,7 +34,11 @@ export const BlocksInfoContext = React.createContext<Return>({
   isError: false,
 });
 
-const Provider: React.FC = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const Provider: React.FC<Props> = ({ children }) => {
   const [blocks, setBlocks] = React.useState<string[]>([]);
   const [blocksInfo, setBlocksInfo] = React.useState({} as Response);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);

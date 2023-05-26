@@ -1,8 +1,8 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
 
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { Card, Col, Row } from "antd";
 import BigNumber from "bignumber.js";
 
@@ -34,7 +34,7 @@ import RecentTransactions from "./RecentTransactions";
 
 const HomePage = () => {
   const { t } = useTranslation();
-  const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
+  const isSmallAndLower = !useMediaQuery({ query: "(min-width: 576px)" });
   const { availableSupply } = useAvailableSupply();
   const { fiat } = React.useContext(PreferencesContext);
   const {
@@ -152,12 +152,12 @@ const HomePage = () => {
                     !availableSupply
                   }
                   title={t("pages.home.circulatingSupply")}
-                  tooltip={t("tooltips.circulatingSupply")}
+                  tooltip={t("tooltips.circulatingSupply") as string}
                   value={new BigNumber(availableSupply).toNumber()}
                 />
                 <LoadingStatistic
                   isLoading={isNodeStatusLoading}
-                  tooltip={t("tooltips.ledgerSize")}
+                  tooltip={t("tooltips.ledgerSize") as string}
                   title={t("pages.home.ledgerSize")}
                   suffix={formattedLedgerSize.suffix}
                   value={new BigNumber(formattedLedgerSize.value).toFormat(2)}
@@ -176,7 +176,7 @@ const HomePage = () => {
                 <LoadingStatistic
                   isLoading={!average}
                   title={t("pages.home.avgConfirmationTime")}
-                  tooltip={t("tooltips.avgConfirmationTime")}
+                  tooltip={t("tooltips.avgConfirmationTime") as string}
                   value={new BigNumber(average).dividedBy(1000).toNumber()}
                 />
 
@@ -184,7 +184,7 @@ const HomePage = () => {
                   <LoadingStatistic
                     isLoading={false}
                     title={t("pages.home.transactionFees")}
-                    tooltip={t("tooltips.transactionFees")}
+                    tooltip={t("tooltips.transactionFees") as string}
                     value={0}
                   />
                 ) : null}
@@ -208,7 +208,7 @@ const HomePage = () => {
                     isMarketStatisticsError ||
                     !onChainVolumeChange24h
                   }
-                  tooltip={t("tooltips.onChainVolume")}
+                  tooltip={t("tooltips.onChainVolume") as string}
                   title={t("pages.home.onChainVolume")}
                   suffix={
                     <StatisticsChange
@@ -236,7 +236,7 @@ const HomePage = () => {
                   <LoadingStatistic
                     isLoading={false}
                     title={t("pages.home.transactionFees")}
-                    tooltip={t("tooltips.transactionFees")}
+                    tooltip={t("tooltips.transactionFees") as string}
                     value={0}
                   />
                 ) : null}
@@ -247,7 +247,7 @@ const HomePage = () => {
                   title={`${t(
                     "pages.home.bitcoinTransactionFees",
                   )} (${fiat.toUpperCase()})`}
-                  tooltip={t("tooltips.bitcoinTransactionFees")}
+                  tooltip={t("tooltips.bitcoinTransactionFees") as string}
                   prefix={CurrencySymbol?.[fiat]}
                   value={btcTransactionFees24h}
                   suffix={

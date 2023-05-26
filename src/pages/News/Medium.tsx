@@ -50,7 +50,7 @@ const Medium: React.FC<Props> = ({ post }) => {
         description={
           <>
             <Text
-              style={{ color: "#000000d9", display: "block", marginBottom: 6 }}
+              style={{ display: "block", marginBottom: 6 }}
             >
               {descriptionShort}
             </Text>

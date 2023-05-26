@@ -64,8 +64,8 @@ ws.onclose = () => {
   updateDb();
 };
 
-ws.onerror = () => {
-  console.log("WS ERROR");
+ws.onerror = err => {
+  console.log("WS ERROR", err);
   clearInterval(updateDbInterval);
   updateDb();
 };

@@ -35,7 +35,11 @@ export const BookmarksContext = React.createContext<Context>({
   removeBookmark: () => {},
 });
 
-const Provider: React.FC = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const Provider: React.FC<Props> = ({ children }) => {
   const [bookmarks, setBookmarks] = React.useState(getBookmarks());
 
   const addBookmark = ({

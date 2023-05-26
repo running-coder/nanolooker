@@ -29,7 +29,7 @@ const Leaderboard: React.FC<Props> = ({ topScores }) => {
   return (
     <>
       <Title level={3}>{t("pages.nanoquakejs.leaderboard")}</Title>
-      <Card size="small" bordered={false} className="detail-layout">
+      <Card size="small" className="detail-layout">
         <Row gutter={12}>
           <Col xs={4}>{t("pages.nanoquakejs.rank")}</Col>
           <Col xs={14}>{t("pages.nanoquakejs.player")}</Col>

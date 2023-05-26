@@ -21,7 +21,7 @@ import {
 
 import { BookmarksContext } from "api/contexts/Bookmarks";
 import { KnownAccount, KnownAccountsContext } from "api/contexts/KnownAccounts";
-import { PreferencesContext,Theme } from "api/contexts/Preferences";
+import { PreferencesContext, Theme } from "api/contexts/Preferences";
 import DeleteButton from "components/DeleteButton";
 import {
   getAccountAddressFromText,
@@ -47,11 +47,8 @@ const Search = ({ isHome = false }) => {
   const [accountBookmarks, setAccountBookmarks] = React.useState<
     { alias: string; account: string }[]
   >([]);
-  const {
-    searchHistory,
-    addSearchHistory,
-    removeSearchHistory,
-  } = useSearchHistory();
+  const { searchHistory, addSearchHistory, removeSearchHistory } =
+    useSearchHistory();
   const searchRef = React.useRef(null);
   const [isOpen, setIsOpen] = React.useState(false);
   const [invalidQrCode, setInvalidQrCode] = React.useState("");
@@ -263,7 +260,7 @@ const Search = ({ isHome = false }) => {
             </>
           }
           className={`ant-input-search ${isError ? "has-error" : ""}`}
-          placeholder={t("search.searchBy")}
+          placeholder={t("search.searchBy") as string}
           onFocus={({ target: { value } }) => {
             validateSearch(value);
             setIsExpanded(true);

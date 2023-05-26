@@ -166,7 +166,7 @@ const StatisticsSocialPage: React.FC = () => {
           <QuestionCircle />
         </Tooltip>
       </Title>
-      <Card size="small" bordered={false} className="detail-layout">
+      <Card size="small" className="detail-layout">
         <Row>
           <Col xs={24}>
             <Radio.Group

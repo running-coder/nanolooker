@@ -44,7 +44,7 @@ const NanoQuakeJSPage: React.FC = () => {
               {t("common.by")} Jayycox
             </span>
           </Title>
-          <Card size="small" bordered={false} className="detail-layout">
+          <Card size="small" className="detail-layout">
             <Row gutter={[12, 0]}>
               <Col xs={24}>
                 <Space size={12}>
@@ -121,7 +121,7 @@ const NanoQuakeJSPage: React.FC = () => {
             </Row>
             <Register />
           </Card>
-          <Card size="small" bordered={false} className="detail-layout">
+          <Card size="small" className="detail-layout">
             <Row gutter={6}>
               <Col xs={24} sm={6}>
                 {t("pages.nanoquakejs.currentMap")}
@@ -177,7 +177,7 @@ const NanoQuakeJSPage: React.FC = () => {
       <Row gutter={[12, 0]}>
         <Col xs={24} md={12}>
           <Title level={3}>{t("pages.nanoquakejs.trailer")}</Title>
-          <Card size="small" bordered={false} className="detail-layout">
+          <Card size="small" className="detail-layout">
             <div className="video-wrapper">
               <iframe
                 width="560"

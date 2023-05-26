@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
+import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
 
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { Card, Col, Row, Skeleton, Tooltip, Typography } from "antd";
 import reverse from "lodash/reverse";
 import sortBy from "lodash/sortBy";
@@ -20,7 +20,7 @@ const { Title, Text } = Typography;
 
 const FaucetsPage: React.FC = () => {
   const { t } = useTranslation();
-  const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
+  const isSmallAndLower = !useMediaQuery({ query: "(min-width: 576px)" });
   const [accountHistories, setAccountHistories] = React.useState(
     [] as AccountHistory[],
   );
@@ -63,7 +63,6 @@ const FaucetsPage: React.FC = () => {
       </div>
       <Card
         size="small"
-        bordered={false}
         className="detail-layout"
         style={{ marginBottom: "12px" }}
       >

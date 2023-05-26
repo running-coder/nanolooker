@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
-import { Trans,useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import { Column } from "@antv/g2plot";
@@ -41,13 +41,10 @@ let distributionChart: any = null;
 
 const Distribution: React.FC = () => {
   const { t } = useTranslation();
-  const {
-    knownExchangeAccounts,
-    isLoading: isKnownAccountsLoading,
-  } = React.useContext(KnownAccountsContext);
-  const [isIncludeExchanges, setIsIncludeExchanges] = React.useState<boolean>(
-    true,
-  );
+  const { knownExchangeAccounts, isLoading: isKnownAccountsLoading } =
+    React.useContext(KnownAccountsContext);
+  const [isIncludeExchanges, setIsIncludeExchanges] =
+    React.useState<boolean>(true);
   const [totalAccounts, setTotalAccounts] = React.useState<number>(0);
   const [totalBalance, setTotalBalance] = React.useState<number>(0);
   const [distributionData, setDistributionData] = React.useState<any[]>([]);
@@ -220,8 +217,18 @@ const Distribution: React.FC = () => {
           <br />
           <Text style={{ fontSize: "12px" }}>
             <Trans i18nKey="pages.distribution.summary">
-              <strong>{{ i18nTotalAccounts }}</strong>
-              <strong>{{ i18nTotalBalances }}</strong>
+              <strong>
+                {{
+                  // @ts-ignore
+                  i18nTotalAccounts,
+                }}
+              </strong>
+              <strong>
+                {{
+                  // @ts-ignore
+                  i18nTotalBalances,
+                }}
+              </strong>
             </Trans>
           </Text>
           <br />

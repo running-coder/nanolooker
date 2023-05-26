@@ -21,7 +21,11 @@ export const RepresentativesOnlineContext = React.createContext<RepresentativesO
   },
 );
 
-const Provider: React.FC = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const Provider: React.FC<Props> = ({ children }) => {
   const [representatives, setRepresentatives] = React.useState<string[]>([]);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [isError, setIsError] = React.useState<boolean>(false);

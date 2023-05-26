@@ -27,7 +27,11 @@ export const AccountHistoryFilterContext = React.createContext<Return>({
   isError: false,
 });
 
-const Provider: React.FC = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const Provider: React.FC<Props> = ({ children }) => {
   const [history, setHistory] = React.useState([] as History[]);
   const [sum, setSum] = React.useState(0);
   const [filters, setFilters] = React.useState<HistoryFilters | null>(null);

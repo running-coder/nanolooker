@@ -30,7 +30,11 @@ export const KnownAccountsContext = React.createContext<Context>({
   isError: false,
 });
 
-const Provider: React.FC = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const Provider: React.FC<Props> = ({ children }) => {
   // @TODO Why does using a useEffect on bookmarks does not update the component
   const { bookmarks } = React.useContext(BookmarksContext);
   const [knownAccounts, setKnownAccounts] = React.useState(

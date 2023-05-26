@@ -16,7 +16,11 @@ import PreferencesProvider from "./Preferences";
 import RepresentativesProvider from "./Representatives";
 import RepresentativesOnlineProvider from "./RepresentativesOnline";
 
-const IndexProvider: React.FC = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const IndexProvider: React.FC<Props> = ({ children }) => {
   return (
     <PreferencesProvider>
       <MarketStatisticsProvider>

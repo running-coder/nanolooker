@@ -35,9 +35,7 @@ const KnownAccountsPage: React.FC = () => {
           {
             title: t("common.balance"),
             dataIndex: "total",
-            // @ts-ignore
             defaultSortOrder: "descend",
-            // @ts-ignore
             sorter: {
               compare: (a, b) => a.total - b.total,
             },
@@ -60,8 +58,7 @@ const KnownAccountsPage: React.FC = () => {
                 <Input
                   // @ts-ignore
                   ref={inputRef}
-                  placeholder={t("common.searchAlias")}
-                  // @ts-ignore
+                  placeholder={t("common.searchAlias") as string}
                   value={selectedKeys[0]}
                   onChange={({ target: { value } }) => {
                     setSelectedKeys([value]);

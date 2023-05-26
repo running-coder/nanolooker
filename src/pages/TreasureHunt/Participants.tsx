@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useMediaQuery } from "react-responsive";
 import { Link, useHistory,useParams } from "react-router-dom";
 
 import {
@@ -7,7 +8,6 @@ import {
   SearchOutlined,
   TwitterOutlined,
 } from "@ant-design/icons";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {
   Button,
   Card,
@@ -69,7 +69,7 @@ const Participants: React.FC = () => {
     page: currentPage,
   });
   const history = useHistory();
-  const isLargeAndLower = !useMediaQuery("(min-width: 992px)");
+  const isLargeAndLower = !useMediaQuery({ query: "(min-width: 992px)"});
 
   const onChange = (e: React.ChangeEventHandler<HTMLInputElement>) => {
     // @ts-ignore
@@ -99,7 +99,7 @@ const Participants: React.FC = () => {
         allowClear
       ></Input>
 
-      <Card size="small" bordered={false} className="detail-layout">
+      <Card size="small" className="detail-layout">
         {!isLargeAndLower ? (
           <Row gutter={6}>
             <Col md={8}>Participant{participants.length === 1 ? "" : "s"}</Col>

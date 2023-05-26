@@ -132,34 +132,36 @@ const Export: React.FC = () => {
       >
         <Row>
           <Col xs={24}>
-            <Tree
-              treeData={treeData}
-              selectable={false}
-              draggable
-              onDrop={({ dragNodesKeys, dropPosition }) => {
-                setValues(prevValues => {
-                  const currentIndex = Object.keys(prevValues).findIndex(
-                    key => key === dragNodesKeys[0],
-                  );
-                  const order = Object.keys(prevValues);
-                  order.splice(
-                    dropPosition === -1 ? 0 : dropPosition,
-                    0,
-                    dragNodesKeys[0] as string,
-                  );
-                  order.splice(
-                    currentIndex + (currentIndex > dropPosition ? 1 : 0),
-                    1,
-                  );
+            <div className="tree-container">
+              <Tree
+                treeData={treeData}
+                selectable={false}
+                draggable
+                onDrop={({ dragNodesKeys, dropPosition }) => {
+                  setValues(prevValues => {
+                    const currentIndex = Object.keys(prevValues).findIndex(
+                      key => key === dragNodesKeys[0],
+                    );
+                    const order = Object.keys(prevValues);
+                    order.splice(
+                      dropPosition === -1 ? 0 : dropPosition,
+                      0,
+                      dragNodesKeys[0] as string,
+                    );
+                    order.splice(
+                      currentIndex + (currentIndex > dropPosition ? 1 : 0),
+                      1,
+                    );
 
-                  return order.reduce((acc, key) => {
-                    // @ts-ignore
-                    acc[key] = prevValues[key];
-                    return acc;
-                  }, {} as ExportKeys);
-                });
-              }}
-            />
+                    return order.reduce((acc, key) => {
+                      // @ts-ignore
+                      acc[key] = prevValues[key];
+                      return acc;
+                    }, {} as ExportKeys);
+                  });
+                }}
+              />
+            </div>
           </Col>
         </Row>
         <Row gutter={12}>

@@ -85,7 +85,7 @@ const AccountPage: React.FC = () => {
       ) : null}
 
       {!isValid || !account ? (
-        <Card bordered={false}>
+        <Card>
           <Title level={3}>{t("pages.account.missingAccount")}</Title>
           <Text>{t("pages.account.missingAccountInfo")}</Text>
         </Card>

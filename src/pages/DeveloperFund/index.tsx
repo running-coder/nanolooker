@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
-import { Trans,useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
+import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
 
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { Button, Card, Col, Row, Skeleton, Tooltip, Typography } from "antd";
 import BigNumber from "bignumber.js";
 import orderBy from "lodash/orderBy";
@@ -51,7 +51,7 @@ const DeveloperFund: React.FC = () => {
     useAccountsBalances(DEVELOPER_FUND_ACCOUNTS);
   const { availableSupply } = useAvailableSupply();
   const { developerFundTransactions } = useDeveloperAccountFund();
-  const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
+  const isSmallAndLower = !useMediaQuery({ query: "(min-width: 576px)" });
 
   const data = orderBy(
     Object.entries(accountsBalances?.balances || []).reduce(
@@ -111,7 +111,7 @@ const DeveloperFund: React.FC = () => {
       <Row gutter={[12, 0]}>
         <Col xs={24} lg={12}>
           <Title level={3}>{t("menu.developerFund")}</Title>
-          <Card size="small" bordered={false} className="detail-layout">
+          <Card size="small" className="detail-layout">
             <div
               className="divider"
               style={{
@@ -210,7 +210,7 @@ const DeveloperFund: React.FC = () => {
           <Title level={3}>
             {t("pages.developerFund.originalDeveloperFund")}
           </Title>
-          <Card size="small" bordered={false} className="detail-layout">
+          <Card size="small" className="detail-layout">
             <div
               className="divider"
               style={{
@@ -285,7 +285,6 @@ const DeveloperFund: React.FC = () => {
 
       <Card
         size="small"
-        bordered={false}
         className="detail-layout"
         style={{ marginBottom: "12px" }}
       >

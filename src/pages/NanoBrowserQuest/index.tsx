@@ -43,7 +43,7 @@ const NanoBrowserQuestPage: React.FC = () => {
               {t("common.by")} running-coder
             </span>
           </Title>
-          <Card size="small" bordered={false} className="detail-layout">
+          <Card size="small" className="detail-layout">
             <Row gutter={[12, 0]}>
               <Col xs={24}>
                 <Space size={12}>

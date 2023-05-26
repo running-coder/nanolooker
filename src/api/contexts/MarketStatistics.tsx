@@ -69,7 +69,11 @@ export const MarketStatisticsContext = React.createContext<Context>({
   isError: false,
 });
 
-const Provider: React.FC = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const Provider: React.FC<Props> = ({ children }) => {
   const [marketStatistics, setMarketStatistics] = React.useState(
     {} as Response,
   );

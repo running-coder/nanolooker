@@ -26,7 +26,11 @@ export const ConfirmationQuorumContext = React.createContext<ConfirmationQuorumR
   },
 );
 
-const Provider: React.FC = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const Provider: React.FC<Props> = ({ children }) => {
   const [confirmationQuorum, setConfirmationQuorum] = React.useState(
     {} as ConfirmationQuorumRPCResponse,
   );

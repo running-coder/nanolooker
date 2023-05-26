@@ -40,7 +40,7 @@ const BlockPage: React.FC = () => {
       <Title level={3}>{t("common.block")}</Title>
       {isValid ? <BlockDetails /> : null}
       {!isValid || !block ? (
-        <Card bordered={false}>
+        <Card>
           <Title level={3}>{t("pages.block.missingBlock")}</Title>
           <Text>{t("pages.block.missingBlockInfo")}</Text>
         </Card>

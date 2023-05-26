@@ -46,7 +46,7 @@ const NanoBrowserQuestGuidePage: React.FC = () => {
               {t("common.by")} oldschooler, mika &amp; running-coder
             </span>
           </Title>
-          <Card size="small" bordered={false} className="guide">
+          <Card size="small" className="guide">
             <Row gutter={[12, 0]}>
               <Col xs={24}>
                 <ReactMarkdown

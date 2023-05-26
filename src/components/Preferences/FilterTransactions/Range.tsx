@@ -1,8 +1,8 @@
 import * as React from "react";
-import { Trans,useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
+import { useMediaQuery } from "react-responsive";
 
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { Col, Row, Slider, Switch, Tooltip, Typography } from "antd";
 
 import { PreferencesContext } from "api/contexts/Preferences";
@@ -26,7 +26,7 @@ const FilterTransactionsRangePreferences: React.FC<Props> = ({
     filterTransactionsRange,
     setFilterTransactionsRange,
   } = React.useContext(PreferencesContext);
-  const isMediumAndLower = !useMediaQuery("(min-width: 768px)");
+  const isMediumAndLower = !useMediaQuery({ query: "(min-width: 768px)" });
 
   const marks = React.useCallback(() => {
     return units.reduce((acc, { unit, raw }, index) => {

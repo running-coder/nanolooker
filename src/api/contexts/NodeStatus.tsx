@@ -27,7 +27,11 @@ export const NodeStatusContext = React.createContext<Return>({
   isError: false,
 });
 
-const Provider: React.FC = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const Provider: React.FC<Props> = ({ children }) => {
   const [nodeStatus, setNodeStatus] = React.useState<NodeStatus>(
     {} as NodeStatus,
   );

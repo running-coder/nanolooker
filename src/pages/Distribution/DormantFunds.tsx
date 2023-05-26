@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { useMediaQuery } from "react-responsive";
 
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { Card, Slider, Typography } from "antd";
 import BigNumber from "bignumber.js";
 import find from "lodash/find";
@@ -21,14 +21,13 @@ const DormantFunds: React.FC<Props> = ({ data }) => {
   const { t } = useTranslation();
   const [marks, setMarks] = React.useState({});
   const [totalFunds, setTotalFunds] = React.useState<number>(0);
-  const [unknownDormantFunds, setUnknownDormantFunds] = React.useState<number>(
-    0,
-  );
+  const [unknownDormantFunds, setUnknownDormantFunds] =
+    React.useState<number>(0);
   const {
     frontierCount: { count: frontierCount },
   } = useFrontierCount();
   const { availableSupply } = useAvailableSupply();
-  const isMediumAndLower = !useMediaQuery("(min-width: 768px)");
+  const isMediumAndLower = !useMediaQuery({ query: "(min-width: 768px)" });
 
   React.useEffect(() => {
     if (!data || !availableSupply) return;

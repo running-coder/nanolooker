@@ -12,7 +12,7 @@ const RecentTransactionsPreferences: React.FC = () => {
       <Popover
         placement="left"
         content={
-          <Card size="small" bordered={false} className="detail-layout">
+          <Card size="small" className="detail-layout">
             <LiveTransactionsPreferences />
             <FilterTransactionsPreferences />
           </Card>

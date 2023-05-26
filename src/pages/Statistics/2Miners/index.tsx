@@ -189,7 +189,7 @@ const Statistics2MinersPage: React.FC = () => {
         </a>
       </div>
 
-      <Card size="small" bordered={false} className="detail-layout">
+      <Card size="small" className="detail-layout">
         <Row>
           <Col xs={24}>
             <AccountHeader

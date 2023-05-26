@@ -1,8 +1,8 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
 
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {
   Button,
   Card,
@@ -26,9 +26,8 @@ const Delegators: React.FC = () => {
   const { t } = useTranslation();
   const [currentPage, setCurrentPage] = React.useState<number>(1);
   const { account } = React.useContext(AccountInfoContext);
-  const { delegators: allDelegators, getDelegators } = React.useContext(
-    DelegatorsContext,
-  );
+  const { delegators: allDelegators, getDelegators } =
+    React.useContext(DelegatorsContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
   const {
     delegators,
@@ -38,7 +37,7 @@ const Delegators: React.FC = () => {
     account,
     page: currentPage,
   });
-  const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
+  const isSmallAndLower = !useMediaQuery({ query: "(min-width: 576px)" });
 
   React.useEffect(() => {
     getDelegators();
@@ -67,7 +66,7 @@ const Delegators: React.FC = () => {
         </Link>
       </div>
 
-      <Card size="small" bordered={false} className="detail-layout">
+      <Card size="small" className="detail-layout">
         {!isDelegatorsLoading && !isSmallAndLower ? (
           <>
             <Row gutter={6}>
@@ -136,9 +135,8 @@ const Delegators: React.FC = () => {
                       current: currentPage,
                       disabled: false,
                       onChange: (page: number) => {
-                        const element = document.getElementById(
-                          "delegator-title",
-                        );
+                        const element =
+                          document.getElementById("delegator-title");
                         element?.scrollIntoView();
 
                         setCurrentPage(page);

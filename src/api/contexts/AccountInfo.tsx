@@ -37,7 +37,11 @@ export const AccountInfoContext = React.createContext<AccountInfoReturn>({
   isError: false,
 });
 
-const Provider: React.FC = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const Provider: React.FC<Props> = ({ children }) => {
   const [account, setAccount] = React.useState<string>("");
   const [accountInfo, setAccountInfo] = React.useState(
     {} as AccountInfoRPCResponse,

@@ -1,10 +1,10 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
+import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
 
 import { RedditOutlined } from "@ant-design/icons";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { Card, Typography } from "antd";
 
 const { Title } = Typography;
@@ -13,7 +13,7 @@ const { Title } = Typography;
 
 const WhatIsNanoPage: React.FC = () => {
   const { t } = useTranslation();
-  const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
+  const isSmallAndLower = !useMediaQuery({ query: "(min-width: 576px)" });
 
   return (
     <>
@@ -22,7 +22,6 @@ const WhatIsNanoPage: React.FC = () => {
       </Helmet>
       <Card
         size="small"
-        bordered={false}
         className="what-is-card"
         style={{
           fontSize: isSmallAndLower ? "14px" : "18px",

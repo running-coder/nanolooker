@@ -1,13 +1,13 @@
 import * as React from "react";
-import { Controller,useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
-import { CameraOutlined,CheckCircleTwoTone } from "@ant-design/icons";
+import { CameraOutlined, CheckCircleTwoTone } from "@ant-design/icons";
 import { Alert, Button, Col, Input, Modal, Row, Space, Typography } from "antd";
 
 import { PreferencesContext } from "api/contexts/Preferences";
 import QRCodeModal from "components/QRCode/Modal";
-import { getPrefixedAccount,isValidAccountAddress } from "components/utils";
+import { getPrefixedAccount, isValidAccountAddress } from "components/utils";
 import { Tracker } from "components/utils/analytics";
 
 import Play from "./Play";
@@ -82,13 +82,13 @@ const Register: React.FC = () => {
         Tracker.ga4?.gtag("event", "NanoQuakeJS - Register");
       } else {
         setRegisterError(
-          json.error === "already_registered"
+          (json.error === "already_registered"
             ? t("pages.nanoquakejs.registerErrorUsername")
-            : t("pages.nanoquakejs.registerError"),
+            : t("pages.nanoquakejs.registerError")) as string,
         );
       }
     } catch (err) {
-      setRegisterError(t("pages.nanoquakejs.registerError"));
+      setRegisterError(t("pages.nanoquakejs.registerError") as string);
     }
 
     setIsSending(false);

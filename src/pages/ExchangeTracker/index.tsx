@@ -259,7 +259,7 @@ const ExchangeTrackerPage: React.FC = () => {
       </Helmet>
       <Title level={3}>{t("menu.exchangeTracker")}</Title>
 
-      <Card size="small" bordered={false}>
+      <Card size="small">
         <div style={{ marginBottom: "12px" }}>
           <Text style={{ fontSize: "12px" }}>
             {t("pages.exchangeTracker.description")}

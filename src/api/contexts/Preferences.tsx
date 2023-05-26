@@ -147,7 +147,11 @@ export const PreferencesContext = React.createContext<Preferences>({
   setWebsocketDomain: () => {},
 });
 
-const Provider: React.FC = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const Provider: React.FC<Props> = ({ children }) => {
   const [theme, setTheme] = React.useState<Theme>(
     (localStorage.getItem(LOCALSTORAGE_KEYS.THEME) as Theme) || Theme.LIGHT,
   );

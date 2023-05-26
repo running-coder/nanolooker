@@ -28,7 +28,11 @@ export const RepresentativesContext =
 
 let isEnhancedRepresentativeDone = false;
 
-const Provider: React.FC = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const Provider: React.FC<Props> = ({ children }) => {
   const [representatives, setRepresentatives] = React.useState<
     Representative[]
   >([]);

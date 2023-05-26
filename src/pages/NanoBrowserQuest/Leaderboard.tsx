@@ -27,7 +27,7 @@ const Leaderboard: React.FC = () => {
   return (
     <>
       <Title level={3}>{t("pages.nanobrowserquest.leaderboard")}</Title>
-      <Card size="small" bordered={false} className="detail-layout">
+      <Card size="small" className="detail-layout">
         <Row gutter={12}>
           <Col xs={3}>{t("pages.nanobrowserquest.rank")}</Col>
           <Col xs={12}>{t("pages.nanobrowserquest.player")}</Col>

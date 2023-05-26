@@ -20,7 +20,7 @@ const BookmarksPage: React.FC = () => {
         <title>{t("common.bookmarks")}</title>
       </Helmet>
       <Title level={3}>{t("common.bookmarks")}</Title>
-      <Card size="small" bordered={false} className="detail-layout">
+      <Card size="small" className="detail-layout">
         {hasAccountBookmarks ? (
           Object.entries(bookmarks?.account).map(([account, alias]) => (
             <Row gutter={6} key={account}>

@@ -1,4 +1,5 @@
-import "antd/dist/antd.css";
+// import "antd/dist/antd.css";
+import "antd/dist/reset.css";
 import "leaflet/dist/leaflet.css";
 import "leaflet-extra-markers/dist/css/leaflet.extra-markers.min.css";
 import "./App.css";
@@ -9,7 +10,7 @@ import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
 import { Route, Switch } from "react-router-dom";
 
-import { Layout } from "antd";
+import { ConfigProvider, Layout, theme } from "antd";
 
 import "components/utils/analytics";
 import { PreferencesContext, Theme } from "api/contexts/Preferences";
@@ -45,10 +46,15 @@ const { Content } = Layout;
 
 const App: React.FC = () => {
   const { t } = useTranslation();
-  const { theme } = React.useContext(PreferencesContext);
+  const { theme: themeContext } = React.useContext(PreferencesContext);
 
   return (
-    <>
+    <ConfigProvider
+      theme={{
+        algorithm:
+          themeContext === Theme.DARK ? theme.darkAlgorithm : undefined,
+      }}
+    >
       <Helmet>
         <html lang={i18next.language} />
         <title>NanoLooker {t("common.blockExplorer")}</title>
@@ -58,12 +64,12 @@ const App: React.FC = () => {
         />
         <meta
           name="theme-color"
-          content={theme === Theme.DARK ? "#131313" : "#eff2f5"}
+          content={themeContext === Theme.DARK ? "#131313" : "#eff2f5"}
         />
       </Helmet>
       <Layout
         style={{ minHeight: "100vh" }}
-        className={theme ? `theme-${theme}` : undefined}
+        className={themeContext ? `theme-${themeContext}` : undefined}
       >
         <NodeHealth />
         <AppHeader />
@@ -108,7 +114,7 @@ const App: React.FC = () => {
         </Content>
         <AppFooter />
       </Layout>
-    </>
+    </ConfigProvider>
   );
 };
 

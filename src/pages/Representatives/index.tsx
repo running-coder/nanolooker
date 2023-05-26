@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
+import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
 
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {
   Button,
   Card,
@@ -18,7 +18,7 @@ import BigNumber from "bignumber.js";
 
 import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
 import { DelegatorsContext } from "api/contexts/Delegators";
-import { PreferencesContext,Theme } from "api/contexts/Preferences";
+import { PreferencesContext, Theme } from "api/contexts/Preferences";
 import {
   Representative,
   RepresentativesContext,
@@ -43,7 +43,7 @@ const Representatives = () => {
   const [filteredRepresentatives, setFilteredRepresentatives] = React.useState(
     [] as Representative[],
   );
-  const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
+  const isSmallAndLower = !useMediaQuery({ query: "(min-width: 576px)" });
   const { theme } = React.useContext(PreferencesContext);
   const { representatives, isLoading: isRepresentativesLoading } =
     React.useContext(RepresentativesContext);
@@ -123,7 +123,7 @@ const Representatives = () => {
           <Title level={3}>{t("menu.representatives")}</Title>
           <Card
             size="small"
-            bordered={false}
+            bordered
             className="detail-layout"
             style={{ marginBottom: "12px" }}
           >
@@ -203,7 +203,7 @@ const Representatives = () => {
           </Title>
           <Card
             size="small"
-            bordered={false}
+            bordered
             className="detail-layout"
             style={{ marginBottom: "12px" }}
           >
@@ -264,7 +264,7 @@ const Representatives = () => {
 
       <Card
         size="small"
-        bordered={false}
+        bordered
         className="detail-layout"
         style={{ marginBottom: "12px" }}
       >

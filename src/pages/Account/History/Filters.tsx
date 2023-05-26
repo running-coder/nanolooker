@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Controller,useForm } from "react-hook-form";
-import { Trans,useTranslation } from "react-i18next";
+import { Controller, useForm } from "react-hook-form";
+import { Trans, useTranslation } from "react-i18next";
 
 import {
   Button,
@@ -18,7 +18,7 @@ import {
 import moment from "moment";
 
 import { AccountHistoryFilterContext } from "api/contexts/AccountHistoryFilter";
-import { PreferencesContext,Theme } from "api/contexts/Preferences";
+import { PreferencesContext, Theme } from "api/contexts/Preferences";
 import QuestionCircle from "components/QuestionCircle";
 import { TwoToneColors } from "components/utils";
 
@@ -262,7 +262,7 @@ const Filters: React.FC = () => {
                   <Input
                     {...field}
                     style={{ width: "44%" }}
-                    placeholder={t("pages.account.minimum")}
+                    placeholder={t("pages.account.minimum") as string}
                     type="number"
                     min="0"
                   />
@@ -289,7 +289,7 @@ const Filters: React.FC = () => {
                     style={{
                       width: "45%",
                     }}
-                    placeholder={t("pages.account.minimum")}
+                    placeholder={t("pages.account.minimum") as string}
                     type="number"
                     min="0"
                   />
@@ -307,7 +307,7 @@ const Filters: React.FC = () => {
                   <Input
                     {...field}
                     style={{ width: "44%" }}
-                    placeholder={t("pages.account.from")}
+                    placeholder={t("pages.account.from") as string}
                     type="number"
                     step={1}
                     min="0"
@@ -335,7 +335,7 @@ const Filters: React.FC = () => {
                     style={{
                       width: "45%",
                     }}
-                    placeholder={t("pages.account.to")}
+                    placeholder={t("pages.account.to") as string}
                     type="number"
                     step={1}
                     min="0"

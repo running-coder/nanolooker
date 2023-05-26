@@ -44,7 +44,7 @@ const Ledger: React.FC = () => {
 
       <LoadingStatistic
         title={t("pages.status.ledgerSize")}
-        tooltip={t("tooltips.ledgerSize")}
+        tooltip={t("tooltips.ledgerSize") as string}
         value={new BigNumber(formattedLedgerSize.value).toFormat(2)}
         suffix={formattedLedgerSize.suffix}
         isLoading={isNodeStatusLoading}

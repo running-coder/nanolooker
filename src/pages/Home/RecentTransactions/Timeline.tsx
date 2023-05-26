@@ -1,13 +1,13 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { useMediaQuery } from "react-responsive";
 import { Link, useHistory } from "react-router-dom";
 
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { Tag, Timeline, Typography } from "antd";
 import BigNumber from "bignumber.js";
 import TimeAgo from "timeago-react";
 
-import { PreferencesContext,Theme } from "api/contexts/Preferences";
+import { PreferencesContext, Theme } from "api/contexts/Preferences";
 import { Colors, TwoToneColors } from "components/utils";
 import { rawToRai } from "components/utils";
 import i18next from "i18next";
@@ -22,12 +22,9 @@ interface Props {
 const RecentTransactions: React.FC<Props> = ({ recentTransactions }) => {
   const { t } = useTranslation();
   const history = useHistory();
-  const {
-    theme,
-    filterTransactions,
-    disableLiveTransactions,
-  } = React.useContext(PreferencesContext);
-  const isMediumAndLower = !useMediaQuery("(min-width: 768px)");
+  const { theme, filterTransactions, disableLiveTransactions } =
+    React.useContext(PreferencesContext);
+  const isMediumAndLower = !useMediaQuery({ query: "(min-width: 768px)" });
 
   return (
     <Timeline className="sticky" mode={isMediumAndLower ? "left" : "alternate"}>

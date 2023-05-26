@@ -132,7 +132,7 @@ const Representatives: React.FC<Props> = ({ versions }) => {
     <>
       <Title level={3}>{t("pages.status.nodeVersions")}</Title>
 
-      <Card size="small" bordered={false} className="detail-layout">
+      <Card size="small" className="detail-layout">
         <Row gutter={6}>
           <Col xs={20} md={12}>
             {t("pages.status.versionsByWeight")}

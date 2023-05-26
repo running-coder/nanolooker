@@ -9,7 +9,7 @@ const Rules: React.FC = () => {
   return (
     <>
       <Title level={3}>Treasure Hunt Rules (Beta)</Title>
-      <Card size="small" bordered={false}>
+      <Card size="small">
         {/* <p>The treasure hunt is scheduled to last 24h (give exact time)</p> */}
 
         <Text

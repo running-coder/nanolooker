@@ -1,9 +1,9 @@
 import * as React from "react";
+import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
 
-import { QrcodeOutlined,WalletOutlined } from "@ant-design/icons";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { Button, Col,Row } from "antd";
+import { QrcodeOutlined, WalletOutlined } from "@ant-design/icons";
+import { Button, Col, Row } from "antd";
 
 import { PreferencesContext } from "api/contexts/Preferences";
 import Bookmark from "components/Bookmark";
@@ -23,7 +23,7 @@ const AccountHeader: React.FC<Props> = ({
   hideOptions = false,
 }) => {
   const { natricons } = React.useContext(PreferencesContext);
-  const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
+  const isSmallAndLower = !useMediaQuery({ query: "(min-width: 576px)" });
 
   return (
     <div

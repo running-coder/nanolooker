@@ -1,9 +1,9 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
 
 import { CheckCircleOutlined, SyncOutlined } from "@ant-design/icons";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {
   Button,
   Card,
@@ -20,7 +20,7 @@ import TimeAgo from "timeago-react";
 
 import { History } from "api/contexts/AccountHistory";
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
-import { PreferencesContext,Theme } from "api/contexts/Preferences";
+import { PreferencesContext, Theme } from "api/contexts/Preferences";
 import { Natricon } from "components/Preferences/Natricons/Natricon";
 import { rawToRai, toBoolean } from "components/utils";
 import { Colors, TwoToneColors } from "components/utils";
@@ -28,7 +28,11 @@ import i18next from "i18next";
 
 const { Text } = Typography;
 
-export const TransactionsLayout: React.FC = ({ children }) => (
+interface Props {
+  children: React.ReactNode;
+}
+
+export const TransactionsLayout: React.FC<Props> = ({ children }) => (
   <Row>
     <Col span={24}>
       <Card size="small" bodyStyle={{ padding: 0 }}>
@@ -69,8 +73,8 @@ const TransactionsTable = ({
   const { theme, natricons } = React.useContext(PreferencesContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
 
-  const isLargeAndHigher = useMediaQuery("(min-width: 992px)");
-  const smallNatriconSize = !useMediaQuery("(min-width: 768px)");
+  const isLargeAndHigher = useMediaQuery({ query: "(min-width: 992px)" });
+  const smallNatriconSize = !useMediaQuery({ query: "(min-width: 768px)" });
 
   return (
     <Card size="small" className="transaction-card" id={scrollTo}>

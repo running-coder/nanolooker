@@ -1,12 +1,12 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
 
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { Card, Col, Empty, Row, Skeleton, Tag, Typography } from "antd";
 import BigNumber from "bignumber.js";
 
-import { PreferencesContext,Theme } from "api/contexts/Preferences";
+import { PreferencesContext, Theme } from "api/contexts/Preferences";
 import { TwoToneColors } from "components/utils";
 
 import { Node } from ".";
@@ -22,7 +22,7 @@ const NodeMonitors: React.FC<Props> = ({ nodeMonitors, isLoading }) => {
   const { t } = useTranslation();
   //   const [nodes, setNodes] = React.useState([] as Node[]);
   const { theme } = React.useContext(PreferencesContext);
-  const isMediumAndLower = !useMediaQuery("(min-width: 768px)");
+  const isMediumAndLower = !useMediaQuery({ query: "(min-width: 768px)" });
 
   return (
     <>
@@ -33,7 +33,6 @@ const NodeMonitors: React.FC<Props> = ({ nodeMonitors, isLoading }) => {
       </Title>
       <Card
         size="small"
-        bordered={false}
         className="detail-layout"
         style={{ marginBottom: "12px" }}
       >
