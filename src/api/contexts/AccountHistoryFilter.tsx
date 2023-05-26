@@ -54,8 +54,8 @@ const Provider: React.FC<Props> = ({ children }) => {
       const res = await fetch(`/api/transaction-filters${query}`);
       const { sum, data } = await res.json();
 
-      setHistory(data);
-      setSum(sum);
+      setHistory(data || []);
+      setSum(sum || 0);
     } catch (err) {
       setIsError(true);
     }

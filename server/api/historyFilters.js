@@ -226,7 +226,7 @@ const getHistoryFilters = async ({ account, filters: rawFilters }) => {
             }
           : null),
       })
-      .sort({ height: toBoolean(rawFilters.reverse) ? 1 : -1 })
+      .sort({ height: rawFilters && toBoolean(rawFilters.reverse) ? 1 : -1 })
       .toArray();
     // .explain();
 
@@ -238,7 +238,7 @@ const getHistoryFilters = async ({ account, filters: rawFilters }) => {
       });
     }
   } catch (err) {
-    Sentry.captureException(err);
+    Sentry.captureException(err, { extra: { account, rawFilters } });
   }
 
   return { sum, data };
