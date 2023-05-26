@@ -293,14 +293,14 @@ const getCoingeckoPrice = async timestamp => {
 
 // https://crontab.guru/#0_0_*_*_*
 // “At midnight.”
-cron.schedule("0 0 * * *", async () => {
-  try {
-    do2MinersStats();
-  } catch (err) {
-    Sentry.captureException(err);
-  }
-});
+// cron.schedule("0 0 * * *", async () => {
+//   try {
+//     do2MinersStats();
+//   } catch (err) {
+//     Sentry.captureException(err);
+//   }
+// });
 
-if (process.env.NODE_ENV === "production") {
-  do2MinersStats();
-}
+// if (process.env.NODE_ENV === "production") {
+//   do2MinersStats();
+// }

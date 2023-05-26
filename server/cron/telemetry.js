@@ -21,6 +21,8 @@ const doTelemetryCron = async () => {
     // Record representative node version for account page
     setRepresentatives({ metrics, peers });
 
+    if (!metrics || !peers) return;
+
     const percentiles = calculatePercentiles(metrics, peers);
 
     nodeCache.set(TELEMETRY, percentiles);

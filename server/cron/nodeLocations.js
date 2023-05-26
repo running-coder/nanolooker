@@ -38,7 +38,7 @@ let db;
 let mongoClient;
 
 const connect = async () =>
-  await new Promise((resolve, reject) => {
+  new Promise((resolve, reject) => {
     try {
       MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (err, client) => {
         if (err) {
@@ -54,7 +54,7 @@ const connect = async () =>
       });
     } catch (err) {
       Sentry.captureException(err);
-      resolve();
+      reject();
     }
   });
 
@@ -131,8 +131,8 @@ const doNodeLocations = async () => {
 
     await connect();
 
-    db.collection(NODE_LOCATIONS).drop();
-    db.collection(NODE_LOCATIONS).insertMany(results);
+    await db.collection(NODE_LOCATIONS).drop();
+    await db.collection(NODE_LOCATIONS).insertMany(results);
 
     nodeCache.set(NODE_LOCATIONS, results);
 
