@@ -107,7 +107,7 @@
   },
   "preferences": {
     "viewAll": "Alle Einstellungen anzeigen",
-    "darkMode": "Dunkler Modus",
+    "darkMode": "Dunkelmodus",
     "darkModeDetailed": "Wechseln Sie vom Hell- oder Dunkelmodus, um das Surfen auf Ihrer Website je nach Umgebung zu verbessern.",
     "language": "Sprache",
     "languageDetailed": "Wählen Sie die gewünschte Sprache. NanoLooker sucht nach Mitwirkenden, um die Übersetzung des Explorers zu verbessern. <0>Mithelfen</0>",
@@ -172,7 +172,7 @@
       "waitingForTransactions": "Warten auf Transaktionen",
       "connectingToBlockchain": "Verbindung zur NANO-Blockchain herstellen",
       "reconnectingToBlockchain": "Verbindung getrennt, Verbindung zur NANO-Blockchain wiederhergestellt",
-      "cpsLocal": "lokal beobachtete CPS auf dem lokalen Knoten beobachtet",
+      "cpsLocal": "Auf dem lokalen Knoten beobachtete CPS",
       "cpsNetwork": "Medianer CPS über mehrere Vertreterknoten",
       "viewSocialEngagement": "Soziales Engagement anzeigen"
     },
@@ -217,7 +217,7 @@
       "export": "Export",
       "exportTransactions": "{{count}} Transaktionen in CSV exportieren",
       "reverse": "Kehren Sie die Transaktionsreihenfolge um",
-      "sumAmounts": "Summe die Beträge"
+      "sumAmounts": "Summiere die Beträge"
     },
     "block": {
       "blockSubtype": "Subtyp blockieren",
