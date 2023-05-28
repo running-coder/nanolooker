@@ -73,8 +73,8 @@
     "pending": "Ein Transaktionsstatus, in dem ein Block, der Geld sendet, vom Netzwerk veröffentlicht und bestätigt wurde, aber noch kein zugehöriger Empfangsblock gesendet oder bestätigt wurde.",
     "nakamotoCoefficient": "Der Nakamoto-Koeffizient ist eine Einheit um die Dezentralisierung einer Blockchain oder eines anderen dezentralen Systems zu quantifizieren. Sie beschreibt die Anzahl der Entitäten, die Sie benötigen, um mindestens ein wesentliches Subsystem zu gefährden. Für Nano müssten dazu mehr als {{onlineWeightQuorumPercent}}% des Online-Abstimmungsgewichts von Hauptvertretern kompromittiert werden.",
     "representatives": "Um die Leistung zu optimieren, werden hier nur Konten mit einem Abstimmungsgewicht von >= 1000 NANO berücksichtigt, ansonsten umfasst dies jedoch alle Konten mit einem Abstimmungsgewicht von 0 bis 0,1% des Online-Abstimmungsgewichts.",
-    "principalRepresentatives": "Ein Konto mit einem Minimum von {{principalRepresentativeMinWeight}} NANO oder >= 0,1% des an ihn delegierten Online-Abstimmungsgewichts ist erforderlich, um den Status eines Hauptvertreters zu erhalten. Bei der Konfiguration auf einem Knoten, der abstimmt, werden die von ihm erzeugten Stimmen von anderen Knoten erneut an die Empfänger gesendet, damit das Netzwerk schneller zu einem Konsens kommt.",
-    "onlinePrincipalRepresentatives": "Online-Repräsentantenkonten, die kürzlich abgestimmt haben.",
+    "principalRepresentatives": "Ein Konto mit einem Minimum von {{principalRepresentativeMinWeight}} NANO oder >= 0,1% des an ihn delegierten Online-Abstimmungsgewichts ist erforderlich, um den Status eines Hauptvertreters zu erhalten. Handelt es sich bei einem abstimmenden Knoten um einen Hauptvertreter, so werden die von ihm erzeugten Stimmen von anderen Knoten erneut an die Empfänger gesendet, damit das Netzwerk schneller zu einem Konsens gelangt.",
+    "onlinePrincipalRepresentatives": "Online-Hauptvertreterknoten, die kürzlich abgestimmt haben.",
     "lastTransaction": "Letzte Sendetransaktion von einem der {{totalAccounts}} Konten.",
     "largeTransactions": "Große Sendetransaktionen mit 10.000 NANO oder mehr werden vorübergehend für eine Woche gespeichert.",
     "knownExchangeBalance": "Schließen Sie {{unknownExchangeList}} aus dem Verteilungsdiagramm aus. Diese Konten zusammen enthalten {{unknownExchangeBalance}} NANO",
@@ -262,16 +262,16 @@
       "noDelegatorsFound": "Keine Delegatoren gefunden"
     },
     "faucets": {
-      "description": "Mit Facuets können Sie kleine Mengen NANO kostenlos anfordern. Mit diesen Faucets können Sie selbst herausfinden, wie einfach es ist, NANO weltweit in einem dezentralen Netzwerk sofort zu senden und zu empfangen."
+      "description": "Mit Faucets können Sie kostenlos kleine Mengen NANO erhalten. Mit diesen Faucets können Sie selbst ausprobieren, wie einfach es ist, NANO weltweit in einem dezentralen Netzwerk blitzschnell zu senden und zu empfangen."
     },
     "developerFund": {
       "description": "Ab dem 25.11.19 wurde der Entwicklerfonds nach einer Überprüfung der internen Sicherheitsrichtlinien und der repräsentativen Stimmgewichte in {{totalAccounts}} Konten aufgeteilt.",
       "lastTransaction": "Letzte Transaktion",
       "allTransactions": "Alle Sendetransaktionen anzeigen",
       "originalDeveloperFund": "Ursprünglicher Entwicklerfonds",
-      "originalDeveloperFundDescription": "Die Verteilung von Nano (ehemals RaiBlocks) erfolgte durch Lösen manueller Captchas, die Ende 2015 endeten und im Oktober 2017 endeten. Die Verteilung wurde gestoppt, nachdem ~ 39% des Betrags von <0>Genesis</0> verteilt worden waren und der Rest des Angebots war <1>verbrannt</1>.",
+      "originalDeveloperFundDescription": "Die Verteilung von Nano (ehemals RaiBlocks) erfolgte durch Lösen manueller Captchas, begann Ende 2015 und endete im Oktober 2017. Die Verteilung wurde gestoppt, nachdem ~ 39% des <0>Genesis</0>-Betrags verteilt worden waren und anschließend wurde der Rest <1>verbrannt</1>.",
       "totalAccounts": "{{totalAccounts}} Konten insgesamt",
-      "percentOfTotal": "{{percent}}% des Umlaufangebots"
+      "percentOfTotal": "{{percent}}% der Gesamtmenge im Umlauf"
     },
     "knownAccounts": {
       "totalAccounts": "{{totalAccounts}} bekannte Konten insgesamt",
@@ -309,7 +309,7 @@
       "dormantFundsQuarterExample": "Ein Konto mit 50 NANO und 50 ausstehenden NANO wurde zuletzt vor 6 Monaten (2 Quartale) abgewickelt. Ein Saldo von 100 NANO wird als \"ruhend\" zur Gesamtsumme des folgenden Quartals hinzugefügt.",
       "dormantNano": "Ruhende Nano",
       "ofAvailableSupply": "des verfügbaren Angebots",
-      "richList": "Reiche Liste"
+      "richList": "Reichenliste"
     },
     "news": {
       "allFeeds": "Alle Feeds",
@@ -411,23 +411,23 @@
       "playNow": "Jetzt spielen !",
       "playersOnline": "Spieler online",
       "playNanoBrowserQuest": "NanoBrowserQuest spielen",
-      "welcomeTitle": "Spielen Sie NanoBrowserQuest und verdienen Sie eine kleine Auszahlung für den Abschluss des Spiels!",
-      "donatePrizePool": "Spenden Sie an den NanoBrowserQuest-Preispool",
-      "registerDescription": "NanoBrowserQuest ist kostenlos spielbar. Wenn Ihnen der Service gefällt, können Sie einen kleinen Beitrag zum NanoBrowserQuest-Preispool leisten.",
-      "payoutDescription": "Die Auszahlung wird gesendet, nachdem Sie den End-BOSS getötet haben! Der Betrag, den Sie erhalten, hängt von den Errungenschaften ab, die Sie freigeschaltet haben.",
+      "welcomeTitle": "Spiele NanoBrowserQuest und verdiene eine kleine Auszahlung für den Abschluss des Spiels!",
+      "donatePrizePool": "Spende an den NanoBrowserQuest-Preispool",
+      "registerDescription": "NanoBrowserQuest ist kostenlos spielbar. Wenn dir der Service gefällt, kannst du einen kleinen Beitrag zum NanoBrowserQuest-Preispool spenden.",
+      "payoutDescription": "Die Auszahlung wird gesendet, nachdem du den End-BOSS getötet hast! Der Betrag, den du erhältst, hängt von den Errungenschaften ab, die du freigeschaltet hast.",
       "leaderboard": "Bestenliste",
       "rank": "Rang",
       "player": "Spieler",
       "exp": "Erfahrung",
       "level": "Niveau",
-      "gameDescription": "NanoBrowserQuest ist ein Remake des beliebten webbasierten MMORPG-Minispiels BrowserQuest, das ursprünglich um 2012 entwickelt wurde. Das Spiel unterstützt 200 gleichzeitige Spieler und ist kostenlos spielbar. NanoBrowserQuest ermöglicht es dir, mit deinen Freunden zu spielen, Erfolge im Spiel zu erzielen und nach Abschluss des Spiels eine kleine Nano-Belohnung zu erhalten.",
+      "gameDescription": "NanoBrowserQuest ist ein Remake des beliebten webbasierten MMORPG-Minispiels BrowserQuest, das ursprünglich um 2012 entwickelt wurde. Das Spiel unterstützt 200 Spieler gleichzeitig und ist kostenlos spielbar. NanoBrowserQuest ermöglicht es dir, mit deinen Freunden zu spielen, Erfolge im Spiel zu erzielen und nach Abschluss des Spiels eine kleine Nano-Belohnung zu erhalten.",
       "howToPlay": "Spielanleitung",
-      "itemUpgrade": "Artikel-Upgrade",
-      "itemUpgradeDescription": "Verbessere deine Gegenstände am Amboss in der Stadt. Wählen Sie das Element aus, das Sie aktualisieren möchten, und ziehen Sie es in den linken Slot. Füge eine gleiche Upgrade-Scroll-Klasse zu einem der 9 Slots im mittleren Abschnitt hinzu. Wenn das Upgrade erfolgreich ist, wird der Gegenstand rechts im Slot angezeigt. Achten Sie darauf, immer ein Backup-Element zu haben, falls das Upgrade nicht erfolgreich ist.",
+      "itemUpgrade": "Gegenstand-Upgrade",
+      "itemUpgradeDescription": "Verbessere deine Gegenstände am Amboss in der Stadt. Wähle den Gegenstand aus, den du aktualisieren möchtest, und ziehe ihn in den linken Slot. Füge eine gleiche Upgrade-Scroll-Klasse zu einem der 9 Slots im mittleren Abschnitt hinzu. Wenn das Upgrade erfolgreich ist, wird der Gegenstand rechts im Slot angezeigt. Achte darauf, immer einen Backup-Gegenstand zu haben, falls das Upgrade nicht erfolgreich ist.",
       "upgradeSuccessRate": "Upgrade-Erfolgsrate",
       "playerLevel": "Spielerlevel",
-      "playerLevelDescription": "Je mehr Sie Ihren Charakter leveln, desto mehr erhalten Sie Bonusstatistiken wie erhöhte Gesundheit und Schaden.",
-      "playerLevelDescription2": "Der gelbe Balken stellt Ihren Level-Fortschritt dar. Bewegen Sie den Mauszeiger darüber, um detailliertere % zu erhalten.",
+      "playerLevelDescription": "Je mehr du deinen Charakter levelst, desto mehr Bonusstatistiken wie erhöhte Gesundheit und Schaden erhält dieser.",
+      "playerLevelDescription2": "Der gelbe Balken stellt Ihren Level-Fortschritt dar. Bewege den Mauszeiger darüber, um detailliertere % zu erhalten.",
       "shortcuts": "Verknüpfungen",
       "shortcut": {
         "i": "Drücke I oder klicke auf die unteren Gegenstände, um das Inventar umzuschalten",
@@ -439,9 +439,9 @@
       },
       "nanoPotions": "NANO-Tränke",
       "guide": {
-        "title": "NanoBrowserQuest-Leitfaden"
+        "title": "NanoBrowserQuest-Spielanleitung"
       },
-      "playerGuide": "Leitfaden für Spieler"
+      "playerGuide": "Anleitung für Spieler"
     },
     "statistics": {
       "social": {
