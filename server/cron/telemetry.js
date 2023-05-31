@@ -195,6 +195,6 @@ cron.schedule("*/10 * * * *", async () => {
   doTelemetryCron();
 });
 
-if (process.env.NODE_ENV === "production") {
+// if (process.env.NODE_ENV === "production") {
   doTelemetryCron();
-}
+// }

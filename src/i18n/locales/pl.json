@@ -352,7 +352,8 @@
       "nodeVersions": "Wersje węzła",
       "latestVersion": "Najnowsza wersja",
       "database": "Baza danych",
-      "versionsByWeight": "Wersje według wagi głosowania"
+      "versionsByWeight": "Wersje według wagi głosowania",
+      "versionsByMajor": "Grupuj według wersji głównej"
     },
     "exchangeTracker": {
       "description": "Każdego dnia bierze się pod uwagę saldo najpopularniejszych giełd Nano. Pomiar ten można wykorzystać do analizy ruchów i wahań w sieci.",

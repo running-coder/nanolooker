@@ -352,7 +352,8 @@
       "nodeVersions": "Knotenversionen",
       "latestVersion": "Aktuelle Version",
       "database": "Datenbank",
-      "versionsByWeight": "Versionen nach Stimmgewicht"
+      "versionsByWeight": "Versionen nach Stimmgewicht",
+      "versionsByMajor": "Nach Hauptversion gruppieren"
     },
     "exchangeTracker": {
       "description": "Jeden Tag werden die Kontensalden der beliebtesten Börsen, an denen Nano gehandelt wird, erfasst. Mit dieser Messung können Bewegungen und Schwankungen im Netzwerk analysiert werden.",

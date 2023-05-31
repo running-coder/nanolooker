@@ -352,7 +352,8 @@
       "nodeVersions": "ノードバージョン",
       "latestVersion": "最新バージョン",
       "database": "データベース",
-      "versionsByWeight": "投票ウェイトによるバージョン"
+      "versionsByWeight": "投票ウェイトによるバージョン",
+      "versionsByMajor": "メジャー バージョンごとにグループ化する"
     },
     "exchangeTracker": {
       "description": "Nanoが取引されている最も人気のある取引所の口座残高を毎日取得します。この測定値は、ネットワーク上の動きや変動を分析するために使用できます。",

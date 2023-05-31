@@ -352,7 +352,8 @@
       "nodeVersions": "Versioni dei nodi",
       "latestVersion": "Ultima versione",
       "database": "Banca dati",
-      "versionsByWeight": "Versioni per peso di voto"
+      "versionsByWeight": "Versioni per peso di voto",
+      "versionsByMajor": "Raggruppa per versione principale"
     },
     "exchangeTracker": {
       "description": "Ogni giorno viene eseguita una cattura dei saldi dei conti delle borse più popolari in cui viene scambiato Nano. Questa misurazione può essere utilizzata per analizzare i movimenti e le fluttuazioni sulla rete.",

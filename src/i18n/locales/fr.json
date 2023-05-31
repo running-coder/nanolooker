@@ -352,7 +352,8 @@
       "nodeVersions": "Versions des nœuds",
       "latestVersion": "Dernière version",
       "database": "Base de données",
-      "versionsByWeight": "Versions par poids de vote"
+      "versionsByWeight": "Versions par poids de vote",
+      "versionsByMajor": "Regrouper par version majeure"
     },
     "exchangeTracker": {
       "description": "Chaque jour, une capture du solde des comptes des plateformes d'échanges les plus populaires où Nano est listé est prise. Cette capture peut permettre d'analyser les mouvements et fluctuations sur le réseau.",

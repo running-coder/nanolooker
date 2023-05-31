@@ -352,7 +352,8 @@
       "nodeVersions": "Versões de nó",
       "latestVersion": "Última versão",
       "database": "Banco de dados",
-      "versionsByWeight": "Versões por peso de voto"
+      "versionsByWeight": "Versões por peso de voto",
+      "versionsByMajor": "Agrupar por versão principal"
     },
     "exchangeTracker": {
       "description": "Todos os dias é feita uma captura dos saldos das contas das exchanges mais populares onde a Nano é negociada. Esta medição pode ser usada para analisar movimentos e flutuações na rede.",

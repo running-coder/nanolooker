@@ -352,7 +352,8 @@
       "nodeVersions": "Node versies",
       "latestVersion": "Nieuwste versie",
       "database": "Database",
-      "versionsByWeight": "Versies gegroepeerd op stemgewicht"
+      "versionsByWeight": "Versies gegroepeerd op stemgewicht",
+      "versionsByMajor": "Groeperen op primaire versie"
     },
     "exchangeTracker": {
       "description": "Elke dag wordt een opname gemaakt van de accountsaldo's van de meest populaire exchanges waar Nano wordt verhandeld. Deze meting kan worden gebruikt om bewegingen en fluctuaties op het netwerk te analyseren.",

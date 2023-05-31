@@ -352,7 +352,8 @@
       "nodeVersions": "Node versions",
       "latestVersion": "Latest version",
       "database": "Database",
-      "versionsByWeight": "Versions by voting weight"
+      "versionsByWeight": "Versions by voting weight",
+      "versionsByMajor": "Group by major version"
     },
     "exchangeTracker": {
       "description": "Every day a capture of the account balances of the most popular exchanges where Nano is traded is taken. This measurement can be used to analyze movements and fluctuations on the network.",

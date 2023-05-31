@@ -8,7 +8,7 @@ import BigNumber from "bignumber.js";
 import orderBy from "lodash/orderBy";
 
 import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
-import { PreferencesContext,Theme } from "api/contexts/Preferences";
+import { PreferencesContext, Theme } from "api/contexts/Preferences";
 import QuestionCircle from "components/QuestionCircle";
 import { rawToRai } from "components/utils";
 
@@ -29,6 +29,7 @@ const Representatives: React.FC<Props> = ({ versions }) => {
   const { t } = useTranslation();
   const { theme } = React.useContext(PreferencesContext);
   const [isVersionByWeight, setIsVersionByWeight] = React.useState(true);
+  const [isVersionByMajor, setIsVersionByMajor] = React.useState(true);
   const {
     confirmationQuorum: {
       online_weight_quorum_percent: onlineWeightQuorumPercent = 0,
@@ -38,13 +39,33 @@ const Representatives: React.FC<Props> = ({ versions }) => {
 
   React.useEffect(() => {
     if (!Object.keys(versions).length) return;
+    let rawData: { [key: string]: { weight: number; count: number } } = {};
+    let data: { version: string; weight: number; count: number }[];
 
-    let data = orderBy(
-      Object.entries(versions).map(([version, { weight, count }]) => ({
-        version,
-        weight,
-        count,
-      })),
+    if (isVersionByMajor) {
+      Object.entries(versions).forEach(([version, { weight, count }]) => {
+        const [majorVersion] = version.split(".");
+        if (!rawData[majorVersion]) {
+          rawData[majorVersion] = { weight: 0, count: 0 };
+        }
+
+        rawData[majorVersion].weight = new BigNumber(
+          rawData[majorVersion].weight,
+        )
+          .plus(weight)
+          .toNumber();
+        rawData[majorVersion].count += count;
+      });
+    }
+
+    data = orderBy(
+      Object.entries(Object.keys(rawData).length ? rawData : versions).map(
+        ([version, { weight, count }]) => ({
+          version,
+          weight,
+          count,
+        }),
+      ),
       ["version"],
       ["desc"],
     );
@@ -119,7 +140,7 @@ const Representatives: React.FC<Props> = ({ versions }) => {
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [theme, versions, isVersionByWeight]);
+  }, [theme, versions, isVersionByWeight, isVersionByMajor]);
 
   React.useEffect(() => {
     return () => {
@@ -157,6 +178,22 @@ const Representatives: React.FC<Props> = ({ versions }) => {
                 setIsVersionByWeight(checked);
               }}
               defaultChecked={isVersionByWeight}
+            />
+          </Col>
+        </Row>
+        <Row gutter={6}>
+          <Col xs={20} md={12}>
+            {t("pages.status.versionsByMajor")}
+          </Col>
+          <Col xs={4} md={12}>
+            <Switch
+              disabled={!Object.keys(versions).length}
+              checkedChildren={<CheckOutlined />}
+              unCheckedChildren={<CloseOutlined />}
+              onChange={(checked: boolean) => {
+                setIsVersionByMajor(checked);
+              }}
+              defaultChecked={isVersionByMajor}
             />
           </Col>
         </Row>

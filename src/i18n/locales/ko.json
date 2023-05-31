@@ -352,7 +352,8 @@
       "nodeVersions": "노드 버전",
       "latestVersion": "최신 버전",
       "database": "데이터 베이스",
-      "versionsByWeight": "투표 가중치 별 버전"
+      "versionsByWeight": "투표 가중치 별 버전",
+      "versionsByMajor": "주 버전별로 그룹화"
     },
     "exchangeTracker": {
       "description": "Nano가 거래되는 가장 인기있는 거래소의 계정 잔액을 매일 캡처합니다. 이 측정은 네트워크의 움직임과 변동을 분석하는 데 사용할 수 있습니다.",

@@ -352,7 +352,8 @@
       "nodeVersions": "Phiên bản nút",
       "latestVersion": "Phiên bản mới nhất",
       "database": "Cơ sở dữ liệu",
-      "versionsByWeight": "Các phiên bản theo trọng lượng biểu quyết"
+      "versionsByWeight": "Các phiên bản theo trọng lượng biểu quyết",
+      "versionsByMajor": "Nhóm theo phiên bản chính"
     },
     "exchangeTracker": {
       "description": "Mỗi ngày, việc nắm bắt số dư tài khoản của các sàn giao dịch phổ biến nhất nơi Nano được giao dịch sẽ được thực hiện. Phép đo này có thể được sử dụng để phân tích các chuyển động và dao động trên mạng.",
