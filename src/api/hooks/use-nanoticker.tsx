@@ -7,9 +7,7 @@ export interface UseUptimeReturn {
 let confirmationsPerSecondTimeout: number | undefined;
 
 const useNanoTicker = (): UseUptimeReturn => {
-  const [confirmationsPerSecond, setConfirmationsPerSecond] = React.useState<
-    number | undefined
-  >();
+  const [confirmationsPerSecond, setConfirmationsPerSecond] = React.useState<number | undefined>();
 
   const getConfirmationsPerSecond = async () => {
     clearTimeout(confirmationsPerSecondTimeout);

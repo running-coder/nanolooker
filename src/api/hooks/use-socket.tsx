@@ -27,14 +27,9 @@ let isMounted: boolean = false;
 const useSocket = () => {
   const [isConnected, setIsConnected] = React.useState<boolean>(false);
   const [isError, setIsError] = React.useState<boolean>(false);
-  const [recentTransactions, setRecentTransactions] = React.useState<
-    Transaction[]
-  >([]);
-  const {
-    filterTransactions,
-    filterTransactionsRange,
-    disableLiveTransactions,
-  } = React.useContext(PreferencesContext);
+  const [recentTransactions, setRecentTransactions] = React.useState<Transaction[]>([]);
+  const { filterTransactions, filterTransactionsRange, disableLiveTransactions } =
+    React.useContext(PreferencesContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
   const { websocketDomain } = React.useContext(PreferencesContext);
 
@@ -104,10 +99,7 @@ const useSocket = () => {
           )?.alias;
 
           setRecentTransactions(prevRecentTransactions =>
-            [message, ...prevRecentTransactions].slice(
-              0,
-              MAX_RECENT_TRANSACTIONS,
-            ),
+            [message, ...prevRecentTransactions].slice(0, MAX_RECENT_TRANSACTIONS),
           );
         }
       } catch (_e) {

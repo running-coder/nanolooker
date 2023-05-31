@@ -2,16 +2,7 @@ import * as React from "react";
 import { Trans, useTranslation } from "react-i18next";
 
 import { DownOutlined } from "@ant-design/icons";
-import {
-  Button,
-  Card,
-  Col,
-  Dropdown,
-  Menu,
-  Row,
-  Tooltip,
-  Typography,
-} from "antd";
+import { Button, Card, Col, Dropdown, Menu, Row, Tooltip, Typography } from "antd";
 import TimeAgo from "timeago-react";
 
 import useTelemetry, { Percentiles } from "api/hooks/use-telemetry";
@@ -26,30 +17,23 @@ const { Title } = Typography;
 
 const Telemetry: React.FC = () => {
   const { t } = useTranslation();
-  const [currentPercentile, setCurrentPercentile] = React.useState(
-    Percentiles.P95,
-  );
+  const [currentPercentile, setCurrentPercentile] = React.useState(Percentiles.P95);
   const {
     telemetry,
     versions,
     status: { nodeCount, bandwidthCapGroups, date } = {},
     isLoading: isTelemetryLoading,
   } = useTelemetry();
-  const [formattedMedianBandwidthCap, setFormattedMedianBandwidthCap] =
-    React.useState(formatBytes(0));
-  const [unlimitedBandwidthCapCount, setUnlimitedBandwidthCapCount] =
-    React.useState<number>();
-  const [limitedBandwidthCapCount, setLimitedBandwidthCapCount] =
-    React.useState<number>();
-  const [limitedBandwidthCap, setLimitedBandwidthCap] = React.useState(
+  const [formattedMedianBandwidthCap, setFormattedMedianBandwidthCap] = React.useState(
     formatBytes(0),
   );
+  const [unlimitedBandwidthCapCount, setUnlimitedBandwidthCapCount] = React.useState<number>();
+  const [limitedBandwidthCapCount, setLimitedBandwidthCapCount] = React.useState<number>();
+  const [limitedBandwidthCap, setLimitedBandwidthCap] = React.useState(formatBytes(0));
 
   React.useEffect(() => {
     if (!telemetry[currentPercentile]) return;
-    setFormattedMedianBandwidthCap(
-      formatBytes(telemetry[currentPercentile].bandwidthCap),
-    );
+    setFormattedMedianBandwidthCap(formatBytes(telemetry[currentPercentile].bandwidthCap));
   }, [telemetry, currentPercentile]);
 
   const onPercentileClick = ({ key }: any) => {
@@ -96,11 +80,7 @@ const Telemetry: React.FC = () => {
           </Tooltip>
         </div>
 
-        <Card
-          size="small"
-          className="detail-layout"
-          style={{ marginBottom: "12px" }}
-        >
+        <Card size="small" className="detail-layout" style={{ marginBottom: "12px" }}>
           <div style={{ marginBottom: "12px", fontSize: "12px" }}>
             {date ? (
               <>
@@ -198,9 +178,7 @@ const Telemetry: React.FC = () => {
                 tooltip={t("tooltips.bandwidthCap") as string}
                 value={formattedMedianBandwidthCap.value || "∞"}
                 suffix={
-                  formattedMedianBandwidthCap.value
-                    ? formattedMedianBandwidthCap.suffix
-                    : null
+                  formattedMedianBandwidthCap.value ? formattedMedianBandwidthCap.suffix : null
                 }
               />
             </Col>

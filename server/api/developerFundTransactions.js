@@ -42,21 +42,13 @@ const getDeveloperFundTransactions = async () => {
       accountsHistoryPromises.push(promise);
     });
 
-    developerFundTransactions = await Promise.all(accountsHistoryPromises).then(
-      () => {
-        developerFundTransactions = reverse(
-          sortBy(accountsHistory, ["local_timestamp"]),
-        );
+    developerFundTransactions = await Promise.all(accountsHistoryPromises).then(() => {
+      developerFundTransactions = reverse(sortBy(accountsHistory, ["local_timestamp"]));
 
-        nodeCache.set(
-          DEVELOPER_FUND_TRANSACTIONS,
-          developerFundTransactions,
-          EXPIRE_1H,
-        );
+      nodeCache.set(DEVELOPER_FUND_TRANSACTIONS, developerFundTransactions, EXPIRE_1H);
 
-        return developerFundTransactions;
-      },
-    );
+      return developerFundTransactions;
+    });
   }
 
   return { developerFundTransactions };

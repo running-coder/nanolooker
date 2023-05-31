@@ -8,10 +8,8 @@ export const TOTAL_CONFIRMATIONS_24H = "TOTAL_CONFIRMATIONS_24H";
 export const TOTAL_VOLUME_24H = "TOTAL_VOLUME_24H";
 export const TOTAL_CONFIRMATIONS_48H = "TOTAL_CONFIRMATIONS_48H";
 export const TOTAL_VOLUME_48H = "TOTAL_VOLUME_48H";
-export const BITCOIN_TOTAL_TRANSACTION_FEES_24H =
-  "BITCOIN_TOTAL_TRANSACTION_FEES_24H";
-export const BITCOIN_TOTAL_TRANSACTION_FEES_48H =
-  "BITCOIN_TOTAL_TRANSACTION_FEES_48H";
+export const BITCOIN_TOTAL_TRANSACTION_FEES_24H = "BITCOIN_TOTAL_TRANSACTION_FEES_24H";
+export const BITCOIN_TOTAL_TRANSACTION_FEES_48H = "BITCOIN_TOTAL_TRANSACTION_FEES_48H";
 
 export interface Response {
   [TOTAL_CONFIRMATIONS_24H]: number;
@@ -74,9 +72,7 @@ interface Props {
 }
 
 const Provider: React.FC<Props> = ({ children }) => {
-  const [marketStatistics, setMarketStatistics] = React.useState(
-    {} as Response,
-  );
+  const [marketStatistics, setMarketStatistics] = React.useState({} as Response);
   const [isInitialLoading, setIsInitialLoading] = React.useState<boolean>(true);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [isError, setIsError] = React.useState<boolean>(false);

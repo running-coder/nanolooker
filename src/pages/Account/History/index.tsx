@@ -28,8 +28,7 @@ interface Props {
 
 const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
   const { t } = useTranslation();
-  const [isInitialHistoryFilterLoading, setIsInitialHistoryFilterLoading] =
-    React.useState(false);
+  const [isInitialHistoryFilterLoading, setIsInitialHistoryFilterLoading] = React.useState(false);
   const [isFiltersVisible, setIsFiltersVisible] = React.useState(false);
   const { account, accountInfo } = React.useContext(AccountInfoContext);
   const isPaginated = Number(accountInfo?.block_count) <= 250;
@@ -44,9 +43,7 @@ const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
     {
       count: String(TRANSACTIONS_PER_PAGE),
       raw: true,
-      ...(isPaginated
-        ? { offset: (currentPage - 1) * TRANSACTIONS_PER_PAGE }
-        : undefined),
+      ...(isPaginated ? { offset: (currentPage - 1) * TRANSACTIONS_PER_PAGE } : undefined),
       ...(!isPaginated && currentHead ? { head: currentHead } : undefined),
     },
     {
@@ -54,8 +51,7 @@ const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
     },
   );
   const { representatives } = React.useContext(RepresentativesContext);
-  const { delegators: allDelegators, getDelegators } =
-    React.useContext(DelegatorsContext);
+  const { delegators: allDelegators, getDelegators } = React.useContext(DelegatorsContext);
   const isTransactionFiltersEnabled =
     parseInt(accountInfo.confirmation_height) <= MAX_TRANSACTION_FILTERS;
   const {
@@ -119,13 +115,7 @@ const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
             {count} {t(`common.transaction${count !== 1 ? "s" : ""}`)}
           </Title>
 
-          <Tooltip
-            title={
-              !isTransactionFiltersEnabled
-                ? t("tooltips.filterTransactions")
-                : ""
-            }
-          >
+          <Tooltip title={!isTransactionFiltersEnabled ? t("tooltips.filterTransactions") : ""}>
             <Button
               loading={isFiltersLoading && isInitialHistoryFilterLoading}
               size="small"
@@ -181,9 +171,7 @@ const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
           currentPage={currentPage}
           totalPages={Number(accountInfo?.block_count) || 0}
           setCurrentPage={setCurrentPage}
-          setCurrentHead={
-            previousHead ? () => setCurrentHead(previousHead) : null
-          }
+          setCurrentHead={previousHead ? () => setCurrentHead(previousHead) : null}
         />
       )}
     </>

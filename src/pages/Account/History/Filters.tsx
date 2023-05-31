@@ -35,9 +35,7 @@ const { Option } = Select;
 const TagRender = (props: any) => {
   const { label, value, closable, onClose } = props;
   const { theme } = React.useContext(PreferencesContext);
-  const themeColor = `${value.toUpperCase()}${
-    theme === Theme.DARK ? "_DARK" : ""
-  }`;
+  const themeColor = `${value.toUpperCase()}${theme === Theme.DARK ? "_DARK" : ""}`;
 
   const onPreventMouseDown = (event: React.MouseEvent<HTMLSpanElement>) => {
     event.preventDefault();
@@ -79,9 +77,7 @@ export interface HistoryFilters {
 
 const Filters: React.FC = () => {
   const { t } = useTranslation();
-  const { isLoading, setFilters } = React.useContext(
-    AccountHistoryFilterContext,
-  );
+  const { isLoading, setFilters } = React.useContext(AccountHistoryFilterContext);
 
   const [options] = React.useState(
     [
@@ -130,8 +126,7 @@ const Filters: React.FC = () => {
     const { dateRange, ...rest } = rawFilters;
 
     const filters = {
-      dateRange:
-        dateRange?.map((date: Moment | null) => date?.format("x")) || null,
+      dateRange: dateRange?.map((date: Moment | null) => date?.format("x")) || null,
       ...rest,
     };
 
@@ -186,11 +181,7 @@ const Filters: React.FC = () => {
               </Select>
               <Controller
                 render={({ field }) => (
-                  <Input
-                    {...field}
-                    style={{ flexGrow: 1 }}
-                    placeholder="nano_"
-                  />
+                  <Input {...field} style={{ flexGrow: 1 }} placeholder="nano_" />
                 )}
                 control={control}
                 name="sender"
@@ -207,14 +198,8 @@ const Filters: React.FC = () => {
                 <RangePicker
                   {...field}
                   style={{ width: "100%" }}
-                  defaultPickerValue={[
-                    moment().add(-1, "month"),
-                    moment().add(-1, "month"),
-                  ]}
-                  placeholder={[
-                    t("pages.account.startDate"),
-                    t("pages.account.endDate"),
-                  ]}
+                  defaultPickerValue={[moment().add(-1, "month"), moment().add(-1, "month")]}
+                  placeholder={[t("pages.account.startDate"), t("pages.account.endDate")]}
                   allowEmpty={[true, true]}
                   disabledDate={disabledDate}
                 />
@@ -242,11 +227,7 @@ const Filters: React.FC = () => {
               </Select>
               <Controller
                 render={({ field }) => (
-                  <Input
-                    {...field}
-                    style={{ flexGrow: 1 }}
-                    placeholder="nano_"
-                  />
+                  <Input {...field} style={{ flexGrow: 1 }} placeholder="nano_" />
                 )}
                 control={control}
                 name="receiver"
@@ -359,10 +340,7 @@ const Filters: React.FC = () => {
               control={control}
               name="includeNoTimestamp"
             />
-            <Tooltip
-              placement="right"
-              title={t("tooltips.unknownTransactionDate")}
-            >
+            <Tooltip placement="right" title={t("tooltips.unknownTransactionDate")}>
               <QuestionCircle style={{ marginLeft: 0 }} />
             </Tooltip>
             <br />

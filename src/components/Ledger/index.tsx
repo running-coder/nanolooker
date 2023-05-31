@@ -20,9 +20,7 @@ const Ledger: React.FC = () => {
     nodeStatus: { ledgerSize },
     isLoading: isNodeStatusLoading,
   } = React.useContext(NodeStatusContext);
-  const [formattedLedgerSize, setFormattedLedgerSize] = React.useState(
-    formatBytes(0),
-  );
+  const [formattedLedgerSize, setFormattedLedgerSize] = React.useState(formatBytes(0));
 
   React.useEffect(() => {
     setFormattedLedgerSize(formatBytes(ledgerSize));

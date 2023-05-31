@@ -37,18 +37,15 @@ interface Props {
 const Provider: React.FC<Props> = ({ children }) => {
   // @TODO Why does using a useEffect on bookmarks does not update the component
   const { bookmarks } = React.useContext(BookmarksContext);
-  const [knownAccounts, setKnownAccounts] = React.useState(
-    [] as KnownAccount[],
-  );
-  const [knownExchangeAccounts, setKnownExchangeAccounts] = React.useState(
-    [] as KnownAccount[],
-  );
+  const [knownAccounts, setKnownAccounts] = React.useState([] as KnownAccount[]);
+  const [knownExchangeAccounts, setKnownExchangeAccounts] = React.useState([] as KnownAccount[]);
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
   const [isError, setIsError] = React.useState<boolean>(false);
 
-  const formattedBookmarks = Object.entries(bookmarks?.account || []).map(
-    ([account, alias]) => ({ account, alias }),
-  );
+  const formattedBookmarks = Object.entries(bookmarks?.account || []).map(([account, alias]) => ({
+    account,
+    alias,
+  }));
 
   const getKnownAccounts = async () => {
     setIsError(false);
@@ -61,9 +58,7 @@ const Provider: React.FC<Props> = ({ children }) => {
       !json || json.error ? setIsError(true) : setKnownAccounts(json);
 
       setKnownExchangeAccounts(
-        [...KNOWN_EXCHANGE_ACCOUNTS].map(account =>
-          find(json, ["account", account]),
-        ),
+        [...KNOWN_EXCHANGE_ACCOUNTS].map(account => find(json, ["account", account])),
       );
     } catch (err) {
       setIsError(true);
@@ -79,9 +74,7 @@ const Provider: React.FC<Props> = ({ children }) => {
   return (
     <KnownAccountsContext.Provider
       value={{
-        knownAccounts: knownAccounts.concat(
-          formattedBookmarks as KnownAccount[],
-        ),
+        knownAccounts: knownAccounts.concat(formattedBookmarks as KnownAccount[]),
         knownExchangeAccounts,
         isLoading,
         isError,

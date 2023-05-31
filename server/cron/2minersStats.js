@@ -48,8 +48,7 @@ const connect = async () =>
 const MIN_RECEIVE_AMOUNT = 100;
 const MIN_HOLDING_AMOUNT = 0.001;
 const MIN_DATE = "2021-10-12";
-const ACCOUNT =
-  "nano_14uzbiw1euwicrt3gzwnpyufpa8td1uw8wbhyyrz5e5pnqitjfk1tb8xwgg4";
+const ACCOUNT = "nano_14uzbiw1euwicrt3gzwnpyufpa8td1uw8wbhyyrz5e5pnqitjfk1tb8xwgg4";
 
 function formatDate(timestamp) {
   const date = new Date(timestamp);
@@ -64,9 +63,7 @@ const processData = async ({ stats }) => {
   const PER_PAGE = 500;
 
   stats.totalFiatPayouts =
-    Math.round(
-      (stats.blocks[0].price || 0) * rawToRai(stats.totalPayouts) * 100,
-    ) / 100;
+    Math.round((stats.blocks[0].price || 0) * rawToRai(stats.totalPayouts) * 100) / 100;
   stats.payoutAccounts = uniq(stats.payoutAccounts);
   stats.totalAccounts = stats.payoutAccounts.length;
 
@@ -75,9 +72,7 @@ const processData = async ({ stats }) => {
   // @NOTE replace this by `accounts_representatives` RPC when v24 gets released
   // https://github.com/nanocurrency/nano-node/pull/3412
   for (let i = 0; i < stats.payoutAccounts.length; i++) {
-    const nonExchangeAccount = await getAccountNonExchangeRepresentative(
-      stats.payoutAccounts[i],
-    );
+    const nonExchangeAccount = await getAccountNonExchangeRepresentative(stats.payoutAccounts[i]);
 
     if (nonExchangeAccount) {
       nonExchangeRepresentativeAccount.push(nonExchangeAccount);
@@ -87,9 +82,7 @@ const processData = async ({ stats }) => {
   const chunkPayoutAccounts = chunk(nonExchangeRepresentativeAccount, PER_PAGE);
 
   for (let i = 0; i < chunkPayoutAccounts.length; i++) {
-    const { totalBalance, totalAccounts } = await getAccountsBalances(
-      chunkPayoutAccounts[i],
-    );
+    const { totalBalance, totalAccounts } = await getAccountsBalances(chunkPayoutAccounts[i]);
 
     stats.totalAccountsHolding = new BigNumber(stats.totalAccountsHolding)
       .plus(totalAccounts)
@@ -119,9 +112,7 @@ const getAccountsBalances = async accounts => {
   let totalBalance = 0;
   if (Object.keys(balances).length) {
     Object.values(balances).forEach(({ balance, pending }) => {
-      const accountBalance = rawToRai(
-        BigNumber(balance).plus(pending).toNumber(),
-      );
+      const accountBalance = rawToRai(BigNumber(balance).plus(pending).toNumber());
 
       if (accountBalance > MIN_HOLDING_AMOUNT) {
         totalAccounts += 1;
@@ -188,12 +179,7 @@ const do2MinersStats = async () => {
     }
 
     for (let i = 0; i < history.length; i++) {
-      const {
-        account,
-        type,
-        amount,
-        local_timestamp: localTimestamp,
-      } = history[i];
+      const { account, type, amount, local_timestamp: localTimestamp } = history[i];
 
       const date = formatDate(parseFloat(localTimestamp) * 1000);
       // Do not compile data for "today"
@@ -246,9 +232,7 @@ const do2MinersStats = async () => {
         }
       } else if (type === "send") {
         statsByDate[date].payoutAccounts.push(account);
-        statsByDate[date].totalPayouts = BigNumber(
-          statsByDate[date].totalPayouts,
-        )
+        statsByDate[date].totalPayouts = BigNumber(statsByDate[date].totalPayouts)
           .plus(amount)
           .toNumber();
       }

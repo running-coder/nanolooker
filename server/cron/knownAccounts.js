@@ -7,11 +7,7 @@ const { rawToRai } = require("../utils");
 const { rpc } = require("../rpc");
 const { nodeCache } = require("../client/cache");
 const { Sentry } = require("../sentry");
-const {
-  KNOWN_ACCOUNTS,
-  KNOWN_ACCOUNTS_BALANCE,
-  EXPIRE_48H,
-} = require("../constants");
+const { KNOWN_ACCOUNTS, KNOWN_ACCOUNTS_BALANCE, EXPIRE_48H } = require("../constants");
 const extraKnownAccounts = require("./knownAccounts.json");
 const faucetAccounts = require("../../src/pages/Faucets/faucets.json");
 
@@ -38,19 +34,15 @@ const doKnownAccountsBalanceCron = async () => {
   let knownAccountsBalance = [];
 
   try {
-    const knownAccounts = await (nodeCache.get(KNOWN_ACCOUNTS) ||
-      doKnownAccountsCron());
+    const knownAccounts = await (nodeCache.get(KNOWN_ACCOUNTS) || doKnownAccountsCron());
 
     let accounts = knownAccounts.flatMap(({ account }) => [account]);
 
-    let ignoredKnownAccountBalances =
-      nodeCache.get(`${KNOWN_ACCOUNTS_BALANCE}_IGNORED`) || [];
+    let ignoredKnownAccountBalances = nodeCache.get(`${KNOWN_ACCOUNTS_BALANCE}_IGNORED`) || [];
 
     // Remove accounts with balance lower than Ӿ1 for 48h
     if (ignoredKnownAccountBalances.length) {
-      accounts = accounts.filter(
-        account => !ignoredKnownAccountBalances.includes(account),
-      );
+      accounts = accounts.filter(account => !ignoredKnownAccountBalances.includes(account));
     }
 
     const { balances } =

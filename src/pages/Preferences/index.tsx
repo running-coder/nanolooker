@@ -24,39 +24,23 @@ const PreferencesPage: React.FC = () => {
         <title>{t("menu.preferences")}</title>
       </Helmet>
       <Title level={3}>{t("menu.preferences")}</Title>
-      <Card
-        size="small"
-        style={{ marginBottom: "12px" }}
-        className="detail-layout"
-      >
+      <Card size="small" style={{ marginBottom: "12px" }} className="detail-layout">
         <Title level={4}>{t("pages.preferences.general")}</Title>
         <ThemePreference isDetailed />
         <LanguagePreferences isDetailed />
         <CryptocurrencyPreferences isDetailed />
         <FiatPreferences isDetailed />
       </Card>
-      <Card
-        size="small"
-        style={{ marginBottom: "12px" }}
-        className="detail-layout"
-      >
+      <Card size="small" style={{ marginBottom: "12px" }} className="detail-layout">
         <Title level={4}>{t("transaction.accountAndBlock")}</Title>
         <NatriconsPreferences isDetailed />
       </Card>
-      <Card
-        size="small"
-        style={{ marginBottom: "12px" }}
-        className="detail-layout"
-      >
+      <Card size="small" style={{ marginBottom: "12px" }} className="detail-layout">
         <Title level={4}>{t("pages.home.recentTransactions")}</Title>
         <LiveTransactionsPreferences isDetailed />
         <FilterTransactionsRangePreferences isDetailed />
       </Card>
-      <Card
-        size="small"
-        style={{ marginBottom: "12px" }}
-        className="detail-layout"
-      >
+      <Card size="small" style={{ marginBottom: "12px" }} className="detail-layout">
         <Title level={4}>{t("pages.preferences.nodeConnection")}</Title>
         <ConnectionPreferences isDetailed />
       </Card>

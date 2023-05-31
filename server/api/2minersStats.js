@@ -30,9 +30,7 @@ const get2MinersStats = async () => {
           .find()
           .sort({ date: -1 })
           .toArray((_err, data = []) => {
-            const filteredData = data.map(
-              ({ uniqueAccounts, ...rest }) => rest,
-            );
+            const filteredData = data.map(({ uniqueAccounts, ...rest }) => rest);
             nodeCache.set(MINERS_STATS, filteredData, EXPIRE_6H);
             client.close();
             resolve(data);

@@ -49,9 +49,7 @@ const Representatives: React.FC<Props> = ({ versions }) => {
           rawData[majorVersion] = { weight: 0, count: 0 };
         }
 
-        rawData[majorVersion].weight = new BigNumber(
-          rawData[majorVersion].weight,
-        )
+        rawData[majorVersion].weight = new BigNumber(rawData[majorVersion].weight)
           .plus(weight)
           .toNumber();
         rawData[majorVersion].count += count;
@@ -160,9 +158,7 @@ const Representatives: React.FC<Props> = ({ versions }) => {
             <Tooltip
               placement="right"
               title={t("tooltips.versionsByWeight", {
-                onlineWeightMinimum: new BigNumber(
-                  rawToRai(onlineWeightMinimum),
-                ).toFormat(),
+                onlineWeightMinimum: new BigNumber(rawToRai(onlineWeightMinimum)).toFormat(),
                 onlineWeightQuorumPercent,
               })}
             >

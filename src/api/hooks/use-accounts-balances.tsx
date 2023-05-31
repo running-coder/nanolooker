@@ -21,10 +21,7 @@ export interface Return {
 }
 
 const useAccountsBalances = (accounts: string[]): Return => {
-  const [
-    accountsBalances,
-    setAccountsBalance,
-  ] = React.useState<AccountsBalances>();
+  const [accountsBalances, setAccountsBalance] = React.useState<AccountsBalances>();
   const [isLoading, setIsLoading] = React.useState(false);
   const [isError, setIsError] = React.useState(false);
 
@@ -41,9 +38,7 @@ const useAccountsBalances = (accounts: string[]): Return => {
   };
 
   useDeepCompareEffect(() => {
-    getAccountsBalances(
-      accounts?.filter(account => isValidAccountAddress(account)),
-    );
+    getAccountsBalances(accounts?.filter(account => isValidAccountAddress(account)));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [accounts]);
 

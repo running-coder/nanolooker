@@ -26,9 +26,7 @@ const HowToPlay: React.FC = () => {
           }}
         />
 
-        <Title level={5}>
-          {t("pages.nanobrowserquest.upgradeSuccessRate")}
-        </Title>
+        <Title level={5}>{t("pages.nanobrowserquest.upgradeSuccessRate")}</Title>
         <ul>
           <li>+1 → +2, 100%</li>
           <li>+2 → +3, 100%</li>

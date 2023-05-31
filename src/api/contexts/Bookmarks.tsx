@@ -18,9 +18,7 @@ interface Context {
 export const getBookmarks = (type?: BookmarkTypes): Bookmarks => {
   let bookmarks;
   try {
-    bookmarks = JSON.parse(
-      window.localStorage.getItem(LOCALSTORAGE_KEYS.BOOKMARKS) || "",
-    );
+    bookmarks = JSON.parse(window.localStorage.getItem(LOCALSTORAGE_KEYS.BOOKMARKS) || "");
     if (type) {
       bookmarks = bookmarks[type];
     }
@@ -61,21 +59,12 @@ const Provider: React.FC<Props> = ({ children }) => {
     newBookmarks[type][bookmark] = value;
 
     // account: string, alias: string
-    localStorage.setItem(
-      LOCALSTORAGE_KEYS.BOOKMARKS,
-      JSON.stringify(newBookmarks),
-    );
+    localStorage.setItem(LOCALSTORAGE_KEYS.BOOKMARKS, JSON.stringify(newBookmarks));
 
     setBookmarks(newBookmarks);
   };
 
-  const removeBookmark = ({
-    type,
-    bookmark,
-  }: {
-    type: BookmarkTypes;
-    bookmark: string;
-  }) => {
+  const removeBookmark = ({ type, bookmark }: { type: BookmarkTypes; bookmark: string }) => {
     const newBookmarks = { ...bookmarks };
 
     if (!newBookmarks[type]?.[bookmark]) {
@@ -84,10 +73,7 @@ const Provider: React.FC<Props> = ({ children }) => {
 
     delete newBookmarks[type][bookmark];
 
-    localStorage.setItem(
-      LOCALSTORAGE_KEYS.BOOKMARKS,
-      JSON.stringify(newBookmarks),
-    );
+    localStorage.setItem(LOCALSTORAGE_KEYS.BOOKMARKS, JSON.stringify(newBookmarks));
 
     setBookmarks(newBookmarks);
   };

@@ -44,9 +44,7 @@ const Provider: React.FC<Props> = ({ children }) => {
   };
 
   return (
-    <DelegatorsContext.Provider
-      value={{ delegators, getDelegators, isLoading, isError }}
-    >
+    <DelegatorsContext.Provider value={{ delegators, getDelegators, isLoading, isError }}>
       {children}
     </DelegatorsContext.Provider>
   );

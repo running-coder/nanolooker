@@ -24,9 +24,7 @@ const QRCode = ({ account }: QRCodeProps) => {
   return (
     <>
       <div style={{ textAlign: "center" }}>
-        {base64Image ? (
-          <img src={base64Image} alt="Nano account QR code" />
-        ) : null}
+        {base64Image ? <img src={base64Image} alt="Nano account QR code" /> : null}
       </div>
     </>
   );

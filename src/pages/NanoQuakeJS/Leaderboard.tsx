@@ -18,9 +18,7 @@ const Leaderboard: React.FC<Props> = ({ topScores }) => {
   const { t } = useTranslation();
   const pageSize = 15;
   const [currentPage, setCurrentPage] = React.useState(1);
-  const [paginatedTopScores, setPaginatedTopScores] = React.useState(
-    [] as PlayerScore[][],
-  );
+  const [paginatedTopScores, setPaginatedTopScores] = React.useState([] as PlayerScore[][]);
 
   React.useEffect(() => {
     setPaginatedTopScores(chunk(topScores, pageSize));
@@ -51,33 +49,21 @@ const Leaderboard: React.FC<Props> = ({ topScores }) => {
           ))
         ) : (
           <>
-            {paginatedTopScores[currentPage - 1]?.map(
-              ({ rank, player, frags }) => (
-                <Row gutter={12} key={rank}>
-                  <Col xs={4}>
-                    <Text
-                      style={{ fontSize: fontSizeToRankMap[rank] ?? "auto" }}
-                    >
-                      #{rank} <Trophy rank={rank} />
-                    </Text>
-                  </Col>
-                  <Col xs={14}>
-                    <Text
-                      style={{ fontSize: fontSizeToRankMap[rank] ?? "auto" }}
-                    >
-                      {player}
-                    </Text>
-                  </Col>
-                  <Col xs={6}>
-                    <Text
-                      style={{ fontSize: fontSizeToRankMap[rank] ?? "auto" }}
-                    >
-                      {frags}
-                    </Text>
-                  </Col>
-                </Row>
-              ),
-            )}
+            {paginatedTopScores[currentPage - 1]?.map(({ rank, player, frags }) => (
+              <Row gutter={12} key={rank}>
+                <Col xs={4}>
+                  <Text style={{ fontSize: fontSizeToRankMap[rank] ?? "auto" }}>
+                    #{rank} <Trophy rank={rank} />
+                  </Text>
+                </Col>
+                <Col xs={14}>
+                  <Text style={{ fontSize: fontSizeToRankMap[rank] ?? "auto" }}>{player}</Text>
+                </Col>
+                <Col xs={6}>
+                  <Text style={{ fontSize: fontSizeToRankMap[rank] ?? "auto" }}>{frags}</Text>
+                </Col>
+              </Row>
+            ))}
             <Row className="row-pagination">
               <Col xs={24} style={{ textAlign: "right" }}>
                 <Pagination

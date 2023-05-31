@@ -31,11 +31,7 @@ const NodeMonitors: React.FC<Props> = ({ nodeMonitors, isLoading }) => {
           count: nodeMonitors.length,
         })}
       </Title>
-      <Card
-        size="small"
-        className="detail-layout"
-        style={{ marginBottom: "12px" }}
-      >
+      <Card size="small" className="detail-layout" style={{ marginBottom: "12px" }}>
         {!isMediumAndLower ? (
           <Row gutter={6}>
             <Col md={6}>
@@ -108,156 +104,121 @@ const NodeMonitors: React.FC<Props> = ({ nodeMonitors, isLoading }) => {
           : null}
 
         {!isLoading && nodeMonitors.length
-          ? nodeMonitors.map(
-              (
-                { account, isOnline, isPrincipal, alias, ip, monitor },
-                index,
-              ) => {
-                const {
-                  version = "",
-                  storeVersion = "",
-                  nodeMonitorVersion = "",
-                  currentBlock = 0,
-                  uncheckedBlocks = 0,
-                  cementedBlocks = 0,
-                  numPeers = 0,
-                  systemUptime = "",
-                  usedMem = 0,
-                  totalMem = 0,
-                  nodeLocation = "",
-                  active_difficulty: { multiplier = "" } = {},
-                  blockSync = 0,
-                } = monitor;
+          ? nodeMonitors.map(({ account, isOnline, isPrincipal, alias, ip, monitor }, index) => {
+              const {
+                version = "",
+                storeVersion = "",
+                nodeMonitorVersion = "",
+                currentBlock = 0,
+                uncheckedBlocks = 0,
+                cementedBlocks = 0,
+                numPeers = 0,
+                systemUptime = "",
+                usedMem = 0,
+                totalMem = 0,
+                nodeLocation = "",
+                active_difficulty: { multiplier = "" } = {},
+                blockSync = 0,
+              } = monitor;
 
-                return (
-                  <Row gutter={6} key={index}>
-                    <Col xs={24} md={6}>
-                      <div style={{ display: "flex", margin: "3px 0" }}>
-                        {typeof isOnline === "boolean" ? (
-                          <Tag
-                            color={
-                              isOnline
-                                ? theme === Theme.DARK
-                                  ? TwoToneColors.RECEIVE_DARK
-                                  : TwoToneColors.RECEIVE
-                                : theme === Theme.DARK
-                                ? TwoToneColors.SEND_DARK
-                                : TwoToneColors.SEND
-                            }
-                            className={`tag-${isOnline ? "online" : "offline"}`}
-                          >
-                            {t(`common.${isOnline ? "online" : "offline"}`)}
-                          </Tag>
-                        ) : null}
-                        {isPrincipal ? (
-                          <Tag>{t("common.principalRepresentative")}</Tag>
-                        ) : null}
-                      </div>
-
-                      {alias ? (
-                        <div className="color-important">{alias}</div>
+              return (
+                <Row gutter={6} key={index}>
+                  <Col xs={24} md={6}>
+                    <div style={{ display: "flex", margin: "3px 0" }}>
+                      {typeof isOnline === "boolean" ? (
+                        <Tag
+                          color={
+                            isOnline
+                              ? theme === Theme.DARK
+                                ? TwoToneColors.RECEIVE_DARK
+                                : TwoToneColors.RECEIVE
+                              : theme === Theme.DARK
+                              ? TwoToneColors.SEND_DARK
+                              : TwoToneColors.SEND
+                          }
+                          className={`tag-${isOnline ? "online" : "offline"}`}
+                        >
+                          {t(`common.${isOnline ? "online" : "offline"}`)}
+                        </Tag>
                       ) : null}
+                      {isPrincipal ? <Tag>{t("common.principalRepresentative")}</Tag> : null}
+                    </div>
 
-                      <Link to={`/account/${account}`} className="break-word">
-                        {account}
-                      </Link>
-                    </Col>
-                    {Object.keys(monitor).length ? (
-                      <>
-                        <Col xs={12} md={4}>
-                          {version}
-                          <br />
-                          <Text className="color-muted">
-                            {t("pages.status.monitor")}
-                          </Text>{" "}
-                          {nodeMonitorVersion}
-                          <br />
-                          <Text className="color-muted">
-                            {t("pages.status.database")}
-                          </Text>{" "}
-                          {storeVersion}
-                        </Col>
-                        <Col xs={12} md={4}>
-                          <Text className="color-muted">
-                            {t("pages.status.count")}
-                          </Text>{" "}
-                          {new BigNumber(currentBlock).toFormat()}
-                          <br />
-                          <Text className="color-muted">
-                            {t("pages.status.unchecked")}
-                          </Text>{" "}
-                          {new BigNumber(uncheckedBlocks).toFormat()}
-                          <br />
-                          <Text className="color-muted">
-                            {t("pages.status.cemented")}
-                          </Text>{" "}
-                          {new BigNumber(cementedBlocks).toFormat()}
-                        </Col>
+                    {alias ? <div className="color-important">{alias}</div> : null}
 
-                        {!isMediumAndLower ? (
-                          <Col xs={12} md={2}>
-                            {numPeers}
-                          </Col>
-                        ) : null}
-                        <Col xs={12} md={4}>
-                          <Text className="color-muted">
-                            {t("pages.status.location")}
-                          </Text>{" "}
-                          {nodeLocation || t("common.unknown")}
-                          <br />
-                          <Text className="color-muted">
-                            {t("pages.status.uptime")}
-                          </Text>{" "}
-                          {systemUptime}
-                          <br />
-                          <Text className="color-muted">
-                            {t("pages.status.memory")}
-                          </Text>{" "}
-                          {new BigNumber(usedMem).dividedBy(1e3).toFormat(2)}/
-                          {new BigNumber(totalMem).dividedBy(1e3).toFormat(2)}{" "}
-                          GB
-                        </Col>
-                        <Col xs={12} md={4}>
-                          <Text className="color-muted">
-                            {t("pages.status.sync")}
-                          </Text>{" "}
-                          {blockSync} %
-                          <br />
-                          <Text className="color-muted">
-                            {t("pages.status.multiplier")}
-                          </Text>{" "}
-                          {multiplier}
-                          {isMediumAndLower ? (
-                            <>
-                              <br />
-                              <Text className="color-muted">
-                                {t("pages.status.peers")}
-                              </Text>{" "}
-                              {numPeers}
-                            </>
-                          ) : null}
-                        </Col>
-                      </>
-                    ) : null}
-                    {!Object.keys(monitor).length ? (
-                      <Col
-                        xs={24}
-                        md={18}
-                        style={{
-                          alignItems: "center",
-                          display: "flex",
-                          justifyContent: "center",
-                        }}
-                      >
-                        <Text className="color-muted">
-                          {t("pages.status.noMonitorFound")}
-                        </Text>
+                    <Link to={`/account/${account}`} className="break-word">
+                      {account}
+                    </Link>
+                  </Col>
+                  {Object.keys(monitor).length ? (
+                    <>
+                      <Col xs={12} md={4}>
+                        {version}
+                        <br />
+                        <Text className="color-muted">{t("pages.status.monitor")}</Text>{" "}
+                        {nodeMonitorVersion}
+                        <br />
+                        <Text className="color-muted">{t("pages.status.database")}</Text>{" "}
+                        {storeVersion}
                       </Col>
-                    ) : null}
-                  </Row>
-                );
-              },
-            )
+                      <Col xs={12} md={4}>
+                        <Text className="color-muted">{t("pages.status.count")}</Text>{" "}
+                        {new BigNumber(currentBlock).toFormat()}
+                        <br />
+                        <Text className="color-muted">{t("pages.status.unchecked")}</Text>{" "}
+                        {new BigNumber(uncheckedBlocks).toFormat()}
+                        <br />
+                        <Text className="color-muted">{t("pages.status.cemented")}</Text>{" "}
+                        {new BigNumber(cementedBlocks).toFormat()}
+                      </Col>
+
+                      {!isMediumAndLower ? (
+                        <Col xs={12} md={2}>
+                          {numPeers}
+                        </Col>
+                      ) : null}
+                      <Col xs={12} md={4}>
+                        <Text className="color-muted">{t("pages.status.location")}</Text>{" "}
+                        {nodeLocation || t("common.unknown")}
+                        <br />
+                        <Text className="color-muted">{t("pages.status.uptime")}</Text>{" "}
+                        {systemUptime}
+                        <br />
+                        <Text className="color-muted">{t("pages.status.memory")}</Text>{" "}
+                        {new BigNumber(usedMem).dividedBy(1e3).toFormat(2)}/
+                        {new BigNumber(totalMem).dividedBy(1e3).toFormat(2)} GB
+                      </Col>
+                      <Col xs={12} md={4}>
+                        <Text className="color-muted">{t("pages.status.sync")}</Text> {blockSync} %
+                        <br />
+                        <Text className="color-muted">{t("pages.status.multiplier")}</Text>{" "}
+                        {multiplier}
+                        {isMediumAndLower ? (
+                          <>
+                            <br />
+                            <Text className="color-muted">{t("pages.status.peers")}</Text>{" "}
+                            {numPeers}
+                          </>
+                        ) : null}
+                      </Col>
+                    </>
+                  ) : null}
+                  {!Object.keys(monitor).length ? (
+                    <Col
+                      xs={24}
+                      md={18}
+                      style={{
+                        alignItems: "center",
+                        display: "flex",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <Text className="color-muted">{t("pages.status.noMonitorFound")}</Text>
+                    </Col>
+                  ) : null}
+                </Row>
+              );
+            })
           : null}
 
         {!isLoading && !nodeMonitors.length ? (

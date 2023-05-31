@@ -40,20 +40,13 @@ const KnownAccountsPage: React.FC = () => {
               compare: (a, b) => a.total - b.total,
             },
             render: (text: string) => (
-              <span className="break-word">
-                Ӿ {new BigNumber(text).toFormat()}
-              </span>
+              <span className="break-word">Ӿ {new BigNumber(text).toFormat()}</span>
             ),
           },
           {
             title: t("common.alias"),
             dataIndex: "alias",
-            filterDropdown: ({
-              setSelectedKeys,
-              selectedKeys,
-              confirm,
-              clearFilters,
-            }) => (
+            filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
               <div style={{ padding: 8 }}>
                 <Input
                   // @ts-ignore
@@ -90,15 +83,10 @@ const KnownAccountsPage: React.FC = () => {
               </div>
             ),
             filterIcon: filtered => (
-              <SearchOutlined
-                style={{ color: filtered ? "#1890ff" : undefined }}
-              />
+              <SearchOutlined style={{ color: filtered ? "#1890ff" : undefined }} />
             ),
             onFilter: (value, record) =>
-              record["alias"]
-                .toString()
-                .toLowerCase()
-                .includes(String(value).toLowerCase()),
+              record["alias"].toString().toLowerCase().includes(String(value).toLowerCase()),
             onFilterDropdownVisibleChange: visible => {
               if (visible) {
                 setTimeout(() => inputRef?.current?.select());
@@ -119,19 +107,14 @@ const KnownAccountsPage: React.FC = () => {
                 return 0;
               },
             },
-            render: (text: string) => (
-              <span className="color-important break-word">{text}</span>
-            ),
+            render: (text: string) => <span className="color-important break-word">{text}</span>,
           },
           {
             title: t("common.account"),
             dataIndex: "account",
             render: (text: string) => (
               <>
-                <Link
-                  to={`/account/${text}`}
-                  className="color-normal break-word"
-                >
+                <Link to={`/account/${text}`} className="color-normal break-word">
                   {text}
                 </Link>
               </>

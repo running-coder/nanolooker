@@ -32,9 +32,7 @@ interface Props {
 }
 
 const Provider: React.FC<Props> = ({ children }) => {
-  const [nodeStatus, setNodeStatus] = React.useState<NodeStatus>(
-    {} as NodeStatus,
-  );
+  const [nodeStatus, setNodeStatus] = React.useState<NodeStatus>({} as NodeStatus);
   const [isLoading, setIsLoading] = React.useState(false);
   const [isError, setIsError] = React.useState(false);
 
@@ -54,9 +52,7 @@ const Provider: React.FC<Props> = ({ children }) => {
   }, []);
 
   return (
-    <NodeStatusContext.Provider
-      value={{ nodeStatus, getNodeStatus, isLoading, isError }}
-    >
+    <NodeStatusContext.Provider value={{ nodeStatus, getNodeStatus, isLoading, isError }}>
       {children}
     </NodeStatusContext.Provider>
   );

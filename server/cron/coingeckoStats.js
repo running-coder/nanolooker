@@ -246,20 +246,14 @@ const getMarketCapStats = async () => {
         id: { $nin: ids },
       });
     } else {
-      console.log(
-        `Failed to get top ${top} cryptocurrencies`,
-        cryptocurrencies,
-      );
+      console.log(`Failed to get top ${top} cryptocurrencies`, cryptocurrencies);
       await sleep(10000);
 
       getMarketCapStats();
       return;
     }
 
-    const marketCapStats = await db
-      .collection(MARKET_CAP_STATS_COLLECTION)
-      .find()
-      .toArray();
+    const marketCapStats = await db.collection(MARKET_CAP_STATS_COLLECTION).find().toArray();
 
     nodeCache.set(COINGECKO_MARKET_CAP_STATS, marketCapStats);
 

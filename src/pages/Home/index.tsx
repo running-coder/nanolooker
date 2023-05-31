@@ -18,11 +18,7 @@ import {
   TOTAL_VOLUME_48H,
 } from "api/contexts/MarketStatistics";
 import { NodeStatusContext } from "api/contexts/NodeStatus";
-import {
-  CurrencyDecimal,
-  CurrencySymbol,
-  PreferencesContext,
-} from "api/contexts/Preferences";
+import { CurrencyDecimal, CurrencySymbol, PreferencesContext } from "api/contexts/Preferences";
 import { RepresentativesContext } from "api/contexts/Representatives";
 import useAvailableSupply from "api/hooks/use-available-supply";
 import LoadingStatistic from "components/LoadingStatistic";
@@ -52,17 +48,13 @@ const HomePage = () => {
   } = marketStatistics;
 
   const { count } = React.useContext(BlockCountContext);
-  const { confirmation_stats: { average = 0 } = {} } = React.useContext(
-    ConfirmationHistoryContext,
-  );
+  const { confirmation_stats: { average = 0 } = {} } = React.useContext(ConfirmationHistoryContext);
   const { representatives } = React.useContext(RepresentativesContext);
   const {
     nodeStatus: { ledgerSize },
     isLoading: isNodeStatusLoading,
   } = React.useContext(NodeStatusContext);
-  const [formattedLedgerSize, setFormattedLedgerSize] = React.useState(
-    formatBytes(0),
-  );
+  const [formattedLedgerSize, setFormattedLedgerSize] = React.useState(formatBytes(0));
 
   const btcCurrentPrice = priceStats?.bitcoin?.[fiat] || 0;
   const btcTransactionFees24h =
@@ -82,10 +74,7 @@ const HomePage = () => {
 
   let onChainVolume48hAgo = 0;
   let onChainVolumeChange24h = 0;
-  if (
-    marketStatistics[TOTAL_VOLUME_24H] &&
-    marketStatistics[TOTAL_VOLUME_48H]
-  ) {
+  if (marketStatistics[TOTAL_VOLUME_24H] && marketStatistics[TOTAL_VOLUME_48H]) {
     onChainVolume48hAgo = new BigNumber(marketStatistics[TOTAL_VOLUME_48H])
       .minus(marketStatistics[TOTAL_VOLUME_24H])
       .toNumber();
@@ -98,18 +87,11 @@ const HomePage = () => {
 
   let totalConfirmations48hAgo = 0;
   let confirmationChange24h = 0;
-  if (
-    marketStatistics[TOTAL_CONFIRMATIONS_24H] &&
-    marketStatistics[TOTAL_CONFIRMATIONS_48H]
-  ) {
-    totalConfirmations48hAgo = new BigNumber(
-      marketStatistics[TOTAL_CONFIRMATIONS_48H],
-    )
+  if (marketStatistics[TOTAL_CONFIRMATIONS_24H] && marketStatistics[TOTAL_CONFIRMATIONS_48H]) {
+    totalConfirmations48hAgo = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_48H])
       .minus(marketStatistics[TOTAL_CONFIRMATIONS_24H])
       .toNumber();
-    confirmationChange24h = new BigNumber(
-      marketStatistics[TOTAL_CONFIRMATIONS_24H],
-    )
+    confirmationChange24h = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_24H])
       .minus(totalConfirmations48hAgo)
       .dividedBy(totalConfirmations48hAgo)
       .times(100)
@@ -124,19 +106,11 @@ const HomePage = () => {
     <>
       <Banner />
       <Row gutter={[12, 0]}>
-        <Col
-          xs={{ span: 24, order: 3 }}
-          md={{ span: 12, order: 1 }}
-          style={{ width: "100%" }}
-        >
+        <Col xs={{ span: 24, order: 3 }} md={{ span: 12, order: 1 }} style={{ width: "100%" }}>
           <Card
             size="small"
             title={t("pages.home.network")}
-            extra={
-              <Link to="/statistics/social">
-                {t("pages.home.viewSocialEngagement")}
-              </Link>
-            }
+            extra={<Link to="/statistics/social">{t("pages.home.viewSocialEngagement")}</Link>}
           >
             <Row gutter={6}>
               <Col xs={24} sm={12}>
@@ -147,9 +121,7 @@ const HomePage = () => {
                 />
                 <LoadingStatistic
                   isLoading={
-                    isMarketStatisticsInitialLoading ||
-                    isMarketStatisticsError ||
-                    !availableSupply
+                    isMarketStatisticsInitialLoading || isMarketStatisticsError || !availableSupply
                   }
                   title={t("pages.home.circulatingSupply")}
                   tooltip={t("tooltips.circulatingSupply") as string}
@@ -168,9 +140,8 @@ const HomePage = () => {
                   isLoading={!representatives.length}
                   title={t("pages.home.principalRepOnline")}
                   value={
-                    representatives.filter(
-                      ({ isOnline, isPrincipal }) => isOnline && isPrincipal,
-                    )?.length
+                    representatives.filter(({ isOnline, isPrincipal }) => isOnline && isPrincipal)
+                      ?.length
                   }
                 />
                 <LoadingStatistic
@@ -210,12 +181,7 @@ const HomePage = () => {
                   }
                   tooltip={t("tooltips.onChainVolume") as string}
                   title={t("pages.home.onChainVolume")}
-                  suffix={
-                    <StatisticsChange
-                      value={onChainVolumeChange24h}
-                      isPercent
-                    />
-                  }
+                  suffix={<StatisticsChange value={onChainVolumeChange24h} isPercent />}
                   value={new BigNumber(marketStatistics[TOTAL_VOLUME_24H])
                     .decimalPlaces(5)
                     .toNumber()}
@@ -227,9 +193,7 @@ const HomePage = () => {
                     !confirmationChange24h
                   }
                   title={t("pages.home.confirmedTransactions")}
-                  suffix={
-                    <StatisticsChange value={confirmationChange24h} isPercent />
-                  }
+                  suffix={<StatisticsChange value={confirmationChange24h} isPercent />}
                   value={marketStatistics[TOTAL_CONFIRMATIONS_24H]}
                 />
                 {isSmallAndLower ? (
@@ -241,21 +205,12 @@ const HomePage = () => {
                   />
                 ) : null}
                 <LoadingStatistic
-                  isLoading={
-                    isMarketStatisticsInitialLoading || isMarketStatisticsError
-                  }
-                  title={`${t(
-                    "pages.home.bitcoinTransactionFees",
-                  )} (${fiat.toUpperCase()})`}
+                  isLoading={isMarketStatisticsInitialLoading || isMarketStatisticsError}
+                  title={`${t("pages.home.bitcoinTransactionFees")} (${fiat.toUpperCase()})`}
                   tooltip={t("tooltips.bitcoinTransactionFees") as string}
                   prefix={CurrencySymbol?.[fiat]}
                   value={btcTransactionFees24h}
-                  suffix={
-                    <StatisticsChange
-                      value={btcTransactionFeesChange24h}
-                      isPercent
-                    />
-                  }
+                  suffix={<StatisticsChange value={btcTransactionFeesChange24h} isPercent />}
                 />
               </Col>
             </Row>
@@ -273,18 +228,13 @@ const HomePage = () => {
               <Col xs={24}>
                 <LoadingStatistic
                   isLoading={
-                    !marketCapRank ||
-                    isMarketStatisticsInitialLoading ||
-                    isMarketStatisticsError
+                    !marketCapRank || isMarketStatisticsInitialLoading || isMarketStatisticsError
                   }
                   title={t("pages.home.marketCapRank")}
                   prefix="#"
                   suffix={
                     marketCapRank24h ? (
-                      <StatisticsChange
-                        value={marketCapRank24h - marketCapRank}
-                        isNumber
-                      />
+                      <StatisticsChange value={marketCapRank24h - marketCapRank} isNumber />
                     ) : null
                   }
                   value={`${marketCapRank}`}
@@ -292,29 +242,18 @@ const HomePage = () => {
 
                 <LoadingStatistic
                   isLoading={
-                    !marketCap ||
-                    isMarketStatisticsInitialLoading ||
-                    isMarketStatisticsError
+                    !marketCap || isMarketStatisticsInitialLoading || isMarketStatisticsError
                   }
                   title={`${t("pages.home.marketCap")} (${fiat.toUpperCase()})`}
                   prefix={CurrencySymbol?.[fiat]}
-                  suffix={
-                    <StatisticsChange
-                      value={marketCapChangePercentage24h}
-                      isPercent
-                    />
-                  }
+                  suffix={<StatisticsChange value={marketCapChangePercentage24h} isPercent />}
                   value={`${new BigNumber(marketCap).toNumber()}`}
                 />
                 <LoadingStatistic
                   isLoading={
-                    !volume24h ||
-                    isMarketStatisticsInitialLoading ||
-                    isMarketStatisticsError
+                    !volume24h || isMarketStatisticsInitialLoading || isMarketStatisticsError
                   }
-                  title={`${t(
-                    "pages.home.exchangeVolume",
-                  )} (${fiat.toUpperCase()})`}
+                  title={`${t("pages.home.exchangeVolume")} (${fiat.toUpperCase()})`}
                   prefix={CurrencySymbol?.[fiat]}
                   value={`${new BigNumber(volume24h).toNumber()}`}
                 />

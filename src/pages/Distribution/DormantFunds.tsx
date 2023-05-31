@@ -21,8 +21,7 @@ const DormantFunds: React.FC<Props> = ({ data }) => {
   const { t } = useTranslation();
   const [marks, setMarks] = React.useState({});
   const [totalFunds, setTotalFunds] = React.useState<number>(0);
-  const [unknownDormantFunds, setUnknownDormantFunds] =
-    React.useState<number>(0);
+  const [unknownDormantFunds, setUnknownDormantFunds] = React.useState<number>(0);
   const {
     frontierCount: { count: frontierCount },
   } = useFrontierCount();
@@ -41,42 +40,29 @@ const DormantFunds: React.FC<Props> = ({ data }) => {
 
         totalFunds = new BigNumber(totalFunds).plus(total).toNumber();
         dormantFundsByRange[key] = {
-          total: new BigNumber(dormantFundsByRange[key]?.total || 0)
-            .plus(total)
-            .toNumber(),
+          total: new BigNumber(dormantFundsByRange[key]?.total || 0).plus(total).toNumber(),
         };
       });
     });
 
     let totalDormant: number = 0;
     const dormantFundsByRangeKeys = Object.keys(dormantFundsByRange);
-    const marks = dormantFundsByRangeKeys.reduce(
-      (acc: any = {}, key: string, i: number) => {
-        const percent = Math.ceil(
-          (100 / (dormantFundsByRangeKeys.length - 1)) * i,
-        );
+    const marks = dormantFundsByRangeKeys.reduce((acc: any = {}, key: string, i: number) => {
+      const percent = Math.ceil((100 / (dormantFundsByRangeKeys.length - 1)) * i);
 
-        dormantFundsByRange[key].percent = percent;
-        totalDormant =
-          i === 0
-            ? 0
-            : new BigNumber(totalDormant)
-                .plus(dormantFundsByRange[key].total)
-                .toNumber();
-        dormantFundsByRange[key].totalDormant = totalDormant;
+      dormantFundsByRange[key].percent = percent;
+      totalDormant =
+        i === 0 ? 0 : new BigNumber(totalDormant).plus(dormantFundsByRange[key].total).toNumber();
+      dormantFundsByRange[key].totalDormant = totalDormant;
 
-        acc[percent] = key;
+      acc[percent] = key;
 
-        return acc;
-      },
-      {},
-    );
+      return acc;
+    }, {});
 
     setMarks(marks);
     setTotalFunds(totalFunds);
-    setUnknownDormantFunds(
-      new BigNumber(availableSupply).minus(totalFunds).toNumber(),
-    );
+    setUnknownDormantFunds(new BigNumber(availableSupply).minus(totalFunds).toNumber());
   }, [data, availableSupply]);
 
   return (
@@ -102,9 +88,7 @@ const DormantFunds: React.FC<Props> = ({ data }) => {
               </li>
               <li>
                 {t("pages.distribution.unknownDormantFunds")}:{" "}
-                <strong>
-                  Ӿ {new BigNumber(unknownDormantFunds).toFormat()}
-                </strong>
+                <strong>Ӿ {new BigNumber(unknownDormantFunds).toFormat()}</strong>
               </li>
             </ul>
           </Text>
@@ -115,9 +99,7 @@ const DormantFunds: React.FC<Props> = ({ data }) => {
 
         <div
           style={{
-            margin: `${
-              isMediumAndLower ? "48px 20px 48px auto" : "72px auto 0"
-            }`,
+            margin: `${isMediumAndLower ? "48px 20px 48px auto" : "72px auto 0"}`,
             width: isMediumAndLower ? "20%" : "90%",
             height: isMediumAndLower ? "300px" : "auto",
           }}

@@ -14,10 +14,8 @@ interface Props {
 
 const LivePreference: React.FC<Props> = ({ isDetailed }) => {
   const { t } = useTranslation();
-  const {
-    disableLiveTransactions,
-    setDisableLiveTransactions,
-  } = React.useContext(PreferencesContext);
+  const { disableLiveTransactions, setDisableLiveTransactions } =
+    React.useContext(PreferencesContext);
 
   return (
     <Row>
@@ -28,9 +26,7 @@ const LivePreference: React.FC<Props> = ({ isDetailed }) => {
       </Col>
       {isDetailed ? (
         <Col xs={18}>
-          <Text>
-            {t("preferences.liveTransactionsDetailed")}
-          </Text>
+          <Text>{t("preferences.liveTransactionsDetailed")}</Text>
         </Col>
       ) : null}
 

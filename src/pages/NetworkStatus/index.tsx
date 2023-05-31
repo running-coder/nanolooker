@@ -2,10 +2,7 @@ import * as React from "react";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
 
-import {
-  Representative,
-  RepresentativesContext,
-} from "api/contexts/Representatives";
+import { Representative, RepresentativesContext } from "api/contexts/Representatives";
 import useNodeMonitors, { NodeMonitor } from "api/hooks/use-node-monitors";
 
 import NodeMap from "./NodeMap";
@@ -19,10 +16,8 @@ const NetworkStatusPage: React.FC = () => {
   const { t } = useTranslation();
   const [nodes, setNodes] = React.useState([] as Node[]);
   const [isLoading, setIsLoading] = React.useState(true);
-  const {
-    representatives,
-    isLoading: isRepresentativesLoading,
-  } = React.useContext(RepresentativesContext);
+  const { representatives, isLoading: isRepresentativesLoading } =
+    React.useContext(RepresentativesContext);
   const { isLoading: isNodeMonitorsLoading, nodeMonitors } = useNodeMonitors();
 
   React.useEffect(() => {
@@ -32,9 +27,7 @@ const NetworkStatusPage: React.FC = () => {
       const nodes = nodeMonitors
         .filter(({ monitor }) => !!Object.keys(monitor).length)
         .map(node => {
-          const representative = representatives.find(
-            ({ account }) => account === node.account,
-          );
+          const representative = representatives.find(({ account }) => account === node.account);
 
           return {
             ...node,

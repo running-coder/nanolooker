@@ -18,13 +18,11 @@ export interface ConfirmationQuorumReturn {
   isError: boolean;
 }
 
-export const ConfirmationQuorumContext = React.createContext<ConfirmationQuorumReturn>(
-  {
-    confirmationQuorum: {} as ConfirmationQuorumRPCResponse,
-    isLoading: false,
-    isError: false,
-  },
-);
+export const ConfirmationQuorumContext = React.createContext<ConfirmationQuorumReturn>({
+  confirmationQuorum: {} as ConfirmationQuorumRPCResponse,
+  isLoading: false,
+  isError: false,
+});
 
 interface Props {
   children: React.ReactNode;
@@ -51,9 +49,7 @@ const Provider: React.FC<Props> = ({ children }) => {
   }, []);
 
   return (
-    <ConfirmationQuorumContext.Provider
-      value={{ confirmationQuorum, isLoading, isError }}
-    >
+    <ConfirmationQuorumContext.Provider value={{ confirmationQuorum, isLoading, isError }}>
       {children}
     </ConfirmationQuorumContext.Provider>
   );

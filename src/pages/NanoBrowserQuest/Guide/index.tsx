@@ -83,11 +83,7 @@ const Image: React.FC<HTMLImageElement> = ({ src, alt: rawAttributes }) => {
     }
 
     return (
-      <Tooltip
-        placement="right"
-        title={title}
-        overlayClassName="tooltip-nbq-item"
-      >
+      <Tooltip placement="right" title={title} overlayClassName="tooltip-nbq-item">
         <div
           className="item-container"
           style={{

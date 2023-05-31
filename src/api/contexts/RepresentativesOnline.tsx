@@ -13,13 +13,11 @@ export interface RepresentativesOnlineReturn {
   isError: boolean;
 }
 
-export const RepresentativesOnlineContext = React.createContext<RepresentativesOnlineReturn>(
-  {
-    representatives: [],
-    isLoading: false,
-    isError: false,
-  },
-);
+export const RepresentativesOnlineContext = React.createContext<RepresentativesOnlineReturn>({
+  representatives: [],
+  isLoading: false,
+  isError: false,
+});
 
 interface Props {
   children: React.ReactNode;
@@ -50,9 +48,7 @@ const Provider: React.FC<Props> = ({ children }) => {
   }, []);
 
   return (
-    <RepresentativesOnlineContext.Provider
-      value={{ representatives, isLoading, isError }}
-    >
+    <RepresentativesOnlineContext.Provider value={{ representatives, isLoading, isError }}>
       {children}
     </RepresentativesOnlineContext.Provider>
   );

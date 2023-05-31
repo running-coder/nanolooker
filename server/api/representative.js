@@ -21,9 +21,7 @@ const setRepresentatives = async ({ metrics, peers }) => {
 
   try {
     const response = await rpc("version");
-    const [, major, minor, patch = 0] = /(\d+).(\d+)(\.\d+)?/.exec(
-      response.node_vendor,
-    );
+    const [, major, minor, patch = 0] = /(\d+).(\d+)(\.\d+)?/.exec(response.node_vendor);
     const version = parseInt(`${major}${minor}${patch}`);
 
     peers
@@ -41,8 +39,7 @@ const setRepresentatives = async ({ metrics, peers }) => {
 
           metric.version = `${majorVersion}.${minorVersion}.${patchVersion}`;
           metric.isLatestVersion =
-            parseInt(`${majorVersion}${minorVersion}${patchVersion}`) >=
-            parseInt(version);
+            parseInt(`${majorVersion}${minorVersion}${patchVersion}`) >= parseInt(version);
         }
 
         representatives[peer.account] = metric;

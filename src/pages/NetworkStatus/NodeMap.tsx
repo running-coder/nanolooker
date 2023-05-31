@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { MapContainer, Marker, Popup,TileLayer } from "react-leaflet";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import { Link } from "react-router-dom";
 
 import { Typography } from "antd";
@@ -92,20 +92,14 @@ const Markers = React.memo(({ nodes }: { nodes: NodeLocation[] }) => {
             >
               <Popup>
                 <>
-                  {alias ? (
-                    <strong style={{ display: "block" }}>{alias}</strong>
-                  ) : null}
+                  {alias ? <strong style={{ display: "block" }}>{alias}</strong> : null}
 
-                  <span className="break-word color-normal">
-                    {account || nodeId}
-                  </span>
+                  <span className="break-word color-normal">{account || nodeId}</span>
 
                   {account ? (
                     <>
                       <br />
-                      <Link to={`/account/${account}`}>
-                        {t("pages.status.viewAccount")}
-                      </Link>
+                      <Link to={`/account/${account}`}>{t("pages.status.viewAccount")}</Link>
                     </>
                   ) : null}
                 </>
@@ -126,18 +120,15 @@ interface Props {
 const NodeMap: React.FC<Props> = ({ nodeMonitors, isLoading }) => {
   const { t } = useTranslation();
   const [nodes, setNodes] = React.useState([] as NodeLocation[]);
-  const { knownAccounts, isLoading: isKnownAccountsLoading } = React.useContext(
-    KnownAccountsContext,
-  );
+  const { knownAccounts, isLoading: isKnownAccountsLoading } =
+    React.useContext(KnownAccountsContext);
 
   React.useEffect(() => {
     if (isKnownAccountsLoading || isLoading) return;
 
     getNodeLocations().then(nodeLocations => {
       const nodes = nodeLocations?.map(nodeLocation => {
-        const nodeMonitor = nodeMonitors?.find(
-          ({ rawIp }) => rawIp === nodeLocation.rawIp,
-        );
+        const nodeMonitor = nodeMonitors?.find(({ rawIp }) => rawIp === nodeLocation.rawIp);
         const knownAccount = nodeMonitor
           ? knownAccounts.find(({ account }) => account === nodeMonitor.account)
           : null;

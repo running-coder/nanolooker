@@ -4,11 +4,7 @@ import { Skeleton } from "antd";
 import BigNumber from "bignumber.js";
 
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
-import {
-  CurrencyDecimal,
-  CurrencySymbol,
-  PreferencesContext,
-} from "api/contexts/Preferences";
+import { CurrencyDecimal, CurrencySymbol, PreferencesContext } from "api/contexts/Preferences";
 import SupportedCryptocurrency from "components/Preferences/Cryptocurrency/supported-cryptocurrency.json";
 import StatisticsChange from "components/StatisticsChange";
 
@@ -36,9 +32,7 @@ const Price = () => {
             ({ symbol: supportedSymbol }) => supportedSymbol === symbol,
           );
 
-          return crypto ? (
-            <CryptocurrencyPrice {...crypto} key={symbol} />
-          ) : null;
+          return crypto ? <CryptocurrencyPrice {...crypto} key={symbol} /> : null;
         })}
       </Skeleton>
     </>
@@ -51,11 +45,7 @@ interface CryptocurrencyPriceProps {
   name: string;
 }
 
-const CryptocurrencyPrice = ({
-  id,
-  symbol,
-  name,
-}: CryptocurrencyPriceProps) => {
+const CryptocurrencyPrice = ({ id, symbol, name }: CryptocurrencyPriceProps) => {
   const { fiat } = React.useContext(PreferencesContext);
   const {
     marketStatistics: { priceStats },
@@ -66,13 +56,10 @@ const CryptocurrencyPrice = ({
 
   const originalPrice = new BigNumber(priceStats?.[id]?.[fiat]).toNumber();
   const decimals: number = CurrencyDecimal?.[fiat];
-  const flooredPrice =
-    Math.floor(originalPrice * Math.pow(10, decimals)) / Math.pow(10, decimals);
+  const flooredPrice = Math.floor(originalPrice * Math.pow(10, decimals)) / Math.pow(10, decimals);
   const zerosAfterInt = -Math.floor(Math.log(originalPrice) / Math.log(10) + 1);
   const [, decimalString = ""] = String(originalPrice).split(".");
-  const trailingDecimals = zerosAfterInt
-    ? decimalString.substr(2, zerosAfterInt)
-    : null;
+  const trailingDecimals = zerosAfterInt ? decimalString.substr(2, zerosAfterInt) : null;
   const price24hChange = priceStats?.[id]?.[`${fiat}_24h_change`];
 
   return (
@@ -94,18 +81,14 @@ const CryptocurrencyPrice = ({
       <span style={{ marginRight: "6px" }}>
         {CurrencySymbol?.[fiat]}
         {new BigNumber(flooredPrice).toFormat(CurrencyDecimal?.[fiat])}
-        {trailingDecimals ? (
-          <span style={{ fontSize: "10px" }}>{trailingDecimals}</span>
-        ) : null}
+        {trailingDecimals ? <span style={{ fontSize: "10px" }}>{trailingDecimals}</span> : null}
       </span>
       <StatisticsChange
         value={price24hChange}
         isPercent
         suffix={
           <>
-            {(symbol === "nano" || symbol === "xno") && price24hChange >= 25
-              ? "🥦"
-              : null}
+            {(symbol === "nano" || symbol === "xno") && price24hChange >= 25 ? "🥦" : null}
             {symbol === "ban" && price24hChange >= 25 ? "🍌" : null}
           </>
         }

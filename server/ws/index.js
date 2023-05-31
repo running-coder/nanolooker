@@ -89,9 +89,7 @@ ws.onmessage = msg => {
 
     // Skip accumulating dust amounts
     if (["send", "receive"].includes(subtype) && amount.length >= 25) {
-      accumulatedVolume = new BigNumber(amount)
-        .plus(accumulatedVolume)
-        .toNumber();
+      accumulatedVolume = new BigNumber(amount).plus(accumulatedVolume).toNumber();
     }
   }
 };

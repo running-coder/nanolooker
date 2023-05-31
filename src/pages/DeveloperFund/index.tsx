@@ -10,11 +10,7 @@ import orderBy from "lodash/orderBy";
 import TimeAgo from "timeago-react";
 
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
-import {
-  CurrencyDecimal,
-  CurrencySymbol,
-  PreferencesContext,
-} from "api/contexts/Preferences";
+import { CurrencyDecimal, CurrencySymbol, PreferencesContext } from "api/contexts/Preferences";
 import useAccountsBalances from "api/hooks/use-accounts-balances";
 import useAvailableSupply from "api/hooks/use-available-supply";
 import useDeveloperAccountFund from "api/hooks/use-developer-fund-transactions";
@@ -61,9 +57,7 @@ const DeveloperFund: React.FC = () => {
           .plus(rawToRai(pending || 0))
           .toNumber();
 
-        totalBalance = new BigNumber(totalBalance)
-          .plus(calculatedBalance)
-          .toNumber();
+        totalBalance = new BigNumber(totalBalance).plus(calculatedBalance).toNumber();
 
         accounts.push({
           account,
@@ -83,10 +77,7 @@ const DeveloperFund: React.FC = () => {
     .times(currentPrice)
     .toFormat(CurrencyDecimal?.[fiat]);
   const btcBalance = btcCurrentPrice
-    ? new BigNumber(totalBalance)
-        .times(currentPrice)
-        .dividedBy(btcCurrentPrice)
-        .toFormat(12)
+    ? new BigNumber(totalBalance).times(currentPrice).dividedBy(btcCurrentPrice).toFormat(12)
     : null;
 
   const skeletonProps = {
@@ -172,33 +163,18 @@ const DeveloperFund: React.FC = () => {
                   {timestampToDate(modifiedTimestamp)})
                   <br />
                 </Skeleton>
-                <Skeleton
-                  active
-                  loading={!lastTransactionAmount}
-                  paragraph={false}
-                >
+                <Skeleton active loading={!lastTransactionAmount} paragraph={false}>
                   Ӿ {lastTransactionAmount}
                   <br />
                 </Skeleton>
-                <Skeleton
-                  active
-                  loading={!lastTransactionHash}
-                  paragraph={false}
-                >
-                  <Link
-                    to={`/block/${lastTransactionHash}`}
-                    className="break-word"
-                  >
+                <Skeleton active loading={!lastTransactionHash} paragraph={false}>
+                  <Link to={`/block/${lastTransactionHash}`} className="break-word">
                     {lastTransactionHash}
                   </Link>
                   <br />
                 </Skeleton>
                 <Link to={`/developer-fund/transactions`}>
-                  <Button
-                    type="primary"
-                    size="small"
-                    style={{ marginTop: "6px" }}
-                  >
+                  <Button type="primary" size="small" style={{ marginTop: "6px" }}>
                     {t("pages.developerFund.allTransactions")}
                   </Button>
                 </Link>
@@ -207,9 +183,7 @@ const DeveloperFund: React.FC = () => {
           </Card>
         </Col>
         <Col xs={24} lg={12}>
-          <Title level={3}>
-            {t("pages.developerFund.originalDeveloperFund")}
-          </Title>
+          <Title level={3}>{t("pages.developerFund.originalDeveloperFund")}</Title>
           <Card size="small" className="detail-layout">
             <div
               className="divider"
@@ -220,9 +194,7 @@ const DeveloperFund: React.FC = () => {
             >
               <Trans i18nKey="pages.developerFund.originalDeveloperFundDescription">
                 <Link to={`/account/${GENESIS_ACCOUNT}`}>Genesis</Link>
-                <Link
-                  to={`/block/${ORIGINAL_DEVELOPER_FUND_BURN_BLOCK}`}
-                ></Link>
+                <Link to={`/block/${ORIGINAL_DEVELOPER_FUND_BURN_BLOCK}`}></Link>
               </Trans>
               <br />
               <a
@@ -240,10 +212,7 @@ const DeveloperFund: React.FC = () => {
                 {t("common.account")}
               </Col>
               <Col xs={24} sm={18}>
-                <Link
-                  to={`/account/${ORIGINAL_DEVELOPER_FUND_ACCOUNT}`}
-                  className="break-word"
-                >
+                <Link to={`/account/${ORIGINAL_DEVELOPER_FUND_ACCOUNT}`} className="break-word">
                   {ORIGINAL_DEVELOPER_FUND_ACCOUNT}
                 </Link>
               </Col>
@@ -256,9 +225,7 @@ const DeveloperFund: React.FC = () => {
                 Ӿ {new BigNumber("7000000").toFormat()}
                 <br />
                 {t("pages.developerFund.percentOfTotal", {
-                  percent: new BigNumber(7000000 * 100)
-                    .dividedBy(availableSupply)
-                    .toFormat(2),
+                  percent: new BigNumber(7000000 * 100).dividedBy(availableSupply).toFormat(2),
                 })}
               </Col>
             </Row>
@@ -267,10 +234,7 @@ const DeveloperFund: React.FC = () => {
                 {t("common.block")}
               </Col>
               <Col xs={24} sm={18}>
-                <Link
-                  to={`/block/${ORIGINAL_DEVELOPER_FUND_BLOCK}`}
-                  className="break-word"
-                >
+                <Link to={`/block/${ORIGINAL_DEVELOPER_FUND_BLOCK}`} className="break-word">
                   {ORIGINAL_DEVELOPER_FUND_BLOCK}
                 </Link>
               </Col>
@@ -283,11 +247,7 @@ const DeveloperFund: React.FC = () => {
         {t("pages.developerFund.totalAccounts", { totalAccounts: data.length })}
       </Title>
 
-      <Card
-        size="small"
-        className="detail-layout"
-        style={{ marginBottom: "12px" }}
-      >
+      <Card size="small" className="detail-layout" style={{ marginBottom: "12px" }}>
         {!isSmallAndLower ? (
           <>
             <Row gutter={6}>

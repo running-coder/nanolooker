@@ -56,21 +56,15 @@ export const secondsToTime = (value: string | number): string => {
   const bigSeconds = new BigNumber(value.toString());
 
   const bigBinutes = bigSeconds.dividedBy(60);
-  const minutes = (Math.floor(bigBinutes.toNumber()) % 60)
-    .toString()
-    .padStart(2, "0");
+  const minutes = (Math.floor(bigBinutes.toNumber()) % 60).toString().padStart(2, "0");
   const bigHours = bigBinutes.dividedBy(60);
-  const hours = (Math.floor(bigHours.toNumber()) % 24)
-    .toString()
-    .padStart(2, "0");
+  const hours = (Math.floor(bigHours.toNumber()) % 24).toString().padStart(2, "0");
   const bigDays = bigHours.dividedBy(24);
   const days = Math.floor(bigDays.toNumber()) % 30;
   const bigMonths = bigDays.dividedBy(30);
   const months = Math.floor(bigMonths.toNumber());
 
-  return `${months ? `${months}M ` : ""}${
-    days ? `${days}d ` : ""
-  }${hours}h ${minutes}m`;
+  return `${months ? `${months}M ` : ""}${days ? `${days}d ` : ""}${hours}h ${minutes}m`;
 };
 
 export const formatPublicAddress = (address: string): string => {
@@ -84,17 +78,12 @@ export const ACCOUNT_REGEX = /((nano|xrb)_)?[13][13-9a-km-uw-z]{59}/;
 export const BLOCK_REGEX = /[0-9A-F]{64}/;
 
 export const isValidAccountAddress = (address: string): boolean =>
-  new RegExp(`^${ACCOUNT_REGEX.toString().replace(/\//g, "")}$`, "i").test(
-    address,
-  );
+  new RegExp(`^${ACCOUNT_REGEX.toString().replace(/\//g, "")}$`, "i").test(address);
 
 export const getAccountAddressFromText = (text: string): string | null => {
   const [, address] =
     text?.match(
-      new RegExp(
-        `[^sS]*?(${ACCOUNT_REGEX.toString().replace(/\//g, "")})[^sS]*?`,
-        "i",
-      ),
+      new RegExp(`[^sS]*?(${ACCOUNT_REGEX.toString().replace(/\//g, "")})[^sS]*?`, "i"),
     ) || [];
   return address;
 };
@@ -109,8 +98,7 @@ export const getPrefixedAccount = (address: string) => {
   return account;
 };
 
-export const isNullAccountBlockHash = (hash: string): boolean =>
-  /^[0]{64}$/.test(hash);
+export const isNullAccountBlockHash = (hash: string): boolean => /^[0]{64}$/.test(hash);
 
 export const isValidBlockHash = (hash: string): boolean =>
   !/^[0]+$/.test(hash) &&
@@ -118,35 +106,26 @@ export const isValidBlockHash = (hash: string): boolean =>
 
 export const getAccountBlockHashFromText = (text: string): string | null => {
   const [, hash] =
-    text?.match(
-      new RegExp(
-        `[^sS]*?(${BLOCK_REGEX.toString().replace(/\//g, "")})[^sS]*?`,
-        "i",
-      ),
-    ) || [];
+    text?.match(new RegExp(`[^sS]*?(${BLOCK_REGEX.toString().replace(/\//g, "")})[^sS]*?`, "i")) ||
+    [];
   return hash;
 };
 
 export const timestampToDate = (timestamp: string | number) => {
   const date = new Date(timestamp);
 
-  return `${date.getFullYear()}/${String(date.getMonth() + 1).padStart(
-    2,
-    "0",
-  )}/${String(date.getDate()).padStart(2, "0")} ${String(
-    date.getHours(),
-  ).padStart(2, "0")}:${String(date.getMinutes()).padStart(2, "0")}:${String(
-    date.getSeconds(),
-  ).padStart(2, "0")}`;
+  return `${date.getFullYear()}/${String(date.getMonth() + 1).padStart(2, "0")}/${String(
+    date.getDate(),
+  ).padStart(2, "0")} ${String(date.getHours()).padStart(2, "0")}:${String(
+    date.getMinutes(),
+  ).padStart(2, "0")}:${String(date.getSeconds()).padStart(2, "0")}`;
 };
 
 export const intToString = (value: number) => {
   var suffixes = ["", "K", "M"];
   var suffixNum = Math.floor(("" + value).length / 3);
   var shortValue: any = parseFloat(
-    (suffixNum !== 0 ? value / Math.pow(1000, suffixNum) : value).toPrecision(
-      2,
-    ),
+    (suffixNum !== 0 ? value / Math.pow(1000, suffixNum) : value).toPrecision(2),
   );
   if (shortValue % 1 !== 0) {
     shortValue = shortValue.toFixed(1);
@@ -156,8 +135,7 @@ export const intToString = (value: number) => {
 
 export const toBoolean = (value: any) =>
   typeof value === "string"
-    ? value.toLowerCase() === "true" ||
-      !["", "0", "false"].includes(value.toLowerCase())
+    ? value.toLowerCase() === "true" || !["", "0", "false"].includes(value.toLowerCase())
     : typeof value === "number"
     ? value !== 0
     : !!value;
@@ -174,17 +152,7 @@ export const formatBytes = (bytes: number, decimals = 2): FormattedBytes => {
 
   const k = 1024;
   const dm = decimals < 0 ? 0 : decimals;
-  const sizes: Suffix[] = [
-    "Bytes",
-    "KB",
-    "MB",
-    "GB",
-    "TB",
-    "PB",
-    "EB",
-    "ZB",
-    "YB",
-  ];
+  const sizes: Suffix[] = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
 
   const i = Math.floor(Math.log(bytes) / Math.log(k));
 

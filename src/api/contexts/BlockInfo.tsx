@@ -71,9 +71,7 @@ const Provider: React.FC<Props> = ({ children }) => {
     }
   }, [block]);
   return (
-    <BlockInfoContext.Provider
-      value={{ block, setBlock, blockInfo, isLoading, isError }}
-    >
+    <BlockInfoContext.Provider value={{ block, setBlock, blockInfo, isLoading, isError }}>
       {children}
     </BlockInfoContext.Provider>
   );

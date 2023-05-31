@@ -2,12 +2,7 @@ const MongoClient = require("mongodb").MongoClient;
 const BigNumber = require("bignumber.js");
 const { rpc } = require("../rpc");
 const { Sentry } = require("../sentry");
-const {
-  MONGO_URL,
-  MONGO_OPTIONS,
-  MONGO_DB,
-  TRANSACTION_COLLECTION,
-} = require("../constants");
+const { MONGO_URL, MONGO_OPTIONS, MONGO_DB, TRANSACTION_COLLECTION } = require("../constants");
 const { getKnownAccounts } = require("./knownAccounts");
 const { isValidAccountAddress, raiToRaw, toBoolean } = require("../utils");
 
@@ -87,8 +82,7 @@ const getHistoryFilters = async ({ account, filters: rawFilters }) => {
       count: "-1",
       raw: true,
       reverse: true,
-      offset:
-        highestBlock && highestBlock[0] ? highestBlock[0].height : undefined,
+      offset: highestBlock && highestBlock[0] ? highestBlock[0].height : undefined,
     });
 
     if (history && history.length) {
@@ -168,12 +162,8 @@ const getHistoryFilters = async ({ account, filters: rawFilters }) => {
         ...(filters.minAmount || filters.maxAmount
           ? {
               amount: {
-                ...(filters.minAmount
-                  ? { $gte: raiToRaw(filters.minAmount) }
-                  : null),
-                ...(filters.maxAmount
-                  ? { $lte: raiToRaw(filters.maxAmount) }
-                  : null),
+                ...(filters.minAmount ? { $gte: raiToRaw(filters.minAmount) } : null),
+                ...(filters.maxAmount ? { $lte: raiToRaw(filters.maxAmount) } : null),
               },
             }
           : null),
@@ -188,12 +178,8 @@ const getHistoryFilters = async ({ account, filters: rawFilters }) => {
         ...(filters.dateRange.length
           ? {
               local_timestamp: {
-                ...(filters.dateRange[0]
-                  ? { $gte: filters.dateRange[0] }
-                  : null),
-                ...(filters.dateRange[1]
-                  ? { $lte: filters.dateRange[1] }
-                  : null),
+                ...(filters.dateRange[0] ? { $gte: filters.dateRange[0] } : null),
+                ...(filters.dateRange[1] ? { $lte: filters.dateRange[1] } : null),
               },
             }
           : null),
@@ -215,9 +201,7 @@ const getHistoryFilters = async ({ account, filters: rawFilters }) => {
                   : { $nin: filters.receiver },
             }
           : null),
-        ...(!filters.includeNoTimestamp
-          ? { local_timestamp: { $ne: 0 } }
-          : null),
+        ...(!filters.includeNoTimestamp ? { local_timestamp: { $ne: 0 } } : null),
         ...(filters.excludeUnknownAccounts
           ? {
               account: {

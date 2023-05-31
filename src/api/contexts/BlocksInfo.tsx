@@ -60,18 +60,14 @@ const Provider: React.FC<Props> = ({ children }) => {
   };
 
   useDeepCompareEffect(() => {
-    const filteredBlocks = (blocks || []).filter(block =>
-      isValidBlockHash(block),
-    );
+    const filteredBlocks = (blocks || []).filter(block => isValidBlockHash(block));
 
     if (filteredBlocks.length) {
       getBlocksInfo(blocks);
     }
   }, [blocks]);
   return (
-    <BlocksInfoContext.Provider
-      value={{ blocks, setBlocks, blocksInfo, isLoading, isError }}
-    >
+    <BlocksInfoContext.Provider value={{ blocks, setBlocks, blocksInfo, isLoading, isError }}>
       {children}
     </BlocksInfoContext.Provider>
   );

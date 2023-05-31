@@ -5,13 +5,7 @@ const MongoClient = require("mongodb").MongoClient;
 const { rpc } = require("../rpc");
 const { nodeCache } = require("../client/cache");
 const { Sentry } = require("../sentry");
-const {
-  MONGO_DB,
-  MONGO_URL,
-  MONGO_OPTIONS,
-  NODE_LOCATIONS,
-  EXPIRE_48H,
-} = require("../constants");
+const { MONGO_DB, MONGO_URL, MONGO_OPTIONS, NODE_LOCATIONS, EXPIRE_48H } = require("../constants");
 
 const NODE_IP_REGEX = /\[::ffff:([\d.]+)\]:[\d]+/;
 
@@ -60,9 +54,7 @@ const connect = async () =>
 
 const getNodeLocation = async ip => {
   try {
-    const res = await fetch(
-      `https://ipapi.co/${ip}/json/?key=${process.env.IPAPI_KEY}`,
-    );
+    const res = await fetch(`https://ipapi.co/${ip}/json/?key=${process.env.IPAPI_KEY}`);
     const {
       version,
       city,

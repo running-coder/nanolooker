@@ -13,9 +13,7 @@ const AccountDetailsUnopened: React.FC = () => {
     <AccountDetailsLayout>
       <>
         <Title level={3}>{t("pages.account.notOpenedYet")}</Title>
-        <Text className="color-muted">
-          {t("pages.account.notOpenedYetReason")}
-        </Text>
+        <Text className="color-muted">{t("pages.account.notOpenedYetReason")}</Text>
       </>
     </AccountDetailsLayout>
   );

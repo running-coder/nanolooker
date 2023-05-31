@@ -1,9 +1,9 @@
 import * as React from "react";
 
-import { ArrowDownOutlined,ArrowUpOutlined } from "@ant-design/icons";
+import { ArrowDownOutlined, ArrowUpOutlined } from "@ant-design/icons";
 import BigNumber from "bignumber.js";
 
-import { PreferencesContext,Theme } from "api/contexts/Preferences";
+import { PreferencesContext, Theme } from "api/contexts/Preferences";
 import { Colors } from "components/utils";
 
 interface StatisticsChangeProps {
@@ -20,15 +20,17 @@ const StatisticsChange: React.FC<StatisticsChangeProps> = ({
   suffix,
 }) => {
   const { theme } = React.useContext(PreferencesContext);
-  const color = (value === 0
-    ? Colors.PENDING
-    : value < 0
-    ? theme === Theme.DARK
-      ? Colors.SEND_DARK
-      : Colors.SEND
-    : theme === Theme.DARK
-    ? Colors.RECEIVE_DARK
-    : Colors.RECEIVE) as string;
+  const color = (
+    value === 0
+      ? Colors.PENDING
+      : value < 0
+      ? theme === Theme.DARK
+        ? Colors.SEND_DARK
+        : Colors.SEND
+      : theme === Theme.DARK
+      ? Colors.RECEIVE_DARK
+      : Colors.RECEIVE
+  ) as string;
 
   const styles = {
     color,
@@ -47,11 +49,7 @@ const StatisticsChange: React.FC<StatisticsChangeProps> = ({
         {isNumber ? value : null}
       </span>
 
-      {value >= 0 ? (
-        <ArrowUpOutlined style={styles} />
-      ) : (
-        <ArrowDownOutlined style={styles} />
-      )}
+      {value >= 0 ? <ArrowUpOutlined style={styles} /> : <ArrowDownOutlined style={styles} />}
 
       {suffix}
     </>

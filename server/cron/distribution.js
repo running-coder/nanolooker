@@ -54,8 +54,7 @@ const getAccounts = async () => {
   await mkdir(`${TMP_ACCOUNTS_PATH}`, { recursive: true });
 
   while (currentAccountCount < count) {
-    nextCount =
-      currentAccountCount + steps > count ? count - currentAccountCount : steps;
+    nextCount = currentAccountCount + steps > count ? count - currentAccountCount : steps;
 
     const { frontiers } = await rpc("frontiers", {
       account: nextAccount,
@@ -141,9 +140,7 @@ const getDistribution = async () => {
       });
 
       console.log(
-        `processing balances: ${tmpAccountFiles[y]} - chunk ${i + 1} of ${
-          balancesChunks.length
-        }`,
+        `processing balances: ${tmpAccountFiles[y]} - chunk ${i + 1} of ${balancesChunks.length}`,
       );
 
       const richList = {};
@@ -164,9 +161,7 @@ const getDistribution = async () => {
             // Add the account as part of the Distribution
             distribution[index] = {
               accounts: (distribution[index].accounts += 1),
-              balance: new BigNumber(total)
-                .plus(distribution[index].balance)
-                .toNumber(),
+              balance: new BigNumber(total).plus(distribution[index].balance).toNumber(),
             };
 
             if (total > MIN_DELEGATOR_TOTAL) {
@@ -174,11 +169,7 @@ const getDistribution = async () => {
                 account,
               });
 
-              redisClient.zadd(
-                `${DELEGATORS}_TMP:${representative}`,
-                total,
-                account,
-              );
+              redisClient.zadd(`${DELEGATORS}_TMP:${representative}`, total, account);
             }
 
             // Search for the last transaction date to place the accounts
@@ -192,8 +183,7 @@ const getDistribution = async () => {
 
             const result = (history || []).find(
               ({ local_timestamp, subtype = "" }) =>
-                ["change", "send", "receive"].includes(subtype) &&
-                parseInt(local_timestamp || "0"),
+                ["change", "send", "receive"].includes(subtype) && parseInt(local_timestamp || "0"),
             );
 
             if (!result) return;
@@ -218,8 +208,7 @@ const getDistribution = async () => {
             if (!dormantFunds[year]) {
               dormantFunds[year] = [];
             }
-            dormantFunds[year][month] =
-              (dormantFunds[year][month] || 0) + total;
+            dormantFunds[year][month] = (dormantFunds[year][month] || 0) + total;
           },
         ),
       );
@@ -229,9 +218,7 @@ const getDistribution = async () => {
         JSON.stringify({ distribution, dormantFunds }, null, 2),
       );
 
-      const richListData = Object.entries(richList).flatMap(acc =>
-        acc.reverse(),
-      );
+      const richListData = Object.entries(richList).flatMap(acc => acc.reverse());
 
       redisClient.zadd(`${REDIS_RICH_LIST}_TMP`, ...richListData);
 
@@ -248,15 +235,11 @@ const doDistributionCron = async () => {
     const startTime = new Date();
     console.log("Distribution cron started");
 
-    const { distribution, dormantFunds, knownExchanges } =
-      await getDistribution();
+    const { distribution, dormantFunds, knownExchanges } = await getDistribution();
 
     fs.writeFileSync(DISTRIBUTION_PATH, JSON.stringify(distribution, null, 2));
     fs.writeFileSync(DORMANT_FUNDS_PATH, JSON.stringify(dormantFunds, null, 2));
-    fs.writeFileSync(
-      KNOWN_EXCHANGES_PATH,
-      JSON.stringify(knownExchanges, null, 2),
-    );
+    fs.writeFileSync(KNOWN_EXCHANGES_PATH, JSON.stringify(knownExchanges, null, 2));
     fs.writeFileSync(
       STATUS_PATH,
       JSON.stringify(
@@ -269,9 +252,7 @@ const doDistributionCron = async () => {
       ),
     );
 
-    console.log(
-      `Distribution cron finished in ${(new Date() - startTime) / 1000}s`,
-    );
+    console.log(`Distribution cron finished in ${(new Date() - startTime) / 1000}s`);
 
     nodeCache.set(DISTRIBUTION, distribution, EXPIRE_1W);
     nodeCache.set(DORMANT_FUNDS, dormantFunds, EXPIRE_1W);
@@ -355,9 +336,7 @@ const getDistributionData = () => {
   }
 
   if (!status) {
-    status = fs.existsSync(STATUS_PATH)
-      ? JSON.parse(fs.readFileSync(STATUS_PATH, "utf8"))
-      : {};
+    status = fs.existsSync(STATUS_PATH) ? JSON.parse(fs.readFileSync(STATUS_PATH, "utf8")) : {};
     nodeCache.set(STATUS, status, EXPIRE_1W);
   }
 

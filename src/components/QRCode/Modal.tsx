@@ -39,11 +39,7 @@ const QRCodeModal = ({ header, account, children }: QRCodeModalProps) => {
         open={isVisible}
         onCancel={() => setIsVisible(false)}
         footer={[
-          <Button
-            key="submit"
-            type="primary"
-            onClick={() => setIsVisible(false)}
-          >
+          <Button key="submit" type="primary" onClick={() => setIsVisible(false)}>
             {t("common.ok")}
           </Button>,
         ]}
@@ -53,12 +49,8 @@ const QRCodeModal = ({ header, account, children }: QRCodeModalProps) => {
           <QRCode account={account} />
         </div>
         <>
-          {(account === DONATION_ACCOUNT &&
-            accountParam !== DONATION_ACCOUNT) ||
-          [
-            NANOBROWSERQUEST_DONATION_ACCOUNT,
-            NANOQUAKEJS_DONATION_ACCOUNT,
-          ].includes(account) ? (
+          {(account === DONATION_ACCOUNT && accountParam !== DONATION_ACCOUNT) ||
+          [NANOBROWSERQUEST_DONATION_ACCOUNT, NANOQUAKEJS_DONATION_ACCOUNT].includes(account) ? (
             <div
               style={{
                 display: "flex",

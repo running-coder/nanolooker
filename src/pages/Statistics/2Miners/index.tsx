@@ -36,8 +36,7 @@ const Statistics2MinersPage: React.FC = () => {
 
     setTotalFiatPayouts(
       statistics.reduce(
-        (acc, { totalFiatPayouts = 0 }) =>
-          new BigNumber(acc).plus(totalFiatPayouts).toNumber(),
+        (acc, { totalFiatPayouts = 0 }) => new BigNumber(acc).plus(totalFiatPayouts).toNumber(),
         0,
       ),
     );
@@ -192,11 +191,7 @@ const Statistics2MinersPage: React.FC = () => {
       <Card size="small" className="detail-layout">
         <Row>
           <Col xs={24}>
-            <AccountHeader
-              account={ACCOUNT_2MINERS}
-              isLink={true}
-              hideOptions={true}
-            />
+            <AccountHeader account={ACCOUNT_2MINERS} isLink={true} hideOptions={true} />
           </Col>
         </Row>
         <Row>

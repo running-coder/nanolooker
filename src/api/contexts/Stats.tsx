@@ -40,9 +40,7 @@ const Provider: React.FC<Props> = ({ children }) => {
   }, []);
 
   return (
-    <StatsContext.Provider value={{ stats, isLoading, isError }}>
-      {children}
-    </StatsContext.Provider>
+    <StatsContext.Provider value={{ stats, isLoading, isError }}>{children}</StatsContext.Provider>
   );
 };
 

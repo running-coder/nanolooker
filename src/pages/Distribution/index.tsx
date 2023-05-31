@@ -43,8 +43,7 @@ const Distribution: React.FC = () => {
   const { t } = useTranslation();
   const { knownExchangeAccounts, isLoading: isKnownAccountsLoading } =
     React.useContext(KnownAccountsContext);
-  const [isIncludeExchanges, setIsIncludeExchanges] =
-    React.useState<boolean>(true);
+  const [isIncludeExchanges, setIsIncludeExchanges] = React.useState<boolean>(true);
   const [totalAccounts, setTotalAccounts] = React.useState<number>(0);
   const [totalBalance, setTotalBalance] = React.useState<number>(0);
   const [distributionData, setDistributionData] = React.useState<any[]>([]);
@@ -60,12 +59,7 @@ const Distribution: React.FC = () => {
   }, []);
 
   React.useEffect(() => {
-    if (
-      !data?.distribution ||
-      !data?.knownExchanges ||
-      !knownExchangeAccounts.length
-    )
-      return;
+    if (!data?.distribution || !data?.knownExchanges || !knownExchangeAccounts.length) return;
 
     let knownExchangeDistribution: DistributionIndex[] = [];
     if (!isIncludeExchanges) {
@@ -86,12 +80,8 @@ const Distribution: React.FC = () => {
     let tmpTotalBalance = 0;
 
     data.distribution.forEach(
-      (
-        { accounts, balance }: { accounts: number; balance: number },
-        i: number,
-      ): void => {
-        const calcAccounts =
-          accounts - (knownExchangeDistribution[i]?.accounts || 0);
+      ({ accounts, balance }: { accounts: number; balance: number }, i: number): void => {
+        const calcAccounts = accounts - (knownExchangeDistribution[i]?.accounts || 0);
         let calcBalance = new BigNumber(balance)
           .minus(knownExchangeDistribution[i]?.balance || 0)
           .toNumber();
@@ -192,9 +182,7 @@ const Distribution: React.FC = () => {
 
   const i18nTotalAccounts = new BigNumber(totalAccounts).toFormat();
   const i18nTotalBalances = new BigNumber(totalBalance).toFormat();
-  const knownExchangeList = knownExchangeAccounts
-    .map(({ alias }) => alias)
-    .join(", ");
+  const knownExchangeList = knownExchangeAccounts.map(({ alias }) => alias).join(", ");
   const date = data?.status?.date || t("common.notAvailable");
 
   return (
@@ -249,9 +237,7 @@ const Distribution: React.FC = () => {
             }}
             defaultChecked={isIncludeExchanges}
           />
-          <Text style={{ marginLeft: "6px" }}>
-            {t("pages.distribution.includeKnownExchanges")}
-          </Text>
+          <Text style={{ marginLeft: "6px" }}>{t("pages.distribution.includeKnownExchanges")}</Text>
           <Tooltip
             placement="right"
             title={t("tooltips.knownExchangeBalance", {
@@ -272,9 +258,7 @@ const Distribution: React.FC = () => {
             }}
             defaultChecked={isLogScale}
           />
-          <Text style={{ margin: "0 6px" }}>
-            {t("pages.distribution.logScale")}
-          </Text>
+          <Text style={{ margin: "0 6px" }}>{t("pages.distribution.logScale")}</Text>
         </div>
 
         <div style={{ marginTop: 24 }} id="distribution-chart" />

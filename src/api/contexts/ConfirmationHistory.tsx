@@ -15,9 +15,7 @@ export interface Return {
   isError: boolean;
 }
 
-export const ConfirmationHistoryContext = React.createContext<
-  Return & Response
->({
+export const ConfirmationHistoryContext = React.createContext<Return & Response>({
   confirmation_stats: {
     count: "0",
     average: "0",
@@ -32,9 +30,7 @@ interface Props {
 }
 
 const Provider: React.FC<Props> = ({ children }) => {
-  const [confirmationHistory, setConfirmationHistory] = React.useState(
-    {} as Response,
-  );
+  const [confirmationHistory, setConfirmationHistory] = React.useState({} as Response);
   const [isError, setIsError] = React.useState(false);
 
   const getConfirmationHistory = async () => {

@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { rpc } from "api/rpc";
 
-import type { Block,Subtype } from "types/transaction";
+import type { Block, Subtype } from "types/transaction";
 
 interface BlocksInfo {
   [key: string]: {

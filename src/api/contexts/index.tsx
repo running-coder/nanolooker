@@ -36,9 +36,7 @@ const IndexProvider: React.FC<Props> = ({ children }) => {
                           <RepresentativesProvider>
                             <BlockCountProvider>
                               <ConfirmationHistoryProvider>
-                                <DelegatorsProvider>
-                                  {children}
-                                </DelegatorsProvider>
+                                <DelegatorsProvider>{children}</DelegatorsProvider>
                               </ConfirmationHistoryProvider>
                             </BlockCountProvider>
                           </RepresentativesProvider>

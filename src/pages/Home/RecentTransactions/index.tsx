@@ -1,14 +1,10 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 
-import {
-  CloseCircleFilled,
-  CloseCircleTwoTone,
-  SyncOutlined,
-} from "@ant-design/icons";
+import { CloseCircleFilled, CloseCircleTwoTone, SyncOutlined } from "@ant-design/icons";
 import { Card, Typography } from "antd";
 
-import { PreferencesContext,Theme } from "api/contexts/Preferences";
+import { PreferencesContext, Theme } from "api/contexts/Preferences";
 import useSockets from "api/hooks/use-socket";
 import ConfirmationsPerSecond from "components/ConfirmationsPerSecond";
 import RecentTransactionsPreferences from "components/Preferences/RecentTransactions";
@@ -20,9 +16,7 @@ const { Text } = Typography;
 
 const RecentTransactions: React.FC = () => {
   const { t } = useTranslation();
-  const { theme, disableLiveTransactions } = React.useContext(
-    PreferencesContext,
-  );
+  const { theme, disableLiveTransactions } = React.useContext(PreferencesContext);
 
   const { recentTransactions, isConnected, isError } = useSockets();
 
@@ -53,14 +47,10 @@ const RecentTransactions: React.FC = () => {
             </Text>
           </div>
         ) : null}
-        {isConnected &&
-        !disableLiveTransactions &&
-        !recentTransactions.length ? (
+        {isConnected && !disableLiveTransactions && !recentTransactions.length ? (
           <div style={{ textAlign: "center" }}>
             <SyncOutlined spin />
-            <Text style={{ marginLeft: "8px" }}>
-              {t("pages.home.waitingForTransactions")} ...
-            </Text>
+            <Text style={{ marginLeft: "8px" }}>{t("pages.home.waitingForTransactions")} ...</Text>
           </div>
         ) : null}
         {!isConnected && !disableLiveTransactions ? (

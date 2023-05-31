@@ -76,25 +76,15 @@ const BlockDetails: React.FC = () => {
   const modifiedTimestamp = Number(blockInfo?.local_timestamp) * 1000;
   const btcCurrentPrice = priceStats?.bitcoin?.[fiat] || 0;
   const amount = new BigNumber(rawToRai(blockInfo?.amount || 0)).toNumber();
-  const fiatAmount = new BigNumber(amount)
-    .times(currentPrice)
-    .toFormat(CurrencyDecimal?.[fiat]);
+  const fiatAmount = new BigNumber(amount).times(currentPrice).toFormat(CurrencyDecimal?.[fiat]);
   const btcAmount = btcCurrentPrice
-    ? new BigNumber(amount)
-        .times(currentPrice)
-        .dividedBy(btcCurrentPrice)
-        .toFormat(12)
+    ? new BigNumber(amount).times(currentPrice).dividedBy(btcCurrentPrice).toFormat(12)
     : null;
 
   const balance = new BigNumber(rawToRai(blockInfo?.balance || 0)).toNumber();
-  const fiatBalance = new BigNumber(balance)
-    .times(currentPrice)
-    .toFormat(CurrencyDecimal?.[fiat]);
+  const fiatBalance = new BigNumber(balance).times(currentPrice).toFormat(CurrencyDecimal?.[fiat]);
   const btcBalance = btcCurrentPrice
-    ? new BigNumber(balance)
-        .times(currentPrice)
-        .dividedBy(btcCurrentPrice)
-        .toFormat(12)
+    ? new BigNumber(balance).times(currentPrice).dividedBy(btcCurrentPrice).toFormat(12)
     : null;
 
   let linkAccountLabel = "";
@@ -104,9 +94,7 @@ const BlockDetails: React.FC = () => {
     linkAccountLabel = t("pages.block.sender");
   }
 
-  const secondAccount = isValidAccountAddress(sourceAccount || "")
-    ? sourceAccount
-    : linkAsAccount;
+  const secondAccount = isValidAccountAddress(sourceAccount || "") ? sourceAccount : linkAsAccount;
 
   const blockAccountAlias = knownAccounts.find(
     ({ account: knownAccount }) => knownAccount === blockAccount,
@@ -130,11 +118,7 @@ const BlockDetails: React.FC = () => {
       ) : null}
       {isBlocksInfoLoading || blockInfo ? (
         <>
-          <Card
-            size="small"
-            className="detail-layout"
-            style={{ marginBottom: "12px" }}
-          >
+          <Card size="small" className="detail-layout" style={{ marginBottom: "12px" }}>
             <Row gutter={6}>
               <Col xs={24}>
                 <BlockHeader />
@@ -147,32 +131,17 @@ const BlockDetails: React.FC = () => {
                 </Col>
               )}
               <Col xs={24} sm={18} xl={20}>
-                <Skeleton
-                  {...skeletonProps}
-                  title={{ width: isSmallAndLower ? "50%" : "20%" }}
-                >
+                <Skeleton {...skeletonProps} title={{ width: isSmallAndLower ? "50%" : "20%" }}>
                   <Tooltip
                     placement={isSmallAndLower ? "right" : "top"}
-                    title={t(
-                      `pages.block.${
-                        isConfirmed ? "confirmed" : "pending"
-                      }Status`,
-                    )}
+                    title={t(`pages.block.${isConfirmed ? "confirmed" : "pending"}Status`)}
                   >
                     <Tag
-                      icon={
-                        isConfirmed ? (
-                          <CheckCircleOutlined />
-                        ) : (
-                          <SyncOutlined spin />
-                        )
-                      }
+                      icon={isConfirmed ? <CheckCircleOutlined /> : <SyncOutlined spin />}
                       color={
                         // @ts-ignore
                         TwoToneColors[
-                          `${(subtype || type).toUpperCase()}${
-                            theme === Theme.DARK ? "_DARK" : ""
-                          }`
+                          `${(subtype || type).toUpperCase()}${theme === Theme.DARK ? "_DARK" : ""}`
                         ]
                       }
                       className={`tag-${subtype || type}`}
@@ -190,9 +159,7 @@ const BlockDetails: React.FC = () => {
               <Col xs={24} sm={18} xl={20}>
                 <Skeleton {...skeletonProps}>
                   {blockAccountAlias ? (
-                    <strong style={{ display: "block" }}>
-                      {blockAccountAlias}
-                    </strong>
+                    <strong style={{ display: "block" }}>{blockAccountAlias}</strong>
                   ) : null}
                   <Link to={`/account/${blockAccount}`} className="break-word">
                     {blockAccount}
@@ -208,15 +175,11 @@ const BlockDetails: React.FC = () => {
                 <LoadingStatistic
                   isLoading={skeletonProps.loading}
                   prefix="Ӿ"
-                  value={
-                    amount >= 1 ? amount : new BigNumber(amount).toFormat()
-                  }
+                  value={amount >= 1 ? amount : new BigNumber(amount).toFormat()}
                 />
                 <Skeleton
                   {...skeletonProps}
-                  loading={
-                    skeletonProps.loading || isMarketStatisticsInitialLoading
-                  }
+                  loading={skeletonProps.loading || isMarketStatisticsInitialLoading}
                   title={{ width: isSmallAndLower ? "100%" : "33%" }}
                 >
                   {`${CurrencySymbol?.[fiat]} ${fiatAmount}${
@@ -230,18 +193,13 @@ const BlockDetails: React.FC = () => {
                 {t("common.balance")}
               </Col>
               <Col xs={24} sm={18} xl={20}>
-                <Skeleton
-                  {...skeletonProps}
-                  title={{ width: isSmallAndLower ? "100%" : "33%" }}
-                >
+                <Skeleton {...skeletonProps} title={{ width: isSmallAndLower ? "100%" : "33%" }}>
                   Ӿ {new BigNumber(balance).toFormat()}
                   <br />
                 </Skeleton>
                 <Skeleton
                   {...skeletonProps}
-                  loading={
-                    skeletonProps.loading || isMarketStatisticsInitialLoading
-                  }
+                  loading={skeletonProps.loading || isMarketStatisticsInitialLoading}
                   title={{ width: isSmallAndLower ? "100%" : "33%" }}
                 >
                   {`${CurrencySymbol?.[fiat]} ${fiatBalance}${
@@ -286,10 +244,7 @@ const BlockDetails: React.FC = () => {
                       {representativeAlias}
                     </strong>
                   ) : null}
-                  <Link
-                    to={`/account/${representative}`}
-                    className="break-word"
-                  >
+                  <Link to={`/account/${representative}`} className="break-word">
                     {representative}
                   </Link>
                 </Col>
@@ -312,12 +267,7 @@ const BlockDetails: React.FC = () => {
                   {timestampToDate(modifiedTimestamp)}{" "}
                   <span className="color-muted" style={{ fontSize: "12px" }}>
                     (
-                    <TimeAgo
-                      locale={i18next.language}
-                      datetime={modifiedTimestamp}
-                      live={false}
-                    />
-                    )
+                    <TimeAgo locale={i18next.language} datetime={modifiedTimestamp} live={false} />)
                   </span>
                 </Col>
               </Row>
@@ -327,10 +277,7 @@ const BlockDetails: React.FC = () => {
                 {t("pages.block.previousBlock")}
               </Col>
               <Col xs={24} sm={18} xl={20}>
-                <Skeleton
-                  {...skeletonProps}
-                  title={{ width: isSmallAndLower ? "100%" : "50%" }}
-                >
+                <Skeleton {...skeletonProps} title={{ width: isSmallAndLower ? "100%" : "50%" }}>
                   {isValidBlockHash(previous) ? (
                     <Link to={`/block/${previous}`} className="break-word">
                       {previous}
@@ -396,10 +343,7 @@ const BlockDetails: React.FC = () => {
                 {t("pages.block.work")}
               </Col>
               <Col xs={24} sm={18} xl={20}>
-                <Skeleton
-                  {...skeletonProps}
-                  title={{ width: isSmallAndLower ? "100%" : "33%" }}
-                >
+                <Skeleton {...skeletonProps} title={{ width: isSmallAndLower ? "100%" : "33%" }}>
                   {work}
                 </Skeleton>
               </Col>

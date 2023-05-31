@@ -6,7 +6,7 @@ import useDeepCompareEffect from "use-deep-compare-effect";
 import { rpc } from "api/rpc";
 import { isValidAccountAddress } from "components/utils";
 
-import type { Subtype,Type } from "types/transaction";
+import type { Subtype, Type } from "types/transaction";
 
 interface History {
   type: Type;
@@ -49,16 +49,11 @@ const useAccountHistory = (
   params: AccountHistoryParams,
   options?: AccountHistoryOptions,
 ): UseAccountHistoryReturn => {
-  const [accountHistory, setAccountHistory] = React.useState(
-    {} as AccountHistory,
-  );
+  const [accountHistory, setAccountHistory] = React.useState({} as AccountHistory);
   const [isLoading, setIsLoading] = React.useState(true);
   const [isError, setIsError] = React.useState(false);
 
-  const getAccountHistory = async (
-    account: string,
-    params: AccountHistoryParams,
-  ) => {
+  const getAccountHistory = async (account: string, params: AccountHistoryParams) => {
     if (options?.skip) return;
 
     setIsError(false);

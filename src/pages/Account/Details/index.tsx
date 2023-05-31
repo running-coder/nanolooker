@@ -16,10 +16,7 @@ import {
   PreferencesContext,
   Theme,
 } from "api/contexts/Preferences";
-import {
-  Representative,
-  RepresentativesContext,
-} from "api/contexts/Representatives";
+import { Representative, RepresentativesContext } from "api/contexts/Representatives";
 import useAccountHistory from "api/hooks/use-account-history";
 import useRepresentative from "api/hooks/use-representative";
 import LoadingStatistic from "components/LoadingStatistic";
@@ -40,10 +37,7 @@ interface AccountDetailsLayoutProps {
   children?: ReactElement;
 }
 
-export const AccountDetailsLayout = ({
-  bordered,
-  children,
-}: AccountDetailsLayoutProps) => (
+export const AccountDetailsLayout = ({ bordered, children }: AccountDetailsLayoutProps) => (
   <Card size="small" bordered={bordered} className="detail-layout">
     {children}
   </Card>
@@ -63,12 +57,8 @@ const AccountDetails: React.FC<Props> = ({
   const { t } = useTranslation();
   const { section = Sections.TRANSACTIONS } = useParams<PageParams>();
   const { theme, fiat } = React.useContext(PreferencesContext);
-  const [representativeAccount, setRepresentativeAccount] = React.useState(
-    {} as any,
-  );
-  const [accountsRepresentative, setAccountsRepresentative] = React.useState(
-    {} as Representative,
-  );
+  const [representativeAccount, setRepresentativeAccount] = React.useState({} as any);
+  const [accountsRepresentative, setAccountsRepresentative] = React.useState({} as Representative);
   const { representative } = useRepresentative({
     account: accountsRepresentative?.account,
   });
@@ -99,9 +89,7 @@ const AccountDetails: React.FC<Props> = ({
     },
   } = React.useContext(ConfirmationQuorumContext);
 
-  let balance = new BigNumber(rawToRai(accountInfo?.balance || 0))
-    .plus(socketBalance)
-    .toNumber();
+  let balance = new BigNumber(rawToRai(accountInfo?.balance || 0)).plus(socketBalance).toNumber();
 
   // @NOTE temporary fix until a solution is found with the websocket messages going below 0
   if (balance < 0) {
@@ -114,23 +102,16 @@ const AccountDetails: React.FC<Props> = ({
 
   const btcCurrentPrice = priceStats?.bitcoin?.[fiat] || 0;
 
-  const fiatBalance = new BigNumber(balance)
-    .times(currentPrice)
-    .toFormat(CurrencyDecimal?.[fiat]);
+  const fiatBalance = new BigNumber(balance).times(currentPrice).toFormat(CurrencyDecimal?.[fiat]);
   const btcBalance = btcCurrentPrice
-    ? new BigNumber(balance)
-        .times(currentPrice)
-        .dividedBy(btcCurrentPrice)
-        .toFormat(12)
+    ? new BigNumber(balance).times(currentPrice).dividedBy(btcCurrentPrice).toFormat(12)
     : null;
 
   const lastTransaction = (history || []).find(
     ({ local_timestamp, subtype = "" }) =>
-      ["change", "send", "receive"].includes(subtype) &&
-      parseInt(local_timestamp || "0"),
+      ["change", "send", "receive"].includes(subtype) && parseInt(local_timestamp || "0"),
   );
-  const modifiedTimestamp =
-    Number(lastTransaction?.local_timestamp || 0) * 1000;
+  const modifiedTimestamp = Number(lastTransaction?.local_timestamp || 0) * 1000;
 
   const skeletonProps = {
     active: true,
@@ -178,9 +159,7 @@ const AccountDetails: React.FC<Props> = ({
                 <LoadingStatistic
                   isLoading={skeletonProps.loading}
                   prefix="Ӿ"
-                  value={
-                    balance >= 1 ? balance : new BigNumber(balance).toFormat()
-                  }
+                  value={balance >= 1 ? balance : new BigNumber(balance).toFormat()}
                 />
                 <Skeleton {...skeletonProps}>
                   {`${CurrencySymbol?.[fiat]} ${fiatBalance}${
@@ -206,9 +185,7 @@ const AccountDetails: React.FC<Props> = ({
                   <>
                     {new BigNumber(representativeAccount.weight).toFormat()}
                     <br />
-                    {new BigNumber(votingWeight).toFormat(
-                      votingWeight > 0.01 ? 2 : 4,
-                    )}
+                    {new BigNumber(votingWeight).toFormat(votingWeight > 0.01 ? 2 : 4)}
                     {t("pages.account.percentNetworkVotingWeight")}
                   </>
                 </Col>
@@ -226,8 +203,7 @@ const AccountDetails: React.FC<Props> = ({
                   {accountsRepresentative?.account ? (
                     <>
                       <div style={{ display: "flex", margin: "3px 0" }}>
-                        {typeof accountsRepresentative.isOnline ===
-                        "boolean" ? (
+                        {typeof accountsRepresentative.isOnline === "boolean" ? (
                           <Tag
                             color={
                               accountsRepresentative.isOnline
@@ -239,18 +215,10 @@ const AccountDetails: React.FC<Props> = ({
                                 : TwoToneColors.SEND
                             }
                             className={`tag-${
-                              accountsRepresentative.isOnline
-                                ? "online"
-                                : "offline"
+                              accountsRepresentative.isOnline ? "online" : "offline"
                             }`}
                           >
-                            {t(
-                              `common.${
-                                accountsRepresentative.isOnline
-                                  ? "online"
-                                  : "offline"
-                              }`,
-                            )}
+                            {t(`common.${accountsRepresentative.isOnline ? "online" : "offline"}`)}
                           </Tag>
                         ) : null}
                         {accountsRepresentative?.isPrincipal ? (
@@ -272,21 +240,16 @@ const AccountDetails: React.FC<Props> = ({
                       </div>
 
                       {accountsRepresentative.alias ? (
-                        <div className="color-important">
-                          {accountsRepresentative.alias}
-                        </div>
+                        <div className="color-important">{accountsRepresentative.alias}</div>
                       ) : null}
                     </>
                   ) : null}
 
-                  {!accountsRepresentative?.account &&
-                  accountInfo.representative ? (
+                  {!accountsRepresentative?.account && accountInfo.representative ? (
                     <div style={{ display: "flex", margin: "3px 0" }}>
                       <Tag
                         color={
-                          theme === Theme.DARK
-                            ? TwoToneColors.WARNING_DARK
-                            : TwoToneColors.WARNING
+                          theme === Theme.DARK ? TwoToneColors.WARNING_DARK : TwoToneColors.WARNING
                         }
                       >
                         {t("pages.account.notVoting")}
@@ -294,8 +257,7 @@ const AccountDetails: React.FC<Props> = ({
                     </div>
                   ) : null}
 
-                  {accountsRepresentative?.account ||
-                  accountInfo.representative ? (
+                  {accountsRepresentative?.account || accountInfo.representative ? (
                     <Link
                       to={`/account/${accountInfo.representative}${
                         section === Sections.TRANSACTIONS ? "/delegators" : ""
@@ -306,8 +268,7 @@ const AccountDetails: React.FC<Props> = ({
                     </Link>
                   ) : null}
 
-                  {!accountsRepresentative?.account &&
-                  !accountInfo.representative
+                  {!accountsRepresentative?.account && !accountInfo.representative
                     ? t("pages.account.noRepresentative")
                     : null}
                 </Skeleton>
@@ -329,10 +290,7 @@ const AccountDetails: React.FC<Props> = ({
             <Row gutter={6}>
               <Col xs={24} sm={6} md={4}>
                 {t("pages.account.confirmationHeight")}
-                <Tooltip
-                  placement="right"
-                  title={t("tooltips.confirmationHeight")}
-                >
+                <Tooltip placement="right" title={t("tooltips.confirmationHeight")}>
                   <QuestionCircle />
                 </Tooltip>
               </Col>
@@ -353,10 +311,7 @@ const AccountDetails: React.FC<Props> = ({
                   {modifiedTimestamp ? (
                     <>
                       {timestampToDate(modifiedTimestamp)}{" "}
-                      <span
-                        className="color-muted"
-                        style={{ fontSize: "12px" }}
-                      >
+                      <span className="color-muted" style={{ fontSize: "12px" }}>
                         (
                         <TimeAgo
                           datetime={modifiedTimestamp}
@@ -369,10 +324,7 @@ const AccountDetails: React.FC<Props> = ({
                   ) : (
                     <>
                       {t("common.unknown")}
-                      <Tooltip
-                        placement="right"
-                        title={t("tooltips.unknownTransactionDate")}
-                      >
+                      <Tooltip placement="right" title={t("tooltips.unknownTransactionDate")}>
                         <QuestionCircle />
                       </Tooltip>
                     </>

@@ -15,9 +15,7 @@ export interface UseActiveDifficultyReturn {
 }
 
 const useActiveDifficulty = (): UseActiveDifficultyReturn => {
-  const [activeDifficulty, setActiveDifficulty] = React.useState(
-    {} as ActiveDifficultyResponse,
-  );
+  const [activeDifficulty, setActiveDifficulty] = React.useState({} as ActiveDifficultyResponse);
   const [isError, setIsError] = React.useState(false);
 
   const getActiveDifficulty = async () => {

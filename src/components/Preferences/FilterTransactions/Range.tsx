@@ -16,9 +16,7 @@ interface Props {
   isDetailed?: boolean;
 }
 
-const FilterTransactionsRangePreferences: React.FC<Props> = ({
-  isDetailed,
-}) => {
+const FilterTransactionsRangePreferences: React.FC<Props> = ({ isDetailed }) => {
   const { t } = useTranslation();
   const {
     filterTransactions,
@@ -35,10 +33,7 @@ const FilterTransactionsRangePreferences: React.FC<Props> = ({
           label: (
             <>
               <strong>{unit}</strong>
-              <Tooltip
-                placement="top"
-                title={<Trans i18nKey="tooltips.mnano" />}
-              >
+              <Tooltip placement="top" title={<Trans i18nKey="tooltips.mnano" />}>
                 <QuestionCircle />
               </Tooltip>
             </>
@@ -101,10 +96,7 @@ const FilterTransactionsRangePreferences: React.FC<Props> = ({
             units.findIndex(({ raw }) => filterTransactionsRange[1] === raw),
           ]}
           onAfterChange={value => {
-            setFilterTransactionsRange([
-              units[value[0]].raw,
-              units[value[1]].raw,
-            ]);
+            setFilterTransactionsRange([units[value[0]].raw, units[value[1]].raw]);
           }}
         />
       </Col>

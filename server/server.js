@@ -39,24 +39,13 @@ const {
   BITCOIN_TOTAL_TRANSACTION_FEES_48H,
 } = require("./api/btcTransactionFees");
 const { getYoutubePlaylist } = require("./api/youtubePlaylist");
-const {
-  getCoingeckoStats,
-  getCoingeckoMarketCapStats,
-} = require("./api/coingeckoStats");
+const { getCoingeckoStats, getCoingeckoMarketCapStats } = require("./api/coingeckoStats");
 const { get2MinersStats } = require("./api/2minersStats");
-const {
-  getDeveloperFundTransactions,
-} = require("./api/developerFundTransactions");
+const { getDeveloperFundTransactions } = require("./api/developerFundTransactions");
 const { getLargeTransactions } = require("./api/largeTransactions");
 const { getNodeStatus } = require("./api/nodeStatus");
-const {
-  getKnownAccounts,
-  getKnownAccountsBalance,
-} = require("./api/knownAccounts");
-const {
-  getDelegatorsPage,
-  getAllDelegatorsCount,
-} = require("./api/delegators");
+const { getKnownAccounts, getKnownAccountsBalance } = require("./api/knownAccounts");
+const { getDelegatorsPage, getAllDelegatorsCount } = require("./api/delegators");
 const { getHistoryFilters } = require("./api/historyFilters");
 
 const { getRichListPage, getRichListAccount } = require("./api/richList");
@@ -65,10 +54,7 @@ const { getNodeLocations } = require("./api/nodeLocations");
 const { getNodeMonitors } = require("./api/nodeMonitors");
 const { getDelegatedEntity } = require("./api/delegatedEntity");
 const { getTelemetry } = require("./api/telemetry");
-const {
-  getRepresentative,
-  getAllRepresentatives,
-} = require("./api/representative");
+const { getRepresentative, getAllRepresentatives } = require("./api/representative");
 const { Sentry } = require("./sentry");
 const { isValidAccountAddress } = require("./utils");
 
@@ -155,8 +141,7 @@ app.get("/api/market-statistics", async (req, res) => {
   const cachedConfirmations48h = nodeCache.get(TOTAL_CONFIRMATIONS_48H);
   const cachedVolume48h = nodeCache.get(TOTAL_VOLUME_48H);
 
-  const { btcTransactionFees24h, btcTransactionFees48h } =
-    await getBtcTransactionFees();
+  const { btcTransactionFees24h, btcTransactionFees48h } = await getBtcTransactionFees();
   const { marketStats, priceStats } = await getCoingeckoStats({
     fiat: req.query.fiat,
     cryptocurrency: req.query.cryptocurrency,
@@ -222,9 +207,7 @@ app.get("/api/node-locations", async (req, res) => {
 app.get("/api/representative", async (req, res) => {
   const { account } = req.query;
 
-  const representative = account
-    ? await getRepresentative(account)
-    : getAllRepresentatives();
+  const representative = account ? await getRepresentative(account) : getAllRepresentatives();
 
   res.send(representative);
 });

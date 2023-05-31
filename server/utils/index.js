@@ -14,14 +14,11 @@ const raiToRaw = rai => {
 const ACCOUNT_REGEX = /((nano|xrb)_)?[13][13-9a-km-uw-z]{59}/;
 
 const isValidAccountAddress = address =>
-  new RegExp(`^${ACCOUNT_REGEX.toString().replace(/\//g, "")}$`, "i").test(
-    address,
-  );
+  new RegExp(`^${ACCOUNT_REGEX.toString().replace(/\//g, "")}$`, "i").test(address);
 
 const toBoolean = value =>
   typeof value === "string"
-    ? value.toLowerCase() === "true" ||
-      !["", "0", "false"].includes(value.toLowerCase())
+    ? value.toLowerCase() === "true" || !["", "0", "false"].includes(value.toLowerCase())
     : typeof value === "number"
     ? value !== 0
     : !!value;

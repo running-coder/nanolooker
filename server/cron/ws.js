@@ -27,11 +27,7 @@ let db;
 let mongoClient;
 
 function isConnected() {
-  return (
-    !!mongoClient &&
-    !!mongoClient.topology &&
-    mongoClient.topology.isConnected()
-  );
+  return !!mongoClient && !!mongoClient.topology && mongoClient.topology.isConnected();
 }
 
 const connect = async () =>
@@ -90,9 +86,7 @@ cron.schedule("*/3 * * * * *", async () => {
       .toArray((_err, [{ confirmationsPerSecond = 0 } = {}] = []) => {
         nodeCache.set(
           CONFIRMATIONS_PER_SECOND,
-          new BigNumber(confirmationsPerSecond)
-            .dividedBy(EXPIRE_1M)
-            .toFormat(2),
+          new BigNumber(confirmationsPerSecond).dividedBy(EXPIRE_1M).toFormat(2),
         );
       });
   } catch (err) {

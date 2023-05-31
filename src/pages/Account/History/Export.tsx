@@ -1,17 +1,7 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 
-import {
-  Button,
-  Checkbox,
-  Col,
-  Input,
-  Modal,
-  Row,
-  Select,
-  Tree,
-  Typography,
-} from "antd";
+import { Button, Checkbox, Col, Input, Modal, Row, Select, Tree, Typography } from "antd";
 import pick from "lodash/pick";
 
 import { AccountHistoryFilterContext } from "api/contexts/AccountHistoryFilter";
@@ -33,9 +23,7 @@ type ExportKeys = {
 
 const Export: React.FC = () => {
   const { t } = useTranslation();
-  const { history: historyFilter } = React.useContext(
-    AccountHistoryFilterContext,
-  );
+  const { history: historyFilter } = React.useContext(AccountHistoryFilterContext);
   const [isOpen, setIsOpen] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
   const [fileName, setFileName] = React.useState(`export`);
@@ -110,9 +98,7 @@ const Export: React.FC = () => {
 
   return (
     <>
-      <Button onClick={() => setIsOpen(true)}>
-        {t("pages.account.exportToCsv")}
-      </Button>
+      <Button onClick={() => setIsOpen(true)}>{t("pages.account.exportToCsv")}</Button>
       <Modal
         title={t("pages.account.exportTransactions", {
           count: historyFilter.length,
@@ -148,10 +134,7 @@ const Export: React.FC = () => {
                       0,
                       dragNodesKeys[0] as string,
                     );
-                    order.splice(
-                      currentIndex + (currentIndex > dropPosition ? 1 : 0),
-                      1,
-                    );
+                    order.splice(currentIndex + (currentIndex > dropPosition ? 1 : 0), 1);
 
                     return order.reduce((acc, key) => {
                       // @ts-ignore
@@ -177,9 +160,7 @@ const Export: React.FC = () => {
               style={{ width: "100%" }}
             >
               <Option value=",">{t("pages.account.delimiterComma")} (,)</Option>
-              <Option value=";">
-                {t("pages.account.delimiterSemicolon")} (;)
-              </Option>
+              <Option value=";">{t("pages.account.delimiterSemicolon")} (;)</Option>
               <Option value="\t">{t("pages.account.delimiterTab")} (\t)</Option>
               <Option value="s">{t("pages.account.delimiterSpace")} ( )</Option>
               <Option value="|">{t("pages.account.delimiterPipe")} (|)</Option>

@@ -46,9 +46,7 @@ const Provider: React.FC<Props> = ({ children }) => {
   }, []);
 
   return (
-    <BlockCountContext.Provider
-      value={{ ...blockCount, getBlockCount, isLoading, isError }}
-    >
+    <BlockCountContext.Provider value={{ ...blockCount, getBlockCount, isLoading, isError }}>
       {children}
     </BlockCountContext.Provider>
   );

@@ -4,9 +4,7 @@ import { useTranslation } from "react-i18next";
 import { ReloadOutlined } from "@ant-design/icons";
 import { Button, Card, Skeleton, Statistic, Tooltip } from "antd";
 
-import useActiveDifficulty, {
-  UseActiveDifficultyReturn,
-} from "api/hooks/use-active-difficulty";
+import useActiveDifficulty, { UseActiveDifficultyReturn } from "api/hooks/use-active-difficulty";
 import { refreshActionDelay } from "components/utils";
 
 const ActiveDifficulty: React.FC = () => {
@@ -52,11 +50,7 @@ const ActiveDifficulty: React.FC = () => {
           value={network_current}
           style={{ opacity }}
         />
-        <Statistic
-          title={t("pages.status.multiplier")}
-          value={multiplier}
-          style={{ opacity }}
-        />
+        <Statistic title={t("pages.status.multiplier")} value={multiplier} style={{ opacity }} />
       </Skeleton>
     </Card>
   );

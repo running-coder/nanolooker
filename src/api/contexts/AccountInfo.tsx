@@ -43,9 +43,7 @@ interface Props {
 
 const Provider: React.FC<Props> = ({ children }) => {
   const [account, setAccount] = React.useState<string>("");
-  const [accountInfo, setAccountInfo] = React.useState(
-    {} as AccountInfoRPCResponse,
-  );
+  const [accountInfo, setAccountInfo] = React.useState({} as AccountInfoRPCResponse);
   const [isLoading, setIsLoading] = React.useState(true);
   const [isError, setIsError] = React.useState(false);
 
@@ -74,9 +72,7 @@ const Provider: React.FC<Props> = ({ children }) => {
   }, [account]);
 
   return (
-    <AccountInfoContext.Provider
-      value={{ account, setAccount, accountInfo, isLoading, isError }}
-    >
+    <AccountInfoContext.Provider value={{ account, setAccount, accountInfo, isLoading, isError }}>
       {children}
     </AccountInfoContext.Provider>
   );

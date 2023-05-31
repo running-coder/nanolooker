@@ -1,12 +1,8 @@
 import * as React from "react";
 
-import {
-  CloseCircleFilled,
-  CloseCircleOutlined,
-  CloseCircleTwoTone,
-} from "@ant-design/icons";
+import { CloseCircleFilled, CloseCircleOutlined, CloseCircleTwoTone } from "@ant-design/icons";
 
-import { PreferencesContext,Theme } from "api/contexts/Preferences";
+import { PreferencesContext, Theme } from "api/contexts/Preferences";
 import { Colors, TwoToneColors } from "components/utils";
 
 const DeleteButton = (props: any) => {

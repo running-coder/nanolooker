@@ -19,12 +19,11 @@ export interface RepresentativesReturn {
   isError: boolean;
 }
 
-export const RepresentativesContext =
-  React.createContext<RepresentativesReturn>({
-    representatives: [],
-    isLoading: true,
-    isError: false,
-  });
+export const RepresentativesContext = React.createContext<RepresentativesReturn>({
+  representatives: [],
+  isLoading: true,
+  isError: false,
+});
 
 let isEnhancedRepresentativeDone = false;
 
@@ -33,9 +32,7 @@ interface Props {
 }
 
 const Provider: React.FC<Props> = ({ children }) => {
-  const [representatives, setRepresentatives] = React.useState<
-    Representative[]
-  >([]);
+  const [representatives, setRepresentatives] = React.useState<Representative[]>([]);
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
   const [isError, setIsError] = React.useState<boolean>(false);
   const {
@@ -43,9 +40,7 @@ const Provider: React.FC<Props> = ({ children }) => {
       principal_representative_min_weight: principalRepresentativeMinWeight = 0,
     },
   } = React.useContext(ConfirmationQuorumContext);
-  const { representatives: representativesOnline } = React.useContext(
-    RepresentativesOnlineContext,
-  );
+  const { representatives: representativesOnline } = React.useContext(RepresentativesOnlineContext);
   const { knownAccounts, isLoading: isKnownAccountsLoading } =
     React.useContext(KnownAccountsContext);
 
@@ -56,9 +51,7 @@ const Provider: React.FC<Props> = ({ children }) => {
 
     isEnhancedRepresentativeDone = false;
 
-    !json || json.error
-      ? setIsError(true)
-      : setRepresentatives(json.representatives || []);
+    !json || json.error ? setIsError(true) : setRepresentatives(json.representatives || []);
 
     setIsLoading(false);
   };
@@ -85,9 +78,7 @@ const Provider: React.FC<Props> = ({ children }) => {
         weight,
         isOnline: representativesOnline.includes(account),
         isPrincipal: weight >= principalRepresentativeMinWeight,
-        alias: knownAccounts.find(
-          ({ account: knownAccount }) => account === knownAccount,
-        )?.alias,
+        alias: knownAccounts.find(({ account: knownAccount }) => account === knownAccount)?.alias,
       })),
     );
 
@@ -101,9 +92,7 @@ const Provider: React.FC<Props> = ({ children }) => {
   ]);
 
   return (
-    <RepresentativesContext.Provider
-      value={{ representatives, isLoading, isError }}
-    >
+    <RepresentativesContext.Provider value={{ representatives, isLoading, isError }}>
       {children}
     </RepresentativesContext.Provider>
   );

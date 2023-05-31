@@ -297,9 +297,7 @@ const skillType = [
 ];
 
 const getSkill = function (rawSkill: number, level: number) {
-  const regenerateHealthSkillPerLevel = [
-    5, 10, 15, 20, 25, 30, 40, 50, 75, 100,
-  ];
+  const regenerateHealthSkillPerLevel = [5, 10, 15, 20, 25, 30, 40, 50, 75, 100];
   const defenseSkillPerLevel = [5, 10, 15, 20, 25, 30, 40, 50, 75, 100];
   const resistanceSkillPerLevel = [5, 10, 15, 20, 25, 30, 40, 50, 75, 90];
 

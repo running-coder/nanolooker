@@ -51,21 +51,14 @@ const App: React.FC = () => {
   return (
     <ConfigProvider
       theme={{
-        algorithm:
-          themeContext === Theme.DARK ? theme.darkAlgorithm : undefined,
+        algorithm: themeContext === Theme.DARK ? theme.darkAlgorithm : undefined,
       }}
     >
       <Helmet>
         <html lang={i18next.language} />
         <title>NanoLooker {t("common.blockExplorer")}</title>
-        <meta
-          name="description"
-          content="Block explorer of the Nano cryptocurrency"
-        />
-        <meta
-          name="theme-color"
-          content={themeContext === Theme.DARK ? "#131313" : "#eff2f5"}
-        />
+        <meta name="description" content="Block explorer of the Nano cryptocurrency" />
+        <meta name="theme-color" content={themeContext === Theme.DARK ? "#131313" : "#eff2f5"} />
       </Helmet>
       <Layout
         style={{ minHeight: "100vh" }}
@@ -79,22 +72,13 @@ const App: React.FC = () => {
             <Route exact path="/" component={HomePage} />
             <Route path="/representatives" component={RepresentativesPage} />
             <Route exact path="/developer-fund" component={DeveloperFundPage} />
-            <Route
-              path="/developer-fund/transactions"
-              component={DeveloperFundTransactionsPage}
-            />
+            <Route path="/developer-fund/transactions" component={DeveloperFundTransactionsPage} />
             <Route path="/known-accounts" component={KnownAccountsPage} />
             <Route path="/distribution" component={DistributionPage} />
             <Route path="/exchange-tracker" component={ExchangeTrackerPage} />
             <Route path="/faucets" component={FaucetsPage} />
-            <Route
-              path="/large-transactions/:sortBy?"
-              component={LargeTransactionsPage}
-            />
-            <Route
-              path="/account/:account?/:section?"
-              component={AccountPage}
-            />
+            <Route path="/large-transactions/:sortBy?" component={LargeTransactionsPage} />
+            <Route path="/account/:account?/:section?" component={AccountPage} />
             <Route path="/block/:block?" component={BlockPage} />
             <Route path="/news/:feed?" component={NewsPage} />
             <Route path="/node-status" component={NodeStatusPage} />
@@ -103,10 +87,7 @@ const App: React.FC = () => {
             <Route path="/preferences" component={PreferencesPage} />
             <Route path="/bookmarks" component={BookmarksPage} />
             <Route path="/nanoquakejs" component={NanoQuakeJSPage} />
-            <Route
-              path="/nanobrowserquest/:section?"
-              component={NanoBrowserQuestPage}
-            />
+            <Route path="/nanobrowserquest/:section?" component={NanoBrowserQuestPage} />
             <Route path="/treasure-hunt/:account?" component={TreasureHunt} />
             <Route path="/statistics/social" component={StatisticsSocial} />
             <Route path="/statistics/2miners" component={Statistics2Miners} />

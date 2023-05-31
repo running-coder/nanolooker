@@ -3,11 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { useHistory, useLocation } from "react-router-dom";
 
-import {
-  ApartmentOutlined,
-  CalendarOutlined,
-  DatabaseOutlined,
-} from "@ant-design/icons";
+import { ApartmentOutlined, CalendarOutlined, DatabaseOutlined } from "@ant-design/icons";
 import { Col, Layout, Menu, Row } from "antd";
 
 import Preferences from "components/Preferences";
@@ -55,11 +51,7 @@ const AppHeader: React.FC = () => {
             </Link>
           </Col>
           <Col xs={{ span: 24, order: 3 }} md={{ span: 12, order: 2 }}>
-            <Menu
-              onClick={() => {}}
-              selectedKeys={[activeMenu]}
-              mode="horizontal"
-            >
+            <Menu onClick={() => {}} selectedKeys={[activeMenu]} mode="horizontal">
               <SubMenu
                 key="explore-submenu"
                 title={

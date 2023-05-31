@@ -1,12 +1,7 @@
 const MongoClient = require("mongodb").MongoClient;
 const { Sentry } = require("../sentry");
 const { nodeCache } = require("../client/cache");
-const {
-  MONGO_URL,
-  MONGO_OPTIONS,
-  MONGO_DB,
-  LARGE_TRANSACTIONS,
-} = require("../constants");
+const { MONGO_URL, MONGO_OPTIONS, MONGO_DB, LARGE_TRANSACTIONS } = require("../constants");
 
 const getLargeTransactions = async () => {
   let largeTransactions =
@@ -26,9 +21,7 @@ const getLargeTransactions = async () => {
             })
             .sort({ createdAt: -1 })
             .toArray((_err, values = []) => {
-              const transactions = values.map(
-                ({ value: [transaction] }) => transaction,
-              );
+              const transactions = values.map(({ value: [transaction] }) => transaction);
               nodeCache.set(LARGE_TRANSACTIONS, transactions, 15);
               client.close();
               resolve(transactions);

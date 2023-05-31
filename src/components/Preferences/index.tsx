@@ -22,9 +22,7 @@ const Preferences: React.FC = () => {
       content={
         <div
           style={{ maxWidth: 340 }}
-          className={`detail-layout ${
-            theme === Theme.DARK ? "theme-dark" : ""
-          }`}
+          className={`detail-layout ${theme === Theme.DARK ? "theme-dark" : ""}`}
         >
           <ThemePreferences />
           <LanguagePreferences />

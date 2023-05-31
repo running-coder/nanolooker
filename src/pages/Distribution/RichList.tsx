@@ -8,11 +8,7 @@ import BigNumber from "bignumber.js";
 import KnownAccounts from "knownAccounts.json";
 
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
-import {
-  CurrencyDecimal,
-  CurrencySymbol,
-  PreferencesContext,
-} from "api/contexts/Preferences";
+import { CurrencyDecimal, CurrencySymbol, PreferencesContext } from "api/contexts/Preferences";
 import useAvailableSupply from "api/hooks/use-available-supply";
 import useRichList from "api/hooks/use-rich-list";
 import { roundOff } from "components/utils";
@@ -92,9 +88,7 @@ const RichList: React.FC = () => {
                   <strong>{startIndex + index}</strong>
                 </Col>
                 <Col sm={12} md={12} xl={14}>
-                  {alias ? (
-                    <div className="color-important">{alias}</div>
-                  ) : null}
+                  {alias ? <div className="color-important">{alias}</div> : null}
                   <Link to={`/account/${account}`} className="break-word">
                     {account}
                   </Link>
@@ -110,10 +104,7 @@ const RichList: React.FC = () => {
                   >
                     {availableSupply && account !== BURN_ACCOUNT
                       ? `${roundOff(
-                          new BigNumber(balance)
-                            .times(100)
-                            .dividedBy(availableSupply)
-                            .toNumber(),
+                          new BigNumber(balance).times(100).dividedBy(availableSupply).toNumber(),
                         )}%`
                       : null}
                   </span>
@@ -151,8 +142,7 @@ const RichList: React.FC = () => {
                     current: currentPage,
                     disabled: false,
                     onChange: (page: number) => {
-                      const element =
-                        document.getElementById("rich-list-title");
+                      const element = document.getElementById("rich-list-title");
                       element?.scrollIntoView();
 
                       setCurrentPage?.(page);

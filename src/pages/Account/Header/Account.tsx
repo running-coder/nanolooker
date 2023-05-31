@@ -17,11 +17,7 @@ interface Props {
   hideOptions?: boolean;
 }
 
-const AccountHeader: React.FC<Props> = ({
-  account,
-  isLink = false,
-  hideOptions = false,
-}) => {
+const AccountHeader: React.FC<Props> = ({ account, isLink = false, hideOptions = false }) => {
   const { natricons } = React.useContext(PreferencesContext);
   const isSmallAndLower = !useMediaQuery({ query: "(min-width: 576px)" });
 
@@ -58,9 +54,7 @@ const AccountHeader: React.FC<Props> = ({
 
       {!isLink ? (
         <span className="break-word" style={{ marginRight: "6px" }}>
-          <span>
-            {account.substr(account.length * -1, account.length - 60)}
-          </span>
+          <span>{account.substr(account.length * -1, account.length - 60)}</span>
           <span style={{ color: "#1890ff" }}>{account.substr(-60, 7)}</span>
           <span>{account.substr(-53, 46)}</span>
           <span style={{ color: "#1890ff" }}>{account.substr(-7)}</span>

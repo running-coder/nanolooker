@@ -2,21 +2,15 @@ import * as React from "react";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
 
-import {
-  GithubOutlined,
-  RedditOutlined,
-  TwitterOutlined,
-} from "@ant-design/icons";
+import { GithubOutlined, RedditOutlined, TwitterOutlined } from "@ant-design/icons";
 import { Bar, G2 } from "@antv/g2plot";
-import { Card, Col, Radio, Row, Skeleton, Tooltip,Typography } from "antd";
+import { Card, Col, Radio, Row, Skeleton, Tooltip, Typography } from "antd";
 import BigNumber from "bignumber.js";
 import orderBy from "lodash/orderBy";
 
 import QuestionCircle from "components/QuestionCircle";
 
-import useStatisticsSocial, {
-  CryptoCurrency,
-} from "./hooks/use-statistics-social";
+import useStatisticsSocial, { CryptoCurrency } from "./hooks/use-statistics-social";
 
 const { Text, Title } = Typography;
 const G = G2.getEngine("canvas");
@@ -57,9 +51,7 @@ const StatisticsSocialPage: React.FC = () => {
     if (isLoading || !statistics.length) return;
 
     const data = orderBy(
-      statistics.filter(
-        statistic => !!statistic[filterPerBillionToKeyMap[filter]],
-      ),
+      statistics.filter(statistic => !!statistic[filterPerBillionToKeyMap[filter]]),
       [filterPerBillionToKeyMap[filter]],
       ["desc"],
     ).map((statistic, index) => {
@@ -187,9 +179,7 @@ const StatisticsSocialPage: React.FC = () => {
             </Radio.Group>
             <br />
             <br />
-            <Text>
-              {t(`pages.statistics.social.${filterTotalToKeyMap[filter]}`)}
-            </Text>
+            <Text>{t(`pages.statistics.social.${filterTotalToKeyMap[filter]}`)}</Text>
           </Col>
         </Row>
         <Row>

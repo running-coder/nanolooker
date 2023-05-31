@@ -31,9 +31,8 @@ interface Params {
 const useRichList = ({ account, page }: Params): Return => {
   const [data, setData] = React.useState([] as Data[]);
   const [meta, setMeta] = React.useState({} as Meta);
-  const { knownAccounts, isLoading: isKnownAccountsLoading } = React.useContext(
-    KnownAccountsContext,
-  );
+  const { knownAccounts, isLoading: isKnownAccountsLoading } =
+    React.useContext(KnownAccountsContext);
   const [isLoading, setIsLoading] = React.useState(true);
   const [isError, setIsError] = React.useState(false);
 

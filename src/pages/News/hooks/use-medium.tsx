@@ -34,8 +34,7 @@ export interface MediumPost {
 
 const AUTHORS: string[] = [];
 
-const removeHtmlTags = (html: string): string =>
-  html?.replace(/<[\s\S]+?\/?>/g, "");
+const removeHtmlTags = (html: string): string => html?.replace(/<[\s\S]+?\/?>/g, "");
 
 const getMediumPosts = async () => {
   const mediumPosts = (await Promise.all(
@@ -95,9 +94,7 @@ const getMediumPosts = async () => {
 };
 
 const useMedium = () => {
-  const [posts, setPosts] = React.useState(
-    (Array.from(Array(3).keys()) as unknown) as MediumPost[],
-  );
+  const [posts, setPosts] = React.useState(Array.from(Array(3).keys()) as unknown as MediumPost[]);
   const [authors, setAuthors] = React.useState(AUTHORS);
   const [isLoading, setIsLoading] = React.useState(true);
 

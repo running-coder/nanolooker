@@ -18,13 +18,9 @@ const { Text, Title } = Typography;
 const NanoQuakeJSPage: React.FC = () => {
   const { t } = useTranslation();
   const { playerCount, statistics, currentMap, topScores } = useNanoQuakeJS();
-  const { nanoQuakeJSUsername, nanoQuakeJSAccount } = React.useContext(
-    PreferencesContext,
-  );
+  const { nanoQuakeJSUsername, nanoQuakeJSAccount } = React.useContext(PreferencesContext);
 
-  const playerRank = topScores.find(
-    ({ player }) => player === nanoQuakeJSUsername,
-  )?.rank;
+  const playerRank = topScores.find(({ player }) => player === nanoQuakeJSUsername)?.rank;
 
   return (
     <>
@@ -78,17 +74,11 @@ const NanoQuakeJSPage: React.FC = () => {
                       <div>
                         <div className="color-important default-color">
                           {nanoQuakeJSUsername}{" "}
-                          <span
-                            style={{ fontWeight: "normal" }}
-                            className="color-muted"
-                          >
+                          <span style={{ fontWeight: "normal" }} className="color-muted">
                             {playerRank ? `#${playerRank}` : null}
                           </span>
                         </div>
-                        <Link
-                          to={`/account/${nanoQuakeJSAccount}`}
-                          className="break-word"
-                        >
+                        <Link to={`/account/${nanoQuakeJSAccount}`} className="break-word">
                           {nanoQuakeJSAccount}
                         </Link>
                       </div>
@@ -111,10 +101,7 @@ const NanoQuakeJSPage: React.FC = () => {
                   }}
                 />
 
-                <Title
-                  level={5}
-                  style={{ textAlign: "center", marginBottom: "24px" }}
-                >
+                <Title level={5} style={{ textAlign: "center", marginBottom: "24px" }}>
                   {t("pages.nanoquakejs.welcomeTitle")}
                 </Title>
               </Col>
@@ -127,12 +114,7 @@ const NanoQuakeJSPage: React.FC = () => {
                 {t("pages.nanoquakejs.currentMap")}
               </Col>
               <Col xs={24} sm={18}>
-                <Skeleton
-                  paragraph={false}
-                  loading={!currentMap}
-                  active
-                  title={{ width: "50%" }}
-                >
+                <Skeleton paragraph={false} loading={!currentMap} active title={{ width: "50%" }}>
                   {currentMap}
                 </Skeleton>
               </Col>
@@ -190,9 +172,7 @@ const NanoQuakeJSPage: React.FC = () => {
               ></iframe>
             </div>
 
-            <p style={{ marginTop: 12 }}>
-              {t("pages.nanoquakejs.welcomeDescription")}
-            </p>
+            <p style={{ marginTop: 12 }}>{t("pages.nanoquakejs.welcomeDescription")}</p>
 
             <p>{t("pages.nanoquakejs.welcomeDescription2")}</p>
           </Card>

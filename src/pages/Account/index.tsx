@@ -26,13 +26,8 @@ export enum Sections {
 
 const AccountPage: React.FC = () => {
   const { t } = useTranslation();
-  const {
-    account = "",
-    section = Sections.TRANSACTIONS,
-  } = useParams<PageParams>();
-  const { setAccount, isError: isAccountInfoError } = React.useContext(
-    AccountInfoContext,
-  );
+  const { account = "", section = Sections.TRANSACTIONS } = useParams<PageParams>();
+  const { setAccount, isError: isAccountInfoError } = React.useContext(AccountInfoContext);
   const isValid = isValidAccountAddress(account);
   const {
     transactions: socketTransactions,
@@ -41,8 +36,7 @@ const AccountPage: React.FC = () => {
     pendingBalance: socketPendingBalance,
   } = useSockets({ account });
 
-  const updateCount =
-    socketTransactions.length + pendingSocketTransactions.length;
+  const updateCount = socketTransactions.length + pendingSocketTransactions.length;
 
   React.useEffect(() => {
     document.body.scrollTop = 0; // For Safari
@@ -80,9 +74,7 @@ const AccountPage: React.FC = () => {
       {isValid && section === Sections.TRANSACTIONS ? (
         <AccountHistory socketTransactions={socketTransactions} />
       ) : null}
-      {isValid && section === Sections.DELEGATORS ? (
-        <AccountDelegators />
-      ) : null}
+      {isValid && section === Sections.DELEGATORS ? <AccountDelegators /> : null}
 
       {!isValid || !account ? (
         <Card>
