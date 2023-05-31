@@ -1,11 +1,13 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+
+import { StarFilled, StarOutlined } from "@ant-design/icons";
 import { Button, Input, InputRef, Popover, Space, Tooltip } from "antd";
 import { TooltipPlacement } from "antd/lib/tooltip";
-import { StarFilled, StarOutlined } from "@ant-design/icons";
-import { Theme, PreferencesContext } from "api/contexts/Preferences";
+
 import { BookmarksContext, BookmarkTypes } from "api/contexts/Bookmarks";
+import { PreferencesContext, Theme } from "api/contexts/Preferences";
 import QuestionCircle from "components/QuestionCircle";
 
 interface Props {
@@ -17,8 +19,7 @@ interface Props {
 const Bookmark: React.FC<Props> = ({ type, bookmark, placement = "top" }) => {
   const { t } = useTranslation();
   const { theme } = React.useContext(PreferencesContext);
-  const { bookmarks, addBookmark, removeBookmark } =
-    React.useContext(BookmarksContext);
+  const { bookmarks, addBookmark, removeBookmark } = React.useContext(BookmarksContext);
   const [isOpened, setIsOpened] = React.useState(false);
   const [isBookmarked, setIsBookmarked] = React.useState(false);
   const [alias, setAlias] = React.useState(bookmarks?.[type]?.[bookmark]);
@@ -93,9 +94,7 @@ const Bookmark: React.FC<Props> = ({ type, bookmark, placement = "top" }) => {
             placement="right"
             title={
               <>
-                <div style={{ marginBottom: "6px" }}>
-                  {t("tooltips.bookmarks", { type })}
-                </div>
+                <div style={{ marginBottom: "6px" }}>{t("tooltips.bookmarks", { type })}</div>
                 <Link to={"/bookmarks"}>{t("pages.bookmarks.viewAll")}</Link>
               </>
             }

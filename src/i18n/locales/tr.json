@@ -215,7 +215,9 @@
       "endDate": "Bitiş tarihi",
       "exportToCsv": "CSV'ye aktar",
       "export": "İhracat",
-      "exportTransactions": "{{count}} işlemi CSV'ye aktar"
+      "exportTransactions": "{{count}} işlemi CSV'ye aktar",
+      "reverse": "İşlem sırasını tersine çevir",
+      "sumAmounts": "Tutarları topla"
     },
     "block": {
       "blockSubtype": "Alt türü engelle",
@@ -349,7 +351,8 @@
       "nodeVersions": "Düğüm sürümleri",
       "latestVersion": "En son sürüm",
       "database": "Veri tabanı",
-      "versionsByWeight": "Oy ağırlığına göre sürümler"
+      "versionsByWeight": "Oy ağırlığına göre sürümler",
+      "versionsByMajor": "Ana sürüme göre gruplandırın"
     },
     "exchangeTracker": {
       "description": "Her gün, Banano'nun işlem gördüğü en popüler borsaların hesap bakiyelerinin bir kaydı alınır. Bu ölçüm, ağdaki hareketleri ve dalgalanmaları analiz etmek için kullanılabilir.",

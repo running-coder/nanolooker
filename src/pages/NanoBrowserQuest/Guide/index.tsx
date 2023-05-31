@@ -1,14 +1,17 @@
+import "./guide.css";
+
 import * as React from "react";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
-import { Card, Row, Col, Tooltip, Typography } from "antd";
 import ReactMarkdown from "react-markdown";
+
+import { Card, Col, Row, Tooltip, Typography } from "antd";
 import remarkGfm from "remark-gfm";
+
+import Header from "./components/Header";
 
 import guide from "./guide.md";
 import { getItemAttributes } from "./utils";
-
-import "./guide.css";
 
 const { Title } = Typography;
 
@@ -40,17 +43,21 @@ const NanoBrowserQuestGuidePage: React.FC = () => {
                 fontSize: "12px",
               }}
             >
-              {t("common.by")} oldschooler &amp; running-coder
+              {t("common.by")} oldschooler, mika &amp; running-coder
             </span>
           </Title>
-          <Card size="small" bordered={false} className="guide">
+          <Card size="small" className="guide">
             <Row gutter={[12, 0]}>
               <Col xs={24}>
                 <ReactMarkdown
                   remarkPlugins={[remarkGfm]}
+                  renderers={{ heading: Header }}
                   components={{
                     //@ts-ignore
                     img: Image,
+                    h1: Header,
+                    h2: Header,
+                    h3: Header,
                   }}
                 >
                   {markdown}
@@ -67,14 +74,16 @@ const NanoBrowserQuestGuidePage: React.FC = () => {
 const Image: React.FC<HTMLImageElement> = ({ src, alt: rawAttributes }) => {
   let title;
   if (rawAttributes?.startsWith("{")) {
-    title = getItemAttributes(JSON.parse(rawAttributes));
+    try {
+      title = getItemAttributes(JSON.parse(rawAttributes));
+    } catch (err) {
+      console.log("`~~~rawAttributes", rawAttributes);
+      // console.log("`~~~rawAttributes", JSON.parse(rawAttributes));
+      // console.log("`~~~title", title);
+    }
 
     return (
-      <Tooltip
-        placement="right"
-        title={title}
-        overlayClassName="tooltip-nbq-item"
-      >
+      <Tooltip placement="right" title={title} overlayClassName="tooltip-nbq-item">
         <div
           className="item-container"
           style={{

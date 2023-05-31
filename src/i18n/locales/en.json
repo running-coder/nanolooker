@@ -197,6 +197,8 @@
       "dateRange": "Date range",
       "includeNoTimestamp": "Include blocks with no date",
       "excludeUnknownAccounts": "Only show blocks from known accounts",
+      "reverse": "Reverse the transaction order",
+      "sumAmounts": "Sum the amounts",
       "advancedOptions": "Advanced options",
       "applyFilters": "Apply filters",
       "exportToCsv": "Export to CSV",
@@ -348,7 +350,8 @@
       "nodeVersions": "Node versions",
       "latestVersion": "Latest version",
       "database": "Database",
-      "versionsByWeight": "Versions by voting weight"
+      "versionsByWeight": "Versions by voting weight",
+      "versionsByMajor": "Group by major version"
     },
     "exchangeTracker": {
       "description": "Every day a capture of the account balances of the most popular exchanges where Banano is traded is taken. This measurement can be used to analyze movements and fluctuations on the network.",

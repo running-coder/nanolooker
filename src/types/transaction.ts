@@ -1,13 +1,7 @@
 export type ConfirmationType = "active_quorum";
 
 export type Type = "state" & Subtype;
-export type Subtype =
-  | "change"
-  | "pending"
-  | "send"
-  | "receive"
-  | "open"
-  | "epoch";
+export type Subtype = "change" | "pending" | "send" | "receive" | "open" | "epoch";
 
 export interface Transaction {
   account: string;

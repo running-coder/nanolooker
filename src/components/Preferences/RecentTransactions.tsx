@@ -1,8 +1,10 @@
 import * as React from "react";
-import { Card, Popover } from "antd";
+
 import { SettingOutlined } from "@ant-design/icons";
-import LiveTransactionsPreferences from "./LiveTransactions";
+import { Card, Popover } from "antd";
+
 import FilterTransactionsPreferences from "./FilterTransactions";
+import LiveTransactionsPreferences from "./LiveTransactions";
 
 const RecentTransactionsPreferences: React.FC = () => {
   return (
@@ -10,7 +12,7 @@ const RecentTransactionsPreferences: React.FC = () => {
       <Popover
         placement="left"
         content={
-          <Card size="small" bordered={false} className="detail-layout">
+          <Card size="small" className="detail-layout">
             <LiveTransactionsPreferences />
             <FilterTransactionsPreferences />
           </Card>

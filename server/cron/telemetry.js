@@ -21,6 +21,8 @@ const doTelemetryCron = async () => {
     // Record representative node version for account page
     setRepresentatives({ metrics, peers });
 
+    if (!metrics || !peers) return;
+
     const percentiles = calculatePercentiles(metrics, peers);
 
     nodeCache.set(TELEMETRY, percentiles);
@@ -70,17 +72,12 @@ const calculatePercentiles = (metrics, peers) => {
     uptime.push(metric.uptime);
     activeDifficulty.push(metric.active_difficulty);
 
-    const {
-      major_version: major,
-      minor_version: minor,
-      patch_version: patch,
-    } = metric;
+    const { major_version: major, minor_version: minor, patch_version: patch } = metric;
     const version = `${major}.${minor}.${patch}`;
 
     const metricsRawIp = `[${metric.address}]:${metric.port}`;
 
-    const { weight = 0 } =
-      peers.find(({ rawIp }) => metricsRawIp === rawIp) || {};
+    const { weight = 0 } = peers.find(({ rawIp }) => metricsRawIp === rawIp) || {};
 
     if (!versions[version]) {
       versions[version] = { weight, count: 1 };
@@ -115,11 +112,9 @@ const calculatePercentiles = (metrics, peers) => {
     return groups;
   }, {});
 
-  const highestBandwidthCapGroup = Object.keys(bandwidthCapGroups).reduce(
-    function (a, b) {
-      return bandwidthCapGroups[a] > bandwidthCapGroups[b] ? a : b;
-    },
-  );
+  const highestBandwidthCapGroup = Object.keys(bandwidthCapGroups).reduce(function (a, b) {
+    return bandwidthCapGroups[a] > bandwidthCapGroups[b] ? a : b;
+  });
 
   status.bandwidthCapGroups.push({
     count: bandwidthCapGroups[highestBandwidthCapGroup],
@@ -147,16 +142,12 @@ const calculatePercentiles = (metrics, peers) => {
   percentiles.p100.accountCount = calculateAverage([...accountCount], 1);
 
   percentiles.p5.bandwidthCap =
-    (status.bandwidthCapGroups[0].count * 100) /
-      status.bandwidthCapGroups[1].count <
-    50
+    (status.bandwidthCapGroups[0].count * 100) / status.bandwidthCapGroups[1].count < 50
       ? status.bandwidthCapGroups[0].bandwidthCap
       : status.bandwidthCapGroups[1].bandwidthCap;
 
   percentiles.p50.bandwidthCap =
-    (status.bandwidthCapGroups[0].count * 100) /
-      status.bandwidthCapGroups[1].count >=
-    50
+    (status.bandwidthCapGroups[0].count * 100) / status.bandwidthCapGroups[1].count >= 50
       ? status.bandwidthCapGroups[0].bandwidthCap
       : status.bandwidthCapGroups[1].bandwidthCap;
 

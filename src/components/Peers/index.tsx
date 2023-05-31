@@ -1,12 +1,14 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import isEmpty from "lodash/isEmpty";
-import { Button, Card, Tooltip } from "antd";
+
 import { ReloadOutlined } from "@ant-design/icons";
-import { refreshActionDelay } from "components/utils";
-import LoadingStatistic from "components/LoadingStatistic";
+import { Button, Card, Tooltip } from "antd";
 import BigNumber from "bignumber.js";
+import isEmpty from "lodash/isEmpty";
+
 import usePeers from "api/hooks/use-peers";
+import LoadingStatistic from "components/LoadingStatistic";
+import { refreshActionDelay } from "components/utils";
 
 let protocolVersions: { [key: string]: number } = {};
 let protocolVersion: string = "-";

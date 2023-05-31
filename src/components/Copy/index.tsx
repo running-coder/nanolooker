@@ -1,9 +1,11 @@
 import * as React from "react";
-import { useTranslation } from "react-i18next";
-import { Button, Tooltip } from "antd";
-import { CheckCircleFilled, CopyOutlined, CopyFilled } from "@ant-design/icons";
 import CopyToClipboard from "react-copy-to-clipboard";
-import { Theme, PreferencesContext } from "api/contexts/Preferences";
+import { useTranslation } from "react-i18next";
+
+import { CheckCircleFilled, CopyFilled, CopyOutlined } from "@ant-design/icons";
+import { Button, Tooltip } from "antd";
+
+import { PreferencesContext, Theme } from "api/contexts/Preferences";
 import { Colors } from "components/utils";
 
 let copiedTimeout: number | undefined;
@@ -27,13 +29,9 @@ const Copy = ({ text }: { text: string }) => {
       >
         {isCopied ? (
           theme === Theme.DARK ? (
-            <CheckCircleFilled
-              style={{ fontSize: "24px", color: Colors.PENDING_DARK as string }}
-            />
+            <CheckCircleFilled style={{ fontSize: "24px", color: Colors.PENDING_DARK as string }} />
           ) : (
-            <CheckCircleFilled
-              style={{ fontSize: "24px", color: Colors.PENDING as string }}
-            />
+            <CheckCircleFilled style={{ fontSize: "24px", color: Colors.PENDING as string }} />
           )
         ) : (
           <Button

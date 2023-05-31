@@ -9,9 +9,7 @@ interface Return {
 }
 
 const useLargeTransactions = (): Return => {
-  const [largeTransactions, setLargeTransactions] = React.useState(
-    [] as Transaction[],
-  );
+  const [largeTransactions, setLargeTransactions] = React.useState([] as Transaction[]);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [isError, setIsError] = React.useState<boolean>(false);
 

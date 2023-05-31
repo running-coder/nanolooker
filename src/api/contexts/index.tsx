@@ -1,21 +1,26 @@
 import * as React from "react";
-import PreferencesProvider from "./Preferences";
-import MarketStatisticsProvider from "./MarketStatistics";
-import NodeStatusProvider from "./NodeStatus";
-import KnownAccountsProvider from "./KnownAccounts";
-import BookmarksProvider from "./Bookmarks";
+
+import AccountHistoryFilterProvider from "./AccountHistoryFilter";
 import AccountInfoProvider from "./AccountInfo";
+import BlockCountProvider from "./BlockCount";
 import BlockInfoProvider from "./BlockInfo";
 import BlocksInfoProvider from "./BlocksInfo";
+import BookmarksProvider from "./Bookmarks";
+import ConfirmationHistoryProvider from "./ConfirmationHistory";
+import ConfirmationQuorumProvider from "./ConfirmationQuorum";
+import DelegatorsProvider from "./Delegators";
+import KnownAccountsProvider from "./KnownAccounts";
+import MarketStatisticsProvider from "./MarketStatistics";
+import NodeStatusProvider from "./NodeStatus";
+import PreferencesProvider from "./Preferences";
 import RepresentativesProvider from "./Representatives";
 import RepresentativesOnlineProvider from "./RepresentativesOnline";
-import ConfirmationQuorumProvider from "./ConfirmationQuorum";
-import BlockCountProvider from "./BlockCount";
-import ConfirmationHistoryProvider from "./ConfirmationHistory";
-import AccountHistoryFilterProvider from "./AccountHistoryFilter";
-import DelegatorsProvider from "./Delegators";
 
-const IndexProvider: React.FC = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const IndexProvider: React.FC<Props> = ({ children }) => {
   return (
     <PreferencesProvider>
       <MarketStatisticsProvider>
@@ -31,9 +36,7 @@ const IndexProvider: React.FC = ({ children }) => {
                           <RepresentativesProvider>
                             <BlockCountProvider>
                               <ConfirmationHistoryProvider>
-                                <DelegatorsProvider>
-                                  {children}
-                                </DelegatorsProvider>
+                                <DelegatorsProvider>{children}</DelegatorsProvider>
                               </ConfirmationHistoryProvider>
                             </BlockCountProvider>
                           </RepresentativesProvider>

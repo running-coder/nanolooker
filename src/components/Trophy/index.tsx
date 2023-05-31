@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import { TrophyTwoTone } from "@ant-design/icons";
 
 const Trophy: React.FC<{ rank: number }> = ({ rank }) => {
@@ -12,10 +13,7 @@ const Trophy: React.FC<{ rank: number }> = ({ rank }) => {
   }
 
   return color ? (
-    <TrophyTwoTone
-      twoToneColor={color}
-      style={{ fontSize: fontSizeToRankMap[rank] ?? "auto" }}
-    />
+    <TrophyTwoTone twoToneColor={color} style={{ fontSize: fontSizeToRankMap[rank] ?? "auto" }} />
   ) : null;
 };
 

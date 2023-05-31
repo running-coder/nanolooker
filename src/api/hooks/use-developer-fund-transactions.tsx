@@ -7,10 +7,7 @@ export interface Return {
 }
 
 const useDeveloperFundTransactions = (): Return => {
-  const [
-    developerFundTransactions,
-    setDeveloperFundTransactions,
-  ] = React.useState([] as any);
+  const [developerFundTransactions, setDeveloperFundTransactions] = React.useState([] as any);
   const [isLoading, setIsLoading] = React.useState(false);
   const [isError, setIsError] = React.useState(false);
 

@@ -98,8 +98,7 @@ const doNodeMonitors = async () => {
     if (!peers) return;
 
     // Store the nodes without monitor for 24h so the 5 minutes request doesn't pull them
-    let skipMonitorCheck24h =
-      nodeCache.get(`${NODE_MONITORS}_NO_MONITOR`) || [];
+    let skipMonitorCheck24h = nodeCache.get(`${NODE_MONITORS}_NO_MONITOR`) || [];
 
     peers = peers.filter(({ ip }) => {
       return !skipMonitorCheck24h.includes(ip);

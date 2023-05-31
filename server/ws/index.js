@@ -64,8 +64,8 @@ ws.onclose = () => {
   updateDb();
 };
 
-ws.onerror = () => {
-  console.log("WS ERROR");
+ws.onerror = err => {
+  console.log("WS ERROR", err);
   clearInterval(updateDbInterval);
   updateDb();
 };
@@ -89,9 +89,7 @@ ws.onmessage = msg => {
 
     // Skip accumulating dust amounts
     if (["send", "receive"].includes(subtype) && amount.length >= 25) {
-      accumulatedVolume = new BigNumber(amount)
-        .plus(accumulatedVolume)
-        .toNumber();
+      accumulatedVolume = new BigNumber(amount).plus(accumulatedVolume).toNumber();
     }
   }
 };

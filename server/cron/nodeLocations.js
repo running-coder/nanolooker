@@ -5,13 +5,7 @@ const MongoClient = require("mongodb").MongoClient;
 const { rpc } = require("../rpc");
 const { nodeCache } = require("../client/cache");
 const { Sentry } = require("../sentry");
-const {
-  MONGO_DB,
-  MONGO_URL,
-  MONGO_OPTIONS,
-  NODE_LOCATIONS,
-  EXPIRE_48H,
-} = require("../constants");
+const { MONGO_DB, MONGO_URL, MONGO_OPTIONS, NODE_LOCATIONS, EXPIRE_48H } = require("../constants");
 
 const NODE_IP_REGEX = /\[::ffff:([\d.]+)\]:[\d]+/;
 
@@ -38,7 +32,7 @@ let db;
 let mongoClient;
 
 const connect = async () =>
-  await new Promise((resolve, reject) => {
+  new Promise((resolve, reject) => {
     try {
       MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (err, client) => {
         if (err) {
@@ -54,15 +48,13 @@ const connect = async () =>
       });
     } catch (err) {
       Sentry.captureException(err);
-      resolve();
+      reject();
     }
   });
 
 const getNodeLocation = async ip => {
   try {
-    const res = await fetch(
-      `https://ipapi.co/${ip}/json/?key=${process.env.IPAPI_KEY}`,
-    );
+    const res = await fetch(`https://ipapi.co/${ip}/json/?key=${process.env.IPAPI_KEY}`);
     const {
       version,
       city,
@@ -131,8 +123,8 @@ const doNodeLocations = async () => {
 
     await connect();
 
-    db.collection(NODE_LOCATIONS).drop();
-    db.collection(NODE_LOCATIONS).insertMany(results);
+    await db.collection(NODE_LOCATIONS).drop();
+    await db.collection(NODE_LOCATIONS).insertMany(results);
 
     nodeCache.set(NODE_LOCATIONS, results);
 

@@ -1,13 +1,15 @@
 import * as React from "react";
-import moment from "moment";
+import { useTranslation } from "react-i18next";
+
 import { Line } from "@antv/g2plot";
 import { Card, Empty, Select, Skeleton, Tooltip } from "antd";
-import { useTranslation } from "react-i18next";
 import BigNumber from "bignumber.js";
-import useAccountHistory from "api/hooks/use-account-history";
+import moment from "moment";
+
 import { AccountInfoContext } from "api/contexts/AccountInfo";
-import { rawToRai, intToString } from "components/utils";
+import useAccountHistory from "api/hooks/use-account-history";
 import QuestionCircle from "components/QuestionCircle";
+import { intToString, rawToRai } from "components/utils";
 
 const { Option } = Select;
 
@@ -28,9 +30,7 @@ const Chart: React.FC = () => {
   const { t } = useTranslation();
   const [hasData, setHasData] = React.useState(false);
   const [dailyData, setDailyData] = React.useState([] as ChartData[]);
-  const [transactionData, setTransactionData] = React.useState(
-    [] as ChartData[],
-  );
+  const [transactionData, setTransactionData] = React.useState([] as ChartData[]);
   const [chartType, setChartType] = React.useState<ChartType>(ChartType.DAILY);
   const {
     account,
@@ -62,8 +62,7 @@ const Chart: React.FC = () => {
   }, []);
 
   React.useEffect(() => {
-    if (isAccountHistoryLoading || !history?.length || !accountInfo?.balance)
-      return;
+    if (isAccountHistoryLoading || !history?.length || !accountInfo?.balance) return;
 
     let currentBalance = parseInt(accountInfo.balance, 10);
     let dailyData: { [key: string]: number } = {};
@@ -71,14 +70,8 @@ const Chart: React.FC = () => {
     let currentDate;
 
     for (let i = 0; i < history.length; i++) {
-      const {
-        subtype,
-        amount,
-        local_timestamp: rawLocalTimestamp,
-      } = history[i];
-      const localTimestamp = rawLocalTimestamp
-        ? parseInt(rawLocalTimestamp, 10)
-        : null;
+      const { subtype, amount, local_timestamp: rawLocalTimestamp } = history[i];
+      const localTimestamp = rawLocalTimestamp ? parseInt(rawLocalTimestamp, 10) : null;
 
       if (!localTimestamp) {
         break;
@@ -197,14 +190,9 @@ const Chart: React.FC = () => {
   return (
     <Card
       size="small"
-      title={t(
-        `pages.account.${
-          chartType === ChartType.DAILY ? "dailyBalance" : "byTransaction"
-        }`,
-        {
-          count: blockCount > MAX_TRANSACTIONS ? MAX_TRANSACTIONS : blockCount,
-        },
-      )}
+      title={t("pages.account.dailyBalance", {
+        count: blockCount > MAX_TRANSACTIONS ? MAX_TRANSACTIONS : blockCount,
+      })}
       extra={
         <Select
           size="small"
@@ -213,20 +201,13 @@ const Chart: React.FC = () => {
           style={{ width: 160 }}
           disabled={!hasData}
         >
-          <Option value={ChartType.DAILY}>
-            {t("pages.account.dailyBalanceOption")}
-          </Option>
-          <Option value={ChartType.TRANSACTION}>
-            {t("pages.account.byTransactionOption")}
-          </Option>
+          <Option value={ChartType.DAILY}>{t("pages.account.dailyBalanceOption")}</Option>
+          <Option value={ChartType.TRANSACTION}>{t("pages.account.byTransactionOption")}</Option>
         </Select>
       }
     >
       <Skeleton active loading={isAccountHistoryLoading}>
-        <div
-          id="account-tracker-chart"
-          style={{ display: hasData ? "block" : "none" }}
-        />
+        <div id="account-tracker-chart" style={{ display: hasData ? "block" : "none" }} />
       </Skeleton>
 
       {!isAccountHistoryLoading && !hasData ? (
@@ -238,11 +219,7 @@ const Chart: React.FC = () => {
               {t("common.noData")}
               <Tooltip
                 placement="top"
-                title={
-                  <div style={{ marginBottom: "6px" }}>
-                    {t("tooltips.dailyBalance")}
-                  </div>
-                }
+                title={<div style={{ marginBottom: "6px" }}>{t("tooltips.dailyBalance")}</div>}
               >
                 <QuestionCircle />
               </Tooltip>

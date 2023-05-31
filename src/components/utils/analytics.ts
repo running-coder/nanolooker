@@ -1,14 +1,16 @@
 import GA4React from "ga-4-react";
 import { GA4ReactResolveInterface } from "ga-4-react/dist/models/gtagModels";
 import isEqual from "lodash/isEqual";
+
+import { getBookmarks } from "api/contexts/Bookmarks";
 import {
-  LOCALSTORAGE_KEYS,
-  Theme,
   Fiat,
   getFilterTransactionsRange,
+  LOCALSTORAGE_KEYS,
+  Theme,
 } from "api/contexts/Preferences";
 import { DEFAULT_UNITS } from "components/Preferences/FilterTransactions/utils";
-import { getBookmarks } from "api/contexts/Bookmarks";
+
 import { toBoolean } from ".";
 
 const TRACKER = process.env.REACT_APP_GOOGLE_MEASUREMENT_ID;
@@ -28,16 +30,13 @@ class Analytics {
         localStorage.getItem(LOCALSTORAGE_KEYS.FILTER_TRANSACTIONS),
       );
       const filterTransactionsRange: boolean =
-        filterTransactions &&
-        !isEqual(getFilterTransactionsRange(), DEFAULT_UNITS);
+        filterTransactions && !isEqual(getFilterTransactionsRange(), DEFAULT_UNITS);
       const bookmark = toBoolean(Object.keys(getBookmarks("account")).length);
 
       const userProperties = {
         theme: localStorage.getItem(LOCALSTORAGE_KEYS.THEME) || Theme.LIGHT,
         cryptocurrency: toBoolean(
-          JSON.parse(
-            localStorage.getItem(LOCALSTORAGE_KEYS.CRYPTOCURRENCY) || "[]",
-          ).length,
+          JSON.parse(localStorage.getItem(LOCALSTORAGE_KEYS.CRYPTOCURRENCY) || "[]").length,
         ),
         fiat: localStorage.getItem(LOCALSTORAGE_KEYS.FIAT) || Fiat.USD,
         natricon: toBoolean(localStorage.getItem(LOCALSTORAGE_KEYS.NATRICONS)),

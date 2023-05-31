@@ -1,8 +1,11 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+
 import { Button, Col, Row, Space, Typography } from "antd";
+
 import QRCodeModal from "components/QRCode/Modal";
+
 import Play from "./Play";
 
 const { Text } = Typography;

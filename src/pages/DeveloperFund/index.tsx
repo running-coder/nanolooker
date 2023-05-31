@@ -1,24 +1,23 @@
 import * as React from "react";
-import { useTranslation, Trans } from "react-i18next";
 import { Helmet } from "react-helmet";
+import { Trans, useTranslation } from "react-i18next";
+import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
+
 import { Button, Card, Col, Row, Skeleton, Tooltip, Typography } from "antd";
-import orderBy from "lodash/orderBy";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import TimeAgo from "timeago-react";
 import BigNumber from "bignumber.js";
-import {
-  PreferencesContext,
-  CurrencySymbol,
-  CurrencyDecimal,
-} from "api/contexts/Preferences";
+import orderBy from "lodash/orderBy";
+import TimeAgo from "timeago-react";
+
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
+import { CurrencyDecimal, CurrencySymbol, PreferencesContext } from "api/contexts/Preferences";
 import useAccountsBalances from "api/hooks/use-accounts-balances";
 // import useAvailableSupply from "api/hooks/use-available-supply";
 import useDeveloperAccountFund from "api/hooks/use-developer-fund-transactions";
-import QuestionCircle from "components/QuestionCircle";
 import LoadingStatistic from "components/LoadingStatistic";
+import QuestionCircle from "components/QuestionCircle";
 import { rawToRai, timestampToDate } from "components/utils";
+
 import KnownAccounts from "../../knownAccounts.json";
 
 const { DEVELOPER_FUND_ACCOUNTS } = KnownAccounts;
@@ -37,7 +36,7 @@ const DeveloperFund: React.FC = () => {
     useAccountsBalances(DEVELOPER_FUND_ACCOUNTS);
   // const { availableSupply } = useAvailableSupply();
   const { developerFundTransactions } = useDeveloperAccountFund();
-  const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
+  const isSmallAndLower = !useMediaQuery({ query: "(min-width: 576px)" });
 
   const data = orderBy(
     Object.entries(accountsBalances?.balances || []).reduce(
@@ -47,9 +46,7 @@ const DeveloperFund: React.FC = () => {
           .plus(rawToRai(pending || 0))
           .toNumber();
 
-        totalBalance = new BigNumber(totalBalance)
-          .plus(calculatedBalance)
-          .toNumber();
+        totalBalance = new BigNumber(totalBalance).plus(calculatedBalance).toNumber();
 
         accounts.push({
           account,
@@ -68,10 +65,9 @@ const DeveloperFund: React.FC = () => {
   const fiatBalance = new BigNumber(totalBalance)
     .times(currentPrice)
     .toFormat(CurrencyDecimal?.[fiat]);
-  const btcBalance = new BigNumber(totalBalance)
-    .times(currentPrice)
-    .dividedBy(btcCurrentPrice)
-    .toFormat(12);
+  const btcBalance = btcCurrentPrice
+    ? new BigNumber(totalBalance).times(currentPrice).dividedBy(btcCurrentPrice).toFormat(12)
+    : null;
 
   const skeletonProps = {
     active: true,
@@ -95,7 +91,7 @@ const DeveloperFund: React.FC = () => {
       <Row gutter={[12, 0]}>
         <Col xs={24} lg={12}>
           <Title level={3}>{t("menu.developerFund")}</Title>
-          <Card size="small" bordered={false} className="detail-layout">
+          <Card size="small" className="detail-layout">
             <div
               className="divider"
               style={{
@@ -123,12 +119,11 @@ const DeveloperFund: React.FC = () => {
                 {t("common.totalBalance")}
               </Col>
               <Col xs={24} sm={18}>
-                <LoadingStatistic
-                  isLoading={skeletonProps.loading}
-                  value={totalBalance}
-                />
+                <LoadingStatistic isLoading={skeletonProps.loading} value={totalBalance} />
                 <Skeleton {...skeletonProps}>
-                  {`${CurrencySymbol?.[fiat]} ${fiatBalance} / ${btcBalance} BTC`}
+                  {`${CurrencySymbol?.[fiat]} ${fiatBalance}${
+                    btcBalance ? ` / ${btcBalance} BTC` : ""
+                  } `}
                 </Skeleton>
               </Col>
             </Row>
@@ -150,33 +145,18 @@ const DeveloperFund: React.FC = () => {
                   {timestampToDate(modifiedTimestamp)})
                   <br />
                 </Skeleton>
-                <Skeleton
-                  active
-                  loading={!lastTransactionAmount}
-                  paragraph={false}
-                >
+                <Skeleton active loading={!lastTransactionAmount} paragraph={false}>
                   {lastTransactionAmount}
                   <br />
                 </Skeleton>
-                <Skeleton
-                  active
-                  loading={!lastTransactionHash}
-                  paragraph={false}
-                >
-                  <Link
-                    to={`/block/${lastTransactionHash}`}
-                    className="break-word"
-                  >
+                <Skeleton active loading={!lastTransactionHash} paragraph={false}>
+                  <Link to={`/block/${lastTransactionHash}`} className="break-word">
                     {lastTransactionHash}
                   </Link>
                   <br />
                 </Skeleton>
                 <Link to={`/developer-fund/transactions`}>
-                  <Button
-                    type="primary"
-                    size="small"
-                    style={{ marginTop: "6px" }}
-                  >
+                  <Button type="primary" size="small" style={{ marginTop: "6px" }}>
                     {t("pages.developerFund.allTransactions")}
                   </Button>
                 </Link>
@@ -190,12 +170,7 @@ const DeveloperFund: React.FC = () => {
         {t("pages.developerFund.totalAccounts", { totalAccounts: data.length })}
       </Title>
 
-      <Card
-        size="small"
-        bordered={false}
-        className="detail-layout"
-        style={{ marginBottom: "12px" }}
-      >
+      <Card size="small" className="detail-layout" style={{ marginBottom: "12px" }}>
         {!isSmallAndLower ? (
           <>
             <Row gutter={6}>

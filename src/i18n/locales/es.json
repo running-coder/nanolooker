@@ -215,7 +215,9 @@
       "endDate": "Fecha final",
       "exportToCsv": "Exportar a CSV",
       "export": "Exportar",
-      "exportTransactions": "Exportar {{count}} transacciones a CSV"
+      "exportTransactions": "Exportar {{count}} transacciones a CSV",
+      "reverse": "Invertir el orden de la transacción",
+      "sumAmounts": "suma las cantidades"
     },
     "block": {
       "blockSubtype": "Subtipo de bloque",
@@ -349,7 +351,8 @@
       "nodeVersions": "Versiones de nodo",
       "latestVersion": "Ultima versión",
       "database": "Base de datos",
-      "versionsByWeight": "Versiones por peso de votación"
+      "versionsByWeight": "Versiones por peso de votación",
+      "versionsByMajor": "Agrupar por versión principal"
     },
     "exchangeTracker": {
       "description": "Todos los días se toma una captura de los saldos de las cuentas de los intercambios más populares donde se negocia Banano. Esta medición se puede utilizar para analizar movimientos y fluctuaciones en la red.",

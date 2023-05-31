@@ -1,13 +1,15 @@
 import * as React from "react";
+import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
-import { Button, Row, Col } from "antd";
-import { WalletOutlined, QrcodeOutlined } from "@ant-design/icons";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import Copy from "components/Copy";
-import QRCodeModal from "components/QRCode/Modal";
-import Bookmark from "components/Bookmark";
-import { Natricon } from "components/Preferences/Natricons/Natricon";
+
+import { QrcodeOutlined, WalletOutlined } from "@ant-design/icons";
+import { Button, Col, Row } from "antd";
+
 import { PreferencesContext } from "api/contexts/Preferences";
+import Bookmark from "components/Bookmark";
+import Copy from "components/Copy";
+import { Natricon } from "components/Preferences/Natricons/Natricon";
+import QRCodeModal from "components/QRCode/Modal";
 
 interface Props {
   account: string;
@@ -15,13 +17,9 @@ interface Props {
   hideOptions?: boolean;
 }
 
-const AccountHeader: React.FC<Props> = ({
-  account,
-  isLink = false,
-  hideOptions = false,
-}) => {
+const AccountHeader: React.FC<Props> = ({ account, isLink = false, hideOptions = false }) => {
   const { natricons } = React.useContext(PreferencesContext);
-  const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
+  const isSmallAndLower = !useMediaQuery({ query: "(min-width: 576px)" });
 
   return (
     <div
@@ -56,9 +54,7 @@ const AccountHeader: React.FC<Props> = ({
 
       {!isLink ? (
         <span className="break-word" style={{ marginRight: "6px" }}>
-          <span>
-            {account.substr(account.length * -1, account.length - 60)}
-          </span>
+          <span>{account.substr(account.length * -1, account.length - 60)}</span>
           <span style={{ color: "#1890ff" }}>{account.substr(-60, 7)}</span>
           <span>{account.substr(-53, 46)}</span>
           <span style={{ color: "#1890ff" }}>{account.substr(-7)}</span>

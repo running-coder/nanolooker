@@ -215,7 +215,9 @@
       "endDate": "تاریخ پایان",
       "exportToCsv": "صادرات به CSV",
       "export": "صادرات",
-      "exportTransactions": "{{count}} تراکنش را به CSV صادر کنید"
+      "exportTransactions": "{{count}} تراکنش را به CSV صادر کنید",
+      "reverse": "دستور معامله را معکوس کنید",
+      "sumAmounts": "مبالغ را جمع کنید"
     },
     "block": {
       "blockSubtype": "زیر گروه را مسدود کنید",
@@ -349,7 +351,8 @@
       "nodeVersions": "نسخه های گره",
       "latestVersion": "آخرین نسخه",
       "database": "پایگاه داده",
-      "versionsByWeight": "نسخه ها بر اساس وزن رای"
+      "versionsByWeight": "نسخه ها با وزن رأی دادن",
+      "versionsByMajor": "گروه بندی بر اساس نسخه اصلی"
     },
     "exchangeTracker": {
       "description": "هر روز از موجودی حساب محبوب ترین صرافی هایی که نانو در آن تجارت می شود گرفته می شود. از این اندازه گیری می توان برای تجزیه و تحلیل حرکات و نوسانات موجود در شبکه استفاده کرد.",

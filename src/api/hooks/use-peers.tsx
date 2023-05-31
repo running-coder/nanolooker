@@ -1,4 +1,5 @@
 import React from "react";
+
 import { rpc } from "api/rpc";
 
 interface Peer {
@@ -31,9 +32,7 @@ const usePeers = (): UsePeersReturn => {
     try {
       const json = await rpc("peers", { peer_details: true });
 
-      !json || json.error || !json.peers
-        ? setIsError(true)
-        : setPeers(json.peers);
+      !json || json.error || !json.peers ? setIsError(true) : setPeers(json.peers);
     } catch (err) {
       setIsError(true);
     }

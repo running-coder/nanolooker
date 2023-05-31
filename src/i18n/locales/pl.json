@@ -215,7 +215,9 @@
       "endDate": "Data zakonczenia",
       "exportToCsv": "Eksportuj do CSV",
       "export": "Eksport",
-      "exportTransactions": "Eksportuj {{count}} transakcji do CSV"
+      "exportTransactions": "Eksportuj {{count}} transakcji do CSV",
+      "reverse": "Odwróć kolejność transakcji",
+      "sumAmounts": "Zsumuj kwoty"
     },
     "block": {
       "blockSubtype": "Podtyp bloku",
@@ -349,7 +351,8 @@
       "nodeVersions": "Wersje węzłów",
       "latestVersion": "Ostatnia wersja",
       "database": "Baza danych",
-      "versionsByWeight": "Wersje według wagi głosu"
+      "versionsByWeight": "Wersje według wagi głosowania",
+      "versionsByMajor": "Grupuj według wersji głównej"
     },
     "exchangeTracker": {
       "description": "Codziennie zbierane są salda kont najpopularniejszych giełd, na których handluje się Banano. Pomiar ten można wykorzystać do analizy ruchów i fluktuacji w sieci.",

@@ -1,5 +1,7 @@
 import * as React from "react";
-import { useTranslation, Trans } from "react-i18next";
+import { Controller, useForm } from "react-hook-form";
+import { Trans, useTranslation } from "react-i18next";
+
 import {
   Button,
   Card,
@@ -14,18 +16,17 @@ import {
   Typography,
 } from "antd";
 import moment from "moment";
-import { useForm, Controller } from "react-hook-form";
 
-import { TwoToneColors } from "components/utils";
-import { Theme, PreferencesContext } from "api/contexts/Preferences";
 import { AccountHistoryFilterContext } from "api/contexts/AccountHistoryFilter";
+import { PreferencesContext, Theme } from "api/contexts/Preferences";
 import QuestionCircle from "components/QuestionCircle";
+import { TwoToneColors } from "components/utils";
 
 import Export from "./Export";
 
-import type { Subtype } from "types/transaction";
 import type { RangePickerProps } from "antd/es/date-picker";
 import type { Moment } from "moment";
+import type { Subtype } from "types/transaction";
 
 const { Text } = Typography;
 const { RangePicker } = DatePicker;
@@ -34,9 +35,7 @@ const { Option } = Select;
 const TagRender = (props: any) => {
   const { label, value, closable, onClose } = props;
   const { theme } = React.useContext(PreferencesContext);
-  const themeColor = `${value.toUpperCase()}${
-    theme === Theme.DARK ? "_DARK" : ""
-  }`;
+  const themeColor = `${value.toUpperCase()}${theme === Theme.DARK ? "_DARK" : ""}`;
 
   const onPreventMouseDown = (event: React.MouseEvent<HTMLSpanElement>) => {
     event.preventDefault();
@@ -72,13 +71,13 @@ export interface HistoryFilters {
   toHeight?: number;
   includeNoTimestamp?: boolean;
   excludeUnknownAccounts?: boolean;
+  reverse?: boolean;
+  sum?: boolean;
 }
 
 const Filters: React.FC = () => {
   const { t } = useTranslation();
-  const { isLoading, setFilters } = React.useContext(
-    AccountHistoryFilterContext,
-  );
+  const { isLoading, setFilters } = React.useContext(AccountHistoryFilterContext);
 
   const [options] = React.useState(
     [
@@ -109,6 +108,8 @@ const Filters: React.FC = () => {
     toHeight: undefined,
     includeNoTimestamp: true,
     excludeUnknownAccounts: false,
+    reverse: false,
+    sum: false,
   } as HistoryFilters;
 
   const {
@@ -125,8 +126,7 @@ const Filters: React.FC = () => {
     const { dateRange, ...rest } = rawFilters;
 
     const filters = {
-      dateRange:
-        dateRange?.map((date: Moment | null) => date?.format("x")) || null,
+      dateRange: dateRange?.map((date: Moment | null) => date?.format("x")) || null,
       ...rest,
     };
 
@@ -181,11 +181,7 @@ const Filters: React.FC = () => {
               </Select>
               <Controller
                 render={({ field }) => (
-                  <Input
-                    {...field}
-                    style={{ flexGrow: 1 }}
-                    placeholder="ban_"
-                  />
+                  <Input {...field} style={{ flexGrow: 1 }} placeholder="ban_" />
                 )}
                 control={control}
                 name="sender"
@@ -202,14 +198,8 @@ const Filters: React.FC = () => {
                 <RangePicker
                   {...field}
                   style={{ width: "100%" }}
-                  defaultPickerValue={[
-                    moment().add(-1, "month"),
-                    moment().add(-1, "month"),
-                  ]}
-                  placeholder={[
-                    t("pages.account.startDate"),
-                    t("pages.account.endDate"),
-                  ]}
+                  defaultPickerValue={[moment().add(-1, "month"), moment().add(-1, "month")]}
+                  placeholder={[t("pages.account.startDate"), t("pages.account.endDate")]}
                   allowEmpty={[true, true]}
                   disabledDate={disabledDate}
                 />
@@ -237,11 +227,7 @@ const Filters: React.FC = () => {
               </Select>
               <Controller
                 render={({ field }) => (
-                  <Input
-                    {...field}
-                    style={{ flexGrow: 1 }}
-                    placeholder="ban_"
-                  />
+                  <Input {...field} style={{ flexGrow: 1 }} placeholder="ban_" />
                 )}
                 control={control}
                 name="receiver"
@@ -257,7 +243,7 @@ const Filters: React.FC = () => {
                   <Input
                     {...field}
                     style={{ width: "44%" }}
-                    placeholder={t("pages.account.minimum")}
+                    placeholder={t("pages.account.minimum") as string}
                     type="number"
                     min="0"
                   />
@@ -284,7 +270,7 @@ const Filters: React.FC = () => {
                     style={{
                       width: "45%",
                     }}
-                    placeholder={t("pages.account.minimum")}
+                    placeholder={t("pages.account.minimum") as string}
                     type="number"
                     min="0"
                   />
@@ -302,7 +288,7 @@ const Filters: React.FC = () => {
                   <Input
                     {...field}
                     style={{ width: "44%" }}
-                    placeholder={t("pages.account.from")}
+                    placeholder={t("pages.account.from") as string}
                     type="number"
                     step={1}
                     min="0"
@@ -330,7 +316,7 @@ const Filters: React.FC = () => {
                     style={{
                       width: "45%",
                     }}
-                    placeholder={t("pages.account.to")}
+                    placeholder={t("pages.account.to") as string}
                     type="number"
                     step={1}
                     min="0"
@@ -354,10 +340,7 @@ const Filters: React.FC = () => {
               control={control}
               name="includeNoTimestamp"
             />
-            <Tooltip
-              placement="right"
-              title={t("tooltips.unknownTransactionDate")}
-            >
+            <Tooltip placement="right" title={t("tooltips.unknownTransactionDate")}>
               <QuestionCircle style={{ marginLeft: 0 }} />
             </Tooltip>
             <br />
@@ -369,6 +352,26 @@ const Filters: React.FC = () => {
               )}
               control={control}
               name="excludeUnknownAccounts"
+            />
+            <br />
+            <Controller
+              render={({ field }) => (
+                <Checkbox {...field} checked={field.value}>
+                  {t("pages.account.reverse")}
+                </Checkbox>
+              )}
+              control={control}
+              name="reverse"
+            />
+            <br />
+            <Controller
+              render={({ field }) => (
+                <Checkbox {...field} checked={field.value}>
+                  {t("pages.account.sumAmounts")}
+                </Checkbox>
+              )}
+              control={control}
+              name="sum"
             />
           </Col>
           <Col xs={24} sm={24} md={12} lg={3}>

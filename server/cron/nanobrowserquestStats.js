@@ -3,17 +3,9 @@ const redis = require("redis");
 const chunk = require("lodash/chunk");
 const { Sentry } = require("../sentry");
 const { nodeCache } = require("../client/cache");
-const {
-  NANOBROWSERQUEST_PLAYERS,
-  NANOBROWSERQUEST_LEADERBOARD,
-} = require("../constants");
+const { NANOBROWSERQUEST_PLAYERS, NANOBROWSERQUEST_LEADERBOARD } = require("../constants");
 
-const {
-  NBQ_REDIS_PORT,
-  NBQ_REDIS_HOST,
-  NBQ_REDIS_PASSWORD,
-  NBQ_REDIS_DB_INDEX,
-} = process.env;
+const { NBQ_REDIS_PORT, NBQ_REDIS_HOST, NBQ_REDIS_PASSWORD, NBQ_REDIS_DB_INDEX } = process.env;
 
 const client = redis.createClient(NBQ_REDIS_PORT, NBQ_REDIS_HOST, {
   password: NBQ_REDIS_PASSWORD,
@@ -54,31 +46,27 @@ const getNanoBrowserQuestLeaderboard = async () => {
       const playersChunks = chunk(players, PER_PAGES);
 
       for (let i = 0; i < playersChunks.length; i++) {
+        if (playersChunks[i] === "u:running-coder") continue;
+
         const rawPlayerData = await Promise.all(
           playersChunks[i].map(
             player =>
               new Promise(resolve => {
-                client.hmget(
-                  player,
-                  "hash",
-                  "network",
-                  "exp",
-                  (_err, reply) => {
-                    const network = reply[1];
-                    const exp = parseInt(reply[2] || 0);
+                client.hmget(player, "hash", "network", "exp", (_err, reply) => {
+                  const network = reply[1];
+                  const exp = parseInt(reply[2] || 0);
 
-                    if (network !== "ban" || !exp) {
-                      resolve(undefined);
-                    } else {
-                      resolve({
-                        player: player.replace("u:", ""),
-                        isCompleted: !!reply[0],
-                        network,
-                        exp: parseInt(reply[2] || 0),
-                      });
-                    }
-                  },
-                );
+                  if (network !== "ban" || !exp) {
+                    resolve(undefined);
+                  } else {
+                    resolve({
+                      player: player.replace("u:", ""),
+                      isCompleted: !!reply[0],
+                      network,
+                      exp: parseInt(reply[2] || 0),
+                    });
+                  }
+                });
               }),
           ),
         );

@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import { rpc } from "api/rpc";
 
 export interface Response {
@@ -14,9 +15,7 @@ export interface Return {
   isError: boolean;
 }
 
-export const ConfirmationHistoryContext = React.createContext<
-  Return & Response
->({
+export const ConfirmationHistoryContext = React.createContext<Return & Response>({
   confirmation_stats: {
     count: "0",
     average: "0",
@@ -26,10 +25,12 @@ export const ConfirmationHistoryContext = React.createContext<
   isError: false,
 });
 
-const Provider: React.FC = ({ children }) => {
-  const [confirmationHistory, setConfirmationHistory] = React.useState(
-    {} as Response,
-  );
+interface Props {
+  children: React.ReactNode;
+}
+
+const Provider: React.FC<Props> = ({ children }) => {
+  const [confirmationHistory, setConfirmationHistory] = React.useState({} as Response);
   const [isError, setIsError] = React.useState(false);
 
   const getConfirmationHistory = async () => {

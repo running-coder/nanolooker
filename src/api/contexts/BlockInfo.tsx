@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import { rpc } from "api/rpc";
 import { isValidBlockHash } from "components/utils";
 
@@ -42,7 +43,11 @@ export const BlockInfoContext = React.createContext<Return>({
   isError: false,
 });
 
-const Provider: React.FC = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const Provider: React.FC<Props> = ({ children }) => {
   const [block, setBlock] = React.useState<string>("");
   const [blockInfo, setBlockInfo] = React.useState({} as BlockInfo);
   const [isLoading, setIsLoading] = React.useState(false);
@@ -66,9 +71,7 @@ const Provider: React.FC = ({ children }) => {
     }
   }, [block]);
   return (
-    <BlockInfoContext.Provider
-      value={{ block, setBlock, blockInfo, isLoading, isError }}
-    >
+    <BlockInfoContext.Provider value={{ block, setBlock, blockInfo, isLoading, isError }}>
       {children}
     </BlockInfoContext.Provider>
   );

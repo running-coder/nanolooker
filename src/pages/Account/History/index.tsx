@@ -1,18 +1,20 @@
 import * as React from "react";
-import differenceBy from "lodash/differenceBy";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import chunk from "lodash/chunk";
-import { Button, Tooltip, Typography } from "antd";
+import { Link } from "react-router-dom";
+
 import { FilterOutlined } from "@ant-design/icons";
+import { Button, Tooltip, Typography } from "antd";
 import BigNumber from "bignumber.js";
-import useAccountHistory from "api/hooks/use-account-history";
+import chunk from "lodash/chunk";
+import differenceBy from "lodash/differenceBy";
+
+import { AccountHistoryFilterContext } from "api/contexts/AccountHistoryFilter";
 import { AccountInfoContext } from "api/contexts/AccountInfo";
 import { DelegatorsContext } from "api/contexts/Delegators";
 import { RepresentativesContext } from "api/contexts/Representatives";
-import { AccountHistoryFilterContext } from "api/contexts/AccountHistoryFilter";
-import TransactionsTable from "pages/Account/Transactions";
+import useAccountHistory from "api/hooks/use-account-history";
 import Filters from "pages/Account/History/Filters";
+import TransactionsTable from "pages/Account/Transactions";
 
 import type { Transaction } from "types/transaction";
 
@@ -26,8 +28,7 @@ interface Props {
 
 const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
   const { t } = useTranslation();
-  const [isInitialHistoryFilterLoading, setIsInitialHistoryFilterLoading] =
-    React.useState(false);
+  const [isInitialHistoryFilterLoading, setIsInitialHistoryFilterLoading] = React.useState(false);
   const [isFiltersVisible, setIsFiltersVisible] = React.useState(false);
   const { account, accountInfo } = React.useContext(AccountInfoContext);
   const isPaginated = Number(accountInfo?.block_count) <= 250;
@@ -42,9 +43,7 @@ const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
     {
       count: String(TRANSACTIONS_PER_PAGE),
       raw: true,
-      ...(isPaginated
-        ? { offset: (currentPage - 1) * TRANSACTIONS_PER_PAGE }
-        : undefined),
+      ...(isPaginated ? { offset: (currentPage - 1) * TRANSACTIONS_PER_PAGE } : undefined),
       ...(!isPaginated && currentHead ? { head: currentHead } : undefined),
     },
     {
@@ -52,11 +51,11 @@ const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
     },
   );
   const { representatives } = React.useContext(RepresentativesContext);
-  const { delegators: allDelegators, getDelegators } =
-    React.useContext(DelegatorsContext);
+  const { delegators: allDelegators, getDelegators } = React.useContext(DelegatorsContext);
   const isTransactionFiltersEnabled =
     parseInt(accountInfo.confirmation_height) <= MAX_TRANSACTION_FILTERS;
   const {
+    sum: sumAmount,
     history: historyFilter,
     isLoading: isFiltersLoading,
     setFilters,
@@ -116,13 +115,7 @@ const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
             {count} {t(`common.transaction${count !== 1 ? "s" : ""}`)}
           </Title>
 
-          <Tooltip
-            title={
-              !isTransactionFiltersEnabled
-                ? t("tooltips.filterTransactions")
-                : ""
-            }
-          >
+          <Tooltip title={!isTransactionFiltersEnabled ? t("tooltips.filterTransactions") : ""}>
             <Button
               loading={isFiltersLoading && isInitialHistoryFilterLoading}
               size="small"
@@ -158,6 +151,7 @@ const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
         <TransactionsTable
           scrollTo="totalTransactions"
           data={dataFilter}
+          sumAmount={sumAmount}
           isLoading={isFiltersLoading}
           isPaginated={true}
           showPaginate={historyFilter.length >= TRANSACTIONS_PER_PAGE}
@@ -177,9 +171,7 @@ const AccountHistory: React.FC<Props> = ({ socketTransactions }) => {
           currentPage={currentPage}
           totalPages={Number(accountInfo?.block_count) || 0}
           setCurrentPage={setCurrentPage}
-          setCurrentHead={
-            previousHead ? () => setCurrentHead(previousHead) : null
-          }
+          setCurrentHead={previousHead ? () => setCurrentHead(previousHead) : null}
         />
       )}
     </>

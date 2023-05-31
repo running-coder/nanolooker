@@ -1,3 +1,31 @@
 {
-  "extends": "react-app"
+  "extends": "react-app",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["@typescript-eslint", "simple-import-sort"],
+  "rules": {
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          ["^\\u0000"],
+          ["^react"],
+          ["^@?\\w"],
+          ["^"],
+          ["^api|components|i18n|pages|types"],
+          ["^\\."],
+          ["^.+\\u0000$"]
+        ]
+      }
+    ],
+    "import/order": "off",
+    "no-restricted-imports": [
+      "error",
+      {
+        "name": "lodash",
+        "message": "Don't use default import for lodash, use \"import { module } from 'lodash/module'\" instead"
+      }
+    ]
+  }
 }

@@ -1,9 +1,11 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+
 import { Col, Row, Tag, Typography } from "antd";
-import { RepresentativesContext } from "api/contexts/Representatives";
-import { Theme, PreferencesContext } from "api/contexts/Preferences";
+
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
+import { PreferencesContext, Theme } from "api/contexts/Preferences";
+import { RepresentativesContext } from "api/contexts/Representatives";
 import useRepresentative from "api/hooks/use-representative";
 import { TwoToneColors } from "components/utils";
 
@@ -15,9 +17,7 @@ interface Props {
 
 const AccountRepresentative: React.FC<Props> = ({ account }) => {
   const { t } = useTranslation();
-  const [accountRepresentative, setAccountRepresentative] = React.useState(
-    {} as any,
-  );
+  const [accountRepresentative, setAccountRepresentative] = React.useState({} as any);
   const [alias, setAlias] = React.useState("");
   const { representatives, isLoading: isRepresentativesLoading } =
     React.useContext(RepresentativesContext);
@@ -66,9 +66,7 @@ const AccountRepresentative: React.FC<Props> = ({ account }) => {
           <Col xs={24}>
             <div style={{ display: "flex", alignItems: "center" }}>
               <Title level={4} style={{ margin: "0 6px 0 0" }}>
-                {isPrincipal
-                  ? t("common.principalRepresentative")
-                  : t("common.representative")}
+                {isPrincipal ? t("common.principalRepresentative") : t("common.representative")}
               </Title>
               {typeof isOnline === "boolean" ? (
                 <Tag

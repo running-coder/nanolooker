@@ -1,7 +1,10 @@
 import * as React from "react";
+
 import find from "lodash/find";
-import KnownAccounts from "../../knownAccounts.json";
+
 import { BookmarksContext } from "api/contexts/Bookmarks";
+
+import KnownAccounts from "../../knownAccounts.json";
 
 const { KNOWN_EXCHANGE_ACCOUNTS } = KnownAccounts;
 
@@ -27,21 +30,22 @@ export const KnownAccountsContext = React.createContext<Context>({
   isError: false,
 });
 
-const Provider: React.FC = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const Provider: React.FC<Props> = ({ children }) => {
   // @TODO Why does using a useEffect on bookmarks does not update the component
   const { bookmarks } = React.useContext(BookmarksContext);
-  const [knownAccounts, setKnownAccounts] = React.useState(
-    [] as KnownAccount[],
-  );
-  const [knownExchangeAccounts, setKnownExchangeAccounts] = React.useState(
-    [] as KnownAccount[],
-  );
+  const [knownAccounts, setKnownAccounts] = React.useState([] as KnownAccount[]);
+  const [knownExchangeAccounts, setKnownExchangeAccounts] = React.useState([] as KnownAccount[]);
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
   const [isError, setIsError] = React.useState<boolean>(false);
 
-  const formattedBookmarks = Object.entries(bookmarks?.account || []).map(
-    ([account, alias]) => ({ account, alias }),
-  );
+  const formattedBookmarks = Object.entries(bookmarks?.account || []).map(([account, alias]) => ({
+    account,
+    alias,
+  }));
 
   const getKnownAccounts = async () => {
     setIsError(false);
@@ -54,9 +58,7 @@ const Provider: React.FC = ({ children }) => {
       !json || json.error ? setIsError(true) : setKnownAccounts(json);
 
       setKnownExchangeAccounts(
-        [...KNOWN_EXCHANGE_ACCOUNTS].map(account =>
-          find(json, ["account", account]),
-        ),
+        [...KNOWN_EXCHANGE_ACCOUNTS].map(account => find(json, ["account", account])),
       );
     } catch (err) {
       setIsError(true);
@@ -72,9 +74,7 @@ const Provider: React.FC = ({ children }) => {
   return (
     <KnownAccountsContext.Provider
       value={{
-        knownAccounts: knownAccounts.concat(
-          formattedBookmarks as KnownAccount[],
-        ),
+        knownAccounts: knownAccounts.concat(formattedBookmarks as KnownAccount[]),
         knownExchangeAccounts,
         isLoading,
         isError,

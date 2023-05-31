@@ -30,23 +30,12 @@ const {
   NANOBROWSERQUEST_LEADERBOARD,
 } = require("./constants");
 
-const {
-  getCoingeckoStats,
-  getCoingeckoMarketCapStats,
-} = require("./api/coingeckoStats");
-const {
-  getDeveloperFundTransactions,
-} = require("./api/developerFundTransactions");
+const { getCoingeckoStats, getCoingeckoMarketCapStats } = require("./api/coingeckoStats");
+const { getDeveloperFundTransactions } = require("./api/developerFundTransactions");
 const { getLargeTransactions } = require("./api/largeTransactions");
 const { getNodeStatus } = require("./api/nodeStatus");
-const {
-  getKnownAccounts,
-  getKnownAccountsBalance,
-} = require("./api/knownAccounts");
-const {
-  getDelegatorsPage,
-  getAllDelegatorsCount,
-} = require("./api/delegators");
+const { getKnownAccounts, getKnownAccountsBalance } = require("./api/knownAccounts");
+const { getDelegatorsPage, getAllDelegatorsCount } = require("./api/delegators");
 const { getHistoryFilters } = require("./api/historyFilters");
 
 const { getRichListPage, getRichListAccount } = require("./api/richList");
@@ -55,10 +44,7 @@ const { getNodeLocations } = require("./api/nodeLocations");
 const { getNodeMonitors } = require("./api/nodeMonitors");
 const { getDelegatedEntity } = require("./api/delegatedEntity");
 const { getTelemetry } = require("./api/telemetry");
-const {
-  getRepresentative,
-  getAllRepresentatives,
-} = require("./api/representative");
+const { getRepresentative, getAllRepresentatives } = require("./api/representative");
 const { Sentry } = require("./sentry");
 const { isValidAccountAddress } = require("./utils");
 
@@ -116,10 +102,9 @@ app.get("/api/delegators", async (req, res) => {
 
 app.get("/api/transaction-filters", async (req, res) => {
   const { account, filters } = req.query;
+  const { sum, data } = await getHistoryFilters({ account, filters });
 
-  const data = await getHistoryFilters({ account, filters });
-
-  res.send(data);
+  res.send({ sum, data });
 });
 
 app.get("/api/large-transactions", async (req, res) => {
@@ -204,9 +189,7 @@ app.get("/api/node-locations", async (req, res) => {
 app.get("/api/representative", async (req, res) => {
   const { account } = req.query;
 
-  const representative = account
-    ? await getRepresentative(account)
-    : getAllRepresentatives();
+  const representative = account ? await getRepresentative(account) : getAllRepresentatives();
 
   res.send(representative);
 });

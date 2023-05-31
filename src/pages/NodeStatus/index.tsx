@@ -1,11 +1,13 @@
 import * as React from "react";
-import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
-import { Row, Col, Typography } from "antd";
-import BlockCount from "components/BlockCount";
+import { useTranslation } from "react-i18next";
+
+import { Col, Row, Typography } from "antd";
+
 import ActiveDifficulty from "components/ActiveDifficulty";
-import Node from "components/Node";
+import BlockCount from "components/BlockCount";
 import Ledger from "components/Ledger";
+import Node from "components/Node";
 import Peers from "components/Peers";
 
 const { Title } = Typography;

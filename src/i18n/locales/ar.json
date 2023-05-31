@@ -215,7 +215,9 @@
       "endDate": "تاريخ الانتهاء",
       "exportToCsv": "تصدير إلى CSV",
       "export": "يصدّر",
-      "exportTransactions": "تصدير {{عدد}} المعاملات إلى CSV"
+      "exportTransactions": "تصدير {{عدد}} المعاملات إلى CSV",
+      "reverse": "اعكس أمر المعاملة",
+      "sumAmounts": "اجمع المبالغ"
     },
     "block": {
       "blockSubtype": "نوع الكتلة الفرعي",
@@ -349,7 +351,8 @@
       "nodeVersions": "إصدارات العقدة",
       "latestVersion": "احدث اصدار",
       "database": "قاعدة البيانات",
-      "versionsByWeight": "الإصدارات من خلال وزن التصويت"
+      "versionsByWeight": "الإصدارات من خلال وزن التصويت",
+      "versionsByMajor": "تجميع حسب الإصدار الرئيسي"
     },
     "exchangeTracker": {
       "description": "كل يوم يتم الحصول على أرصدة حسابات أكثر البورصات شعبية حيث يتم تداول Banano. يمكن استخدام هذا القياس لتحليل الحركات والتقلبات على الشبكة.",

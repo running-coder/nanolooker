@@ -1,16 +1,19 @@
 import * as React from "react";
-import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
+
 import { Card, Typography } from "antd";
+
+import { AccountInfoContext } from "api/contexts/AccountInfo";
 import { isValidAccountAddress } from "components/utils";
+
+import AccountDelegators from "./Delegators";
 import AccountDetails from "./Details";
 import AccountDetailsUnopened from "./Details/Unopened";
-import AccountPendingHistory from "./Pending";
 import AccountHistory from "./History";
-import AccountDelegators from "./Delegators";
-import { AccountInfoContext } from "api/contexts/AccountInfo";
 import useSockets from "./hooks/use-socket";
+import AccountPendingHistory from "./Pending";
 
 import type { PageParams } from "types/page";
 
@@ -23,13 +26,8 @@ export enum Sections {
 
 const AccountPage: React.FC = () => {
   const { t } = useTranslation();
-  const {
-    account = "",
-    section = Sections.TRANSACTIONS,
-  } = useParams<PageParams>();
-  const { setAccount, isError: isAccountInfoError } = React.useContext(
-    AccountInfoContext,
-  );
+  const { account = "", section = Sections.TRANSACTIONS } = useParams<PageParams>();
+  const { setAccount, isError: isAccountInfoError } = React.useContext(AccountInfoContext);
   const isValid = isValidAccountAddress(account);
   const {
     transactions: socketTransactions,
@@ -38,8 +36,7 @@ const AccountPage: React.FC = () => {
     pendingBalance: socketPendingBalance,
   } = useSockets({ account });
 
-  const updateCount =
-    socketTransactions.length + pendingSocketTransactions.length;
+  const updateCount = socketTransactions.length + pendingSocketTransactions.length;
 
   React.useEffect(() => {
     document.body.scrollTop = 0; // For Safari
@@ -77,12 +74,10 @@ const AccountPage: React.FC = () => {
       {isValid && section === Sections.TRANSACTIONS ? (
         <AccountHistory socketTransactions={socketTransactions} />
       ) : null}
-      {isValid && section === Sections.DELEGATORS ? (
-        <AccountDelegators />
-      ) : null}
+      {isValid && section === Sections.DELEGATORS ? <AccountDelegators /> : null}
 
       {!isValid || !account ? (
-        <Card bordered={false}>
+        <Card>
           <Title level={3}>{t("pages.account.missingAccount")}</Title>
           <Text>{t("pages.account.missingAccountInfo")}</Text>
         </Card>

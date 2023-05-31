@@ -1,5 +1,7 @@
 import * as React from "react";
+
 import { Skeleton, Statistic, Tooltip } from "antd";
+
 import QuestionCircle from "components/QuestionCircle";
 
 interface LoadingStatisticProps {
@@ -12,20 +14,10 @@ interface LoadingStatisticProps {
   style?: any;
 }
 
-const LoadingStatistic = ({
-  isLoading,
-  title,
-  tooltip,
-  ...rest
-}: LoadingStatisticProps) => (
+const LoadingStatistic = ({ isLoading, title, tooltip, ...rest }: LoadingStatisticProps) => (
   <>
     {isLoading ? <div className="ant-statistic-title">{title}</div> : null}
-    <Skeleton
-      loading={isLoading}
-      active
-      paragraph={false}
-      className="isloading-skeleton-width"
-    >
+    <Skeleton loading={isLoading} active paragraph={false} className="isloading-skeleton-width">
       <Statistic
         title={
           <>

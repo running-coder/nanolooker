@@ -1,12 +1,8 @@
 const MongoClient = require("mongodb").MongoClient;
+const BigNumber = require("bignumber.js");
 const { rpc } = require("../rpc");
 const { Sentry } = require("../sentry");
-const {
-  MONGO_URL,
-  MONGO_OPTIONS,
-  MONGO_DB,
-  TRANSACTION_COLLECTION,
-} = require("../constants");
+const { MONGO_URL, MONGO_OPTIONS, MONGO_DB, TRANSACTION_COLLECTION } = require("../constants");
 const { getKnownAccounts } = require("./knownAccounts");
 const { isValidAccountAddress, raiToRaw, toBoolean } = require("../utils");
 
@@ -64,6 +60,8 @@ const getIsAccountFilterable = async account => {
 
 const getHistoryFilters = async ({ account, filters: rawFilters }) => {
   let data = [];
+  let sum = 0;
+
   try {
     if (!(await getIsAccountFilterable(account))) {
       return data;
@@ -84,8 +82,7 @@ const getHistoryFilters = async ({ account, filters: rawFilters }) => {
       count: "-1",
       raw: true,
       reverse: true,
-      offset:
-        highestBlock && highestBlock[0] ? highestBlock[0].height : undefined,
+      offset: highestBlock && highestBlock[0] ? highestBlock[0].height : undefined,
     });
 
     if (history && history.length) {
@@ -165,12 +162,8 @@ const getHistoryFilters = async ({ account, filters: rawFilters }) => {
         ...(filters.minAmount || filters.maxAmount
           ? {
               amount: {
-                ...(filters.minAmount
-                  ? { $gte: raiToRaw(filters.minAmount) }
-                  : null),
-                ...(filters.maxAmount
-                  ? { $lte: raiToRaw(filters.maxAmount) }
-                  : null),
+                ...(filters.minAmount ? { $gte: raiToRaw(filters.minAmount) } : null),
+                ...(filters.maxAmount ? { $lte: raiToRaw(filters.maxAmount) } : null),
               },
             }
           : null),
@@ -185,12 +178,8 @@ const getHistoryFilters = async ({ account, filters: rawFilters }) => {
         ...(filters.dateRange.length
           ? {
               local_timestamp: {
-                ...(filters.dateRange[0]
-                  ? { $gte: filters.dateRange[0] }
-                  : null),
-                ...(filters.dateRange[1]
-                  ? { $lte: filters.dateRange[1] }
-                  : null),
+                ...(filters.dateRange[0] ? { $gte: filters.dateRange[0] } : null),
+                ...(filters.dateRange[1] ? { $lte: filters.dateRange[1] } : null),
               },
             }
           : null),
@@ -212,9 +201,7 @@ const getHistoryFilters = async ({ account, filters: rawFilters }) => {
                   : { $nin: filters.receiver },
             }
           : null),
-        ...(!filters.includeNoTimestamp
-          ? { local_timestamp: { $ne: 0 } }
-          : null),
+        ...(!filters.includeNoTimestamp ? { local_timestamp: { $ne: 0 } } : null),
         ...(filters.excludeUnknownAccounts
           ? {
               account: {
@@ -223,16 +210,22 @@ const getHistoryFilters = async ({ account, filters: rawFilters }) => {
             }
           : null),
       })
-      .sort({ height: -1 })
+      .sort({ height: rawFilters && toBoolean(rawFilters.reverse) ? 1 : -1 })
       .toArray();
     // .explain();
 
     mongoClient.close();
+
+    if (toBoolean(rawFilters.sum)) {
+      data.forEach(({ amount }) => {
+        sum = new BigNumber(sum).plus(amount || 0).toNumber();
+      });
+    }
   } catch (err) {
-    Sentry.captureException(err);
+    Sentry.captureException(err, { extra: { account, rawFilters } });
   }
 
-  return data;
+  return { sum, data };
 };
 
 module.exports = {

@@ -1,32 +1,28 @@
 import * as React from "react";
-import i18next from "i18next";
 import { useTranslation } from "react-i18next";
+import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
-import {
-  Button,
-  Card,
-  Col,
-  Empty,
-  Pagination,
-  Row,
-  Tag,
-  Tooltip,
-  Typography,
-} from "antd";
+
 import { CheckCircleOutlined, SyncOutlined } from "@ant-design/icons";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import TimeAgo from "timeago-react";
+import { Button, Card, Col, Empty, Pagination, Row, Tag, Tooltip, Typography } from "antd";
 import BigNumber from "bignumber.js";
+import TimeAgo from "timeago-react";
+
+import { History } from "api/contexts/AccountHistory";
+import { KnownAccountsContext } from "api/contexts/KnownAccounts";
+import { PreferencesContext, Theme } from "api/contexts/Preferences";
+import { Natricon } from "components/Preferences/Natricons/Natricon";
 import { rawToRai, toBoolean } from "components/utils";
 import { Colors, TwoToneColors } from "components/utils";
-import { Natricon } from "components/Preferences/Natricons/Natricon";
-import { KnownAccountsContext } from "api/contexts/KnownAccounts";
-import { Theme, PreferencesContext } from "api/contexts/Preferences";
-import { History } from "api/contexts/AccountHistory";
+import i18next from "i18next";
 
 const { Text } = Typography;
 
-export const TransactionsLayout: React.FC = ({ children }) => (
+interface Props {
+  children: React.ReactNode;
+}
+
+export const TransactionsLayout: React.FC<Props> = ({ children }) => (
   <Row>
     <Col span={24}>
       <Card size="small" bodyStyle={{ padding: 0 }}>
@@ -39,6 +35,7 @@ export const TransactionsLayout: React.FC = ({ children }) => (
 interface TransactionsTableProps {
   scrollTo?: string;
   data: any;
+  sumAmount?: number;
   isLoading: boolean;
   showPaginate?: boolean;
   isPaginated?: boolean;
@@ -52,6 +49,7 @@ interface TransactionsTableProps {
 const TransactionsTable = ({
   scrollTo,
   data,
+  sumAmount,
   isLoading,
   showPaginate,
   isPaginated,
@@ -65,8 +63,8 @@ const TransactionsTable = ({
   const { theme, natricons } = React.useContext(PreferencesContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
 
-  const isLargeAndHigher = useMediaQuery("(min-width: 992px)");
-  const smallNatriconSize = !useMediaQuery("(min-width: 768px)");
+  const isLargeAndHigher = useMediaQuery({ query: "(min-width: 992px)" });
+  const smallNatriconSize = !useMediaQuery({ query: "(min-width: 768px)" });
 
   return (
     <Card size="small" className="transaction-card" id={scrollTo}>
@@ -85,10 +83,7 @@ const TransactionsTable = ({
         </div>
       ) : null}
       {isLargeAndHigher ? (
-        <Row
-          gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]}
-          className="row-header color-muted"
-        >
+        <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]} className="row-header color-muted">
           <Col xs={0} lg={2}>
             {t("transaction.type")}
           </Col>
@@ -98,6 +93,7 @@ const TransactionsTable = ({
           </Col>
           <Col xs={0} lg={5}>
             {t("transaction.amount")}
+            {sumAmount ? ` (Ӿ ${new BigNumber(rawToRai(sumAmount)).toFormat()})` : null}
           </Col>
           <Col xs={0} lg={3} style={{ textAlign: "right" }}>
             {t("common.date")}
@@ -125,40 +121,24 @@ const TransactionsTable = ({
                 theme === Theme.DARK ? "_DARK" : ""
               }`;
               // When transaction is a representative change, the account is the representative
-              const account =
-                transactionType === "change" ? representative : historyAccount;
+              const account = transactionType === "change" ? representative : historyAccount;
               const knownAccount =
                 account &&
-                knownAccounts.find(
-                  ({ account: knownAccount }) => account === knownAccount,
-                );
+                knownAccounts.find(({ account: knownAccount }) => account === knownAccount);
 
               const modifiedTimestamp = Number(localTimestamp) * 1000;
               const modifiedDate = new Date(modifiedTimestamp);
 
               return (
-                <Row
-                  key={index}
-                  justify="space-between"
-                  align="middle"
-                  gutter={[12, 12]}
-                >
-                  <Col
-                    xs={natricons ? 12 : 24}
-                    md={4}
-                    lg={2}
-                    className="gutter-row"
-                    span={6}
-                  >
+                <Row key={index} justify="space-between" align="middle" gutter={[12, 12]}>
+                  <Col xs={natricons ? 12 : 24} md={4} lg={2} className="gutter-row" span={6}>
                     <Tooltip
                       placement="right"
                       title={
                         typeof confirmed !== "undefined"
                           ? t(
                               `pages.block.${
-                                toBoolean(confirmed) === false
-                                  ? "pending"
-                                  : "confirmed"
+                                toBoolean(confirmed) === false ? "pending" : "confirmed"
                               }Status`,
                             )
                           : null
@@ -195,21 +175,12 @@ const TransactionsTable = ({
                       />
                     </Col>
                   ) : null}
-                  <Col
-                    xs={24}
-                    md={natricons ? 18 : 20}
-                    lg={natricons ? 12 : 14}
-                  >
+                  <Col xs={24} md={natricons ? 18 : 20} lg={natricons ? 12 : 14}>
                     {knownAccount ? (
-                      <div className="color-important">
-                        {knownAccount.alias}
-                      </div>
+                      <div className="color-important">{knownAccount.alias}</div>
                     ) : null}
                     {account ? (
-                      <Link
-                        to={`/account/${account}`}
-                        className="break-word color-normal"
-                      >
+                      <Link to={`/account/${account}`} className="break-word color-normal">
                         {account}
                       </Link>
                     ) : (
@@ -217,10 +188,7 @@ const TransactionsTable = ({
                     )}
 
                     <br />
-                    <Link
-                      to={`/block/${hash}`}
-                      className="color-muted truncate"
-                    >
+                    <Link to={`/block/${hash}`} className="color-muted truncate">
                       {hash}
                     </Link>
                   </Col>
@@ -230,9 +198,7 @@ const TransactionsTable = ({
                       style={{ color: Colors[themeColor] }}
                       className="break-word"
                     >
-                      {!amount || amount === "0"
-                        ? t("common.notAvailable")
-                        : ""}
+                      {!amount || amount === "0" ? t("common.notAvailable") : ""}
                       {amount && amount !== "0"
                         ? `${new BigNumber(rawToRai(amount)).toFormat()}`
                         : ""}
@@ -300,10 +266,7 @@ const TransactionsTable = ({
           ) : null}
         </>
       ) : (
-        <Empty
-          image={Empty.PRESENTED_IMAGE_SIMPLE}
-          style={{ padding: "12px" }}
-        />
+        <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} style={{ padding: "12px" }} />
       )}
     </Card>
   );

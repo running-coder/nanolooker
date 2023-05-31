@@ -1,10 +1,6 @@
 const fetch = require("node-fetch");
-const {
-  transformer: confirmation_quorum,
-} = require("./transformers/confirmationQuorum");
-const {
-  transformer: representatives,
-} = require("./transformers/representatives");
+const { transformer: confirmation_quorum } = require("./transformers/confirmationQuorum");
+const { transformer: representatives } = require("./transformers/representatives");
 const { nodeCache } = require("../client/cache");
 const { Sentry } = require("../sentry");
 

@@ -1,5 +1,7 @@
 import * as React from "react";
+
 import qs from "qs";
+
 import { PreferencesContext } from "./Preferences";
 
 export const TOTAL_CONFIRMATIONS_24H = "TOTAL_CONFIRMATIONS_24H";
@@ -52,7 +54,7 @@ export const MarketStatisticsContext = React.createContext<Context>({
     totalSupply: 0,
     circulatingSupply: 0,
     priceStats: {},
-    dogeMarketStats: {}
+    dogeMarketStats: {},
   },
   getMarketStatistics: () => {},
   setIsInitialLoading: () => {},
@@ -61,10 +63,12 @@ export const MarketStatisticsContext = React.createContext<Context>({
   isError: false,
 });
 
-const Provider: React.FC = ({ children }) => {
-  const [marketStatistics, setMarketStatistics] = React.useState(
-    {} as Response,
-  );
+interface Props {
+  children: React.ReactNode;
+}
+
+const Provider: React.FC<Props> = ({ children }) => {
+  const [marketStatistics, setMarketStatistics] = React.useState({} as Response);
   const [isInitialLoading, setIsInitialLoading] = React.useState<boolean>(true);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [isError, setIsError] = React.useState<boolean>(false);

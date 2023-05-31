@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import { rpc } from "api/rpc";
 
 export interface RepresentativesOnlineReturn {
@@ -14,9 +15,7 @@ const useRepresentativesOnline = (): RepresentativesOnlineReturn => {
     try {
       const json = await rpc("representatives_online");
 
-      !json || json.error
-        ? setIsError(true)
-        : setRepresentatives(json.representatives);
+      !json || json.error ? setIsError(true) : setRepresentatives(json.representatives);
     } catch (err) {
       setIsError(true);
     }

@@ -15,7 +15,13 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "api/*": ["api/*"],
+      "components/*": ["components/*"],
+      "i18n/*": ["i18n/*"],
+      "pages/*": ["pages/*"]
+    }
   },
   "include": ["src"]
 }

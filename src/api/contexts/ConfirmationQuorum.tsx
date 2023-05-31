@@ -1,4 +1,5 @@
 import React from "react";
+
 import { rpc } from "api/rpc";
 
 export interface ConfirmationQuorumRPCResponse {
@@ -17,15 +18,17 @@ export interface ConfirmationQuorumReturn {
   isError: boolean;
 }
 
-export const ConfirmationQuorumContext = React.createContext<ConfirmationQuorumReturn>(
-  {
-    confirmationQuorum: {} as ConfirmationQuorumRPCResponse,
-    isLoading: false,
-    isError: false,
-  },
-);
+export const ConfirmationQuorumContext = React.createContext<ConfirmationQuorumReturn>({
+  confirmationQuorum: {} as ConfirmationQuorumRPCResponse,
+  isLoading: false,
+  isError: false,
+});
 
-const Provider: React.FC = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const Provider: React.FC<Props> = ({ children }) => {
   const [confirmationQuorum, setConfirmationQuorum] = React.useState(
     {} as ConfirmationQuorumRPCResponse,
   );
@@ -46,9 +49,7 @@ const Provider: React.FC = ({ children }) => {
   }, []);
 
   return (
-    <ConfirmationQuorumContext.Provider
-      value={{ confirmationQuorum, isLoading, isError }}
-    >
+    <ConfirmationQuorumContext.Provider value={{ confirmationQuorum, isLoading, isError }}>
       {children}
     </ConfirmationQuorumContext.Provider>
   );

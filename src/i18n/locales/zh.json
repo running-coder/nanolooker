@@ -215,7 +215,9 @@
       "endDate": "结束日期",
       "exportToCsv": "导出为 CSV",
       "export": "出口",
-      "exportTransactions": "将 {{count}} 个交易导出到 CSV"
+      "exportTransactions": "将 {{count}} 个交易导出到 CSV",
+      "reverse": "反转交易顺序",
+      "sumAmounts": "合计金额"
     },
     "block": {
       "blockSubtype": "块子类型",
@@ -349,7 +351,8 @@
       "nodeVersions": "节点版本",
       "latestVersion": "最新版本",
       "database": "数据库",
-      "versionsByWeight": "按投票权重的版本"
+      "versionsByWeight": "投票权版本",
+      "versionsByMajor": "按主要版本分组"
     },
     "exchangeTracker": {
       "description": "每天都会记录Banano交易所在的最受欢迎交易所的账户余额。此度量可用于分析网络上的移动和波动。",

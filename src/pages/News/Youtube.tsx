@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+
 import { Card, Typography } from "antd";
 import moment from "moment";
 
@@ -16,14 +17,7 @@ const Youtube: React.FC<Props> = ({ post }) => {
   const { t } = useTranslation();
   const [isClicked, setIsClicked] = React.useState(false);
 
-  const {
-    videoId,
-    title,
-    channelTitle,
-    pubDate,
-    thumbnail = "",
-    description,
-  } = post;
+  const { videoId, title, channelTitle, pubDate, thumbnail = "", description } = post;
 
   return (
     <Card
@@ -59,14 +53,11 @@ const Youtube: React.FC<Props> = ({ post }) => {
         title={title}
         description={
           <>
-            <Text
-              style={{ color: "#000000d9", display: "block", marginBottom: 6 }}
-            >
+            <Text style={{ color: "#000000d9", display: "block", marginBottom: 6 }}>
               {description}
             </Text>
             <Text style={{ display: "block", fontSize: 12 }}>
-              {moment(pubDate).format("YYYY-MM-DD")} {t("common.by")}{" "}
-              {channelTitle}
+              {moment(pubDate).format("YYYY-MM-DD")} {t("common.by")} {channelTitle}
             </Text>
           </>
         }

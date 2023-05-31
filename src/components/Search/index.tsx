@@ -1,36 +1,30 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router-dom";
+
 import {
-  Alert,
-  AutoComplete,
-  Button,
-  Dropdown,
-  Input,
-  Menu,
-  Modal,
-} from "antd";
-import {
-  CameraOutlined,
   BlockOutlined,
+  CameraOutlined,
   HistoryOutlined,
   SearchOutlined,
   WalletOutlined,
 } from "@ant-design/icons";
+import { Alert, AutoComplete, Button, Dropdown, Input, Menu, Modal } from "antd";
+
+import { BookmarksContext } from "api/contexts/Bookmarks";
+import { KnownAccount, KnownAccountsContext } from "api/contexts/KnownAccounts";
+import { PreferencesContext, Theme } from "api/contexts/Preferences";
+import DeleteButton from "components/DeleteButton";
 import {
-  isValidAccountAddress,
-  isValidBlockHash,
-  getPrefixedAccount,
   getAccountAddressFromText,
   getAccountBlockHashFromText,
+  getPrefixedAccount,
+  isValidAccountAddress,
+  isValidBlockHash,
 } from "components/utils";
-import DeleteButton from "components/DeleteButton";
 
 import useSearch from "./hooks/use-search";
 import useSearchHistory from "./hooks/use-search-history";
-import { Theme, PreferencesContext } from "api/contexts/Preferences";
-import { KnownAccount, KnownAccountsContext } from "api/contexts/KnownAccounts";
-import { BookmarksContext } from "api/contexts/Bookmarks";
 
 const Search = ({ isHome = false }) => {
   const { t } = useTranslation();
@@ -45,11 +39,7 @@ const Search = ({ isHome = false }) => {
   const [accountBookmarks, setAccountBookmarks] = React.useState<
     { alias: string; account: string }[]
   >([]);
-  const {
-    searchHistory,
-    addSearchHistory,
-    removeSearchHistory,
-  } = useSearchHistory();
+  const { searchHistory, addSearchHistory, removeSearchHistory } = useSearchHistory();
   const searchRef = React.useRef(null);
   const [isOpen, setIsOpen] = React.useState(false);
   const [invalidQrCode, setInvalidQrCode] = React.useState("");
@@ -76,10 +66,7 @@ const Search = ({ isHome = false }) => {
           if (!account.includes("_")) {
             account = `ban_${account}`;
             setSearchValue(account);
-          } else if (
-            account.startsWith("nano_") ||
-            account.startsWith("xrb_")
-          ) {
+          } else if (account.startsWith("nano_") || account.startsWith("xrb_")) {
             // @TODO open modal to select NL or BNL
             account = `ban_${account.split("_")[1]}`;
             setSearchValue(account);
@@ -88,20 +75,14 @@ const Search = ({ isHome = false }) => {
           history.push(`/account/${account}`);
         } else {
           const filteredKnownAccounts = knownAccounts
-            .filter(({ alias }) =>
-              alias.toLowerCase().includes(value.toLowerCase()),
-            )
+            .filter(({ alias }) => alias.toLowerCase().includes(value.toLowerCase()))
             .map(item => renderItem(item));
 
           const filteredAccountBookmarks = accountBookmarks
-            .filter(({ alias }) =>
-              alias.toLowerCase().includes(value.toLowerCase()),
-            )
+            .filter(({ alias }) => alias.toLowerCase().includes(value.toLowerCase()))
             .map(item => renderItem(item as KnownAccount));
 
-          setFilteredResults(
-            filteredAccountBookmarks.concat(filteredKnownAccounts),
-          );
+          setFilteredResults(filteredAccountBookmarks.concat(filteredKnownAccounts));
         }
       }
     },
@@ -173,9 +154,7 @@ const Search = ({ isHome = false }) => {
           width: isExpanded ? "650px" : "100%",
           // transitionDelay: `${isExpanded ? 0 : 0.2}s`,
         }}
-        popupClassName={`search-autocomplete-dropdown ${
-          theme === Theme.DARK ? "theme-dark" : ""
-        }`}
+        popupClassName={`search-autocomplete-dropdown ${theme === Theme.DARK ? "theme-dark" : ""}`}
         dropdownStyle={{
           maxWidth: "calc(100vw - 40px)",
         }}
@@ -190,9 +169,7 @@ const Search = ({ isHome = false }) => {
           e.preventDefault();
 
           // @ts-ignore
-          const paste = (e.clipboardData || window.clipboardData).getData(
-            "text",
-          );
+          const paste = (e.clipboardData || window.clipboardData).getData("text");
 
           const account = getAccountAddressFromText(paste);
           const hash = getAccountBlockHashFromText(paste);
@@ -224,10 +201,7 @@ const Search = ({ isHome = false }) => {
                       <Menu.Item disabled>{t("search.noHistory")}</Menu.Item>
                     ) : (
                       searchHistory.map(history => (
-                        <Menu.Item
-                          onClick={() => setSearchValue(history)}
-                          key={history}
-                        >
+                        <Menu.Item onClick={() => setSearchValue(history)} key={history}>
                           <div
                             className="color-normal"
                             style={{
@@ -271,7 +245,7 @@ const Search = ({ isHome = false }) => {
             </>
           }
           className={`ant-input-search ${isError ? "has-error" : ""}`}
-          placeholder={t("search.searchBy")}
+          placeholder={t("search.searchBy") as string}
           onFocus={({ target: { value } }) => {
             validateSearch(value);
             setIsExpanded(true);
@@ -300,10 +274,7 @@ const Search = ({ isHome = false }) => {
             style={{ marginBottom: 12 }}
           />
         ) : null}
-        <div
-          id={`qrcode-reader-search${isHome ? "-home" : ""}`}
-          className="qrcode-reader"
-        ></div>
+        <div id={`qrcode-reader-search${isHome ? "-home" : ""}`} className="qrcode-reader"></div>
       </Modal>
     </>
   );

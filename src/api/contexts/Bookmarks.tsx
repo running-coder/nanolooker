@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import { LOCALSTORAGE_KEYS } from "api/contexts/Preferences";
 
 export type BookmarkTypes = "account" | "block";
@@ -17,9 +18,7 @@ interface Context {
 export const getBookmarks = (type?: BookmarkTypes): Bookmarks => {
   let bookmarks;
   try {
-    bookmarks = JSON.parse(
-      window.localStorage.getItem(LOCALSTORAGE_KEYS.BOOKMARKS) || "",
-    );
+    bookmarks = JSON.parse(window.localStorage.getItem(LOCALSTORAGE_KEYS.BOOKMARKS) || "");
     if (type) {
       bookmarks = bookmarks[type];
     }
@@ -34,7 +33,11 @@ export const BookmarksContext = React.createContext<Context>({
   removeBookmark: () => {},
 });
 
-const Provider: React.FC = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const Provider: React.FC<Props> = ({ children }) => {
   const [bookmarks, setBookmarks] = React.useState(getBookmarks());
 
   const addBookmark = ({
@@ -56,21 +59,12 @@ const Provider: React.FC = ({ children }) => {
     newBookmarks[type][bookmark] = value;
 
     // account: string, alias: string
-    localStorage.setItem(
-      LOCALSTORAGE_KEYS.BOOKMARKS,
-      JSON.stringify(newBookmarks),
-    );
+    localStorage.setItem(LOCALSTORAGE_KEYS.BOOKMARKS, JSON.stringify(newBookmarks));
 
     setBookmarks(newBookmarks);
   };
 
-  const removeBookmark = ({
-    type,
-    bookmark,
-  }: {
-    type: BookmarkTypes;
-    bookmark: string;
-  }) => {
+  const removeBookmark = ({ type, bookmark }: { type: BookmarkTypes; bookmark: string }) => {
     const newBookmarks = { ...bookmarks };
 
     if (!newBookmarks[type]?.[bookmark]) {
@@ -79,10 +73,7 @@ const Provider: React.FC = ({ children }) => {
 
     delete newBookmarks[type][bookmark];
 
-    localStorage.setItem(
-      LOCALSTORAGE_KEYS.BOOKMARKS,
-      JSON.stringify(newBookmarks),
-    );
+    localStorage.setItem(LOCALSTORAGE_KEYS.BOOKMARKS, JSON.stringify(newBookmarks));
 
     setBookmarks(newBookmarks);
   };

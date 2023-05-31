@@ -18,7 +18,11 @@ export const DelegatorsContext = React.createContext<Return>({
   isError: false,
 });
 
-const Provider: React.FC = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const Provider: React.FC<Props> = ({ children }) => {
   const [delegators, setDelegators] = React.useState({} as Delegator);
   const [isLoading, setIsLoading] = React.useState(false);
   const [isError, setIsError] = React.useState(false);
@@ -40,9 +44,7 @@ const Provider: React.FC = ({ children }) => {
   };
 
   return (
-    <DelegatorsContext.Provider
-      value={{ delegators, getDelegators, isLoading, isError }}
-    >
+    <DelegatorsContext.Provider value={{ delegators, getDelegators, isLoading, isError }}>
       {children}
     </DelegatorsContext.Provider>
   );

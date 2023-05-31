@@ -22,8 +22,7 @@ const doDelegatedEntitiesCron = async () => {
                 });
 
                 const isSelfDelegated =
-                  representative === knownAccount.account ||
-                  representative === BURN_ACCOUNT;
+                  representative === knownAccount.account || representative === BURN_ACCOUNT;
 
                 if (!isSelfDelegated) {
                   knownAccount.representative = representative;

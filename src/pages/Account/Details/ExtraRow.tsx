@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+
 import { Col, Row } from "antd";
 
 export const ACCOUNT_NANOBROWSERQUEST =
@@ -21,9 +22,7 @@ const ExtraRow: React.FC<Props> = ({ account }) => {
             {t("common.link")}
           </Col>
           <Col xs={24} sm={18} md={20}>
-            <Link to="/bananobrowserquest">
-              {t("pages.nanobrowserquest.playNanoBrowserQuest")}
-            </Link>
+            <Link to="/bananobrowserquest">{t("pages.nanobrowserquest.playNanoBrowserQuest")}</Link>
           </Col>
         </Row>
       ) : null}

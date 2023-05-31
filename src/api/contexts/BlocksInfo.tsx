@@ -1,8 +1,11 @@
 import * as React from "react";
+
 import useDeepCompareEffect from "use-deep-compare-effect";
+
 import { rpc } from "api/rpc";
-import { BlockInfo } from "./BlockInfo";
 import { isValidBlockHash } from "components/utils";
+
+import { BlockInfo } from "./BlockInfo";
 
 export interface Response {
   blocks: {
@@ -31,7 +34,11 @@ export const BlocksInfoContext = React.createContext<Return>({
   isError: false,
 });
 
-const Provider: React.FC = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const Provider: React.FC<Props> = ({ children }) => {
   const [blocks, setBlocks] = React.useState<string[]>([]);
   const [blocksInfo, setBlocksInfo] = React.useState({} as Response);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
@@ -53,18 +60,14 @@ const Provider: React.FC = ({ children }) => {
   };
 
   useDeepCompareEffect(() => {
-    const filteredBlocks = (blocks || []).filter(block =>
-      isValidBlockHash(block),
-    );
+    const filteredBlocks = (blocks || []).filter(block => isValidBlockHash(block));
 
     if (filteredBlocks.length) {
       getBlocksInfo(blocks);
     }
   }, [blocks]);
   return (
-    <BlocksInfoContext.Provider
-      value={{ blocks, setBlocks, blocksInfo, isLoading, isError }}
-    >
+    <BlocksInfoContext.Provider value={{ blocks, setBlocks, blocksInfo, isLoading, isError }}>
       {children}
     </BlocksInfoContext.Provider>
   );

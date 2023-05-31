@@ -1,16 +1,19 @@
 import * as React from "react";
-import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
-import moment from "moment";
-import foreach from "lodash/forEach";
-import orderBy from "lodash/orderBy";
-import BigNumber from "bignumber.js";
+import { useTranslation } from "react-i18next";
+
+import { WalletOutlined } from "@ant-design/icons";
 import { Line } from "@antv/g2plot";
 import { Card, Tag, Typography } from "antd";
-import { WalletOutlined } from "@ant-design/icons";
+import BigNumber from "bignumber.js";
+import foreach from "lodash/forEach";
+import orderBy from "lodash/orderBy";
+import moment from "moment";
+
 import LoadingStatistic from "components/LoadingStatistic";
-import { tagColors, lineColors } from "./utils";
+
 import exchangeWallets from "../../exchanges.json";
+import { lineColors, tagColors } from "./utils";
 
 const { Text, Title } = Typography;
 
@@ -84,24 +87,17 @@ const ExchangeTrackerPage: React.FC = () => {
   const { t } = useTranslation();
   const [activeWallets, setActiveWallets] = React.useState<string[]>(
     exchangeWallets
-      .map(({ account, name }) =>
-        !name.toLowerCase().includes("cold") ? account : "",
-      )
+      .map(({ account, name }) => (!name.toLowerCase().includes("cold") ? account : ""))
       .filter(Boolean),
   );
-  const [
-    exchangeBalances,
-    setExchangeBalances,
-  ] = React.useState<ExchangeBalances>();
+  const [exchangeBalances, setExchangeBalances] = React.useState<ExchangeBalances>();
   const [data, setData] = React.useState<LineChartData[]>();
   const [totalExchangeBalance, setTotalExchangeBalance] = React.useState(0);
   const [isSelectedExchanges, setIsSelectedExchanges] = React.useState(false);
 
   const toggleActiveWallet = (account: string) => {
     if (activeWallets.includes(account)) {
-      setActiveWallets(oldActiveWallets =>
-        oldActiveWallets.filter(wallet => wallet !== account),
-      );
+      setActiveWallets(oldActiveWallets => oldActiveWallets.filter(wallet => wallet !== account));
     } else {
       setActiveWallets(oldActiveWallets => [...oldActiveWallets, account]);
     }
@@ -152,9 +148,7 @@ const ExchangeTrackerPage: React.FC = () => {
 
         if (isSelectedExchanges) {
           if (exchangeData[day]) {
-            exchangeData[day].value = new BigNumber(exchangeData[day].value)
-              .plus(value)
-              .toNumber();
+            exchangeData[day].value = new BigNumber(exchangeData[day].value).plus(value).toNumber();
           } else {
             exchangeData[day] = {
               day,
@@ -170,11 +164,9 @@ const ExchangeTrackerPage: React.FC = () => {
         .toNumber();
     }
 
-    const orderedExchangeData = orderBy(
-      Object.values(exchangeData),
-      ["day"],
-      ["asc"],
-    ).filter(({ value }) => !!value);
+    const orderedExchangeData = orderBy(Object.values(exchangeData), ["day"], ["asc"]).filter(
+      ({ value }) => !!value,
+    );
 
     const combinedData = data.concat(orderedExchangeData);
 
@@ -203,9 +195,7 @@ const ExchangeTrackerPage: React.FC = () => {
             if (name === "ALL") {
               name = t("pages.exchangeTracker.selectedWallets");
             } else {
-              name =
-                exchangeWallets.find(({ account }) => account === name)?.name ||
-                name;
+              name = exchangeWallets.find(({ account }) => account === name)?.name || name;
             }
 
             return {
@@ -220,17 +210,14 @@ const ExchangeTrackerPage: React.FC = () => {
       },
       yAxis: {
         label: {
-          formatter: (value: string) =>
-            `${new BigNumber(value).dividedBy(1000000).toFormat()}M`,
+          formatter: (value: string) => `${new BigNumber(value).dividedBy(1000000).toFormat()}M`,
         },
       },
       legend: {
         visible: false,
       },
       color: accountToLineColorMap
-        .map(({ account, color }) =>
-          activeWallets.includes(account) ? color : undefined,
-        )
+        .map(({ account, color }) => (activeWallets.includes(account) ? color : undefined))
         .filter(Boolean),
     };
 
@@ -256,19 +243,14 @@ const ExchangeTrackerPage: React.FC = () => {
       </Helmet>
       <Title level={3}>{t("menu.exchangeTracker")}</Title>
 
-      <Card size="small" bordered={false}>
+      <Card size="small">
         <div style={{ marginBottom: "12px" }}>
-          <Text style={{ fontSize: "12px" }}>
-            {t("pages.exchangeTracker.description")}
-          </Text>
+          <Text style={{ fontSize: "12px" }}>{t("pages.exchangeTracker.description")}</Text>
         </div>
         <div>
           {exchangeWallets.map(({ name, account }, index) => {
             const [tagColor, lineColor] = activeWallets.includes(account)
-              ? [
-                  tagColors[index % tagColors.length],
-                  lineColors[index % lineColors.length],
-                ]
+              ? [tagColors[index % tagColors.length], lineColors[index % lineColors.length]]
               : [];
             return (
               <Tag
@@ -300,9 +282,7 @@ const ExchangeTrackerPage: React.FC = () => {
           <Tag
             style={{ cursor: "pointer", marginBottom: "8px" }}
             color={
-              isSelectedExchanges
-                ? tagColors[(tagColors.length - 1) % tagColors.length]
-                : "default"
+              isSelectedExchanges ? tagColors[(tagColors.length - 1) % tagColors.length] : "default"
             }
             onClick={() => {
               setIsSelectedExchanges(!isSelectedExchanges);

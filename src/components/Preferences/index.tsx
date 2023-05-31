@@ -1,13 +1,16 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { Card, Col, Popover, Row } from "antd";
+
 import { SettingOutlined } from "@ant-design/icons";
-import { Theme, PreferencesContext } from "api/contexts/Preferences";
-import ThemePreferences from "./Theme";
+import { Col, Popover, Row } from "antd";
+
+import { PreferencesContext, Theme } from "api/contexts/Preferences";
+
 import CryptocurrencyPreferences from "./Cryptocurrency";
 import FiatPreferences from "./Fiat";
 import LanguagePreferences from "./Language";
+import ThemePreferences from "./Theme";
 
 const Preferences: React.FC = () => {
   const { t } = useTranslation();
@@ -15,14 +18,11 @@ const Preferences: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
     <Popover
-      className={theme === Theme.DARK ? "theme-dark" : ""}
       placement="bottomRight"
       content={
-        <Card
-          size="small"
-          bordered={false}
+        <div
           style={{ maxWidth: 340 }}
-          className="detail-layout"
+          className={`detail-layout ${theme === Theme.DARK ? "theme-dark" : ""}`}
         >
           <ThemePreferences />
           <LanguagePreferences />
@@ -42,7 +42,7 @@ const Preferences: React.FC = () => {
               </Link>
             </Col>
           </Row>
-        </Card>
+        </div>
       }
       trigger="click"
       open={isOpen}

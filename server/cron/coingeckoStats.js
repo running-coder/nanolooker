@@ -115,6 +115,8 @@ const getMarketStats = async fiats => {
       };
 
       nodeCache.set(`${COINGECKO_MARKET_STATS}-${fiat}`, marketStats);
+
+      await sleep(20000);
     }
   } catch (err) {
     console.log("Error", err);
@@ -266,9 +268,9 @@ const getMarketCapStats = async () => {
 
         // CoinGecko rate limit is 10 calls per seconds
         if (i && !(i % 10)) {
-          await sleep(15000);
+          await sleep(25000);
         } else {
-          await sleep(process.env.NODE_ENV === "production" ? 10000 : 150);
+          await sleep(process.env.NODE_ENV === "production" ? 15000 : 150);
         }
       }
 
@@ -277,20 +279,14 @@ const getMarketCapStats = async () => {
         id: { $nin: ids },
       });
     } else {
-      console.log(
-        `Failed to get top ${top} cryptocurrencies`,
-        cryptocurrencies,
-      );
+      console.log(`Failed to get top ${top} cryptocurrencies`, cryptocurrencies);
       await sleep(10000);
 
       getMarketCapStats();
       return;
     }
 
-    const marketCapStats = await db
-      .collection(MARKET_CAP_STATS_COLLECTION)
-      .find()
-      .toArray();
+    const marketCapStats = await db.collection(MARKET_CAP_STATS_COLLECTION).find().toArray();
 
     nodeCache.set(COINGECKO_MARKET_CAP_STATS, marketCapStats);
 
@@ -315,7 +311,7 @@ cron.schedule("*/2 * * * *", async () => {
   getMarketStats(defaultFiats);
 });
 
-// https://crontab.guru/#*/3_*_*_*_*
+// https://crontab.guru/#*/10_*_*_*_*
 // At every 10nd minute.
 cron.schedule("*/10 * * * *", async () => {
   getPriceStats(secondaryFiats);

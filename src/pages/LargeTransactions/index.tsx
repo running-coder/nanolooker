@@ -1,18 +1,20 @@
 import * as React from "react";
-import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
-import orderBy from "lodash/orderBy";
-import BigNumber from "bignumber.js";
-import { Button, Dropdown, Menu, Tooltip, Typography } from "antd";
+import { useTranslation } from "react-i18next";
+import { useHistory, useParams } from "react-router-dom";
+
 import { DownOutlined } from "@ant-design/icons";
+import { Button, Dropdown, Menu, Tooltip, Typography } from "antd";
+import BigNumber from "bignumber.js";
+import orderBy from "lodash/orderBy";
+
 import useLargeTransactions from "api/hooks/use-large-transactions";
-import TransactionsTable from "pages/Account/Transactions";
 import QuestionCircle from "components/QuestionCircle";
 import { rawToRai } from "components/utils";
-import { useParams, useHistory } from "react-router-dom";
+import TransactionsTable from "pages/Account/Transactions";
+import { Transaction } from "types/transaction";
 
 import type { PageParams } from "types/page";
-import { Transaction } from "types/transaction";
 
 const TRANSACTIONS_PER_PAGE = 25;
 const { Text, Title } = Typography;
@@ -28,28 +30,22 @@ const LargeTransactions: React.FC = () => {
   const { sortBy: paramSortBy = SORT_BY.LATEST } = useParams<PageParams>();
   const { largeTransactions, isLoading } = useLargeTransactions();
   const [currentPage, setCurrentPage] = React.useState<number>(1);
-  const [orderedTransactions, setOrderedTransactions] = React.useState<
-    Transaction[]
-  >();
-  const defaultSortBy = Object.values(SORT_BY).includes(paramSortBy)
-    ? paramSortBy
-    : SORT_BY.LATEST;
+  const [orderedTransactions, setOrderedTransactions] = React.useState<Transaction[]>();
+  const defaultSortBy = Object.values(SORT_BY).includes(paramSortBy) ? paramSortBy : SORT_BY.LATEST;
   const [sortBy, setSortBy] = React.useState(defaultSortBy);
 
   const showPaginate = largeTransactions.length > TRANSACTIONS_PER_PAGE;
 
   React.useEffect(() => {
     const start = 0 + (currentPage - 1) * TRANSACTIONS_PER_PAGE;
-    const data = largeTransactions.map(
-      ({ timestamp, block, hash, amount }) => ({
-        ...block,
-        amount,
-        hash,
-        largest: new BigNumber(rawToRai(amount)).toNumber(),
-        latest: timestamp,
-        local_timestamp: Math.floor(timestamp / 1000),
-      }),
-    );
+    const data = largeTransactions.map(({ timestamp, block, hash, amount }) => ({
+      ...block,
+      amount,
+      hash,
+      largest: new BigNumber(rawToRai(amount)).toNumber(),
+      latest: timestamp,
+      local_timestamp: Math.floor(timestamp / 1000),
+    }));
     const orderedData = orderBy(data, [sortBy.toLowerCase()], ["desc"]);
     const pageData = orderedData?.slice(start, start + TRANSACTIONS_PER_PAGE);
 
@@ -82,9 +78,7 @@ const LargeTransactions: React.FC = () => {
           overlay={
             <Menu onClick={handleSortBy}>
               {Object.values(SORT_BY).map(sortBy => (
-                <Menu.Item key={sortBy}>
-                  {t(`pages.largeTransactions.${sortBy}`)}
-                </Menu.Item>
+                <Menu.Item key={sortBy}>{t(`pages.largeTransactions.${sortBy}`)}</Menu.Item>
               ))}
             </Menu>
           }

@@ -1,12 +1,7 @@
 const MongoClient = require("mongodb").MongoClient;
 const { nodeCache } = require("../client/cache");
 const { Sentry } = require("../sentry");
-const {
-  MONGO_URL,
-  MONGO_OPTIONS,
-  MONGO_DB,
-  NODE_LOCATIONS,
-} = require("../constants");
+const { MONGO_URL, MONGO_OPTIONS, MONGO_DB, NODE_LOCATIONS } = require("../constants");
 
 const getNodeLocations = async () => {
   let nodeLocations =

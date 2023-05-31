@@ -27,10 +27,12 @@ export const NodeStatusContext = React.createContext<Return>({
   isError: false,
 });
 
-const Provider: React.FC = ({ children }) => {
-  const [nodeStatus, setNodeStatus] = React.useState<NodeStatus>(
-    {} as NodeStatus,
-  );
+interface Props {
+  children: React.ReactNode;
+}
+
+const Provider: React.FC<Props> = ({ children }) => {
+  const [nodeStatus, setNodeStatus] = React.useState<NodeStatus>({} as NodeStatus);
   const [isLoading, setIsLoading] = React.useState(false);
   const [isError, setIsError] = React.useState(false);
 
@@ -50,9 +52,7 @@ const Provider: React.FC = ({ children }) => {
   }, []);
 
   return (
-    <NodeStatusContext.Provider
-      value={{ nodeStatus, getNodeStatus, isLoading, isError }}
-    >
+    <NodeStatusContext.Provider value={{ nodeStatus, getNodeStatus, isLoading, isError }}>
       {children}
     </NodeStatusContext.Provider>
   );

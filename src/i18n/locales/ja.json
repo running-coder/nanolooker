@@ -215,7 +215,9 @@
       "endDate": "終了日",
       "exportToCsv": "CSVにエクスポート",
       "export": "書き出す",
-      "exportTransactions": "{{count}} 件のトランザクションを CSV にエクスポート"
+      "exportTransactions": "{{count}} 件のトランザクションを CSV にエクスポート",
+      "reverse": "取引順序を逆にする",
+      "sumAmounts": "金額を合計する"
     },
     "block": {
       "blockSubtype": "ブロックサブタイプ",
@@ -349,7 +351,8 @@
       "nodeVersions": "ノードバージョン",
       "latestVersion": "最新バージョン",
       "database": "データベース",
-      "versionsByWeight": "投票の重みによるバージョン"
+      "versionsByWeight": "投票ウェイトによるバージョン",
+      "versionsByMajor": "メジャー バージョンごとにグループ化する"
     },
     "exchangeTracker": {
       "description": "Bananoが取引されている最も人気のある取引所の口座残高を毎日取得します。この測定値は、ネットワーク上の動きや変動を分析するために使用できます。",
