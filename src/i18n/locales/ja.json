@@ -140,7 +140,8 @@
     "earnNano": "Nanoを獲得する",
     "preferences": "環境設定",
     "status": "状態",
-    "networkStatus": "ネットワークステータス"
+    "networkStatus": "ネットワークステータス",
+    "nodeMonitors": "ノードモニター"
   },
   "footer": {
     "createdBy": "{{creator}}によって作成されました",
@@ -353,7 +354,8 @@
       "latestVersion": "最新バージョン",
       "database": "データベース",
       "versionsByWeight": "投票ウェイトによるバージョン",
-      "versionsByMajor": "メジャー バージョンごとにグループ化する"
+      "versionsByMajor": "メジャー バージョンごとにグループ化する",
+      "nodeMonitorsDetails": "Nano Node Monitor は、PHP で構築された Nano ノード用のサーバー側監視ツールです。 RPC 経由で実行中のノードへの接続を確立し、そのステータスを Web ページに表示します。 <0>ノードにインストールします</0>"
     },
     "exchangeTracker": {
       "description": "Nanoが取引されている最も人気のある取引所の口座残高を毎日取得します。この測定値は、ネットワーク上の動きや変動を分析するために使用できます。",

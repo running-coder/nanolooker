@@ -5,8 +5,7 @@ import { useTranslation } from "react-i18next";
 import { Representative, RepresentativesContext } from "api/contexts/Representatives";
 import useNodeMonitors, { NodeMonitor } from "api/hooks/use-node-monitors";
 
-import NodeMap from "./NodeMap";
-import Telemetry from "./Telemetry";
+import NodeMonitors from "./NodeMonitors";
 
 export interface Node extends NodeMonitor {}
 export interface Node extends Representative {}
@@ -14,7 +13,7 @@ export interface Node extends Representative {}
 const NetworkStatusPage: React.FC = () => {
   const { t } = useTranslation();
   const [nodes, setNodes] = React.useState([] as Node[]);
-  const [isLoading, setIsLoading] = React.useState(true);
+
   const { representatives, isLoading: isRepresentativesLoading } =
     React.useContext(RepresentativesContext);
   const { isLoading: isNodeMonitorsLoading, nodeMonitors } = useNodeMonitors();
@@ -37,19 +36,19 @@ const NetworkStatusPage: React.FC = () => {
       setNodes(nodes);
     } catch (err) {}
 
-    setIsLoading(false);
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isRepresentativesLoading, isNodeMonitorsLoading]);
 
   return (
     <>
       <Helmet>
-        <title>Nano {t("menu.networkStatus")}</title>
+        <title>Nano {t("menu.nodeMonitors")}</title>
       </Helmet>
-      <NodeMap nodeMonitors={nodes} isLoading={isLoading} />
 
-      <Telemetry />
+      <NodeMonitors
+        nodeMonitors={nodes}
+        isLoading={isRepresentativesLoading || isNodeMonitorsLoading}
+      />
     </>
   );
 };

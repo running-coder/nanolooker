@@ -140,7 +140,8 @@
     "earnNano": "Verdien nano",
     "preferences": "Voorkeuren",
     "status": "Status",
-    "networkStatus": "Netwerk status"
+    "networkStatus": "Netwerk status",
+    "nodeMonitors": "Knooppuntmonitoren"
   },
   "footer": {
     "createdBy": "Gemaakt door {{creator}}",
@@ -353,7 +354,8 @@
       "latestVersion": "Nieuwste versie",
       "database": "Database",
       "versionsByWeight": "Versies gegroepeerd op stemgewicht",
-      "versionsByMajor": "Groeperen op primaire versie"
+      "versionsByMajor": "Groeperen op primaire versie",
+      "nodeMonitorsDetails": "Nano Node Monitor is een server-side monitoringtool voor Nano-nodes, gebouwd met PHP. Het brengt een verbinding tot stand met een lopend knooppunt via RPC en geeft de status weer op een webpagina. <0>Installeer op uw node</0>"
     },
     "exchangeTracker": {
       "description": "Elke dag wordt een opname gemaakt van de accountsaldo's van de meest populaire exchanges waar Nano wordt verhandeld. Deze meting kan worden gebruikt om bewegingen en fluctuaties op het netwerk te analyseren.",

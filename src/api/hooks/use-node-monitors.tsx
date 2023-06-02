@@ -16,6 +16,7 @@ export interface NodeMonitor {
 }
 
 interface Monitor {
+  url: string;
   active_difficulty: { multiplier: string };
   blockSync: number;
   cementedBlocks: number;

@@ -140,7 +140,8 @@
     "nodeStatus": "Trạng thái nút",
     "whatIsNano": "Nano là gì?",
     "earnNano": "Kiếm Nano",
-    "preferences": "Sở thích"
+    "preferences": "Sở thích",
+    "nodeMonitors": "Màn hình nút"
   },
   "footer": {
     "createdBy": "Tạo bởi {{creator}}",
@@ -353,7 +354,8 @@
       "latestVersion": "Phiên bản mới nhất",
       "database": "Cơ sở dữ liệu",
       "versionsByWeight": "Các phiên bản theo trọng lượng biểu quyết",
-      "versionsByMajor": "Nhóm theo phiên bản chính"
+      "versionsByMajor": "Nhóm theo phiên bản chính",
+      "nodeMonitorsDetails": "Nano Node Monitor là một công cụ giám sát phía máy chủ dành cho các nút Nano, được xây dựng bằng PHP. Nó thiết lập kết nối với một nút đang chạy thông qua RPC và hiển thị trạng thái của nó trên một trang web. <0>Cài đặt trên nút của bạn</0>"
     },
     "exchangeTracker": {
       "description": "Mỗi ngày, việc nắm bắt số dư tài khoản của các sàn giao dịch phổ biến nhất nơi Nano được giao dịch sẽ được thực hiện. Phép đo này có thể được sử dụng để phân tích các chuyển động và dao động trên mạng.",

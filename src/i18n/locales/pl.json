@@ -140,7 +140,8 @@
     "nodeStatus": "Status węzła",
     "whatIsNano": "Co to jest Nano?",
     "earnNano": "Zdobądź nano",
-    "preferences": "Preferencje"
+    "preferences": "Preferencje",
+    "nodeMonitors": "Monitory węzłów"
   },
   "footer": {
     "createdBy": "Stworzono przez {{creator}}",
@@ -353,7 +354,8 @@
       "latestVersion": "Najnowsza wersja",
       "database": "Baza danych",
       "versionsByWeight": "Wersje według wagi głosowania",
-      "versionsByMajor": "Grupuj według wersji głównej"
+      "versionsByMajor": "Grupuj według wersji głównej",
+      "nodeMonitorsDetails": "Nano Node Monitor to narzędzie do monitorowania po stronie serwera dla węzłów Nano, zbudowane z PHP. Ustanawia połączenie z działającym węzłem przez RPC i wyświetla jego status na stronie internetowej. <0>Zainstaluj na swoim węźle</0>"
     },
     "exchangeTracker": {
       "description": "Każdego dnia bierze się pod uwagę saldo najpopularniejszych giełd Nano. Pomiar ten można wykorzystać do analizy ruchów i wahań w sieci.",

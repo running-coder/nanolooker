@@ -140,7 +140,8 @@
     "earnNano": "Verdiene Nano",
     "preferences": "Einstellungen",
     "status": "Status",
-    "networkStatus": "Netzwerkstatus"
+    "networkStatus": "Netzwerkstatus",
+    "nodeMonitors": "Knotenmonitore"
   },
   "footer": {
     "createdBy": "Erstellt von {{creator}}",
@@ -353,7 +354,8 @@
       "latestVersion": "Aktuelle Version",
       "database": "Datenbank",
       "versionsByWeight": "Versionen nach Stimmgewicht",
-      "versionsByMajor": "Nach Hauptversion gruppieren"
+      "versionsByMajor": "Nach Hauptversion gruppieren",
+      "nodeMonitorsDetails": "Nano Node Monitor ist ein serverseitiges Überwachungstool für Nano-Knoten, das mit PHP erstellt wurde. Es stellt über RPC eine Verbindung zu einem laufenden Knoten her und zeigt dessen Status auf einer Webseite an. <0>Auf Ihrem Knoten installieren</0>"
     },
     "exchangeTracker": {
       "description": "Jeden Tag werden die Kontensalden der beliebtesten Börsen, an denen Nano gehandelt wird, erfasst. Mit dieser Messung können Bewegungen und Schwankungen im Netzwerk analysiert werden.",

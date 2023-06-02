@@ -140,7 +140,8 @@
     "earnNano": "Gagner des Nano",
     "preferences": "Préférences",
     "status": "Statut",
-    "networkStatus": "État du réseau"
+    "networkStatus": "État du réseau",
+    "nodeMonitors": "Moniteurs de nœud"
   },
   "footer": {
     "createdBy": "Créé par {{creator}}",
@@ -353,7 +354,8 @@
       "latestVersion": "Dernière version",
       "database": "Base de données",
       "versionsByWeight": "Versions par poids de vote",
-      "versionsByMajor": "Regrouper par version majeure"
+      "versionsByMajor": "Regrouper par version majeure",
+      "nodeMonitorsDetails": "Nano Node Monitor est un outil de surveillance côté serveur pour les nœuds Nano, construit avec PHP. Il établit une connexion à un nœud en cours d'exécution via RPC et affiche son état sur une page Web. <0>Installer sur votre nœud</0>"
     },
     "exchangeTracker": {
       "description": "Chaque jour, une capture du solde des comptes des plateformes d'échanges les plus populaires où Nano est listé est prise. Cette capture peut permettre d'analyser les mouvements et fluctuations sur le réseau.",

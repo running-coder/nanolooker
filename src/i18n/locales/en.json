@@ -137,6 +137,7 @@
     "news": "News",
     "status": "Status",
     "networkStatus": "Network Status",
+    "nodeMonitors": "Node Monitors",
     "nodeStatus": "Node Status",
     "whatIsNano": "What is Nano?",
     "earnNano": "Earn Nano",
@@ -353,7 +354,8 @@
       "latestVersion": "Latest version",
       "database": "Database",
       "versionsByWeight": "Versions by voting weight",
-      "versionsByMajor": "Group by major version"
+      "versionsByMajor": "Group by major version",
+      "nodeMonitorsDetails": "Nano Node Monitor is a server-side monitoring tool for Nano nodes, built with PHP. It establishes a connection to a running node via RPC and displays its status on a webpage. <0>Install on your node</0>"
     },
     "exchangeTracker": {
       "description": "Every day a capture of the account balances of the most popular exchanges where Nano is traded is taken. This measurement can be used to analyze movements and fluctuations on the network.",

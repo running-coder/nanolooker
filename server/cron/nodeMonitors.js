@@ -41,7 +41,8 @@ const getConfirmationQuorumPeers = async () => {
 
 const getNodeMonitor = async (ip, protocol = "http") => {
   try {
-    const res = await fetch(`${protocol}://${ip}/api.php`, { timeout: 7500 });
+    const url = `${protocol}://${ip}`;
+    const res = await fetch(`${url}/api.php`, { timeout: 7500 });
 
     const {
       version,
@@ -63,6 +64,7 @@ const getNodeMonitor = async (ip, protocol = "http") => {
     } = await res.json();
 
     return {
+      url,
       version,
       storeVersion,
       nodeMonitorVersion,

@@ -1,9 +1,10 @@
 import * as React from "react";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
 
-import { Card, Col, Empty, Row, Skeleton, Tag, Typography } from "antd";
+import { ExportOutlined } from "@ant-design/icons";
+import { Button, Card, Col, Empty, Row, Skeleton, Tag, Typography } from "antd";
 import BigNumber from "bignumber.js";
 
 import { PreferencesContext, Theme } from "api/contexts/Preferences";
@@ -20,7 +21,6 @@ interface Props {
 
 const NodeMonitors: React.FC<Props> = ({ nodeMonitors, isLoading }) => {
   const { t } = useTranslation();
-  //   const [nodes, setNodes] = React.useState([] as Node[]);
   const { theme } = React.useContext(PreferencesContext);
   const isMediumAndLower = !useMediaQuery({ query: "(min-width: 768px)" });
 
@@ -31,6 +31,18 @@ const NodeMonitors: React.FC<Props> = ({ nodeMonitors, isLoading }) => {
           count: nodeMonitors.length,
         })}
       </Title>
+
+      <div style={{ marginBottom: "12px" }}>
+        <Trans i18nKey="pages.status.nodeMonitorsDetails">
+          {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
+          <a
+            href="https://github.com/NanoTools/nanoNodeMonitor"
+            target="_blank"
+            rel="noopener noreferrer"
+          />
+        </Trans>
+      </div>
+
       <Card size="small" className="detail-layout" style={{ marginBottom: "12px" }}>
         {!isMediumAndLower ? (
           <Row gutter={6}>
@@ -106,6 +118,7 @@ const NodeMonitors: React.FC<Props> = ({ nodeMonitors, isLoading }) => {
         {!isLoading && nodeMonitors.length
           ? nodeMonitors.map(({ account, isOnline, isPrincipal, alias, ip, monitor }, index) => {
               const {
+                url,
                 version = "",
                 storeVersion = "",
                 nodeMonitorVersion = "",
@@ -149,6 +162,15 @@ const NodeMonitors: React.FC<Props> = ({ nodeMonitors, isLoading }) => {
                     <Link to={`/account/${account}`} className="break-word">
                       {account}
                     </Link>
+
+                    {url ? (
+                      <>
+                        <br />
+                        <Button type="primary" size="small" href={url} target="_blank">
+                          View Monitor <ExportOutlined />
+                        </Button>
+                      </>
+                    ) : null}
                   </Col>
                   {Object.keys(monitor).length ? (
                     <>
