@@ -2,10 +2,8 @@ const WS = require("ws");
 const BigNumber = require("bignumber.js");
 const ReconnectingWebSocket = require("reconnecting-websocket");
 const { Sentry } = require("../sentry");
+const db = require("../client/mongo");
 const {
-  MONGO_URL,
-  MONGO_DB,
-  MONGO_OPTIONS,
   TOTAL_CONFIRMATIONS_COLLECTION,
   TOTAL_VOLUME_COLLECTION,
   LARGE_TRANSACTIONS,
@@ -15,22 +13,6 @@ const {
 const UPDATE_CACHE_INTERVAL = 10000;
 
 let updateDbInterval = null;
-
-const { MongoClient } = require("mongodb");
-
-let db;
-try {
-  MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (err, client) => {
-    if (err) {
-      throw err;
-    }
-    db = client.db(MONGO_DB);
-  });
-} catch (err) {
-  console.log("Error", err);
-  Sentry.captureException(err);
-}
-
 let accumulatedConfirmations = 0;
 let accumulatedVolume = 0;
 let accumulatedLargeTransactionHashes = [];
@@ -95,11 +77,15 @@ ws.onmessage = msg => {
 };
 
 function updateDb() {
-  if (!db) return;
-
   try {
+    const database = db.getDatabase();
+
+    if (!database) {
+      throw new Error("Mongo unavailable for updateDb");
+    }
+
     if (accumulatedLargeTransactionHashes.length) {
-      db.collection(LARGE_TRANSACTIONS).insertOne({
+      database.collection(LARGE_TRANSACTIONS).insertOne({
         value: accumulatedLargeTransactionHashes,
         createdAt: new Date(),
       });
@@ -107,11 +93,11 @@ function updateDb() {
     }
 
     if (accumulatedConfirmations) {
-      db.collection(TOTAL_CONFIRMATIONS_COLLECTION).insertOne({
+      database.collection(TOTAL_CONFIRMATIONS_COLLECTION).insertOne({
         value: accumulatedConfirmations,
         createdAt: new Date(),
       });
-      db.collection(CONFIRMATIONS_PER_SECOND).insertOne({
+      database.collection(CONFIRMATIONS_PER_SECOND).insertOne({
         value: accumulatedConfirmations,
         createdAt: new Date(),
       });
@@ -119,14 +105,13 @@ function updateDb() {
     }
 
     if (accumulatedVolume) {
-      db.collection(TOTAL_VOLUME_COLLECTION).insertOne({
+      database.collection(TOTAL_VOLUME_COLLECTION).insertOne({
         value: accumulatedVolume,
         createdAt: new Date(),
       });
       accumulatedVolume = 0;
     }
   } catch (err) {
-    console.log("Error", err);
     Sentry.captureException(err);
   }
 }

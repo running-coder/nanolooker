@@ -1,4 +1,7 @@
 require("dotenv").config();
+const db = require("./client/mongo");
+db.connect();
+
 require("./client/redis");
 require("./cron/marketCapRank");
 require("./cron/knownAccounts");
@@ -59,13 +62,11 @@ const { Sentry } = require("./sentry");
 const { isValidAccountAddress } = require("./utils");
 
 const app = express();
-
 app.use(
   cors({
     origin: true,
   }),
 );
-
 app.use(bodyParser.json());
 
 app.post("/api/rpc", async (req, res) => {

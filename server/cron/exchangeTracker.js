@@ -1,37 +1,14 @@
 const cron = require("node-cron");
-const MongoClient = require("mongodb").MongoClient;
 const BigNumber = require("bignumber.js");
 const { nodeCache } = require("../client/cache");
+const db = require("../client/mongo");
 const { Sentry } = require("../sentry");
 const { rawToRai } = require("../utils");
 const { rpc } = require("../rpc");
-const {
-  MONGO_URL,
-  MONGO_DB,
-  MONGO_OPTIONS,
-  EXPIRE_5Y,
-  EXCHANGE_BALANCES_COLLECTION,
-} = require("../constants");
+const { EXPIRE_5Y, EXCHANGE_BALANCES_COLLECTION } = require("../constants");
 const accounts = require("../../src/exchanges.json");
 
-let db;
-try {
-  MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (err, client) => {
-    if (err) {
-      throw err;
-    }
-
-    db = client.db(MONGO_DB);
-
-    db.collection(EXCHANGE_BALANCES_COLLECTION).createIndex(
-      { createdAt: 1 },
-      { expireAfterSeconds: EXPIRE_5Y },
-    );
-  });
-} catch (err) {
-  console.log("Error", err);
-  Sentry.captureException(err);
-}
+const database = db.getDatabase();
 
 function formatDate(timestamp) {
   const date = new Date(timestamp);
@@ -118,10 +95,10 @@ const getAccountHistory = async (account, latestDate) => {
 
   if (dailyBalances.length > 1) {
     console.log(`Adding: ${dailyBalances.length} day(s)`);
-    db.collection(EXCHANGE_BALANCES_COLLECTION).insertMany(dailyBalances);
+    database.collection(EXCHANGE_BALANCES_COLLECTION).insertMany(dailyBalances);
   } else {
     console.log(`Updating: 1 day`);
-    db.collection(EXCHANGE_BALANCES_COLLECTION).updateOne(
+    database.collection(EXCHANGE_BALANCES_COLLECTION).updateOne(
       {
         date: currentDate,
         account: dailyBalances[0].account,
@@ -150,7 +127,8 @@ const getAccountsHistory = async () => {
 
     // eslint-disable-next-line no-loop-func
     latestDate = await new Promise((resolve, reject) => {
-      db.collection(EXCHANGE_BALANCES_COLLECTION)
+      database
+        .collection(EXCHANGE_BALANCES_COLLECTION)
         .find({
           account,
         })
@@ -177,7 +155,8 @@ const getExchangeBalances = async () => {
     console.log("Getting balances from collection");
 
     exchangeBalances = await new Promise((resolve, reject) => {
-      db.collection(EXCHANGE_BALANCES_COLLECTION)
+      database
+        .collection(EXCHANGE_BALANCES_COLLECTION)
         .aggregate([
           {
             $addFields: {

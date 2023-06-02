@@ -1,4 +1,3 @@
-const MongoClient = require("mongodb").MongoClient;
 const { promises, existsSync } = require("fs");
 const fse = require("fs-extra");
 const { join } = require("path");
@@ -7,10 +6,8 @@ const cron = require("node-cron");
 const BigNumber = require("bignumber.js");
 const { Sentry } = require("../sentry");
 const { nodeCache } = require("../client/cache");
+const db = require("../client/mongo");
 const {
-  MONGO_URL,
-  MONGO_OPTIONS,
-  MONGO_DB,
   COINGECKO_MARKET_STATS,
   COINGECKO_MARKET_CAP_STATS,
   COINGECKO_ALL_PRICE_STATS,
@@ -31,30 +28,6 @@ function sleep(ms) {
 const PUBLIC_ROOT_PATH = join(__dirname, "..", "..");
 const LOGO_PATH = join(PUBLIC_ROOT_PATH, "public/cryptocurrencies/logo");
 const DIST_LOGO_PATH = join(PUBLIC_ROOT_PATH, "dist/cryptocurrencies/logo");
-
-let db;
-let mongoClient;
-
-const connect = async () =>
-  await new Promise((resolve, reject) => {
-    try {
-      MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (err, client) => {
-        if (err) {
-          throw err;
-        }
-        mongoClient = client;
-        db = client.db(MONGO_DB);
-        db.collection(MARKET_CAP_STATS_COLLECTION).createIndex({
-          createdAt: 1,
-        });
-        resolve();
-      });
-    } catch (err) {
-      console.log("Error", err);
-      Sentry.captureException(err);
-      reject();
-    }
-  });
 
 const getPriceStats = async fiats => {
   let res;
@@ -124,13 +97,18 @@ const getMarketStats = async fiats => {
 };
 
 const getMarketCapStats = async () => {
-  await connect();
   await mkdir(LOGO_PATH, { recursive: true });
 
   const ids = [];
   const top = process.env.NODE_ENV === "production" ? 200 : 10;
 
   try {
+    const database = db.getDatabase();
+
+    if (!database) {
+      throw new Error("Mongo unavailable for getMarketCapStats");
+    }
+
     let res = await fetch(
       `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${top}&page=1&sparkline=false&market_data=false`,
     );
@@ -206,7 +184,7 @@ const getMarketCapStats = async () => {
               : null,
           };
 
-          await db.collection(MARKET_CAP_STATS_COLLECTION).findOneAndUpdate(
+          await database.collection(MARKET_CAP_STATS_COLLECTION).findOneAndUpdate(
             {
               id,
             },
@@ -242,7 +220,7 @@ const getMarketCapStats = async () => {
       }
 
       // Delete entries that are gone from the top 150
-      await db.collection(MARKET_CAP_STATS_COLLECTION).deleteMany({
+      await database.collection(MARKET_CAP_STATS_COLLECTION).deleteMany({
         id: { $nin: ids },
       });
     } else {
@@ -253,15 +231,12 @@ const getMarketCapStats = async () => {
       return;
     }
 
-    const marketCapStats = await db.collection(MARKET_CAP_STATS_COLLECTION).find().toArray();
+    const marketCapStats = await database.collection(MARKET_CAP_STATS_COLLECTION).find().toArray();
 
     nodeCache.set(COINGECKO_MARKET_CAP_STATS, marketCapStats);
 
     fse.copy(LOGO_PATH, DIST_LOGO_PATH);
-
-    mongoClient.close();
   } catch (err) {
-    console.log("Error", err);
     Sentry.captureException(err);
   }
 };

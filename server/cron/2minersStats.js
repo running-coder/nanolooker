@@ -1,6 +1,5 @@
-const MongoClient = require("mongodb").MongoClient;
 const fetch = require("node-fetch");
-const cron = require("node-cron");
+// const cron = require("node-cron");
 const BigNumber = require("bignumber.js");
 const chunk = require("lodash/chunk");
 const uniq = require("lodash/uniq");
@@ -8,13 +7,8 @@ const { rpc } = require("../rpc");
 const { Sentry } = require("../sentry");
 const { rawToRai } = require("../utils");
 const { nodeCache } = require("../client/cache");
-const {
-  MINERS_STATS,
-  MINERS_STATS_COLLECTION,
-  MONGO_URL,
-  MONGO_OPTIONS,
-  MONGO_DB,
-} = require("../constants");
+const db = require("../client/mongo");
+const { MINERS_STATS, MINERS_STATS_COLLECTION } = require("../constants");
 const exchanges = require("../../src/exchanges.json");
 
 function sleep(ms) {
@@ -22,28 +16,6 @@ function sleep(ms) {
 }
 
 const exchangeAccounts = exchanges.map(({ account }) => account);
-
-let db;
-let mongoClient;
-const connect = async () =>
-  await new Promise((resolve, reject) => {
-    try {
-      MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (err, client) => {
-        if (err) {
-          throw err;
-        }
-        mongoClient = client;
-        db = client.db(MONGO_DB);
-        db.collection(MINERS_STATS_COLLECTION).createIndex({
-          createdAt: 1,
-        });
-        resolve();
-      });
-    } catch (err) {
-      Sentry.captureException(err);
-      resolve();
-    }
-  });
 
 const MIN_RECEIVE_AMOUNT = 100;
 const MIN_HOLDING_AMOUNT = 0.001;
@@ -98,7 +70,10 @@ const processData = async ({ stats }) => {
   // Too heaving saving them, instead store uniqueAccounts on the latest date
   delete stats.payoutAccounts;
 
-  await db.collection(MINERS_STATS_COLLECTION).insertOne(stats);
+  const database = db.getDatabase();
+  if (database) {
+    await database.collection(MINERS_STATS_COLLECTION).insertOne(stats);
+  }
 };
 
 const getAccountsBalances = async accounts => {
@@ -137,28 +112,26 @@ const getAccountNonExchangeRepresentative = async account => {
 };
 
 const getLatestEntry = async () => {
-  if (!db) {
-    console.log("DB not available");
-    return;
-  }
-
   // eslint-disable-next-line no-loop-func
   const latestEntry = await new Promise((resolve, reject) => {
-    db.collection(MINERS_STATS_COLLECTION)
-      .find({ pool: "2Miners" })
-      .sort({ date: -1 })
-      .limit(1)
-      .toArray((_err, [data = {}] = []) => {
-        console.log(`Most recent date: ${data.date}`);
-        resolve(data);
-      });
+    const database = db.getDatabase();
+    if (database) {
+      database
+        .collection(MINERS_STATS_COLLECTION)
+        .find({ pool: "2Miners" })
+        .sort({ date: -1 })
+        .limit(1)
+        .toArray((_err, [data = {}] = []) => {
+          console.log(`Most recent date: ${data.date}`);
+          resolve(data);
+        });
+    }
   });
 
   return latestEntry;
 };
 
 const do2MinersStats = async () => {
-  await connect();
   const { date: latestDate } = (await getLatestEntry()) || {};
   const PER_PAGE = 500;
   const statsByDate = {};
@@ -247,8 +220,6 @@ const do2MinersStats = async () => {
   }
 
   console.log("Completed!");
-
-  mongoClient.close();
 
   // Reset cache
   nodeCache.set(MINERS_STATS, null);

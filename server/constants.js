@@ -56,11 +56,7 @@ const MONGO_URL = MONGO_USER
   ? `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@localhost:27017`
   : `mongodb://localhost:27017`;
 const MONGO_DB = "nanolooker";
-const MONGO_OPTIONS = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  numberOfRetries: 100,
-};
+const MONGO_OPTIONS = { useUnifiedTopology: true, poolSize: 10 };
 
 // https://api.coingecko.com/api/v3/simple/supported_vs_currencies
 const SUPPORTED_CRYPTOCURRENCY = require("./supported-cryptocurrency");
