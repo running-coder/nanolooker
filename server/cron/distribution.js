@@ -298,11 +298,11 @@ const doDistributionCron = async () => {
 
 // https://crontab.guru/#15_5_*_*_1
 // “At 05:15 on Monday.”
-// cron.schedule("15 5 * * 1", async () => {
-//   if (process.env.NODE_ENV !== "production") return;
-// Disable cron until amounts are sorted out
-doDistributionCron();
-// });
+cron.schedule("15 5 * * 1", async () => {
+  if (process.env.NODE_ENV !== "production") return;
+  // Disable cron until amounts are sorted out
+  doDistributionCron();
+});
 
 // if (
 //   process.env.NODE_ENV === "production" &&

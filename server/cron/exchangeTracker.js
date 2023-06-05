@@ -8,8 +8,6 @@ const { rpc } = require("../rpc");
 const { EXPIRE_5Y, EXCHANGE_BALANCES_COLLECTION } = require("../constants");
 const accounts = require("../../src/exchanges.json");
 
-const database = db.getDatabase();
-
 function formatDate(timestamp) {
   const date = new Date(timestamp);
   const month = `${date.getMonth() + 1}`.padStart(2, "0");
@@ -93,6 +91,8 @@ const getAccountHistory = async (account, latestDate) => {
 
   console.log(`Account history completed: ${account}`);
 
+  const database = db.getDatabase();
+
   if (dailyBalances.length > 1) {
     console.log(`Adding: ${dailyBalances.length} day(s)`);
     database.collection(EXCHANGE_BALANCES_COLLECTION).insertMany(dailyBalances);
@@ -118,6 +118,8 @@ const getAccountsHistory = async () => {
     console.log("DB not available");
     return;
   }
+
+  const database = db.getDatabase();
 
   for (let i = 0; i < accounts.length; i++) {
     let latestDate = null;
@@ -153,6 +155,8 @@ const getExchangeBalances = async () => {
     }
 
     console.log("Getting balances from collection");
+
+    const database = db.getDatabase();
 
     exchangeBalances = await new Promise((resolve, reject) => {
       database
