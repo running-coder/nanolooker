@@ -46,9 +46,8 @@ const getAccounts = async () => {
 
   let currentAccountCount = 0;
   let nextAccount = BURN_ACCOUNT;
-  let steps = 500000;
+  let steps = 500_000;
   let nextCount = 0;
-
   let currentPage = 0;
 
   await mkdir(`${TMP_ACCOUNTS_PATH}`, { recursive: true });
@@ -61,7 +60,11 @@ const getAccounts = async () => {
       count: nextCount + 1,
     });
 
-    console.log(`getting frontier ${nextAccount}, count ${nextCount + 1}`);
+    console.log(`getting frontier`, {
+      account: nextAccount,
+      count: nextCount + 1,
+      currentAccountCount,
+    });
 
     const currentFrontiers = Object.keys(frontiers);
     // As the request was steps + 1, remove the first element which was the nextAccount
@@ -75,6 +78,9 @@ const getAccounts = async () => {
         JSON.stringify(currentFrontiers, null, 2),
       );
       currentPage += 1;
+    } else {
+      console.log(`break frontier loop`, { currentFrontiers });
+      break;
     }
   }
 };
@@ -292,11 +298,11 @@ const doDistributionCron = async () => {
 
 // https://crontab.guru/#15_5_*_*_1
 // “At 05:15 on Monday.”
-cron.schedule("15 5 * * 1", async () => {
-  if (process.env.NODE_ENV !== "production") return;
-  // Disable cron until amounts are sorted out
-  doDistributionCron();
-});
+// cron.schedule("15 5 * * 1", async () => {
+//   if (process.env.NODE_ENV !== "production") return;
+// Disable cron until amounts are sorted out
+doDistributionCron();
+// });
 
 // if (
 //   process.env.NODE_ENV === "production" &&
