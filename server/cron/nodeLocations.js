@@ -103,7 +103,7 @@ const doNodeLocations = async () => {
       throw new Error("Mongo unavailable for doNodeLocations");
     }
 
-    await database.collection(NODE_LOCATIONS).drop();
+    await database.collection(NODE_LOCATIONS).deleteMany({});
     await database.collection(NODE_LOCATIONS).insertMany(results);
 
     nodeCache.set(NODE_LOCATIONS, results);
