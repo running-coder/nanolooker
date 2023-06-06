@@ -190,7 +190,7 @@ const getHistoryFilters = async ({ account, filters: rawFilters }) => {
       .toArray();
     // .explain();
 
-    if (toBoolean(rawFilters.sum)) {
+    if (rawFilters && toBoolean(rawFilters.sum)) {
       data.forEach(({ amount }) => {
         sum = new BigNumber(sum).plus(amount || 0).toNumber();
       });
