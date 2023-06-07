@@ -14,7 +14,8 @@
     "prettier:fix": "prettier --write \"{server,src}/**/*.{js,ts,tsx}\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "translate": "node scripts/translate.js"
+    "translate": "node scripts/translate.js",
+    "serve": "pm2 start server/server.js"
   },
   "proxy": "http://localhost:3010",
   "browserslist": {
@@ -61,6 +62,7 @@
     "node-cron": "^2.0.3",
     "node-fetch": "^2.6.7",
     "pidusage": "^2.0.18",
+    "pm2": "^5.3.0",
     "qrcode": "^1.4.4",
     "qs": "^6.9.3",
     "react": "^17.0.1",
