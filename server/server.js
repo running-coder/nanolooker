@@ -60,6 +60,7 @@ const { getTelemetry } = require("./api/telemetry");
 const { getRepresentative, getAllRepresentatives } = require("./api/representative");
 const { Sentry } = require("./sentry");
 const { isValidAccountAddress } = require("./utils");
+const { terminate } = require("./terminate");
 
 const app = express();
 app.use(
@@ -315,5 +316,11 @@ app.get("*", (req, res, next) => {
 
 const server = app.listen(process.env.SERVER_PORT);
 server.timeout = 20000;
+
+const exitHandler = terminate(server);
+process.on("uncaughtException", exitHandler(1, "Unexpected Error"));
+process.on("unhandledRejection", exitHandler(1, "Unhandled Promise"));
+process.on("SIGTERM", exitHandler(0, "SIGTERM"));
+process.on("SIGINT", exitHandler(0, "SIGINT"));
 
 console.log(`Server started on http://localhost:${process.env.SERVER_PORT}`);
