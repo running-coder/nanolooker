@@ -6,9 +6,9 @@ const { LARGE_TRANSACTIONS } = require("../constants");
 const getLargeTransactions = async () => {
   let largeTransactions =
     nodeCache.get(LARGE_TRANSACTIONS) ||
-    (await new Promise((resolve, reject) => {
+    (await new Promise(async (resolve, reject) => {
       try {
-        const database = db.getDatabase();
+        const database = await db.getDatabase();
 
         if (!database) {
           throw new Error("Mongo unavailable for getLargeTransactions");
@@ -16,11 +16,10 @@ const getLargeTransactions = async () => {
 
         database
           .collection(LARGE_TRANSACTIONS)
-          .find({
-            $query: {},
-          })
+          .find()
           .sort({ createdAt: -1 })
-          .toArray((_err, values = []) => {
+          .toArray()
+          .then(values => {
             const transactions = values.map(({ value: [transaction] }) => transaction);
             nodeCache.set(LARGE_TRANSACTIONS, transactions, 15);
 

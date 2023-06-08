@@ -38,7 +38,7 @@ const getHistoryFilters = async ({ account, filters: rawFilters }) => {
     if (!(await getIsAccountFilterable(account))) {
       return data;
     }
-    const database = db.getDatabase();
+    const database = await db.getDatabase();
 
     if (!database) {
       throw new Error("Mongo unavailable for getHistoryFilters");

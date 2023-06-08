@@ -15,7 +15,7 @@ const getNextHour = () => {
 // At every 20th minute.
 cron.schedule("*/20 * * * *", async () => {
   try {
-    const database = db.getDatabase();
+    const database = await db.getDatabase();
 
     if (!database) {
       throw new Error("Mongo unavailable for marketCapRank");

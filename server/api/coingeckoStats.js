@@ -34,9 +34,9 @@ const getCoingeckoStats = async ({ fiat, cryptocurrency }) => {
 
   const getMarketCapRank24h =
     marketCapRank24h ||
-    new Promise((resolve, reject) => {
+    new Promise(async (resolve, reject) => {
       try {
-        const database = db.getDatabase();
+        const database = await db.getDatabase();
 
         if (!database) {
           throw new Error("Mongo unavailable for getCoingeckoStats");
@@ -45,15 +45,14 @@ const getCoingeckoStats = async ({ fiat, cryptocurrency }) => {
         database
           .collection(MARKET_CAP_RANK_COLLECTION)
           .find({
-            $query: {
-              createdAt: {
-                $lte: new Date(Date.now() - EXPIRE_24H * 1000),
-                $gte: new Date(Date.now() - EXPIRE_48H * 1000),
-              },
+            createdAt: {
+              $lte: new Date(Date.now() - EXPIRE_24H * 1000),
+              $gte: new Date(Date.now() - EXPIRE_48H * 1000),
             },
-            $orderby: { value: 1 },
           })
-          .toArray((_err, [{ value } = {}] = []) => {
+          .sort({ value: 1 })
+          .toArray()
+          .then(([{ value } = {}]) => {
             nodeCache.set(MARKET_CAP_RANK_24H, value, EXPIRE_1h);
             resolve(value);
           });
@@ -82,9 +81,9 @@ const getCoingeckoMarketCapStats = async () => {
     return marketCapStats;
   }
 
-  return new Promise(resolve => {
+  return new Promise(async resolve => {
     try {
-      const database = db.getDatabase();
+      const database = await db.getDatabase();
 
       if (!database) {
         throw new Error("Mongo unavailable for getCoingeckoMarketCapStats");
@@ -93,7 +92,8 @@ const getCoingeckoMarketCapStats = async () => {
       database
         .collection(MARKET_CAP_STATS_COLLECTION)
         .find()
-        .toArray((_err, value = []) => {
+        .toArray()
+        .then(value => {
           nodeCache.set(COINGECKO_MARKET_CAP_STATS, value);
           resolve(value);
         });

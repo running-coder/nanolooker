@@ -21,30 +21,31 @@ const { rawToRai } = require("../utils");
 // Every 3 seconds
 cron.schedule("*/3 * * * * *", async () => {
   try {
-    const database = db.getDatabase();
+    const database = await db.getDatabase();
 
     if (!database) {
       throw new Error("Mongo unavailable for WS CPS");
     }
 
-    database
-      .collection(CONFIRMATIONS_PER_SECOND)
-      .aggregate([
-        {
-          $match: {
-            createdAt: {
-              $gte: new Date(Date.now() - EXPIRE_1M * 1000),
+    const [{ confirmationsPerSecond } = {}] =
+      (await database
+        .collection(CONFIRMATIONS_PER_SECOND)
+        .aggregate([
+          {
+            $match: {
+              createdAt: {
+                $gte: new Date(Date.now() - EXPIRE_1M * 1000),
+              },
             },
           },
-        },
-        { $group: { _id: null, confirmationsPerSecond: { $sum: "$value" } } },
-      ])
-      .toArray((_err, [{ confirmationsPerSecond = 0 } = {}] = []) => {
-        nodeCache.set(
-          CONFIRMATIONS_PER_SECOND,
-          new BigNumber(confirmationsPerSecond).dividedBy(EXPIRE_1M).toFormat(2),
-        );
-      });
+          { $group: { _id: null, confirmationsPerSecond: { $sum: "$value" } } },
+        ])
+        .toArray()) || [];
+
+    nodeCache.set(
+      CONFIRMATIONS_PER_SECOND,
+      new BigNumber(confirmationsPerSecond).dividedBy(EXPIRE_1M).toFormat(2),
+    );
   } catch (err) {
     Sentry.captureException(err, {
       extra: {
@@ -56,7 +57,7 @@ cron.schedule("*/3 * * * * *", async () => {
 
 cron.schedule("*/10 * * * * *", async () => {
   try {
-    const database = db.getDatabase();
+    const database = await db.getDatabase();
 
     if (!database) {
       throw new Error("Mongo unavailable for WS confirmations");
@@ -74,7 +75,8 @@ cron.schedule("*/10 * * * * *", async () => {
         },
         { $group: { _id: null, totalConfirmations: { $sum: "$value" } } },
       ])
-      .toArray((_err, [{ totalConfirmations = 0 } = {}] = []) => {
+      .toArray()
+      .then(([{ totalConfirmations = 0 } = {}]) => {
         nodeCache.set(TOTAL_CONFIRMATIONS_24H, totalConfirmations);
       });
 
@@ -90,7 +92,8 @@ cron.schedule("*/10 * * * * *", async () => {
         },
         { $group: { _id: null, totalConfirmations: { $sum: "$value" } } },
       ])
-      .toArray((_err, [{ totalConfirmations = 0 } = {}] = []) => {
+      .toArray()
+      .then(([{ totalConfirmations = 0 } = {}]) => {
         nodeCache.set(TOTAL_CONFIRMATIONS_48H, totalConfirmations);
       });
 
@@ -106,7 +109,8 @@ cron.schedule("*/10 * * * * *", async () => {
         },
         { $group: { _id: null, totalVolume: { $sum: "$value" } } },
       ])
-      .toArray((_err, [{ totalVolume = 0 } = {}] = []) => {
+      .toArray()
+      .then(([{ totalVolume = 0 } = {}]) => {
         nodeCache.set(TOTAL_VOLUME_24H, rawToRai(totalVolume));
       });
 
@@ -122,7 +126,8 @@ cron.schedule("*/10 * * * * *", async () => {
         },
         { $group: { _id: null, totalVolume: { $sum: "$value" } } },
       ])
-      .toArray((_err, [{ totalVolume = 0 } = {}] = []) => {
+      .toArray()
+      .then(([{ totalVolume = 0 } = {}]) => {
         nodeCache.set(TOTAL_VOLUME_48H, rawToRai(totalVolume));
       });
   } catch (err) {

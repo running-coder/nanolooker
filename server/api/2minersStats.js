@@ -10,9 +10,9 @@ const get2MinersStats = async () => {
     return minersStats;
   }
 
-  return new Promise(resolve => {
+  return new Promise(async resolve => {
     try {
-      const database = db.getDatabase();
+      const database = await db.getDatabase();
 
       if (!database) {
         throw new Error("Mongo unavailable for get2MinersStats");
@@ -22,7 +22,8 @@ const get2MinersStats = async () => {
         .collection(MINERS_STATS_COLLECTION)
         .find()
         .sort({ date: -1 })
-        .toArray((_err, data = []) => {
+        .toArray()
+        .then(data => {
           const filteredData = data.map(({ uniqueAccounts, ...rest }) => rest);
           nodeCache.set(MINERS_STATS, filteredData, EXPIRE_6H);
           resolve(data);

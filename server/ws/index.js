@@ -76,9 +76,9 @@ ws.onmessage = msg => {
   }
 };
 
-function updateDb() {
+async function updateDb() {
   try {
-    const database = db.getDatabase();
+    const database = await db.getDatabase();
 
     if (!database) {
       throw new Error("Mongo unavailable for updateDb");

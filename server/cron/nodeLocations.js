@@ -97,7 +97,7 @@ const doNodeLocations = async () => {
       results = results.concat(locationResults);
     }
 
-    const database = db.getDatabase();
+    const database = await db.getDatabase();
 
     if (!database) {
       throw new Error("Mongo unavailable for doNodeLocations");

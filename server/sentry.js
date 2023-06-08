@@ -6,6 +6,8 @@ Sentry.init({
     if (process.env.NODE_ENV === "development") {
       console.error(hint.originalException || hint.syntheticException);
       return null;
+    } else {
+      console.error(hint.originalException || hint.syntheticException);
     }
     return event;
   },

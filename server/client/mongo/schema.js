@@ -16,7 +16,7 @@ const {
 } = require("../constants");
 
 async function createIndexes() {
-  const database = db.getDatabase();
+  const database = await db.getDatabase();
   const extraOptions = { unique: true, background: true };
 
   const indexExists1 = await database.collection(LARGE_TRANSACTIONS).indexExists("createdAt");

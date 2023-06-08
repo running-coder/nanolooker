@@ -6,9 +6,9 @@ const { NODE_LOCATIONS } = require("../constants");
 const getNodeLocations = async () => {
   let nodeLocations =
     nodeCache.get(NODE_LOCATIONS) ||
-    (await new Promise((resolve, reject) => {
+    (await new Promise(async (resolve, reject) => {
       try {
-        const database = db.getDatabase();
+        const database = await db.getDatabase();
 
         if (!database) {
           throw new Error("Mongo unavailable for getNodeLocations");
@@ -16,10 +16,9 @@ const getNodeLocations = async () => {
 
         database
           .collection(NODE_LOCATIONS)
-          .find({
-            $query: {},
-          })
-          .toArray((_err, values = []) => {
+          .find()
+          .toArray()
+          .then(values => {
             nodeCache.set(NODE_LOCATIONS, values);
             resolve(values);
           });

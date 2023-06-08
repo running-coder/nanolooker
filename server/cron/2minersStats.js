@@ -70,7 +70,7 @@ const processData = async ({ stats }) => {
   // Too heaving saving them, instead store uniqueAccounts on the latest date
   delete stats.payoutAccounts;
 
-  const database = db.getDatabase();
+  const database = await db.getDatabase();
   if (database) {
     await database.collection(MINERS_STATS_COLLECTION).insertOne(stats);
   }
@@ -113,15 +113,16 @@ const getAccountNonExchangeRepresentative = async account => {
 
 const getLatestEntry = async () => {
   // eslint-disable-next-line no-loop-func
-  const latestEntry = await new Promise((resolve, reject) => {
-    const database = db.getDatabase();
+  const latestEntry = await new Promise(async (resolve, reject) => {
+    const database = await db.getDatabase();
     if (database) {
       database
         .collection(MINERS_STATS_COLLECTION)
         .find({ pool: "2Miners" })
         .sort({ date: -1 })
         .limit(1)
-        .toArray((_err, [data = {}] = []) => {
+        .toArray()
+        .then(([data = {}]) => {
           console.log(`Most recent date: ${data.date}`);
           resolve(data);
         });

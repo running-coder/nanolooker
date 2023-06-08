@@ -103,7 +103,7 @@ const getMarketCapStats = async () => {
   const top = process.env.NODE_ENV === "production" ? 200 : 10;
 
   try {
-    const database = db.getDatabase();
+    const database = await db.getDatabase();
 
     if (!database) {
       throw new Error("Mongo unavailable for getMarketCapStats");

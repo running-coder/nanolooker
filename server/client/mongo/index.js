@@ -7,7 +7,8 @@ const { MONGO_URL, MONGO_DB, MONGO_OPTIONS } = require("../../constants");
 const client = new MongoClient(MONGO_URL, MONGO_OPTIONS);
 
 function isConnected() {
-  return !!client && !!client.topology && client.topology.isConnected();
+  const isConnected = !!client && !!client.topology && client.topology.isConnected();
+  return isConnected;
 }
 
 async function connect() {
@@ -22,8 +23,13 @@ async function connect() {
 }
 
 // Function to retrieve the MongoDB database instance
-function getDatabase() {
-  return isConnected() ? client.db(MONGO_DB) : null;
+async function getDatabase() {
+  if (isConnected()) {
+    return client.db(MONGO_DB);
+  }
+
+  await connect();
+  return client.db(MONGO_DB);
 }
 
 module.exports = {

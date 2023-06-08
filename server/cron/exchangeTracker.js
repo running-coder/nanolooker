@@ -91,7 +91,7 @@ const getAccountHistory = async (account, latestDate) => {
 
   console.log(`Account history completed: ${account}`);
 
-  const database = db.getDatabase();
+  const database = await db.getDatabase();
 
   if (dailyBalances.length > 1) {
     console.log(`Adding: ${dailyBalances.length} day(s)`);
@@ -119,7 +119,7 @@ const getAccountsHistory = async () => {
     return;
   }
 
-  const database = db.getDatabase();
+  const database = await db.getDatabase();
 
   for (let i = 0; i < accounts.length; i++) {
     let latestDate = null;
@@ -136,7 +136,8 @@ const getAccountsHistory = async () => {
         })
         .sort({ date: -1 })
         .limit(1)
-        .toArray((_err, [data = {}] = []) => {
+        .toArray()
+        .then(([data = {}]) => {
           console.log(`Most recent date: ${data.date}`);
           resolve(data.date);
         });
@@ -156,7 +157,7 @@ const getExchangeBalances = async () => {
 
     console.log("Getting balances from collection");
 
-    const database = db.getDatabase();
+    const database = await db.getDatabase();
 
     exchangeBalances = await new Promise((resolve, reject) => {
       database
@@ -176,7 +177,8 @@ const getExchangeBalances = async () => {
           },
         ])
         .sort({ convertedDate: 1 })
-        .toArray((_err, data = []) => {
+        .toArray()
+        .then(data => {
           const balances = {};
           accounts.forEach(({ account }) => (balances[account] = []));
 
