@@ -27,20 +27,19 @@ cron.schedule("*/3 * * * * *", async () => {
       throw new Error("Mongo unavailable for WS CPS");
     }
 
-    const [{ confirmationsPerSecond } = {}] =
-      (await database
-        .collection(CONFIRMATIONS_PER_SECOND)
-        .aggregate([
-          {
-            $match: {
-              createdAt: {
-                $gte: new Date(Date.now() - EXPIRE_1M * 1000),
-              },
+    const [{ confirmationsPerSecond } = {}] = (await database
+      .collection(CONFIRMATIONS_PER_SECOND)
+      .aggregate([
+        {
+          $match: {
+            createdAt: {
+              $gte: new Date(Date.now() - EXPIRE_1M * 1000),
             },
           },
-          { $group: { _id: null, confirmationsPerSecond: { $sum: "$value" } } },
-        ])
-        .toArray()) || [];
+        },
+        { $group: { _id: null, confirmationsPerSecond: { $sum: "$value" } } },
+      ])
+      .toArray()) || [{}];
 
     nodeCache.set(
       CONFIRMATIONS_PER_SECOND,
