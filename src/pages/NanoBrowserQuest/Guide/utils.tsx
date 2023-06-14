@@ -59,7 +59,8 @@ const bonusDescriptionMap = [
   "-#% Enemy lower Lightning resistance", // 38
   "-#% Enemy lower Cold resistance", // 39
   "-#% Enemy lower Poison resistance", // 40
-  "-#% Enemy lower All resistances", // 41
+  "-#% Enemy lower resistances", // 41
+  "+#% Extra gold from enemies", // 42
 ];
 
 const bonusType = [
@@ -105,6 +106,7 @@ const bonusType = [
   "lowerColdResistance", // 39
   "lowerPoisonResistance", // 40
   "lowerAllResistance", // 41
+  "extraGold", // 42
 ];
 
 export const getItemAttributes = (props: ItemAttributes) => {
@@ -169,7 +171,7 @@ const getBonus = function (rawBonus: number[], level: number) {
   const regenerateHealthPerLevel = [1, 2, 3, 6, 9, 12, 15, 20, 25, 40];
   const criticalHitPerLevel = [1, 1, 2, 3, 4, 6, 8, 11, 15, 20];
   const blockChancePerLevel = [1, 1, 2, 3, 4, 6, 8, 11, 15, 20];
-  const magicFindPerLevel = [1, 1, 2, 2, 3, 3, 4, 5, 7, 10];
+  const magicFindPerLevel = [1, 2, 3, 5, 7, 9, 12, 16, 22, 30];
   const attackSpeedPerLevel = [1, 2, 3, 4, 6, 8, 10, 15, 20, 30];
   const drainLifePerLevel = [1, 3, 6, 9, 12, 16, 20, 25, 32, 45];
   const flameDamagePerLevel = [3, 6, 9, 12, 15, 20, 28, 35, 45, 60];
@@ -200,6 +202,7 @@ const getBonus = function (rawBonus: number[], level: number) {
   const lowerColdResistancePerLevel = [1, 2, 4, 6, 9, 13, 17, 22, 28, 36];
   const lowerPoisonResistancePerLevel = [1, 2, 4, 6, 9, 13, 17, 22, 28, 36];
   const lowerAllResistancePerLevel = [1, 2, 3, 5, 7, 9, 12, 16, 22, 30];
+  const extraGoldPerLevel = [1, 2, 4, 7, 12, 15, 18, 22, 30, 40];
 
   const bonusPerLevel = [
     minDamagePerLevel,
@@ -244,6 +247,7 @@ const getBonus = function (rawBonus: number[], level: number) {
     lowerColdResistancePerLevel,
     lowerPoisonResistancePerLevel,
     lowerAllResistancePerLevel,
+    extraGoldPerLevel,
   ];
 
   const bonus: { type: string; stats: number; description: string }[] = [];
@@ -336,6 +340,8 @@ const getPartyBonusDescriptionMap = [
   "+# Maximum damage",
   "+# Health",
   "+# Magic damage",
+  "+#% All resistances",
+  "+#% Extra gold from enemies",
 ];
 
 const partyBonusType = [
@@ -346,6 +352,8 @@ const partyBonusType = [
   "maxDamage",
   "health",
   "magicDamage",
+  "allResistance",
+  "extraGold",
 ];
 
 const getPartyBonus = function (rawBonus: number[], level: number) {
@@ -356,6 +364,8 @@ const getPartyBonus = function (rawBonus: number[], level: number) {
   const maxDamagePerLevel = [1, 2, 3, 4, 5, 6, 8, 12, 18, 30];
   const healthPerLevel = [1, 3, 6, 9, 12, 15, 20, 28, 35, 45];
   const magicDamagePerLevel = [1, 2, 3, 4, 6, 8, 12, 18, 26, 40];
+  const allResistancePerLevel = [1, 2, 3, 4, 6, 8, 11, 14, 19, 25, 32];
+  const extraGoldPerLevel = [1, 2, 3, 4, 6, 8, 11, 14, 19, 25, 32];
 
   const bonusPerLevel = [
     attackDamagePerLevel,
@@ -365,6 +375,8 @@ const getPartyBonus = function (rawBonus: number[], level: number) {
     maxDamagePerLevel,
     healthPerLevel,
     magicDamagePerLevel,
+    allResistancePerLevel,
+    extraGoldPerLevel,
   ];
 
   const bonus: { type: string; stats: number; description: string }[] = [];
