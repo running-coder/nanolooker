@@ -48,6 +48,10 @@
     "alias": "getnano.ovh Faucet",
     "account": "nano_18e4hwxk48kfy9kjc81hz494z68xa9u5863ain7jwyorqj6tjwhxibx4rzqu",
     "link": "https://getnano.ovh"
+  },
+  {
+    "alias": "Solar Nano Faucet",
+    "account": "nano_3wbisaa5xw83u9bhciqnp5odwq1ihnjjtt48m6jrt6zdawpztwggse714cch",
+    "link": "https://solarnanofaucet.space/faucet"
   }
-  
 ]

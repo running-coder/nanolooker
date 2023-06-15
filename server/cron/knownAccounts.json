@@ -150,5 +150,9 @@
   {
     "alias": "CryptoFuse.net",
     "account": "nano_3x9qicammk6he9dmh1ntia3ehkc4ur4j1uhrus7cnoinufooexg47cmtdbyg"
+  },
+  {
+    "alias": "Solar Nano Faucet",
+    "account": "nano_3wbisaa5xw83u9bhciqnp5odwq1ihnjjtt48m6jrt6zdawpztwggse714cch"
   }
 ]
