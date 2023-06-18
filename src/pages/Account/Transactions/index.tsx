@@ -100,6 +100,15 @@ const TransactionsTable = ({
           </Col>
         </Row>
       ) : null}
+
+      {!isLargeAndHigher && sumAmount ? (
+        <Row gutter={[{ xs: 6, sm: 12, md: 12, lg: 12 }, 12]} className="row-header color-muted">
+          <Col>
+            {t("transaction.amount")}
+            {sumAmount ? ` (Ӿ ${new BigNumber(rawToRai(sumAmount)).toFormat()})` : null}
+          </Col>
+        </Row>
+      ) : null}
       {data?.length ? (
         <>
           {data.map(
