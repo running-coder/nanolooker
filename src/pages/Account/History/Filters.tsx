@@ -198,7 +198,7 @@ const Filters: React.FC = () => {
                 <RangePicker
                   {...field}
                   style={{ width: "100%" }}
-                  defaultPickerValue={[moment().add(-1, "month"), moment().add(-1, "month")]}
+                  defaultValue={[moment().add(-1, "month"), moment().add(-1, "month")]}
                   placeholder={[t("pages.account.startDate"), t("pages.account.endDate")]}
                   allowEmpty={[true, true]}
                   disabledDate={disabledDate}
