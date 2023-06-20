@@ -5,6 +5,7 @@ import { Line } from "@antv/g2plot";
 import { Card, Empty, Select, Skeleton, Tooltip } from "antd";
 import BigNumber from "bignumber.js";
 import moment from "moment";
+import useDeepCompareEffect from "use-deep-compare-effect";
 
 import { AccountInfoContext } from "api/contexts/AccountInfo";
 import useAccountHistory from "api/hooks/use-account-history";
@@ -55,11 +56,10 @@ const Chart: React.FC = () => {
   );
 
   React.useEffect(() => {
-    return () => {
-      accountTrackerChart?.destroy();
-      accountTrackerChart = null;
-    };
-  }, []);
+    if (!account) return;
+    accountTrackerChart?.destroy();
+    accountTrackerChart = null;
+  }, [account]);
 
   React.useEffect(() => {
     if (isAccountHistoryLoading || !history?.length || !accountInfo?.balance) return;
@@ -127,7 +127,7 @@ const Chart: React.FC = () => {
     setTransactionData(transactionData.reverse());
   }, [isAccountHistoryLoading, history, accountInfo.balance]);
 
-  React.useEffect(() => {
+  useDeepCompareEffect(() => {
     if (!dailyData?.length || !transactionData?.length) return;
 
     const data = chartType === ChartType.DAILY ? dailyData : transactionData;
@@ -172,17 +172,17 @@ const Chart: React.FC = () => {
       },
     };
 
-    if (!accountTrackerChart) {
-      accountTrackerChart = new Line(
-        document.getElementById("account-tracker-chart") as HTMLElement,
-        // @ts-ignore
-        config,
-      );
+    const chartEl = document.getElementById("account-tracker-chart") as HTMLElement;
 
-      accountTrackerChart.render();
-    } else {
-      accountTrackerChart.update(config);
-    }
+    chartEl.innerHTML = "";
+
+    accountTrackerChart = new Line(
+      chartEl,
+      // @ts-ignore
+      config,
+    );
+
+    accountTrackerChart.render();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dailyData, transactionData, chartType]);

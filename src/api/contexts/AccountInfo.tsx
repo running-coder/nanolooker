@@ -50,6 +50,7 @@ const Provider: React.FC<Props> = ({ children }) => {
   const getAccountInfo = async (account: string) => {
     setIsError(false);
     setIsLoading(true);
+
     const json = await rpc("account_info", {
       account,
       representative: "true",
@@ -67,6 +68,7 @@ const Provider: React.FC<Props> = ({ children }) => {
 
   React.useEffect(() => {
     if (account && isValidAccountAddress(account)) {
+      setAccountInfo({} as AccountInfoRPCResponse);
       getAccountInfo(account);
     }
   }, [account]);

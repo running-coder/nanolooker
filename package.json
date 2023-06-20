@@ -37,7 +37,7 @@
     }
   },
   "dependencies": {
-    "@antv/g2plot": "^2.3.39",
+    "@antv/g2plot": "^2.4.31",
     "@google-cloud/translate": "^6.2.0",
     "@sentry/node": "^6.19.2",
     "antd": "^5.5.0",
