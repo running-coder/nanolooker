@@ -158,5 +158,17 @@
   {
     "alias": "Binance US Hot Wallet #2",
     "account": "nano_3yej4c6s5ddwk8bq1o3945jgzx7axh94p813dmnq1aywh8ekufhfsgw68cbg"
+  },
+  {
+    "alias": "Binance Hot Wallet #2",
+    "account": "nano_3kef5c3ahkwf3qcyw61qcnma668z8ez4ocnm55gkiaqeure3ghcfqunfynug"
+  },
+  {
+    "alias": "Crypto.com Deposits",
+    "account": "nano_3fmx3sytpyo3hya1bpfetgs6en4fzib3m66c5stb5g8nq1z61doanzmxuo8h"
+  },
+  {
+    "alias": "HitBTC Hot Wallet",
+    "account": "nano_1td9t7i3dj6xayhzf9t6xndqfj34crunefmig1fbxf9wna56eincgwm1tzi7"
   }
 ]

@@ -4,6 +4,10 @@
     "account": "nano_3jwrszth46rk1mu7rmb4rhm54us8yg1gw3ipodftqtikf5yqdyr7471nsg1k"
   },
   {
+    "name": "Binance Hot Wallet #2",
+    "account": "nano_3kef5c3ahkwf3qcyw61qcnma668z8ez4ocnm55gkiaqeure3ghcfqunfynug"
+  },
+  {
     "name": "Binance US Hot Wallet",
     "account": "nano_17oc98sqccfqqfah8jggkziu8i6ar8biq7syxqcd6e1sagje11gts88gfj95"
   },
@@ -52,6 +56,10 @@
     "account": "nano_3ebd88zzysrkqpo8ey5yyxfpkfr39abmiyeihqn8b5ong9dkga1kbtd7gs4x"
   },
   {
+    "name": "Crypto.com Deposits",
+    "account": "nano_3fmx3sytpyo3hya1bpfetgs6en4fzib3m66c5stb5g8nq1z61doanzmxuo8h"
+  },
+  {
     "name": "OKEx Deposits",
     "account": "nano_1etto78drszxhtb5jhswzzm5m98ffqxwjzwg3gr8ajt5sq4ahdj4bjhni9we"
   },
@@ -78,5 +86,9 @@
   {
     "name": "ChangeNow.io",
     "account": "nano_1ed95h4er3wotpjksn1aemq3m1y5677qfzi9be6zumkjo3wxw5oy7j8zm6mo"
+  }, 
+  {
+    "name": "HitBTC Hot Wallet",
+    "account": "nano_1td9t7i3dj6xayhzf9t6xndqfj34crunefmig1fbxf9wna56eincgwm1tzi7"
   }
 ]
