@@ -55,11 +55,16 @@ const Provider: React.FC<Props> = ({ children }) => {
       const res = await fetch("/api/known-accounts");
       const json = await res.json();
 
-      !json || json.error ? setIsError(true) : setKnownAccounts(json);
-
-      setKnownExchangeAccounts(
-        [...KNOWN_EXCHANGE_ACCOUNTS].map(account => find(json, ["account", account])),
-      );
+      if (!json || json.error) {
+        setIsError(true);
+      } else {
+        setKnownAccounts(json);
+        setKnownExchangeAccounts(
+          [...KNOWN_EXCHANGE_ACCOUNTS]
+            .map(account => find(json, ["account", account]))
+            .filter(Boolean),
+        );
+      }
     } catch (err) {
       setIsError(true);
     }

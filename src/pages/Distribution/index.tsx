@@ -182,7 +182,7 @@ const Distribution: React.FC = () => {
 
   const i18nTotalAccounts = new BigNumber(totalAccounts).toFormat();
   const i18nTotalBalances = new BigNumber(totalBalance).toFormat();
-  const knownExchangeList = knownExchangeAccounts.map(({ alias }) => alias).join(", ");
+  const knownExchangeList = knownExchangeAccounts?.map(({ alias }) => alias).join(", ");
   const date = data?.status?.date || t("common.notAvailable");
 
   return (
