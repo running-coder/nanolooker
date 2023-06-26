@@ -177,7 +177,7 @@
       "cpsLocal": "CPS در گره محلی مشاهده شده است",
       "cpsNetwork": "CPS متوسط در چندین گره نماینده",
       "viewSocialEngagement": "مشاهده مشارکت اجتماعی",
-      "averageTps": "حداکثر TPS"
+      "averageTps": "میانگین ظرفیت TPS"
     },
     "account": {
       "votingWeight": "وزن رای گیری",

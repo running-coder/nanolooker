@@ -177,7 +177,7 @@
       "cpsLocal": "CPS observé sur le nœud local",
       "cpsNetwork": "CPS médian sur plusieurs nœuds représentatifs",
       "viewSocialEngagement": "Afficher l'engagement social",
-      "averageTps": "TPS maximum"
+      "averageTps": "Moy. Capacité TPS"
     },
     "account": {
       "votingWeight": "Poids du vote",

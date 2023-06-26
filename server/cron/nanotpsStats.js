@@ -29,6 +29,6 @@ cron.schedule("0 * * * *", async () => {
   doNanoTpsStats();
 });
 
-// if (process.env.NODE_ENV === "production") {
-doNanoTpsStats();
-// }
+if (process.env.NODE_ENV === "production") {
+  doNanoTpsStats();
+}

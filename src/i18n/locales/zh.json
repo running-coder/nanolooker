@@ -177,7 +177,7 @@
       "cpsLocal": "在本地节点上观察到的 CPS",
       "cpsNetwork": "几个代表性节点的中值 CPS",
       "viewSocialEngagement": "查看社交互动",
-      "averageTps": "最大TPS"
+      "averageTps": "平均。 TPS容量"
     },
     "account": {
       "votingWeight": "投票权重",

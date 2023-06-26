@@ -177,7 +177,7 @@
       "cpsLocal": "CPS được quan sát trên nút cục bộ",
       "cpsNetwork": "CPS trung bình trên một số nút đại diện",
       "viewSocialEngagement": "Xem mức độ tương tác trên mạng xã hội",
-      "averageTps": "TPS tối đa"
+      "averageTps": "Trung bình Công suất TPS"
     },
     "account": {
       "votingWeight": "Số phiếu bầu",

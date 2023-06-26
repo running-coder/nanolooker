@@ -177,7 +177,7 @@
       "cpsLocal": "Yerel düğümde gözlemlenen CPS",
       "cpsNetwork": "Birkaç temsili düğümde medyan CPS",
       "viewSocialEngagement": "Sosyal Etkileşimi Görüntüle",
-      "averageTps": "Maks TPS"
+      "averageTps": "Ort. TPS Kapasitesi"
     },
     "account": {
       "votingWeight": "Oy ağırlığı",

@@ -177,7 +177,7 @@
       "cpsLocal": "CPS osservato sul nodo locale",
       "cpsNetwork": "CPS mediano su diversi nodi rappresentativi",
       "viewSocialEngagement": "Visualizza l'impegno sociale",
-      "averageTps": "TPS massimo"
+      "averageTps": "Media Capacità TPS"
     },
     "account": {
       "votingWeight": "Peso di voto",

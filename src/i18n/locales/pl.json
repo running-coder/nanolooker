@@ -177,7 +177,7 @@
       "cpsLocal": "CPS obserwowany na lokalnym węźle",
       "cpsNetwork": "Mediana CPS w kilku reprezentatywnych węzłach",
       "viewSocialEngagement": "Zobacz zaangażowanie społeczne",
-      "averageTps": "Maks. TPS"
+      "averageTps": "Śr. Pojemność TPS"
     },
     "account": {
       "votingWeight": "Waga głosu",

@@ -177,7 +177,7 @@
       "cpsLocal": "सीपीएस स्थानीय नोड पर देखा गया",
       "cpsNetwork": "कई प्रतिनिधि नोड्स में मेडियन सीपीएस",
       "viewSocialEngagement": "सामाजिक जुड़ाव देखें",
-      "averageTps": "मैक्स टीपीएस"
+      "averageTps": "औसत टीपीएस क्षमता"
     },
     "account": {
       "votingWeight": "मतदान का वजन",

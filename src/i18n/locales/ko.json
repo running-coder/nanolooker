@@ -177,7 +177,7 @@
       "cpsLocal": "로컬 노드에서 관찰된 CPS",
       "cpsNetwork": "여러 대표 노드의 중앙값 CPS",
       "viewSocialEngagement": "소셜 참여 보기",
-      "averageTps": "최대 TPS"
+      "averageTps": "평균 TPS 용량"
     },
     "account": {
       "votingWeight": "투표 가중치",

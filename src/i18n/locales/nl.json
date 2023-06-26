@@ -177,7 +177,7 @@
       "cpsLocal": "CPS waargenomen op het lokale knooppunt",
       "cpsNetwork": "Mediane CPS over verschillende representatieve knooppunten",
       "viewSocialEngagement": "Sociale betrokkenheid bekijken",
-      "averageTps": "Maximale TPS"
+      "averageTps": "Gem. TPS-capaciteit"
     },
     "account": {
       "votingWeight": "Stemgewicht",

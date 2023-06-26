@@ -177,7 +177,7 @@
       "cpsLocal": "لوحظ CPS على العقدة المحلية",
       "cpsNetwork": "متوسط CPS عبر عدة عقد تمثيلية",
       "viewSocialEngagement": "عرض المشاركة الاجتماعية",
-      "averageTps": "ماكس TPS"
+      "averageTps": "متوسط قدرة TPS"
     },
     "account": {
       "votingWeight": "وزن التصويت",

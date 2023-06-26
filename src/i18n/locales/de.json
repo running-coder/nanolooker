@@ -177,7 +177,7 @@
       "cpsLocal": "Auf dem lokalen Knoten beobachtete CPS",
       "cpsNetwork": "Medianer CPS über mehrere Vertreterknoten",
       "viewSocialEngagement": "Soziales Engagement anzeigen",
-      "averageTps": "Maximaler TPS"
+      "averageTps": "Durchschn. TPS-Kapazität"
     },
     "account": {
       "votingWeight": "Abstimmungsgewicht",

@@ -177,7 +177,7 @@
       "cpsLocal": "ローカルノードで観測されたCPS",
       "cpsNetwork": "いくつかの代表的なノードにわたるCPSの中央値",
       "viewSocialEngagement": "ソーシャルエンゲージメントを見る",
-      "averageTps": "最大TPS"
+      "averageTps": "平均TPS容量"
     },
     "account": {
       "votingWeight": "投票の重み",
