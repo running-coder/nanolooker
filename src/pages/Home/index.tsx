@@ -45,7 +45,10 @@ const HomePage = () => {
     marketCapChangePercentage24h,
     volume24h,
     priceStats,
+    NANOTPS_STATS = {},
   } = marketStatistics;
+
+  const { send } = NANOTPS_STATS;
 
   const { count } = React.useContext(BlockCountContext);
   const { confirmation_stats: { average = 0 } = {} } = React.useContext(ConfirmationHistoryContext);
@@ -151,14 +154,31 @@ const HomePage = () => {
                   value={new BigNumber(average).dividedBy(1000).toNumber()}
                 />
 
-                {!isSmallAndLower ? (
+                {/* {!isSmallAndLower ? (
                   <LoadingStatistic
                     isLoading={false}
                     title={t("pages.home.transactionFees")}
                     tooltip={t("tooltips.transactionFees") as string}
                     value={0}
                   />
-                ) : null}
+                ) : null} */}
+
+                <LoadingStatistic
+                  isLoading={!send?.tps}
+                  title={t("pages.home.averageTps")}
+                  tooltip={
+                    send
+                      ? (t("tooltips.averageTps", {
+                          date: send.date,
+                          block_count: send.block_count,
+                          block_type: send.block_type,
+                          bps: new BigNumber(send.bps).toFixed(2),
+                          cps_p90: new BigNumber(send.cps_p90).toFixed(2),
+                        }) as string)
+                      : ""
+                  }
+                  value={send?.cps_p90 ? new BigNumber(send.cps_p90).dividedBy(2).toFixed(2) : 0}
+                />
               </Col>
             </Row>
           </Card>

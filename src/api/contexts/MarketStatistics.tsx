@@ -10,6 +10,7 @@ export const TOTAL_CONFIRMATIONS_48H = "TOTAL_CONFIRMATIONS_48H";
 export const TOTAL_VOLUME_48H = "TOTAL_VOLUME_48H";
 export const BITCOIN_TOTAL_TRANSACTION_FEES_24H = "BITCOIN_TOTAL_TRANSACTION_FEES_24H";
 export const BITCOIN_TOTAL_TRANSACTION_FEES_48H = "BITCOIN_TOTAL_TRANSACTION_FEES_48H";
+export const NANOTPS_STATS = "NANOTPS_STATS";
 
 export interface Response {
   [TOTAL_CONFIRMATIONS_24H]: number;
@@ -18,6 +19,7 @@ export interface Response {
   [TOTAL_VOLUME_48H]: number;
   [BITCOIN_TOTAL_TRANSACTION_FEES_24H]: number;
   [BITCOIN_TOTAL_TRANSACTION_FEES_48H]: number;
+  [NANOTPS_STATS]: any;
   marketCapRank: number;
   marketCapRank24h: number;
   marketCap: number;
@@ -49,6 +51,7 @@ export const MarketStatisticsContext = React.createContext<Context>({
     [TOTAL_VOLUME_48H]: 0,
     [BITCOIN_TOTAL_TRANSACTION_FEES_24H]: 0,
     [BITCOIN_TOTAL_TRANSACTION_FEES_48H]: 0,
+    NANOTPS_STATS: {},
     marketCapRank: 0,
     marketCapRank24h: 0,
     marketCap: 0,

@@ -86,7 +86,7 @@
     "bookmarks": "{{type, capitalize}} zakładek zostało zapisanych na Twoim urządzeniu. Możesz zarządzać znanymi {{type}} dając im aliasy.",
     "groupByEntities": "Przegrupuj wszystkie wagi głosów, które są podzielone na różnych głównych przedstawicieli w pojedyncze jednostki. Na przykład giełda może mieć wiele portfeli i podzielić ich wagę, ale w rzeczywistości można ją policzyć jako jedną wagę, jeśli miałyby ją przegrupować.",
     "telemetry": "Metryki z innych węzłów w sieci. Wszystkie metryki są zbierane i uśredniane, aby przedstawić różne stany w sieci. P odpowiada percentylowi, p50 jest obliczane poprzez wykluczenie dolnych 50%, podczas gdy p95 wyklucza dolne 5% różnych wartości w celu obliczenia ś/rdniej.",
-    "ledgerSize": "Całkowita ilość miejsca na dysku wymagana do przechowywania każdej transakcji Nano od tej pory. Rozmiar księgi jest obliczany na podstawie 1024 nie 1000.",
+    "ledgerSize": "Całkowita ilość miejsca na dysku wymagana do przechowywania każdej transakcji Nano od tej pory.",
     "bandwidthCap": "Węzły Nano są w stanie ograniczyć przepustowość, aby ograniczyć ilość wiadomości, które mogą być wysłane lub odebrane. 0 oznacza nieograniczoną przepustowość.",
     "uptime": "Czas od ostatniego ponownego uruchomienia węzła.",
     "pendingTransactionCount": "Liczba transakcji dostępnych do odebrania przekracza wyświetlany limit z {{count}}.",
@@ -98,7 +98,8 @@
     "dailyBalance": "Wykres transakcji jest widoczny tylko wtedy, gdy konto ma więcej niż 1 dzień danych i jeśli transakcje mają znaczniki czasu",
     "senderFilter": "Filtruj bloki, aby uwzględnić lub wykluczyć wszystkie transakcje wysyłania z określonego adresu. Aby filtrować wiele adresów, oddziel je przecinkami.",
     "receiverFilter": "Filtruj bloki, aby uwzględnić lub wykluczyć wszystkie transakcje wysyłania z określonego adresu. Aby filtrować wiele adresów, oddziel je przecinkami.",
-    "filterTransactions": "Tylko konta z potwierdzonymi transakcjami równymi lub mniejszymi niż 5000 mogą być filtrowane"
+    "filterTransactions": "Tylko konta z potwierdzonymi transakcjami równymi lub mniejszymi niż 5000 mogą być filtrowane",
+    "averageTps": "W dniu {{date}} rozesłano {{block_count}} {{block_type}} bloków z szybkością {{bps}} BPS (bloków na sekundę) w celu zmierzenia wydajności sieci. Sieć osiągnęła P90 {{cps_p90}} CPS (potwierdzeń na sekundę) we wszystkich węzłach. Aby uzyskać więcej informacji, odwiedź stronę https://nanotps.net/."
   },
   "search": {
     "searchBy": "Szukaj według Adresu / Bloku / Znanego konta",
@@ -175,7 +176,8 @@
       "reconnectingToBlockchain": "Rozłączono, ponowne lączenie z blockchainem NANO",
       "cpsLocal": "CPS obserwowany na lokalnym węźle",
       "cpsNetwork": "Mediana CPS w kilku reprezentatywnych węzłach",
-      "viewSocialEngagement": "Zobacz zaangażowanie społeczne"
+      "viewSocialEngagement": "Zobacz zaangażowanie społeczne",
+      "averageTps": "Maks. TPS"
     },
     "account": {
       "votingWeight": "Waga głosu",

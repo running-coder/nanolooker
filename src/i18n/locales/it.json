@@ -86,7 +86,7 @@
     "bookmarks": "I segnalibri {{type, capitalize}} vengono salvati sul tuo dispositivo. Puoi gestire i tuoi {{type}} noti assegnando loro degli alias.",
     "groupByEntities": "Raggruppa tutto il peso di voto che è suddiviso in diversi rappresentanti principali in singole entità. Ad esempio uno scambio può avere più portafogli e dividerne il peso ma in realtà può essere conteggiato come un unico peso se lo raggruppassero.",
     "telemetry": "Metriche da altri nodi sulla rete. Tutte le metriche vengono raccolte e calcolate in media per rappresentare i diversi stati sulla rete. P corrisponde al percentile, p50 viene calcolato escludendo il 50% inferiore mentre p95 esclude il 5% inferiore dei diversi valori per calcolare la media.",
-    "ledgerSize": "La quantità totale di spazio su disco richiesta per memorizzare ogni transazione Nano fino ad ora. La dimensione del libro mastro è calcolata su 1024 base non 1000.",
+    "ledgerSize": "La quantità totale di spazio su disco richiesta per memorizzare ogni transazione Nano fino ad ora.",
     "bandwidthCap": "I nano nodi sono in grado di limitare la larghezza di banda per limitare la quantità di messaggi che possono essere inviati o ricevuti. 0 significa larghezza di banda illimitata.",
     "uptime": "Tempo trascorso dall'ultimo riavvio del nodo.",
     "mnano": "Nano è l'attuale divisione standard utilizzata nei portafogli, negli scambi e nei servizi. È indicato come 1 NANO.",
@@ -98,7 +98,8 @@
     "dailyBalance": "Il grafico delle transazioni è visibile solo se l'account ha più di 1 giorno di dati e se le transazioni hanno timestamp",
     "senderFilter": "Filtra i blocchi per includere o escludere solo tutte le transazioni di invio da un indirizzo specifico. Per filtrare più indirizzi, separali con una virgola.",
     "receiverFilter": "Filtra i blocchi per includere o escludere solo tutte le transazioni di invio da un indirizzo specifico. Per filtrare più indirizzi, separali con una virgola.",
-    "filterTransactions": "Possono essere filtrati solo gli account con meno di 5.000 transazioni confermate"
+    "filterTransactions": "Possono essere filtrati solo gli account con meno di 5.000 transazioni confermate",
+    "averageTps": "In data {{date}}, {{block_count}} {{block_type}} blocchi sono stati trasmessi a una velocità di {{bps}} BPS (blocchi al secondo) per misurare l'efficienza della rete. La rete ha raggiunto un P90 di {{cps_p90}} CPS (conferme al secondo) tra i nodi. Per maggiori dettagli visita https://nanotps.net/."
   },
   "search": {
     "searchBy": "Cerca per indirizzo / blocco / account noto",
@@ -175,7 +176,8 @@
       "reconnectingToBlockchain": "Disconnesso, ricollegandosi alla blockchain NANO",
       "cpsLocal": "CPS osservato sul nodo locale",
       "cpsNetwork": "CPS mediano su diversi nodi rappresentativi",
-      "viewSocialEngagement": "Visualizza l'impegno sociale"
+      "viewSocialEngagement": "Visualizza l'impegno sociale",
+      "averageTps": "TPS massimo"
     },
     "account": {
       "votingWeight": "Peso di voto",

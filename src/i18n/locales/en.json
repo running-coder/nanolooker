@@ -86,7 +86,7 @@
     "bookmarks": "{{type, capitalize}} bookmarks are saved on your device. You can manage your known {{type}}s by giving them aliases.",
     "groupByEntities": "Regroup all voting weight that is split into different principal representatives into single entities. For example an exchange can have multiple wallets and split their weight but in reality it can be counted as a single weight if they were to regroup it.",
     "telemetry": "Metrics from other nodes on the network. All the metrics are collected and averaged to represent different states on the network. P corresponds to percentile, p50 is calculated by excluding the bottom 50% while the p95 is excluding the bottom 5% of the different values to calculate the average.",
-    "ledgerSize": "The total amount of disk space required to store every Nano transactions up to now. The ledger size is calculated on 1024 base not 1000.",
+    "ledgerSize": "The total amount of disk space required to store every Nano transactions up to now.",
     "bandwidthCap": "Nano nodes are able to throttle their bandwidth to limit the amount of messages that can be sent or received. 0 means unlimited bandwidth.",
     "uptime": "Time since the node was last rebooted.",
     "pendingTransactionCount": "The number of receivable transactions exceeds the displayed limit of {{count}}.",
@@ -98,7 +98,8 @@
     "dailyBalance": "Transaction chart is only visible if the account has more than 1 day of data and if the transactions have timestamps",
     "senderFilter": "Filter blocks to include only or exclude all send transactions from a specific address. To filter multiple addresses, separate them with a comma.",
     "receiverFilter": "Filter blocks to include only or exclude all send transactions from a specific address. To filter multiple addresses, separate them with a comma.",
-    "filterTransactions": "Only accounts with equal or less than 5,000 confirmed transactions can be filtered"
+    "filterTransactions": "Only accounts with equal or less than 5,000 confirmed transactions can be filtered",
+    "averageTps": "On {{date}}, {{block_count}} {{block_type}} blocks were broadcasted at a rate of {{bps}} BPS (blocks per second) to measure the network efficiency. The network reached a P90 of {{cps_p90}} CPS (confirmations per seconds) across the nodes. For more details visit https://nanotps.net/."
   },
   "search": {
     "searchBy": "Search by Address / Block / Known Account",
@@ -175,7 +176,8 @@
       "reconnectingToBlockchain": "Disconnected, reconnecting to the NANO blockchain",
       "cpsLocal": "CPS observed on the local node",
       "cpsNetwork": "Median CPS across several representative nodes",
-      "viewSocialEngagement": "View Social Engagement"
+      "viewSocialEngagement": "View Social Engagement",
+      "averageTps": "Max TPS"
     },
     "account": {
       "votingWeight": "Voting weight",

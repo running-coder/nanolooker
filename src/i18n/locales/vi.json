@@ -86,7 +86,7 @@
     "bookmarks": "Dấu trang {{type, capitalize}} được lưu trên thiết bị của bạn. Bạn có thể quản lý các {{type}} đã biết của mình bằng cách đặt bí danh cho chúng.",
     "groupByEntities": "Tập hợp tất cả trọng lượng biểu quyết được chia thành các đại diện chính khác nhau thành các thực thể duy nhất. Ví dụ: một sàn giao dịch có thể có nhiều ví và chia nhỏ trọng lượng của chúng nhưng trên thực tế, nó có thể được tính là một trọng lượng duy nhất nếu muốn tập hợp lại.",
     "telemetry": "Số liệu từ các nút khác trên mạng. Tất cả các số liệu được thu thập và tính trung bình để đại diện cho các trạng thái khác nhau trên mạng. P tương ứng với phần trăm, p50 được tính bằng cách loại trừ 50% dưới cùng trong khi p95 loại trừ 5% dưới cùng của các giá trị khác nhau để tính giá trị trung bình.",
-    "ledgerSize": "Tổng dung lượng ổ đĩa cần thiết để lưu trữ mọi giao dịch Nano cho đến nay. Kích thước sổ cái được tính trên cơ sở 1024 chứ không phải 1000.",
+    "ledgerSize": "Tổng dung lượng ổ đĩa cần thiết để lưu trữ mọi giao dịch Nano cho đến nay.",
     "bandwidthCap": "Các nút nano có thể điều chỉnh băng thông của chúng để giới hạn số lượng tin nhắn có thể được gửi hoặc nhận. 0 có nghĩa là băng thông không giới hạn.",
     "uptime": "Thời gian kể từ khi nút được khởi động lại lần cuối.",
     "mnano": "Nano là bộ phận tiêu chuẩn hiện tại được sử dụng trong ví, trên các sàn giao dịch và dịch vụ. Nó được gọi là 1 NANO.",
@@ -98,7 +98,8 @@
     "dailyBalance": "Biểu đồ giao dịch chỉ hiển thị nếu tài khoản có dữ liệu hơn 1 ngày và nếu các giao dịch có dấu thời gian",
     "senderFilter": "Lọc các khối để chỉ bao gồm hoặc loại trừ tất cả các giao dịch gửi từ một địa chỉ cụ thể. Để lọc nhiều địa chỉ, hãy phân tách chúng bằng dấu phẩy.",
     "receiverFilter": "Lọc các khối để chỉ bao gồm hoặc loại trừ tất cả các giao dịch gửi từ một địa chỉ cụ thể. Để lọc nhiều địa chỉ, hãy phân tách chúng bằng dấu phẩy.",
-    "filterTransactions": "Chỉ những tài khoản có số lượng bằng hoặc ít hơn 5.000 giao dịch được xác nhận mới có thể được lọc"
+    "filterTransactions": "Chỉ những tài khoản có số lượng bằng hoặc ít hơn 5.000 giao dịch được xác nhận mới có thể được lọc",
+    "averageTps": "Vào {{date}}, {{block_count}} {{block_type}} khối đã được phát với tốc độ {{bps}} BPS (khối mỗi giây) để đo lường hiệu quả của mạng. Mạng đạt P90 là {{cps_p90}} CPS (xác nhận mỗi giây) trên các nút. Để biết thêm chi tiết, hãy truy cập https://nanotps.net/."
   },
   "search": {
     "searchBy": "Tìm kiếm theo Địa chỉ / Khối / Tài khoản Đã biết",
@@ -175,7 +176,8 @@
       "reconnectingToBlockchain": "Đã ngắt kết nối, đang kết nối lại với chuỗi khối NANO",
       "cpsLocal": "CPS được quan sát trên nút cục bộ",
       "cpsNetwork": "CPS trung bình trên một số nút đại diện",
-      "viewSocialEngagement": "Xem mức độ tương tác trên mạng xã hội"
+      "viewSocialEngagement": "Xem mức độ tương tác trên mạng xã hội",
+      "averageTps": "TPS tối đa"
     },
     "account": {
       "votingWeight": "Số phiếu bầu",

@@ -86,7 +86,7 @@
     "bookmarks": "{{type, capitalize}} bladwijzers worden op uw apparaat opgeslagen. U kunt uw bekende {{type}}s beheren door ze aliassen te geven.",
     "groupByEntities": "Groepeer al het stemgewicht dat is opgesplitst in verschillende hoofdvertegenwoordigers in afzonderlijke entiteiten. Een exchange kan bijvoorbeeld meerdere portemonnees hebben en hun gewicht verdelen, maar in werkelijkheid kan het als een enkel gewicht worden geteld als ze het zouden hergroeperen.",
     "telemetry": "Metrische gegevens van andere nodes op het netwerk. Alle statistieken worden verzameld en gemiddeld om verschillende statussen op het netwerk weer te geven. P komt overeen met percentiel, p50 wordt berekend door de onderste 50% uit te sluiten, terwijl de p95 de onderste 5% van de verschillende waarden uitsluit om het gemiddelde te berekenen.",
-    "ledgerSize": "De totale hoeveelheid schijfruimte die tot nu toe nodig is om alle Nano transacties op te slaan. De databasegrootte wordt uitgedrukt in binaire groottes (mebibyte) in plaats van decimaal (megabyte).",
+    "ledgerSize": "De totale hoeveelheid schijfruimte die tot nu toe nodig is om alle Nano transacties op te slaan.",
     "bandwidthCap": "Nano nodes kunnen hun bandbreedte beperken om het aantal berichten dat kan worden verzonden of ontvangen te beperken. 0 staat voor een onbeperkte bandbreedte.",
     "uptime": "Tijd sinds de node voor het laatst opnieuw is opgestart.",
     "mnano": "Nano is de huidige standaarddivisie die wordt gebruikt in portefeuilles, beurzen en services. Het wordt 1 NANO genoemd.",
@@ -98,7 +98,8 @@
     "dailyBalance": "Transactiegrafiek is alleen zichtbaar als het account meer dan 1 dag aan gegevens heeft en als de transacties tijdstempels hebben",
     "senderFilter": "Filter blokken om alleen of alle verzendtransacties van een specifiek adres op te nemen of uit te sluiten. Om meerdere adressen te filteren, scheidt u ze met een komma.",
     "receiverFilter": "Filter blokken om alleen of alle verzendtransacties van een specifiek adres op te nemen of uit te sluiten. Om meerdere adressen te filteren, scheidt u ze met een komma.",
-    "filterTransactions": "Alleen accounts met gelijk aan of minder dan 5.000 bevestigde transacties kunnen worden gefilterd"
+    "filterTransactions": "Alleen accounts met gelijk aan of minder dan 5.000 bevestigde transacties kunnen worden gefilterd",
+    "averageTps": "Op {{date}} werden {{block_count}} {{block_type}} blokken uitgezonden met een snelheid van {{bps}} BPS (blokken per seconde) om de netwerkefficiëntie te meten. Het netwerk bereikte een P90 van {{cps_p90}} CPS (bevestigingen per seconde) over de knooppunten. Ga voor meer informatie naar https://nanotps.net/."
   },
   "search": {
     "searchBy": "Zoeken op adres / block / bekend account",
@@ -175,7 +176,8 @@
       "reconnectingToBlockchain": "Verbinding verbroken, opnieuw verbinding maken met het NANO netwerk",
       "cpsLocal": "CPS waargenomen op het lokale knooppunt",
       "cpsNetwork": "Mediane CPS over verschillende representatieve knooppunten",
-      "viewSocialEngagement": "Sociale betrokkenheid bekijken"
+      "viewSocialEngagement": "Sociale betrokkenheid bekijken",
+      "averageTps": "Maximale TPS"
     },
     "account": {
       "votingWeight": "Stemgewicht",

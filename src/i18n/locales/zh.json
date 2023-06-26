@@ -86,7 +86,7 @@
     "bookmarks": "{{type，capitalize}}书签已保存在您的设备上。您可以通过为它们命名为别名来管理已知的{{type}}。",
     "groupByEntities": "将划分为不同主要代表的所有投票权重新组合为一个实体。例如，一个交易所可以有多个钱包并分摊它们的重量，但实际上，如果要重新分组，则可以算作一个单独的重量。",
     "telemetry": "来自网络上其他节点的度量。收集所有度量并取平均值，以表示网络上的不同状态。 P对应于百分位数，p50通过排除不同值的下限50％而p95排除不同值的下限5％来计算平均值。",
-    "ledgerSize": "到现在为止，存储每个Nano事务所需的磁盘空间总量。分类帐大小是基于1024而不是1000计算的。",
+    "ledgerSize": "到现在为止，存储每个Nano事务所需的磁盘空间总量。",
     "bandwidthCap": "纳米节点能够调节其带宽，以限制可以发送或接收的消息量。 0表示无限带宽。",
     "uptime": "自上次重新引导节点以来的时间。",
     "mnano": "Nano是目前用于钱包，交易所和服务的标准部门。它被称为1 NANO。",
@@ -98,7 +98,8 @@
     "dailyBalance": "交易图表仅在账户有超过 1 天的数据并且交易有时间戳时才可见",
     "senderFilter": "过滤块以仅包含或排除来自特定地址的所有发送交易。要过滤多个地址，请用逗号分隔它们。",
     "receiverFilter": "过滤块以仅包含或排除来自特定地址的所有发送交易。要过滤多个地址，请用逗号分隔它们。",
-    "filterTransactions": "只能过滤等于或少于 5,000 笔已确认交易的账户"
+    "filterTransactions": "只能过滤等于或少于 5,000 笔已确认交易的账户",
+    "averageTps": "在 {{date}}，以 {{bps}} BPS（每秒块）的速率广播了 {{block_count}} {{block_type}} 个块，以测量网络效率。网络在节点间达到了 {{cps_p90}} CPS（每秒确认数）的 P90。欲了解更多详情，请访问 https://nanotps.net/。"
   },
   "search": {
     "searchBy": "按地址/阻止/已知帐户搜索",
@@ -175,7 +176,8 @@
       "reconnectingToBlockchain": "断开连接，重新连接到NANO区块链",
       "cpsLocal": "在本地节点上观察到的 CPS",
       "cpsNetwork": "几个代表性节点的中值 CPS",
-      "viewSocialEngagement": "查看社交互动"
+      "viewSocialEngagement": "查看社交互动",
+      "averageTps": "最大TPS"
     },
     "account": {
       "votingWeight": "投票权重",

@@ -86,7 +86,7 @@
     "bookmarks": "{{type, capitalize}} yer imleri cihazınıza kaydedilir. Bilinen {{type}} 'lerinizi onlara takma adlar vererek yönetebilirsiniz.",
     "groupByEntities": "Farklı ana temsilcilere bölünmüş tüm oy ağırlıklarını tek varlıklara yeniden gruplayın. Örneğin, bir borsa birden fazla cüzdana sahip olabilir ve ağırlıklarını paylaştırabilir, ancak gerçekte yeniden gruplandırılacaksa, tek bir ağırlık olarak sayılabilir.",
     "telemetry": "Ağdaki diğer düğümlerden metrikler. Ağdaki farklı durumları temsil etmek için tüm ölçümler toplanır ve ortalaması alınır. P yüzdeliğe karşılık gelir, p50, ortalamayı hesaplamak için farklı değerlerin alt% 5'ini hariç tutarken, alt% 50 hariç tutularak hesaplanır.",
-    "ledgerSize": "Şimdiye kadarki her Nano işlemini depolamak için gereken toplam disk alanı miktarı. Defter boyutu 1000 değil 1024 temel alınarak hesaplanır.",
+    "ledgerSize": "Şimdiye kadarki her Nano işlemini depolamak için gereken toplam disk alanı miktarı.",
     "bandwidthCap": "Nano düğümler, gönderilebilen veya alınabilen mesajların miktarını sınırlamak için bant genişliğini kısabilir. 0, sınırsız bant genişliği anlamına gelir.",
     "uptime": "Düğümün en son yeniden başlatılmasından bu yana geçen süre.",
     "mnano": "Nano, cüzdanlarda, borsalarda ve hizmetlerde kullanılan mevcut standart bölümdür. 1 NANO olarak anılır.",
@@ -98,7 +98,8 @@
     "dailyBalance": "İşlem grafiği yalnızca hesapta 1 günden fazla veri varsa ve işlemlerin zaman damgaları varsa görünür",
     "senderFilter": "Belirli bir adresten yalnızca tüm gönderme işlemlerini dahil etmek veya hariç tutmak için blokları filtreleyin. Birden çok adresi filtrelemek için bunları virgülle ayırın.",
     "receiverFilter": "Belirli bir adresten yalnızca tüm gönderme işlemlerini dahil etmek veya hariç tutmak için blokları filtreleyin. Birden çok adresi filtrelemek için bunları virgülle ayırın.",
-    "filterTransactions": "Yalnızca 5.000'den az onaylanmış işlemi olan hesaplar filtrelenebilir"
+    "filterTransactions": "Yalnızca 5.000'den az onaylanmış işlemi olan hesaplar filtrelenebilir",
+    "averageTps": "{{date}} tarihinde, {{block_count}} {{block_type}} blok, ağ verimliliğini ölçmek için {{bps}} BPS (blok/saniye) oranında yayınlandı. Ağ, düğümler genelinde {{cps_p90}} CPS (saniye başına onay) P90 değerine ulaştı. Daha fazla ayrıntı için https://nanotps.net/ adresini ziyaret edin."
   },
   "search": {
     "searchBy": "Adres / Blok / Bilinen Hesap ile Ara",
@@ -175,7 +176,8 @@
       "reconnectingToBlockchain": "Bağlantı kesildi, NANO blok zincirine yeniden bağlanılıyor",
       "cpsLocal": "Yerel düğümde gözlemlenen CPS",
       "cpsNetwork": "Birkaç temsili düğümde medyan CPS",
-      "viewSocialEngagement": "Sosyal Etkileşimi Görüntüle"
+      "viewSocialEngagement": "Sosyal Etkileşimi Görüntüle",
+      "averageTps": "Maks TPS"
     },
     "account": {
       "votingWeight": "Oy ağırlığı",

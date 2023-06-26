@@ -86,7 +86,7 @@
     "bookmarks": "{{type, capitalize}} Lesezeichen werden auf Ihrem Gerät gespeichert. Sie können Ihre bekannten {{type}} s verwalten, indem Sie ihnen Aliase geben.",
     "groupByEntities": "Gruppieren Sie alle Stimmrechte, die in verschiedene Hauptvertreter aufgeteilt sind, in Einheiten. Zum Beispiel kann eine Börse mehrere Wallets benutzen und ihr Stimmgewicht aufteilen, aber in Wirklichkeit können diese als ein einziges Stimmgewicht gezählt werden, wenn sie entsprechend gruppiert wird.",
     "telemetry": "Metriken von anderen Knoten im Netzwerk. Alle Metriken werden gesammelt und gemittelt, um verschiedene Zustände im Netzwerk darzustellen. P entspricht dem Perzentil, p50 wird berechnet, indem die unteren 50% ausgeschlossen werden, während p95 die unteren 5% der Werte ausschließt, um den Durchschnitt zu berechnen.",
-    "ledgerSize": "Die Gesamtmenge an Speicherplatz, die bisher zum Speichern aller Nano-Transaktionen erforderlich ist. Die Hauptbuchgröße wird auf 1024-Basis berechnet, nicht auf 1000-Basis.",
+    "ledgerSize": "Die Gesamtmenge an Speicherplatz, die bisher zum Speichern aller Nano-Transaktionen erforderlich ist.",
     "bandwidthCap": "Nano-Knoten können ihre Bandbreite drosseln, um die Anzahl der Nachrichten zu begrenzen, die gesendet oder empfangen werden können. 0 bedeutet unbegrenzte Bandbreite.",
     "uptime": "Zeit seit dem letzten Knoten-Neustart.",
     "mnano": "Nano ist die derzeitige Standardeinheit für Wallets, Börsen und Dienstleister. Sie wird als 1 NANO bezeichnet.",
@@ -98,7 +98,8 @@
     "dailyBalance": "Das Transaktionsdiagramm ist nur sichtbar, wenn das Konto Transaktionen von mehr als 1 Tag hat und die Transaktionen Zeitstempel haben",
     "senderFilter": "Alle Blöcke einer bestimmten Senderadresse ein- oder ausschließen. Um mehrere Adressen zu filtern, trennen Sie diese durch ein Komma.",
     "receiverFilter": "Alle Blöcke einer bestimmten Empfangsadresse ein- oder ausschließen. Um mehrere Adressen zu filtern, trennen Sie sie diese durch ein Komma.",
-    "filterTransactions": "Nur Konten mit maximal 5.000 bestätigten Transaktionen anzeigen"
+    "filterTransactions": "Nur Konten mit maximal 5.000 bestätigten Transaktionen anzeigen",
+    "averageTps": "Am {{date}} wurden {{block_count}} {{block_type}} Blöcke mit einer Rate von {{bps}} BPS (Blöcken pro Sekunde) gesendet, um die Netzwerkeffizienz zu messen. Das Netzwerk erreichte einen P90 von {{cps_p90}} CPS (Bestätigungen pro Sekunde) über die Knoten hinweg. Weitere Informationen finden Sie unter https://nanotps.net/."
   },
   "search": {
     "searchBy": "Suche nach Adresse / Block / Bekanntem Konto",
@@ -175,7 +176,8 @@
       "reconnectingToBlockchain": "Verbindung getrennt, Verbindung zur NANO-Blockchain wiederhergestellt",
       "cpsLocal": "Auf dem lokalen Knoten beobachtete CPS",
       "cpsNetwork": "Medianer CPS über mehrere Vertreterknoten",
-      "viewSocialEngagement": "Soziales Engagement anzeigen"
+      "viewSocialEngagement": "Soziales Engagement anzeigen",
+      "averageTps": "Maximaler TPS"
     },
     "account": {
       "votingWeight": "Abstimmungsgewicht",
