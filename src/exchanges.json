@@ -80,6 +80,14 @@
     "account": "nano_35bidny8nqtn18uptkntcezcks3m4d8amz9jnnbjdd9aejpz86a788pfwgrz"
   },
   {
+    "name": "CoinEx Cold Wallet #1",
+    "account": "nano_3h9633hp5ox5ejsmcip7mnm9ej5g8wppyig8ckzcgwus9p4bezoogwystb99"
+  },
+{
+    "name": "CoinEx Cold Wallet #2",
+    "account": "nano_3aknpqaajsexriisrs3srzzr6cpw3y1cunwt4mxzagn8dg14xa9e5i3uaasd"
+  },
+  {
     "name": "Wirex Hot Wallet",
     "account": "nano_3b1hjazupgwycgachczp7namyk1r7gwyu1q7duyh44h3axqjjksto9pkz6nf"
   },
