@@ -166,7 +166,7 @@ Added experience % making the player level up faster
 **Magic Find**
 Adds a % chance of getting non-potion drops
 
-# Sockets
+## Sockets
 
 Some items can drop with a certain amount of sockets (Weapons, Armors, Shields and Helms) and the possible number of sockets are 0-6. Amounts are randomized at every drop with lower % chance for every added socket. Sockets can also be re-randomized with Socket Stones (no risk) or Transmute Scrolls (risk of burning). This is explained in more detail below under the Socket Stone category. Sockets can be used to fit either runes or skull jewels to strengthen the players item.
 
@@ -541,6 +541,20 @@ You can use Runewords to get extra bonusses by putting runes in socketed normal 
 | Ascending Bootstrapping    | :runemer::runequa::runegul::runeber::runekul::runefal: | +20% Magic damage, +20% Lightning damage, +20% Flame damage, +20% Cold damage, +20% Poison damage, -20% Skill timeout                                              |
 | Bucketing System           | :runesol::runetor::runeshi::runevod::runelas::runefal: | +20 Cold damage, +16% Magic damage, +16% All resistances, +10% Freeze the enemy for # seconds, +10% Cold resistance, +20% Cold damage, -15% Chance of being frozen |
 | Echo Chamber               | :runejah::runeshi::runejah::runeber::runeeth::runegul: | +40 Poison damage, +25 Cold damage, +40% Magic find, -20% Skill timeout, +16% All resistances, +25% Poison damage                                                  |
+
+# Skull Jewels
+
+Skull Jewels come in 5 different levels: level 1 (white), level 2 (white), level 3 (white & blue), level 4 (gray) and level 5 (gold). Similar to other items, Skull Jewels also exist in unique form with a 1% drop chance. Unique versions have an extra attribute added, making them stronger than their regular counterpart. Compared to a higher level skull, a unique (lower) skull is still slightly weaker (same amount of attributes but not as high). 
+
+| Item                                                                                                                                                                                | Name                   | Dropped By                       | Drop Rate                                      |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------| :--------------------- | :------------------------------- | :--------------------------------------------- |
+| ![{"name": "Skull Jewel lv.1", "itemClass": "low", "bonus": [2], "requirement": 4}](https://nanobrowserquest.com/img/3/item-jewelskull.png)                            | Skull Jewel lv.1       | ?                                | ?                                              |
+| ![{"name": "Skull Jewel lv.2", "itemClass": "medium", "bonus": [0,2], "requirement": 8}](https://nanobrowserquest.com/img/3/item-jewelskull.png)                       | Skull Jewel lv.2       | ?                                | ?                                              |
+| ![{"name": "Skull Jewel lv.3", "itemClass": "high", "bonus": [4,5,22], "requirement": 25}](https://nanobrowserquest.com/img/3/item-jewelskull1.png)                    | Skull Jewel lv.3       | ?                                | ?                                              |
+| ![{"name": "Skull Jewel lv.4", "itemClass": "high", "bonus": [2,6,21,22], "requirement": 45}](https://nanobrowserquest.com/img/3/item-jewelskull2.png)                 | Skull Jewel lv.4       | ?                                | ?                                              |
+| ![{"name": "Skull Jewel lv.5", "itemClass": "legendary", "bonus": [5,8,12,15,21], "requirement": 60}](https://nanobrowserquest.com/img/3/item-jewelskull3.png)         | Skull Jewel lv.5       | ?                                | ?                                              |
+
+
 
 # Party chat commands
 
