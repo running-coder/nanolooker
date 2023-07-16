@@ -454,7 +454,7 @@ The Lost Temple Addon introduces Runes that can drop from any enemy, but the cha
 
 | #   | NAME | IMAGE                                                                                                                                             | STAT BONUSES                                           |
 | --- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| 1   | SAT  | ![{"name": "SAT Rune", "level": 1, "itemClass": "low","Health Bonus" 3, "requirement": 1}](https://nanobrowserquest.com/img/2/item-rune-sat.png) | +10 Health                                             |
+| 1   | SAT  | ![{"name": "SAT Rune", "level": 1, "itemClass": "low","Health Bonus": 10, "requirement": 1}](https://nanobrowserquest.com/img/2/item-rune-sat.png) | +10 Health                                             |
 | 2   | AL   | ![{"name": "AL Rune", "level": 2, "itemClass": "low"}](https://nanobrowserquest.com/img/2/item-rune-al.png)                                       | +4 Minimum damage                                      |
 | 3   | BUL  | ![{"name": "BUL Rune", "level": 3, "itemClass": "low"}](https://nanobrowserquest.com/img/2/item-rune-bul.png)                                     | +4 Maximum damage                                      |
 | 4   | NAN  | ![{"name": "NAN Rune", "level": 4, "itemClass": "low"}](https://nanobrowserquest.com/img/2/item-rune-nan.png)                                     | +4 Magic damage                                        |
