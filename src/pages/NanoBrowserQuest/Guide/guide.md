@@ -23,6 +23,7 @@
 1. [Sets](#sets)
 1. [Runes](#runes)
 1. [Runewords](#runewords)
+1. [Skull Jewels](#skull-jewels) 
 1. [Party chat commands](#party-chat-commands)
 1. [Trading Items](#trading-items)
 1. [Tips & Tricks](#tips---tricks)
