@@ -170,5 +170,25 @@
   {
     "alias": "HitBTC Hot Wallet",
     "account": "nano_1td9t7i3dj6xayhzf9t6xndqfj34crunefmig1fbxf9wna56eincgwm1tzi7"
+  },
+  {
+    "alias": "CoinEx Cold Wallet #1",
+    "account": "nano_3h9633hp5ox5ejsmcip7mnm9ej5g8wppyig8ckzcgwus9p4bezoogwystb99"
+  },
+{
+    "alias": "CoinEx Cold Wallet #2",
+    "account": "nano_3aknpqaajsexriisrs3srzzr6cpw3y1cunwt4mxzagn8dg14xa9e5i3uaasd"
+  },
+  {
+    "alias": "ViNo Gateway to Vite",
+    "account": "nano_15fuam43az5zsnpitsire35ag9bj4w8eb1b8utioc5qoog8fuyygx9d8hqcc"
+  },
+   {
+    "alias": "Nanogames.io Hot Wallet",
+    "account": "nano_3je5ijs6xtgtww9tqiymcz7hbx1eymocyymawqq31mab9mmpow4t4mztw3th"
+  },
+   {
+    "alias": "Bc.game Hot Wallet",
+    "account": "nano_3gu4adob7moae538e34dxb6htzcjhjqb5fs8rrtbuuhurh36xhakjnghofze"
   }
 ]
