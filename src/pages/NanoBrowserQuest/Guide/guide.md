@@ -23,6 +23,7 @@
 1. [Sets](#sets)
 1. [Runes](#runes)
 1. [Runewords](#runewords)
+1. [Skull Jewels](#skull-jewels) 
 1. [Party chat commands](#party-chat-commands)
 1. [Trading Items](#trading-items)
 1. [Tips & Tricks](#tips---tricks)
@@ -132,8 +133,12 @@ Offensive skills add an offensive attribute to the players weapon. It is activat
 **Increased attack speed**
 Increases the players attack speed a certain % and makes the player do damage faster.
 
-**Lower elemental resistance**
+**% Lower elemental resistance**
 This attribute lowers resistance to elemental damage by a certain %. For example, an enemy that is 50% resistant to Flame damage would only be 40% resistant if the player has an item with 10% equipped. An enemy that is immune to Flame damage would in the same case only be 90% resistant. This only affects the attacks of the player with "Lower elemental resistance" equipped. The attribute exists for all individual elements as well as in "Lower all resistance" form.
+
+**+% Prevent enemy health regeneration**
+Curses enemy for a certain amount of time, preventing them from regenerating health. 
+
 
 ## Discussion
 
@@ -161,6 +166,18 @@ Added experience % making the player level up faster
 
 **Magic Find**
 Adds a % chance of getting non-potion drops
+
+## Sockets
+
+Some items can drop with a certain amount of sockets (Weapons, Armors, Shields and Helms) and the possible number of sockets are 0-6. Amounts are randomized at every drop with lower % chance for every added socket. Sockets can also be re-randomized with Socket Stones (no risk) or Transmute Scrolls (risk of burning). This is explained in more detail below under the Socket Stone category. Sockets can be used to fit either runes or skull jewels to strengthen the players item.
+
+**Tips on fitting your sockets**
+
+1. Do not socket items that have yet to be upgraded to the desired level as everything in the sockets will be destroyed if the main item is burned in the anvil.
+2. As a general rule: do not put individual runes in your sockets or mix with skull jewels. Instead save your runes to create full runewords.
+3. Unique items can not use runewords, instead use skull jewels only.
+4. Skull jewels come in 5 different levels with unique versions inbetween every level. Use Lower skulls for lower items or as a temporary boost. Only put your most precious skulls into items that are fully upgraded and good enough to be used for a longer time. Lower level skulls will become more common as the player progresses in the game. Put these in you sockets to gain a boost and then remove them with Socket Stones to later replace them with higher skulls or runewords.
+5. If your item is fully upgraded but you lack the number of higher level skulls needed to fit all sockets, put the higher skulls in first, followed by lower ones. This is to prevent burning the higher ones when it's time to re-fit your sockets, as items are removed from the last one added.
 
 # Weapons
 
@@ -357,10 +374,10 @@ Unique Version: **Cloak of Levitation** Attributes: Defense (1) + two random att
 | ![{"name": "Oculus", "level": 1, "itemClass": "legendary", "bonus": [2,4,8,15,22,24,27,30], "requirement": 55, "isUnique": true }](https://nanobrowserquest.com/img/3/item-ringmystical.png)          | Oculus                 | ?                                | ?                                              |
 | ![{"name": "Wizard Ring", "level": 1, "itemClass": "legendary", "bonus": [4,15,18,28,31,32,35], "requirement": 51, "isUnique": true }](https://nanobrowserquest.com/img/3/item-ringwizard.png)        | Wizard Ring            | ?                                | ?                                              |
 | ![{"name": "Dragon Eye", "level": 1, "itemClass": "legendary", "bonus": [0,1,6,8,9,22,23,28,37], "requirement": 59, "isUnique": true }](https://nanobrowserquest.com/img/3/item-amuletdragon.png)     | Dragon Eye             | ?                                | ?                                              |
-| ![{"name": "Ring of Greed", "level": 1, "itemClass": "legendary", "bonus": [0,2,6,7,11,42], "requirement": 45, "isUnique": true }](https://nanobrowserquest.com/img/3/item-ringgreed.png)             | Ring of Greed          | ?                                | ?                                              |
-| ![{"name": "Amulet of Greed", "level": 1, "itemClass": "legendary", "bonus": [0,2,6,7,11,42], "requirement": 45, "isUnique": true }](https://nanobrowserquest.com/img/3/item-amuletgreed.png)         | Amulet of Greed        | ?                                | ?                                              |
-| ![{"name": "Clownbase", "level": 1, "itemClass": "legendary", "defense": 20, "bonus": [3,6,32], "requirement": 42}](https://nanobrowserquest.com/img/3/item-helmclown.png)                            | Clownbase              |                                  |
-| ![{"name": "Goldwrap", "level": 1, "itemClass": "legendary", "defense": 20, "bonus": [3,42,11], "requirement": 42}](https://nanobrowserquest.com/img/3/item-beltgoldwrap.png)                         | Goldwrap               |                                  |
+| ![{"name": "Ring of Greed", "level": 1, "itemClass": "high", "bonus": [0,2,6,7,11,42], "requirement": 45, "isUnique": true }](https://nanobrowserquest.com/img/3/item-ringgreed.png)             | Ring of Greed          | ?                                | ?                                              |
+| ![{"name": "Amulet of Greed", "level": 1, "itemClass": "high", "bonus": [0,2,6,7,11,42], "requirement": 45, "isUnique": true }](https://nanobrowserquest.com/img/3/item-amuletgreed.png)         | Amulet of Greed        | ?                                | ?                                              |
+| ![{"name": "Clownbase", "level": 1, "itemClass": "high", "defense": 20, "bonus": [3,6,32], "requirement": 42}](https://nanobrowserquest.com/img/3/item-helmclown.png)                            | Clownbase              |                                  |
+| ![{"name": "Goldwrap", "level": 1, "itemClass": "high", "defense": 20, "bonus": [3,42,11], "requirement": 42}](https://nanobrowserquest.com/img/3/item-beltgoldwrap.png)                         | Goldwrap               |                                  |
 
 # Scrolls
 
@@ -394,7 +411,7 @@ These items are used to upgrade the items found in NBQ. It is done by putting th
 | ![{"name": "Green Chest", "description": "The chest may contain a very precious item." }](https://nanobrowserquest.com/img/3/item-chestgreen.png)                                                                               | Green Chest                   | Treasure chest awarded to players above level 56 for killing the Minotaur. Contains higher rewards compared to Blue Chest                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ![{"name": "Red Chest", "description": "The chest may contain a very precious item." }](https://nanobrowserquest.com/img/3/item-chestred.png)                                                                                   | Red Chest                     | Treasure chest awarded for killing The Butcher. Contains the Demon set items and the most epic rewards the game has to offer                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ![{"name": "Purple Chest", "description": "The chest may contain a very precious item." }](https://nanobrowserquest.com/img/3/item-chestpurple.png)                                                                             | Purple Chest                  | Treasure chest awarded for killing Azrael the Death Angel. Contains the most epic rewards the game has to offer                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ![{"name": "Socket Stone", "itemClass": "legendary", "description": "Creates a random number of sockets in a non-socketed item." }](https://nanobrowserquest.com/img/3/item-stonesocket.png)                                    | Socket Stone                  | Can be used to create more sockets on items that have this possibility (Weapons, Armors and shields). Can also be used to remove items already put into sockets. This comes with a 50% chance of getting the socketed item back but no risk of burning the base item. Any number of sockets can be created. Chance is random, higher socket numbers being less likely. Once an item has 3 or more sockets (4 on unique items), the stones will no longer work. At this point the player will have to use a Transmute Scroll with 25% risk or Blessed Transmute with 1% risk of burning the item. |
+| ![{"name": "Socket Stone", "itemClass": "legendary", "description": "Creates a random number of sockets in a non-socketed item." }](https://nanobrowserquest.com/img/3/item-stonesocket.png)                                    | Socket Stone                  | Can be used to create more sockets on items that have this possibility (Weapons, Armors, Helms and shields). Can also be used to remove items already put into sockets. This comes with a 50% chance of getting the socketed item back but no risk of burning the base item. Any number of sockets can be created. Chance is random, higher socket numbers being less likely. Once an item has 3 or more sockets (4 on unique items), the stones will no longer work. At this point the player will have to use a Transmute Scroll with 25% risk or Blessed Transmute with 1% risk of burning the item. |
 | ![{"name": "Pickaxe", "description": "This tool is used for digging." }](https://nanobrowserquest.com/img/3/item-pickaxe.png)                                                                                                   | Pickaxe                       | Drops from the Templar Skeletons                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ![{"name": "Soul Stone", "description": "This mysterious gem holds the soul of a hundred warriors." }](https://nanobrowserquest.com/img/3/item-soulstone.png)                                                                   | Soul Stone                    | Mysterious gem, drops from the Butcher                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
@@ -438,7 +455,7 @@ The Lost Temple Addon introduces Runes that can drop from any enemy, but the cha
 
 | #   | NAME | IMAGE                                                                                                                                             | STAT BONUSES                                           |
 | --- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| 1   | SAT  | ![{"name": "SAT Rune", "level": 1, "itemClass": "low","healthBonus": 10, "requirement": 1}](https://nanobrowserquest.com/img/2/item-rune-sat.png) | +10 Health                                             |
+| 1   | SAT  | ![{"name": "SAT Rune", "level": 1, "itemClass": "low","Health Bonus": 10, "requirement": 1}](https://nanobrowserquest.com/img/2/item-rune-sat.png) | +10 Health                                             |
 | 2   | AL   | ![{"name": "AL Rune", "level": 2, "itemClass": "low"}](https://nanobrowserquest.com/img/2/item-rune-al.png)                                       | +4 Minimum damage                                      |
 | 3   | BUL  | ![{"name": "BUL Rune", "level": 3, "itemClass": "low"}](https://nanobrowserquest.com/img/2/item-rune-bul.png)                                     | +4 Maximum damage                                      |
 | 4   | NAN  | ![{"name": "NAN Rune", "level": 4, "itemClass": "low"}](https://nanobrowserquest.com/img/2/item-rune-nan.png)                                     | +4 Magic damage                                        |
@@ -484,6 +501,7 @@ You can use Runewords to get extra bonusses by putting runes in socketed normal 
 | Buy the dip | :runeban::runenan::runemir::runeal::runebtc: | +10 Minimum damage, +10 Attack, +10 Magic damage, +15% Magic resistance, +10% Experience |
 | Block blade | :runedo::runeum::runehex::runedo::runezal::runemer: | +18 Defense, +13 Attack, +20 Flame damage, +15% Flame damage, +35% Flame resistance, +25 health regeneration per second |
 | Cold Wallet | :runelas::runetor::runemir::runetor::runeal::runevie: | +10 Minimum damage, +20 Attack, +30 Cold damage, +15% Freeze the enemy for # seconds, +15% Cold resistance, +25 health regeneration per second |
+| Cold Wallet 2.0| :runelas::runetor::runequa23::runetor::runejah::runevie:| +100 Health, +25 Minimum damage, +25 Attack, +40 Cold damage, +25% Freeze the enemy for # seconds, -15% Chance of being frozen, +18% Cold damage, +35% Cold resistance, +25 health regeneration per second |
 | Hot Wallet | :runebul::runemir::runezal::runeum::runevax: | +10 Maximum damage, +15 Attack, +20 Flame damage, +15% Flame resistance, +10 Pierce armor attack |
 | Living Whitepaper | :runeber::runegul::runecham::runeeth::runeeth: | +35 Poison damage, +20% Poison resistance, +20% Poison damage, -20% Skill timeout, +20 Pierce armor attack |
 | Can't the devs do something | :runefal::runebtc::runexno::runezal::runexno::runefal: | +30% Magic damage, +20% Magic resistance, +24% Attack speed, +20 Pierce armor attack, +8% Critical hit |
@@ -493,6 +511,7 @@ You can use Runewords to get extra bonusses by putting runes in socketed normal 
 
 | NAME                         | RUNES                                                   | STAT BONUSES                                                                                                                                                                           |
 | ---------------------------- | ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Dandelion++                  | :runeum::runehex::runesol::runezal::runebtc::runefal20: | +60 Health, +20 Defense, +20 Flame damage, +10 Pierce armor attack, +20% Magic resistance, +15% Lightning resistance, -15% Chance of being frozen                                      |
 | Melon Tusk                   | :runedo::runelas::runesol::runevod::runejah::runepor:   | +20 Defense, +15% Magic find, +10% Lightning resistance, +20 health regeneration per second, +20% Prevent enemy health regeneration, +10% Cold resistance, -20% Chance of being frozen |
 | EIP-1559                     | :runeeth::runebtc::runexno:                             | +15 Defense, +20 Absorbed damage, +30% Magic resistance, +30% Poison resistance, +20 Poison damage                                                                                     |
 | SHA-256                      | :runebtc::runebul::runesol::runegel::runedo:            | +20 Defense, +5 Absorbed damage, -20% Chance of being frozen, +30% Cold resistance, +15 Maximum damage                                                                                 |
@@ -505,6 +524,11 @@ You can use Runewords to get extra bonusses by putting runes in socketed normal 
 | Not Your Key Not Your Crypto | :runequa::runeban::runetor::runequa::runelas::runetor:  | +20 Defense, +40 Cold damage, +30% Cold resistance, +15% Cold damage, +20% Freeze the enemy for # seconds                                                                              |
 | Growing Seed                 | :runeeth::runeeth::runegul::runecham::runevie::runegul: | +25 health regeneration per second, +30 Defense, +50 Poison damage, +40% Poison resistance, +25% Poison damage                                                                         |
 | Fortune Favors The Brave     | :runeshi::runedo::runevod::runejah::runeber::runegel:   | +20 Defense, +15 Absorbed damage, +18% All resistances, +30 health regeneration per second, +20% Prevent enemy health regeneration, +20% Magic find, -20% Skill timeout                |
+| Bucketing System             | :runebtc::runefal20::runedur::runenan::runeshi::runesat:|+120 Health, +20 Defense, +25 Magic damage, +20% Magic damage, +15% All resistances, +25% Magic resistance, -15% Enemy lower Magic resistance                                           |
+| Ascending Bootstrapping      | :runeum::runeshi::runedur::runemer22::runevax::runesat: | +100 Health, +25 Defense, +25 Flame damage, +20% Flame damage, +15% All resistances, +25% Flame resistance, -15% Enemy lower Flame resistance                                          |
+| Announcement of an Announcement|:runekul21::runeshi::runehex::runepor::runesat::runekul21:| +60 Health, +20 Defense, +30 Lightning damage, +20% Lightning damage, +15% All resistances, +25% Lightning resistance, -15% Enemy lower Lightning resistance
+| What if Price Goes Below 2K  |:runesol::runelas::runequa23::runelas::runequa23::runeshi:| +20 Defense, +25 Cold damage, +20% Cold damage, +15% All resistances, +35% Cold resistance, -15% Enemy lower Cold resistance, +15% Freeze the enemy for # seconds, -35% Chance of being frozen |
+| Let that sink in for a Second| :runeeth::runeshi::runegul::runeeth::runesat::runegul: | +120 Health, +25 Defense, +25 Poison damage, +20% Poison damage, +15% All resistances, +25% Poison resistance, -25% Enemy lower Poison resistance                                       |
 
 **Shields**
 
@@ -518,6 +542,20 @@ You can use Runewords to get extra bonusses by putting runes in socketed normal 
 | Ascending Bootstrapping    | :runemer::runequa::runegul::runeber::runekul::runefal: | +20% Magic damage, +20% Lightning damage, +20% Flame damage, +20% Cold damage, +20% Poison damage, -20% Skill timeout                                              |
 | Bucketing System           | :runesol::runetor::runeshi::runevod::runelas::runefal: | +20 Cold damage, +16% Magic damage, +16% All resistances, +10% Freeze the enemy for # seconds, +10% Cold resistance, +20% Cold damage, -15% Chance of being frozen |
 | Echo Chamber               | :runejah::runeshi::runejah::runeber::runeeth::runegul: | +40 Poison damage, +25 Cold damage, +40% Magic find, -20% Skill timeout, +16% All resistances, +25% Poison damage                                                  |
+
+# Skull Jewels
+
+Skull Jewels come in 5 different levels: level 1 (white), level 2 (white), level 3 (white & blue), level 4 (gray) and level 5 (gold). Similar to other items, Skull Jewels also exist in unique form with a 1% drop chance. Unique versions have an extra attribute added, making them stronger than their regular counterpart. Compared to a higher level skull, a unique (lower) skull is still slightly weaker (same amount of attributes but not as high). 
+
+| Item                                                                                                                                                                                | Name                   | Dropped By                       | Drop Rate                                      |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------| :--------------------- | :------------------------------- | :--------------------------------------------- |
+| ![{"name": "Skull Jewel lv.1", "itemClass": "low", "bonus": [2], "requirement": 4}](https://nanobrowserquest.com/img/3/item-jewelskull.png)                            | Skull Jewel lv.1       | ?                                | ?                                              |
+| ![{"name": "Skull Jewel lv.2", "itemClass": "medium", "bonus": [0,2], "requirement": 8}](https://nanobrowserquest.com/img/3/item-jewelskull.png)                       | Skull Jewel lv.2       | ?                                | ?                                              |
+| ![{"name": "Skull Jewel lv.3", "itemClass": "high", "bonus": [4,5,22], "requirement": 25}](https://nanobrowserquest.com/img/3/item-jewelskull1.png)                    | Skull Jewel lv.3       | ?                                | ?                                              |
+| ![{"name": "Skull Jewel lv.4", "itemClass": "high", "bonus": [2,6,21,22], "requirement": 45}](https://nanobrowserquest.com/img/3/item-jewelskull2.png)                 | Skull Jewel lv.4       | ?                                | ?                                              |
+| ![{"name": "Skull Jewel lv.5", "itemClass": "legendary", "bonus": [5,8,12,15,21], "requirement": 60}](https://nanobrowserquest.com/img/3/item-jewelskull3.png)         | Skull Jewel lv.5       | ?                                | ?                                              |
+
+
 
 # Party chat commands
 
