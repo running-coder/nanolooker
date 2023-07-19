@@ -25,10 +25,12 @@ const useNanoBrowserQuestPlayers = () => {
       });
       const json = (await res.json()) as Player[];
 
-      const mappedLeaderboard = orderBy(json, ["exp"], ["desc"]).map((player, index) => ({
-        ...player,
-        rank: index + 1,
-      }));
+      const mappedLeaderboard = orderBy(json, ["exp", "gold"], ["desc", "desc"]).map(
+        (player, index) => ({
+          ...player,
+          rank: index + 1,
+        }),
+      );
 
       setLeaderboard(mappedLeaderboard);
     } catch (err) {
