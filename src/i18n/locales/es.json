@@ -446,7 +446,8 @@
       "guide": {
         "title": "Guía de NanoBrowserQuest"
       },
-      "playerGuide": "Guía del jugador"
+      "playerGuide": "Guía del jugador",
+      "gold": "Oro"
     },
     "statistics": {
       "social": {

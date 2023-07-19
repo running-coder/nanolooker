@@ -46,27 +46,40 @@ const getNanoBrowserQuestLeaderboard = async () => {
       const playersChunks = chunk(players, PER_PAGES);
 
       for (let i = 0; i < playersChunks.length; i++) {
-        if (playersChunks[i] === "u:running-coder") continue;
-
         const rawPlayerData = await Promise.all(
           playersChunks[i].map(
             player =>
               new Promise(resolve => {
-                client.hmget(player, "hash", "network", "exp", (_err, reply) => {
-                  const network = reply[1];
-                  const exp = parseInt(reply[2] || 0);
+                if (player === "u:running-coder") {
+                  resolve(undefined);
+                }
 
-                  if (network === "ban" || !exp) {
-                    resolve(undefined);
-                  } else {
-                    resolve({
-                      player: player.replace("u:", ""),
-                      isCompleted: !!reply[0],
-                      network,
-                      exp: parseInt(reply[2] || 0),
-                    });
-                  }
-                });
+                client.hmget(
+                  player,
+                  "hash",
+                  "network",
+                  "exp",
+                  "gold",
+                  "goldStash",
+                  (_err, reply) => {
+                    const network = reply[1];
+                    const exp = Number(reply[2] || 0);
+                    const gold = Number(reply[3] || 0);
+                    const goldStash = Number(reply[4] || 0);
+
+                    if (network === "ban" || !exp) {
+                      resolve(undefined);
+                    } else {
+                      resolve({
+                        player: player.replace("u:", ""),
+                        isCompleted: !!reply[0],
+                        network,
+                        exp: parseInt(reply[2] || 0),
+                        gold: gold + goldStash,
+                      });
+                    }
+                  },
+                );
               }),
           ),
         );

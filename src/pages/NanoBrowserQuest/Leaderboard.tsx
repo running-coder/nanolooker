@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Card, Col, Pagination, Row, Skeleton, Typography } from "antd";
 import chunk from "lodash/chunk";
 
-import Trophy, { fontSizeToRankMap } from "components/Trophy";
+import Trophy from "components/Trophy";
 
 import useNanoBrowserQuestLeaderboard from "./hooks/use-nanobrowserquest-leaderboard";
 import { getLevel } from "./utils";
@@ -28,9 +28,13 @@ const Leaderboard: React.FC = () => {
       <Card size="small" className="detail-layout">
         <Row gutter={12}>
           <Col xs={3}>{t("pages.nanobrowserquest.rank")}</Col>
-          <Col xs={12}>{t("pages.nanobrowserquest.player")}</Col>
+          <Col xs={8}>{t("pages.nanobrowserquest.player")}</Col>
           <Col xs={3}>{t("pages.nanobrowserquest.level")}</Col>
-          <Col xs={6}>{t("pages.nanobrowserquest.exp")}</Col>
+          <Col xs={5}>{t("pages.nanobrowserquest.exp")}</Col>
+          <Col xs={5}>
+            {t("pages.nanobrowserquest.gold")}{" "}
+            <img alt="Gold" src={`/nanobrowserquest/gold.png`} style={{ marginLeft: "3px" }} />
+          </Col>
         </Row>
         {isLoading ? (
           Array.from(Array(5).keys()).map(index => (
@@ -38,36 +42,40 @@ const Leaderboard: React.FC = () => {
               <Col xs={3}>
                 <Skeleton loading={true} paragraph={false} active />
               </Col>
-              <Col xs={12}>
+              <Col xs={8}>
                 <Skeleton loading={true} paragraph={false} active />
               </Col>
               <Col xs={3}>
                 <Skeleton loading={true} paragraph={false} active />
               </Col>
-              <Col xs={6}>
+              <Col xs={5}>
+                <Skeleton loading={true} paragraph={false} active />
+              </Col>
+              <Col xs={5}>
                 <Skeleton loading={true} paragraph={false} active />
               </Col>
             </Row>
           ))
         ) : (
           <>
-            {paginatedTopScores[currentPage - 1]?.map(({ rank, player, exp, nanoPotions }) => (
+            {paginatedTopScores[currentPage - 1]?.map(({ rank, player, exp, gold }) => (
               <Row gutter={12} key={rank}>
                 <Col xs={3}>
-                  <Text style={{ fontSize: fontSizeToRankMap[rank] ?? "auto" }}>
+                  <Text>
                     #{rank} <Trophy rank={rank} />
                   </Text>
                 </Col>
-                <Col xs={12}>
-                  <Text style={{ fontSize: fontSizeToRankMap[rank] ?? "auto" }}>{player}</Text>
+                <Col xs={8}>
+                  <Text>{player}</Text>
                 </Col>
                 <Col xs={3}>
-                  <Text style={{ fontSize: fontSizeToRankMap[rank] ?? "auto" }}>
-                    {getLevel(exp)}
-                  </Text>
+                  <Text>{getLevel(exp)}</Text>
                 </Col>
-                <Col xs={6}>
-                  <Text style={{ fontSize: fontSizeToRankMap[rank] ?? "auto" }}>{exp}</Text>
+                <Col xs={5}>
+                  <Text>{new Intl.NumberFormat("en-EN", {}).format(exp)}</Text>
+                </Col>
+                <Col xs={5}>
+                  <Text>{new Intl.NumberFormat("en-EN", {}).format(gold)}</Text>
                 </Col>
               </Row>
             ))}

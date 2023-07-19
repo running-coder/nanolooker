@@ -446,7 +446,8 @@
       "guide": {
         "title": "NanoBrowserQuest-gids"
       },
-      "playerGuide": "Spelersgids"
+      "playerGuide": "Spelersgids",
+      "gold": "Goud"
     },
     "statistics": {
       "social": {

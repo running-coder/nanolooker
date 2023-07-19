@@ -446,7 +446,8 @@
       "guide": {
         "title": "NanoBrowserQuest 가이드"
       },
-      "playerGuide": "플레이어 가이드"
+      "playerGuide": "플레이어 가이드",
+      "gold": "금"
     },
     "statistics": {
       "social": {

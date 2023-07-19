@@ -475,7 +475,8 @@
       "guide": {
         "title": "Przewodnik po NanoBrowserQu"
       },
-      "playerGuide": "Przewodnik gracza"
+      "playerGuide": "Przewodnik gracza",
+      "gold": "Złoto"
     }
   }
 }

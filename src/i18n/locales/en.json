@@ -454,6 +454,7 @@
       "rank": "Rank",
       "player": "Player",
       "exp": "Experience",
+      "gold": "Gold",
       "nanoPotions": "NANO Potions",
       "level": "Level",
       "howToPlay": "How to play",
