@@ -16,6 +16,7 @@
    1. [Amulets](#amulets)
    1. [Rings](#rings)
    1. [Cape](#cape)
+   1. [Pets](#pets)
    1. [Super Uniques](#super-uniques)
    1. [Scrolls](#scrolls)
    1. [Various (Potions ie.)](#various--potions-ie--)
@@ -105,6 +106,10 @@ Just like some enemies, the player can also be resistant to elemental damage. Ce
 
 Defense and Absorbed damage do basically the same thing, blocking a portion of an enemy hit to make the players health decrease less when attacked. The difference between the two attributes is that Absorbed damage gives a higher protection at lower item levels. For example at level +5 an item with Absorbed damage would give the player 10 Absorbed points while the same item with the Defense attribute would only give 8. This is evened out at level +7 (both attributes will give 15 points). Given the bonus that Defense gives based on player level, this stat would be desirable compared to Absorbed damage if the player aims to upgrade the item to +7 or higher.
 
+**Special use of Absorbed damage in PVP**
+
+Absorb has a special use when fighting against other players because of the "Defense" attribute (which mobs in PVE do not have). Absorb is the only thing that can block the "Penetrate armor" attribute.
+
 ## Offensive attributes
 
 **Attack**
@@ -147,6 +152,10 @@ Curses enemy for a certain amount of time, preventing them from regenerating hea
 Elemental damage beats attack at lower player levels because of the higher number per item level. However, as the player starts to level up, the Attack added from an item will be higher than indicated by the number because the attribute has a bonus based on the players level. Enemies can also be immuned to Elemental damage, making regular Attack a more reliable attribute. Min/Max are beaten by both of the other attributes as they only add half of the damage, making them worse attributes in almost all cases. The only exception would be when fighting an enemy that is immuned/resistant to a specific Elemental damage.
 
 Lightning & Poison damage work slightly different compared to Magic and Flame (and atleast for now, Cold as well). Lightning is unique as it deals ordinary damage as well as damage when hit by enemies. This is great when being attacked by multiple enemies as it deals damage to alla of them. The exception to this is when Lightning is used as an offensive skill with ranged attack. Poison is special because it continues to do damage after the initial hit as long as the enemy is poisoned.
+
+**Special use of Elemental & Penetrate armor in PVP**
+
+Both Elemental damage and Penetrate armor bypass the defense attribute completely. The only thing that stops Elemental damage is the elemental resistance of the other player. Penetrate armor is only blocked by the other players "Absorbed damage" attribute. 
 
 ## Superunique attributes
 
@@ -354,6 +363,17 @@ Unique Version: **Cloak of Levitation** Attributes: Defense (1) + two random att
 | ![{"name": "Cape", "level": 1, "itemClass": "high", "partyBonus": [0], "requirement": 1}](https://nanobrowserquest.com/img/3/item-cape.png)                                    | Cape                | Sold by the Red Wizard in the village, Blue chest |
 | ![{"name": "Cloak of Levitation", "level": 1, "itemClass": "high", "partyBonus": [1,6], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-cape.png) | Cloak of Levitation | Sold by the Red Wizard in the village, Blue chest |
 
+# Pets
+
+![Pets](https://cdn.discordapp.com/attachments/971429295186665536/1133456298923528192/pet-teaser.gif)
+
+Pets can be bought for XNO from the Red Wizard in the village and so far do not drop anywhere in the game. They are bought as an egg, which is transformed in the anvil into a pet. They come in many different shapes and colors and can also be upgraded in levels like other items. The look of the pet is random and when equipped they give one randomized attribute to the player. There is a 1% chance of getting a unique pet which has double attributes.
+
+| Item                                                                                                                                                                           | Name                | Dropped By                                        |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------ | :------------------------------------------------ |
+| ![{"name": "Dog Pet", "level": 1, "itemClass": "legendary", "Bonus": [2], "requirement": 11}](https://nanobrowserquest.com/img/3/item-petdog-1.png)                            | Pet Dog             | Sold by the Red Wizard in the village             |
+| ![{"name": "Unique Pet Dog", "level": 1, "itemClass": "legendary", "Bonus": [2,0], "requirement": 11, "isUnique": true}](https://nanobrowserquest.com/img/3/item-petdog-1.png) | Unique Pet Dog      | Sold by the Red Wizard in the village             |
+
 # Super-uniques
 
 | Item                                                                                                                                                                                                  | Name                   | Dropped By                       | Drop Rate                                      |
@@ -536,7 +556,7 @@ You can use Runewords to get extra bonusses by putting runes in socketed normal 
 | -------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Pump and Dump              | :runegel::runebul::runeal::runesat::runedo:            | +60 Health, +10 Defense, +10 Absorbed damage, +6 Attack, +6 Minimum damage                                                                                         |
 | Confirmations Per Second   | :runevie::runenan::runeal::runemir::runeum::runeban:   | +10% Experience, +12 Minimum damage, +10 Attack, +15 Flame damage, +20 health regeneration per second, +10 Magic damage                                            |
-| King Gorilla               | :runevie::runeban::runedo::runevie::runeban::runedo:   | +10 Minimum damage, +10 Attack, +20 Defense, +300 Health, +30 health regeneration per second                                                                       |
+| King Gorilla               | :runevie::runeban::runedo::runevie::runeban::runedo:   | +10 Minimum damage, +10 Attack, +20 Defense, +180 Health, +30 health regeneration per second                                                                       |
 | Open Representative Voting | :runesol::runebtc::runevie::runepor::runefal::runevie: | -20% Chance of being frozen, +20% Magic resistance, +25% Lightning resistance, +40 health regeneration per second, +20% Magic damage                               |
 | Ordinals                   | :runesol::runebtc::runeum::runelas::runesat:           | +30 Defense, +25% Lightning resistance, +25% Cold resistance, +25 health regeneration per second, +18% Flame damage                                                |
 | Ascending Bootstrapping    | :runemer::runequa::runegul::runeber::runekul::runefal: | +20% Magic damage, +20% Lightning damage, +20% Flame damage, +20% Cold damage, +20% Poison damage, -20% Skill timeout                                              |
