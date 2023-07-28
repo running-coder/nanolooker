@@ -1,4 +1,4 @@
-2# Nano BrowserQuest
+# Nano BrowserQuest
 
 ![GameGuide](https://user-images.githubusercontent.com/19352322/231320562-854d66fb-0d64-4322-b1c1-6bfcb17e1663.png)
 
