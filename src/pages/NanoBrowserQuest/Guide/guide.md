@@ -1,4 +1,4 @@
-# Nano BrowserQuest
+2# Nano BrowserQuest
 
 ![GameGuide](https://user-images.githubusercontent.com/19352322/231320562-854d66fb-0d64-4322-b1c1-6bfcb17e1663.png)
 
@@ -16,6 +16,7 @@
    1. [Amulets](#amulets)
    1. [Rings](#rings)
    1. [Cape](#cape)
+   1. [Pets](#pets)
    1. [Super Uniques](#super-uniques)
    1. [Scrolls](#scrolls)
    1. [Various (Potions ie.)](#various--potions-ie--)
@@ -361,6 +362,17 @@ Unique Version: **Cloak of Levitation** Attributes: Defense (1) + two random att
 | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------ | :------------------------------------------------ |
 | ![{"name": "Cape", "level": 1, "itemClass": "high", "partyBonus": [0], "requirement": 1}](https://nanobrowserquest.com/img/3/item-cape.png)                                    | Cape                | Sold by the Red Wizard in the village, Blue chest |
 | ![{"name": "Cloak of Levitation", "level": 1, "itemClass": "high", "partyBonus": [1,6], "requirement": 1, "isUnique": true}](https://nanobrowserquest.com/img/3/item-cape.png) | Cloak of Levitation | Sold by the Red Wizard in the village, Blue chest |
+
+# Pets
+
+![Pets](https://cdn.discordapp.com/attachments/971429295186665536/1133456298923528192/pet-teaser.gif)
+
+Pets can be bought for XNO from the Red Wizard in the village and so far do not drop anywhere in the game. They are bought as an egg, which is transformed in the anvil into a pet. They come in many different shapes and colors and can also be upgraded in levels like other items. The look of the pet is random and when equipped they give one randomized attribute to the player. There is a 1% chance of getting a unique pet which has double attributes.
+
+| Item                                                                                                                                                                           | Name                | Dropped By                                        |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------ | :------------------------------------------------ |
+| ![{"name": "Dog Pet", "level": 1, "itemClass": "legendary", "Bonus": [2], "requirement": 11}](https://nanobrowserquest.com/img/3/item-petdog-1.png)                            | Pet Dog             | Sold by the Red Wizard in the village             |
+| ![{"name": "Unique Pet Dog", "level": 1, "itemClass": "legendary", "Bonus": [2,0], "requirement": 11, "isUnique": true}](https://nanobrowserquest.com/img/3/item-petdog-1.png) | Unique Pet Dog      | Sold by the Red Wizard in the village             |
 
 # Super-uniques
 
