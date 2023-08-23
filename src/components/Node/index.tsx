@@ -68,7 +68,7 @@ const Node: React.FC = () => {
       />
       <LoadingStatistic
         title={t("pages.status.uptime")}
-        tooltip={t("tooltips.uptime") as string}
+        tooltip={t<string>("tooltips.uptime")}
         value={secondsToTime(seconds || 0)}
         isLoading={!node_vendor}
         style={{ opacity }}

@@ -152,7 +152,7 @@ const Telemetry: React.FC = () => {
               <LoadingStatistic
                 isLoading={isTelemetryLoading}
                 title={t("pages.status.cemented")}
-                tooltip={t("tooltips.cemented") as string}
+                tooltip={t<string>("tooltips.cemented")}
                 value={telemetry[currentPercentile]?.cementedCount}
               />
             </Col>
@@ -160,7 +160,7 @@ const Telemetry: React.FC = () => {
               <LoadingStatistic
                 isLoading={isTelemetryLoading}
                 title={t("pages.status.unchecked")}
-                tooltip={t("tooltips.unchecked") as string}
+                tooltip={t<string>("tooltips.unchecked")}
                 value={telemetry[currentPercentile]?.uncheckedCount}
               />
             </Col>
@@ -175,7 +175,7 @@ const Telemetry: React.FC = () => {
               <LoadingStatistic
                 isLoading={isTelemetryLoading}
                 title={t("pages.status.bandwidthCap")}
-                tooltip={t("tooltips.bandwidthCap") as string}
+                tooltip={t<string>("tooltips.bandwidthCap")}
                 value={formattedMedianBandwidthCap.value || "∞"}
                 suffix={
                   formattedMedianBandwidthCap.value ? formattedMedianBandwidthCap.suffix : null
@@ -193,7 +193,7 @@ const Telemetry: React.FC = () => {
               <LoadingStatistic
                 isLoading={isTelemetryLoading}
                 title={t("pages.status.uptime")}
-                tooltip={t("tooltips.uptime") as string}
+                tooltip={t<string>("tooltips.uptime")}
                 value={secondsToTime(telemetry[currentPercentile]?.uptime || 0)}
               />
             </Col>

@@ -127,12 +127,12 @@ const HomePage = () => {
                     isMarketStatisticsInitialLoading || isMarketStatisticsError || !availableSupply
                   }
                   title={t("pages.home.circulatingSupply")}
-                  tooltip={t("tooltips.circulatingSupply") as string}
+                  tooltip={t<string>("tooltips.circulatingSupply")}
                   value={new BigNumber(availableSupply).toNumber()}
                 />
                 <LoadingStatistic
                   isLoading={isNodeStatusLoading}
-                  tooltip={t("tooltips.ledgerSize") as string}
+                  tooltip={t<string>("tooltips.ledgerSize")}
                   title={t("pages.home.ledgerSize")}
                   suffix={formattedLedgerSize.suffix}
                   value={new BigNumber(formattedLedgerSize.value).toFormat(2)}
@@ -150,7 +150,7 @@ const HomePage = () => {
                 <LoadingStatistic
                   isLoading={!average}
                   title={t("pages.home.avgConfirmationTime")}
-                  tooltip={t("tooltips.avgConfirmationTime") as string}
+                  tooltip={t<string>("tooltips.avgConfirmationTime")}
                   value={new BigNumber(average).dividedBy(1000).toNumber()}
                 />
 
@@ -158,7 +158,7 @@ const HomePage = () => {
                   <LoadingStatistic
                     isLoading={false}
                     title={t("pages.home.transactionFees")}
-                    tooltip={t("tooltips.transactionFees") as string}
+                    tooltip={t<string>("tooltips.transactionFees")}
                     value={0}
                   />
                 ) : null} */}
@@ -199,7 +199,7 @@ const HomePage = () => {
                     isMarketStatisticsError ||
                     !onChainVolumeChange24h
                   }
-                  tooltip={t("tooltips.onChainVolume") as string}
+                  tooltip={t<string>("tooltips.onChainVolume")}
                   title={t("pages.home.onChainVolume")}
                   suffix={<StatisticsChange value={onChainVolumeChange24h} isPercent />}
                   value={new BigNumber(marketStatistics[TOTAL_VOLUME_24H])
@@ -220,14 +220,14 @@ const HomePage = () => {
                   <LoadingStatistic
                     isLoading={false}
                     title={t("pages.home.transactionFees")}
-                    tooltip={t("tooltips.transactionFees") as string}
+                    tooltip={t<string>("tooltips.transactionFees")}
                     value={0}
                   />
                 ) : null}
                 <LoadingStatistic
                   isLoading={isMarketStatisticsInitialLoading || isMarketStatisticsError}
                   title={`${t("pages.home.bitcoinTransactionFees")} (${fiat.toUpperCase()})`}
-                  tooltip={t("tooltips.bitcoinTransactionFees") as string}
+                  tooltip={t<string>("tooltips.bitcoinTransactionFees")}
                   prefix={CurrencySymbol?.[fiat]}
                   value={btcTransactionFees24h}
                   suffix={<StatisticsChange value={btcTransactionFeesChange24h} isPercent />}

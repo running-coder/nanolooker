@@ -238,7 +238,7 @@ const Search = ({ isHome = false }) => {
             </>
           }
           className={`ant-input-search ${isError ? "has-error" : ""}`}
-          placeholder={t("search.searchBy") as string}
+          placeholder={t<string>("search.searchBy")}
           onFocus={({ target: { value } }) => {
             validateSearch(value);
             setIsExpanded(true);

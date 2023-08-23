@@ -75,13 +75,13 @@ const BlockCount: React.FC = () => {
         <LoadingStatistic
           isLoading={isInitialLoading}
           title={t("pages.status.unchecked")}
-          tooltip={t("tooltips.unchecked") as string}
+          tooltip={t<string>("tooltips.unchecked")}
           value={unchecked}
           style={{ opacity }}
         />
         <LoadingStatistic
           title={t("pages.status.cemented")}
-          tooltip={t("tooltips.cemented") as string}
+          tooltip={t<string>("tooltips.cemented")}
           value={cemented}
           isLoading={isInitialLoading}
           style={{ opacity }}

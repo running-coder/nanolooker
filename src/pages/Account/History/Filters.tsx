@@ -243,7 +243,7 @@ const Filters: React.FC = () => {
                   <Input
                     {...field}
                     style={{ width: "44%" }}
-                    placeholder={t("pages.account.minimum") as string}
+                    placeholder={t<string>("pages.account.minimum")}
                     type="number"
                     min="0"
                   />
@@ -270,7 +270,7 @@ const Filters: React.FC = () => {
                     style={{
                       width: "45%",
                     }}
-                    placeholder={t("pages.account.minimum") as string}
+                    placeholder={t<string>("pages.account.minimum")}
                     type="number"
                     min="0"
                   />
@@ -288,7 +288,7 @@ const Filters: React.FC = () => {
                   <Input
                     {...field}
                     style={{ width: "44%" }}
-                    placeholder={t("pages.account.from") as string}
+                    placeholder={t<string>("pages.account.from")}
                     type="number"
                     step={1}
                     min="0"
@@ -316,7 +316,7 @@ const Filters: React.FC = () => {
                     style={{
                       width: "45%",
                     }}
-                    placeholder={t("pages.account.to") as string}
+                    placeholder={t<string>("pages.account.to")}
                     type="number"
                     step={1}
                     min="0"
