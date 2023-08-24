@@ -1,4 +1,3 @@
-const fetch = require("node-fetch");
 const cron = require("node-cron");
 const uniqBy = require("lodash/uniqBy");
 const BigNumber = require("bignumber.js");
@@ -9,13 +8,13 @@ const { nodeCache } = require("../client/cache");
 const { Sentry } = require("../sentry");
 const { KNOWN_ACCOUNTS, KNOWN_ACCOUNTS_BALANCE, EXPIRE_48H } = require("../constants");
 const extraKnownAccounts = require("./knownAccounts.json");
+const knownAccountsMNN = require("./knownAccounts_mnn.json");
 const faucetAccounts = require("../../src/pages/Faucets/faucets.json");
 
 const doKnownAccountsCron = async () => {
   let knownAccounts = [];
   try {
-    const res = await fetch("https://mynano.ninja/api/accounts/aliases");
-    knownAccounts = (await res.json()) || [];
+    knownAccounts = knownAccountsMNN;
 
     // Merge knownAccounts.json list
     knownAccounts = uniqBy(knownAccounts.concat(extraKnownAccounts), "account");
