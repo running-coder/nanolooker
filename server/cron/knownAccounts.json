@@ -179,6 +179,10 @@
     "alias": "CoinEx Cold Wallet #2",
     "account": "nano_3aknpqaajsexriisrs3srzzr6cpw3y1cunwt4mxzagn8dg14xa9e5i3uaasd"
   },
+{
+    "alias": "KuCoin Hot Wallet #2",
+    "account": "nano_3iypqe87d399qnsgejk6jx11u334ep77ipgsrtg9zi31onpz9a4yfypjxnau"
+  },
   {
     "alias": "ViNo Gateway to Vite",
     "account": "nano_15fuam43az5zsnpitsire35ag9bj4w8eb1b8utioc5qoog8fuyygx9d8hqcc"
