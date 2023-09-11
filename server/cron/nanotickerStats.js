@@ -5,8 +5,6 @@ const { nodeCache } = require("../client/cache");
 const { NANOTICKER_STATS } = require("../constants");
 
 const doNanotickerStats = async () => {
-  let res;
-
   try {
     const res = await fetch("https://nanoticker.info/json/stats.json");
 
@@ -14,7 +12,7 @@ const doNanotickerStats = async () => {
 
     nodeCache.set(NANOTICKER_STATS, { cps });
   } catch (err) {
-    Sentry.captureException(err, { extra: { res } });
+    Sentry.captureException(err);
   }
 };
 
