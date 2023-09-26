@@ -164,15 +164,13 @@ const NanoQuakeJSPage: React.FC = () => {
               <iframe
                 width="560"
                 height="315"
-                src="https://www.youtube-nocookie.com/embed/quvLQq_d__E"
-                title="Quake3"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
+                src="https://www.youtube.com/embed/M3uaZh7DXUc?si=z2qBQtGHsJdl8R0A"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
               ></iframe>
             </div>
-
-            <p style={{ marginTop: 12 }}>{t("pages.nanoquakejs.welcomeDescription")}</p>
 
             <p>{t("pages.nanoquakejs.welcomeDescription2")}</p>
           </Card>
