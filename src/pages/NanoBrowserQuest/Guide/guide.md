@@ -608,11 +608,11 @@ Skull Jewels come in 5 different levels: level 1 (white), level 2 (white), level
 
 | Item                                                                                                                                                           | Name             | Dropped By | Drop Rate |
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------- | :--------- | :-------- |
-| ![{"name": "Skull Jewel lv.1", "itemClass": "low", "bonus": [2], "requirement": 4}](https://nanobrowserquest.com/img/3/item-jewelskull.png)                    | Skull Jewel lv.1 | ?          | ?         |
-| ![{"name": "Skull Jewel lv.2", "itemClass": "medium", "bonus": [0,2], "requirement": 8}](https://nanobrowserquest.com/img/3/item-jewelskull.png)               | Skull Jewel lv.2 | ?          | ?         |
-| ![{"name": "Skull Jewel lv.3", "itemClass": "high", "bonus": [4,5,22], "requirement": 25}](https://nanobrowserquest.com/img/3/item-jewelskull1.png)            | Skull Jewel lv.3 | ?          | ?         |
+| ![{"name": "Skull Jewel lv.1", "itemClass": "low", "bonus": [2], "requirement": 4}](https://nanobrowserquest.com/img/3/item-jewelskull.png)                    | Skull Jewel lv.1 | all mobs lv.1-lv.?          | ?         |
+| ![{"name": "Skull Jewel lv.2", "itemClass": "medium", "bonus": [0,2], "requirement": 8}](https://nanobrowserquest.com/img/3/item-jewelskull.png)               | Skull Jewel lv.2 | all mobs lv.12-lv.?          | ?         |
+| ![{"name": "Skull Jewel lv.3", "itemClass": "high", "bonus": [4,5,22], "requirement": 25}](https://nanobrowserquest.com/img/3/item-jewelskull1.png)            | Skull Jewel lv.3 | all mobs lv.? and above          | ?         |
 | ![{"name": "Skull Jewel lv.4", "itemClass": "high", "bonus": [2,6,21,22], "requirement": 45}](https://nanobrowserquest.com/img/3/item-jewelskull2.png)         | Skull Jewel lv.4 | ?          | ?         |
-| ![{"name": "Skull Jewel lv.5", "itemClass": "legendary", "bonus": [5,8,12,15,21], "requirement": 60}](https://nanobrowserquest.com/img/3/item-jewelskull3.png) | Skull Jewel lv.5 | ?          | ?         |
+| ![{"name": "Skull Jewel lv.5", "itemClass": "legendary", "bonus": [5,8,12,15,21], "requirement": 60}](https://nanobrowserquest.com/img/3/item-jewelskull3.png) | Skull Jewel lv.5 | All mobs lv.60 and above          | 12%         |
 
 # Party chat commands
 
