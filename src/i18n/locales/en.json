@@ -64,7 +64,7 @@
     "amount": "Amount"
   },
   "tooltips": {
-    "avgConfirmationTime": "The average confirmation time is calculated locally on the node. If the node is restarted or in degraded condition, the average confirmation time might be higher than the rest of the network. Average conf time stats get skewed anytime there's single account spam (e.g. some speed tests), due to linear conf requirements (a->b->c), even though everyone else's transactions still get confirmed in ~500ms E.g. if you publish 1000 blocks from 1 account, confs will take ~8 min",
+    "avgConfirmationTime": "The average confirmation time is calculated locally on the node. If the node is restarted or in degraded condition, the average confirmation time might be higher than the rest of the network. Average confirmation time stats get skewed anytime there's single account spam (e.g., some speed tests), due to linear confirmation requirements (a->b->c), even though everyone else's transactions still get confirmed in ~500ms. E.g., if you publish 1000 blocks from 1 account, confirmations will take ~8 min.",
     "circulatingSupply": "The amount of coins that are in circulation. Nano is fully distributed, the supply will never increase.",
     "transactionFees": "Unlike any other cryptocurrencies Nano transactions are fee-less, forever.",
     "bitcoinTransactionFees": "This value have no impact on the NANO network, it is solely for comparison purpose. It represents the sum of transaction fees the Bitcoin users are paying to the miners to get their transaction accepted on the Bitcoin network.",
