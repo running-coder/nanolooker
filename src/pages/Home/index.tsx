@@ -46,12 +46,15 @@ const HomePage = () => {
     volume24h,
     priceStats,
     NANOTPS_STATS = {},
+    NANOSPEED_STATS: { median = null } = {},
   } = marketStatistics;
 
   const { send } = NANOTPS_STATS;
 
   const { count } = React.useContext(BlockCountContext);
   const { confirmation_stats: { average = 0 } = {} } = React.useContext(ConfirmationHistoryContext);
+
+  let medianConfTime = median || average;
   const { representatives } = React.useContext(RepresentativesContext);
   const {
     nodeStatus: { ledgerSize },
@@ -148,10 +151,10 @@ const HomePage = () => {
                   }
                 />
                 <LoadingStatistic
-                  isLoading={!average}
+                  isLoading={!medianConfTime}
                   title={t("pages.home.avgConfirmationTime")}
                   tooltip={t<string>("tooltips.avgConfirmationTime")}
-                  value={new BigNumber(average).dividedBy(1000).toNumber()}
+                  value={new BigNumber(medianConfTime).dividedBy(1000).toNumber()}
                 />
 
                 {/* {!isSmallAndLower ? (

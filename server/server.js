@@ -14,6 +14,7 @@ require("./cron/coingeckoStats");
 require("./cron/btcTransactionFees");
 require("./cron/nanotickerStats");
 require("./cron/nanotpsStats");
+require("./cron/nanospeed");
 require("./cron/nanobrowserquestStats");
 require("./cron/2minersStats");
 require("./cron/youtubePlaylist");
@@ -37,6 +38,7 @@ const {
   NANOBROWSERQUEST_PLAYERS,
   NANOBROWSERQUEST_LEADERBOARD,
   NANOTPS_STATS,
+  NANOSPEED_STATS,
 } = require("./constants");
 const {
   getBtcTransactionFees,
@@ -145,6 +147,7 @@ app.get("/api/market-statistics", async (req, res) => {
   const cachedConfirmations48h = nodeCache.get(TOTAL_CONFIRMATIONS_48H);
   const cachedVolume48h = nodeCache.get(TOTAL_VOLUME_48H);
   const nanotpsStats = nodeCache.get(NANOTPS_STATS);
+  const nanoSpeedStats = nodeCache.get(NANOSPEED_STATS);
 
   const { btcTransactionFees24h, btcTransactionFees48h } = await getBtcTransactionFees();
   const { marketStats, priceStats } = await getCoingeckoStats({
@@ -161,6 +164,7 @@ app.get("/api/market-statistics", async (req, res) => {
     [BITCOIN_TOTAL_TRANSACTION_FEES_48H]: btcTransactionFees48h,
     [BITCOIN_TOTAL_TRANSACTION_FEES_48H]: btcTransactionFees48h,
     [NANOTPS_STATS]: nanotpsStats,
+    [NANOSPEED_STATS]: nanoSpeedStats,
     ...marketStats,
     priceStats: {
       ...{ bitcoin: { usd: 0 } },
