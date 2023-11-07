@@ -82,6 +82,7 @@
     "redis": "^3.1.2",
     "remark-gfm": "^3.0.1",
     "rimraf": "^3.0.2",
+    "saslprep": "^1.0.3",
     "source-map-explorer": "^2.5.2",
     "timeago-react": "^3.0.0",
     "use-deep-compare-effect": "^1.8.1",
