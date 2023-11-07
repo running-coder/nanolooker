@@ -77,18 +77,21 @@ const Image: React.FC<HTMLImageElement> = ({ src, alt: rawAttributes }) => {
     try {
       title = getItemAttributes(JSON.parse(rawAttributes));
     } catch (err) {
-      console.log("`~~~rawAttributes", rawAttributes);
+      // console.log("`~~~rawAttributes", rawAttributes);
       // console.log("`~~~rawAttributes", JSON.parse(rawAttributes));
       // console.log("`~~~title", title);
     }
 
+
+    const isNbqItemImage = src.includes("item-");
     return (
       <Tooltip placement="right" title={title} overlayClassName="tooltip-nbq-item">
         <div
-          className="item-container"
+          className={`${isNbqItemImage ? "item-container" : ""}`}
           style={{
             position: "relative",
             backgroundImage: `url(${src}) `,
+            ...(!isNbqItemImage ? { width: 24, height: 24 } : null),
           }}
         />
       </Tooltip>
