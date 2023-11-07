@@ -8,7 +8,7 @@ const client = redis.createClient(NL_REDIS_PORT, NL_REDIS_HOST, {
 
 client.on("connect", function () {
   client.select(NL_REDIS_DB_INDEX);
-  console.log("Connected to Redis");
+  console.log(`Connected to NL Redis ON DB ${NL_REDIS_DB_INDEX}`);
 });
 
 client.on("error", function (err) {

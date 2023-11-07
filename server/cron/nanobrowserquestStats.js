@@ -13,7 +13,7 @@ const client = redis.createClient(NBQ_REDIS_PORT, NBQ_REDIS_HOST, {
 
 client.on("connect", function () {
   client.select(NBQ_REDIS_DB_INDEX); // NBQ DB
-  console.log("Connected to Redis");
+  console.log(`Connected to NBQ Redis ON DB ${NBQ_REDIS_DB_INDEX}`);
 
   if (process.env.NODE_ENV === "production") {
     getNanoBrowserQuestLeaderboard();
