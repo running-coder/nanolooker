@@ -82,7 +82,6 @@ const Image: React.FC<HTMLImageElement> = ({ src, alt: rawAttributes }) => {
       // console.log("`~~~title", title);
     }
 
-
     const isNbqItemImage = src.includes("item-");
     return (
       <Tooltip placement="right" title={title} overlayClassName="tooltip-nbq-item">
@@ -90,7 +89,8 @@ const Image: React.FC<HTMLImageElement> = ({ src, alt: rawAttributes }) => {
           className={`${isNbqItemImage ? "item-container" : ""}`}
           style={{
             position: "relative",
-            backgroundImage: `url(${src}) `,
+            backgroundImage: `url(${src})`,
+
             ...(!isNbqItemImage ? { width: 24, height: 24 } : null),
           }}
         />
@@ -99,7 +99,7 @@ const Image: React.FC<HTMLImageElement> = ({ src, alt: rawAttributes }) => {
   } else {
     return (
       <div style={{ padding: "6px" }}>
-        <img src={src} alt={rawAttributes} />
+        <img src={src} alt={rawAttributes} style={{ maxWidth: "100%", overflow: "hidden" }} />
       </div>
     );
   }
