@@ -58,3 +58,13 @@
   background-position: -96px;
   margin: 6px 0;
 }
+
+
+.item-container.small {
+display: inline-block;
+  width: 26px;
+  height: 26px;
+  background-size: 144px;
+  background-position: -48px;
+  margin: 3px 0;
+}

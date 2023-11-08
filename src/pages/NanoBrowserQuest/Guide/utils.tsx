@@ -401,3 +401,257 @@ const getPartyBonus = function (rawBonus: number[], level: number) {
 
   return bonus;
 };
+
+export const runeKind = {
+  sat: {
+    rank: 1,
+    requirement: 1,
+    attribute: {
+      health: 10,
+    },
+  },
+  al: {
+    rank: 2,
+    requirement: 2,
+    attribute: {
+      minDamage: 4,
+    },
+  },
+  bul: {
+    rank: 3,
+    requirement: 3,
+    attribute: {
+      maxDamage: 4,
+    },
+  },
+  nan: {
+    rank: 4,
+    requirement: 4,
+    attribute: {
+      magicDamage: 4,
+    },
+  },
+  mir: {
+    rank: 5,
+    requirement: 6,
+    attribute: {
+      attackDamage: 4,
+    },
+  },
+  gel: {
+    rank: 6,
+    requirement: 8,
+    attribute: {
+      absorbedDamage: 4,
+    },
+  },
+  do: {
+    rank: 7,
+    requirement: 10,
+    attribute: {
+      defense: 4,
+    },
+  },
+  ban: {
+    rank: 8,
+    requirement: 12,
+    attribute: {
+      exp: 4,
+    },
+  },
+  vie: {
+    rank: 9,
+    requirement: 14,
+    attribute: {
+      regenerateHealth: 10,
+    },
+  },
+  um: {
+    rank: 10,
+    requirement: 16,
+    attribute: {
+      flameDamage: 10,
+    },
+  },
+  hex: {
+    rank: 11,
+    requirement: 18,
+    attribute: {
+      lightningDamage: 5,
+    },
+  },
+  zal: {
+    rank: 12,
+    requirement: 20,
+    attribute: {
+      pierceDamage: 5,
+    },
+  },
+  sol: {
+    rank: 13,
+    requirement: 22,
+    attribute: {
+      reduceFrozenChance: 5,
+    },
+  },
+  eth: {
+    rank: 14,
+    requirement: 24,
+    attribute: {
+      poisonDamage: 10,
+    },
+  },
+  btc: {
+    rank: 15,
+    requirement: 26,
+    attribute: {
+      magicResistance: 10,
+    },
+  },
+  vax: {
+    rank: 16,
+    requirement: 28,
+    attribute: {
+      flameResistance: 10,
+    },
+  },
+  por: {
+    rank: 17,
+    requirement: 30,
+    attribute: {
+      lightningResistance: 10,
+    },
+  },
+  las: {
+    rank: 18,
+    requirement: 32,
+    attribute: {
+      coldResistance: 10,
+    },
+  },
+  dur: {
+    rank: 19,
+    requirement: 34,
+    attribute: {
+      allResistance: 4,
+    },
+  },
+  fal: {
+    rank: 20,
+    requirement: 36,
+    attribute: {
+      magicDamagePercent: 8,
+    },
+  },
+  kul: {
+    rank: 21,
+    requirement: 38,
+    attribute: {
+      lightningDamagePercent: 8,
+    },
+  },
+  mer: {
+    rank: 22,
+    requirement: 41,
+    attribute: {
+      flameDamagePercent: 8,
+    },
+  },
+  qua: {
+    rank: 23,
+    requirement: 44,
+    attribute: {
+      coldDamagePercent: 8,
+    },
+  },
+  gul: {
+    rank: 24,
+    requirement: 47,
+    attribute: {
+      poisonDamagePercent: 8,
+    },
+  },
+  ber: {
+    rank: 25,
+    requirement: 50,
+    attribute: {
+      skillTimeout: 6,
+    },
+  },
+  cham: {
+    rank: 26,
+    requirement: 53,
+    attribute: {
+      poisonResistance: 10,
+    },
+  },
+  tor: {
+    rank: 27,
+    requirement: 56,
+    attribute: {
+      coldDamage: 10,
+      freezeChance: 5,
+    },
+  },
+  xno: {
+    rank: 28,
+    requirement: 59,
+    attribute: {
+      attackSpeed: 10,
+    },
+  },
+  jah: {
+    rank: 29,
+    requirement: 62,
+    attribute: {
+      magicFind: 6,
+    },
+  },
+  shi: {
+    rank: 30,
+    requirement: 65,
+    attribute: {
+      allResistance: 8,
+    },
+  },
+  vod: {
+    rank: 31,
+    requirement: 68,
+    attribute: {
+      regenerateHealth: 10,
+      preventRegenerateHealth: 10,
+    },
+  },
+};
+
+export const getItemClassFromBaseLevel = (level: number, baseLevel?: number) => {
+
+  if (!baseLevel) {
+    baseLevel =Number(level)
+  }
+  let itemClass;
+  if (baseLevel < 5) {
+    if (!level || level <= 5) {
+      itemClass = "low";
+    } else if (level <= 8) {
+      itemClass = "medium";
+    } else {
+      itemClass = "high";
+    }
+  } else if (baseLevel < 10) {
+    if (!level || level <= 5) {
+      itemClass = "medium";
+    } else {
+      itemClass = "high";
+    }
+  } else if (baseLevel >= 10 && baseLevel < 48) {
+    itemClass = "high";
+    if (level >= 8) {
+      itemClass = "legendary";
+    }
+  } else if (baseLevel >= 48) {
+    itemClass = "legendary";
+  }
+
+  return itemClass;
+};
