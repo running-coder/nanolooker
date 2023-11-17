@@ -516,24 +516,24 @@ Auras are special animations that are displayed around your player when you are 
 
 Your character will receive bonuses by wearing all set items
 
-| Items                               | Name        | Bonus                                                                                                     |
-| :---------------------------------- | :---------- | :-------------------------------------------------------------------------------------------------------- |
-| armor, belt                         | Leather     | 3 max damage, 15 hp                                                                                       |
-| armor, belt                         | Plated      | 4 attack, 4 defense                                                                                       |
-| armor, weapon, shield               | Ruby        | 4 attack, 30 hp                                                                                           |
-| armor, weapon, shield               | Golden      | 10 magic damage, 6% critical hit, 10 defense                                                              |
-| armor, belt, weapon, shield         | Frozen      | 10 attack, 10 absorb, 10 cold damage                                                                      |
-| armor, belt, shield                 | Horned      | 6 min damage, 6 max damage, 6 attack                                                                      |
-| armor, belt, weapon, shield         | Sapphire    | 10 min damage, 3% critical hit, 15 defense                                                                |
-| armor, belt, weapon, shield         | Diamond     | 10% exp, 3% block chance, 60 hp                                                                           |
-| belt, ring, weapon                  | Minotaur    | 15 min damage, 10 defense, 15 cold damage, 25% Reduced chance of being frozen                             |
-| armor, belt, weapon, shield         | Emerald     | 15 attack damage, 10 defense, 20 poison damage, 15 all resistance                                         |
-| belt, weapon, shield                | Executioner | 20 attack damage, 40 max damage, 15 exp, 10 all resistance                                                |
-| armor, belt, weapon, shield         | Templar     | 20 min damage, 10 attack damage, 50 health, 25 defense, 15 all resistance                                 |
-| armor, weapon, shield               | Dragon      | 15 min damage, 25 attack damage, 20 defense, 50 flame resistance                                          |
-| armor, belt, weapon, shield, amulet | Moon        | 12 defense, 25 pierce damage,120 health, 12 all resistance, 20 skill timeout, 20 attack speed             |
-| armor, belt, weapon, shield         | Demon       | 40 flame damage, 18 drain life, 30 lightning resistance, 50 flame resistance, 120 health, 20 attack speed |
-| armor, belt, weapon, shield         | Mystical    | 15 defense, 15 attack damage, 20 magic damage, 20 poison damage, 12 all resistance, 20 magic find         |
+| Items                                     | Name        | Bonus                                                                                                                              |
+| :----------------------------------       | :---------- | :----------------------------------------------------------------------------------------------------------------------------------|
+| armor, belt                               | Leather     | 3 max damage, 15 hp                                                                                                                |
+| armor, belt                               | Plated      | 4 attack, 4 defense                                                                                                                |
+| armor, weapon, shield                     | Ruby        | 4 attack, 30 hp                                                                                                                    |
+| armor, weapon, shield                     | Golden      | 10 magic damage, 6% critical hit, 10 defense                                                                                       |
+| armor, belt, weapon, shield               | Frozen      | 10 attack, 10 absorb, 10 cold damage                                                                                               |
+| armor, belt, shield                       | Horned      | 6 min damage, 6 max damage, 6 attack                                                                                               |
+| armor, belt, weapon, shield               | Sapphire    | 10 min damage, 3% critical hit, 15 defense                                                                                         |
+| armor, belt, weapon, shield               | Diamond     | 10% exp, 3% block chance, 60 hp                                                                                                    |
+| belt, ring, weapon                        | Minotaur    | 15 min damage, 10 defense, 15 cold damage, 25% Reduced chance of being frozen                                                      |
+| armor, belt, weapon, shield, helm         | Emerald     | 15 attack damage, 10 defense, 20 poison damage, 15 all resistance                                                                  |
+| belt, weapon, shield, helm                | Executioner | 20 attack damage, 40 max damage, 15 exp, 10 all resistance                                                                         | 
+| armor, belt, weapon, shield, helm         | Templar     | 20 min damage, 10 attack damage, 50 health, 25 defense, 15 all resistance                                                          |
+| armor, weapon, shield, helm, amulet, pet  | Dragon      | 25 min damage, 25 attack damage, 25 defense, 50 flame resistance, magic resistance 35, 150 health, flame damage 50, attack speed 15|
+| armor, belt, weapon, shield, helm, amulet | Moon        | 10 min damage, 10 defense, 25 pierce damage, 120 health, 10% experience, 12 all resistance, 20 skill timeout, 20 attack speed      |
+| armor, belt, weapon, shield, helm, amulet | Demon       | 10 min damage, 40 flame damage, 16 drain life, 30 lightning resistance, 50 flame resistance, 120 health, 20 attack speed           |
+| armor, belt, weapon, shield, helm, ring   | Mystical    | 15 defense, 15 attack damage, 20 magic damage, 8% experience, 20 poison damage, 12 all resistance, 20 magic find                   |
 
 # Runes
 
