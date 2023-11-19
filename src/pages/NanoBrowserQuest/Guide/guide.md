@@ -8,6 +8,7 @@
 1. [Waypoint](#waypoint)
 1. [Gold System](#gold-system)
 1. [Expansions](#expansions)
+1. [Secret Level](#secret-level)
 1. [Aim of the game](#aim-of-the-game)
 1. [Item Guide](#nano-browserquest-item-guide)
    1. [Attributes explained](#attributes-explained)
@@ -48,6 +49,19 @@ Since it's inception Nano BrowserQuest has been developed into a more complete e
 
 The expansion is for free now and it extends the game significantly. It features an all new map with a winter theme, including new enemies and two new bosses to defeat. There is also a bonus map with it's own boss, and recently a brand new "mega-boss". Beyond this a copious amount of new items and upgrades are available with cool animations and hidden attributes making the player ready to take on the more hardcore challenges present in new stages of the game.
 
+
+## Secret Level
+[Feb 5, 2022](https://medium.com/@running-coder/nanobrowserquest-secret-level-89bcedf1fd16)
+
+![Secret Level](https://miro.medium.com/v2/format:webp/1*tZW26Kdu2og_9aFfZUk_3g.png?width=400px)
+
+Bonus Level Included in the Freezing Lands expansion, this secret level requires level 45 to enter and is opened by **three** ingredients mixed in the anvil to create the red portal.
+![Cow Portal](https://cdn.discordapp.com/emojis/1170754976591646740.gif?size=100&quality=lossless)
+![{"name": "Wirt's leg", "level": 1, "itemClass": "low", "damage": 2, "magicDamage": 1, "requirement": 1}](https://nanobrowserquest.com/img/3/item-wirtleg.png)
+![{"name": "Skeleton King's Thoracic Cage", "description": "The thoracic cage of the Skeleton King. An unknown magic is still being emitted from the remains. Combined with other ingredients at the anvil, it will open a secret area, lv.45 required to enter" }](https://nanobrowserquest.com/img/3/item-skeletonkingcage.png)
+![{"name": "Necromancer's Heart", "description": "The heart of the Necromancer. An unknown magic is still being emitted from the remains. . Combined with other ingredients at the anvil, it will open a secret area, lv.45 required to enter" }](https://nanobrowserquest.com/img/3/item-necromancerheart.png)
+
+
 ## The Lost Temple Released on [Mar 30 2023](https://running-coder.medium.com/ba-nanobrowserquest-the-lost-temple-expansion-9339c1d29268)
 
 ![The Lost Temple](https://user-images.githubusercontent.com/19352322/231320692-412809fe-9e32-4466-bc27-bbb4473336da.png)
@@ -63,7 +77,7 @@ depending on what version of the game you're in.
 
 # Waypoint
 
-![Waypoints Panel](https://github.com/running-coder/nanolooker/assets/19352322/fe61b4c1-2908-42ee-8b03-acc0162650d1?width=450px&display=inline-block)![Waypoint](https://github.com/running-coder/nanolooker/assets/19352322/f798ac89-5b9f-4fda-8816-24397a143125?width=200px%&display=inline-block)
+![Waypoints Panel](https://github.com/running-coder/nanolooker/assets/19352322/fe61b4c1-2908-42ee-8b03-acc0162650d1?width=450px&display=inline-block)![Waypoint](https://github.com/running-coder/nanolooker/assets/19352322/f798ac89-5b9f-4fda-8816-24397a143125?width=200px&display=inline-block)
 
 The waypoints are used for fast map traveling. Some are locked, but once you find and click them, they'll unlock. The first three waypoints are used to travel the 'Classic' map. The Skeleton King is located north in the Volcanic Mountain. Once the boss is killed, the next three waypoints for the 'Freezing Lands' expansion will unlock for free. After you beat the Necromancer, to unlock the 'Woodlands Lost Temple' expansion waypoint, you'll have to purchase the expansion from the red sorcerer in town for XNO/BAN.
 
@@ -71,7 +85,8 @@ The waypoints are used for fast map traveling. Some are locked, but once you fin
 
 ## Released on [Apr 25 2023](https://running-coder.medium.com/ba-nanobrowserquest-gold-system-1b603de7162e)
 
-![{"name": "Gold"}](https://nanobrowserquest.com/img/3/item-gold3.png)
+
+![{"name": "Gold"}](https://nanobrowserquest.com/img/3/item-gold-3.png)
 In-game gold can be obtained from any mobs and is used for trading items with other players. Join the [Discord #price-discussion channel](https://discord.gg/n2nEBVZrjE) for more information. The harder or higher-level the mob, the more gold it can drop. You can also increase the gold dropped from mobs using items with the **+#% Extra Gold from Enemies** stat, such as Goldwrap, Amulet of Greed, Ring of Greed, or various other items. When you loot gold, it is added to your inventory. However, if you don't store it in your personal Stash and you die, you'll lose half as a death penalty, and that gold will go to Janet Yellen's bank to pay for the redeemed IOUs. If the gold is in your personal Stash, you won't lose any upon death, so be sure to return to town and stash your gold periodically.
 
 ## Aim of the game
@@ -463,6 +478,7 @@ These items are used to upgrade the items found in NBQ. It is done by putting th
 | ![{"name": "Firefox Potion", "description": "Restores health to player by 40 hp" }](https://nanobrowserquest.com/img/3/item-firefoxpotion.png)                                                                                                                                                                                    | Firefox Potion                | Restore player health to 100% and grands the player temporary immortality                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | ![{"name": "Wirt's leg", "level": 1, "itemClass": "low", "damage": 2, "magicDamage": 1, "requirement": 1}](https://nanobrowserquest.com/img/3/item-wirtleg.png)                                                                                                                                                                   | Wirt's Leg                    | A low-level weapon with a secret special ability. Opening the secret level with a unique Wirt's Leg guarantees a 100% drop rate of the Cow King's Horn item from the Cow King.                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | ![{"name": "Skeleton King's Thoracic Cage", "description": "The thoracic cage of the Skeleton King. An unknown magic is still being emitted from the remains. Combined with other ingredients at the anvil, it will open a secret area, lv.45 required to enter" }](https://nanobrowserquest.com/img/3/item-skeletonkingcage.png) | Skeleton King's Thoracic Cage | The thoracic cage of the Skeleton King. An unknown magic is still being emitted from the remains. Combined with other ingredients at the anvil, it will open a secret area, lv.45 required to enter properties                                                                                                                                                                                                                                                                                                                                                                                          |
+
 | ![{"name": "NFT", "description": "An exceptional Non-Fungible Token artifact, return it to Alkor to get a reward." }](https://nanobrowserquest.com/img/3/item-nft.png)                                                                                                                                                            | NFT                           | An exceptional Non-Fungible Token artifact, return it to Alkor to get a reward.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | ![{"name": "Wing", "description": "The remnants of a dragon's wing., return it to Olaf to get a reward." }](https://nanobrowserquest.com/img/3/item-wing.png)                                                                                                                                                                     | Wing                          | The remnants of a dragon's wing.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ![{"name": "Crystal", "description": "An ancient and powerful crystal., return it to Viktor to get a reward." }](https://nanobrowserquest.com/img/3/item-crystal.png)                                                                                                                                                             | Crystal                       | An ancient and powerful crystal.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
@@ -476,7 +492,9 @@ These items are used to upgrade the items found in NBQ. It is done by putting th
 | ![{"name": "Socket Stone", "itemClass": "legendary", "description": "Creates a random number of sockets in a non-socketed item." }](https://nanobrowserquest.com/img/3/item-stonesocket.png)                                                                                                                                      | Socket Stone                  | Can be used to create more sockets on items that have this possibility (Weapons, Armors, Helms and shields). Can also be used to remove items already put into sockets. This comes with a 50% chance of getting the socketed item back but no risk of burning the base item. Any number of sockets can be created. Chance is random, higher socket numbers being less likely. Once an item has 3 or more sockets (4 on unique items), the stones will no longer work. At this point the player will have to use a Transmute Scroll with 25% risk or Blessed Transmute with 1% risk of burning the item. |
 | ![{"name": "Pickaxe", "description": "This tool is used for digging." }](https://nanobrowserquest.com/img/3/item-pickaxe.png)                                                                                                                                                                                                     | Pickaxe                       | Drops from the Templar Skeletons. Has a secret purpose.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ![{"name": "Soul Stone", "description": "This mysterious gem holds the soul of a hundred warriors." }](https://nanobrowserquest.com/img/3/item-soulstone.png)                                                                                                                                                                     | Soul Stone                    | Mysterious gem, drops from the Butcher goes to the player who used their quantum powder to open the gateway                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ![{"name": "Gold", "description": "Used to trade with the merchant or other players" }](https://nanobrowserquest.com/img/3/item-gold3.png)                                                                                                                                                                                        | Gold                          | Used to trade with the merchant or other players                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+
+| ![{"name": "Gold", "description": "Used to trade with the merchant or other players" }](https://nanobrowserquest.com/img/3/item-gold-3.png)                                                                                                                                                                                        | Gold                          | Used to trade with the merchant or other players                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+
 | ![{"name": "Poison Powder", "description": "A special kind of powder" }](https://nanobrowserquest.com/img/3/item-powdergreen.png)                                                                                                                                                                                                 | Poison Powder                 | A special kind of powder, dropped by poison rats                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ![{"name": "Illusion Powder", "description": "A special kind of powder" }](https://nanobrowserquest.com/img/3/item-powderblue.png)                                                                                                                                                                                                | Illusion Powder               | A special kind of powder, dropped by Bonecrusader                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ![{"name": "Soul Powder", "description": "A special kind of powder" }](https://nanobrowserquest.com/img/3/item-powderblack.png)                                                                                                                                                                                                   | Soul Powder                   | A special kind of powder, dropped by Boneshard                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
@@ -679,6 +697,7 @@ There are the following party commands as well for those who prefer to use the c
 ```
 
 # Trading Items
+## [Sep 30, 2022](https://medium.com/@running-coder/ba-nanobrowserquest-free-expansion-players-guide-trade-system-fa77cb60f98f)
 
 To trade Items between players a player must have defeated the skelleton king.
 You can only trade in the town/village with a player that is less than 3 tiles away from you.
@@ -702,6 +721,34 @@ Make sure to join the Nano Browserquest discord to trade your items:
 2. Use items strategically. If facing a strong enemy or several weaker ones it is a good idea to equip items with defensive attributes. Sometimes attack can be the best defense, in particualr when dealing with several smaller enemies as the faster you take them out, the less damage is inflicted on you as they die. Items with randomized attributes can be switched to fill the needs of a specific situation. When dealing with one strong enemy that takes a long time to kill and also might be strong enough to kill the player/players, aim for defensive stats.
 
 3. For dedicated farmers looking for rare items, a good strategy is to equip damage mods and find the weakest enemy that drops the desired item. Look for places where there are many of them, make sure that you are strong enough to survive a large amount of said enemies with attack-focused items, and finally run into them and kill them as fast as possible. Remember to pick up all dropped loot to see if there is anything good in your inventory. The Lightning damage attribute is excellent for this type of farming as it deals damage consistently to everything around you.
+
+# Player base stats per lvl
+
+When leveling up, your character gets stronger (the higher your level, the more bonus stats (Attack, Defense, HP) you get):
+
+- **Attack:** min and max dmg scales with the player level
+
+```javascript
+// Attack calculations
+let minAttack =
+  baseDamage + minDamage + Math.round(Math.pow(0.7, Math.floor(playerLevel / 10)) * playerLevel);
+let maxAttack =
+  baseDamage + maxDamage + Math.round(Math.pow(1.075, Math.floor(playerLevel / 10)) * playerLevel);
+```
+
+- **Defense:** scales with the player level
+
+```javascript
+// Defense calculations
+let defense = baseDefense + Math.round(Math.pow(1.05, Math.floor(playerLevel / 10)) * playerLevel);
+```
+
+- **HP:** scales with the player level
+
+```javascript
+// HP calculations
+let hp = baseHP(80) + 6 * playerLevel;
+```
 
 # Player base stats per lvl
 

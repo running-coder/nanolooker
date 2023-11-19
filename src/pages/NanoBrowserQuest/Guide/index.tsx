@@ -110,9 +110,10 @@ const Image: React.FC<HTMLImageElement> = ({ src, alt: rawAttributes }) => {
     );
     // @NOTE non-item* images?
   } else {
-    const parsedQuery = qs.parse(src.split("?")[1], { ignoreQueryPrefix: true });
 
-    console.log("~~~~parsedQuery", parsedQuery);
+    const rawParsedQuery = qs.parse(src.split("?")[1], { ignoreQueryPrefix: true });
+
+    const parsedQuery = Object.assign(rawParsedQuery, { maxWidth: "100%", overflow: "hidden" });
 
     return (
       <div style={{ padding: "6px", display: "inline-block" }}>
