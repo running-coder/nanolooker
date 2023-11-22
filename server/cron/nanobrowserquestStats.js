@@ -105,3 +105,7 @@ cron.schedule("*/5 * * * * *", async () => {
 cron.schedule("*/15 * * * *", async () => {
   getNanoBrowserQuestLeaderboard();
 });
+
+if (!nodeCache.get(NANOBROWSERQUEST_LEADERBOARD)){
+  getNanoBrowserQuestLeaderboard();
+}
