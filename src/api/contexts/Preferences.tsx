@@ -1,6 +1,7 @@
 import * as React from "react";
-import { toBoolean } from "components/utils";
+
 import { DEFAULT_UNITS } from "components/Preferences/FilterTransactions/utils";
+import { toBoolean } from "components/utils";
 
 export enum Theme {
   LIGHT = "light",
@@ -89,9 +90,7 @@ const MAX_CRYPTOCURRENCY: number = 10;
 const getCryptocurrency = (): string[] => {
   let preferences;
   try {
-    preferences = JSON.parse(
-      window.localStorage.getItem(LOCALSTORAGE_KEYS.CRYPTOCURRENCY) || "",
-    );
+    preferences = JSON.parse(window.localStorage.getItem(LOCALSTORAGE_KEYS.CRYPTOCURRENCY) || "");
   } catch (_e) {}
 
   return preferences || [];
@@ -101,9 +100,7 @@ export const getFilterTransactionsRange = (): [number, number] => {
   let preferences;
   try {
     preferences = JSON.parse(
-      window.localStorage.getItem(
-        LOCALSTORAGE_KEYS.FILTER_TRANSACTIONS_RANGE,
-      ) || "",
+      window.localStorage.getItem(LOCALSTORAGE_KEYS.FILTER_TRANSACTIONS_RANGE) || "",
     );
   } catch (_e) {}
 
@@ -146,13 +143,15 @@ export const PreferencesContext = React.createContext<Preferences>({
   setWebsocketDomain: () => {},
 });
 
-const Provider: React.FC = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const Provider: React.FC<Props> = ({ children }) => {
   const [theme, setTheme] = React.useState<Theme>(
     (localStorage.getItem(LOCALSTORAGE_KEYS.THEME) as Theme) || Theme.LIGHT,
   );
-  const [cryptocurrency, setCryptocurrency] = React.useState<string[]>(
-    getCryptocurrency(),
-  );
+  const [cryptocurrency, setCryptocurrency] = React.useState<string[]>(getCryptocurrency());
   const [fiat, setFiat] = React.useState<Fiat>(
     (localStorage.getItem(LOCALSTORAGE_KEYS.FIAT) as Fiat) || Fiat.USD,
   );
@@ -162,13 +161,8 @@ const Provider: React.FC = ({ children }) => {
   const [filterTransactionsRange, setFilterTransactionsRange] = React.useState(
     getFilterTransactionsRange(),
   );
-  const [
-    disableLiveTransactions,
-    setDisableLiveTransactions,
-  ] = React.useState<boolean>(
-    toBoolean(
-      localStorage.getItem(LOCALSTORAGE_KEYS.DISABLE_LIVE_TRANSACTIONS),
-    ),
+  const [disableLiveTransactions, setDisableLiveTransactions] = React.useState<boolean>(
+    toBoolean(localStorage.getItem(LOCALSTORAGE_KEYS.DISABLE_LIVE_TRANSACTIONS)),
   );
   const [natricons, setNatricons] = React.useState<boolean>(
     toBoolean(localStorage.getItem(LOCALSTORAGE_KEYS.NATRICONS)),
@@ -193,14 +187,9 @@ const Provider: React.FC = ({ children }) => {
     (value: string) => {
       if (cryptocurrency.includes(value)) return;
 
-      const newCryptocurrency = [value]
-        .concat(cryptocurrency)
-        .slice(0, MAX_CRYPTOCURRENCY);
+      const newCryptocurrency = [value].concat(cryptocurrency).slice(0, MAX_CRYPTOCURRENCY);
 
-      localStorage.setItem(
-        LOCALSTORAGE_KEYS.CRYPTOCURRENCY,
-        JSON.stringify(newCryptocurrency),
-      );
+      localStorage.setItem(LOCALSTORAGE_KEYS.CRYPTOCURRENCY, JSON.stringify(newCryptocurrency));
 
       setCryptocurrency(newCryptocurrency);
     },
@@ -210,10 +199,7 @@ const Provider: React.FC = ({ children }) => {
   const removeCryptocurrency = React.useCallback(
     (value: string) => {
       const newCryptocurrency = cryptocurrency.filter(h => h !== value);
-      localStorage.setItem(
-        LOCALSTORAGE_KEYS.CRYPTOCURRENCY,
-        JSON.stringify(newCryptocurrency),
-      );
+      localStorage.setItem(LOCALSTORAGE_KEYS.CRYPTOCURRENCY, JSON.stringify(newCryptocurrency));
 
       setCryptocurrency(newCryptocurrency);
     },
@@ -221,10 +207,7 @@ const Provider: React.FC = ({ children }) => {
   );
 
   const reorderCryptocurrency = (newOrder: string[]) => {
-    localStorage.setItem(
-      LOCALSTORAGE_KEYS.CRYPTOCURRENCY,
-      JSON.stringify(newOrder),
-    );
+    localStorage.setItem(LOCALSTORAGE_KEYS.CRYPTOCURRENCY, JSON.stringify(newOrder));
 
     setCryptocurrency(newOrder);
   };
@@ -244,21 +227,13 @@ const Provider: React.FC = ({ children }) => {
     setFilterTransactions(newValue);
   };
 
-  const setLocalstorageFilterTransactionsRange = (
-    newValue: [number, number],
-  ) => {
-    localStorage.setItem(
-      LOCALSTORAGE_KEYS.FILTER_TRANSACTIONS_RANGE,
-      JSON.stringify(newValue),
-    );
+  const setLocalstorageFilterTransactionsRange = (newValue: [number, number]) => {
+    localStorage.setItem(LOCALSTORAGE_KEYS.FILTER_TRANSACTIONS_RANGE, JSON.stringify(newValue));
     setFilterTransactionsRange(newValue);
   };
 
   const setLocalstorageDisableLiveTransactions = (newValue: boolean) => {
-    localStorage.setItem(
-      LOCALSTORAGE_KEYS.DISABLE_LIVE_TRANSACTIONS,
-      `${newValue}`,
-    );
+    localStorage.setItem(LOCALSTORAGE_KEYS.DISABLE_LIVE_TRANSACTIONS, `${newValue}`);
     setDisableLiveTransactions(newValue);
   };
 

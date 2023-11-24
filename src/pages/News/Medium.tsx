@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+
 import { Card, Typography } from "antd";
 import moment from "moment";
 
@@ -15,17 +16,9 @@ interface Props {
 const Medium: React.FC<Props> = ({ post }) => {
   const { t } = useTranslation();
 
-  const {
-    title,
-    pubDate,
-    author,
-    link,
-    thumbnail = "",
-    descriptionShort,
-  } = post;
+  const { title, pubDate, author, link, thumbnail = "", descriptionShort } = post;
   const hasThumbnail =
-    /.+?\.(jpe?g|png|gif)$/.test(thumbnail) ||
-    thumbnail.startsWith("https://cdn-images");
+    /.+?\.(jpe?g|png|gif)$/.test(thumbnail) || thumbnail.startsWith("https://cdn-images");
 
   return (
     <Card
@@ -38,9 +31,7 @@ const Medium: React.FC<Props> = ({ post }) => {
               <img src={thumbnail} alt={title} width="100%" />
             </a>
           ) : null}
-          {!hasThumbnail ? (
-            <img alt="Nano news" src="/nano-background.png" width="100%" />
-          ) : null}
+          {!hasThumbnail ? <img alt="Nano news" src="/nano-background.png" width="100%" /> : null}
         </>
       }
     >
@@ -48,11 +39,7 @@ const Medium: React.FC<Props> = ({ post }) => {
         title={title}
         description={
           <>
-            <Text
-              style={{ color: "#000000d9", display: "block", marginBottom: 6 }}
-            >
-              {descriptionShort}
-            </Text>
+            <Text style={{ display: "block", marginBottom: 6 }}>{descriptionShort}</Text>
             <div
               style={{
                 display: "flex",

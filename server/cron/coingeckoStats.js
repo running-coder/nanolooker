@@ -1,4 +1,3 @@
-const MongoClient = require("mongodb").MongoClient;
 const { promises, existsSync } = require("fs");
 const fse = require("fs-extra");
 const { join } = require("path");
@@ -7,10 +6,8 @@ const cron = require("node-cron");
 const BigNumber = require("bignumber.js");
 const { Sentry } = require("../sentry");
 const { nodeCache } = require("../client/cache");
+const db = require("../client/mongo");
 const {
-  MONGO_URL,
-  MONGO_OPTIONS,
-  MONGO_DB,
   COINGECKO_MARKET_STATS,
   COINGECKO_MARKET_CAP_STATS,
   COINGECKO_ALL_PRICE_STATS,
@@ -31,30 +28,6 @@ function sleep(ms) {
 const PUBLIC_ROOT_PATH = join(__dirname, "..", "..");
 const LOGO_PATH = join(PUBLIC_ROOT_PATH, "public/cryptocurrencies/logo");
 const DIST_LOGO_PATH = join(PUBLIC_ROOT_PATH, "dist/cryptocurrencies/logo");
-
-let db;
-let mongoClient;
-
-const connect = async () =>
-  await new Promise((resolve, reject) => {
-    try {
-      MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (err, client) => {
-        if (err) {
-          throw err;
-        }
-        mongoClient = client;
-        db = client.db(MONGO_DB);
-        db.collection(MARKET_CAP_STATS_COLLECTION).createIndex({
-          createdAt: 1,
-        });
-        resolve();
-      });
-    } catch (err) {
-      console.log("Error", err);
-      Sentry.captureException(err);
-      reject();
-    }
-  });
 
 const getPriceStats = async fiats => {
   let res;
@@ -114,139 +87,156 @@ const getMarketStats = async fiats => {
       };
 
       nodeCache.set(`${COINGECKO_MARKET_STATS}-${fiat}`, marketStats);
+
+      await sleep(20000);
     }
   } catch (err) {
-    console.log("Error", err);
-    Sentry.captureException(err, { extra: { res } });
+    // rate limited
+    // Sentry.captureException(err, { extra: { res } });
   }
 };
 
 const getMarketCapStats = async () => {
-  await connect();
   await mkdir(LOGO_PATH, { recursive: true });
 
-  const marketCapStats = [];
   const ids = [];
-  const top = process.env.NODE_ENV === "production" ? 100 : 10;
+  const top = process.env.NODE_ENV === "production" ? 200 : 10;
 
   try {
+    const database = await db.getDatabase();
+
+    if (!database) {
+      throw new Error("Mongo unavailable for getMarketCapStats");
+    }
+
     let res = await fetch(
       `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${top}&page=1&sparkline=false&market_data=false`,
     );
 
     const cryptocurrencies = await res.json();
 
-    // If nano is excluded from the top X, still include it to be requested
-    if (!cryptocurrencies.find(({ id }) => id === "nano")) {
-      cryptocurrencies.push({ id: "nano", symbol: "xno", name: "Nano" });
-    }
+    if (cryptocurrencies.length) {
+      // If nano is excluded from the top X, still include it to be requested
+      if (!cryptocurrencies.find(({ id }) => id === "nano")) {
+        cryptocurrencies.push({ id: "nano", symbol: "xno", name: "Nano" });
+      }
 
-    for (let i = 0; i < cryptocurrencies.length; i++) {
-      const { id, symbol, name } = cryptocurrencies[i];
+      for (let i = 0; i < cryptocurrencies.length; i++) {
+        const { id, symbol, name } = cryptocurrencies[i];
 
-      ids.push(id);
-      res = await fetch(
-        `https://api.coingecko.com/api/v3/coins/${id}?tickers=false&sparkline=false`,
-      );
-
-      try {
-        const {
-          market_data: {
-            market_cap: { usd: marketCap },
-          },
-          market_cap_rank: marketCapRank,
-          image: { small: image },
-          fully_diluted_valuation: fullyDilutedValuation,
-          community_data: {
-            twitter_followers: twitterFollowers,
-            reddit_subscribers: redditSubscribers,
-          },
-          developer_data: { stars: githubStars },
-        } = await res.json();
-
-        const cryptocurrency = {
-          id,
-          symbol,
-          name,
-          image,
-          marketCap,
-          marketCapRank,
-          fullyDilutedValuation,
-          twitterFollowers,
-          redditSubscribers,
-          githubStars,
-          twitterFollowersPerBillion: twitterFollowers
-            ? new BigNumber(1_000_000_000)
-                .times(twitterFollowers)
-                .dividedBy(marketCap)
-                .integerValue()
-                .toNumber()
-            : null,
-          redditSubscribersPerBillion: redditSubscribers
-            ? new BigNumber(1_000_000_000)
-                .times(redditSubscribers)
-                .dividedBy(marketCap)
-                .integerValue()
-                .toNumber()
-            : null,
-          githubStarsPerBillion: githubStars
-            ? new BigNumber(1_000_000_000)
-                .times(githubStars)
-                .dividedBy(marketCap)
-                .integerValue()
-                .toNumber()
-            : null,
-        };
-
-        marketCapStats.push(cryptocurrency);
-        await db.collection(MARKET_CAP_STATS_COLLECTION).findOneAndUpdate(
-          {
-            id,
-          },
-          {
-            $set: cryptocurrency,
-          },
-          { upsert: true },
+        ids.push(id);
+        res = await fetch(
+          `https://api.coingecko.com/api/v3/coins/${id}?tickers=false&sparkline=false`,
         );
 
         try {
-          const logoPath = join(LOGO_PATH, `${symbol}.png`);
+          const json = await res.json();
 
-          if (!existsSync(logoPath)) {
-            const response = await fetch(image);
-            const buffer = await response.buffer();
-            writeFile(logoPath, buffer);
+          if (json.status && json.status.error_code) {
+            throw new Error("Rate limited");
           }
-        } catch (err) {
-          console.error(err);
+
+          const {
+            market_data: {
+              market_cap: { usd: marketCap },
+            },
+            market_cap_rank: marketCapRank,
+            image: { small: image },
+            fully_diluted_valuation: fullyDilutedValuation,
+            community_data: {
+              twitter_followers: twitterFollowers,
+              reddit_subscribers: redditSubscribers,
+            },
+            developer_data: { stars: githubStars },
+          } = json;
+
+          const cryptocurrency = {
+            id,
+            symbol,
+            name,
+            image,
+            marketCap,
+            marketCapRank,
+            fullyDilutedValuation,
+            twitterFollowers,
+            redditSubscribers,
+            githubStars,
+            twitterFollowersPerBillion: twitterFollowers
+              ? new BigNumber(1_000_000_000)
+                  .times(twitterFollowers)
+                  .dividedBy(marketCap)
+                  .integerValue()
+                  .toNumber()
+              : null,
+            redditSubscribersPerBillion: redditSubscribers
+              ? new BigNumber(1_000_000_000)
+                  .times(redditSubscribers)
+                  .dividedBy(marketCap)
+                  .integerValue()
+                  .toNumber()
+              : null,
+            githubStarsPerBillion: githubStars
+              ? new BigNumber(1_000_000_000)
+                  .times(githubStars)
+                  .dividedBy(marketCap)
+                  .integerValue()
+                  .toNumber()
+              : null,
+          };
+
+          await database.collection(MARKET_CAP_STATS_COLLECTION).findOneAndUpdate(
+            {
+              id,
+            },
+            {
+              $set: cryptocurrency,
+            },
+            { upsert: true },
+          );
+
+          try {
+            const logoPath = join(LOGO_PATH, `${symbol}.png`);
+
+            if (!existsSync(logoPath)) {
+              const response = await fetch(image);
+              const buffer = await response.buffer();
+              writeFile(logoPath, buffer);
+            }
+          } catch (err) {
+            console.error(err);
+          }
+
+          console.log(`Fetched ${i}: ${id}`);
+        } catch (err1) {
+          console.log(`Err Fetching ${i}: ${id}`, err1);
         }
 
-        console.log(`Fetched ${i}: ${id}`);
-      } catch (err1) {
-        console.log(`Err Fetching ${i}: ${id}`, err1);
-        Sentry.captureException(err1);
+        // CoinGecko rate limit is 10 calls per seconds
+        if (i && !(i % 10)) {
+          await sleep(25000);
+        } else {
+          await sleep(process.env.NODE_ENV === "production" ? 15000 : 150);
+        }
       }
 
-      // CoinGecko rate limit is 10 calls per seconds
-      if (i && !(i % 10)) {
-        await sleep(10000);
-      } else {
-        await sleep(process.env.NODE_ENV === "production" ? 2000 : 150);
-      }
+      // Delete entries that are gone from the top 150
+      await database.collection(MARKET_CAP_STATS_COLLECTION).deleteMany({
+        id: { $nin: ids },
+      });
+    } else {
+      console.log(`Failed to get top ${top} cryptocurrencies`, cryptocurrencies);
+      await sleep(10000);
+
+      getMarketCapStats();
+      return;
     }
 
-    // Delete entries that are gone from the top 150
-    await db.collection(MARKET_CAP_STATS_COLLECTION).deleteMany({
-      id: { $nin: ids },
-    });
-
-    mongoClient.close();
+    const marketCapStats = await database.collection(MARKET_CAP_STATS_COLLECTION).find().toArray();
 
     nodeCache.set(COINGECKO_MARKET_CAP_STATS, marketCapStats);
 
     fse.copy(LOGO_PATH, DIST_LOGO_PATH);
   } catch (err) {
-    console.log("Error", err);
     Sentry.captureException(err);
   }
 };
@@ -257,15 +247,15 @@ cron.schedule("0 1 * * *", async () => {
   getMarketCapStats();
 });
 
-// Every 30 seconds
-cron.schedule("*/30 * * * * *", async () => {
+// Every 2 minute
+cron.schedule("*/2 * * * *", async () => {
   getPriceStats(defaultFiats);
   getMarketStats(defaultFiats);
 });
 
-// https://crontab.guru/#*/2_*_*_*_*
-// At every 2nd minute.
-cron.schedule("*/2 * * * *", async () => {
+// https://crontab.guru/#*/10_*_*_*_*
+// At every 10nd minute.
+cron.schedule("*/10 * * * *", async () => {
   getPriceStats(secondaryFiats);
   getMarketStats(secondaryFiats);
 });

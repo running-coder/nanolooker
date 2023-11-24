@@ -1,8 +1,10 @@
 import * as React from "react";
-import i18next from "i18next";
 import { Trans, useTranslation } from "react-i18next";
+
 import { Col, Row, Select, Typography } from "antd";
+
 import { LOCALSTORAGE_KEYS } from "api/contexts/Preferences";
+import i18next from "i18next";
 
 const { Option } = Select;
 const { Text } = Typography;
@@ -22,10 +24,7 @@ const LanguagePreferences: React.FC<Props> = ({ isDetailed }) => {
       </Col>
       {isDetailed ? (
         <Col xs={16}>
-          <Trans
-            i18nKey="preferences.languageDetailed"
-            style={{ marginLeft: "12px" }}
-          >
+          <Trans i18nKey="preferences.languageDetailed" style={{ marginLeft: "12px" }}>
             <a
               href="https://github.com/running-coder/nanolooker/tree/master/src/i18n/locales"
               rel="noopener noreferrer"
@@ -37,11 +36,7 @@ const LanguagePreferences: React.FC<Props> = ({ isDetailed }) => {
         </Col>
       ) : null}
 
-      <Col
-        xs={isDetailed ? 8 : undefined}
-        style={{ textAlign: "right" }}
-        flex="auto"
-      >
+      <Col xs={isDetailed ? 8 : undefined} style={{ textAlign: "right" }} flex="auto">
         <Select
           value={i18next.language}
           onChange={value => {

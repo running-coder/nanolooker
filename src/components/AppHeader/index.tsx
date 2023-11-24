@@ -1,16 +1,14 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { Col, Layout, Menu, Row } from "antd";
-import {
-  ApartmentOutlined,
-  CalendarOutlined,
-  DatabaseOutlined,
-} from "@ant-design/icons";
 import { useHistory, useLocation } from "react-router-dom";
-import Search from "components/Search";
-import Price from "components/Price";
+
+import { ApartmentOutlined, CalendarOutlined, DatabaseOutlined } from "@ant-design/icons";
+import { Col, Layout, Menu, Row } from "antd";
+
 import Preferences from "components/Preferences";
+import Price from "components/Price";
+import Search from "components/Search";
 
 const { SubMenu } = Menu;
 const { Header } = Layout;
@@ -53,11 +51,7 @@ const AppHeader: React.FC = () => {
             </Link>
           </Col>
           <Col xs={{ span: 24, order: 3 }} md={{ span: 12, order: 2 }}>
-            <Menu
-              onClick={() => {}}
-              selectedKeys={[activeMenu]}
-              mode="horizontal"
-            >
+            <Menu onClick={() => {}} selectedKeys={[activeMenu]} mode="horizontal">
               <SubMenu
                 key="explore-submenu"
                 title={
@@ -119,6 +113,10 @@ const AppHeader: React.FC = () => {
                 <Menu.Item key="network-status">
                   {t("menu.networkStatus")}
                   <Link to="/network-status" />
+                </Menu.Item>
+                <Menu.Item key="node-monitors">
+                  {t("menu.nodeMonitors")}
+                  <Link to="/node-monitors" />
                 </Menu.Item>
               </SubMenu>
             </Menu>

@@ -42,7 +42,9 @@
     "statistics": "统计数据",
     "continue": "继续",
     "link": "关联",
-    "noData": "没有数据"
+    "noData": "没有数据",
+    "include": "包括",
+    "exclude": "排除"
   },
   "nodeHealth": {
     "nodeReloading": "纳米节点正在重新加载",
@@ -78,13 +80,13 @@
     "knownExchangeBalance": "从分布图中排除{{knownExchangeList}}。这些帐户合计持有{{knownExchangeBalance}} NANO",
     "unchecked": "Nano节点已下载但尚未处理的块（事务）。节点软件将未经检查的其他节点的所有块下载，对其进行处理并添加到块计数中，确认每个帐户的边界块，然后将其标记为固定。",
     "cemented": "通过将帐户的确认高度（在节点数据库中）设置为现在已确认交易的更高区块高度，当特定节点将已确认交易标记为本地不可逆时。固井是节点级别的操作。",
-    "unknownLastTransaction": "交易日期于2019年2月引入。在此日期之前，交易时间未在节点上本地记录。上次交易日期未知的原因是，该日期在记录日期之前或在NanoLooker节点投入使用之前已得到确认。",
+    "unknownTransactionDate": "交易日期于2019年2月引入。在此日期之前，交易时间未在节点上本地记录。上次交易日期未知的原因是，该日期在记录日期之前或在NanoLooker节点投入使用之前已得到确认。",
     "confirmationHeight": "存储在本地节点数据库中的数字，代表帐户链中已确认的最高（最新）区块。与块高有关（但不同于）。",
     "blockHeight": "一个局部整数值，表示帐户链中一个区块的顺序。例如，帐户中的第15个区块的区块高度为15。与确认高度相关（但不同于）。",
     "bookmarks": "{{type，capitalize}}书签已保存在您的设备上。您可以通过为它们命名为别名来管理已知的{{type}}。",
     "groupByEntities": "将划分为不同主要代表的所有投票权重新组合为一个实体。例如，一个交易所可以有多个钱包并分摊它们的重量，但实际上，如果要重新分组，则可以算作一个单独的重量。",
     "telemetry": "来自网络上其他节点的度量。收集所有度量并取平均值，以表示网络上的不同状态。 P对应于百分位数，p50通过排除不同值的下限50％而p95排除不同值的下限5％来计算平均值。",
-    "ledgerSize": "到现在为止，存储每个Nano事务所需的磁盘空间总量。分类帐大小是基于1024而不是1000计算的。",
+    "ledgerSize": "到现在为止，存储每个Nano事务所需的磁盘空间总量。",
     "bandwidthCap": "纳米节点能够调节其带宽，以限制可以发送或接收的消息量。 0表示无限带宽。",
     "uptime": "自上次重新引导节点以来的时间。",
     "mnano": "Nano是目前用于钱包，交易所和服务的标准部门。它被称为1 NANO。",
@@ -92,8 +94,12 @@
     "onChainVolume": "网络上已确认的所有 NANO 交易的总和。如果用户 A 发送 1 个 NANO，用户 B 在同一天收到 1 个 NANO，那么每天的交易量会增加 2 个 NANO，因为 2 个交易被广播和确认，一个发送和一个接收。",
     "pendingTransactionCount": "应收交易的数量超过了显示的{{count}} 限制。",
     "pendingTransaction": "资金已发送到此帐户，但所有者尚未将资金收入囊中。只有帐户的所有者才能将收到的交易写入他们的区块链。如果这是您的帐户，请解锁您的钱包，通常会自动广播接收块。",
-    "socialStatistics": "统计数据是使用 CoinGecko 按市值排名前 100 位的加密货币编制的。",
-    "dailyBalance": "交易图表仅在账户有超过 1 天的数据并且交易有时间戳时才可见"
+    "socialStatistics": "统计数据是使用 CoinGecko 按市值排名前 200 位的加密货币编制的。",
+    "dailyBalance": "交易图表仅在账户有超过 1 天的数据并且交易有时间戳时才可见",
+    "senderFilter": "过滤块以仅包含或排除来自特定地址的所有发送交易。要过滤多个地址，请用逗号分隔它们。",
+    "receiverFilter": "过滤块以仅包含或排除来自特定地址的所有发送交易。要过滤多个地址，请用逗号分隔它们。",
+    "filterTransactions": "只能过滤等于或少于 5,000 笔已确认交易的账户",
+    "averageTps": "在 {{date}}，以 {{bps}} BPS（每秒块）的速率广播了 {{block_count}} {{block_type}} 个块，以测量网络效率。网络在节点间达到了 {{cps_p90}} CPS（每秒确认数）的 P90。欲了解更多详情，请访问 https://nanotps.net/。"
   },
   "search": {
     "searchBy": "按地址/阻止/已知帐户搜索",
@@ -135,7 +141,8 @@
     "earnNano": "赚取纳米",
     "preferences": "首选项",
     "status": "地位",
-    "networkStatus": "网络状态"
+    "networkStatus": "网络状态",
+    "nodeMonitors": "节点监视器"
   },
   "footer": {
     "createdBy": "由{{creator}}创建",
@@ -169,7 +176,8 @@
       "reconnectingToBlockchain": "断开连接，重新连接到NANO区块链",
       "cpsLocal": "在本地节点上观察到的 CPS",
       "cpsNetwork": "几个代表性节点的中值 CPS",
-      "viewSocialEngagement": "查看社交互动"
+      "viewSocialEngagement": "查看社交互动",
+      "averageTps": "平均。 TPS容量"
     },
     "account": {
       "votingWeight": "投票权重",
@@ -188,7 +196,31 @@
       "byTransactionOption": "交易余额",
       "dailyBalance": "最后 {{count}} 笔交易",
       "notOpenedYet": "此帐户没有任何交易",
-      "notOpenedYetReason": "虽然该帐户有效，但尚未将任何块添加到其链中。如果 NANO 已发送到该账户，则可能是 NanoLooker 节点尚未收到交易，因为您正在使用的服务尚未广播它或由于临时网络条件。"
+      "notOpenedYetReason": "虽然该帐户有效，但尚未将任何块添加到其链中。如果 NANO 已发送到该账户，则可能是 NanoLooker 节点尚未收到交易，因为您正在使用的服务尚未广播它或由于临时网络条件。",
+      "dateRange": "日期范围",
+      "includeNoTimestamp": "包括没有日期的块",
+      "excludeUnknownAccounts": "仅显示来自已知帐户的块",
+      "advancedOptions": "高级选项",
+      "applyFilters": "应用过滤器",
+      "fields": "字段",
+      "delimiter": "分隔符",
+      "delimiterComma": "逗号",
+      "delimiterSemicolon": "分号",
+      "delimiterTab": "标签",
+      "delimiterSpace": "空间",
+      "delimiterPipe": "管道",
+      "fileName": "文件名",
+      "minimum": "最低限度",
+      "maximum": "最大",
+      "from": "从",
+      "to": "至",
+      "startDate": "开始日期",
+      "endDate": "结束日期",
+      "exportToCsv": "导出为 CSV",
+      "export": "出口",
+      "exportTransactions": "将 {{count}} 个交易导出到 CSV",
+      "reverse": "反转交易顺序",
+      "sumAmounts": "合计金额"
     },
     "block": {
       "blockSubtype": "块子类型",
@@ -323,7 +355,9 @@
       "nodeVersions": "节点版本",
       "latestVersion": "最新版本",
       "database": "数据库",
-      "versionsByWeight": "投票权版本"
+      "versionsByWeight": "投票权版本",
+      "versionsByMajor": "按主要版本分组",
+      "nodeMonitorsDetails": "Nano Node Monitor 是一个用于 Nano 节点的服务器端监控工具，使用 PHP 构建。它通过 RPC 建立与运行节点的连接，并在网页上显示其状态。 <0>在您的节点上安装</0>"
     },
     "exchangeTracker": {
       "description": "每天都会记录Nano交易所在的最受欢迎交易所的账户余额。此度量可用于分析网络上的移动和波动。",
@@ -411,7 +445,9 @@
       "nanoPotions": "纳米药水",
       "guide": {
         "title": "NanoBrowserQuest 指南"
-      }
+      },
+      "playerGuide": "玩家指南",
+      "gold": "金子"
     },
     "statistics": {
       "social": {

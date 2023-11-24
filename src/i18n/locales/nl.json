@@ -42,7 +42,9 @@
     "statistics": "Statistieken",
     "continue": "Doorgaan met",
     "link": "Koppeling",
-    "noData": "Geen gegevens"
+    "noData": "Geen gegevens",
+    "include": "Erbij betrekken",
+    "exclude": "Uitsluiten"
   },
   "nodeHealth": {
     "nodeReloading": "Nano node wordt opnieuw geladen",
@@ -78,13 +80,13 @@
     "knownExchangeBalance": "Sluit {{knownExchangeList}} uit van het distributiegrafiek. Die accounts gecombineerd bevatten {{knownExchangeBalance}} NANO",
     "unchecked": "Blocks (transacties) die zijn gedownload maar nog niet verwerkt door de Nano node. De node software downloadt alle blockken van andere nodes als ongecontroleerd, verwerkt ze en voegt toe aan het aantal blockken, bevestigt de grensblockken voor elk account en markeert ze vervolgens als gecementeerd.",
     "cemented": "Wanneer een specifieke node een bevestigde transactie markeert als lokaal onomkeerbaar door de bevestigingshoogte van de account (in de node database) in te stellen op de nu hogere blockhoogte van de bevestigde transactie. Cementeren is een bewerking op node niveau.",
-    "unknownLastTransaction": "In februari 2019 zijn transactiedata geïntroduceerd. Voorafgaand aan die datum werden de transactietijden niet lokaal op de nodes geregistreerd. De reden waarom de laatste transactiedatum onbekend is, is omdat deze werd bevestigd voordat de datums werden geregistreerd of voordat de NanoLooker node in gebruik was.",
+    "unknownTransactionDate": "In februari 2019 zijn transactiedata geïntroduceerd. Voorafgaand aan die datum werden de transactietijden niet lokaal op de nodes geregistreerd. De reden waarom de laatste transactiedatum onbekend is, is omdat deze werd bevestigd voordat de datums werden geregistreerd of voordat de NanoLooker node in gebruik was.",
     "confirmationHeight": "Een nummer dat is opgeslagen in de lokale node database en dat het hoogste (meest recente) bevestigde block in een accountketen vertegenwoordigt. Gerelateerd aan (maar verschillend van) blockhoogte.",
     "blockHeight": "Een lokale integerwaarde die de volgorde van een block in een accountketen vertegenwoordigt. Het 15e block in een account heeft bijvoorbeeld een blockhoogte van 15. Gerelateerd aan (maar anders dan) bevestigingshoogte.",
     "bookmarks": "{{type, capitalize}} bladwijzers worden op uw apparaat opgeslagen. U kunt uw bekende {{type}}s beheren door ze aliassen te geven.",
     "groupByEntities": "Groepeer al het stemgewicht dat is opgesplitst in verschillende hoofdvertegenwoordigers in afzonderlijke entiteiten. Een exchange kan bijvoorbeeld meerdere portemonnees hebben en hun gewicht verdelen, maar in werkelijkheid kan het als een enkel gewicht worden geteld als ze het zouden hergroeperen.",
     "telemetry": "Metrische gegevens van andere nodes op het netwerk. Alle statistieken worden verzameld en gemiddeld om verschillende statussen op het netwerk weer te geven. P komt overeen met percentiel, p50 wordt berekend door de onderste 50% uit te sluiten, terwijl de p95 de onderste 5% van de verschillende waarden uitsluit om het gemiddelde te berekenen.",
-    "ledgerSize": "De totale hoeveelheid schijfruimte die tot nu toe nodig is om alle Nano transacties op te slaan. De databasegrootte wordt uitgedrukt in binaire groottes (mebibyte) in plaats van decimaal (megabyte).",
+    "ledgerSize": "De totale hoeveelheid schijfruimte die tot nu toe nodig is om alle Nano transacties op te slaan.",
     "bandwidthCap": "Nano nodes kunnen hun bandbreedte beperken om het aantal berichten dat kan worden verzonden of ontvangen te beperken. 0 staat voor een onbeperkte bandbreedte.",
     "uptime": "Tijd sinds de node voor het laatst opnieuw is opgestart.",
     "mnano": "Nano is de huidige standaarddivisie die wordt gebruikt in portefeuilles, beurzen en services. Het wordt 1 NANO genoemd.",
@@ -92,8 +94,12 @@
     "onChainVolume": "De som van alle NANO-transacties die op het netwerk zijn bevestigd. Als gebruiker A 1 NANO verzendt en gebruiker B 1 NANO op dezelfde dag ontvangt, wordt 2 NANO toegevoegd aan het dagelijkse volume omdat er 2 transacties zijn uitgezonden en bevestigd, een verzenden en een ontvangen.",
     "pendingTransactionCount": "Het aantal te ontvangen transacties overschrijdt de weergegeven limiet van {{count}}.",
     "pendingTransaction": "Er is geld naar deze rekening gestuurd, maar de eigenaar heeft het geld nog niet op zak. Alleen de eigenaar van het account kan een ontvangen transactie in zijn blockchain schrijven. Als dit uw account is, ontgrendel dan uw portemonnee, het ontvangende blok wordt meestal automatisch uitgezonden.",
-    "socialStatistics": "Statistieken worden samengesteld met behulp van top 100 cryptocurrencies per marktkapitalisatie van CoinGecko.",
-    "dailyBalance": "Transactiegrafiek is alleen zichtbaar als het account meer dan 1 dag aan gegevens heeft en als de transacties tijdstempels hebben"
+    "socialStatistics": "Statistieken worden samengesteld met behulp van top 200 cryptocurrencies per marktkapitalisatie van CoinGecko.",
+    "dailyBalance": "Transactiegrafiek is alleen zichtbaar als het account meer dan 1 dag aan gegevens heeft en als de transacties tijdstempels hebben",
+    "senderFilter": "Filter blokken om alleen of alle verzendtransacties van een specifiek adres op te nemen of uit te sluiten. Om meerdere adressen te filteren, scheidt u ze met een komma.",
+    "receiverFilter": "Filter blokken om alleen of alle verzendtransacties van een specifiek adres op te nemen of uit te sluiten. Om meerdere adressen te filteren, scheidt u ze met een komma.",
+    "filterTransactions": "Alleen accounts met gelijk aan of minder dan 5.000 bevestigde transacties kunnen worden gefilterd",
+    "averageTps": "Op {{date}} werden {{block_count}} {{block_type}} blokken uitgezonden met een snelheid van {{bps}} BPS (blokken per seconde) om de netwerkefficiëntie te meten. Het netwerk bereikte een P90 van {{cps_p90}} CPS (bevestigingen per seconde) over de knooppunten. Ga voor meer informatie naar https://nanotps.net/."
   },
   "search": {
     "searchBy": "Zoeken op adres / block / bekend account",
@@ -135,7 +141,8 @@
     "earnNano": "Verdien nano",
     "preferences": "Voorkeuren",
     "status": "Status",
-    "networkStatus": "Netwerk status"
+    "networkStatus": "Netwerk status",
+    "nodeMonitors": "Knooppuntmonitoren"
   },
   "footer": {
     "createdBy": "Gemaakt door {{creator}}",
@@ -169,7 +176,8 @@
       "reconnectingToBlockchain": "Verbinding verbroken, opnieuw verbinding maken met het NANO netwerk",
       "cpsLocal": "CPS waargenomen op het lokale knooppunt",
       "cpsNetwork": "Mediane CPS over verschillende representatieve knooppunten",
-      "viewSocialEngagement": "Sociale betrokkenheid bekijken"
+      "viewSocialEngagement": "Sociale betrokkenheid bekijken",
+      "averageTps": "Gem. TPS-capaciteit"
     },
     "account": {
       "votingWeight": "Stemgewicht",
@@ -188,7 +196,31 @@
       "byTransactionOption": "Saldo per transactie",
       "dailyBalance": "Laatste {{count}} transacties",
       "notOpenedYet": "Deze rekening heeft geen transacties",
-      "notOpenedYetReason": "Hoewel het account geldig is, zijn er nog geen blokken aan de keten toegevoegd. Als NANO naar dit account is verzonden, is het mogelijk dat de NanoLooker-node de transactie nog niet heeft ontvangen omdat de service die u gebruikt deze nog niet heeft uitgezonden of vanwege tijdelijke netwerkomstandigheden."
+      "notOpenedYetReason": "Hoewel het account geldig is, zijn er nog geen blokken aan de keten toegevoegd. Als NANO naar dit account is verzonden, is het mogelijk dat de NanoLooker-node de transactie nog niet heeft ontvangen omdat de service die u gebruikt deze nog niet heeft uitgezonden of vanwege tijdelijke netwerkomstandigheden.",
+      "dateRange": "Datumbereik",
+      "includeNoTimestamp": "Blokken zonder datum opnemen",
+      "excludeUnknownAccounts": "Toon alleen blokken van bekende accounts",
+      "advancedOptions": "Geavanceerde mogelijkheden",
+      "applyFilters": "Filters toepassen",
+      "fields": "Velden",
+      "delimiter": "scheidingsteken",
+      "delimiterComma": "Komma",
+      "delimiterSemicolon": "Puntkomma",
+      "delimiterTab": "Tab",
+      "delimiterSpace": "Ruimte",
+      "delimiterPipe": "Pijp",
+      "fileName": "Bestandsnaam",
+      "minimum": "Minimum",
+      "maximum": "Maximaal",
+      "from": "Van",
+      "to": "Tot",
+      "startDate": "Startdatum",
+      "endDate": "Einddatum",
+      "exportToCsv": "Exporteren naar CSV",
+      "export": "Exporteren",
+      "exportTransactions": "Exporteer {{count}} transacties naar CSV",
+      "reverse": "Keer de transactievolgorde om",
+      "sumAmounts": "Tel de bedragen bij elkaar op"
     },
     "block": {
       "blockSubtype": "Block subtype",
@@ -323,7 +355,9 @@
       "nodeVersions": "Node versies",
       "latestVersion": "Nieuwste versie",
       "database": "Database",
-      "versionsByWeight": "Versies gegroepeerd op stemgewicht"
+      "versionsByWeight": "Versies gegroepeerd op stemgewicht",
+      "versionsByMajor": "Groeperen op primaire versie",
+      "nodeMonitorsDetails": "Nano Node Monitor is een server-side monitoringtool voor Nano-nodes, gebouwd met PHP. Het brengt een verbinding tot stand met een lopend knooppunt via RPC en geeft de status weer op een webpagina. <0>Installeer op uw node</0>"
     },
     "exchangeTracker": {
       "description": "Elke dag wordt een opname gemaakt van de accountsaldo's van de meest populaire exchanges waar Nano wordt verhandeld. Deze meting kan worden gebruikt om bewegingen en fluctuaties op het netwerk te analyseren.",
@@ -411,7 +445,9 @@
       "nanoPotions": "NANO-drankjes",
       "guide": {
         "title": "NanoBrowserQuest-gids"
-      }
+      },
+      "playerGuide": "Spelersgids",
+      "gold": "Goud"
     },
     "statistics": {
       "social": {

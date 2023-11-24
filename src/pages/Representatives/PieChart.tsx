@@ -1,17 +1,16 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { Card, Col, Row, Skeleton, Switch, Tooltip, Typography } from "antd";
+
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import { Pie } from "@antv/g2plot";
+import { Card, Col, Row, Skeleton, Switch, Tooltip, Typography } from "antd";
 import BigNumber from "bignumber.js";
 import forEach from "lodash/forEach";
 import orderBy from "lodash/orderBy";
-import { Theme, PreferencesContext } from "api/contexts/Preferences";
-import {
-  Representative,
-  RepresentativesContext,
-} from "api/contexts/Representatives";
+
 import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
+import { PreferencesContext, Theme } from "api/contexts/Preferences";
+import { Representative, RepresentativesContext } from "api/contexts/Representatives";
 import { KnownAccountsBalance } from "api/hooks/use-known-accounts-balance";
 import QuestionCircle from "components/QuestionCircle";
 
@@ -43,17 +42,12 @@ const Representatives: React.FC<Props> = ({
 }) => {
   const { t } = useTranslation();
   const { theme } = React.useContext(PreferencesContext);
-  const {
-    representatives,
-    isLoading: isRepresentativesLoading,
-  } = React.useContext(RepresentativesContext);
-  const [nakamotoCoefficient, setNakamotoCoefficient] = React.useState(
+  const { representatives, isLoading: isRepresentativesLoading } =
+    React.useContext(RepresentativesContext);
+  const [nakamotoCoefficient, setNakamotoCoefficient] = React.useState([] as Representative[]);
+  const [principalRepresentatives, setPrincipalRepresentatives] = React.useState(
     [] as Representative[],
   );
-  const [
-    principalRepresentatives,
-    setPrincipalRepresentatives,
-  ] = React.useState([] as Representative[]);
   const {
     confirmationQuorum: {
       principal_representative_min_weight: principalRepresentativeMinWeight = 0,
@@ -62,9 +56,7 @@ const Representatives: React.FC<Props> = ({
     isLoading: isConfirmationQuorumLoading,
   } = React.useContext(ConfirmationQuorumContext);
 
-  const [delegatedEntities, setDelegatedEntities] = React.useState(
-    [] as KnownAccountsBalance[],
-  );
+  const [delegatedEntities, setDelegatedEntities] = React.useState([] as KnownAccountsBalance[]);
 
   const representativesSkeletonProps = {
     active: true,
@@ -112,8 +104,7 @@ const Representatives: React.FC<Props> = ({
       // @ts-ignore added representative key
       delegatedEntities.forEach(({ alias, account, representative, total }) => {
         const accountIndex = filteredRepresentatives.findIndex(
-          ({ account: representativeAccount }) =>
-            representativeAccount === account,
+          ({ account: representativeAccount }) => representativeAccount === account,
         );
 
         const representativeIndex = filteredRepresentatives.findIndex(
@@ -143,23 +134,17 @@ const Representatives: React.FC<Props> = ({
         }
       });
 
-      filteredRepresentatives = filteredRepresentatives.filter(
-        ({ alias, weight }) => {
-          const group = alias
-            ? Object.keys(groups).find(group =>
-                alias.toLowerCase()?.includes(group.toLowerCase()),
-              )
-            : null;
+      filteredRepresentatives = filteredRepresentatives.filter(({ alias, weight }) => {
+        const group = alias
+          ? Object.keys(groups).find(group => alias.toLowerCase()?.includes(group.toLowerCase()))
+          : null;
 
-          if (group) {
-            groups[group] = new BigNumber(groups[group])
-              .plus(weight)
-              .toNumber();
-          }
+        if (group) {
+          groups[group] = new BigNumber(groups[group]).plus(weight).toNumber();
+        }
 
-          return !group;
-        },
-      );
+        return !group;
+      });
 
       const groupedEntities = Object.entries(groups).map(([group, weight]) => ({
         account: "",
@@ -173,11 +158,7 @@ const Representatives: React.FC<Props> = ({
         .concat(groupedEntities)
         .filter(({ weight }) => weight >= principalRepresentativeMinWeight);
 
-      filteredRepresentatives = orderBy(
-        filteredRepresentatives,
-        ["weight"],
-        ["desc"],
-      );
+      filteredRepresentatives = orderBy(filteredRepresentatives, ["weight"], ["desc"]);
     }
 
     const nakamotoCoefficient: Representative[] = [];
@@ -188,13 +169,8 @@ const Representatives: React.FC<Props> = ({
       const nextWeight = new BigNumber(nakamotoCoefficientWeight)
         .plus(representative.weight)
         .toNumber();
-      totalWeight = new BigNumber(totalWeight)
-        .plus(representative.weight)
-        .toNumber();
-      const percent = new BigNumber(nextWeight)
-        .times(100)
-        .dividedBy(stake)
-        .toNumber();
+      totalWeight = new BigNumber(totalWeight).plus(representative.weight).toNumber();
+      const percent = new BigNumber(nextWeight).times(100).dividedBy(stake).toNumber();
 
       nakamotoCoefficientWeight = nextWeight;
       nakamotoCoefficient.push(representative);
@@ -207,9 +183,7 @@ const Representatives: React.FC<Props> = ({
     setNakamotoCoefficient(nakamotoCoefficient);
 
     const data = filteredRepresentatives.map(({ weight, account, alias }) => {
-      const value = parseFloat(
-        new BigNumber(weight).times(100).dividedBy(stake).toFixed(2),
-      );
+      const value = parseFloat(new BigNumber(weight).times(100).dividedBy(stake).toFixed(2));
 
       return {
         // @NOTE Remove symbol characters as they are causing the chart to crash
@@ -288,9 +262,7 @@ const Representatives: React.FC<Props> = ({
 
   React.useEffect(() => {
     if (isRepresentativesLoading || !representatives.length) return;
-    const filteredRepresentatives = representatives.filter(
-      ({ isPrincipal }) => isPrincipal,
-    );
+    const filteredRepresentatives = representatives.filter(({ isPrincipal }) => isPrincipal);
 
     setPrincipalRepresentatives(filteredRepresentatives);
   }, [representatives, isRepresentativesLoading]);
@@ -305,7 +277,7 @@ const Representatives: React.FC<Props> = ({
   return (
     <>
       <Title level={3}>{t("pages.representatives.voteDistribution")}</Title>
-      <Card size="small" bordered={false} className="detail-layout">
+      <Card size="small" className="detail-layout">
         <Row gutter={6}>
           <Col xs={20} md={12}>
             {t("pages.representatives.includeOfflineRepresentatives")}
@@ -359,11 +331,7 @@ const Representatives: React.FC<Props> = ({
             ) : null}
           </Col>
           <Col xs={24} md={12}>
-            <Skeleton
-              active
-              paragraph={false}
-              loading={!nakamotoCoefficient.length}
-            >
+            <Skeleton active paragraph={false} loading={!nakamotoCoefficient.length}>
               <Text>{nakamotoCoefficient.length}</Text>
             </Skeleton>
           </Col>

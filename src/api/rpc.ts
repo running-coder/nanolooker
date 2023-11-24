@@ -13,8 +13,7 @@ const dispatchRPCStateChange = () => {
 export const rpc = async (action: string, params?: any) => {
   let res;
   let json;
-  let rpcDomain =
-    localStorage.getItem(LOCALSTORAGE_KEYS.RPC_DOMAIN) || undefined;
+  let rpcDomain = localStorage.getItem(LOCALSTORAGE_KEYS.RPC_DOMAIN) || undefined;
 
   try {
     res = await fetch(`/api/rpc`, {
@@ -37,6 +36,7 @@ export const rpc = async (action: string, params?: any) => {
     json = await res.json();
 
     if (!json && isRPCAvailable) {
+      console.log("Invalid RPC response for ", { action, params });
       dispatchRPCStateChange();
     } else if (!isRPCAvailable) {
       isRPCAvailable = true;

@@ -1,19 +1,16 @@
 import * as React from "react";
-import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
-import BigNumber from "bignumber.js";
-import { Radio, Card, Col, Row, Skeleton, Typography, Tooltip } from "antd";
-import {
-  TwitterOutlined,
-  RedditOutlined,
-  GithubOutlined,
-} from "@ant-design/icons";
+import { useTranslation } from "react-i18next";
+
+import { GithubOutlined, RedditOutlined, TwitterOutlined } from "@ant-design/icons";
 import { Bar, G2 } from "@antv/g2plot";
+import { Card, Col, Radio, Row, Skeleton, Tooltip, Typography } from "antd";
+import BigNumber from "bignumber.js";
 import orderBy from "lodash/orderBy";
-import useStatisticsSocial, {
-  CryptoCurrency,
-} from "./hooks/use-statistics-social";
+
 import QuestionCircle from "components/QuestionCircle";
+
+import useStatisticsSocial, { CryptoCurrency } from "./hooks/use-statistics-social";
 
 const { Text, Title } = Typography;
 const G = G2.getEngine("canvas");
@@ -54,9 +51,7 @@ const StatisticsSocialPage: React.FC = () => {
     if (isLoading || !statistics.length) return;
 
     const data = orderBy(
-      statistics.filter(
-        statistic => !!statistic[filterPerBillionToKeyMap[filter]],
-      ),
+      statistics.filter(statistic => !!statistic[filterPerBillionToKeyMap[filter]]),
       [filterPerBillionToKeyMap[filter]],
       ["desc"],
     ).map((statistic, index) => {
@@ -163,7 +158,7 @@ const StatisticsSocialPage: React.FC = () => {
           <QuestionCircle />
         </Tooltip>
       </Title>
-      <Card size="small" bordered={false} className="detail-layout">
+      <Card size="small" className="detail-layout">
         <Row>
           <Col xs={24}>
             <Radio.Group
@@ -184,9 +179,7 @@ const StatisticsSocialPage: React.FC = () => {
             </Radio.Group>
             <br />
             <br />
-            <Text>
-              {t(`pages.statistics.social.${filterTotalToKeyMap[filter]}`)}
-            </Text>
+            <Text>{t(`pages.statistics.social.${filterTotalToKeyMap[filter]}`)}</Text>
           </Col>
         </Row>
         <Row>

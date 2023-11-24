@@ -1,7 +1,10 @@
 import * as React from "react";
+
 import BigNumber from "bignumber.js";
+
 import { PreferencesContext } from "api/contexts/Preferences";
 import { rawToRai } from "components/utils";
+
 import { usePrevious } from "./use-previous";
 
 import type { Transaction } from "types/transaction";
@@ -25,9 +28,7 @@ const KEEP_ALIVE = 30000;
 const useSocket = ({ account }: { account?: string }) => {
   const { websocketDomain } = React.useContext(PreferencesContext);
   const [transactions, setTransactions] = React.useState<Transaction[]>([]);
-  const [pendingTransactions, setPendingTransactions] = React.useState<
-    Transaction[]
-  >([]);
+  const [pendingTransactions, setPendingTransactions] = React.useState<Transaction[]>([]);
   const [balance, setBalance] = React.useState(0);
   const [pendingBalance, setPendingBalance] = React.useState(0);
   const [isConnected, setIsConnected] = React.useState<boolean>(false);
@@ -110,9 +111,7 @@ const useSocket = ({ account }: { account?: string }) => {
               ...prevPendingTransactions,
             ]);
             setPendingBalance(prevPendingBalance =>
-              new BigNumber(prevPendingBalance)
-                .plus(rawToRai(flatMessage.amount))
-                .toNumber(),
+              new BigNumber(prevPendingBalance).plus(rawToRai(flatMessage.amount)).toNumber(),
             );
           } else if (account === flatMessage.account) {
             if (flatMessage.subtype === "send") {
@@ -126,30 +125,20 @@ const useSocket = ({ account }: { account?: string }) => {
             }
 
             setPendingTransactions(prevPendingTransactions =>
-              prevPendingTransactions.filter(
-                ({ hash }) => hash !== flatMessage.link,
-              ),
+              prevPendingTransactions.filter(({ hash }) => hash !== flatMessage.link),
             );
 
             // @NOTE pending are only for receive transactions
             if (flatMessage.subtype === "receive") {
               setPendingBalance(prevPendingBalance =>
-                new BigNumber(prevPendingBalance)
-                  .minus(rawToRai(flatMessage.amount))
-                  .toNumber(),
+                new BigNumber(prevPendingBalance).minus(rawToRai(flatMessage.amount)).toNumber(),
               );
             }
             // @ts-ignore
-            setTransactions(prevTransactions => [
-              flatMessage,
-              ...prevTransactions,
-            ]);
+            setTransactions(prevTransactions => [flatMessage, ...prevTransactions]);
             setBalance(prevBalance =>
               new BigNumber(prevBalance)
-                .plus(
-                  rawToRai(flatMessage.amount) *
-                    (flatMessage.subtype === "receive" ? 1 : -1),
-                )
+                .plus(rawToRai(flatMessage.amount) * (flatMessage.subtype === "receive" ? 1 : -1))
                 .toNumber(),
             );
           }

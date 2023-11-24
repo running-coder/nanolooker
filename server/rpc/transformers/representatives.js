@@ -5,19 +5,16 @@ const { rawToRai } = require("../../utils");
 const representativesTransformer = json => {
   json.representatives = reverse(
     sortBy(
-      Object.entries(json.representatives).reduce(
-        (acc = {}, [account, weight]) => {
-          const weightAsNumber = Number(weight) && rawToRai(weight);
-          if (weightAsNumber > 1000) {
-            acc.push({
-              account,
-              weight: weightAsNumber,
-            });
-          }
-          return acc;
-        },
-        [],
-      ),
+      Object.entries(json.representatives).reduce((acc = {}, [account, weight]) => {
+        const weightAsNumber = Number(weight) && rawToRai(weight);
+        if (weightAsNumber > 1000) {
+          acc.push({
+            account,
+            weight: weightAsNumber,
+          });
+        }
+        return acc;
+      }, []),
       ["weight"],
     ),
   );

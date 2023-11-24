@@ -1,16 +1,18 @@
 import * as React from "react";
-import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
-import flatten from "lodash/flatten";
-import BigNumber from "bignumber.js";
-import { Card, Col, Row, Skeleton, Typography } from "antd";
+import { useTranslation } from "react-i18next";
+
 import { Line } from "@antv/g2plot";
-import useStatisticsSocial from "./hooks/use-statistics-2miners";
+import { Card, Col, Row, Skeleton, Typography } from "antd";
+import BigNumber from "bignumber.js";
+import flatten from "lodash/flatten";
+
+import LoadingStatistic from "components/LoadingStatistic";
 import { ACCOUNT_2MINERS } from "pages/Account/Details/ExtraRow";
 import AccountHeader from "pages/Account/Header/Account";
-import LoadingStatistic from "components/LoadingStatistic";
-
 import TransactionsTable from "pages/Account/Transactions";
+
+import useStatisticsSocial from "./hooks/use-statistics-2miners";
 
 const { Text, Title } = Typography;
 
@@ -34,8 +36,7 @@ const Statistics2MinersPage: React.FC = () => {
 
     setTotalFiatPayouts(
       statistics.reduce(
-        (acc, { totalFiatPayouts = 0 }) =>
-          new BigNumber(acc).plus(totalFiatPayouts).toNumber(),
+        (acc, { totalFiatPayouts = 0 }) => new BigNumber(acc).plus(totalFiatPayouts).toNumber(),
         0,
       ),
     );
@@ -187,14 +188,10 @@ const Statistics2MinersPage: React.FC = () => {
         </a>
       </div>
 
-      <Card size="small" bordered={false} className="detail-layout">
+      <Card size="small" className="detail-layout">
         <Row>
           <Col xs={24}>
-            <AccountHeader
-              account={ACCOUNT_2MINERS}
-              isLink={true}
-              hideOptions={true}
-            />
+            <AccountHeader account={ACCOUNT_2MINERS} isLink={true} hideOptions={true} />
           </Col>
         </Row>
         <Row>

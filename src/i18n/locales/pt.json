@@ -42,7 +42,9 @@
     "statistics": "Estatisticas",
     "continue": "Prosseguir",
     "link": "Link",
-    "noData": "Sem dados"
+    "noData": "Sem dados",
+    "include": "Incluir",
+    "exclude": "Excluir"
   },
   "nodeHealth": {
     "nodeReloading": "O nó da Nano está recarregando",
@@ -78,13 +80,13 @@
     "knownExchangeBalance": "Exclua {{knownExchangeList}} do gráfico de distribuição. Essas contas combinadas contêm {{knownExchangeBalance}} NANO",
     "unchecked": "Blocos (transações) que foram baixados, mas ainda não processados pelo nó da Nano. O software de nó baixa todos os blocos de outros nós como não verificados, os processa e adiciona à contagem de blocos, confirma os blocos da frente para cada conta e, em seguida, os marca como cimentados.",
     "cemented": "Quando um nó específico marca uma transação confirmada como localmente irreversível, definindo a altura de confirmação da conta (no banco de dados do nó) para a altura de bloco agora mais alta da transação confirmada. A cimentação é uma operação no nível do nó.",
-    "unknownLastTransaction": "As datas de transação foram introduzidas em fevereiro de 2019. Antes dessa data, os tempos de transação não eram registrados localmente nos nós. A razão pela qual a data da última transação é desconhecida é porque ela foi confirmada antes que as datas fossem registradas ou antes que o nó NanoLooker estivesse em serviço.",
+    "unknownTransactionDate": "As datas de transação foram introduzidas em fevereiro de 2019. Antes dessa data, os tempos de transação não eram registrados localmente nos nós. A razão pela qual a data da última transação é desconhecida é porque ela foi confirmada antes que as datas fossem registradas ou antes que o nó NanoLooker estivesse em serviço.",
     "confirmationHeight": "Um número armazenado no banco de dados do nó local que representa o bloco confirmado mais alto (mais recente) em uma blockchain de uma conta. Relacionado (mas diferente) da altura do bloco.",
     "blockHeight": "Um valor inteiro local que representa a ordem de um bloco em uma blockchain de uma conta. Por exemplo, o 15º bloco em uma conta teria uma altura de bloco de 15. Relacionado (mas diferente de) altura de confirmação.",
     "bookmarks": "Os favoritos {{type, capitalize}} são salvos em seu dispositivo. Você pode gerenciar seus {{type}}s conhecidos fornecendo-lhes apelidos.",
     "groupByEntities": "Reagrupa todo o peso do voto que é dividido em diferentes representantes principais em entidades únicas. Por exemplo, uma exchange pode ter várias carteiras e dividir seu peso, mas na realidade pode ser contada como um único peso se reagrupá-la.",
     "telemetry": "Métricas de outros nós da rede. Todas as métricas são coletadas e calculadas para representar diferentes estados na rede. P corresponde ao percentil, p50 é calculado excluindo os 50% inferiores, enquanto o p95 exclui os 5% inferiores dos diferentes valores para calcular a média.",
-    "ledgerSize": "A quantidade total de espaço em disco necessária para armazenar todas as transações da Nano até agora. O tamanho da ledger é calculado com base em 1024 e não em 1000.",
+    "ledgerSize": "A quantidade total de espaço em disco necessária para armazenar todas as transações da Nano até agora.",
     "bandwidthCap": "Os bós da nano são capazes de limitar sua banda larga para limitar a quantidade de mensagens que podem ser enviadas ou recebidas. 0 significa banda larga ilimitada.",
     "uptime": "Tempo desde a última reinicialização do nó.",
     "mnano": "Nano é a divisão padrão atual usada em carteiras, bolsas e serviços. É referido como 1 NANO.",
@@ -92,8 +94,12 @@
     "onChainVolume": "A soma de todas as transações NANO que foram confirmadas na rede. Se o usuário A enviar 1 NANO e o usuário B receber 1 NANO no mesmo dia, 2 NANO serão adicionados no volume diário porque 2 transações foram transmitidas e confirmadas, um envio e um recebimento.",
     "pendingTransactionCount": "O número de transações a receber excede o limite exibido de {{contagem}}.",
     "pendingTransaction": "Os fundos foram enviados para esta conta, mas o proprietário ainda não embolsou os fundos. Apenas o proprietário da conta pode gravar uma transação recebida em seu blockchain. Se esta for sua conta, desbloqueie sua carteira, o bloqueio de recebimento geralmente é transmitido automaticamente.",
-    "socialStatistics": "As estatísticas são compiladas usando as 100 principais criptomoedas por valor de mercado da CoinGecko.",
-    "dailyBalance": "O gráfico de transações só é visível se a conta tiver mais de 1 dia de dados e se as transações tiverem carimbos de data/hora"
+    "socialStatistics": "As estatísticas são compiladas usando as 200 principais criptomoedas por valor de mercado da CoinGecko.",
+    "dailyBalance": "O gráfico de transações só é visível se a conta tiver mais de 1 dia de dados e se as transações tiverem carimbos de data/hora",
+    "senderFilter": "Filtre os blocos para incluir apenas ou excluir todas as transações de envio de um endereço específico. Para filtrar vários endereços, separe-os com uma vírgula.",
+    "receiverFilter": "Filtre os blocos para incluir apenas ou excluir todas as transações de envio de um endereço específico. Para filtrar vários endereços, separe-os com uma vírgula.",
+    "filterTransactions": "Apenas contas com igual ou inferior a 5.000 transações confirmadas podem ser filtradas",
+    "averageTps": "Em {{date}}, {{block_count}} {{block_type}} blocos foram transmitidos a uma taxa de {{bps}} BPS (blocos por segundo) para medir a eficiência da rede. A rede atingiu um P90 de {{cps_p90}} CPS (confirmações por segundos) nos nós. Para mais detalhes, visite https://nanotps.net/."
   },
   "search": {
     "searchBy": "Pesquisar por endereço / bloco",
@@ -135,7 +141,8 @@
     "earnNano": "Ganhe Nano",
     "preferences": "Preferências",
     "status": "Status",
-    "networkStatus": "Status da rede"
+    "networkStatus": "Status da rede",
+    "nodeMonitors": "Monitores de nós"
   },
   "footer": {
     "createdBy": "Criado por {{creator}}",
@@ -169,7 +176,8 @@
       "reconnectingToBlockchain": "Desconectado, reconectando ao blockchain da NANO",
       "cpsLocal": "CPS observado no nó local",
       "cpsNetwork": "CPS médio em vários nós representativos",
-      "viewSocialEngagement": "Ver Social Engagement"
+      "viewSocialEngagement": "Ver Social Engagement",
+      "averageTps": "média Capacidade TPS"
     },
     "account": {
       "votingWeight": "Peso de voto",
@@ -188,7 +196,31 @@
       "byTransactionOption": "Saldo por transação",
       "dailyBalance": "Últimas {{count}} transações",
       "notOpenedYet": "Esta conta não possui transações",
-      "notOpenedYetReason": "Embora a conta seja válida, nenhum bloco foi adicionado à sua cadeia ainda. Se o NANO foi enviado para esta conta, é possível que o nó NanoLooker ainda não tenha recebido a transação porque o serviço que você está usando ainda não a transmitiu ou devido a condições temporárias da rede."
+      "notOpenedYetReason": "Embora a conta seja válida, nenhum bloco foi adicionado à sua cadeia ainda. Se o NANO foi enviado para esta conta, é possível que o nó NanoLooker ainda não tenha recebido a transação porque o serviço que você está usando ainda não a transmitiu ou devido a condições temporárias da rede.",
+      "dateRange": "Período",
+      "includeNoTimestamp": "Incluir blocos sem data",
+      "excludeUnknownAccounts": "Mostrar apenas blocos de contas conhecidas",
+      "advancedOptions": "Opções avançadas",
+      "applyFilters": "Aplicar filtros",
+      "fields": "Campos",
+      "delimiter": "Delimitador",
+      "delimiterComma": "Vírgula",
+      "delimiterSemicolon": "Ponto e vírgula",
+      "delimiterTab": "Aba",
+      "delimiterSpace": "Espaço",
+      "delimiterPipe": "Cano",
+      "fileName": "Nome do arquivo",
+      "minimum": "Mínimo",
+      "maximum": "Máximo",
+      "from": "A partir de",
+      "to": "Para",
+      "startDate": "Data de início",
+      "endDate": "Data final",
+      "exportToCsv": "Exportar para CSV",
+      "export": "Exportar",
+      "exportTransactions": "Exporte {{count}} transações para CSV",
+      "reverse": "Inverta a ordem da transação",
+      "sumAmounts": "Somar os valores"
     },
     "block": {
       "blockSubtype": "Subtipo de bloco",
@@ -323,7 +355,9 @@
       "nodeVersions": "Versões de nó",
       "latestVersion": "Última versão",
       "database": "Banco de dados",
-      "versionsByWeight": "Versões por peso de voto"
+      "versionsByWeight": "Versões por peso de voto",
+      "versionsByMajor": "Agrupar por versão principal",
+      "nodeMonitorsDetails": "Nano Node Monitor é uma ferramenta de monitoramento do lado do servidor para nós Nano, construída com PHP. Ele estabelece uma conexão com um nó em execução via RPC e exibe seu status em uma página da web. <0>Instalar no seu nó</0>"
     },
     "exchangeTracker": {
       "description": "Todos os dias é feita uma captura dos saldos das contas das exchanges mais populares onde a Nano é negociada. Esta medição pode ser usada para analisar movimentos e flutuações na rede.",
@@ -411,7 +445,9 @@
       "nanoPotions": "Poções NANO",
       "guide": {
         "title": "Guia do NanoBrowserQuest"
-      }
+      },
+      "playerGuide": "Guia do jogador",
+      "gold": "Ouro"
     },
     "statistics": {
       "social": {

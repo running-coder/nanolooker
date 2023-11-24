@@ -1,5 +1,7 @@
 import * as React from "react";
+
 import qs from "qs";
+
 import { isValidAccountAddress } from "components/utils";
 
 export interface RepresentativeReturn {
@@ -16,10 +18,7 @@ interface Options {
   skip?: boolean;
 }
 
-const useRepresentative = (
-  { account }: Params = {},
-  options?: Options,
-): RepresentativeReturn => {
+const useRepresentative = ({ account }: Params = {}, options?: Options): RepresentativeReturn => {
   const [representative, setRepresentative] = React.useState();
   const [isLoading, setIsLoading] = React.useState(true);
   const [isError, setIsError] = React.useState(false);

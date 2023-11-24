@@ -1,6 +1,9 @@
 import * as React from "react";
+
 import uniq from "lodash/uniq";
+
 import { rpc } from "api/rpc";
+
 import KnownAccounts from "../../knownAccounts.json";
 
 const { NANOLOOKER } = KnownAccounts;

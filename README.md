@@ -2,7 +2,7 @@
 
 ![image](https://user-images.githubusercontent.com/19352322/115473119-212dff00-a209-11eb-922c-ba37838318f6.png)
 
-## What is Nano ?
+## What is Nano?
 
 The goal of Nano is to create an efficient cryptocurrency, one that could be used for daily payments, by anyone in the world, without the emissions that come with Bitcoin.
 Nano makes money efficient for a more equal world — simple to pay with, easy to accept and open to all.
@@ -68,7 +68,7 @@ If you think some strings should be corrected open a PR with the corrections on 
 ### Adding a new language or missing language keys
 
 - Setup a Google translate API key at https://cloud.google.com/translate
-- Add a file named `translate.json` at the root (same level as `package.json`) with your API credentials from Google. Follow the tutorial on https://medium.com/qunabu-interactive/javascript-functional-google-translate-api-to-translate-json-values-8f8f310dab7f to download your translate.json file
+- Go to Google Cloud Console > Service Accounts > Keys > Add Key (JSON format). Add the file named as `translate.json` at the root (same level as `package.json`)
 - Link that file using its path inside the `.env` under the key `GOOGLE_APPLICATION_CREDENTIALS=translate.json`
 - run `npm run translate -- --language=LANGUAGE_CODE` where `LANGUAGE_CODE` is `ru`, `fr`, `es` or any new language supported by Google's API.
 - run `npm run translate` to generate for all languages found in the `src/i18n/locale` from `en.json`

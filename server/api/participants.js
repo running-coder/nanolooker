@@ -17,28 +17,20 @@ const getParticipantsPage = async (page = 1) =>
     const offset = (page - 1) * PER_PAGE;
     const total = await getTotal();
 
-    redisClient.zrevrange(
-      PARTICIPANTS,
-      offset,
-      offset + PER_PAGE - 1,
-      (err, accounts) => {
-        Promise.all(
-          accounts.map(
-            account =>
-              new Promise(async resolve => {
-                redisClient.hgetall(
-                  `${PARTICIPANTS}:${account}`,
-                  (error, reply) => {
-                    resolve({ account, ...reply });
-                  },
-                );
-              }),
-          ),
-        ).then(data => {
-          resolve({ data, meta: { total, perPage: PER_PAGE, offset } });
-        });
-      },
-    );
+    redisClient.zrevrange(PARTICIPANTS, offset, offset + PER_PAGE - 1, (err, accounts) => {
+      Promise.all(
+        accounts.map(
+          account =>
+            new Promise(async resolve => {
+              redisClient.hgetall(`${PARTICIPANTS}:${account}`, (error, reply) => {
+                resolve({ account, ...reply });
+              });
+            }),
+        ),
+      ).then(data => {
+        resolve({ data, meta: { total, perPage: PER_PAGE, offset } });
+      });
+    });
   });
 
 const getParticipant = async account =>

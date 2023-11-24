@@ -1,10 +1,12 @@
 import * as React from "react";
-import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { Button, Input, Table, Typography } from "antd";
+
 import { SearchOutlined } from "@ant-design/icons";
+import { Button, Input, Table, Typography } from "antd";
 import BigNumber from "bignumber.js";
+
 import useKnownAccountsBalance from "api/hooks/use-known-accounts-balance";
 
 const { Title } = Typography;
@@ -33,33 +35,23 @@ const KnownAccountsPage: React.FC = () => {
           {
             title: t("common.balance"),
             dataIndex: "total",
-            // @ts-ignore
             defaultSortOrder: "descend",
-            // @ts-ignore
             sorter: {
               compare: (a, b) => a.total - b.total,
             },
             render: (text: string) => (
-              <span className="break-word">
-                Ӿ {new BigNumber(text).toFormat()}
-              </span>
+              <span className="break-word">Ӿ {new BigNumber(text).toFormat()}</span>
             ),
           },
           {
             title: t("common.alias"),
             dataIndex: "alias",
-            filterDropdown: ({
-              setSelectedKeys,
-              selectedKeys,
-              confirm,
-              clearFilters,
-            }) => (
+            filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
               <div style={{ padding: 8 }}>
                 <Input
                   // @ts-ignore
                   ref={inputRef}
-                  placeholder={t("common.searchAlias")}
-                  // @ts-ignore
+                  placeholder={t<string>("common.searchAlias")}
                   value={selectedKeys[0]}
                   onChange={({ target: { value } }) => {
                     setSelectedKeys([value]);
@@ -91,15 +83,10 @@ const KnownAccountsPage: React.FC = () => {
               </div>
             ),
             filterIcon: filtered => (
-              <SearchOutlined
-                style={{ color: filtered ? "#1890ff" : undefined }}
-              />
+              <SearchOutlined style={{ color: filtered ? "#1890ff" : undefined }} />
             ),
             onFilter: (value, record) =>
-              record["alias"]
-                .toString()
-                .toLowerCase()
-                .includes(String(value).toLowerCase()),
+              record["alias"].toString().toLowerCase().includes(String(value).toLowerCase()),
             onFilterDropdownVisibleChange: visible => {
               if (visible) {
                 setTimeout(() => inputRef?.current?.select());
@@ -120,19 +107,14 @@ const KnownAccountsPage: React.FC = () => {
                 return 0;
               },
             },
-            render: (text: string) => (
-              <span className="color-important break-word">{text}</span>
-            ),
+            render: (text: string) => <span className="color-important break-word">{text}</span>,
           },
           {
             title: t("common.account"),
             dataIndex: "account",
             render: (text: string) => (
               <>
-                <Link
-                  to={`/account/${text}`}
-                  className="color-normal break-word"
-                >
+                <Link to={`/account/${text}`} className="color-normal break-word">
                   {text}
                 </Link>
               </>

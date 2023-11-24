@@ -1,10 +1,12 @@
+import "./index.css";
+
 import * as React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import IndexProvider from "api/contexts";
 
 import "./i18n";
-import "./index.css";
+import IndexProvider from "api/contexts";
+
 import App from "./App";
 
 ReactDOM.render(

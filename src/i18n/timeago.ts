@@ -1,10 +1,9 @@
 import * as timeago from "timeago.js";
-
-import fr from "timeago.js/lib/lang/fr";
-import es from "timeago.js/lib/lang/es";
 import ar from "timeago.js/lib/lang/ar";
 import de from "timeago.js/lib/lang/de";
+import es from "timeago.js/lib/lang/es";
 import fa from "timeago.js/lib/lang/fa";
+import fr from "timeago.js/lib/lang/fr";
 import hi from "timeago.js/lib/lang/hi_IN";
 import it from "timeago.js/lib/lang/it";
 import ja from "timeago.js/lib/lang/ja";

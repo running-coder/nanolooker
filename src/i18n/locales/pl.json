@@ -42,7 +42,9 @@
     "comingSoon": "Wkrótce",
     "statistics": "Statystyki",
     "link": "Link",
-    "noData": "Brak danych"
+    "noData": "Brak danych",
+    "include": "Włączać",
+    "exclude": "Wykluczać"
   },
   "nodeHealth": {
     "nodeReloading": "Węzeł Nano jest załadowywany ponownie",
@@ -78,13 +80,13 @@
     "knownExchangeBalance": "Wyklucz {{knownExchangeList}} z wykresu dystrybucji. Te łączne konta posiadają {{knownExchangeBalance}} NANO",
     "unchecked": "Bloki (transakcje), które zostały pobrane, ale nie zostały jeszcze przetworzone przez węzeł Nano. Oprogramowanie węzła pobiera wszystkie bloki z innych węzłów jako niezaznaczone, przetwarza je i dodaje do liczby bloków, potwierdza bloki graniczne dla każdego konta, a następnie oznacza je jako zacementowane.",
     "cemented": "Gdy określony węzeł oznacza potwierdzoną transakcję jako lokalnie nieodwracalną, ustawiając wysokość potwierdzenia konta (w bazie danych węzłów) na wyższą teraz wysokość bloku potwierdzonej transakcji. Cementowanie jest operacją na poziomie węzła.",
-    "unknownLastTransaction": "Daty transakcji zostały wprowadzone w lutym 2019 r. Przed tą datą czasy transakcji nie były rejestrowane lokalnie na węzłach. Powodem, dla którego data ostatniej transakcji jest nieznana, jest to, że została potwierdzona przed zapisaniem dat lub przed uruchomieniem węzła NanoLooker.",
+    "unknownTransactionDate": "Daty transakcji zostały wprowadzone w lutym 2019 r. Przed tą datą czasy transakcji nie były rejestrowane lokalnie na węzłach. Powodem, dla którego data ostatniej transakcji jest nieznana, jest to, że została potwierdzona przed zapisaniem dat lub przed uruchomieniem węzła NanoLooker.",
     "confirmationHeight": "Liczba przechowywana w lokalnej bazie danych węzła, która reprezentuje najwyższy (ostatni) potwierdzony blok w łańcuchu kont. Powiązany z (ale inny od) wysokością bloku.",
     "blockHeight": "Lokalna wartość całkowita reprezentująca kolejność bloku w łańcuchu kont. Na przykład piętnasty blok na koncie miałby wysokość bloku 15. W stosunku (ale różniący się od) wysokości potwierdzenia.",
     "bookmarks": "{{type, capitalize}} zakładek zostało zapisanych na Twoim urządzeniu. Możesz zarządzać znanymi {{type}} dając im aliasy.",
     "groupByEntities": "Przegrupuj wszystkie wagi głosów, które są podzielone na różnych głównych przedstawicieli w pojedyncze jednostki. Na przykład giełda może mieć wiele portfeli i podzielić ich wagę, ale w rzeczywistości można ją policzyć jako jedną wagę, jeśli miałyby ją przegrupować.",
     "telemetry": "Metryki z innych węzłów w sieci. Wszystkie metryki są zbierane i uśredniane, aby przedstawić różne stany w sieci. P odpowiada percentylowi, p50 jest obliczane poprzez wykluczenie dolnych 50%, podczas gdy p95 wyklucza dolne 5% różnych wartości w celu obliczenia ś/rdniej.",
-    "ledgerSize": "Całkowita ilość miejsca na dysku wymagana do przechowywania każdej transakcji Nano od tej pory. Rozmiar księgi jest obliczany na podstawie 1024 nie 1000.",
+    "ledgerSize": "Całkowita ilość miejsca na dysku wymagana do przechowywania każdej transakcji Nano od tej pory.",
     "bandwidthCap": "Węzły Nano są w stanie ograniczyć przepustowość, aby ograniczyć ilość wiadomości, które mogą być wysłane lub odebrane. 0 oznacza nieograniczoną przepustowość.",
     "uptime": "Czas od ostatniego ponownego uruchomienia węzła.",
     "pendingTransactionCount": "Liczba transakcji dostępnych do odebrania przekracza wyświetlany limit z {{count}}.",
@@ -92,8 +94,12 @@
     "versionsByWeight": "Aby wersja przejęła konsensus sieci, musi mieć {{onlineWeightQuorumPercent}}% wagi głosów online z co najmniej {{onlineWeightMinimum}} NANO.",
     "onChainVolume": "Suma wszystkich transakcji NANO, które zostały potwierdzone w sieci. Jeśli użytkownik A wyśle 1 NANO, a użytkownik B otrzyma 1 NANO tego samego dnia, 2 NANO zostaną dodane do dziennego wolumenu, ponieważ 2 transakcje zostały wyemitowane i potwierdzone, wysłanie i odbiór.",
     "pendingTransaction": "Środki zostały wysłane na to konto, ale właściciel jeszcze ich nie przejął. Tylko właściciel konta może zapisać otrzymaną transakcję w swoim łańcuchu bloków. Jeśli to jest twoje konto, odblokuj portfel, blokada odbioru jest zwykle automatycznie transmitowana.",
-    "socialStatistics": "Statystyki są kompilowane przy użyciu 100 najlepszych kryptowalut według kapitalizacji rynkowej z CoinGecko.",
-    "dailyBalance": "Wykres transakcji jest widoczny tylko wtedy, gdy konto ma więcej niż 1 dzień danych i jeśli transakcje mają znaczniki czasu"
+    "socialStatistics": "Statystyki są kompilowane przy użyciu 200 najlepszych kryptowalut według kapitalizacji rynkowej z CoinGecko.",
+    "dailyBalance": "Wykres transakcji jest widoczny tylko wtedy, gdy konto ma więcej niż 1 dzień danych i jeśli transakcje mają znaczniki czasu",
+    "senderFilter": "Filtruj bloki, aby uwzględnić lub wykluczyć wszystkie transakcje wysyłania z określonego adresu. Aby filtrować wiele adresów, oddziel je przecinkami.",
+    "receiverFilter": "Filtruj bloki, aby uwzględnić lub wykluczyć wszystkie transakcje wysyłania z określonego adresu. Aby filtrować wiele adresów, oddziel je przecinkami.",
+    "filterTransactions": "Tylko konta z potwierdzonymi transakcjami równymi lub mniejszymi niż 5000 mogą być filtrowane",
+    "averageTps": "W dniu {{date}} rozesłano {{block_count}} {{block_type}} bloków z szybkością {{bps}} BPS (bloków na sekundę) w celu zmierzenia wydajności sieci. Sieć osiągnęła P90 {{cps_p90}} CPS (potwierdzeń na sekundę) we wszystkich węzłach. Aby uzyskać więcej informacji, odwiedź stronę https://nanotps.net/."
   },
   "search": {
     "searchBy": "Szukaj według Adresu / Bloku / Znanego konta",
@@ -135,7 +141,8 @@
     "nodeStatus": "Status węzła",
     "whatIsNano": "Co to jest Nano?",
     "earnNano": "Zdobądź nano",
-    "preferences": "Preferencje"
+    "preferences": "Preferencje",
+    "nodeMonitors": "Monitory węzłów"
   },
   "footer": {
     "createdBy": "Stworzono przez {{creator}}",
@@ -169,7 +176,8 @@
       "reconnectingToBlockchain": "Rozłączono, ponowne lączenie z blockchainem NANO",
       "cpsLocal": "CPS obserwowany na lokalnym węźle",
       "cpsNetwork": "Mediana CPS w kilku reprezentatywnych węzłach",
-      "viewSocialEngagement": "Zobacz zaangażowanie społeczne"
+      "viewSocialEngagement": "Zobacz zaangażowanie społeczne",
+      "averageTps": "Śr. Pojemność TPS"
     },
     "account": {
       "votingWeight": "Waga głosu",
@@ -188,7 +196,31 @@
       "byTransactionOption": "Saldo według transakcji",
       "dailyBalance": "Ostatnie {{count}} transakcje",
       "notOpenedYet": "Na tym koncie nie ma żadnych transakcji",
-      "notOpenedYetReason": "Chociaż konto jest ważne, żadne bloki nie zostały jeszcze dodane do jego łańcucha. Jeśli NANO zostało wysłane na to konto, możliwe, że węzeł NanoLooker nie otrzymał jeszcze transakcji, ponieważ usługa, z której korzystasz, jeszcze jej nie wyemitowała lub z powodu tymczasowych warunków sieciowych."
+      "notOpenedYetReason": "Chociaż konto jest ważne, żadne bloki nie zostały jeszcze dodane do jego łańcucha. Jeśli NANO zostało wysłane na to konto, możliwe, że węzeł NanoLooker nie otrzymał jeszcze transakcji, ponieważ usługa, z której korzystasz, jeszcze jej nie wyemitowała lub z powodu tymczasowych warunków sieciowych.",
+      "dateRange": "Zakres dat",
+      "includeNoTimestamp": "Uwzględnij bloki bez daty",
+      "excludeUnknownAccounts": "Pokaż tylko bloki ze znanych kont",
+      "advancedOptions": "Zaawansowane opcje",
+      "applyFilters": "Zastosuj filtry",
+      "fields": "Pola",
+      "delimiter": "Ogranicznik",
+      "delimiterComma": "Przecinek",
+      "delimiterSemicolon": "Średnik",
+      "delimiterTab": "Patka",
+      "delimiterSpace": "Przestrzeń",
+      "delimiterPipe": "Rura",
+      "fileName": "Nazwa pliku",
+      "minimum": "Minimum",
+      "maximum": "Maksymalny",
+      "from": "Z",
+      "to": "Do",
+      "startDate": "Data rozpoczęcia",
+      "endDate": "Data zakonczenia",
+      "exportToCsv": "Eksportuj do CSV",
+      "export": "Eksport",
+      "exportTransactions": "Eksportuj {{count}} transakcji do CSV",
+      "reverse": "Odwróć kolejność transakcji",
+      "sumAmounts": "Zsumuj kwoty"
     },
     "block": {
       "blockSubtype": "Podtyp bloku",
@@ -323,7 +355,9 @@
       "nodeVersions": "Wersje węzła",
       "latestVersion": "Najnowsza wersja",
       "database": "Baza danych",
-      "versionsByWeight": "Wersje według wagi głosowania"
+      "versionsByWeight": "Wersje według wagi głosowania",
+      "versionsByMajor": "Grupuj według wersji głównej",
+      "nodeMonitorsDetails": "Nano Node Monitor to narzędzie do monitorowania po stronie serwera dla węzłów Nano, zbudowane z PHP. Ustanawia połączenie z działającym węzłem przez RPC i wyświetla jego status na stronie internetowej. <0>Zainstaluj na swoim węźle</0>"
     },
     "exchangeTracker": {
       "description": "Każdego dnia bierze się pod uwagę saldo najpopularniejszych giełd Nano. Pomiar ten można wykorzystać do analizy ruchów i wahań w sieci.",
@@ -440,7 +474,9 @@
       },
       "guide": {
         "title": "Przewodnik po NanoBrowserQu"
-      }
+      },
+      "playerGuide": "Przewodnik gracza",
+      "gold": "Złoto"
     }
   }
 }

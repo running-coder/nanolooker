@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
+
 import { Card, Typography } from "antd";
 
 const { Text, Title } = Typography;
@@ -8,7 +9,7 @@ const Rules: React.FC = () => {
   return (
     <>
       <Title level={3}>Treasure Hunt Rules (Beta)</Title>
-      <Card size="small" bordered={false}>
+      <Card size="small">
         {/* <p>The treasure hunt is scheduled to last 24h (give exact time)</p> */}
 
         <Text
@@ -36,10 +37,7 @@ const Rules: React.FC = () => {
             </a>{" "}
             to appear on this page and start the hunt!
             <ul>
-              <li>
-                It may take a few seconds for you account to appear in the
-                participant list.
-              </li>
+              <li>It may take a few seconds for you account to appear in the participant list.</li>
             </ul>
           </li>
         </ol>
@@ -77,19 +75,17 @@ const Rules: React.FC = () => {
             </Link>
             <ul>
               <li>
-                Choosing a representative and delegating your voting weight is
-                important for decentralization and security over the network.
+                Choosing a representative and delegating your voting weight is important for
+                decentralization and security over the network.
               </li>
               <li>
-                After your representative is changed once and the objective is
-                completed, you can change it back.
+                After your representative is changed once and the objective is completed, you can
+                change it back.
               </li>
               <li>
                 Continue reading on{" "}
                 <a
-                  href={
-                    "https://nano.community/getting-started-users/choosing-a-representative"
-                  }
+                  href={"https://nano.community/getting-started-users/choosing-a-representative"}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -114,15 +110,12 @@ const Rules: React.FC = () => {
             game (10-15 minutes)
             <ul>
               <li>
-                Create your character with the{" "}
-                <strong>same nano_ address</strong> you registered the treasure
-                hunt.
+                Create your character with the <strong>same nano_ address</strong> you registered
+                the treasure hunt.
               </li>
             </ul>
           </li>
-          <li>
-            Once all of the objectives are completed, you will receive a payout.
-          </li>
+          <li>Once all of the objectives are completed, you will receive a payout.</li>
         </ol>
       </Card>
     </>

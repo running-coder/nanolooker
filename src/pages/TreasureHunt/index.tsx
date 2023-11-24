@@ -1,7 +1,9 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
-import { useParams, Redirect } from "react-router-dom";
+import { Redirect, useParams } from "react-router-dom";
+
 import { isValidAccountAddress } from "components/utils";
+
 import Participants from "./Participants";
 
 import type { PageParams } from "types/page";

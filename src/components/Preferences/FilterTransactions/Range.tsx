@@ -1,10 +1,13 @@
 import * as React from "react";
-import { useTranslation, Trans } from "react-i18next";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { Col, Row, Slider, Switch, Tooltip, Typography } from "antd";
+import { Trans, useTranslation } from "react-i18next";
+import { useMediaQuery } from "react-responsive";
+
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
+import { Col, Row, Slider, Switch, Tooltip, Typography } from "antd";
+
 import { PreferencesContext } from "api/contexts/Preferences";
 import QuestionCircle from "components/QuestionCircle";
+
 import { units } from "./utils";
 
 const { Text } = Typography;
@@ -13,9 +16,7 @@ interface Props {
   isDetailed?: boolean;
 }
 
-const FilterTransactionsRangePreferences: React.FC<Props> = ({
-  isDetailed,
-}) => {
+const FilterTransactionsRangePreferences: React.FC<Props> = ({ isDetailed }) => {
   const { t } = useTranslation();
   const {
     filterTransactions,
@@ -23,7 +24,7 @@ const FilterTransactionsRangePreferences: React.FC<Props> = ({
     filterTransactionsRange,
     setFilterTransactionsRange,
   } = React.useContext(PreferencesContext);
-  const isMediumAndLower = !useMediaQuery("(min-width: 768px)");
+  const isMediumAndLower = !useMediaQuery({ query: "(min-width: 768px)" });
 
   const marks = React.useCallback(() => {
     return units.reduce((acc, { unit, raw }, index) => {
@@ -32,10 +33,7 @@ const FilterTransactionsRangePreferences: React.FC<Props> = ({
           label: (
             <>
               <strong>{unit}</strong>
-              <Tooltip
-                placement="top"
-                title={<Trans i18nKey="tooltips.mnano" />}
-              >
+              <Tooltip placement="top" title={<Trans i18nKey="tooltips.mnano" />}>
                 <QuestionCircle />
               </Tooltip>
             </>
@@ -98,10 +96,7 @@ const FilterTransactionsRangePreferences: React.FC<Props> = ({
             units.findIndex(({ raw }) => filterTransactionsRange[1] === raw),
           ]}
           onAfterChange={value => {
-            setFilterTransactionsRange([
-              units[value[0]].raw,
-              units[value[1]].raw,
-            ]);
+            setFilterTransactionsRange([units[value[0]].raw, units[value[1]].raw]);
           }}
         />
       </Col>

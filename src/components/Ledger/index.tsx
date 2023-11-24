@@ -1,10 +1,12 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+
 import { Card } from "antd";
 import BigNumber from "bignumber.js";
+
+import { NodeStatusContext } from "api/contexts/NodeStatus";
 import useAvailableSupply from "api/hooks/use-available-supply";
 import useFrontierCount from "api/hooks/use-frontier-count";
-import { NodeStatusContext } from "api/contexts/NodeStatus";
 import LoadingStatistic from "components/LoadingStatistic";
 import { formatBytes } from "components/utils";
 
@@ -18,9 +20,7 @@ const Ledger: React.FC = () => {
     nodeStatus: { ledgerSize },
     isLoading: isNodeStatusLoading,
   } = React.useContext(NodeStatusContext);
-  const [formattedLedgerSize, setFormattedLedgerSize] = React.useState(
-    formatBytes(0),
-  );
+  const [formattedLedgerSize, setFormattedLedgerSize] = React.useState(formatBytes(0));
 
   React.useEffect(() => {
     setFormattedLedgerSize(formatBytes(ledgerSize));
@@ -42,7 +42,7 @@ const Ledger: React.FC = () => {
 
       <LoadingStatistic
         title={t("pages.status.ledgerSize")}
-        tooltip={t("tooltips.ledgerSize")}
+        tooltip={t<string>("tooltips.ledgerSize")}
         value={new BigNumber(formattedLedgerSize.value).toFormat(2)}
         suffix={formattedLedgerSize.suffix}
         isLoading={isNodeStatusLoading}

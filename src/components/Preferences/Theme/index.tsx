@@ -1,7 +1,9 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { Col, Row, Switch, Typography } from "antd";
+
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
+import { Col, Row, Switch, Typography } from "antd";
+
 import { PreferencesContext, Theme } from "api/contexts/Preferences";
 
 const { Text } = Typography;

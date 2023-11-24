@@ -4,9 +4,7 @@ const { Sentry } = require("../sentry");
 const { nodeCache } = require("../client/cache");
 const { NANOTICKER_STATS } = require("../constants");
 
-const getNanotickerStats = async () => {
-  let res;
-
+const doNanotickerStats = async () => {
   try {
     const res = await fetch("https://nanoticker.info/json/stats.json");
 
@@ -14,12 +12,16 @@ const getNanotickerStats = async () => {
 
     nodeCache.set(NANOTICKER_STATS, { cps });
   } catch (err) {
-    console.log("Error", err);
-    Sentry.captureException(err, { extra: { res } });
+    //@NOTE throws too much....
+    // Sentry.captureException(err);
   }
 };
 
-// Every 3 seconds
-cron.schedule("*/3 * * * * *", async () => {
-  getNanotickerStats();
+// Every 10 seconds
+cron.schedule("*/10 * * * * *", async () => {
+  doNanotickerStats();
 });
+
+if (!nodeCache.get(NANOTICKER_STATS)) {
+  doNanotickerStats();
+}

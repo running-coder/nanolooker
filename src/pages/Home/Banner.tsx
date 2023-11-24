@@ -1,8 +1,10 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+
 import { Button, Space, Typography } from "antd";
-import { Theme, PreferencesContext } from "api/contexts/Preferences";
+
+import { PreferencesContext, Theme } from "api/contexts/Preferences";
 import Search from "components/Search";
 import { Tracker } from "components/utils/analytics";
 
@@ -61,15 +63,15 @@ const Banner: React.FC = () => {
       </div>
 
       <Space size={[6, 12]} wrap style={{ justifyContent: "center" }}>
-        <Link to={"/what-is-nano"}>
+        {/* <Link to={"/what-is-nano"}>
           <Button ghost>{t("menu.whatIsNano")}</Button>
-        </Link>
+        </Link> */}
 
         <Button
           ghost
           href="https://pasino.com/?user_id=18828"
           target="_blank"
-          style={{ padding: "0 10px" }}
+          style={{ padding: "0 10px", display: "flex" }}
           onClick={() => {
             Tracker.ga4?.gtag("event", "SponsorPasino");
           }}

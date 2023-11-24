@@ -1,4 +1,3 @@
-const fetch = require("node-fetch");
 const cron = require("node-cron");
 const uniqBy = require("lodash/uniqBy");
 const BigNumber = require("bignumber.js");
@@ -7,19 +6,15 @@ const { rawToRai } = require("../utils");
 const { rpc } = require("../rpc");
 const { nodeCache } = require("../client/cache");
 const { Sentry } = require("../sentry");
-const {
-  KNOWN_ACCOUNTS,
-  KNOWN_ACCOUNTS_BALANCE,
-  EXPIRE_48H,
-} = require("../constants");
+const { KNOWN_ACCOUNTS, KNOWN_ACCOUNTS_BALANCE, EXPIRE_48H } = require("../constants");
 const extraKnownAccounts = require("./knownAccounts.json");
+const knownAccountsMNN = require("./knownAccounts_mnn.json");
 const faucetAccounts = require("../../src/pages/Faucets/faucets.json");
 
 const doKnownAccountsCron = async () => {
   let knownAccounts = [];
   try {
-    const res = await fetch("https://mynano.ninja/api/accounts/aliases");
-    knownAccounts = (await res.json()) || [];
+    knownAccounts = knownAccountsMNN;
 
     // Merge knownAccounts.json list
     knownAccounts = uniqBy(knownAccounts.concat(extraKnownAccounts), "account");
@@ -38,19 +33,15 @@ const doKnownAccountsBalanceCron = async () => {
   let knownAccountsBalance = [];
 
   try {
-    const knownAccounts = await (nodeCache.get(KNOWN_ACCOUNTS) ||
-      doKnownAccountsCron());
+    const knownAccounts = await (nodeCache.get(KNOWN_ACCOUNTS) || doKnownAccountsCron());
 
     let accounts = knownAccounts.flatMap(({ account }) => [account]);
 
-    let ignoredKnownAccountBalances =
-      nodeCache.get(`${KNOWN_ACCOUNTS_BALANCE}_IGNORED`) || [];
+    let ignoredKnownAccountBalances = nodeCache.get(`${KNOWN_ACCOUNTS_BALANCE}_IGNORED`) || [];
 
     // Remove accounts with balance lower than Ӿ1 for 48h
     if (ignoredKnownAccountBalances.length) {
-      accounts = accounts.filter(
-        account => !ignoredKnownAccountBalances.includes(account),
-      );
+      accounts = accounts.filter(account => !ignoredKnownAccountBalances.includes(account));
     }
 
     const { balances } =

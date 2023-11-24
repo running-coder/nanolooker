@@ -1,7 +1,9 @@
 import * as React from "react";
+
 import find from "lodash/find";
-import { PreferencesContext } from "api/contexts/Preferences";
+
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
+import { PreferencesContext } from "api/contexts/Preferences";
 
 import type { Transaction } from "types/transaction";
 
@@ -25,14 +27,9 @@ let isMounted: boolean = false;
 const useSocket = () => {
   const [isConnected, setIsConnected] = React.useState<boolean>(false);
   const [isError, setIsError] = React.useState<boolean>(false);
-  const [recentTransactions, setRecentTransactions] = React.useState<
-    Transaction[]
-  >([]);
-  const {
-    filterTransactions,
-    filterTransactionsRange,
-    disableLiveTransactions,
-  } = React.useContext(PreferencesContext);
+  const [recentTransactions, setRecentTransactions] = React.useState<Transaction[]>([]);
+  const { filterTransactions, filterTransactionsRange, disableLiveTransactions } =
+    React.useContext(PreferencesContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
   const { websocketDomain } = React.useContext(PreferencesContext);
 
@@ -102,10 +99,7 @@ const useSocket = () => {
           )?.alias;
 
           setRecentTransactions(prevRecentTransactions =>
-            [message, ...prevRecentTransactions].slice(
-              0,
-              MAX_RECENT_TRANSACTIONS,
-            ),
+            [message, ...prevRecentTransactions].slice(0, MAX_RECENT_TRANSACTIONS),
           );
         }
       } catch (_e) {

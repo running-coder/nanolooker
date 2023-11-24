@@ -1,16 +1,18 @@
 import * as React from "react";
-import differenceBy from "lodash/differenceBy";
 import { useTranslation } from "react-i18next";
-import { Tooltip, Typography } from "antd";
+
 import { ExclamationCircleTwoTone } from "@ant-design/icons";
+import { Tooltip, Typography } from "antd";
 import BigNumber from "bignumber.js";
-import usePending, { PendingBlock } from "api/hooks/use-pending";
-import useBlocksInfo from "api/hooks/use-blocks-info";
+import differenceBy from "lodash/differenceBy";
+
 import { AccountInfoContext } from "api/contexts/AccountInfo";
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
-import TransactionsTable from "pages/Account/Transactions";
-import { toBoolean } from "components/utils";
+import useBlocksInfo from "api/hooks/use-blocks-info";
+import usePending, { PendingBlock } from "api/hooks/use-pending";
 import QuestionCircle from "components/QuestionCircle";
+import { toBoolean } from "components/utils";
+import TransactionsTable from "pages/Account/Transactions";
 
 import type { Subtype, Transaction } from "types/transaction";
 
@@ -41,14 +43,9 @@ const AccountPendingHistory: React.FC<Props> = ({
   pendingSocketTransactions,
 }) => {
   const { t } = useTranslation();
-  const [knownExchangesList, setKnownExchangesList] = React.useState<
-    undefined | string[]
-  >();
+  const [knownExchangesList, setKnownExchangesList] = React.useState<undefined | string[]>();
   const { account } = React.useContext(AccountInfoContext);
-  const {
-    pending: { blocks = {} } = {},
-    isLoading: isAccountHistoryLoading,
-  } = usePending(
+  const { pending: { blocks = {} } = {}, isLoading: isAccountHistoryLoading } = usePending(
     typeof knownExchangesList?.length === "number" ? account : "",
     {
       count: String(MAX_PENDING_TRANSACTIONS),
@@ -60,16 +57,12 @@ const AccountPendingHistory: React.FC<Props> = ({
       include_only_confirmed: false,
     },
   );
-  const {
-    knownExchangeAccounts,
-    isLoading: isKnownAccountsLoading,
-  } = React.useContext(KnownAccountsContext);
+  const { knownExchangeAccounts, isLoading: isKnownAccountsLoading } =
+    React.useContext(KnownAccountsContext);
 
   React.useEffect(() => {
     if (!isKnownAccountsLoading) {
-      setKnownExchangesList(
-        knownExchangeAccounts.filter(Boolean).map(({ account }) => account),
-      );
+      setKnownExchangesList(knownExchangeAccounts.filter(Boolean).map(({ account }) => account));
     }
   }, [knownExchangeAccounts, isKnownAccountsLoading]);
 
@@ -132,8 +125,7 @@ const AccountPendingHistory: React.FC<Props> = ({
         }}
       >
         <Title level={3}>
-          {count}{" "}
-          {t(`pages.account.pendingTransaction${count !== 1 ? "s" : ""}`)}
+          {count} {t(`pages.account.pendingTransaction${count !== 1 ? "s" : ""}`)}
         </Title>
 
         <Tooltip placement="right" title={t("tooltips.pendingTransaction")}>

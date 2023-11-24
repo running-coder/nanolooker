@@ -1,58 +1,39 @@
 import * as React from "react";
-import i18next from "i18next";
-import { useTranslation, Trans } from "react-i18next";
-import {
-  Button,
-  Card,
-  Col,
-  Dropdown,
-  Menu,
-  Row,
-  Tooltip,
-  Typography,
-} from "antd";
+import { Trans, useTranslation } from "react-i18next";
+
 import { DownOutlined } from "@ant-design/icons";
+import { Button, Card, Col, Dropdown, Menu, Row, Tooltip, Typography } from "antd";
 import TimeAgo from "timeago-react";
+
 import useTelemetry, { Percentiles } from "api/hooks/use-telemetry";
-import QuestionCircle from "components/QuestionCircle";
 import LoadingStatistic from "components/LoadingStatistic";
-import { secondsToTime, formatBytes } from "components/utils";
+import QuestionCircle from "components/QuestionCircle";
+import { formatBytes, secondsToTime } from "components/utils";
+import i18next from "i18next";
+
 import PieChart from "./PieChart";
 
 const { Title } = Typography;
 
 const Telemetry: React.FC = () => {
   const { t } = useTranslation();
-  const [currentPercentile, setCurrentPercentile] = React.useState(
-    Percentiles.P95,
-  );
+  const [currentPercentile, setCurrentPercentile] = React.useState(Percentiles.P95);
   const {
     telemetry,
     versions,
     status: { nodeCount, bandwidthCapGroups, date } = {},
     isLoading: isTelemetryLoading,
   } = useTelemetry();
-  const [
-    formattedMedianBandwidthCap,
-    setFormattedMedianBandwidthCap,
-  ] = React.useState(formatBytes(0));
-  const [
-    unlimitedBandwidthCapCount,
-    setUnlimitedBandwidthCapCount,
-  ] = React.useState<number>();
-  const [
-    limitedBandwidthCapCount,
-    setLimitedBandwidthCapCount,
-  ] = React.useState<number>();
-  const [limitedBandwidthCap, setLimitedBandwidthCap] = React.useState(
+  const [formattedMedianBandwidthCap, setFormattedMedianBandwidthCap] = React.useState(
     formatBytes(0),
   );
+  const [unlimitedBandwidthCapCount, setUnlimitedBandwidthCapCount] = React.useState<number>();
+  const [limitedBandwidthCapCount, setLimitedBandwidthCapCount] = React.useState<number>();
+  const [limitedBandwidthCap, setLimitedBandwidthCap] = React.useState(formatBytes(0));
 
   React.useEffect(() => {
     if (!telemetry[currentPercentile]) return;
-    setFormattedMedianBandwidthCap(
-      formatBytes(telemetry[currentPercentile].bandwidthCap),
-    );
+    setFormattedMedianBandwidthCap(formatBytes(telemetry[currentPercentile].bandwidthCap));
   }, [telemetry, currentPercentile]);
 
   const onPercentileClick = ({ key }: any) => {
@@ -99,12 +80,7 @@ const Telemetry: React.FC = () => {
           </Tooltip>
         </div>
 
-        <Card
-          size="small"
-          bordered={false}
-          className="detail-layout"
-          style={{ marginBottom: "12px" }}
-        >
+        <Card size="small" className="detail-layout" style={{ marginBottom: "12px" }}>
           <div style={{ marginBottom: "12px", fontSize: "12px" }}>
             {date ? (
               <>
@@ -121,7 +97,12 @@ const Telemetry: React.FC = () => {
               <>
                 <br />
                 <Trans i18nKey="pages.status.nodeCount">
-                  <strong>{{ nodeCount }}</strong>
+                  <strong>
+                    {{
+                      // @ts-ignore
+                      nodeCount,
+                    }}
+                  </strong>
                 </Trans>
               </>
             ) : null}
@@ -129,7 +110,12 @@ const Telemetry: React.FC = () => {
               <>
                 <br />
                 <Trans i18nKey="pages.status.unlimitedBandwidthCap">
-                  <strong>{{ unlimitedBandwidthCapCount }}</strong>
+                  <strong>
+                    {{
+                      // @ts-ignore
+                      unlimitedBandwidthCapCount,
+                    }}
+                  </strong>
                 </Trans>
               </>
             ) : null}
@@ -137,9 +123,16 @@ const Telemetry: React.FC = () => {
               <>
                 {" "}
                 <Trans i18nKey="pages.status.limitedBandwidthCap">
-                  <strong>{{ limitedBandwidthCapCount }}</strong>
                   <strong>
                     {{
+                      // @ts-ignore
+                      limitedBandwidthCapCount,
+                    }}
+                  </strong>
+
+                  <strong>
+                    {{
+                      // @ts-ignore
                       limitedBandwidthCap: `${limitedBandwidthCap.value} ${limitedBandwidthCap.suffix}`,
                     }}
                   </strong>
@@ -159,7 +152,7 @@ const Telemetry: React.FC = () => {
               <LoadingStatistic
                 isLoading={isTelemetryLoading}
                 title={t("pages.status.cemented")}
-                tooltip={t("tooltips.cemented")}
+                tooltip={t<string>("tooltips.cemented")}
                 value={telemetry[currentPercentile]?.cementedCount}
               />
             </Col>
@@ -167,7 +160,7 @@ const Telemetry: React.FC = () => {
               <LoadingStatistic
                 isLoading={isTelemetryLoading}
                 title={t("pages.status.unchecked")}
-                tooltip={t("tooltips.unchecked")}
+                tooltip={t<string>("tooltips.unchecked")}
                 value={telemetry[currentPercentile]?.uncheckedCount}
               />
             </Col>
@@ -182,12 +175,10 @@ const Telemetry: React.FC = () => {
               <LoadingStatistic
                 isLoading={isTelemetryLoading}
                 title={t("pages.status.bandwidthCap")}
-                tooltip={t("tooltips.bandwidthCap")}
+                tooltip={t<string>("tooltips.bandwidthCap")}
                 value={formattedMedianBandwidthCap.value || "∞"}
                 suffix={
-                  formattedMedianBandwidthCap.value
-                    ? formattedMedianBandwidthCap.suffix
-                    : null
+                  formattedMedianBandwidthCap.value ? formattedMedianBandwidthCap.suffix : null
                 }
               />
             </Col>
@@ -202,7 +193,7 @@ const Telemetry: React.FC = () => {
               <LoadingStatistic
                 isLoading={isTelemetryLoading}
                 title={t("pages.status.uptime")}
-                tooltip={t("tooltips.uptime")}
+                tooltip={t<string>("tooltips.uptime")}
                 value={secondsToTime(telemetry[currentPercentile]?.uptime || 0)}
               />
             </Col>

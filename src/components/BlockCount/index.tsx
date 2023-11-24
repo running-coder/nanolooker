@@ -1,10 +1,12 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { Button, Card, Skeleton, Tooltip } from "antd";
+
 import { ReloadOutlined } from "@ant-design/icons";
-import { refreshActionDelay } from "components/utils";
+import { Button, Card, Skeleton, Tooltip } from "antd";
+
 import { BlockCountContext } from "api/contexts/BlockCount";
 import LoadingStatistic from "components/LoadingStatistic";
+import { refreshActionDelay } from "components/utils";
 
 const POLL_INTERVAL = 1000 * 30;
 
@@ -73,13 +75,13 @@ const BlockCount: React.FC = () => {
         <LoadingStatistic
           isLoading={isInitialLoading}
           title={t("pages.status.unchecked")}
-          tooltip={t("tooltips.unchecked")}
+          tooltip={t<string>("tooltips.unchecked")}
           value={unchecked}
           style={{ opacity }}
         />
         <LoadingStatistic
           title={t("pages.status.cemented")}
-          tooltip={t("tooltips.cemented")}
+          tooltip={t<string>("tooltips.cemented")}
           value={cemented}
           isLoading={isInitialLoading}
           style={{ opacity }}

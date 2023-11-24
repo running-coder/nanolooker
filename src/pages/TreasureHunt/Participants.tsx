@@ -1,5 +1,13 @@
 import * as React from "react";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
+import { Link, useHistory, useParams } from "react-router-dom";
+
+import {
+  CheckCircleTwoTone,
+  CloseCircleOutlined,
+  SearchOutlined,
+  TwitterOutlined,
+} from "@ant-design/icons";
 import {
   Button,
   Card,
@@ -12,15 +20,10 @@ import {
   Space,
   Typography,
 } from "antd";
-import {
-  CheckCircleTwoTone,
-  CloseCircleOutlined,
-  TwitterOutlined,
-  SearchOutlined,
-} from "@ant-design/icons";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { Theme, PreferencesContext } from "api/contexts/Preferences";
+
+import { PreferencesContext, Theme } from "api/contexts/Preferences";
 import { isValidAccountAddress, TwoToneColors } from "components/utils";
+
 import useParticipants from "./hooks/use-participants";
 import Rules from "./Rules";
 
@@ -39,9 +42,7 @@ const Progress: React.FC<ProgressProps> = ({ isCompleted, hash }) => {
   return isCompleted || (hash && hash !== "0") ? (
     <Space size={6}>
       <CheckCircleTwoTone
-        twoToneColor={
-          theme === Theme.DARK ? TwoToneColors.RECEIVE_DARK : "#52c41a"
-        }
+        twoToneColor={theme === Theme.DARK ? TwoToneColors.RECEIVE_DARK : "#52c41a"}
       />
       {hash && hash !== "0" ? (
         <Link to={`/block/${hash}`}>
@@ -66,7 +67,7 @@ const Participants: React.FC = () => {
     page: currentPage,
   });
   const history = useHistory();
-  const isLargeAndLower = !useMediaQuery("(min-width: 992px)");
+  const isLargeAndLower = !useMediaQuery({ query: "(min-width: 992px)" });
 
   const onChange = (e: React.ChangeEventHandler<HTMLInputElement>) => {
     // @ts-ignore
@@ -96,7 +97,7 @@ const Participants: React.FC = () => {
         allowClear
       ></Input>
 
-      <Card size="small" bordered={false} className="detail-layout">
+      <Card size="small" className="detail-layout">
         {!isLargeAndLower ? (
           <Row gutter={6}>
             <Col md={8}>Participant{participants.length === 1 ? "" : "s"}</Col>
@@ -161,14 +162,7 @@ const Participants: React.FC = () => {
         {!isParticipantsLoading && participants.length ? (
           <>
             {participants.map(
-              ({
-                account,
-                twitter,
-                nanoCafe,
-                representative,
-                nanoBrowserQuest,
-                payout,
-              }) => (
+              ({ account, twitter, nanoCafe, representative, nanoBrowserQuest, payout }) => (
                 <Row gutter={6} key={account}>
                   <Col xs={24} lg={8}>
                     <Link
@@ -231,9 +225,7 @@ const Participants: React.FC = () => {
                       current: currentPage,
                       disabled: false,
                       onChange: (page: number) => {
-                        const element = document.getElementById(
-                          "treasure-hunt-title",
-                        );
+                        const element = document.getElementById("treasure-hunt-title");
                         element?.scrollIntoView();
 
                         setCurrentPage?.(page);

@@ -1,9 +1,12 @@
 import * as React from "react";
+import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { useTranslation } from "react-i18next";
+
 import { AutoComplete, Col, Row, Typography } from "antd";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+
 import { PreferencesContext } from "api/contexts/Preferences";
 import DeleteButton from "components/DeleteButton";
+
 import dataSource from "./supported-cryptocurrency.json";
 
 const { Option } = AutoComplete;
@@ -15,12 +18,8 @@ interface Props {
 
 const CryptocurrencyPreferences: React.FC<Props> = ({ isDetailed }) => {
   const { t } = useTranslation();
-  const {
-    cryptocurrency,
-    addCryptocurrency,
-    removeCryptocurrency,
-    reorderCryptocurrency,
-  } = React.useContext(PreferencesContext);
+  const { cryptocurrency, addCryptocurrency, removeCryptocurrency, reorderCryptocurrency } =
+    React.useContext(PreferencesContext);
   const [search, setSearch] = React.useState<string>("");
 
   const onSearch = (value: string) => {
@@ -116,9 +115,7 @@ const CryptocurrencyPreferences: React.FC<Props> = ({ isDetailed }) => {
                     margin: 0,
                     padding: "6px",
                     marginTop: "6px",
-                    backgroundColor: snapshot.isDraggingOver
-                      ? "#1890ff24"
-                      : "#f6f6f6",
+                    backgroundColor: snapshot.isDraggingOver ? "#1890ff24" : "#f6f6f6",
                     listStyle: "none",
                   }}
                   ref={provided.innerRef}
@@ -126,17 +123,12 @@ const CryptocurrencyPreferences: React.FC<Props> = ({ isDetailed }) => {
                 >
                   {cryptocurrency.map((symbol, index) => {
                     const { name = "" } =
-                      dataSource.find(
-                        ({ symbol: sourceSymbol }) => sourceSymbol === symbol,
-                      ) || {};
+                      dataSource.find(({ symbol: sourceSymbol }) => sourceSymbol === symbol) || {};
                     return (
                       <Draggable draggableId={name} index={index} key={name}>
                         {provided => {
                           // https://github.com/atlassian/react-beautiful-dnd/issues/1662#issuecomment-708538811
-                          if (
-                            typeof provided.draggableProps.onTransitionEnd ===
-                            "function"
-                          ) {
+                          if (typeof provided.draggableProps.onTransitionEnd === "function") {
                             window?.requestAnimationFrame(() =>
                               // @ts-ignore
                               provided?.draggableProps?.onTransitionEnd?.({

@@ -1,20 +1,23 @@
 import * as React from "react";
-import i18next from "i18next";
-import { useTranslation, Trans } from "react-i18next";
 import { Helmet } from "react-helmet";
-import { Card, Switch, Tooltip, Typography } from "antd";
+import { Trans, useTranslation } from "react-i18next";
+
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import { Column } from "@antv/g2plot";
-import isInteger from "lodash/isInteger";
-import useDeepCompareEffect from "use-deep-compare-effect";
+import { Card, Switch, Tooltip, Typography } from "antd";
 import BigNumber from "bignumber.js";
+import isInteger from "lodash/isInteger";
+import TimeAgo from "timeago-react";
+import useDeepCompareEffect from "use-deep-compare-effect";
+
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 import useDistribution, { DistributionIndex } from "api/hooks/use-distribution";
-import RichList from "./RichList";
-import DormantFunds from "./DormantFunds";
 import QuestionCircle from "components/QuestionCircle";
 import { intToString } from "components/utils";
-import TimeAgo from "timeago-react";
+import i18next from "i18next";
+
+import DormantFunds from "./DormantFunds";
+import RichList from "./RichList";
 
 const { Text, Title } = Typography;
 
@@ -38,13 +41,9 @@ let distributionChart: any = null;
 
 const Distribution: React.FC = () => {
   const { t } = useTranslation();
-  const {
-    knownExchangeAccounts,
-    isLoading: isKnownAccountsLoading,
-  } = React.useContext(KnownAccountsContext);
-  const [isIncludeExchanges, setIsIncludeExchanges] = React.useState<boolean>(
-    true,
-  );
+  const { knownExchangeAccounts, isLoading: isKnownAccountsLoading } =
+    React.useContext(KnownAccountsContext);
+  const [isIncludeExchanges, setIsIncludeExchanges] = React.useState<boolean>(true);
   const [totalAccounts, setTotalAccounts] = React.useState<number>(0);
   const [totalBalance, setTotalBalance] = React.useState<number>(0);
   const [distributionData, setDistributionData] = React.useState<any[]>([]);
@@ -60,12 +59,7 @@ const Distribution: React.FC = () => {
   }, []);
 
   React.useEffect(() => {
-    if (
-      !data?.distribution ||
-      !data?.knownExchanges ||
-      !knownExchangeAccounts.length
-    )
-      return;
+    if (!data?.distribution || !data?.knownExchanges || !knownExchangeAccounts.length) return;
 
     let knownExchangeDistribution: DistributionIndex[] = [];
     if (!isIncludeExchanges) {
@@ -86,12 +80,8 @@ const Distribution: React.FC = () => {
     let tmpTotalBalance = 0;
 
     data.distribution.forEach(
-      (
-        { accounts, balance }: { accounts: number; balance: number },
-        i: number,
-      ): void => {
-        const calcAccounts =
-          accounts - (knownExchangeDistribution[i]?.accounts || 0);
+      ({ accounts, balance }: { accounts: number; balance: number }, i: number): void => {
+        const calcAccounts = accounts - (knownExchangeDistribution[i]?.accounts || 0);
         let calcBalance = new BigNumber(balance)
           .minus(knownExchangeDistribution[i]?.balance || 0)
           .toNumber();
@@ -192,9 +182,7 @@ const Distribution: React.FC = () => {
 
   const i18nTotalAccounts = new BigNumber(totalAccounts).toFormat();
   const i18nTotalBalances = new BigNumber(totalBalance).toFormat();
-  const knownExchangeList = knownExchangeAccounts
-    .map(({ alias }) => alias)
-    .join(", ");
+  const knownExchangeList = knownExchangeAccounts?.map(({ alias }) => alias).join(", ");
   const date = data?.status?.date || t("common.notAvailable");
 
   return (
@@ -217,8 +205,18 @@ const Distribution: React.FC = () => {
           <br />
           <Text style={{ fontSize: "12px" }}>
             <Trans i18nKey="pages.distribution.summary">
-              <strong>{{ i18nTotalAccounts }}</strong>
-              <strong>{{ i18nTotalBalances }}</strong>
+              <strong>
+                {{
+                  // @ts-ignore
+                  i18nTotalAccounts,
+                }}
+              </strong>
+              <strong>
+                {{
+                  // @ts-ignore
+                  i18nTotalBalances,
+                }}
+              </strong>
             </Trans>
           </Text>
           <br />
@@ -239,9 +237,7 @@ const Distribution: React.FC = () => {
             }}
             defaultChecked={isIncludeExchanges}
           />
-          <Text style={{ marginLeft: "6px" }}>
-            {t("pages.distribution.includeKnownExchanges")}
-          </Text>
+          <Text style={{ marginLeft: "6px" }}>{t("pages.distribution.includeKnownExchanges")}</Text>
           <Tooltip
             placement="right"
             title={t("tooltips.knownExchangeBalance", {
@@ -262,9 +258,7 @@ const Distribution: React.FC = () => {
             }}
             defaultChecked={isLogScale}
           />
-          <Text style={{ margin: "0 6px" }}>
-            {t("pages.distribution.logScale")}
-          </Text>
+          <Text style={{ margin: "0 6px" }}>{t("pages.distribution.logScale")}</Text>
         </div>
 
         <div style={{ marginTop: 24 }} id="distribution-chart" />

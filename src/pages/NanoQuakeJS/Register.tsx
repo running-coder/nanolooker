@@ -1,12 +1,15 @@
 import * as React from "react";
+import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { useForm, Controller } from "react-hook-form";
+
+import { CameraOutlined, CheckCircleTwoTone } from "@ant-design/icons";
 import { Alert, Button, Col, Input, Modal, Row, Space, Typography } from "antd";
-import { CheckCircleTwoTone, CameraOutlined } from "@ant-design/icons";
+
 import { PreferencesContext } from "api/contexts/Preferences";
 import QRCodeModal from "components/QRCode/Modal";
-import { isValidAccountAddress, getPrefixedAccount } from "components/utils";
+import { getPrefixedAccount, isValidAccountAddress } from "components/utils";
 import { Tracker } from "components/utils/analytics";
+
 import Play from "./Play";
 
 const { Text } = Typography;
@@ -26,12 +29,8 @@ const Register: React.FC = () => {
   const [registerError, setRegisterError] = React.useState("");
   const [invalidQrCode, setInvalidQrCode] = React.useState("");
   const [section, setSection] = React.useState(Sections.REGISTER);
-  const {
-    nanoQuakeJSUsername,
-    setNanoQuakeJSUsername,
-    nanoQuakeJSAccount,
-    setNanoQuakeJSAccount,
-  } = React.useContext(PreferencesContext);
+  const { nanoQuakeJSUsername, setNanoQuakeJSUsername, nanoQuakeJSAccount, setNanoQuakeJSAccount } =
+    React.useContext(PreferencesContext);
 
   const {
     control,
@@ -47,13 +46,7 @@ const Register: React.FC = () => {
     },
     mode: "onChange",
   });
-  const onSubmit = async ({
-    username,
-    account,
-  }: {
-    username: string;
-    account: string;
-  }) => {
+  const onSubmit = async ({ username, account }: { username: string; account: string }) => {
     setIsSending(true);
     setRegisterError("");
 
@@ -79,13 +72,13 @@ const Register: React.FC = () => {
         Tracker.ga4?.gtag("event", "NanoQuakeJS - Register");
       } else {
         setRegisterError(
-          json.error === "already_registered"
+          (json.error === "already_registered"
             ? t("pages.nanoquakejs.registerErrorUsername")
-            : t("pages.nanoquakejs.registerError"),
+            : t("pages.nanoquakejs.registerError")) as string,
         );
       }
     } catch (err) {
-      setRegisterError(t("pages.nanoquakejs.registerError"));
+      setRegisterError(t("pages.nanoquakejs.registerError") as string);
     }
 
     setIsSending(false);
@@ -138,20 +131,12 @@ const Register: React.FC = () => {
             {nanoQuakeJSUsername && nanoQuakeJSAccount ? (
               <Play />
             ) : (
-              <Button
-                type="primary"
-                size="large"
-                shape="round"
-                onClick={() => setIsOpen(true)}
-              >
+              <Button type="primary" size="large" shape="round" onClick={() => setIsOpen(true)}>
                 {t("pages.nanoquakejs.register")}
               </Button>
             )}
 
-            <QRCodeModal
-              account={NANOQUAKEJS_DONATION_ACCOUNT}
-              header={<Text>NanoQuakeJS</Text>}
-            >
+            <QRCodeModal account={NANOQUAKEJS_DONATION_ACCOUNT} header={<Text>NanoQuakeJS</Text>}>
               <Button ghost type="primary" size="small" shape="round">
                 {t("pages.nanoquakejs.donatePrizePool")}
               </Button>
@@ -170,34 +155,23 @@ const Register: React.FC = () => {
             ? t("pages.nanoquakejs.register")
             : t("pages.nanoquakejs.scanWallet")
         }
-        visible={isOpen}
+        open={isOpen}
         // @ts-ignore
-        onOk={
-          Sections.REGISTER
-            ? handleSubmit(onSubmit)
-            : setSection(Sections.REGISTER)
-        }
+        onOk={Sections.REGISTER ? handleSubmit(onSubmit) : setSection(Sections.REGISTER)}
         okText={t("pages.nanoquakejs.register")}
         okButtonProps={{
           disabled: !isValid,
         }}
         confirmLoading={isSending}
         onCancel={() => {
-          section === Sections.REGISTER
-            ? setIsOpen(false)
-            : setSection(Sections.REGISTER);
+          section === Sections.REGISTER ? setIsOpen(false) : setSection(Sections.REGISTER);
         }}
         cancelText={t("common.cancel")}
       >
         {section === Sections.REGISTER ? (
           <>
             {registerError ? (
-              <Alert
-                message={registerError}
-                type="error"
-                showIcon
-                style={{ marginBottom: 12 }}
-              />
+              <Alert message={registerError} type="error" showIcon style={{ marginBottom: 12 }} />
             ) : null}
             <form onSubmit={handleSubmit(onSubmit)}>
               <Space size={12} direction="vertical" style={{ width: "100%" }}>
@@ -223,8 +197,7 @@ const Register: React.FC = () => {
                       />
                     )}
                     rules={{
-                      validate: (value: string) =>
-                        value.length >= 3 && !/\s/.test(value),
+                      validate: (value: string) => value.length >= 3 && !/\s/.test(value),
                     }}
                     control={control}
                     name="username"

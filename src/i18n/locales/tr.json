@@ -42,7 +42,9 @@
     "statistics": "İstatistik",
     "continue": "Devam et",
     "link": "Bağlantı",
-    "noData": "Veri yok"
+    "noData": "Veri yok",
+    "include": "Katmak",
+    "exclude": "Hariç tutmak"
   },
   "nodeHealth": {
     "nodeReloading": "Nano düğüm yeniden yükleniyor",
@@ -78,13 +80,13 @@
     "knownExchangeBalance": "{{knownExchangeList}} 'i dağıtım grafiğinden hariç tutun. Bu hesaplar birleşik tutuyor {{knownExchangeBalance}} NANO",
     "unchecked": "İndirilmiş ancak henüz Nano düğümü tarafından işlenmemiş bloklar (işlemler). Düğüm yazılımı, diğer düğümlerdeki tüm engelleri kontrol edilmemiş olarak indirir, bunları işler ve blok sayısına ekler, her hesap için sınır bloklarını onaylar ve ardından bunları yapıştırılmış olarak işaretler.",
     "cemented": "Belirli bir düğüm, hesabın onay yüksekliğini (düğüm veritabanında) onaylanan işlemin şimdi daha yüksek olan blok yüksekliğine ayarlayarak onaylanmış bir işlemi yerel olarak geri çevrilemez olarak işaretlediğinde. Çimentolama, düğüm düzeyinde bir işlemdir.",
-    "unknownLastTransaction": "İşlem tarihleri Şubat 2019'da tanıtıldı. Bu tarihten önce işlem saatleri düğümlere yerel olarak kaydedilmiyordu. Son işlem tarihinin bilinmemesinin nedeni, tarihler kaydedilmeden veya NanoLooker düğümü hizmete girmeden önce onaylanmış olmasıdır.",
+    "unknownTransactionDate": "İşlem tarihleri Şubat 2019'da tanıtıldı. Bu tarihten önce işlem saatleri düğümlere yerel olarak kaydedilmiyordu. Son işlem tarihinin bilinmemesinin nedeni, tarihler kaydedilmeden veya NanoLooker düğümü hizmete girmeden önce onaylanmış olmasıdır.",
     "confirmationHeight": "Yerel düğüm veritabanında saklanan ve bir hesap zincirindeki en yüksek (en son) doğrulanmış bloğu temsil eden sayı. Blok yüksekliğiyle ilgili (ancak bundan farklı).",
     "blockHeight": "Bir hesap zincirindeki bir bloğun sırasını temsil eden yerel bir tamsayı değeri. Örneğin, bir hesaptaki 15. bloğun blok yüksekliği 15 olacaktır. Onay yüksekliğiyle ilgili (ancak farklı).",
     "bookmarks": "{{type, capitalize}} yer imleri cihazınıza kaydedilir. Bilinen {{type}} 'lerinizi onlara takma adlar vererek yönetebilirsiniz.",
     "groupByEntities": "Farklı ana temsilcilere bölünmüş tüm oy ağırlıklarını tek varlıklara yeniden gruplayın. Örneğin, bir borsa birden fazla cüzdana sahip olabilir ve ağırlıklarını paylaştırabilir, ancak gerçekte yeniden gruplandırılacaksa, tek bir ağırlık olarak sayılabilir.",
     "telemetry": "Ağdaki diğer düğümlerden metrikler. Ağdaki farklı durumları temsil etmek için tüm ölçümler toplanır ve ortalaması alınır. P yüzdeliğe karşılık gelir, p50, ortalamayı hesaplamak için farklı değerlerin alt% 5'ini hariç tutarken, alt% 50 hariç tutularak hesaplanır.",
-    "ledgerSize": "Şimdiye kadarki her Nano işlemini depolamak için gereken toplam disk alanı miktarı. Defter boyutu 1000 değil 1024 temel alınarak hesaplanır.",
+    "ledgerSize": "Şimdiye kadarki her Nano işlemini depolamak için gereken toplam disk alanı miktarı.",
     "bandwidthCap": "Nano düğümler, gönderilebilen veya alınabilen mesajların miktarını sınırlamak için bant genişliğini kısabilir. 0, sınırsız bant genişliği anlamına gelir.",
     "uptime": "Düğümün en son yeniden başlatılmasından bu yana geçen süre.",
     "mnano": "Nano, cüzdanlarda, borsalarda ve hizmetlerde kullanılan mevcut standart bölümdür. 1 NANO olarak anılır.",
@@ -92,8 +94,12 @@
     "onChainVolume": "Ağda onaylanan tüm NANO işlemlerinin toplamı. Aynı gün A kullanıcısı 1 NANO gönderir ve B kullanıcısı 1 NANO alırsa, 2 işlem yayınlanıp onaylandığı için gönderme ve alma olmak üzere günlük hacme 2 NANO eklenir.",
     "pendingTransactionCount": "Alacak işlemlerinin sayısı, görüntülenen {{count}} sınırını aşıyor.",
     "pendingTransaction": "Para bu hesaba gönderildi, ancak sahibi henüz parayı cebe indirmedi. Yalnızca hesabın sahibi alınan bir işlemi blok zincirine yazabilir. Bu sizin hesabınızsa, cüzdanınızın kilidini açın, alıcı blok genellikle otomatik olarak yayınlanır.",
-    "socialStatistics": "İstatistikler, CoinGecko'nun piyasa değerine göre en iyi 100 kripto para birimi kullanılarak derlenir.",
-    "dailyBalance": "İşlem grafiği yalnızca hesapta 1 günden fazla veri varsa ve işlemlerin zaman damgaları varsa görünür"
+    "socialStatistics": "İstatistikler, CoinGecko'nun piyasa değerine göre en iyi 200 kripto para birimi kullanılarak derlenir.",
+    "dailyBalance": "İşlem grafiği yalnızca hesapta 1 günden fazla veri varsa ve işlemlerin zaman damgaları varsa görünür",
+    "senderFilter": "Belirli bir adresten yalnızca tüm gönderme işlemlerini dahil etmek veya hariç tutmak için blokları filtreleyin. Birden çok adresi filtrelemek için bunları virgülle ayırın.",
+    "receiverFilter": "Belirli bir adresten yalnızca tüm gönderme işlemlerini dahil etmek veya hariç tutmak için blokları filtreleyin. Birden çok adresi filtrelemek için bunları virgülle ayırın.",
+    "filterTransactions": "Yalnızca 5.000'den az onaylanmış işlemi olan hesaplar filtrelenebilir",
+    "averageTps": "{{date}} tarihinde, {{block_count}} {{block_type}} blok, ağ verimliliğini ölçmek için {{bps}} BPS (blok/saniye) oranında yayınlandı. Ağ, düğümler genelinde {{cps_p90}} CPS (saniye başına onay) P90 değerine ulaştı. Daha fazla ayrıntı için https://nanotps.net/ adresini ziyaret edin."
   },
   "search": {
     "searchBy": "Adres / Blok / Bilinen Hesap ile Ara",
@@ -135,7 +141,8 @@
     "earnNano": "Nano Kazanın",
     "preferences": "Tercihler",
     "status": "Durum",
-    "networkStatus": "Ağ durumu"
+    "networkStatus": "Ağ durumu",
+    "nodeMonitors": "Düğüm Monitörleri"
   },
   "footer": {
     "createdBy": "{{creator}} tarafından oluşturuldu",
@@ -169,7 +176,8 @@
       "reconnectingToBlockchain": "Bağlantı kesildi, NANO blok zincirine yeniden bağlanılıyor",
       "cpsLocal": "Yerel düğümde gözlemlenen CPS",
       "cpsNetwork": "Birkaç temsili düğümde medyan CPS",
-      "viewSocialEngagement": "Sosyal Etkileşimi Görüntüle"
+      "viewSocialEngagement": "Sosyal Etkileşimi Görüntüle",
+      "averageTps": "Ort. TPS Kapasitesi"
     },
     "account": {
       "votingWeight": "Oy ağırlığı",
@@ -188,7 +196,31 @@
       "byTransactionOption": "İşlem bazında bakiye",
       "dailyBalance": "Son {{count}} işlem",
       "notOpenedYet": "Bu hesapta herhangi bir işlem yok",
-      "notOpenedYetReason": "Hesap geçerli olmakla birlikte, zincirine henüz blok eklenmedi. Bu hesaba NANO gönderildiyse, kullanmakta olduğunuz hizmetin henüz yayınlamaması veya geçici ağ koşulları nedeniyle NanoLooker düğümü işlemi henüz almamış olabilir."
+      "notOpenedYetReason": "Hesap geçerli olmakla birlikte, zincirine henüz blok eklenmedi. Bu hesaba NANO gönderildiyse, kullanmakta olduğunuz hizmetin henüz yayınlamaması veya geçici ağ koşulları nedeniyle NanoLooker düğümü işlemi henüz almamış olabilir.",
+      "dateRange": "Tarih aralığı",
+      "includeNoTimestamp": "Tarihsiz blokları dahil et",
+      "excludeUnknownAccounts": "Yalnızca bilinen hesaplardan gelen blokları göster",
+      "advancedOptions": "Gelişmiş seçenekler",
+      "applyFilters": "Filtreleri uygula",
+      "fields": "Alanlar",
+      "delimiter": "sınırlayıcı",
+      "delimiterComma": "Virgül",
+      "delimiterSemicolon": "Noktalı virgül",
+      "delimiterTab": "Sekme",
+      "delimiterSpace": "Uzay",
+      "delimiterPipe": "Boru",
+      "fileName": "Dosya adı",
+      "minimum": "Asgari",
+      "maximum": "Maksimum",
+      "from": "İtibaren",
+      "to": "İle",
+      "startDate": "Başlangıç tarihi",
+      "endDate": "Bitiş tarihi",
+      "exportToCsv": "CSV'ye aktar",
+      "export": "İhracat",
+      "exportTransactions": "{{count}} işlemi CSV'ye aktar",
+      "reverse": "İşlem sırasını tersine çevir",
+      "sumAmounts": "Tutarları topla"
     },
     "block": {
       "blockSubtype": "Alt türü engelle",
@@ -323,7 +355,9 @@
       "nodeVersions": "Düğüm sürümleri",
       "latestVersion": "En son sürüm",
       "database": "Veri tabanı",
-      "versionsByWeight": "Oy ağırlığına göre sürümler"
+      "versionsByWeight": "Oy ağırlığına göre sürümler",
+      "versionsByMajor": "Ana sürüme göre gruplandırın",
+      "nodeMonitorsDetails": "Nano Node Monitor, PHP ile oluşturulmuş, Nano düğümler için sunucu tarafı bir izleme aracıdır. RPC aracılığıyla çalışan bir düğüme bağlantı kurar ve durumunu bir web sayfasında görüntüler. <0>Düğümünüze kurun</0>"
     },
     "exchangeTracker": {
       "description": "Her gün, Nano'nun işlem gördüğü en popüler borsaların hesap bakiyelerinin bir kaydı alınır. Bu ölçüm, ağdaki hareketleri ve dalgalanmaları analiz etmek için kullanılabilir.",
@@ -411,7 +445,9 @@
       "nanoPotions": "NANO İksirler",
       "guide": {
         "title": "NanoBrowserQuest Kılavuzu"
-      }
+      },
+      "playerGuide": "Oyuncu Kılavuzu",
+      "gold": "Altın"
     },
     "statistics": {
       "social": {

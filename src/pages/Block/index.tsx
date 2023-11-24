@@ -1,11 +1,14 @@
 import * as React from "react";
-import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
+
 import { Card, Typography } from "antd";
+
 import { BlocksInfoContext } from "api/contexts/BlocksInfo";
-import BlockDetails from "./Details";
 import { isValidBlockHash } from "components/utils";
+
+import BlockDetails from "./Details";
 
 import type { PageParams } from "types/page";
 
@@ -37,7 +40,7 @@ const BlockPage: React.FC = () => {
       <Title level={3}>{t("common.block")}</Title>
       {isValid ? <BlockDetails /> : null}
       {!isValid || !block ? (
-        <Card bordered={false}>
+        <Card>
           <Title level={3}>{t("pages.block.missingBlock")}</Title>
           <Text>{t("pages.block.missingBlockInfo")}</Text>
         </Card>

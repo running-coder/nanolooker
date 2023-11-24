@@ -1,6 +1,6 @@
-const MongoClient = require("mongodb").MongoClient;
 const { Sentry } = require("../sentry");
 const { nodeCache } = require("../client/cache");
+const db = require("../client/mongo");
 const {
   EXPIRE_1h,
   EXPIRE_24H,
@@ -34,33 +34,29 @@ const getCoingeckoStats = async ({ fiat, cryptocurrency }) => {
 
   const getMarketCapRank24h =
     marketCapRank24h ||
-    new Promise((resolve, reject) => {
-      let db;
+    new Promise(async (resolve, reject) => {
       try {
-        MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (err, client) => {
-          if (err) {
-            throw err;
-          }
-          db = client.db(MONGO_DB);
+        const database = await db.getDatabase();
 
-          db.collection(MARKET_CAP_RANK_COLLECTION)
-            .find({
-              $query: {
-                createdAt: {
-                  $lte: new Date(Date.now() - EXPIRE_24H * 1000),
-                  $gte: new Date(Date.now() - EXPIRE_48H * 1000),
-                },
-              },
-              $orderby: { value: 1 },
-            })
-            .toArray((_err, [{ value } = {}] = []) => {
-              nodeCache.set(MARKET_CAP_RANK_24H, value, EXPIRE_1h);
-              client.close();
-              resolve(value);
-            });
-        });
+        if (!database) {
+          throw new Error("Mongo unavailable for getCoingeckoStats");
+        }
+
+        database
+          .collection(MARKET_CAP_RANK_COLLECTION)
+          .find({
+            createdAt: {
+              $lte: new Date(Date.now() - EXPIRE_24H * 1000),
+              $gte: new Date(Date.now() - EXPIRE_48H * 1000),
+            },
+          })
+          .sort({ value: 1 })
+          .toArray()
+          .then(([{ value } = {}]) => {
+            nodeCache.set(MARKET_CAP_RANK_24H, value, EXPIRE_1h);
+            resolve(value);
+          });
       } catch (err) {
-        console.log("Error", err);
         Sentry.captureException(err);
         resolve();
       }
@@ -85,25 +81,23 @@ const getCoingeckoMarketCapStats = async () => {
     return marketCapStats;
   }
 
-  return new Promise(resolve => {
-    let db;
+  return new Promise(async resolve => {
     try {
-      MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (err, client) => {
-        if (err) {
-          throw err;
-        }
-        db = client.db(MONGO_DB);
+      const database = await db.getDatabase();
 
-        db.collection(MARKET_CAP_STATS_COLLECTION)
-          .find()
-          .toArray((_err, value = []) => {
-            nodeCache.set(COINGECKO_MARKET_CAP_STATS, value);
-            client.close();
-            resolve(value);
-          });
-      });
+      if (!database) {
+        throw new Error("Mongo unavailable for getCoingeckoMarketCapStats");
+      }
+
+      database
+        .collection(MARKET_CAP_STATS_COLLECTION)
+        .find()
+        .toArray()
+        .then(value => {
+          nodeCache.set(COINGECKO_MARKET_CAP_STATS, value);
+          resolve(value);
+        });
     } catch (err) {
-      console.log("Error", err);
       Sentry.captureException(err);
       resolve([]);
     }

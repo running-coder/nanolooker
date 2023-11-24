@@ -1,10 +1,10 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+
 import { Col, Row } from "antd";
 
-export const ACCOUNT_2MINERS =
-  "nano_14uzbiw1euwicrt3gzwnpyufpa8td1uw8wbhyyrz5e5pnqitjfk1tb8xwgg4";
+export const ACCOUNT_2MINERS = "nano_14uzbiw1euwicrt3gzwnpyufpa8td1uw8wbhyyrz5e5pnqitjfk1tb8xwgg4";
 export const ACCOUNT_NANOBROWSERQUEST =
   "nano_1questzx4ym4ncmswhz3r4upwrxosh1hnic8ry8sbh694r48ajq95d1ckpay";
 export const ACCOUNT_NANOQUAKEJS =
@@ -38,9 +38,7 @@ const ExtraRow: React.FC<Props> = ({ account }) => {
             {t("common.link")}
           </Col>
           <Col xs={24} sm={18} md={20}>
-            <Link to="/nanobrowserquest">
-              {t("pages.nanobrowserquest.playNanoBrowserQuest")}
-            </Link>
+            <Link to="/nanobrowserquest">{t("pages.nanobrowserquest.playNanoBrowserQuest")}</Link>
           </Col>
         </Row>
       ) : null}
@@ -51,9 +49,7 @@ const ExtraRow: React.FC<Props> = ({ account }) => {
             {t("common.link")}
           </Col>
           <Col xs={24} sm={18} md={20}>
-            <Link to="/nanoquakejs">
-              {t("pages.nanoquakejs.playNanoquakejs")}
-            </Link>
+            <Link to="/nanoquakejs">{t("pages.nanoquakejs.playNanoquakejs")}</Link>
           </Col>
         </Row>
       ) : null}

@@ -42,7 +42,9 @@
     "statistics": "Statistiche",
     "continue": "Continua",
     "link": "Collegamento",
-    "noData": "Nessun dato"
+    "noData": "Nessun dato",
+    "include": "Includere",
+    "exclude": "Escludere"
   },
   "nodeHealth": {
     "nodeReloading": "Il nano nodo si sta ricaricando",
@@ -78,13 +80,13 @@
     "knownExchangeBalance": "Escludi {{knownExchangeList}} dal grafico di distribuzione. Questi account combinati detengono {{knownExchangeBalance}} NANO",
     "unchecked": "Blocchi (transazioni) che sono stati scaricati ma non ancora elaborati dal nodo Nano. Il software del nodo scarica tutti i blocchi da altri nodi come deselezionati, li elabora e li aggiunge al conteggio dei blocchi, conferma i blocchi di frontiera per ogni account e quindi li contrassegna come cementati.",
     "cemented": "Quando un nodo specifico contrassegna una transazione confermata come irreversibile localmente impostando l'altezza di conferma dell'account (nel database del nodo) all'altezza del blocco ora più alta della transazione confermata. La cementazione è un'operazione a livello di nodo.",
-    "unknownLastTransaction": "Le date delle transazioni sono state introdotte nel febbraio 2019. Prima di quella data, i tempi delle transazioni non erano registrati localmente sui nodi. Il motivo per cui la data dell'ultima transazione è sconosciuta è perché è stata confermata prima che le date fossero registrate o prima che il nodo NanoLooker fosse in servizio.",
+    "unknownTransactionDate": "Le date delle transazioni sono state introdotte nel febbraio 2019. Prima di quella data, i tempi delle transazioni non erano registrati localmente sui nodi. Il motivo per cui la data dell'ultima transazione è sconosciuta è perché è stata confermata prima che le date fossero registrate o prima che il nodo NanoLooker fosse in servizio.",
     "confirmationHeight": "Un numero memorizzato nel database del nodo locale che rappresenta il blocco confermato più alto (più recente) in una catena di account. Correlato a (ma diverso da) l'altezza del blocco.",
     "blockHeight": "Un valore intero locale che rappresenta l'ordine di un blocco in una catena di account. Ad esempio, il quindicesimo blocco in un account avrebbe un'altezza di blocco di 15. Correlato a (ma diverso da) altezza di conferma.",
     "bookmarks": "I segnalibri {{type, capitalize}} vengono salvati sul tuo dispositivo. Puoi gestire i tuoi {{type}} noti assegnando loro degli alias.",
     "groupByEntities": "Raggruppa tutto il peso di voto che è suddiviso in diversi rappresentanti principali in singole entità. Ad esempio uno scambio può avere più portafogli e dividerne il peso ma in realtà può essere conteggiato come un unico peso se lo raggruppassero.",
     "telemetry": "Metriche da altri nodi sulla rete. Tutte le metriche vengono raccolte e calcolate in media per rappresentare i diversi stati sulla rete. P corrisponde al percentile, p50 viene calcolato escludendo il 50% inferiore mentre p95 esclude il 5% inferiore dei diversi valori per calcolare la media.",
-    "ledgerSize": "La quantità totale di spazio su disco richiesta per memorizzare ogni transazione Nano fino ad ora. La dimensione del libro mastro è calcolata su 1024 base non 1000.",
+    "ledgerSize": "La quantità totale di spazio su disco richiesta per memorizzare ogni transazione Nano fino ad ora.",
     "bandwidthCap": "I nano nodi sono in grado di limitare la larghezza di banda per limitare la quantità di messaggi che possono essere inviati o ricevuti. 0 significa larghezza di banda illimitata.",
     "uptime": "Tempo trascorso dall'ultimo riavvio del nodo.",
     "mnano": "Nano è l'attuale divisione standard utilizzata nei portafogli, negli scambi e nei servizi. È indicato come 1 NANO.",
@@ -92,8 +94,12 @@
     "onChainVolume": "La somma di tutte le transazioni NANO che sono state confermate sulla rete. Se l'utente A invia 1 NANO e l'utente B riceve 1 NANO nello stesso giorno, verranno aggiunti 2 NANO nel volume giornaliero perché sono state trasmesse e confermate 2 transazioni, una di invio e una di ricezione.",
     "pendingTransactionCount": "Il numero di transazioni ricevibili supera il limite visualizzato di {{count}}.",
     "pendingTransaction": "I fondi sono stati inviati a questo conto ma il proprietario non ha ancora intascato i fondi. Solo il proprietario dell'account può scrivere una transazione ricevuta nella propria blockchain. Se questo è il tuo account, sblocca il tuo portafoglio, il blocco di ricezione viene solitamente trasmesso automaticamente.",
-    "socialStatistics": "Le statistiche vengono compilate utilizzando le prime 100 criptovalute per capitalizzazione di mercato di CoinGecko.",
-    "dailyBalance": "Il grafico delle transazioni è visibile solo se l'account ha più di 1 giorno di dati e se le transazioni hanno timestamp"
+    "socialStatistics": "Le statistiche vengono compilate utilizzando le prime 200 criptovalute per capitalizzazione di mercato di CoinGecko.",
+    "dailyBalance": "Il grafico delle transazioni è visibile solo se l'account ha più di 1 giorno di dati e se le transazioni hanno timestamp",
+    "senderFilter": "Filtra i blocchi per includere o escludere solo tutte le transazioni di invio da un indirizzo specifico. Per filtrare più indirizzi, separali con una virgola.",
+    "receiverFilter": "Filtra i blocchi per includere o escludere solo tutte le transazioni di invio da un indirizzo specifico. Per filtrare più indirizzi, separali con una virgola.",
+    "filterTransactions": "Possono essere filtrati solo gli account con meno di 5.000 transazioni confermate",
+    "averageTps": "In data {{date}}, {{block_count}} {{block_type}} blocchi sono stati trasmessi a una velocità di {{bps}} BPS (blocchi al secondo) per misurare l'efficienza della rete. La rete ha raggiunto un P90 di {{cps_p90}} CPS (conferme al secondo) tra i nodi. Per maggiori dettagli visita https://nanotps.net/."
   },
   "search": {
     "searchBy": "Cerca per indirizzo / blocco / account noto",
@@ -135,7 +141,8 @@
     "earnNano": "Guadagna Nano",
     "preferences": "Preferenze",
     "status": "Stato",
-    "networkStatus": "Stato della rete"
+    "networkStatus": "Stato della rete",
+    "nodeMonitors": "Monitor dei nodi"
   },
   "footer": {
     "createdBy": "Creato da {{creator}}",
@@ -169,7 +176,8 @@
       "reconnectingToBlockchain": "Disconnesso, ricollegandosi alla blockchain NANO",
       "cpsLocal": "CPS osservato sul nodo locale",
       "cpsNetwork": "CPS mediano su diversi nodi rappresentativi",
-      "viewSocialEngagement": "Visualizza l'impegno sociale"
+      "viewSocialEngagement": "Visualizza l'impegno sociale",
+      "averageTps": "Media Capacità TPS"
     },
     "account": {
       "votingWeight": "Peso di voto",
@@ -188,7 +196,31 @@
       "byTransactionOption": "Saldo per transazione",
       "dailyBalance": "Ultime {{count}} transazioni",
       "notOpenedYet": "Questo account non ha transazioni",
-      "notOpenedYetReason": "Mentre l'account è valido, non sono stati ancora aggiunti blocchi alla sua catena. Se NANO è stato inviato a questo account, è possibile che il nodo NanoLooker non abbia ancora ricevuto la transazione perché il servizio che stai utilizzando non l'ha ancora trasmessa o per condizioni di rete temporanee."
+      "notOpenedYetReason": "Mentre l'account è valido, non sono stati ancora aggiunti blocchi alla sua catena. Se NANO è stato inviato a questo account, è possibile che il nodo NanoLooker non abbia ancora ricevuto la transazione perché il servizio che stai utilizzando non l'ha ancora trasmessa o per condizioni di rete temporanee.",
+      "dateRange": "Intervallo di date",
+      "includeNoTimestamp": "Includi blocchi senza data",
+      "excludeUnknownAccounts": "Mostra solo i blocchi di account conosciuti",
+      "advancedOptions": "Opzioni avanzate",
+      "applyFilters": "Applicare filtri",
+      "fields": "Campi",
+      "delimiter": "Delimitatore",
+      "delimiterComma": "Virgola",
+      "delimiterSemicolon": "Punto e virgola",
+      "delimiterTab": "Tab",
+      "delimiterSpace": "Spazio",
+      "delimiterPipe": "Tubo",
+      "fileName": "Nome del file",
+      "minimum": "Minimo",
+      "maximum": "Massimo",
+      "from": "Da",
+      "to": "Per",
+      "startDate": "Data d'inizio",
+      "endDate": "Data di fine",
+      "exportToCsv": "Esporta in CSV",
+      "export": "Esportare",
+      "exportTransactions": "Esporta {{count}} transazioni in CSV",
+      "reverse": "Invertire l'ordine di transazione",
+      "sumAmounts": "Somma gli importi"
     },
     "block": {
       "blockSubtype": "Sottotipo di blocco",
@@ -323,7 +355,9 @@
       "nodeVersions": "Versioni dei nodi",
       "latestVersion": "Ultima versione",
       "database": "Banca dati",
-      "versionsByWeight": "Versioni per peso di voto"
+      "versionsByWeight": "Versioni per peso di voto",
+      "versionsByMajor": "Raggruppa per versione principale",
+      "nodeMonitorsDetails": "Nano Node Monitor è uno strumento di monitoraggio lato server per i nodi Nano, realizzato con PHP. Stabilisce una connessione a un nodo in esecuzione tramite RPC e ne visualizza lo stato su una pagina web. <0>Installa sul tuo nodo</0>"
     },
     "exchangeTracker": {
       "description": "Ogni giorno viene eseguita una cattura dei saldi dei conti delle borse più popolari in cui viene scambiato Nano. Questa misurazione può essere utilizzata per analizzare i movimenti e le fluttuazioni sulla rete.",
@@ -411,7 +445,9 @@
       "nanoPotions": "Pozioni NANO",
       "guide": {
         "title": "Guida di NanoBrowserQuest"
-      }
+      },
+      "playerGuide": "Guida del giocatore",
+      "gold": "Oro"
     },
     "statistics": {
       "social": {

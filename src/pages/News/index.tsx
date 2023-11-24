@@ -1,28 +1,18 @@
 import * as React from "react";
-import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
-import {
-  Button,
-  Card,
-  Col,
-  Dropdown,
-  Menu,
-  Row,
-  Skeleton,
-  Space,
-  Typography,
-} from "antd";
+import { useTranslation } from "react-i18next";
+import { useHistory, useParams } from "react-router-dom";
+
 import { DownOutlined } from "@ant-design/icons";
-import { useParams, useHistory } from "react-router-dom";
+import { Button, Card, Col, Dropdown, Menu, Row, Skeleton, Space, Typography } from "antd";
 import orderBy from "lodash/orderBy";
 
-import type { PageParams } from "types/page";
-
-import useMedium, { MediumPost, MEDIUM_FEEDS } from "./hooks/use-medium";
+import useMedium, { MEDIUM_FEEDS, MediumPost } from "./hooks/use-medium";
 import useYoutube, { YoutubePost } from "./hooks/use-youtube";
-
 import Medium from "./Medium";
 import Youtube from "./Youtube";
+
+import type { PageParams } from "types/page";
 
 const { Text } = Typography;
 
@@ -39,19 +29,13 @@ const NewsPage: React.FC = () => {
   const { feed = "" } = useParams<PageParams>();
   const [posts, setPosts] = React.useState([] as (MediumPost | YoutubePost)[]);
   const [authors, setAuthors] = React.useState([""]);
-  const {
-    isLoading: isMediumLoading,
-    posts: mediumPosts,
-    authors: mediumAuthors,
-  } = useMedium();
+  const { isLoading: isMediumLoading, posts: mediumPosts, authors: mediumAuthors } = useMedium();
   const {
     isLoading: isYoutubeLoading,
     posts: youtubePosts,
     authors: youtubeAuthors,
   } = useYoutube();
-  const [feedFilter, setFeedFilter] = React.useState<MEDIUM_FEEDS | string>(
-    ALL,
-  );
+  const [feedFilter, setFeedFilter] = React.useState<MEDIUM_FEEDS | string>(ALL);
   const [authorFilter, setAuthorFilter] = React.useState<string>(ALL);
   const [sourceFilter, setSourceFilter] = React.useState<string>(ALL);
 
@@ -66,10 +50,7 @@ const NewsPage: React.FC = () => {
   }, [mediumPosts, youtubePosts]);
 
   React.useEffect(() => {
-    const orderedAuthors: string[] = [
-      ...mediumAuthors,
-      ...youtubeAuthors,
-    ].sort();
+    const orderedAuthors: string[] = [...mediumAuthors, ...youtubeAuthors].sort();
 
     setAuthors(orderedAuthors);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -97,12 +78,8 @@ const NewsPage: React.FC = () => {
 
   const filteredPosts = posts
     .filter(({ feed }) => (feedFilter !== ALL ? feedFilter === feed : true))
-    .filter(({ author }) =>
-      authorFilter !== ALL ? authorFilter === author : true,
-    )
-    .filter(({ source }) =>
-      sourceFilter !== ALL ? sourceFilter === source : true,
-    );
+    .filter(({ author }) => (authorFilter !== ALL ? authorFilter === author : true))
+    .filter(({ source }) => (sourceFilter !== ALL ? sourceFilter === source : true));
 
   return (
     <>
@@ -121,8 +98,7 @@ const NewsPage: React.FC = () => {
           }
         >
           <Button>
-            {feedFilter !== ALL ? feedFilter : t("pages.news.allFeeds")}{" "}
-            <DownOutlined />
+            {feedFilter !== ALL ? feedFilter : t("pages.news.allFeeds")} <DownOutlined />
           </Button>
         </Dropdown>
 
@@ -137,8 +113,7 @@ const NewsPage: React.FC = () => {
           }
         >
           <Button>
-            {authorFilter !== ALL ? authorFilter : t("pages.news.allAuthors")}{" "}
-            <DownOutlined />
+            {authorFilter !== ALL ? authorFilter : t("pages.news.allAuthors")} <DownOutlined />
           </Button>
         </Dropdown>
 
@@ -153,8 +128,7 @@ const NewsPage: React.FC = () => {
           }
         >
           <Button>
-            {sourceFilter !== ALL ? sourceFilter : t("pages.news.allSources")}{" "}
-            <DownOutlined />
+            {sourceFilter !== ALL ? sourceFilter : t("pages.news.allSources")} <DownOutlined />
           </Button>
         </Dropdown>
       </Space>
@@ -178,9 +152,7 @@ const NewsPage: React.FC = () => {
         {filteredPosts.map((post: MediumPost | YoutubePost, index) => (
           <Col xs={24} md={12} lg={8} key={index}>
             {post.source === PostSource.MEDIUM ? <Medium post={post} /> : null}
-            {post.source === PostSource.YOUTUBE ? (
-              <Youtube post={post} />
-            ) : null}
+            {post.source === PostSource.YOUTUBE ? <Youtube post={post} /> : null}
           </Col>
         ))}
       </Row>

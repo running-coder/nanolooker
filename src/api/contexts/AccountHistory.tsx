@@ -1,8 +1,9 @@
 import * as React from "react";
+
 import { rpc } from "api/rpc";
 import { isValidAccountAddress } from "components/utils";
 
-import type { Type, Subtype } from "types/transaction";
+import type { Subtype, Type } from "types/transaction";
 
 export interface History {
   type: Type;
@@ -31,26 +32,18 @@ interface AccountHistoryParams {
   account_filter?: string[];
 }
 
-export interface UsePeersReturn {
+export interface Return {
   accountHistory: AccountHistory;
   isLoading: boolean;
   isError: boolean;
 }
 
-const Provider = (
-  account: string,
-  params: AccountHistoryParams,
-): UsePeersReturn => {
-  const [accountHistory, setAccountHistory] = React.useState(
-    {} as AccountHistory,
-  );
+const Provider = (account: string, params: AccountHistoryParams): Return => {
+  const [accountHistory, setAccountHistory] = React.useState({} as AccountHistory);
   const [isLoading, setIsLoading] = React.useState(false);
   const [isError, setIsError] = React.useState(false);
 
-  const getAccountHistory = async (
-    account: string,
-    params: AccountHistoryParams,
-  ) => {
+  const getAccountHistory = async (account: string, params: AccountHistoryParams) => {
     setIsError(false);
     setIsLoading(true);
 

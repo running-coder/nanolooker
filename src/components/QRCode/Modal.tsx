@@ -1,12 +1,15 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useParams } from "react-router-dom";
-import { Button, Modal, Typography } from "antd";
+
 import { SearchOutlined } from "@ant-design/icons";
-import Copy from "components/Copy";
+import { Button, Modal, Typography } from "antd";
+
 import { DONATION_ACCOUNT } from "components/AppFooter";
-import { NANOQUAKEJS_DONATION_ACCOUNT } from "pages/NanoQuakeJS/Register";
+import Copy from "components/Copy";
 import { NANOBROWSERQUEST_DONATION_ACCOUNT } from "pages/NanoBrowserQuest/Register";
+import { NANOQUAKEJS_DONATION_ACCOUNT } from "pages/NanoQuakeJS/Register";
+
 import QRCode from ".";
 
 import type { PageParams } from "types/page";
@@ -33,29 +36,21 @@ const QRCodeModal = ({ header, account, children }: QRCodeModalProps) => {
       })}
       <Modal
         width="300px"
-        visible={isVisible}
+        open={isVisible}
         onCancel={() => setIsVisible(false)}
         footer={[
-          <Button
-            key="submit"
-            type="primary"
-            onClick={() => setIsVisible(false)}
-          >
+          <Button key="submit" type="primary" onClick={() => setIsVisible(false)}>
             {t("common.ok")}
           </Button>,
         ]}
       >
         {header}
-        <div style={{ textAlign: "center" }}>
+        <div style={{ textAlign: "center", margin: "10px 0" }}>
           <QRCode account={account} />
         </div>
         <>
-          {(account === DONATION_ACCOUNT &&
-            accountParam !== DONATION_ACCOUNT) ||
-          [
-            NANOBROWSERQUEST_DONATION_ACCOUNT,
-            NANOQUAKEJS_DONATION_ACCOUNT,
-          ].includes(account) ? (
+          {(account === DONATION_ACCOUNT && accountParam !== DONATION_ACCOUNT) ||
+          [NANOBROWSERQUEST_DONATION_ACCOUNT, NANOQUAKEJS_DONATION_ACCOUNT].includes(account) ? (
             <div
               style={{
                 display: "flex",

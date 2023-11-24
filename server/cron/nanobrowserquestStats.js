@@ -3,17 +3,9 @@ const redis = require("redis");
 const chunk = require("lodash/chunk");
 const { Sentry } = require("../sentry");
 const { nodeCache } = require("../client/cache");
-const {
-  NANOBROWSERQUEST_PLAYERS,
-  NANOBROWSERQUEST_LEADERBOARD,
-} = require("../constants");
+const { NANOBROWSERQUEST_PLAYERS, NANOBROWSERQUEST_LEADERBOARD } = require("../constants");
 
-const {
-  NBQ_REDIS_PORT,
-  NBQ_REDIS_HOST,
-  NBQ_REDIS_PASSWORD,
-  NBQ_REDIS_DB_INDEX,
-} = process.env;
+const { NBQ_REDIS_PORT, NBQ_REDIS_HOST, NBQ_REDIS_PASSWORD, NBQ_REDIS_DB_INDEX } = process.env;
 
 const client = redis.createClient(NBQ_REDIS_PORT, NBQ_REDIS_HOST, {
   password: NBQ_REDIS_PASSWORD,
@@ -21,7 +13,7 @@ const client = redis.createClient(NBQ_REDIS_PORT, NBQ_REDIS_HOST, {
 
 client.on("connect", function () {
   client.select(NBQ_REDIS_DB_INDEX); // NBQ DB
-  console.log("Connected to Redis");
+  console.log(`Connected to NBQ Redis ON DB ${NBQ_REDIS_DB_INDEX}`);
 
   if (process.env.NODE_ENV === "production") {
     getNanoBrowserQuestLeaderboard();
@@ -58,14 +50,22 @@ const getNanoBrowserQuestLeaderboard = async () => {
           playersChunks[i].map(
             player =>
               new Promise(resolve => {
+                if (player === "u:running-coder") {
+                  resolve(undefined);
+                }
+
                 client.hmget(
                   player,
                   "hash",
                   "network",
                   "exp",
+                  "gold",
+                  "goldStash",
                   (_err, reply) => {
                     const network = reply[1];
-                    const exp = parseInt(reply[2] || 0);
+                    const exp = Number(reply[2] || 0);
+                    const gold = Number(reply[3] || 0);
+                    const goldStash = Number(reply[4] || 0);
 
                     if (network === "ban" || !exp) {
                       resolve(undefined);
@@ -75,6 +75,7 @@ const getNanoBrowserQuestLeaderboard = async () => {
                         isCompleted: !!reply[0],
                         network,
                         exp: parseInt(reply[2] || 0),
+                        gold: gold + goldStash,
                       });
                     }
                   },
@@ -104,3 +105,7 @@ cron.schedule("*/5 * * * * *", async () => {
 cron.schedule("*/15 * * * *", async () => {
   getNanoBrowserQuestLeaderboard();
 });
+
+if (!nodeCache.get(NANOBROWSERQUEST_LEADERBOARD)){
+  getNanoBrowserQuestLeaderboard();
+}

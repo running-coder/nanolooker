@@ -1,17 +1,11 @@
 const cron = require("node-cron");
 const fetch = require("node-fetch");
 const chunk = require("lodash/chunk");
-const MongoClient = require("mongodb").MongoClient;
 const { rpc } = require("../rpc");
 const { nodeCache } = require("../client/cache");
+const db = require("../client/mongo");
 const { Sentry } = require("../sentry");
-const {
-  MONGO_DB,
-  MONGO_URL,
-  MONGO_OPTIONS,
-  NODE_LOCATIONS,
-  EXPIRE_48H,
-} = require("../constants");
+const { NODE_LOCATIONS } = require("../constants");
 
 const NODE_IP_REGEX = /\[::ffff:([\d.]+)\]:[\d]+/;
 
@@ -34,35 +28,9 @@ const getNodePeers = async () => {
   return peers;
 };
 
-let db;
-let mongoClient;
-
-const connect = async () =>
-  await new Promise((resolve, reject) => {
-    try {
-      MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (err, client) => {
-        if (err) {
-          throw err;
-        }
-        mongoClient = client;
-        db = client.db(MONGO_DB);
-        db.collection(NODE_LOCATIONS).createIndex(
-          { createdAt: 1 },
-          { expireAfterSeconds: EXPIRE_48H },
-        );
-        resolve();
-      });
-    } catch (err) {
-      Sentry.captureException(err);
-      resolve();
-    }
-  });
-
 const getNodeLocation = async ip => {
   try {
-    const res = await fetch(
-      `https://ipapi.co/${ip}/json/?key=${process.env.IPAPI_KEY}`,
-    );
+    const res = await fetch(`https://ipapi.co/${ip}/json/?key=${process.env.IPAPI_KEY}`);
     const {
       version,
       city,
@@ -129,18 +97,19 @@ const doNodeLocations = async () => {
       results = results.concat(locationResults);
     }
 
-    await connect();
+    const database = await db.getDatabase();
 
-    db.collection(NODE_LOCATIONS).drop();
-    db.collection(NODE_LOCATIONS).insertMany(results);
+    if (!database) {
+      throw new Error("Mongo unavailable for doNodeLocations");
+    }
+
+    await database.collection(NODE_LOCATIONS).deleteMany({});
+    await database.collection(NODE_LOCATIONS).insertMany(results);
 
     nodeCache.set(NODE_LOCATIONS, results);
 
     console.log("Done node location");
-
-    mongoClient.close();
   } catch (err) {
-    console.log("Error", err);
     Sentry.captureException(err);
   }
 };

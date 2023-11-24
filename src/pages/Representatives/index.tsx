@@ -1,30 +1,21 @@
 import * as React from "react";
-import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
+import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
-import {
-  Button,
-  Card,
-  Col,
-  Row,
-  Skeleton,
-  Tag,
-  Tooltip,
-  Typography,
-} from "antd";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+
+import { Button, Card, Col, Row, Skeleton, Tag, Tooltip, Typography } from "antd";
 import BigNumber from "bignumber.js";
-import { Theme, PreferencesContext } from "api/contexts/Preferences";
-import {
-  Representative,
-  RepresentativesContext,
-} from "api/contexts/Representatives";
+
 import { ConfirmationQuorumContext } from "api/contexts/ConfirmationQuorum";
 import { DelegatorsContext } from "api/contexts/Delegators";
+import { PreferencesContext, Theme } from "api/contexts/Preferences";
+import { Representative, RepresentativesContext } from "api/contexts/Representatives";
+import useRepresentative from "api/hooks/use-representative";
 import QuestionCircle from "components/QuestionCircle";
 import { rawToRai, TwoToneColors } from "components/utils";
+
 import PieChart from "./PieChart";
-import useRepresentative from "api/hooks/use-representative";
 
 const { Title } = Typography;
 
@@ -33,14 +24,12 @@ const Representatives = () => {
   const [isIncludeOfflineRepresentatives, setIsIncludeOfflineRepresentatives] =
     React.useState(false);
   const [isGroupedByEntities, setIsGroupedByEntities] = React.useState(true);
-  const [
-    isShowingNonVotingRepresentatives,
-    setIsShowingNonVotingRepresentatives,
-  ] = React.useState(false);
+  const [isShowingNonVotingRepresentatives, setIsShowingNonVotingRepresentatives] =
+    React.useState(false);
   const [filteredRepresentatives, setFilteredRepresentatives] = React.useState(
     [] as Representative[],
   );
-  const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
+  const isSmallAndLower = !useMediaQuery({ query: "(min-width: 576px)" });
   const { theme } = React.useContext(PreferencesContext);
   const { representatives, isLoading: isRepresentativesLoading } =
     React.useContext(RepresentativesContext);
@@ -76,9 +65,7 @@ const Representatives = () => {
   };
 
   const stake = new BigNumber(
-    rawToRai(
-      !isIncludeOfflineRepresentatives ? onlineStakeTotal : peersStakeTotal,
-    ),
+    rawToRai(!isIncludeOfflineRepresentatives ? onlineStakeTotal : peersStakeTotal),
   ).toNumber();
 
   React.useEffect(() => {
@@ -94,11 +81,7 @@ const Representatives = () => {
     );
 
     setFilteredRepresentatives(filteredRepresentatives);
-  }, [
-    representatives,
-    isIncludeOfflineRepresentatives,
-    isShowingNonVotingRepresentatives,
-  ]);
+  }, [representatives, isIncludeOfflineRepresentatives, isShowingNonVotingRepresentatives]);
 
   return (
     <>
@@ -109,28 +92,18 @@ const Representatives = () => {
         <Col xs={24} md={12}>
           <PieChart
             isIncludeOfflineRepresentatives={isIncludeOfflineRepresentatives}
-            setIsIncludeOfflineRepresentatives={
-              setIsIncludeOfflineRepresentatives
-            }
+            setIsIncludeOfflineRepresentatives={setIsIncludeOfflineRepresentatives}
             isGroupedByEntities={isGroupedByEntities}
             setIsGroupedByEntities={setIsGroupedByEntities}
           />
         </Col>
         <Col xs={24} md={12}>
           <Title level={3}>{t("menu.representatives")}</Title>
-          <Card
-            size="small"
-            bordered={false}
-            className="detail-layout"
-            style={{ marginBottom: "12px" }}
-          >
+          <Card size="small" bordered className="detail-layout" style={{ marginBottom: "12px" }}>
             <Row gutter={6}>
               <Col xs={24} sm={12} xl={10}>
                 {t("common.representatives")}
-                <Tooltip
-                  placement="right"
-                  title={t("tooltips.representatives")}
-                >
+                <Tooltip placement="right" title={t("tooltips.representatives")}>
                   <QuestionCircle />
                 </Tooltip>
               </Col>
@@ -146,8 +119,7 @@ const Representatives = () => {
               </Col>
               <Col xs={24} sm={12} xl={14}>
                 <Skeleton {...representativesSkeletonProps}>
-                  {representatives.filter(({ isOnline }) => isOnline)?.length ||
-                    0}
+                  {representatives.filter(({ isOnline }) => isOnline)?.length || 0}
                 </Skeleton>
               </Col>
             </Row>
@@ -165,10 +137,7 @@ const Representatives = () => {
               </Col>
               <Col xs={24} sm={12} xl={14}>
                 <Skeleton {...representativesSkeletonProps}>
-                  {
-                    representatives.filter(({ isPrincipal }) => isPrincipal)
-                      ?.length
-                  }
+                  {representatives.filter(({ isPrincipal }) => isPrincipal)?.length}
                 </Skeleton>
               </Col>
             </Row>
@@ -176,10 +145,7 @@ const Representatives = () => {
               <Col xs={24} sm={12} xl={10}>
                 <>
                   {t("pages.representatives.onlinePrincipalRepresentatives")}
-                  <Tooltip
-                    placement="right"
-                    title={t("tooltips.onlinePrincipalRepresentatives")}
-                  >
+                  <Tooltip placement="right" title={t("tooltips.onlinePrincipalRepresentatives")}>
                     <QuestionCircle />
                   </Tooltip>
                 </>
@@ -187,23 +153,15 @@ const Representatives = () => {
               <Col xs={24} sm={12} xl={14}>
                 <Skeleton {...representativesSkeletonProps}>
                   {
-                    representatives.filter(
-                      ({ isOnline, isPrincipal }) => isOnline && isPrincipal,
-                    )?.length
+                    representatives.filter(({ isOnline, isPrincipal }) => isOnline && isPrincipal)
+                      ?.length
                   }
                 </Skeleton>
               </Col>
             </Row>
           </Card>
-          <Title level={3}>
-            {t("pages.representatives.confirmationQuorum")}
-          </Title>
-          <Card
-            size="small"
-            bordered={false}
-            className="detail-layout"
-            style={{ marginBottom: "12px" }}
-          >
+          <Title level={3}>{t("pages.representatives.confirmationQuorum")}</Title>
+          <Card size="small" bordered className="detail-layout" style={{ marginBottom: "12px" }}>
             <Row gutter={6}>
               <Col xs={24} sm={8}>
                 {t("pages.representatives.principalRepresentativeMinWeight")}
@@ -259,12 +217,7 @@ const Representatives = () => {
         </Col>
       </Row>
 
-      <Card
-        size="small"
-        bordered={false}
-        className="detail-layout"
-        style={{ marginBottom: "12px" }}
-      >
+      <Card size="small" bordered className="detail-layout" style={{ marginBottom: "12px" }}>
         {!isSmallAndLower ? (
           <>
             <Row gutter={6}>
@@ -283,28 +236,13 @@ const Representatives = () => {
         {isRepresentativesLoading
           ? Array.from(Array(3).keys()).map(index => (
               <Row gutter={6} key={index}>
-                <Col
-                  xs={{ span: 24, order: 2 }}
-                  sm={{ span: 6, order: 1 }}
-                  md={6}
-                  xl={6}
-                >
+                <Col xs={{ span: 24, order: 2 }} sm={{ span: 6, order: 1 }} md={6} xl={6}>
                   <Skeleton loading={true} paragraph={false} active />
                 </Col>
-                <Col
-                  xs={{ span: 24, order: 1 }}
-                  sm={{ span: 12, order: 2 }}
-                  md={12}
-                  xl={14}
-                >
+                <Col xs={{ span: 24, order: 1 }} sm={{ span: 12, order: 2 }} md={12} xl={14}>
                   <Skeleton loading={true} paragraph={false} active />
                 </Col>
-                <Col
-                  xs={{ span: 24, order: 3 }}
-                  sm={{ span: 6, order: 3 }}
-                  md={6}
-                  xl={4}
-                >
+                <Col xs={{ span: 24, order: 3 }} sm={{ span: 6, order: 3 }} md={6} xl={4}>
                   <Skeleton loading={true} paragraph={false} active />
                 </Col>
               </Row>
@@ -312,122 +250,90 @@ const Representatives = () => {
           : null}
         {!isRepresentativesLoading ? (
           <>
-            {filteredRepresentatives.map(
-              ({ account, weight, isOnline, isPrincipal, alias }) => {
-                const delegatorsCount = allDelegators[account];
-                const telemetryRepresentative =
-                  telemetryRepresentatives?.[account];
-                return (
-                  <Row gutter={6} key={account}>
-                    <Col
-                      xs={{ span: 24, order: 2 }}
-                      sm={{ span: 6, order: 1 }}
-                      md={6}
-                      xl={6}
+            {filteredRepresentatives.map(({ account, weight, isOnline, isPrincipal, alias }) => {
+              const delegatorsCount = allDelegators[account];
+              const telemetryRepresentative = telemetryRepresentatives?.[account];
+              return (
+                <Row gutter={6} key={account}>
+                  <Col xs={{ span: 24, order: 2 }} sm={{ span: 6, order: 1 }} md={6} xl={6}>
+                    <span
+                      className="default-color"
+                      style={{
+                        display: "block",
+                      }}
                     >
-                      <span
-                        className="default-color"
-                        style={{
-                          display: "block",
-                        }}
-                      >
-                        Ӿ {weight}
-                      </span>
+                      Ӿ {weight}
+                    </span>
 
-                      {isPrincipal ? (
-                        <>
-                          {new BigNumber(weight)
-                            .times(100)
-                            .dividedBy(stake)
-                            .toFormat(2)}
-                          {isSmallAndLower
-                            ? t("pages.account.percentNetworkVotingWeight")
-                            : "%"}
-                        </>
+                    {isPrincipal ? (
+                      <>
+                        {new BigNumber(weight).times(100).dividedBy(stake).toFormat(2)}
+                        {isSmallAndLower ? t("pages.account.percentNetworkVotingWeight") : "%"}
+                      </>
+                    ) : null}
+                  </Col>
+                  <Col xs={{ span: 24, order: 1 }} sm={{ span: 12, order: 2 }} md={12} xl={14}>
+                    <div style={{ display: "flex", margin: "3px 0" }}>
+                      {typeof isOnline === "boolean" ? (
+                        <Tag
+                          color={
+                            isOnline
+                              ? theme === Theme.DARK
+                                ? TwoToneColors.RECEIVE_DARK
+                                : TwoToneColors.RECEIVE
+                              : theme === Theme.DARK
+                              ? TwoToneColors.SEND_DARK
+                              : TwoToneColors.SEND
+                          }
+                          className={`tag-${isOnline ? "online" : "offline"}`}
+                        >
+                          {t(`common.${isOnline ? "online" : "offline"}`)}
+                        </Tag>
                       ) : null}
-                    </Col>
-                    <Col
-                      xs={{ span: 24, order: 1 }}
-                      sm={{ span: 12, order: 2 }}
-                      md={12}
-                      xl={14}
-                    >
-                      <div style={{ display: "flex", margin: "3px 0" }}>
-                        {typeof isOnline === "boolean" ? (
-                          <Tag
-                            color={
-                              isOnline
-                                ? theme === Theme.DARK
-                                  ? TwoToneColors.RECEIVE_DARK
-                                  : TwoToneColors.RECEIVE
-                                : theme === Theme.DARK
-                                ? TwoToneColors.SEND_DARK
-                                : TwoToneColors.SEND
-                            }
-                            className={`tag-${isOnline ? "online" : "offline"}`}
-                          >
-                            {t(`common.${isOnline ? "online" : "offline"}`)}
-                          </Tag>
-                        ) : null}
-                        {isPrincipal ? (
-                          <Tag>{t("common.principalRepresentative")}</Tag>
-                        ) : null}
+                      {isPrincipal ? <Tag>{t("common.principalRepresentative")}</Tag> : null}
 
-                        {telemetryRepresentative?.version ? (
-                          <Tag
-                            color={
-                              !telemetryRepresentative.isLatestVersion
-                                ? theme === Theme.DARK
-                                  ? TwoToneColors.WARNING_DARK
-                                  : TwoToneColors.WARNING
-                                : undefined
-                            }
-                          >
-                            v{telemetryRepresentative.version}
-                          </Tag>
-                        ) : null}
-                      </div>
-
-                      {alias ? (
-                        <div className="color-important">{alias}</div>
+                      {telemetryRepresentative?.version ? (
+                        <Tag
+                          color={
+                            !telemetryRepresentative.isLatestVersion
+                              ? theme === Theme.DARK
+                                ? TwoToneColors.WARNING_DARK
+                                : TwoToneColors.WARNING
+                              : undefined
+                          }
+                        >
+                          v{telemetryRepresentative.version}
+                        </Tag>
                       ) : null}
+                    </div>
 
-                      <Link to={`/account/${account}`} className="break-word">
-                        {account}
-                      </Link>
-                    </Col>
-                    <Col
-                      xs={{ span: 24, order: 3 }}
-                      sm={{ span: 6, order: 3 }}
-                      md={6}
-                      xl={4}
-                    >
-                      <Skeleton
-                        loading={isAllDelegatorsLoading}
-                        paragraph={false}
-                      >
-                        {delegatorsCount ? (
-                          <Link to={`/account/${account}/delegators`}>
-                            <Button
-                              ghost={theme === Theme.DARK}
-                              size="small"
-                              style={{ marginTop: "6px" }}
-                            >
-                              {t("pages.representatives.viewDelegators", {
-                                count: delegatorsCount,
-                              })}
-                            </Button>
-                          </Link>
-                        ) : null}
-                        {!delegatorsCount
-                          ? t("pages.representative.noDelegatorsFound")
-                          : null}
-                      </Skeleton>
-                    </Col>
-                  </Row>
-                );
-              },
-            )}
+                    {alias ? <div className="color-important">{alias}</div> : null}
+
+                    <Link to={`/account/${account}`} className="break-word">
+                      {account}
+                    </Link>
+                  </Col>
+                  <Col xs={{ span: 24, order: 3 }} sm={{ span: 6, order: 3 }} md={6} xl={4}>
+                    <Skeleton loading={isAllDelegatorsLoading} paragraph={false}>
+                      {delegatorsCount ? (
+                        <Link to={`/account/${account}/delegators`}>
+                          <Button
+                            ghost={theme === Theme.DARK}
+                            size="small"
+                            style={{ marginTop: "6px" }}
+                          >
+                            {t("pages.representatives.viewDelegators", {
+                              count: delegatorsCount,
+                            })}
+                          </Button>
+                        </Link>
+                      ) : null}
+                      {!delegatorsCount ? t("pages.representative.noDelegatorsFound") : null}
+                    </Skeleton>
+                  </Col>
+                </Row>
+              );
+            })}
             {!isShowingNonVotingRepresentatives ? (
               <Row gutter={6}>
                 <Col xs={24} style={{ textAlign: "center" }}>

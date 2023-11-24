@@ -1,19 +1,17 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
+
 import { Card, Col, Pagination, Row, Skeleton, Typography } from "antd";
 import BigNumber from "bignumber.js";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import useRichList from "api/hooks/use-rich-list";
-import useAvailableSupply from "api/hooks/use-available-supply";
-import {
-  PreferencesContext,
-  CurrencySymbol,
-  CurrencyDecimal,
-} from "api/contexts/Preferences";
-import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
-import { roundOff } from "components/utils";
 import KnownAccounts from "knownAccounts.json";
+
+import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
+import { CurrencyDecimal, CurrencySymbol, PreferencesContext } from "api/contexts/Preferences";
+import useAvailableSupply from "api/hooks/use-available-supply";
+import useRichList from "api/hooks/use-rich-list";
+import { roundOff } from "components/utils";
 
 const { BURN_ACCOUNT } = KnownAccounts;
 const { Title } = Typography;
@@ -33,16 +31,12 @@ const RichList: React.FC = () => {
   });
   const { fiat } = React.useContext(PreferencesContext);
   const {
-    marketStatistics: {
-      currentPrice,
-      priceStats: { bitcoin: { [fiat]: btcCurrentPrice = 0 } } = {
-        bitcoin: { [fiat]: 0 },
-      },
-    },
+    marketStatistics: { currentPrice, priceStats },
   } = React.useContext(MarketStatisticsContext);
   const { availableSupply = 123123123 } = useAvailableSupply();
-  const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
+  const isSmallAndLower = !useMediaQuery({ query: "(min-width: 576px)" });
 
+  const btcCurrentPrice = priceStats?.bitcoin?.[fiat] || 0;
   const startIndex = (currentPage - 1) * perPage + 1;
 
   return (
@@ -50,7 +44,7 @@ const RichList: React.FC = () => {
       <Title level={3} id="rich-list-title">
         {t("pages.distribution.richList")}
       </Title>
-      <Card size="small" bordered={false} className="detail-layout">
+      <Card size="small" className="detail-layout">
         {!isSmallAndLower ? (
           <>
             <Row gutter={6}>
@@ -94,9 +88,7 @@ const RichList: React.FC = () => {
                   <strong>{startIndex + index}</strong>
                 </Col>
                 <Col sm={12} md={12} xl={14}>
-                  {alias ? (
-                    <div className="color-important">{alias}</div>
-                  ) : null}
+                  {alias ? <div className="color-important">{alias}</div> : null}
                   <Link to={`/account/${account}`} className="break-word">
                     {account}
                   </Link>
@@ -112,10 +104,7 @@ const RichList: React.FC = () => {
                   >
                     {availableSupply && account !== BURN_ACCOUNT
                       ? `${roundOff(
-                          new BigNumber(balance)
-                            .times(100)
-                            .dividedBy(availableSupply)
-                            .toNumber(),
+                          new BigNumber(balance).times(100).dividedBy(availableSupply).toNumber(),
                         )}%`
                       : null}
                   </span>
@@ -153,9 +142,7 @@ const RichList: React.FC = () => {
                     current: currentPage,
                     disabled: false,
                     onChange: (page: number) => {
-                      const element = document.getElementById(
-                        "rich-list-title",
-                      );
+                      const element = document.getElementById("rich-list-title");
                       element?.scrollIntoView();
 
                       setCurrentPage?.(page);

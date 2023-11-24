@@ -124,7 +124,7 @@ a:hover {
 }
 
 .app-sub-header {
-  padding: 3px 12px;
+  padding: 6px 12px;
 }
 
 .cps-container {
@@ -162,7 +162,7 @@ h3.ant-typography,
   }
 
   .app-sub-header {
-    padding: 3px 18px;
+    padding: 6px 18px;
   }
 
   .cps-container {
@@ -333,7 +333,8 @@ h3.ant-typography,
   font-weight: bold;
 }
 
-.detail-layout .ant-row + .ant-row {
+.detail-layout .ant-row + .ant-row,
+.detail-layout.ant-row + .ant-row {
   margin-top: 8px;
   padding-top: 8px;
   border-top: solid 1px #f0f2f5;
@@ -390,10 +391,6 @@ h4.ant-typography {
   border-color: rgba(255, 255, 255, 0.7);
 }
 
-/* .home-banner .ant-input-affix-wrapper {
-  border: none;
-} */
-
 .what-is-card {
   text-align: center;
 }
@@ -448,19 +445,6 @@ h4.ant-typography {
   margin-top: 2px;
 }
 
-body,
-.ant-card,
-.ant-menu,
-.ant-input,
-.ant-timeline,
-.ant-typography,
-.ant-dropdown-menu-item,
-.ant-dropdown-menu-submenu-title,
-.ant-select-item,
-.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
-  color: rgba(0, 0, 0, 0.65);
-}
-
 .ant-input-search .anticon-search,
 .ant-input-search .search-history-icon {
   color: rgba(0, 0, 0, 0.45);
@@ -495,7 +479,7 @@ body,
 }
 
 .transaction-card .ant-row:not(:last-child) {
-  border-bottom: solid 1px #f0f0f0;
+  border-bottom: solid 1px #f0f2f5;
 }
 
 .transaction-card .ant-row.row-header {
@@ -515,25 +499,10 @@ body,
   margin-bottom: 12px;
 }
 
-.ant-menu-horizontal .ant-menu-item,
-.ant-menu-horizontal .ant-menu-submenu:not(.ant-menu-submenu-popup) {
-  margin: 0 6px !important;
-  padding: 0 18px 0 12px !important;
-}
-
 .ant-menu-item .anticon,
 .ant-menu-submenu-title .anticon {
   min-width: 14px;
   margin-right: 10px;
-  font-size: 14px;
-}
-
-.ant-menu-vertical > .ant-menu-item:hover {
-  background-color: #f5f5f5;
-}
-
-.ant-menu-vertical > .ant-menu-item:not(.ant-menu-item-selected) {
-  color: rgba(0, 0, 0, 0.65);
 }
 
 .qrcode-reader {
@@ -580,4 +549,16 @@ body,
 .guide th,
 .guide td {
   padding: 0 6px;
+}
+
+.ant-tree-switcher {
+  display: none;
+}
+
+.tree-container {
+  margin: 10px 0;
+}
+
+.ant-tree {
+  padding: 10px 0;
 }

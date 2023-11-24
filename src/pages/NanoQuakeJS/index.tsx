@@ -2,26 +2,25 @@ import * as React from "react";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { Card, Row, Col, Skeleton, Space, Typography } from "antd";
-import { Natricon } from "components/Preferences/Natricons/Natricon";
+
+import { Card, Col, Row, Skeleton, Space, Typography } from "antd";
 import BigNumber from "bignumber.js";
-import useNanoQuakeJS from "./hooks/use-nanoquakejs-scores";
+
 import { PreferencesContext } from "api/contexts/Preferences";
-import Register from "./Register";
+import { Natricon } from "components/Preferences/Natricons/Natricon";
+
+import useNanoQuakeJS from "./hooks/use-nanoquakejs-scores";
 import Leaderboard from "./Leaderboard";
+import Register from "./Register";
 
 const { Text, Title } = Typography;
 
 const NanoQuakeJSPage: React.FC = () => {
   const { t } = useTranslation();
   const { playerCount, statistics, currentMap, topScores } = useNanoQuakeJS();
-  const { nanoQuakeJSUsername, nanoQuakeJSAccount } = React.useContext(
-    PreferencesContext,
-  );
+  const { nanoQuakeJSUsername, nanoQuakeJSAccount } = React.useContext(PreferencesContext);
 
-  const playerRank = topScores.find(
-    ({ player }) => player === nanoQuakeJSUsername,
-  )?.rank;
+  const playerRank = topScores.find(({ player }) => player === nanoQuakeJSUsername)?.rank;
 
   return (
     <>
@@ -41,7 +40,7 @@ const NanoQuakeJSPage: React.FC = () => {
               {t("common.by")} Jayycox
             </span>
           </Title>
-          <Card size="small" bordered={false} className="detail-layout">
+          <Card size="small" className="detail-layout">
             <Row gutter={[12, 0]}>
               <Col xs={24}>
                 <Space size={12}>
@@ -75,17 +74,11 @@ const NanoQuakeJSPage: React.FC = () => {
                       <div>
                         <div className="color-important default-color">
                           {nanoQuakeJSUsername}{" "}
-                          <span
-                            style={{ fontWeight: "normal" }}
-                            className="color-muted"
-                          >
+                          <span style={{ fontWeight: "normal" }} className="color-muted">
                             {playerRank ? `#${playerRank}` : null}
                           </span>
                         </div>
-                        <Link
-                          to={`/account/${nanoQuakeJSAccount}`}
-                          className="break-word"
-                        >
+                        <Link to={`/account/${nanoQuakeJSAccount}`} className="break-word">
                           {nanoQuakeJSAccount}
                         </Link>
                       </div>
@@ -108,28 +101,20 @@ const NanoQuakeJSPage: React.FC = () => {
                   }}
                 />
 
-                <Title
-                  level={5}
-                  style={{ textAlign: "center", marginBottom: "24px" }}
-                >
+                <Title level={5} style={{ textAlign: "center", marginBottom: "24px" }}>
                   {t("pages.nanoquakejs.welcomeTitle")}
                 </Title>
               </Col>
             </Row>
             <Register />
           </Card>
-          <Card size="small" bordered={false} className="detail-layout">
+          <Card size="small" className="detail-layout">
             <Row gutter={6}>
               <Col xs={24} sm={6}>
                 {t("pages.nanoquakejs.currentMap")}
               </Col>
               <Col xs={24} sm={18}>
-                <Skeleton
-                  paragraph={false}
-                  loading={!currentMap}
-                  active
-                  title={{ width: "50%" }}
-                >
+                <Skeleton paragraph={false} loading={!currentMap} active title={{ width: "50%" }}>
                   {currentMap}
                 </Skeleton>
               </Col>
@@ -174,22 +159,18 @@ const NanoQuakeJSPage: React.FC = () => {
       <Row gutter={[12, 0]}>
         <Col xs={24} md={12}>
           <Title level={3}>{t("pages.nanoquakejs.trailer")}</Title>
-          <Card size="small" bordered={false} className="detail-layout">
+          <Card size="small" className="detail-layout">
             <div className="video-wrapper">
               <iframe
                 width="560"
                 height="315"
-                src="https://www.youtube-nocookie.com/embed/quvLQq_d__E"
-                title="Quake3"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
+                src="https://www.youtube.com/embed/M3uaZh7DXUc?si=z2qBQtGHsJdl8R0A"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
               ></iframe>
             </div>
-
-            <p style={{ marginTop: 12 }}>
-              {t("pages.nanoquakejs.welcomeDescription")}
-            </p>
 
             <p>{t("pages.nanoquakejs.welcomeDescription2")}</p>
           </Card>

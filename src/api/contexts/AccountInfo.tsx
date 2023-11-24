@@ -1,7 +1,9 @@
 import * as React from "react";
+
+import KnownAccounts from "knownAccounts.json";
+
 import { rpc } from "api/rpc";
 import { isValidAccountAddress } from "components/utils";
-import KnownAccounts from "knownAccounts.json";
 
 const { BURN_ACCOUNT } = KnownAccounts;
 
@@ -35,17 +37,20 @@ export const AccountInfoContext = React.createContext<AccountInfoReturn>({
   isError: false,
 });
 
-const Provider: React.FC = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const Provider: React.FC<Props> = ({ children }) => {
   const [account, setAccount] = React.useState<string>("");
-  const [accountInfo, setAccountInfo] = React.useState(
-    {} as AccountInfoRPCResponse,
-  );
+  const [accountInfo, setAccountInfo] = React.useState({} as AccountInfoRPCResponse);
   const [isLoading, setIsLoading] = React.useState(true);
   const [isError, setIsError] = React.useState(false);
 
   const getAccountInfo = async (account: string) => {
     setIsError(false);
     setIsLoading(true);
+
     const json = await rpc("account_info", {
       account,
       representative: "true",
@@ -63,14 +68,13 @@ const Provider: React.FC = ({ children }) => {
 
   React.useEffect(() => {
     if (account && isValidAccountAddress(account)) {
+      setAccountInfo({} as AccountInfoRPCResponse);
       getAccountInfo(account);
     }
   }, [account]);
 
   return (
-    <AccountInfoContext.Provider
-      value={{ account, setAccount, accountInfo, isLoading, isError }}
-    >
+    <AccountInfoContext.Provider value={{ account, setAccount, accountInfo, isLoading, isError }}>
       {children}
     </AccountInfoContext.Provider>
   );

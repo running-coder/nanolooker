@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+
 import { Card, Typography } from "antd";
 
 const { Text, Title } = Typography;
@@ -10,7 +11,7 @@ const HowToPlay: React.FC = () => {
   return (
     <>
       <Title level={3}>{t("pages.nanobrowserquest.howToPlay")}</Title>
-      <Card size="small" bordered={false} className="detail-layout">
+      <Card size="small" className="detail-layout">
         <Title level={4}>{t("pages.nanobrowserquest.itemUpgrade")}</Title>
         <Text>{t("pages.nanobrowserquest.itemUpgradeDescription")}</Text>
         <img
@@ -25,9 +26,7 @@ const HowToPlay: React.FC = () => {
           }}
         />
 
-        <Title level={5}>
-          {t("pages.nanobrowserquest.upgradeSuccessRate")}
-        </Title>
+        <Title level={5}>{t("pages.nanobrowserquest.upgradeSuccessRate")}</Title>
         <ul>
           <li>+1 → +2, 100%</li>
           <li>+2 → +3, 100%</li>

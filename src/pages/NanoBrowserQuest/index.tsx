@@ -2,12 +2,14 @@ import * as React from "react";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
-import { Card, Row, Col, Skeleton, Space, Typography } from "antd";
-import useNanoBrowserQuestPlayers from "./hooks/use-nanobrowserquest-players";
-import Register from "./Register";
-import Leaderboard from "./Leaderboard";
-import HowToPlay from "./HowToPlay";
+
+import { Card, Col, Row, Skeleton, Space, Typography } from "antd";
+
 import Guide from "./Guide";
+import useNanoBrowserQuestPlayers from "./hooks/use-nanobrowserquest-players";
+import HowToPlay from "./HowToPlay";
+import Leaderboard from "./Leaderboard";
+import Register from "./Register";
 
 import type { PageParams } from "types/page";
 
@@ -41,7 +43,7 @@ const NanoBrowserQuestPage: React.FC = () => {
               {t("common.by")} running-coder
             </span>
           </Title>
-          <Card size="small" bordered={false} className="detail-layout">
+          <Card size="small" className="detail-layout">
             <Row gutter={[12, 0]}>
               <Col xs={24}>
                 <Space size={12}>
@@ -61,7 +63,7 @@ const NanoBrowserQuestPage: React.FC = () => {
             </Row>
             <Row>
               <Col xs={24}>
-                <img
+                {/* <img
                   src="/nanobrowserquest/nanobrowserquest.jpg"
                   alt="NanoBrowserQuest"
                   width="100%"
@@ -71,7 +73,18 @@ const NanoBrowserQuestPage: React.FC = () => {
                     pointerEvents: "none",
                     margin: "0 auto",
                   }}
-                />
+                /> */}
+                 <div className="video-wrapper">
+            <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/M3uaZh7DXUc?si=z2qBQtGHsJdl8R0A"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
 
                 <Text style={{ display: "block", margin: "12px 0" }}>
                   {t("pages.nanobrowserquest.gameDescription")}
@@ -80,7 +93,7 @@ const NanoBrowserQuestPage: React.FC = () => {
             </Row>
             <Register />
           </Card>
-
+         
           <HowToPlay />
         </Col>
         <Col xs={24} md={12}>

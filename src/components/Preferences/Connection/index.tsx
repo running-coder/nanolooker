@@ -1,12 +1,10 @@
 import * as React from "react";
+import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+
+import { CheckCircleTwoTone, CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import { Button, Col, Input, Row, Space, Switch, Typography } from "antd";
-import {
-  CheckOutlined,
-  CloseOutlined,
-  CheckCircleTwoTone,
-} from "@ant-design/icons";
-import { useForm, Controller } from "react-hook-form";
+
 import { PreferencesContext } from "api/contexts/Preferences";
 
 const { Text } = Typography;
@@ -16,12 +14,8 @@ interface Props {
 
 const ConnectionPreferences: React.FC<Props> = ({ isDetailed }) => {
   const { t } = useTranslation();
-  const {
-    rpcDomain,
-    setRpcDomain,
-    websocketDomain,
-    setWebsocketDomain,
-  } = React.useContext(PreferencesContext);
+  const { rpcDomain, setRpcDomain, websocketDomain, setWebsocketDomain } =
+    React.useContext(PreferencesContext);
   const [isEnabled, setIsEnabled] = React.useState(!!rpcDomain);
   const {
     control,
@@ -129,8 +123,7 @@ const ConnectionPreferences: React.FC<Props> = ({ isDetailed }) => {
                           placeholder={`wss://www.nanolooker.com/ws`}
                           maxLength={255}
                           suffix={
-                            getValues("websocketDomain") &&
-                            !errors?.websocketDomain ? (
+                            getValues("websocketDomain") && !errors?.websocketDomain ? (
                               <CheckCircleTwoTone twoToneColor={"#52c41a"} />
                             ) : (
                               " "
@@ -152,11 +145,7 @@ const ConnectionPreferences: React.FC<Props> = ({ isDetailed }) => {
                 </Space>
               </div>
               <div style={{ textAlign: "right", marginTop: 12 }}>
-                <Button
-                  type="primary"
-                  disabled={!isValid}
-                  onClick={handleSubmit(onSubmit)}
-                >
+                <Button type="primary" disabled={!isValid} onClick={handleSubmit(onSubmit)}>
                   Save
                 </Button>
               </div>

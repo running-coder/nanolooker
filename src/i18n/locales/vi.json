@@ -42,7 +42,9 @@
     "statistics": "Số liệu thống kê",
     "continue": "Tiếp tục",
     "link": "Liên kết",
-    "noData": "Không có dữ liệu"
+    "noData": "Không có dữ liệu",
+    "include": "Bao gồm",
+    "exclude": "Loại trừ"
   },
   "nodeHealth": {
     "nodeReloading": "Nút nano đang tải lại",
@@ -78,13 +80,13 @@
     "knownExchangeBalance": "Loại trừ {{knownExchangeList}} khỏi biểu đồ phân phối. Các tài khoản đó kết hợp giữ {{knownExchangeBalance}} NANO",
     "unchecked": "Các khối (giao dịch) đã được tải xuống nhưng chưa được xử lý bởi nút Nano. Phần mềm nút tải xuống tất cả các bocks từ các nút khác dưới dạng không được chọn, xử lý chúng và thêm vào số lượng khối, xác nhận các khối biên giới cho mỗi tài khoản và sau đó đánh dấu chúng là đã gắn kết.",
     "cemented": "Khi một nút cụ thể đánh dấu một giao dịch đã xác nhận là không thể đảo ngược cục bộ bằng cách đặt chiều cao xác nhận của tài khoản (trong cơ sở dữ liệu nút) thành chiều cao khối hiện tại cao hơn của giao dịch đã xác nhận. Xi măng là một hoạt động ở cấp độ nút.",
-    "unknownLastTransaction": "Ngày giao dịch được giới thiệu vào tháng 2 năm 2019. Trước ngày đó, thời gian giao dịch không được ghi lại cục bộ trên các nút. Lý do tại sao ngày giao dịch cuối cùng không được xác định là vì nó đã được xác nhận trước khi ngày tháng được ghi lại hoặc trước khi nút NanoLooker đi vào hoạt động.",
+    "unknownTransactionDate": "Ngày giao dịch được giới thiệu vào tháng 2 năm 2019. Trước ngày đó, thời gian giao dịch không được ghi lại cục bộ trên các nút. Lý do tại sao ngày giao dịch cuối cùng không được xác định là vì nó đã được xác nhận trước khi ngày tháng được ghi lại hoặc trước khi nút NanoLooker đi vào hoạt động.",
     "confirmationHeight": "Một số được lưu trữ trong cơ sở dữ liệu nút cục bộ đại diện cho khối được xác nhận cao nhất (gần đây nhất) trong chuỗi tài khoản. Liên quan đến (nhưng khác với) chiều cao khối.",
     "blockHeight": "Giá trị số nguyên cục bộ đại diện cho thứ tự của một khối trong chuỗi tài khoản. Ví dụ: khối thứ 15 trong tài khoản sẽ có chiều cao khối là 15. Liên quan đến (nhưng khác với) chiều cao xác nhận.",
     "bookmarks": "Dấu trang {{type, capitalize}} được lưu trên thiết bị của bạn. Bạn có thể quản lý các {{type}} đã biết của mình bằng cách đặt bí danh cho chúng.",
     "groupByEntities": "Tập hợp tất cả trọng lượng biểu quyết được chia thành các đại diện chính khác nhau thành các thực thể duy nhất. Ví dụ: một sàn giao dịch có thể có nhiều ví và chia nhỏ trọng lượng của chúng nhưng trên thực tế, nó có thể được tính là một trọng lượng duy nhất nếu muốn tập hợp lại.",
     "telemetry": "Số liệu từ các nút khác trên mạng. Tất cả các số liệu được thu thập và tính trung bình để đại diện cho các trạng thái khác nhau trên mạng. P tương ứng với phần trăm, p50 được tính bằng cách loại trừ 50% dưới cùng trong khi p95 loại trừ 5% dưới cùng của các giá trị khác nhau để tính giá trị trung bình.",
-    "ledgerSize": "Tổng dung lượng ổ đĩa cần thiết để lưu trữ mọi giao dịch Nano cho đến nay. Kích thước sổ cái được tính trên cơ sở 1024 chứ không phải 1000.",
+    "ledgerSize": "Tổng dung lượng ổ đĩa cần thiết để lưu trữ mọi giao dịch Nano cho đến nay.",
     "bandwidthCap": "Các nút nano có thể điều chỉnh băng thông của chúng để giới hạn số lượng tin nhắn có thể được gửi hoặc nhận. 0 có nghĩa là băng thông không giới hạn.",
     "uptime": "Thời gian kể từ khi nút được khởi động lại lần cuối.",
     "mnano": "Nano là bộ phận tiêu chuẩn hiện tại được sử dụng trong ví, trên các sàn giao dịch và dịch vụ. Nó được gọi là 1 NANO.",
@@ -92,8 +94,12 @@
     "onChainVolume": "Tổng của tất cả các giao dịch NANO đã được xác nhận trên mạng. Nếu người dùng A gửi 1 NANO và người dùng B nhận được 1 NANO trong cùng một ngày, thì 2 NANO sẽ được thêm vào khối lượng hàng ngày vì 2 giao dịch đã được phát và xác nhận, một gửi và một nhận.",
     "pendingTransactionCount": "Số lượng giao dịch phải thu vượt quá giới hạn hiển thị là {{count}}.",
     "pendingTransaction": "Tiền đã được gửi đến tài khoản này nhưng chủ sở hữu vẫn chưa bỏ túi tiền. Chỉ chủ sở hữu tài khoản mới có thể ghi giao dịch đã nhận vào blockchain của họ. Nếu đây là tài khoản của bạn, hãy mở khóa ví của bạn, khối nhận thường được phát tự động.",
-    "socialStatistics": "Thống kê được tổng hợp bằng cách sử dụng 100 loại tiền điện tử hàng đầu theo vốn hóa thị trường từ CoinGecko.",
-    "dailyBalance": "Biểu đồ giao dịch chỉ hiển thị nếu tài khoản có dữ liệu hơn 1 ngày và nếu các giao dịch có dấu thời gian"
+    "socialStatistics": "Thống kê được tổng hợp bằng cách sử dụng 200 loại tiền điện tử hàng đầu theo vốn hóa thị trường từ CoinGecko.",
+    "dailyBalance": "Biểu đồ giao dịch chỉ hiển thị nếu tài khoản có dữ liệu hơn 1 ngày và nếu các giao dịch có dấu thời gian",
+    "senderFilter": "Lọc các khối để chỉ bao gồm hoặc loại trừ tất cả các giao dịch gửi từ một địa chỉ cụ thể. Để lọc nhiều địa chỉ, hãy phân tách chúng bằng dấu phẩy.",
+    "receiverFilter": "Lọc các khối để chỉ bao gồm hoặc loại trừ tất cả các giao dịch gửi từ một địa chỉ cụ thể. Để lọc nhiều địa chỉ, hãy phân tách chúng bằng dấu phẩy.",
+    "filterTransactions": "Chỉ những tài khoản có số lượng bằng hoặc ít hơn 5.000 giao dịch được xác nhận mới có thể được lọc",
+    "averageTps": "Vào {{date}}, {{block_count}} {{block_type}} khối đã được phát với tốc độ {{bps}} BPS (khối mỗi giây) để đo lường hiệu quả của mạng. Mạng đạt P90 là {{cps_p90}} CPS (xác nhận mỗi giây) trên các nút. Để biết thêm chi tiết, hãy truy cập https://nanotps.net/."
   },
   "search": {
     "searchBy": "Tìm kiếm theo Địa chỉ / Khối / Tài khoản Đã biết",
@@ -135,7 +141,8 @@
     "nodeStatus": "Trạng thái nút",
     "whatIsNano": "Nano là gì?",
     "earnNano": "Kiếm Nano",
-    "preferences": "Sở thích"
+    "preferences": "Sở thích",
+    "nodeMonitors": "Màn hình nút"
   },
   "footer": {
     "createdBy": "Tạo bởi {{creator}}",
@@ -169,7 +176,8 @@
       "reconnectingToBlockchain": "Đã ngắt kết nối, đang kết nối lại với chuỗi khối NANO",
       "cpsLocal": "CPS được quan sát trên nút cục bộ",
       "cpsNetwork": "CPS trung bình trên một số nút đại diện",
-      "viewSocialEngagement": "Xem mức độ tương tác trên mạng xã hội"
+      "viewSocialEngagement": "Xem mức độ tương tác trên mạng xã hội",
+      "averageTps": "Trung bình Công suất TPS"
     },
     "account": {
       "votingWeight": "Số phiếu bầu",
@@ -188,7 +196,31 @@
       "byTransactionOption": "Số dư theo giao dịch",
       "dailyBalance": "{{Count}} giao dịch gần đây nhất",
       "notOpenedYet": "Tài khoản này không có bất kỳ giao dịch nào",
-      "notOpenedYetReason": "Mặc dù tài khoản hợp lệ nhưng chưa có khối nào được thêm vào chuỗi của nó. Nếu NANO đã được gửi đến tài khoản này, có thể nút NanoLooker chưa nhận được giao dịch do dịch vụ bạn đang sử dụng chưa phát sóng hoặc do điều kiện mạng tạm thời."
+      "notOpenedYetReason": "Mặc dù tài khoản hợp lệ nhưng chưa có khối nào được thêm vào chuỗi của nó. Nếu NANO đã được gửi đến tài khoản này, có thể nút NanoLooker chưa nhận được giao dịch do dịch vụ bạn đang sử dụng chưa phát sóng hoặc do điều kiện mạng tạm thời.",
+      "dateRange": "Phạm vi ngày",
+      "includeNoTimestamp": "Bao gồm các khối không có ngày tháng",
+      "excludeUnknownAccounts": "Chỉ hiển thị các khối từ các tài khoản đã biết",
+      "advancedOptions": "Tùy chọn nâng cao",
+      "applyFilters": "Áp dụng các bộ lọc",
+      "fields": "Lĩnh vực",
+      "delimiter": "Dấu phân cách",
+      "delimiterComma": "Dấu phẩy",
+      "delimiterSemicolon": "Dấu chấm phẩy",
+      "delimiterTab": "Chuyển hướng",
+      "delimiterSpace": "Không gian",
+      "delimiterPipe": "Đường ống",
+      "fileName": "Tên tệp",
+      "minimum": "Tối thiểu",
+      "maximum": "Tối đa",
+      "from": "Từ",
+      "to": "Đến",
+      "startDate": "Ngày bắt đầu",
+      "endDate": "Ngày cuối",
+      "exportToCsv": "Xuất sang CSV",
+      "export": "Xuất khẩu",
+      "exportTransactions": "Xuất giao dịch {{count}} sang CSV",
+      "reverse": "đảo ngược thứ tự giao dịch",
+      "sumAmounts": "Tổng số tiền"
     },
     "block": {
       "blockSubtype": "Block con",
@@ -323,7 +355,9 @@
       "nodeVersions": "Phiên bản nút",
       "latestVersion": "Phiên bản mới nhất",
       "database": "Cơ sở dữ liệu",
-      "versionsByWeight": "Các phiên bản theo trọng lượng biểu quyết"
+      "versionsByWeight": "Các phiên bản theo trọng lượng biểu quyết",
+      "versionsByMajor": "Nhóm theo phiên bản chính",
+      "nodeMonitorsDetails": "Nano Node Monitor là một công cụ giám sát phía máy chủ dành cho các nút Nano, được xây dựng bằng PHP. Nó thiết lập kết nối với một nút đang chạy thông qua RPC và hiển thị trạng thái của nó trên một trang web. <0>Cài đặt trên nút của bạn</0>"
     },
     "exchangeTracker": {
       "description": "Mỗi ngày, việc nắm bắt số dư tài khoản của các sàn giao dịch phổ biến nhất nơi Nano được giao dịch sẽ được thực hiện. Phép đo này có thể được sử dụng để phân tích các chuyển động và dao động trên mạng.",
@@ -411,7 +445,9 @@
       "nanoPotions": "NANO Potions",
       "guide": {
         "title": "Hướng dẫn NanoBrowserQuest"
-      }
+      },
+      "playerGuide": "Hướng dẫn người chơi",
+      "gold": "Vàng"
     },
     "statistics": {
       "social": {

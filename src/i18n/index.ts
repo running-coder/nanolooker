@@ -1,8 +1,11 @@
-import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import LanguageDetector from "i18next-browser-languagedetector";
+
 import capitalize from "lodash/capitalize";
+
 import { LOCALSTORAGE_KEYS } from "api/contexts/Preferences";
+import i18n from "i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
+
 import { resources } from "./resources";
 import { registerTimeago } from "./timeago";
 
@@ -26,6 +29,10 @@ i18n
         if (format === "capitalize") return capitalize(value);
         return value;
       },
+    },
+    react: {
+      transKeepBasicHtmlNodesFor: ["br", "strong", "i", "p", "u"],
+      useSuspense: false,
     },
   });
 

@@ -1,6 +1,9 @@
 import * as React from "react";
+
 import uniq from "lodash/uniq";
+
 import { rpc } from "api/rpc";
+
 import KnownAccounts from "../../knownAccounts.json";
 
 const { NANOLOOKER } = KnownAccounts;
@@ -10,15 +13,17 @@ export interface RepresentativesOnlineReturn {
   isError: boolean;
 }
 
-export const RepresentativesOnlineContext = React.createContext<RepresentativesOnlineReturn>(
-  {
-    representatives: [],
-    isLoading: false,
-    isError: false,
-  },
-);
+export const RepresentativesOnlineContext = React.createContext<RepresentativesOnlineReturn>({
+  representatives: [],
+  isLoading: false,
+  isError: false,
+});
 
-const Provider: React.FC = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const Provider: React.FC<Props> = ({ children }) => {
   const [representatives, setRepresentatives] = React.useState<string[]>([]);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [isError, setIsError] = React.useState<boolean>(false);
@@ -43,9 +48,7 @@ const Provider: React.FC = ({ children }) => {
   }, []);
 
   return (
-    <RepresentativesOnlineContext.Provider
-      value={{ representatives, isLoading, isError }}
-    >
+    <RepresentativesOnlineContext.Provider value={{ representatives, isLoading, isError }}>
       {children}
     </RepresentativesOnlineContext.Provider>
   );

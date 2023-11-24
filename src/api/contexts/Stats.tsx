@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import { rpc } from "api/rpc";
 
 export interface Return {
@@ -15,7 +16,11 @@ export const StatsContext = React.createContext<Return>({
 
 // type Types = 'counters' | 'samples' | 'objects';
 
-const Provider: React.FC = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const Provider: React.FC<Props> = ({ children }) => {
   const [stats, setStats] = React.useState<string[]>([]);
   const [isLoading, setIsLoading] = React.useState(false);
   const [isError, setIsError] = React.useState(false);
@@ -35,9 +40,7 @@ const Provider: React.FC = ({ children }) => {
   }, []);
 
   return (
-    <StatsContext.Provider value={{ stats, isLoading, isError }}>
-      {children}
-    </StatsContext.Provider>
+    <StatsContext.Provider value={{ stats, isLoading, isError }}>{children}</StatsContext.Provider>
   );
 };
 

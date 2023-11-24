@@ -1,6 +1,5 @@
-const MongoClient = require("mongodb").MongoClient;
 const fetch = require("node-fetch");
-const cron = require("node-cron");
+// const cron = require("node-cron");
 const BigNumber = require("bignumber.js");
 const chunk = require("lodash/chunk");
 const uniq = require("lodash/uniq");
@@ -8,13 +7,8 @@ const { rpc } = require("../rpc");
 const { Sentry } = require("../sentry");
 const { rawToRai } = require("../utils");
 const { nodeCache } = require("../client/cache");
-const {
-  MINERS_STATS,
-  MINERS_STATS_COLLECTION,
-  MONGO_URL,
-  MONGO_OPTIONS,
-  MONGO_DB,
-} = require("../constants");
+const db = require("../client/mongo");
+const { MINERS_STATS, MINERS_STATS_COLLECTION } = require("../constants");
 const exchanges = require("../../src/exchanges.json");
 
 function sleep(ms) {
@@ -23,33 +17,10 @@ function sleep(ms) {
 
 const exchangeAccounts = exchanges.map(({ account }) => account);
 
-let db;
-let mongoClient;
-const connect = async () =>
-  await new Promise((resolve, reject) => {
-    try {
-      MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (err, client) => {
-        if (err) {
-          throw err;
-        }
-        mongoClient = client;
-        db = client.db(MONGO_DB);
-        db.collection(MINERS_STATS_COLLECTION).createIndex({
-          createdAt: 1,
-        });
-        resolve();
-      });
-    } catch (err) {
-      Sentry.captureException(err);
-      resolve();
-    }
-  });
-
 const MIN_RECEIVE_AMOUNT = 100;
 const MIN_HOLDING_AMOUNT = 0.001;
 const MIN_DATE = "2021-10-12";
-const ACCOUNT =
-  "nano_14uzbiw1euwicrt3gzwnpyufpa8td1uw8wbhyyrz5e5pnqitjfk1tb8xwgg4";
+const ACCOUNT = "nano_14uzbiw1euwicrt3gzwnpyufpa8td1uw8wbhyyrz5e5pnqitjfk1tb8xwgg4";
 
 function formatDate(timestamp) {
   const date = new Date(timestamp);
@@ -64,9 +35,7 @@ const processData = async ({ stats }) => {
   const PER_PAGE = 500;
 
   stats.totalFiatPayouts =
-    Math.round(
-      (stats.blocks[0].price || 0) * rawToRai(stats.totalPayouts) * 100,
-    ) / 100;
+    Math.round((stats.blocks[0].price || 0) * rawToRai(stats.totalPayouts) * 100) / 100;
   stats.payoutAccounts = uniq(stats.payoutAccounts);
   stats.totalAccounts = stats.payoutAccounts.length;
 
@@ -75,9 +44,7 @@ const processData = async ({ stats }) => {
   // @NOTE replace this by `accounts_representatives` RPC when v24 gets released
   // https://github.com/nanocurrency/nano-node/pull/3412
   for (let i = 0; i < stats.payoutAccounts.length; i++) {
-    const nonExchangeAccount = await getAccountNonExchangeRepresentative(
-      stats.payoutAccounts[i],
-    );
+    const nonExchangeAccount = await getAccountNonExchangeRepresentative(stats.payoutAccounts[i]);
 
     if (nonExchangeAccount) {
       nonExchangeRepresentativeAccount.push(nonExchangeAccount);
@@ -87,9 +54,7 @@ const processData = async ({ stats }) => {
   const chunkPayoutAccounts = chunk(nonExchangeRepresentativeAccount, PER_PAGE);
 
   for (let i = 0; i < chunkPayoutAccounts.length; i++) {
-    const { totalBalance, totalAccounts } = await getAccountsBalances(
-      chunkPayoutAccounts[i],
-    );
+    const { totalBalance, totalAccounts } = await getAccountsBalances(chunkPayoutAccounts[i]);
 
     stats.totalAccountsHolding = new BigNumber(stats.totalAccountsHolding)
       .plus(totalAccounts)
@@ -105,7 +70,10 @@ const processData = async ({ stats }) => {
   // Too heaving saving them, instead store uniqueAccounts on the latest date
   delete stats.payoutAccounts;
 
-  await db.collection(MINERS_STATS_COLLECTION).insertOne(stats);
+  const database = await db.getDatabase();
+  if (database) {
+    await database.collection(MINERS_STATS_COLLECTION).insertOne(stats);
+  }
 };
 
 const getAccountsBalances = async accounts => {
@@ -119,9 +87,7 @@ const getAccountsBalances = async accounts => {
   let totalBalance = 0;
   if (Object.keys(balances).length) {
     Object.values(balances).forEach(({ balance, pending }) => {
-      const accountBalance = rawToRai(
-        BigNumber(balance).plus(pending).toNumber(),
-      );
+      const accountBalance = rawToRai(BigNumber(balance).plus(pending).toNumber());
 
       if (accountBalance > MIN_HOLDING_AMOUNT) {
         totalAccounts += 1;
@@ -146,28 +112,27 @@ const getAccountNonExchangeRepresentative = async account => {
 };
 
 const getLatestEntry = async () => {
-  if (!db) {
-    console.log("DB not available");
-    return;
-  }
-
   // eslint-disable-next-line no-loop-func
-  const latestEntry = await new Promise((resolve, reject) => {
-    db.collection(MINERS_STATS_COLLECTION)
-      .find({ pool: "2Miners" })
-      .sort({ date: -1 })
-      .limit(1)
-      .toArray((_err, [data = {}] = []) => {
-        console.log(`Most recent date: ${data.date}`);
-        resolve(data);
-      });
+  const latestEntry = await new Promise(async (resolve, reject) => {
+    const database = await db.getDatabase();
+    if (database) {
+      database
+        .collection(MINERS_STATS_COLLECTION)
+        .find({ pool: "2Miners" })
+        .sort({ date: -1 })
+        .limit(1)
+        .toArray()
+        .then(([data = {}]) => {
+          console.log(`Most recent date: ${data.date}`);
+          resolve(data);
+        });
+    }
   });
 
   return latestEntry;
 };
 
 const do2MinersStats = async () => {
-  await connect();
   const { date: latestDate } = (await getLatestEntry()) || {};
   const PER_PAGE = 500;
   const statsByDate = {};
@@ -188,12 +153,7 @@ const do2MinersStats = async () => {
     }
 
     for (let i = 0; i < history.length; i++) {
-      const {
-        account,
-        type,
-        amount,
-        local_timestamp: localTimestamp,
-      } = history[i];
+      const { account, type, amount, local_timestamp: localTimestamp } = history[i];
 
       const date = formatDate(parseFloat(localTimestamp) * 1000);
       // Do not compile data for "today"
@@ -246,9 +206,7 @@ const do2MinersStats = async () => {
         }
       } else if (type === "send") {
         statsByDate[date].payoutAccounts.push(account);
-        statsByDate[date].totalPayouts = BigNumber(
-          statsByDate[date].totalPayouts,
-        )
+        statsByDate[date].totalPayouts = BigNumber(statsByDate[date].totalPayouts)
           .plus(amount)
           .toNumber();
       }
@@ -263,8 +221,6 @@ const do2MinersStats = async () => {
   }
 
   console.log("Completed!");
-
-  mongoClient.close();
 
   // Reset cache
   nodeCache.set(MINERS_STATS, null);
@@ -293,14 +249,14 @@ const getCoingeckoPrice = async timestamp => {
 
 // https://crontab.guru/#0_0_*_*_*
 // “At midnight.”
-cron.schedule("0 0 * * *", async () => {
-  try {
-    do2MinersStats();
-  } catch (err) {
-    Sentry.captureException(err);
-  }
-});
+// cron.schedule("0 0 * * *", async () => {
+//   try {
+//     do2MinersStats();
+//   } catch (err) {
+//     Sentry.captureException(err);
+//   }
+// });
 
-if (process.env.NODE_ENV === "production") {
-  do2MinersStats();
-}
+// if (process.env.NODE_ENV === "production") {
+//   do2MinersStats();
+// }

@@ -1,26 +1,27 @@
 import * as React from "react";
-import i18next from "i18next";
-import { useTranslation } from "react-i18next";
-import sortBy from "lodash/sortBy";
-import reverse from "lodash/reverse";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
+import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
+
 import { Card, Col, Row, Skeleton, Tooltip, Typography } from "antd";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+import reverse from "lodash/reverse";
+import sortBy from "lodash/sortBy";
 import TimeAgo from "timeago-react";
-import { rpc } from "api/rpc";
+
 import { AccountHistory } from "api/hooks/use-account-history";
+import { rpc } from "api/rpc";
 import QuestionCircle from "components/QuestionCircle";
+import i18next from "i18next";
+
 import faucets from "./faucets.json";
 
 const { Title, Text } = Typography;
 
 const FaucetsPage: React.FC = () => {
   const { t } = useTranslation();
-  const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
-  const [accountHistories, setAccountHistories] = React.useState(
-    [] as AccountHistory[],
-  );
+  const isSmallAndLower = !useMediaQuery({ query: "(min-width: 576px)" });
+  const [accountHistories, setAccountHistories] = React.useState([] as AccountHistory[]);
   const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
@@ -58,21 +59,13 @@ const FaucetsPage: React.FC = () => {
       <div style={{ marginBottom: "12px" }}>
         <Text>{t("pages.faucets.description")}</Text>
       </div>
-      <Card
-        size="small"
-        bordered={false}
-        className="detail-layout"
-        style={{ marginBottom: "12px" }}
-      >
+      <Card size="small" className="detail-layout" style={{ marginBottom: "12px" }}>
         {!isSmallAndLower ? (
           <Row gutter={6}>
             <Col xs={24} sm={6} xl={4}></Col>
             <Col xs={24} sm={4} xl={4}>
               {t("pages.account.confirmationHeight")}
-              <Tooltip
-                placement="right"
-                title={t("tooltips.confirmationHeight")}
-              >
+              <Tooltip placement="right" title={t("tooltips.confirmationHeight")}>
                 <QuestionCircle />
               </Tooltip>
             </Col>
@@ -94,8 +87,7 @@ const FaucetsPage: React.FC = () => {
             byLink?: string;
           } = faucets.find(({ account }) => account === historyAccount)!;
 
-          const { height, local_timestamp: localTimestamp = 0 } =
-            history[0] || {};
+          const { height, local_timestamp: localTimestamp = 0 } = history[0] || {};
 
           const modifiedTimestamp = Number(localTimestamp) * 1000;
 
@@ -117,10 +109,7 @@ const FaucetsPage: React.FC = () => {
                 <Skeleton loading={isLoading} active paragraph={false}>
                   {isSmallAndLower ? (
                     <>
-                      <Text
-                        style={{ fontSize: "12px" }}
-                        className="color-muted"
-                      >
+                      <Text style={{ fontSize: "12px" }} className="color-muted">
                         {t("pages.account.confirmationHeight")}
                       </Text>{" "}
                     </>
@@ -140,19 +129,11 @@ const FaucetsPage: React.FC = () => {
                 </Skeleton>
               </Col>
               <Col xs={24} sm={14} xl={16}>
-                <Link
-                  to={`/account/${account}`}
-                  className="break-word color-normal"
-                >
+                <Link to={`/account/${account}`} className="break-word color-normal">
                   {account}
                 </Link>
                 <br />
-                <a
-                  href={link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="break-word"
-                >
+                <a href={link} target="_blank" rel="noopener noreferrer" className="break-word">
                   {link}
                 </a>
               </Col>

@@ -1,17 +1,15 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { Button, Card, Tooltip } from "antd";
+
 import { ReloadOutlined } from "@ant-design/icons";
+import { Button, Card, Tooltip } from "antd";
 import BigNumber from "bignumber.js";
-import {
-  secondsToTime,
-  refreshActionDelay,
-  formatBytes,
-} from "components/utils";
+
 import { NodeStatusContext } from "api/contexts/NodeStatus";
 import useUptime from "api/hooks/use-uptime";
 import useVersion from "api/hooks/use-version";
 import LoadingStatistic from "components/LoadingStatistic";
+import { formatBytes, refreshActionDelay, secondsToTime } from "components/utils";
 
 const Node: React.FC = () => {
   const { t } = useTranslation();
@@ -23,10 +21,7 @@ const Node: React.FC = () => {
     version: { node_vendor },
   } = useVersion();
   const {
-    nodeStatus: {
-      memory: { total = 0 } = {},
-      nodeStats: { cpu = 0, memory = 0 } = {},
-    },
+    nodeStatus: { memory: { total = 0 } = {}, nodeStats: { cpu = 0, memory = 0 } = {} },
     getNodeStatus,
     isLoading: isNodeStatusLoading,
   } = React.useContext(NodeStatusContext);
@@ -73,7 +68,7 @@ const Node: React.FC = () => {
       />
       <LoadingStatistic
         title={t("pages.status.uptime")}
-        tooltip={t("tooltips.uptime")}
+        tooltip={t<string>("tooltips.uptime")}
         value={secondsToTime(seconds || 0)}
         isLoading={!node_vendor}
         style={{ opacity }}
@@ -87,9 +82,9 @@ const Node: React.FC = () => {
       />
       <LoadingStatistic
         title={t("pages.status.memory")}
-        value={`${new BigNumber(formattedMemory.value).toFormat(
-          2,
-        )} / ${new BigNumber(formattedTotal.value).toFormat(2)}`}
+        value={`${new BigNumber(formattedMemory.value).toFormat(2)} / ${new BigNumber(
+          formattedTotal.value,
+        ).toFormat(2)}`}
         suffix={formattedTotal.suffix}
         isLoading={isNodeStatusLoading}
         style={{ opacity }}

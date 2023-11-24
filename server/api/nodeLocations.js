@@ -1,37 +1,28 @@
-const MongoClient = require("mongodb").MongoClient;
 const { nodeCache } = require("../client/cache");
+const db = require("../client/mongo");
 const { Sentry } = require("../sentry");
-const {
-  MONGO_URL,
-  MONGO_OPTIONS,
-  MONGO_DB,
-  NODE_LOCATIONS,
-} = require("../constants");
+const { NODE_LOCATIONS } = require("../constants");
 
 const getNodeLocations = async () => {
   let nodeLocations =
     nodeCache.get(NODE_LOCATIONS) ||
-    (await new Promise((resolve, reject) => {
-      let db;
+    (await new Promise(async (resolve, reject) => {
       try {
-        MongoClient.connect(MONGO_URL, MONGO_OPTIONS, (err, client) => {
-          if (err) {
-            throw err;
-          }
-          db = client.db(MONGO_DB);
+        const database = await db.getDatabase();
 
-          db.collection(NODE_LOCATIONS)
-            .find({
-              $query: {},
-            })
-            .toArray((_err, values = []) => {
-              nodeCache.set(NODE_LOCATIONS, values);
-              client.close();
-              resolve(values);
-            });
-        });
+        if (!database) {
+          throw new Error("Mongo unavailable for getNodeLocations");
+        }
+
+        database
+          .collection(NODE_LOCATIONS)
+          .find()
+          .toArray()
+          .then(values => {
+            nodeCache.set(NODE_LOCATIONS, values);
+            resolve(values);
+          });
       } catch (err) {
-        console.log("Error", err);
         Sentry.captureException(err);
         resolve([]);
       }

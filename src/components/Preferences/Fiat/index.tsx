@@ -1,8 +1,10 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+
 import { Col, Row, Select, Typography } from "antd";
-import { PreferencesContext, Fiat } from "api/contexts/Preferences";
+
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
+import { Fiat, PreferencesContext } from "api/contexts/Preferences";
 
 const { Option } = Select;
 const { Text } = Typography;
@@ -14,9 +16,7 @@ interface Props {
 const FiatPreferences: React.FC<Props> = ({ isDetailed }) => {
   const { t } = useTranslation();
   const { fiat, setFiat } = React.useContext(PreferencesContext);
-  const { setIsInitialLoading, getMarketStatistics } = React.useContext(
-    MarketStatisticsContext,
-  );
+  const { setIsInitialLoading, getMarketStatistics } = React.useContext(MarketStatisticsContext);
 
   return (
     <Row style={{ alignItems: !isDetailed ? "center" : "flex-start" }}>
@@ -27,9 +27,7 @@ const FiatPreferences: React.FC<Props> = ({ isDetailed }) => {
       </Col>
       {isDetailed ? (
         <Col xs={18}>
-          <Text>
-            {t("preferences.fiatCurrencyDetailed")}
-          </Text>
+          <Text>{t("preferences.fiatCurrencyDetailed")}</Text>
         </Col>
       ) : null}
 

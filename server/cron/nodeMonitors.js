@@ -41,7 +41,8 @@ const getConfirmationQuorumPeers = async () => {
 
 const getNodeMonitor = async (ip, protocol = "http") => {
   try {
-    const res = await fetch(`${protocol}://${ip}/api.php`, { timeout: 7500 });
+    const url = `${protocol}://${ip}`;
+    const res = await fetch(`${url}/api.php`, { timeout: 7500 });
 
     const {
       version,
@@ -63,6 +64,7 @@ const getNodeMonitor = async (ip, protocol = "http") => {
     } = await res.json();
 
     return {
+      url,
       version,
       storeVersion,
       nodeMonitorVersion,
@@ -95,8 +97,7 @@ const doNodeMonitors = async () => {
     let peers = await getConfirmationQuorumPeers();
 
     // Store the nodes without monitor for 24h so the 5 minutes request doesn't pull them
-    let skipMonitorCheck24h =
-      nodeCache.get(`${NODE_MONITORS}_NO_MONITOR`) || [];
+    let skipMonitorCheck24h = nodeCache.get(`${NODE_MONITORS}_NO_MONITOR`) || [];
 
     peers = peers.filter(({ ip }) => {
       return !skipMonitorCheck24h.includes(ip);

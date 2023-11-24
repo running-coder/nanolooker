@@ -1,7 +1,9 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { Col, Row, Switch, Typography } from "antd";
+
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
+import { Col, Row, Switch, Typography } from "antd";
+
 import { PreferencesContext } from "api/contexts/Preferences";
 
 const { Text } = Typography;
@@ -12,10 +14,8 @@ interface Props {
 
 const LivePreference: React.FC<Props> = ({ isDetailed }) => {
   const { t } = useTranslation();
-  const {
-    disableLiveTransactions,
-    setDisableLiveTransactions,
-  } = React.useContext(PreferencesContext);
+  const { disableLiveTransactions, setDisableLiveTransactions } =
+    React.useContext(PreferencesContext);
 
   return (
     <Row>
@@ -26,9 +26,7 @@ const LivePreference: React.FC<Props> = ({ isDetailed }) => {
       </Col>
       {isDetailed ? (
         <Col xs={18}>
-          <Text>
-            {t("preferences.liveTransactionsDetailed")}
-          </Text>
+          <Text>{t("preferences.liveTransactionsDetailed")}</Text>
         </Col>
       ) : null}
 

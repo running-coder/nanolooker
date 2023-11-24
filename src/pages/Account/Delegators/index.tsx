@@ -1,21 +1,14 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
-import {
-  Button,
-  Card,
-  Col,
-  Empty,
-  Pagination,
-  Row,
-  Skeleton,
-  Typography,
-} from "antd";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+
+import { Button, Card, Col, Empty, Pagination, Row, Skeleton, Typography } from "antd";
 import BigNumber from "bignumber.js";
+
 import { AccountInfoContext } from "api/contexts/AccountInfo";
-import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 import { DelegatorsContext } from "api/contexts/Delegators";
+import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 import useDelegators from "api/hooks/use-delegators";
 
 const { Title } = Typography;
@@ -24,9 +17,7 @@ const Delegators: React.FC = () => {
   const { t } = useTranslation();
   const [currentPage, setCurrentPage] = React.useState<number>(1);
   const { account } = React.useContext(AccountInfoContext);
-  const { delegators: allDelegators, getDelegators } = React.useContext(
-    DelegatorsContext,
-  );
+  const { delegators: allDelegators, getDelegators } = React.useContext(DelegatorsContext);
   const { knownAccounts } = React.useContext(KnownAccountsContext);
   const {
     delegators,
@@ -36,7 +27,7 @@ const Delegators: React.FC = () => {
     account,
     page: currentPage,
   });
-  const isSmallAndLower = !useMediaQuery("(min-width: 576px)");
+  const isSmallAndLower = !useMediaQuery({ query: "(min-width: 576px)" });
 
   React.useEffect(() => {
     getDelegators();
@@ -65,14 +56,12 @@ const Delegators: React.FC = () => {
         </Link>
       </div>
 
-      <Card size="small" bordered={false} className="detail-layout">
+      <Card size="small" className="detail-layout">
         {!isDelegatorsLoading && !isSmallAndLower ? (
           <>
             <Row gutter={6}>
               <Col xs={24} sm={12} md={8} lg={6}>
-                <span className="default-color">
-                  {t("pages.account.votingWeight")}
-                </span>
+                <span className="default-color">{t("pages.account.votingWeight")}</span>
               </Col>
               <Col xs={24} sm={12} md={16} lg={18}>
                 {t("common.account")}
@@ -113,9 +102,7 @@ const Delegators: React.FC = () => {
                     </span>
                   </Col>
                   <Col xs={24} sm={12} md={16} lg={18}>
-                    {alias ? (
-                      <div className="color-important">{alias}</div>
-                    ) : null}
+                    {alias ? <div className="color-important">{alias}</div> : null}
                     <Link to={`/account/${account}`} className="break-word">
                       {account}
                     </Link>
@@ -134,9 +121,7 @@ const Delegators: React.FC = () => {
                       current: currentPage,
                       disabled: false,
                       onChange: (page: number) => {
-                        const element = document.getElementById(
-                          "delegator-title",
-                        );
+                        const element = document.getElementById("delegator-title");
                         element?.scrollIntoView();
 
                         setCurrentPage(page);

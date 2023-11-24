@@ -1,15 +1,17 @@
 import * as React from "react";
+
 import qs from "qs";
+
 import { PreferencesContext } from "./Preferences";
 
 export const TOTAL_CONFIRMATIONS_24H = "TOTAL_CONFIRMATIONS_24H";
 export const TOTAL_VOLUME_24H = "TOTAL_VOLUME_24H";
 export const TOTAL_CONFIRMATIONS_48H = "TOTAL_CONFIRMATIONS_48H";
 export const TOTAL_VOLUME_48H = "TOTAL_VOLUME_48H";
-export const BITCOIN_TOTAL_TRANSACTION_FEES_24H =
-  "BITCOIN_TOTAL_TRANSACTION_FEES_24H";
-export const BITCOIN_TOTAL_TRANSACTION_FEES_48H =
-  "BITCOIN_TOTAL_TRANSACTION_FEES_48H";
+export const BITCOIN_TOTAL_TRANSACTION_FEES_24H = "BITCOIN_TOTAL_TRANSACTION_FEES_24H";
+export const BITCOIN_TOTAL_TRANSACTION_FEES_48H = "BITCOIN_TOTAL_TRANSACTION_FEES_48H";
+export const NANOTPS_STATS = "NANOTPS_STATS";
+export const NANOSPEED_STATS = "NANOSPEED_STATS";
 
 export interface Response {
   [TOTAL_CONFIRMATIONS_24H]: number;
@@ -18,6 +20,8 @@ export interface Response {
   [TOTAL_VOLUME_48H]: number;
   [BITCOIN_TOTAL_TRANSACTION_FEES_24H]: number;
   [BITCOIN_TOTAL_TRANSACTION_FEES_48H]: number;
+  [NANOTPS_STATS]: any;
+  [NANOTPS_STATS]: any;
   marketCapRank: number;
   marketCapRank24h: number;
   marketCap: number;
@@ -28,6 +32,10 @@ export interface Response {
   totalSupply: number;
   circulatingSupply: number;
   priceStats: any;
+  NANOSPEED_STATS: {
+    median: number | null;
+    avgConfTimep90: number | null;
+  };
 }
 
 export interface Context {
@@ -49,6 +57,12 @@ export const MarketStatisticsContext = React.createContext<Context>({
     [TOTAL_VOLUME_48H]: 0,
     [BITCOIN_TOTAL_TRANSACTION_FEES_24H]: 0,
     [BITCOIN_TOTAL_TRANSACTION_FEES_48H]: 0,
+
+    NANOTPS_STATS: {},
+    [NANOSPEED_STATS]: {
+      median: null,
+      avgConfTimep90: null,
+    },
     marketCapRank: 0,
     marketCapRank24h: 0,
     marketCap: 0,
@@ -67,10 +81,12 @@ export const MarketStatisticsContext = React.createContext<Context>({
   isError: false,
 });
 
-const Provider: React.FC = ({ children }) => {
-  const [marketStatistics, setMarketStatistics] = React.useState(
-    {} as Response,
-  );
+interface Props {
+  children: React.ReactNode;
+}
+
+const Provider: React.FC<Props> = ({ children }) => {
+  const [marketStatistics, setMarketStatistics] = React.useState({} as Response);
   const [isInitialLoading, setIsInitialLoading] = React.useState<boolean>(true);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [isError, setIsError] = React.useState<boolean>(false);
