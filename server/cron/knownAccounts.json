@@ -179,11 +179,11 @@
     "alias": "CoinEx Cold Wallet #1",
     "account": "nano_3h9633hp5ox5ejsmcip7mnm9ej5g8wppyig8ckzcgwus9p4bezoogwystb99"
   },
-{
+  {
     "alias": "CoinEx Cold Wallet #2",
     "account": "nano_3aknpqaajsexriisrs3srzzr6cpw3y1cunwt4mxzagn8dg14xa9e5i3uaasd"
   },
-{
+  {
     "alias": "KuCoin Hot Wallet #2",
     "account": "nano_3iypqe87d399qnsgejk6jx11u334ep77ipgsrtg9zi31onpz9a4yfypjxnau"
   },
@@ -203,7 +203,7 @@
     "alias": "Nanogames.io Hot Wallet #2",
     "account": "nano_13ptrmobmsd9xawyequr83cz833x4usybeejtrc7sr6i358k89yumtyko5ao"
   },
-{
+  {
     "alias": "Pasino.com Hot Wallet",
     "account": "nano_3zq7br7tm3ka1bbpw8d6iza1excwerzczajmozyzmia8maifaa139yh78jwx"
   },
@@ -214,5 +214,9 @@
    {
     "alias": "Nanospeed.info",
     "account": "nano_3ug8jkpbr35qpa1ceyf6kf7za8nirbxyiyh58iapfzrujfsi4dxf4kmbp6nq"
+  },
+  {
+    "alias": "Zenitria 🌱",
+    "account": "nano_1green1fbejoedao3hnpfgozngfgmhw7mmmxikhxauiw1aux4di7fwgridr9"
   }
 ]
