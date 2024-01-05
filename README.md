@@ -83,7 +83,5 @@ If you think some strings should be corrected open a PR with the corrections on 
 - run `npm run translate` to generate for all languages found in the `src/i18n/locale` from `en.json`
 
 ## Special thanks
-
 ### Donators
-
 Thanks for financially contributing to BananoLooker hosting and development.
