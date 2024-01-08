@@ -68,15 +68,15 @@ cron.schedule("*/10 * * * * *", async () => {
         {
           $match: {
             createdAt: {
-              $gte: new Date(Date.now() - EXPIRE_24H * 1000),
+              $lt: new Date(Date.now() - EXPIRE_24H * 1000),
             },
           },
         },
-        { $group: { _id: null, totalConfirmations: { $sum: "$value" } } },
+        { $group: { _id: null, totalConfirmations24h: { $sum: "$value" } } },
       ])
       .toArray()
-      .then(([{ totalConfirmations = 0 } = {}]) => {
-        nodeCache.set(TOTAL_CONFIRMATIONS_24H, totalConfirmations);
+      .then(([{ totalConfirmations24h = 0 } = {}]) => {
+        nodeCache.set(TOTAL_CONFIRMATIONS_24H, totalConfirmations24h);
       });
 
     database
@@ -85,24 +85,24 @@ cron.schedule("*/10 * * * * *", async () => {
         {
           $match: {
             createdAt: {
-              $gte: new Date(Date.now() - EXPIRE_48H * 1000),
+              $lt: new Date(Date.now() - EXPIRE_48H * 1000),
             },
           },
         },
-        { $group: { _id: null, totalConfirmations: { $sum: "$value" } } },
+        { $group: { _id: null, totalConfirmations48h: { $sum: "$value" } } },
       ])
       .toArray()
-      .then(([{ totalConfirmations = 0 } = {}]) => {
-        nodeCache.set(TOTAL_CONFIRMATIONS_48H, totalConfirmations);
+      .then(([{ totalConfirmations48h = 0 } = {}]) => {
+        nodeCache.set(TOTAL_CONFIRMATIONS_48H, totalConfirmations48h);
       });
 
     database
       .collection(TOTAL_VOLUME_COLLECTION)
       .aggregate([
         {
-          $match: {
+          $match: { 
             createdAt: {
-              $gte: new Date(Date.now() - EXPIRE_24H * 1000),
+              $lt: new Date(Date.now() - EXPIRE_24H * 1000),
             },
           },
         },

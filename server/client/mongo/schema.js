@@ -4,6 +4,7 @@ const {
   EXPIRE_1M,
   EXPIRE_48H,
   EXPIRE_1W,
+  EXPIRE_2W,
   TOTAL_CONFIRMATIONS_COLLECTION,
   TOTAL_VOLUME_COLLECTION,
   LARGE_TRANSACTIONS,
@@ -41,7 +42,7 @@ async function createIndexes() {
   if (!indexExists3) {
     database
       .collection(TOTAL_CONFIRMATIONS_COLLECTION)
-      .createIndex({ createdAt: 1 }, { expireAfterSeconds: EXPIRE_48H, ...extraOptions });
+      .createIndex({ createdAt: 1 }, { expireAfterSeconds: EXPIRE_2W, ...extraOptions });
     console.log("Index TOTAL_CONFIRMATIONS_COLLECTION createdAt created successfully");
   }
 

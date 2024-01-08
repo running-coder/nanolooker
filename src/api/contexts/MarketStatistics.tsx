@@ -5,20 +5,28 @@ import qs from "qs";
 import { PreferencesContext } from "./Preferences";
 
 export const TOTAL_CONFIRMATIONS_24H = "TOTAL_CONFIRMATIONS_24H";
+export const TOTAL_CONFIRMATIONS_7D = "TOTAL_CONFIRMATIONS_7D";
 export const TOTAL_VOLUME_24H = "TOTAL_VOLUME_24H";
+export const TOTAL_VOLUME_7D = "TOTAL_VOLUME_7D";
 export const TOTAL_CONFIRMATIONS_48H = "TOTAL_CONFIRMATIONS_48H";
 export const TOTAL_VOLUME_48H = "TOTAL_VOLUME_48H";
 export const BITCOIN_TOTAL_TRANSACTION_FEES_24H = "BITCOIN_TOTAL_TRANSACTION_FEES_24H";
+export const BITCOIN_TOTAL_TRANSACTION_FEES_7D = "BITCOIN_TOTAL_TRANSACTION_FEES_7D";
+export const BITCOIN_TOTAL_TRANSACTION_FEES_14D = "BITCOIN_TOTAL_TRANSACTION_FEES_14D";
 export const BITCOIN_TOTAL_TRANSACTION_FEES_48H = "BITCOIN_TOTAL_TRANSACTION_FEES_48H";
 export const NANOTPS_STATS = "NANOTPS_STATS";
 export const NANOSPEED_STATS = "NANOSPEED_STATS";
 
 export interface Response {
   [TOTAL_CONFIRMATIONS_24H]: number;
+  [TOTAL_CONFIRMATIONS_7D]: number;
   [TOTAL_VOLUME_24H]: number;
+  [TOTAL_VOLUME_7D]: number;
   [TOTAL_CONFIRMATIONS_48H]: number;
   [TOTAL_VOLUME_48H]: number;
   [BITCOIN_TOTAL_TRANSACTION_FEES_24H]: number;
+  [BITCOIN_TOTAL_TRANSACTION_FEES_7D]: number;
+  [BITCOIN_TOTAL_TRANSACTION_FEES_14D]: number;
   [BITCOIN_TOTAL_TRANSACTION_FEES_48H]: number;
   [NANOTPS_STATS]: any;
   [NANOTPS_STATS]: any;
@@ -44,6 +52,8 @@ export interface Context {
   isInitialLoading: boolean;
   setIsInitialLoading: Function;
   isLoading: boolean;
+  is24Hours: boolean;
+  setIs24Hours: Function;
   isError: boolean;
 }
 
@@ -52,10 +62,14 @@ let pollMarketStatisticsTimeout: number | undefined;
 export const MarketStatisticsContext = React.createContext<Context>({
   marketStatistics: {
     [TOTAL_CONFIRMATIONS_24H]: 0,
+    [TOTAL_CONFIRMATIONS_7D]: 0,
     [TOTAL_VOLUME_24H]: 0,
+    [TOTAL_VOLUME_7D]: 0,
     [TOTAL_CONFIRMATIONS_48H]: 0,
     [TOTAL_VOLUME_48H]: 0,
     [BITCOIN_TOTAL_TRANSACTION_FEES_24H]: 0,
+    [BITCOIN_TOTAL_TRANSACTION_FEES_7D]: 0,
+    [BITCOIN_TOTAL_TRANSACTION_FEES_14D]: 0,
     [BITCOIN_TOTAL_TRANSACTION_FEES_48H]: 0,
 
     NANOTPS_STATS: {},
@@ -77,7 +91,9 @@ export const MarketStatisticsContext = React.createContext<Context>({
   getMarketStatistics: () => {},
   setIsInitialLoading: () => {},
   isInitialLoading: false,
+  setIs24Hours: () => {},
   isLoading: false,
+  is24Hours: true,
   isError: false,
 });
 
@@ -89,6 +105,7 @@ const Provider: React.FC<Props> = ({ children }) => {
   const [marketStatistics, setMarketStatistics] = React.useState({} as Response);
   const [isInitialLoading, setIsInitialLoading] = React.useState<boolean>(true);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const [is24Hours, setIs24Hours] = React.useState<boolean>(true);
   const [isError, setIsError] = React.useState<boolean>(false);
   const { fiat, cryptocurrency } = React.useContext(PreferencesContext);
 
@@ -99,13 +116,15 @@ const Provider: React.FC<Props> = ({ children }) => {
     setIsLoading(true);
     try {
       const query = qs.stringify(
-        { fiat, cryptocurrency: !!cryptocurrency?.length },
+        { fiat, cryptocurrency: !!cryptocurrency?.length, is24Hours },
         {
           addQueryPrefix: true,
         },
       );
       const res = await fetch(`/api/market-statistics${query}`);
       const json = await res.json();
+
+      console.log("~~~~/api/market-statisticsjson", json);
 
       if (!json || json.error) {
         isError = true;
@@ -161,6 +180,8 @@ const Provider: React.FC<Props> = ({ children }) => {
         isInitialLoading,
         setIsInitialLoading,
         isLoading,
+        is24Hours,
+        setIs24Hours,
         isError,
       }}
     >

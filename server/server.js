@@ -1,5 +1,6 @@
 require("dotenv").config();
 const db = require("./client/mongo");
+
 db.connect();
 
 require("./client/redis");
@@ -30,6 +31,8 @@ const path = require("path");
 const { nodeCache } = require("./client/cache");
 const {
   TOTAL_CONFIRMATIONS_24H,
+  TOTAL_CONFIRMATIONS_7D,
+  TOTAL_CONFIRMATIONS_14D,
   TOTAL_VOLUME_24H,
   TOTAL_CONFIRMATIONS_48H,
   TOTAL_VOLUME_48H,
@@ -43,6 +46,8 @@ const {
 const {
   getBtcTransactionFees,
   BITCOIN_TOTAL_TRANSACTION_FEES_24H,
+  BITCOIN_TOTAL_TRANSACTION_FEES_7D,
+  BITCOIN_TOTAL_TRANSACTION_FEES_14D,
   BITCOIN_TOTAL_TRANSACTION_FEES_48H,
 } = require("./api/btcTransactionFees");
 const { getYoutubePlaylist } = require("./api/youtubePlaylist");
@@ -143,24 +148,37 @@ app.get("/api/developer-fund/transactions", async (req, res) => {
 
 app.get("/api/market-statistics", async (req, res) => {
   const cachedConfirmations24h = nodeCache.get(TOTAL_CONFIRMATIONS_24H);
+  const cachedConfirmations7d = nodeCache.get(TOTAL_CONFIRMATIONS_7D);
+  const cachedConfirmations14d = nodeCache.get(TOTAL_CONFIRMATIONS_14D);
   const cachedVolume24h = nodeCache.get(TOTAL_VOLUME_24H);
   const cachedConfirmations48h = nodeCache.get(TOTAL_CONFIRMATIONS_48H);
   const cachedVolume48h = nodeCache.get(TOTAL_VOLUME_48H);
   const nanotpsStats = nodeCache.get(NANOTPS_STATS);
   const nanoSpeedStats = nodeCache.get(NANOSPEED_STATS);
 
-  const { btcTransactionFees24h, btcTransactionFees48h } = await getBtcTransactionFees();
+  const {
+    btcTransactionFees24h,
+    btcTransactionFees7d,
+    btcTransactionFees14d,
+    btcTransactionFees48h,
+  } = await getBtcTransactionFees();
   const { marketStats, priceStats } = await getCoingeckoStats({
     fiat: req.query.fiat,
+
     cryptocurrency: req.query.cryptocurrency,
   });
 
+
   res.send({
     [TOTAL_CONFIRMATIONS_24H]: cachedConfirmations24h,
+    [TOTAL_CONFIRMATIONS_7D]: cachedConfirmations7d,
+    [TOTAL_CONFIRMATIONS_14D]: cachedConfirmations14d,
     [TOTAL_VOLUME_24H]: cachedVolume24h,
     [TOTAL_CONFIRMATIONS_48H]: cachedConfirmations48h,
     [TOTAL_VOLUME_48H]: cachedVolume48h,
     [BITCOIN_TOTAL_TRANSACTION_FEES_24H]: btcTransactionFees24h,
+    [BITCOIN_TOTAL_TRANSACTION_FEES_7D]: btcTransactionFees7d,
+    [BITCOIN_TOTAL_TRANSACTION_FEES_14D]: btcTransactionFees14d,
     [BITCOIN_TOTAL_TRANSACTION_FEES_48H]: btcTransactionFees48h,
     [BITCOIN_TOTAL_TRANSACTION_FEES_48H]: btcTransactionFees48h,
     [NANOTPS_STATS]: nanotpsStats,

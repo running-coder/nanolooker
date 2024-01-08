@@ -3,15 +3,20 @@ import { useTranslation } from "react-i18next";
 import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
 
-import { Card, Col, Row } from "antd";
+import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
+import { Card, Col, Row, Switch } from "antd";
 import BigNumber from "bignumber.js";
 
 import { BlockCountContext } from "api/contexts/BlockCount";
 import { ConfirmationHistoryContext } from "api/contexts/ConfirmationHistory";
 import {
+  BITCOIN_TOTAL_TRANSACTION_FEES_7D,
+  BITCOIN_TOTAL_TRANSACTION_FEES_14D,
   BITCOIN_TOTAL_TRANSACTION_FEES_24H,
   BITCOIN_TOTAL_TRANSACTION_FEES_48H,
   MarketStatisticsContext,
+  TOTAL_CONFIRMATIONS_7D,
+  // TOTAL_CONFIRMATIONS_14D,
   TOTAL_CONFIRMATIONS_24H,
   TOTAL_CONFIRMATIONS_48H,
   TOTAL_VOLUME_24H,
@@ -33,9 +38,12 @@ const HomePage = () => {
   const isSmallAndLower = !useMediaQuery({ query: "(min-width: 576px)" });
   const { availableSupply } = useAvailableSupply();
   const { fiat } = React.useContext(PreferencesContext);
+
   const {
     marketStatistics,
     isInitialLoading: isMarketStatisticsInitialLoading,
+    is24Hours,
+    setIs24Hours,
     isError: isMarketStatisticsError,
   } = React.useContext(MarketStatisticsContext);
   const {
@@ -70,6 +78,21 @@ const HomePage = () => {
           .toFixed(CurrencyDecimal?.[fiat])
       : 0;
 
+  const btcTransactionFees7d =
+    marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_7D] && btcCurrentPrice
+      ? new BigNumber(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_7D])
+          .times(btcCurrentPrice)
+          .toFixed(CurrencyDecimal?.[fiat])
+      : 0;
+
+
+  const btcTransactionFees14d =
+  marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_14D] && btcCurrentPrice
+    ? new BigNumber(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_14D])
+        .times(btcCurrentPrice)
+        .toFixed(CurrencyDecimal?.[fiat])
+    : 0;
+
   const btcTransactionFeesChange24h = btcTransactionFees24h
     ? new BigNumber(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_24H])
         .minus(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_48H])
@@ -78,6 +101,13 @@ const HomePage = () => {
         .toNumber()
     : 0;
 
+  const btcTransactionFeesChange14d = btcTransactionFees14d
+    ? new BigNumber(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_7D])
+        .minus(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_14D])
+        .dividedBy(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_14D])
+        .times(100)
+        .toNumber()
+    : 0;
   let onChainVolume48hAgo = 0;
   let onChainVolumeChange24h = 0;
   if (marketStatistics[TOTAL_VOLUME_24H] && marketStatistics[TOTAL_VOLUME_48H]) {
@@ -93,6 +123,9 @@ const HomePage = () => {
 
   let totalConfirmations48hAgo = 0;
   let confirmationChange24h = 0;
+
+  let totalConfirmations7dAgo = 0;
+  let confirmationChange14d = 0;
   if (marketStatistics[TOTAL_CONFIRMATIONS_24H] && marketStatistics[TOTAL_CONFIRMATIONS_48H]) {
     totalConfirmations48hAgo = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_48H])
       .minus(marketStatistics[TOTAL_CONFIRMATIONS_24H])
@@ -103,6 +136,18 @@ const HomePage = () => {
       .times(100)
       .toNumber();
   }
+
+  if (marketStatistics[TOTAL_CONFIRMATIONS_7D] && marketStatistics[TOTAL_CONFIRMATIONS_7D]) {
+    totalConfirmations48hAgo = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_7D])
+      .minus(marketStatistics[TOTAL_CONFIRMATIONS_7D])
+      .toNumber();
+    confirmationChange24h = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_7D])
+      .minus(totalConfirmations7dAgo)
+      .dividedBy(totalConfirmations7dAgo)
+      .times(100)
+      .toNumber();
+  }
+
 
   React.useEffect(() => {
     setFormattedLedgerSize(formatBytes(ledgerSize));
@@ -193,7 +238,20 @@ const HomePage = () => {
           lg={6}
           style={{ width: "100%" }}
         >
-          <Card size="small" title={t("pages.home.last24Hours")}>
+          <Card
+            size="small"
+            title={is24Hours ? t("pages.home.last24Hours") : t("pages.home.last7Days")}
+            extra={
+              <Switch
+                checkedChildren={<CheckOutlined />}
+                unCheckedChildren={<CloseOutlined />}
+                onChange={(checked: boolean) => {
+                  setIs24Hours(checked);
+                }}
+                checked={is24Hours}
+              />
+            }
+          >
             <Row gutter={6}>
               <Col xs={24}>
                 <LoadingStatistic
@@ -232,8 +290,13 @@ const HomePage = () => {
                   title={`${t("pages.home.bitcoinTransactionFees")} (${fiat.toUpperCase()})`}
                   tooltip={t<string>("tooltips.bitcoinTransactionFees")}
                   prefix={CurrencySymbol?.[fiat]}
-                  value={btcTransactionFees24h}
-                  suffix={<StatisticsChange value={btcTransactionFeesChange24h} isPercent />}
+                  value={is24Hours ? btcTransactionFees24h : btcTransactionFees7d}
+                  suffix={
+                    <StatisticsChange
+                      value={is24Hours ? btcTransactionFeesChange24h : btcTransactionFeesChange14d}
+                      isPercent
+                    />
+                  }
                 />
               </Col>
             </Row>
