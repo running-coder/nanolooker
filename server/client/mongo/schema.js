@@ -3,8 +3,8 @@ const db = require("./");
 const {
   EXPIRE_1M,
   EXPIRE_48H,
-  EXPIRE_1W,
-  EXPIRE_2W,
+  EXPIRE_7D,
+  EXPIRE_14D,
   TOTAL_CONFIRMATIONS_COLLECTION,
   TOTAL_VOLUME_COLLECTION,
   LARGE_TRANSACTIONS,
@@ -24,7 +24,7 @@ async function createIndexes() {
   if (!indexExists1) {
     database
       .collection(LARGE_TRANSACTIONS)
-      .createIndex({ createdAt: 1 }, { expireAfterSeconds: EXPIRE_1W, ...extraOptions });
+      .createIndex({ createdAt: 1 }, { expireAfterSeconds: EXPIRE_7D, ...extraOptions });
     console.log("Index LARGE_TRANSACTIONS createdAt created successfully");
   }
 
@@ -42,7 +42,7 @@ async function createIndexes() {
   if (!indexExists3) {
     database
       .collection(TOTAL_CONFIRMATIONS_COLLECTION)
-      .createIndex({ createdAt: 1 }, { expireAfterSeconds: EXPIRE_2W, ...extraOptions });
+      .createIndex({ createdAt: 1 }, { expireAfterSeconds: EXPIRE_14D, ...extraOptions });
     console.log("Index TOTAL_CONFIRMATIONS_COLLECTION createdAt created successfully");
   }
 
@@ -50,7 +50,7 @@ async function createIndexes() {
   if (!indexExists4) {
     database
       .collection(TOTAL_VOLUME_COLLECTION)
-      .createIndex({ createdAt: 1 }, { expireAfterSeconds: EXPIRE_48H, ...extraOptions });
+      .createIndex({ createdAt: 1 }, { expireAfterSeconds: EXPIRE_14D, ...extraOptions });
     console.log("Index TOTAL_VOLUME_COLLECTION createdAt created successfully");
   }
 

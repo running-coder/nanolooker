@@ -4,9 +4,8 @@ import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
 
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
-import { Card, Col, Row, Switch } from "antd";
+import { Card, Col, Row, Switch, Tooltip } from "antd";
 import BigNumber from "bignumber.js";
-import qs from "qs";
 
 import { BlockCountContext } from "api/contexts/BlockCount";
 import { ConfirmationHistoryContext } from "api/contexts/ConfirmationHistory";
@@ -20,6 +19,8 @@ import {
   TOTAL_CONFIRMATIONS_14D,
   TOTAL_CONFIRMATIONS_24H,
   TOTAL_CONFIRMATIONS_48H,
+  TOTAL_VOLUME_7D,
+  TOTAL_VOLUME_14D,
   TOTAL_VOLUME_24H,
   TOTAL_VOLUME_48H,
 } from "api/contexts/MarketStatistics";
@@ -28,6 +29,7 @@ import { CurrencyDecimal, CurrencySymbol, PreferencesContext } from "api/context
 import { RepresentativesContext } from "api/contexts/Representatives";
 import useAvailableSupply from "api/hooks/use-available-supply";
 import LoadingStatistic from "components/LoadingStatistic";
+import QuestionCircle from "components/QuestionCircle";
 import StatisticsChange from "components/StatisticsChange";
 import { formatBytes } from "components/utils";
 
@@ -47,7 +49,6 @@ const HomePage = () => {
   const urlParams = new URLSearchParams(new URL(currentUrl).search);
 
   let isFeatureActive = urlParams.get("7d");
-
   const {
     marketStatistics,
     isInitialLoading: isMarketStatisticsInitialLoading,
@@ -128,35 +129,10 @@ const HomePage = () => {
       .times(100)
       .toNumber();
   }
-  // Start here
-  let totalConfirmations14dAgo = 0;
-  let confirmationChange7d = 0;
 
-  let totalConfirmations7dAgo = 0;
-  let confirmationChange14d = 0;
-  if (marketStatistics[TOTAL_CONFIRMATIONS_7D] && marketStatistics[TOTAL_CONFIRMATIONS_7D]) {
-    totalConfirmations7dAgo = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_7D])
-      .minus(marketStatistics[TOTAL_CONFIRMATIONS_7D])
-      .toNumber();
-    confirmationChange14d = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_14D])
-      .minus(totalConfirmations14dAgo)
-      .dividedBy(totalConfirmations14dAgo)
-      .times(100)
-      .toNumber();
-  }
-
-  if (marketStatistics[TOTAL_CONFIRMATIONS_7D] && marketStatistics[TOTAL_CONFIRMATIONS_7D]) {
-    confirmationChange14d = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_7D])
-      .minus(marketStatistics[TOTAL_CONFIRMATIONS_7D])
-      .toNumber();
-    confirmationChange7d = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_7D])
-      .minus(totalConfirmations7dAgo)
-      .dividedBy(totalConfirmations7dAgo)
-      .times(100)
-      .toNumber();
-  }
   let totalConfirmations48hAgo = 0;
   let confirmationChange24h = 0;
+
   if (marketStatistics[TOTAL_CONFIRMATIONS_24H] && marketStatistics[TOTAL_CONFIRMATIONS_48H]) {
     totalConfirmations48hAgo = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_48H])
       .minus(marketStatistics[TOTAL_CONFIRMATIONS_24H])
@@ -164,6 +140,34 @@ const HomePage = () => {
     confirmationChange24h = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_24H])
       .minus(totalConfirmations48hAgo)
       .dividedBy(totalConfirmations48hAgo)
+      .times(100)
+      .toNumber();
+  }
+
+  // Start here
+
+  let onChainVolume14dAgo = 0;
+  let onChainVolumeChange7d = 0;
+  if (marketStatistics[TOTAL_VOLUME_7D] && marketStatistics[TOTAL_VOLUME_14D]) {
+    onChainVolume14dAgo = new BigNumber(marketStatistics[TOTAL_VOLUME_14D])
+      .minus(marketStatistics[TOTAL_VOLUME_7D])
+      .toNumber();
+    onChainVolumeChange7d = new BigNumber(marketStatistics[TOTAL_VOLUME_7D])
+      .minus(onChainVolume14dAgo)
+      .dividedBy(onChainVolume14dAgo)
+      .times(100)
+      .toNumber();
+  }
+
+  let totalConfirmations14dAgo = 0;
+  let confirmationChange7d = 0;
+  if (marketStatistics[TOTAL_CONFIRMATIONS_7D] && marketStatistics[TOTAL_CONFIRMATIONS_14D]) {
+    totalConfirmations14dAgo = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_14D])
+      .minus(marketStatistics[TOTAL_CONFIRMATIONS_7D])
+      .toNumber();
+    confirmationChange7d = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_7D])
+      .minus(totalConfirmations14dAgo)
+      .dividedBy(totalConfirmations14dAgo)
       .times(100)
       .toNumber();
   }
@@ -259,7 +263,19 @@ const HomePage = () => {
         >
           <Card
             size="small"
-            title={is24Hours ? t("pages.home.last24Hours") : t("pages.home.last7Days")}
+            title={
+               
+                <span>
+                  {is24Hours ?t("pages.home.last24Hours"): t("pages.home.last7Days")}
+                  <Tooltip
+                    placement="right"
+                    title={is24Hours ? t("tooltips.last24Hours") : t("tooltips.last7days")}
+                  >
+                    <QuestionCircle />
+                  </Tooltip>
+                </span>
+             
+            }
             extra={
               isFeatureActive ? (
                 <Switch
@@ -283,8 +299,17 @@ const HomePage = () => {
                   }
                   tooltip={t<string>("tooltips.onChainVolume")}
                   title={t("pages.home.onChainVolume")}
-                  suffix={<StatisticsChange value={onChainVolumeChange24h} isPercent />}
-                  value={new BigNumber(marketStatistics[TOTAL_VOLUME_24H])
+                  suffix={
+                    <StatisticsChange
+                      value={is24Hours ? onChainVolumeChange24h : onChainVolumeChange7d}
+                      isPercent
+                    />
+                  }
+                  value={new BigNumber(
+                    is24Hours
+                      ? marketStatistics[TOTAL_VOLUME_24H]
+                      : marketStatistics[TOTAL_VOLUME_7D],
+                  )
                     .decimalPlaces(5)
                     .toNumber()}
                 />
@@ -292,7 +317,8 @@ const HomePage = () => {
                   isLoading={
                     isMarketStatisticsInitialLoading ||
                     isMarketStatisticsError ||
-                    !confirmationChange24h
+                    !confirmationChange24h ||
+                    !confirmationChange7d
                   }
                   title={t("pages.home.confirmedTransactions")}
                   suffix={

@@ -8,6 +8,8 @@ const {
   EXPIRE_1M,
   EXPIRE_24H,
   EXPIRE_1W,
+  EXPIRE_7D,
+  EXPIRE_14D,
   EXPIRE_48H,
   TOTAL_CONFIRMATIONS_COLLECTION,
   TOTAL_CONFIRMATIONS_24H,
@@ -16,7 +18,9 @@ const {
   TOTAL_CONFIRMATIONS_14D,
   TOTAL_VOLUME_COLLECTION,
   TOTAL_VOLUME_24H,
+  TOTAL_VOLUME_7D,
   TOTAL_VOLUME_48H,
+  TOTAL_VOLUME_14D,
   CONFIRMATIONS_PER_SECOND,
 } = require("../constants");
 const { rawToRai } = require("../utils");
@@ -36,7 +40,7 @@ cron.schedule("*/3 * * * * *", async () => {
         {
           $match: {
             createdAt: {
-              $lt: new Date(Date.now() - EXPIRE_1M * 1000),
+              $gte: new Date(Date.now() - EXPIRE_1M * 1000),
             },
           },
         },
@@ -71,32 +75,32 @@ cron.schedule("*/10 * * * * *", async () => {
         {
           $match: {
             createdAt: {
-              $lt: new Date(Date.now() - EXPIRE_24H * 1000),
+              $gte: new Date(Date.now() - EXPIRE_24H * 1000),
             },
           },
         },
-        { $group: { _id: null, totalConfirmations: { $sum: "$value" } } },
+        { $group: { _id: null, totalConfirmations24h: { $sum: "$value" } } },
       ])
       .toArray()
-      .then(([{ totalConfirmations = 0 } = {}]) => {
-        nodeCache.set(TOTAL_CONFIRMATIONS_24H, totalConfirmations);
+      .then(([{ totalConfirmations24h = 0 } = {}]) => {
+        nodeCache.set(TOTAL_CONFIRMATIONS_24H, totalConfirmations24h);
       });
-// conf 7d
-      database
+    // conf 7d
+    database
       .collection(TOTAL_CONFIRMATIONS_COLLECTION)
       .aggregate([
         {
           $match: {
             createdAt: {
-              $lt: new Date(Date.now() - EXPIRE_1W * 1000),
+              $gte: new Date(Date.now() - EXPIRE_1W * 1000),
             },
           },
         },
-        { $group: { _id: null, totalConfirmations14d: { $sum: "$value" } } },
+        { $group: { _id: null, totalConfirmations7d: { $sum: "$value" } } },
       ])
       .toArray()
-      .then(([{ totalConfirmations14d = 0 } = {}]) => {
-        nodeCache.set(TOTAL_CONFIRMATIONS_7D, totalConfirmations14d);
+      .then(([{ totalConfirmations7d = 0 } = {}]) => {
+        nodeCache.set(TOTAL_CONFIRMATIONS_7D, totalConfirmations7d);
       });
 
     database
@@ -105,25 +109,25 @@ cron.schedule("*/10 * * * * *", async () => {
         {
           $match: {
             createdAt: {
-              $lt: new Date(Date.now() - EXPIRE_48H * 1000),
+              $gte: new Date(Date.now() - EXPIRE_48H * 1000),
             },
           },
         },
-        { $group: { _id: null, totalConfirmations: { $sum: "$value" } } },
+        { $group: { _id: null, totalConfirmations48h: { $sum: "$value" } } },
       ])
       .toArray()
-      .then(([{ totalConfirmations = 0 } = {}]) => {
-        nodeCache.set(TOTAL_CONFIRMATIONS_48H, totalConfirmations);
+      .then(([{ totalConfirmations48h = 0 } = {}]) => {
+        nodeCache.set(TOTAL_CONFIRMATIONS_48H, totalConfirmations48h);
       });
 
-      //conf 1w
-      database
+    //conf 1w
+    database
       .collection(TOTAL_CONFIRMATIONS_COLLECTION)
       .aggregate([
         {
           $match: {
             createdAt: {
-              $lt: new Date(Date.now() - EXPIRE_1W * 1000),
+              $gte: new Date(Date.now() - EXPIRE_14D * 1000),
             },
           },
         },
@@ -140,15 +144,15 @@ cron.schedule("*/10 * * * * *", async () => {
         {
           $match: {
             createdAt: {
-              $lt: new Date(Date.now() - EXPIRE_24H * 1000),
+              $gte: new Date(Date.now() - EXPIRE_24H * 1000),
             },
           },
         },
-        { $group: { _id: null, totalVolume: { $sum: "$value" } } },
+        { $group: { _id: null, totalVolume24h: { $sum: "$value" } } },
       ])
       .toArray()
-      .then(([{ totalVolume = 0 } = {}]) => {
-        nodeCache.set(TOTAL_VOLUME_24H, rawToRai(totalVolume));
+      .then(([{ totalVolume24h = 0 } = {}]) => {
+        nodeCache.set(TOTAL_VOLUME_24H, rawToRai(totalVolume24h));
       });
 
     database
@@ -157,15 +161,82 @@ cron.schedule("*/10 * * * * *", async () => {
         {
           $match: {
             createdAt: {
-              $lt: new Date(Date.now() - EXPIRE_48H * 1000),
+              $gte: new Date(Date.now() - EXPIRE_7D * 1000),
             },
           },
         },
-        { $group: { _id: null, totalVolume: { $sum: "$value" } } },
+        { $group: { _id: null, totalVolume7d: { $sum: "$value" } } },
       ])
       .toArray()
-      .then(([{ totalVolume = 0 } = {}]) => {
-        nodeCache.set(TOTAL_VOLUME_48H, rawToRai(totalVolume));
+      .then(([{ totalVolume7d = 0 } = {}]) => {
+        nodeCache.set(TOTAL_VOLUME_7D, rawToRai(totalVolume7d));
+      });
+
+    database
+      .collection(TOTAL_VOLUME_COLLECTION)
+      .aggregate([
+        {
+          $match: {
+            createdAt: {
+              $gte: new Date(Date.now() - TOTAL_VOLUME_14D * 1000),
+            },
+          },
+        },
+        { $group: { _id: null, totalVolume14d: { $sum: "$value" } } },
+      ])
+      .toArray()
+      .then(([{ totalVolume14d = 0 } = {}]) => {
+        nodeCache.set(TOTAL_VOLUME_14D, rawToRai(totalVolume14d));
+      });
+
+    database
+      .collection(TOTAL_VOLUME_COLLECTION)
+      .aggregate([
+        {
+          $match: {
+            createdAt: {
+              $gte: new Date(Date.now() - EXPIRE_48H * 1000),
+            },
+          },
+        },
+        { $group: { _id: null, totalVolume48h: { $sum: "$value" } } },
+      ])
+      .toArray()
+      .then(([{ totalVolume48h = 0 } = {}]) => {
+        nodeCache.set(TOTAL_VOLUME_48H, rawToRai(totalVolume48h));
+      });
+
+    database
+      .collection(TOTAL_VOLUME_COLLECTION)
+      .aggregate([
+        {
+          $match: {
+            createdAt: {
+              $gte: new Date(Date.now() - EXPIRE_7D * 1000),
+            },
+          },
+        },
+        { $group: { _id: null, totalVolume7d: { $sum: "$value" } } },
+      ])
+      .toArray()
+      .then(([{ totalVolume7d = 0 } = {}]) => {
+        nodeCache.set(TOTAL_VOLUME_7D, rawToRai(totalVolume7d));
+      });
+    database
+      .collection(TOTAL_VOLUME_COLLECTION)
+      .aggregate([
+        {
+          $match: {
+            createdAt: {
+              $gte: new Date(Date.now() - EXPIRE_14D * 1000),
+            },
+          },
+        },
+        { $group: { _id: null, totalVolume14d: { $sum: "$value" } } },
+      ])
+      .toArray()
+      .then(([{ totalVolume14d = 0 } = {}]) => {
+        nodeCache.set(TOTAL_VOLUME_14D, rawToRai(totalVolume14d));
       });
   } catch (err) {
     Sentry.captureException(err, {

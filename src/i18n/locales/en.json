@@ -99,7 +99,9 @@
     "senderFilter": "Filter blocks to include only or exclude all send transactions from a specific address. To filter multiple addresses, separate them with a comma.",
     "receiverFilter": "Filter blocks to include only or exclude all send transactions from a specific address. To filter multiple addresses, separate them with a comma.",
     "filterTransactions": "Only accounts with equal or less than 5,000 confirmed transactions can be filtered",
-    "averageTps": "On {{date}}, {{block_count}} {{block_type}} blocks were broadcasted at a rate of {{bps}} BPS (blocks per second) to measure the network efficiency. The network reached a P90 of {{cps_p90}} CPS (confirmations per seconds) across the nodes. For more details visit https://nanotps.net/."
+    "averageTps": "On {{date}}, {{block_count}} {{block_type}} blocks were broadcasted at a rate of {{bps}} BPS (blocks per second) to measure the network efficiency. The network reached a P90 of {{cps_p90}} CPS (confirmations per seconds) across the nodes. For more details visit https://nanotps.net/.",
+    "last24Hours": "Displays a comparison of data trends and metrics from the last 24 hours against those from the preceding 48 hours, providing insights into recent changes and patterns.",
+    "last7days": "Shows a comparative analysis of data and trends over the past 7 days against the previous 14 days, highlighting shifts and patterns over a broader time frame for a comprehensive view."
   },
   "search": {
     "searchBy": "Search by Address / Block / Known Account",

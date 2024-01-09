@@ -61,6 +61,7 @@ ws.onmessage = msg => {
 
   if (topic === "confirmation") {
     accumulatedConfirmations = accumulatedConfirmations + 1;
+    
 
     // 10,000 NANO
     if (subtype === "send" && amount.length >= 35) {
