@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import { Card, Col, Row, Switch } from "antd";
 import BigNumber from "bignumber.js";
+import qs from "qs";
 
 import { BlockCountContext } from "api/contexts/BlockCount";
 import { ConfirmationHistoryContext } from "api/contexts/ConfirmationHistory";
@@ -38,6 +39,14 @@ const HomePage = () => {
   const isSmallAndLower = !useMediaQuery({ query: "(min-width: 576px)" });
   const { availableSupply } = useAvailableSupply();
   const { fiat } = React.useContext(PreferencesContext);
+
+  // Get the current URL
+  const currentUrl = window.location.href;
+
+  // Create URLSearchParams object
+  const urlParams = new URLSearchParams(new URL(currentUrl).search);
+
+  let isFeatureActive = urlParams.get("7d");
 
   const {
     marketStatistics,
@@ -85,13 +94,12 @@ const HomePage = () => {
           .toFixed(CurrencyDecimal?.[fiat])
       : 0;
 
-
   const btcTransactionFees14d =
-  marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_14D] && btcCurrentPrice
-    ? new BigNumber(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_14D])
-        .times(btcCurrentPrice)
-        .toFixed(CurrencyDecimal?.[fiat])
-    : 0;
+    marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_14D] && btcCurrentPrice
+      ? new BigNumber(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_14D])
+          .times(btcCurrentPrice)
+          .toFixed(CurrencyDecimal?.[fiat])
+      : 0;
 
   const btcTransactionFeesChange24h = btcTransactionFees24h
     ? new BigNumber(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_24H])
@@ -120,12 +128,35 @@ const HomePage = () => {
       .times(100)
       .toNumber();
   }
-
-  let totalConfirmations48hAgo = 0;
-  let confirmationChange24h = 0;
+  // Start here
+  let totalConfirmations14dAgo = 0;
+  let confirmationChange7d = 0;
 
   let totalConfirmations7dAgo = 0;
   let confirmationChange14d = 0;
+  if (marketStatistics[TOTAL_CONFIRMATIONS_7D] && marketStatistics[TOTAL_CONFIRMATIONS_7D]) {
+    totalConfirmations7dAgo = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_7D])
+      .minus(marketStatistics[TOTAL_CONFIRMATIONS_7D])
+      .toNumber();
+    confirmationChange14d = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_14D])
+      .minus(totalConfirmations14dAgo)
+      .dividedBy(totalConfirmations14dAgo)
+      .times(100)
+      .toNumber();
+  }
+
+  if (marketStatistics[TOTAL_CONFIRMATIONS_7D] && marketStatistics[TOTAL_CONFIRMATIONS_7D]) {
+    confirmationChange14d = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_7D])
+      .minus(marketStatistics[TOTAL_CONFIRMATIONS_7D])
+      .toNumber();
+    confirmationChange7d = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_7D])
+      .minus(totalConfirmations7dAgo)
+      .dividedBy(totalConfirmations7dAgo)
+      .times(100)
+      .toNumber();
+  }
+  let totalConfirmations48hAgo = 0;
+  let confirmationChange24h = 0;
   if (marketStatistics[TOTAL_CONFIRMATIONS_24H] && marketStatistics[TOTAL_CONFIRMATIONS_48H]) {
     totalConfirmations48hAgo = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_48H])
       .minus(marketStatistics[TOTAL_CONFIRMATIONS_24H])
@@ -136,44 +167,6 @@ const HomePage = () => {
       .times(100)
       .toNumber();
   }
-
-  if (marketStatistics[TOTAL_CONFIRMATIONS_7D] && marketStatistics[TOTAL_CONFIRMATIONS_7D]) {
-    totalConfirmations48hAgo = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_7D])
-      .minus(marketStatistics[TOTAL_CONFIRMATIONS_7D])
-      .toNumber();
-    confirmationChange24h = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_7D])
-      .minus(totalConfirmations7dAgo)
-      .dividedBy(totalConfirmations7dAgo)
-      .times(100)
-      .toNumber();
-// here
-      let totalConfirmations14dAgo = 0;
-  let confirmationChange7d = 0;
-
-  let totalConfirmations7dAgo = 0;
-  let confirmationChange14d = 0;
-  if (marketStatistics[TOTAL_CONFIRMATIONS_14D] && marketStatistics[TOTAL_CONFIRMATIONS_14D]) {
-    totalConfirmations48hAgo = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_14D])
-      .minus(marketStatistics[TOTAL_CONFIRMATIONS_7D])
-      .toNumber();
-    confirmationChange24h = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_7D])
-      .minus(totalConfirmations14dAgo)
-      .dividedBy(totalConfirmations14dAgo)
-      .times(100)
-      .toNumber();
-  }
-
-  if (marketStatistics[TOTAL_CONFIRMATIONS_7D] && marketStatistics[TOTAL_CONFIRMATIONS_7D]) {
-    totalConfirmations48hAgo = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_7D])
-      .minus(marketStatistics[TOTAL_CONFIRMATIONS_7D])
-      .toNumber();
-    confirmationChange24h = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_7D])
-      .minus(totalConfirmations7dAgo)
-      .dividedBy(totalConfirmations7dAgo)
-      .times(100)
-      .toNumber();
-  }
-
 
   React.useEffect(() => {
     setFormattedLedgerSize(formatBytes(ledgerSize));
@@ -268,14 +261,16 @@ const HomePage = () => {
             size="small"
             title={is24Hours ? t("pages.home.last24Hours") : t("pages.home.last7Days")}
             extra={
-              <Switch
-                checkedChildren={<CheckOutlined />}
-                unCheckedChildren={<CloseOutlined />}
-                onChange={(checked: boolean) => {
-                  setIs24Hours(checked);
-                }}
-                checked={is24Hours}
-              />
+              isFeatureActive ? (
+                <Switch
+                  checkedChildren={<CheckOutlined />}
+                  unCheckedChildren={<CloseOutlined />}
+                  onChange={(checked: boolean) => {
+                    setIs24Hours(checked);
+                  }}
+                  checked={is24Hours}
+                />
+              ) : null
             }
           >
             <Row gutter={6}>
@@ -300,7 +295,12 @@ const HomePage = () => {
                     !confirmationChange24h
                   }
                   title={t("pages.home.confirmedTransactions")}
-                  suffix={<StatisticsChange value={confirmationChange24h} isPercent />}
+                  suffix={
+                    <StatisticsChange
+                      value={is24Hours ? confirmationChange24h : confirmationChange7d}
+                      isPercent
+                    />
+                  }
                   value={marketStatistics[TOTAL_CONFIRMATIONS_24H]}
                 />
                 {isSmallAndLower ? (
