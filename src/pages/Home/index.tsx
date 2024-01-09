@@ -16,7 +16,7 @@ import {
   BITCOIN_TOTAL_TRANSACTION_FEES_48H,
   MarketStatisticsContext,
   TOTAL_CONFIRMATIONS_7D,
-  // TOTAL_CONFIRMATIONS_14D,
+  TOTAL_CONFIRMATIONS_14D,
   TOTAL_CONFIRMATIONS_24H,
   TOTAL_CONFIRMATIONS_48H,
   TOTAL_VOLUME_24H,
@@ -133,6 +133,32 @@ const HomePage = () => {
     confirmationChange24h = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_24H])
       .minus(totalConfirmations48hAgo)
       .dividedBy(totalConfirmations48hAgo)
+      .times(100)
+      .toNumber();
+  }
+
+  if (marketStatistics[TOTAL_CONFIRMATIONS_7D] && marketStatistics[TOTAL_CONFIRMATIONS_7D]) {
+    totalConfirmations48hAgo = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_7D])
+      .minus(marketStatistics[TOTAL_CONFIRMATIONS_7D])
+      .toNumber();
+    confirmationChange24h = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_7D])
+      .minus(totalConfirmations7dAgo)
+      .dividedBy(totalConfirmations7dAgo)
+      .times(100)
+      .toNumber();
+// here
+      let totalConfirmations14dAgo = 0;
+  let confirmationChange7d = 0;
+
+  let totalConfirmations7dAgo = 0;
+  let confirmationChange14d = 0;
+  if (marketStatistics[TOTAL_CONFIRMATIONS_14D] && marketStatistics[TOTAL_CONFIRMATIONS_14D]) {
+    totalConfirmations48hAgo = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_14D])
+      .minus(marketStatistics[TOTAL_CONFIRMATIONS_7D])
+      .toNumber();
+    confirmationChange24h = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_7D])
+      .minus(totalConfirmations14dAgo)
+      .dividedBy(totalConfirmations14dAgo)
       .times(100)
       .toNumber();
   }

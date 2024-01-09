@@ -6,6 +6,7 @@ import { PreferencesContext } from "./Preferences";
 
 export const TOTAL_CONFIRMATIONS_24H = "TOTAL_CONFIRMATIONS_24H";
 export const TOTAL_CONFIRMATIONS_7D = "TOTAL_CONFIRMATIONS_7D";
+export const TOTAL_CONFIRMATIONS_14D = "TOTAL_CONFIRMATIONS_14D";
 export const TOTAL_VOLUME_24H = "TOTAL_VOLUME_24H";
 export const TOTAL_VOLUME_7D = "TOTAL_VOLUME_7D";
 export const TOTAL_CONFIRMATIONS_48H = "TOTAL_CONFIRMATIONS_48H";
@@ -23,6 +24,7 @@ export interface Response {
   [TOTAL_VOLUME_24H]: number;
   [TOTAL_VOLUME_7D]: number;
   [TOTAL_CONFIRMATIONS_48H]: number;
+  [TOTAL_CONFIRMATIONS_14D]: number;
   [TOTAL_VOLUME_48H]: number;
   [BITCOIN_TOTAL_TRANSACTION_FEES_24H]: number;
   [BITCOIN_TOTAL_TRANSACTION_FEES_7D]: number;
@@ -63,6 +65,7 @@ export const MarketStatisticsContext = React.createContext<Context>({
   marketStatistics: {
     [TOTAL_CONFIRMATIONS_24H]: 0,
     [TOTAL_CONFIRMATIONS_7D]: 0,
+    [TOTAL_CONFIRMATIONS_14D]: 0,
     [TOTAL_VOLUME_24H]: 0,
     [TOTAL_VOLUME_7D]: 0,
     [TOTAL_CONFIRMATIONS_48H]: 0,
