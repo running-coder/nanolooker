@@ -34,8 +34,10 @@ const {
   TOTAL_CONFIRMATIONS_7D,
   TOTAL_CONFIRMATIONS_14D,
   TOTAL_VOLUME_24H,
+  TOTAL_VOLUME_7D,
   TOTAL_CONFIRMATIONS_48H,
   TOTAL_VOLUME_48H,
+  TOTAL_VOLUME_14D,
   CONFIRMATIONS_PER_SECOND,
   NANOTICKER_STATS,
   NANOBROWSERQUEST_PLAYERS,
@@ -151,8 +153,10 @@ app.get("/api/market-statistics", async (req, res) => {
   const cachedConfirmations7d = nodeCache.get(TOTAL_CONFIRMATIONS_7D);
   const cachedConfirmations14d = nodeCache.get(TOTAL_CONFIRMATIONS_14D);
   const cachedVolume24h = nodeCache.get(TOTAL_VOLUME_24H);
+  const cachedVolume7d = nodeCache.get(TOTAL_VOLUME_7D);
   const cachedConfirmations48h = nodeCache.get(TOTAL_CONFIRMATIONS_48H);
   const cachedVolume48h = nodeCache.get(TOTAL_VOLUME_48H);
+  const cachedVolume14d = nodeCache.get(TOTAL_VOLUME_14D);
   const nanotpsStats = nodeCache.get(NANOTPS_STATS);
   const nanoSpeedStats = nodeCache.get(NANOSPEED_STATS);
 
@@ -168,18 +172,18 @@ app.get("/api/market-statistics", async (req, res) => {
     cryptocurrency: req.query.cryptocurrency,
   });
 
-
   res.send({
     [TOTAL_CONFIRMATIONS_24H]: cachedConfirmations24h,
     [TOTAL_CONFIRMATIONS_7D]: cachedConfirmations7d,
     [TOTAL_CONFIRMATIONS_14D]: cachedConfirmations14d,
     [TOTAL_VOLUME_24H]: cachedVolume24h,
+    [TOTAL_VOLUME_7D]: cachedVolume7d,
     [TOTAL_CONFIRMATIONS_48H]: cachedConfirmations48h,
     [TOTAL_VOLUME_48H]: cachedVolume48h,
+    [TOTAL_VOLUME_14D]: cachedVolume14d,
     [BITCOIN_TOTAL_TRANSACTION_FEES_24H]: btcTransactionFees24h,
     [BITCOIN_TOTAL_TRANSACTION_FEES_7D]: btcTransactionFees7d,
     [BITCOIN_TOTAL_TRANSACTION_FEES_14D]: btcTransactionFees14d,
-    [BITCOIN_TOTAL_TRANSACTION_FEES_48H]: btcTransactionFees48h,
     [BITCOIN_TOTAL_TRANSACTION_FEES_48H]: btcTransactionFees48h,
     [NANOTPS_STATS]: nanotpsStats,
     [NANOSPEED_STATS]: nanoSpeedStats,

@@ -16,7 +16,7 @@ import "components/utils/analytics";
 import { PreferencesContext, Theme } from "api/contexts/Preferences";
 import AppFooter from "components/AppFooter";
 import AppHeader from "components/AppHeader";
-import NodeHealth from "components/NodeHealth";
+// import NodeHealth from "components/NodeHealth";
 import Notification from "components/Notification";
 import i18next from "i18next";
 import AccountPage from "pages/Account";
@@ -65,7 +65,7 @@ const App: React.FC = () => {
         style={{ minHeight: "100vh" }}
         className={themeContext ? `theme-${themeContext}` : undefined}
       >
-        <NodeHealth />
+        {/* <NodeHealth /> */}
         <AppHeader />
         <Notification />
         <Content>
