@@ -132,7 +132,6 @@ const HomePage = () => {
 
   let totalConfirmations48hAgo = 0;
   let confirmationChange24h = 0;
-
   if (marketStatistics[TOTAL_CONFIRMATIONS_24H] && marketStatistics[TOTAL_CONFIRMATIONS_48H]) {
     totalConfirmations48hAgo = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_48H])
       .minus(marketStatistics[TOTAL_CONFIRMATIONS_24H])
@@ -264,17 +263,15 @@ const HomePage = () => {
           <Card
             size="small"
             title={
-               
-                <span>
-                  {is24Hours ?t("pages.home.last24Hours"): t("pages.home.last7Days")}
-                  <Tooltip
-                    placement="right"
-                    title={is24Hours ? t("tooltips.last24Hours") : t("tooltips.last7days")}
-                  >
-                    <QuestionCircle />
-                  </Tooltip>
-                </span>
-             
+              <span>
+                {is24Hours ? t("pages.home.last24Hours") : t("pages.home.last7Days")}
+                <Tooltip
+                  placement="right"
+                  title={is24Hours ? t("tooltips.last24Hours") : t("tooltips.last7days")}
+                >
+                  <QuestionCircle />
+                </Tooltip>
+              </span>
             }
             extra={
               isFeatureActive ? (
@@ -297,7 +294,7 @@ const HomePage = () => {
                     isMarketStatisticsError ||
                     !onChainVolumeChange24h
                   }
-                  tooltip={t<string>("tooltips.onChainVolume")}
+                  tooltip={t("tooltips.onChainVolume") as string}
                   title={t("pages.home.onChainVolume")}
                   suffix={
                     <StatisticsChange
@@ -305,11 +302,7 @@ const HomePage = () => {
                       isPercent
                     />
                   }
-                  value={new BigNumber(
-                    is24Hours
-                      ? marketStatistics[TOTAL_VOLUME_24H]
-                      : marketStatistics[TOTAL_VOLUME_7D],
-                  )
+                  value={new BigNumber(is24Hours?marketStatistics[TOTAL_VOLUME_24H]:marketStatistics[TOTAL_VOLUME_7D])
                     .decimalPlaces(5)
                     .toNumber()}
                 />
@@ -327,7 +320,11 @@ const HomePage = () => {
                       isPercent
                     />
                   }
-                  value={marketStatistics[TOTAL_CONFIRMATIONS_24H]}
+                  value={
+                    is24Hours
+                      ? marketStatistics[TOTAL_CONFIRMATIONS_24H]
+                      : marketStatistics[TOTAL_CONFIRMATIONS_7D]
+                  }
                 />
                 {isSmallAndLower ? (
                   <LoadingStatistic
