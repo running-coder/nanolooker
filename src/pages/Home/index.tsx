@@ -128,6 +128,7 @@ const HomePage = () => {
       .dividedBy(onChainVolume48hAgo)
       .times(100)
       .toNumber();
+
   }
 
   let totalConfirmations48hAgo = 0;
@@ -302,7 +303,11 @@ const HomePage = () => {
                       isPercent
                     />
                   }
-                  value={new BigNumber(is24Hours?marketStatistics[TOTAL_VOLUME_24H]:marketStatistics[TOTAL_VOLUME_7D])
+                  value={new BigNumber(
+                    is24Hours
+                      ? marketStatistics[TOTAL_VOLUME_48H]
+                      : marketStatistics[TOTAL_VOLUME_14D],
+                  )
                     .decimalPlaces(5)
                     .toNumber()}
                 />
@@ -322,8 +327,8 @@ const HomePage = () => {
                   }
                   value={
                     is24Hours
-                      ? marketStatistics[TOTAL_CONFIRMATIONS_24H]
-                      : marketStatistics[TOTAL_CONFIRMATIONS_7D]
+                      ? marketStatistics[TOTAL_CONFIRMATIONS_48H]
+                      : marketStatistics[TOTAL_CONFIRMATIONS_14D]
                   }
                 />
                 {isSmallAndLower ? (

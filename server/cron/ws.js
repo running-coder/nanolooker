@@ -7,7 +7,6 @@ const { Sentry } = require("../sentry");
 const {
   EXPIRE_1M,
   EXPIRE_24H,
-  EXPIRE_1W,
   EXPIRE_7D,
   EXPIRE_14D,
   EXPIRE_48H,
@@ -75,7 +74,7 @@ cron.schedule("*/10 * * * * *", async () => {
         {
           $match: {
             createdAt: {
-              $gte: new Date(Date.now() - EXPIRE_24H * 1000),
+              $lt: new Date(Date.now() + EXPIRE_24H * 1000),
             },
           },
         },
@@ -92,7 +91,7 @@ cron.schedule("*/10 * * * * *", async () => {
         {
           $match: {
             createdAt: {
-              $gte: new Date(Date.now() - EXPIRE_1W * 1000),
+              $lt: new Date(Date.now() + EXPIRE_7D * 1000),
             },
           },
         },
@@ -178,7 +177,7 @@ cron.schedule("*/10 * * * * *", async () => {
         {
           $match: {
             createdAt: {
-              $lt: new Date(Date.now() +TOTAL_VOLUME_14D * 1000),
+              $lt: new Date(Date.now() + TOTAL_VOLUME_14D * 1000),
             },
           },
         },

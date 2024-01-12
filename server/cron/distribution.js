@@ -11,7 +11,7 @@ const { client: redisClient } = require("../client/redis");
 const { Sentry } = require("../sentry");
 const {
   EXPIRE_24H,
-  EXPIRE_1W,
+  EXPIRE_7D,
   DISTRIBUTION,
   DELEGATORS,
   DORMANT_FUNDS,
@@ -260,8 +260,8 @@ const doDistributionCron = async () => {
 
     console.log(`Distribution cron finished in ${(new Date() - startTime) / 1000}s`);
 
-    nodeCache.set(DISTRIBUTION, distribution, EXPIRE_1W);
-    nodeCache.set(DORMANT_FUNDS, dormantFunds, EXPIRE_1W);
+    nodeCache.set(DISTRIBUTION, distribution, EXPIRE_7D);
+    nodeCache.set(DORMANT_FUNDS, dormantFunds, EXPIRE_7D);
     nodeCache.set(KNOWN_EXCHANGES, knownExchanges, EXPIRE_24H);
 
     // @NOTE manual add for now
@@ -324,14 +324,14 @@ const getDistributionData = () => {
     distribution = fs.existsSync(DISTRIBUTION_PATH)
       ? JSON.parse(fs.readFileSync(DISTRIBUTION_PATH, "utf8"))
       : [];
-    nodeCache.set(DISTRIBUTION, distribution, EXPIRE_1W);
+    nodeCache.set(DISTRIBUTION, distribution, EXPIRE_7D);
   }
 
   if (!dormantFunds) {
     dormantFunds = fs.existsSync(DORMANT_FUNDS_PATH)
       ? JSON.parse(fs.readFileSync(DORMANT_FUNDS_PATH, "utf8"))
       : {};
-    nodeCache.set(DORMANT_FUNDS, dormantFunds, EXPIRE_1W);
+    nodeCache.set(DORMANT_FUNDS, dormantFunds, EXPIRE_7D);
   }
 
   if (!knownExchanges) {
@@ -343,7 +343,7 @@ const getDistributionData = () => {
 
   if (!status) {
     status = fs.existsSync(STATUS_PATH) ? JSON.parse(fs.readFileSync(STATUS_PATH, "utf8")) : {};
-    nodeCache.set(STATUS, status, EXPIRE_1W);
+    nodeCache.set(STATUS, status, EXPIRE_7D);
   }
 
   return {
