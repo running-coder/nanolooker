@@ -78,7 +78,7 @@ depending on what version of the game you're in.
 
 ![Waypoints Panel](https://github.com/running-coder/nanolooker/assets/19352322/fe61b4c1-2908-42ee-8b03-acc0162650d1?width=450px&display=inline-block)![Waypoint](https://github.com/running-coder/nanolooker/assets/19352322/f798ac89-5b9f-4fda-8816-24397a143125?width=200px&display=inline-block)
 
-The waypoints are used for fast map traveling. Some are locked, but once you find and click them, they'll unlock. The first three waypoints are used to travel the 'Classic' map. The Skeleton King is located north in the Volcanic Mountain. Once the boss is killed, the next three waypoints for the 'Freezing Lands' expansion will unlock for free. After you beat the Necromancer, to unlock the 'Woodlands Lost Temple' expansion waypoint, you'll have to purchase the expansion from the red sorcerer in town for XNO/BAN.
+The waypoints are used for fast map traveling. Some are locked, but once you find and click them, they'll unlock. The first three waypoints are used to travel the 'Classic' map (when the game was first released). The Skeleton King is located north in the Volcanic Mountain. Once the boss is killed, the boss itself drops a item and a chest apears, another thing that happens is the next three waypoints for the 'Freezing Lands' expansion will unlock for free. After you beat the Necromancer, note that everything afterward at the moment is to be unlocked by buying the expansion the 'Woodlands Lost Temple' expansion waypoint, you'll have to purchase the expansion from the red sorcerer in town for XNO/BAN, as you should know crypto stocks can change so the amount of XNO/BAN will change with it but the price in USD for the expansion is just $5.00
 
 # Gold System
 
@@ -89,9 +89,9 @@ In-game gold can be obtained from any mobs and is used for trading items with ot
 
 ## Aim of the game
 
-The aim of the basic game (without the expansion pack) is basically to defeat the Skeleton King and recieve a small XNO payout. This is done by exploring the original map and killing enemies to gain experience and loot. The player levels up and gets stronger with the experience gained from slaying enemies until he/she is ready to take on the Skeleton King. Higher level enemies are harder to kill but also give more EXP as well as better loot. The player can upgrade items in the anvil present in the village where the game starts out. This is done by putting the appropriate level of upgrade scroll into the anvil along with the item which the player aims to upgrade. Further description regarding the anvil can be found here: https://nanolooker.com/nanobrowserquest/. Completing achievements will increase the final XNO payout recieved by the player, so aim to get all of them filled before killing the Skeleton King. Venture in all directions, find secret items, fun NPCs and achievments before heading north to kill the final boss.
+The aim of this whole game is to spawn in get your armor from slaying enemies and leveling up to lv 16 or over and keep on playing through the 4 sets of armor thats in the 'classic map' and when you feel you are ready you can take on the skeleton king with your fellow players or yourself alone. When you finally kill the skeleton king you will get a small XNO/BAN payout to your account. (please note that in order to get the payout you must link you XNO/BAN address to the game in copy and pasting the address into the settings) After beating the game you unlocked the 'frozen plains' way point which you can find in the waypoint at the town. 
 
-With the addition of expansion packs, the game ceases to funktion as a faucet. The price of getting the latest expansion is higher than the Skeleton King payout so players should be aware that going beyond the original game is meant for those who truely enjoy it. Having come this far, the aim is simply enjoyment of the game itself and the community. While progressing in the game and killing bosses are the main aims of the expansion, dedicated players also enjoy farming for rare loot and maxing out their character.
+With the addition of expansion packs, the game ceases to function as a faucet. The price of getting the latest expansion is higher than the Skeleton King payout so players should be aware that going beyond the original game is meant for those who truely enjoy it. Having come this far, the aim is simply enjoyment of the game itself and the community. While progressing in the game and killing bosses are the main aims of the expansion, dedicated players also enjoy farming for rare loot and maxing out their character.
 
 # Nano BrowserQuest item guide
 
@@ -129,7 +129,7 @@ The attribute lessens the risk of being frozen by enemies that are cold enchante
 Defensive skills add a defensive attribute to shields which is activated by pressing "2". Dropped shields have one of three random attributes which are: "Increased % defense for x seconds", % Instant health regeneration or % All resistance for x seconds. The % increases with the items level.
 
 **Elemental resistance**
-Just like some enemies, the player can also be resistant to elemental damage. Certain items carry a % resistance against the five different elements present in the game. As an example, this means that if a player has 50% total resistance towards Flame damage, a hit of 100 Flame damage will only do 50 damage points.
+Just like some enemies, the player can also be resistant to elemental damage. Certain items carry a % resistance against the five different elements present in the game. As an example, this means that if a player has 50% total resistance towards Flame damage, a hit of 100 Flame damage will only do 50 damage points. (The 5 elements in game are Poison, Magic, Lighting, Fire, Ice)
 
 ## Discussion
 
@@ -167,7 +167,12 @@ Deals a high level of physical damage (similar to Attack with a much higher numb
 Offensive skills add an offensive attribute to the players weapon. It is activated by pressing "1" while hovering over an enemy with the mouse. There are five different random attributes that can be found on dropped weapons, based on the different elemental attacks: Magic, Flame, Cold, Lightning and Poison.
 
 **Increased attack speed**
-Increases the players attack speed a certain % and makes the player do damage faster.
+Increases the players attack speed a certain % and makes the player do damage faster. Note that weapon weight will affect your attack speed. Heres a list of the effects below. (Note that Armor sets can give a attack speed boost)
+
+Super heavy: 20% speed penalty
+Heavy : 15% speed penalty
+Normal: 0% affection (no penalty and no boost)
+Light: 20% boost
 
 **% Lower elemental resistance**
 This attribute lowers resistance to elemental damage by a certain %. For example, an enemy that is 50% resistant to Flame damage would only be 40% resistant if the player has an item with 10% equipped. An enemy that is immune to Flame damage would in the same case only be 90% resistant. This only affects the attacks of the player with "Lower elemental resistance" equipped. The attribute exists for all individual elements as well as in "Lower all resistance" form.
@@ -201,7 +206,7 @@ Freeze enemy for x seconds making them unable to attack you
 ## Various
 
 **Experience**
-Added experience % making the player level up faster
+Added experience % making the player level up faster compared to a player with no boosts in experience
 
 **Magic Find**
 Adds a % chance of getting non-potion drops
@@ -386,7 +391,7 @@ Some items can drop with a certain amount of sockets (Weapons, Armors, Shields a
 | ![{"name": "Gold Ring", "level": 1, "itemClass": "high", "bonus": [4,5,7], "requirement": 16}](https://nanobrowserquest.com/img/3/item-ringgold.png)                       | Gold Ring     | ![{"name": "Unique Gold Ring", "level": 1, "itemClass": "high", "bonus": [2,5,6,8], "requirement": 16, "isUnique": true}](https://nanobrowserquest.com/img/3/item-ringgold.png)                  | Unique Gold Ring     | Werewolf, Yeti, Skeleton Guard, Skeleton Commander, Undead Snake, Wraith, Zombie, Nercomancer, Cow                                                                           |
 | ![{"name": "Platinum Ring", "level": 1, "itemClass": "legendary", "bonus": [5,6,8,18,23,24], "requirement": 46}](https://nanobrowserquest.com/img/3/item-ringplatinum.png) | Platinum Ring | ![{"name": "Unique Platinum Ring", "level": 1, "itemClass": "legendary", "bonus": [1,4,6,32,34], "requirement": 46, "isUnique": true}](https://nanobrowserquest.com/img/3/item-ringplatinum.png) | Unique Platinum Ring | Poison Rat, Oculothorax, Kobold, Golem, Damned Snake, Posion Snake, Templar Skeleton, Ghost, Skeleton Berserker, Spider, Spiderqueen, Skeleton Archer, Spectral Wraith, Mage |
 
-# Cape
+# Capes
 
 Attributes: Defense (1) + one of the following attributes: % Attack/Defence/Experience/Extra gold from enemies when player is in a party. The second attribute is randomly decided when the items is bought/dropped
 
@@ -511,7 +516,7 @@ These items are used to upgrade the items found in NBQ. It is done by putting th
 
 # Secret special quests
 
-NBQ has quite a lot of secrets and hidden areas, most of which are connected to various achievements. Hints of how to find some secrets can be found in crypts, engraved into tombs. The two most important ones are the Obelisk of Eternal Life and the Book of Azreal (Grimoir).
+NBQ has quite a lot of secrets and hidden areas, most of which are connected to various achievements. Hints of how to find some secrets can be found in crypts, engraved into tombs. The two most important ones are the Obelisk of Eternal Life (linked to a pickaxe) and the Book of Azreal (Grimoir).
 
 | Item                                                                                                                                                 | Name                    | Description                                                                                                                                                                                                                       |
 | :--------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
