@@ -207,7 +207,7 @@ Added experience % making the player level up faster
 Adds a % chance of getting non-potion drops
 
 **+% Extra gold from from enemies**
-Adds extra % from gold drops
+Adds extra % from gold drops 
 
 ## Sockets
 
@@ -220,6 +220,7 @@ Some items can drop with a certain amount of sockets (Weapons, Armors, Shields a
 3. Unique items can not use runewords, instead use skull jewels only.
 4. Skull jewels come in 5 different levels with unique versions inbetween every level. Use Lower skulls for lower items or as a temporary boost. Only put your most precious skulls into items that are fully upgraded and good enough to be used for a longer time. Lower level skulls will become more common as the player progresses in the game. Put these in you sockets to gain a boost and then remove them with Socket Stones to later replace them with higher skulls or runewords.
 5. If your item is fully upgraded but you lack the number of higher level skulls needed to fit all sockets, put the higher skulls in first, followed by lower ones. This is to prevent burning the higher ones when it's time to re-fit your sockets, as items are removed from the last one added.
+6. If you want alot of sockets for a item it is better to use a blessed socket stone (obtained from the merchant by using gold or a really rare drop)
 
 # Weapons
 
@@ -400,7 +401,7 @@ Unique Version: **Cloak of Levitation** Attributes: Defense (1) + two random att
 
 ![Pets](https://cdn.discordapp.com/attachments/971429295186665536/1133456298923528192/pet-teaser.gif)
 
-Pets can be bought for XNO from the Red Wizard in the village and so far do not drop anywhere in the game. They are bought as an egg and can be hatched at the Anvil and transformed into a random pet. They come in many different shapes and colors and can also be upgraded in levels like other items. The look of the pet is random and when equipped they give one randomized attribute to the player. There is a 1% chance of getting a unique pet which has double attributes.
+Pets can be bought for XNO/BAN from the Red Wizard in the village and so far do not drop anywhere in the game. They are bought as an egg and can be hatched at the Anvil and transformed into a random pet. They come in many different shapes and colors and can also be upgraded in levels like other items. The look of the pet is random and when equipped they give one randomized attribute to the player. There is a 1% chance of getting a unique pet which has double attributes.
 
 | Item                                                                                                                                                          | Name         | Obtained by                                   |
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------ | :----------- | :-------------------------------------------- |
@@ -470,7 +471,7 @@ These items are used to upgrade the items found in NBQ. It is done by putting th
 | Item                                                                                                                                                                                                                                                                                                                              | Name                          | Description                                                                                                                                                                                                    |
 | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ![{"name": "Health Potion", "description": "Restores health to player by 40 hp" }](https://nanobrowserquest.com/img/3/item-flask.png)                                                                                                                                                                                             | Health Potion                 | Restores health to player by 40 hp                                                                                                                                                                             |
-| ![{"name": "Burger", "description": "Restores health to player by 100 hp" }](https://nanobrowserquest.com/img/3/item-burger.png)                                                                                                                                                                                                  | Burger                        | Restores health to player by 100 hp                                                                                                                                                                            |
+| ![{"name": "Burger", "description": "Restores health to player by 100 hp (dropped by the dark knight in volcanic mountains)" }](https://nanobrowserquest.com/img/3/item-burger.png)                                                                                                                                                                                                  | Burger                        | Restores health to player by 100 hp                                                                                                                                                                            |
 | ![{"name": "Nano Potion", "description": "Restores health to player by 200 hp" }](https://nanobrowserquest.com/img/3/item-nanopotion.png)                                                                                                                                                                                         | Nano / Banano Potion          | Restores health to player by 200 hp                                                                                                                                                                            |
 | ![{"name": "Rejuvenation Potion", "description": "Restores health to player by 40 hp" }](https://nanobrowserquest.com/img/3/item-rejuvenationpotion.png)                                                                                                                                                                          | Rejuvenation Potion           | Restores 33% of the player health                                                                                                                                                                              |
 | ![{"name": "Firefox Potion", "description": "Restores health to player by 40 hp" }](https://nanobrowserquest.com/img/3/item-firefoxpotion.png)                                                                                                                                                                                    | Firefox Potion                | Restore player health to 100% and grands the player temporary immortality                                                                                                                                      |
@@ -502,7 +503,7 @@ These items are used to upgrade the items found in NBQ. It is done by putting th
 | ![{"name": "Silver Bar", "description": "Rare metal, worth 10,000 Gold" }](https://nanobrowserquest.com/img/3/item-barsilver.png) | Silver Bar | Rare metal.(drop rate, 1/17,500 from frozen rats and above) |
 | ![{"name": "Gold Bar", "description": "Precious metal, worth 100,000 Gold" }](https://nanobrowserquest.com/img/3/item-bargold.png) | Gold Bar | Precious metal.(drop rate, 1/200,000 from poison rats and above) |
 | ![{"name": "Platinum Bar", "description": "Priceless metal, worth 1,000,000 Gold" }](https://nanobrowserquest.com/img/3/item-barplatinum.png) | Platinum Bar | Priceless metal. Doesn't drop from mobs, can only be purchased at merchant |
-| ![{"name": "Dragon Stone", "description": "Blessed by the fire of the dragon, safely upgrade any item to +5" }](https://nanobrowserquest.com/img/3/item-stonedragon.png) | Dragoon Stone | (drop rate 1/25,000 from Oculothorax and above) |
+| ![{"name": "Dragon Stone", "description": "Blessed by the fire of the dragon, safely upgrade any item to +5" }](https://nanobrowserquest.com/img/3/item-stonedragon.png) | Dragon Stone | (drop rate 1/25,000 from Oculothorax and above) |
 | ![{"name": "Hero emblem", "description": "You've crushed your enemies, saw them driven before you, and heard the lamentation of their women. Safely upgrade any item to +6" }](https://nanobrowserquest.com/img/3/item-stonehero.png) | Hero Emblem | (drop rate 1/100,000 from Oculothorax and above) |
 | ![{"name": "IOU", "description": "Written acknowledgment of a debt. Talk to Janet Yellen to exchange it for the gold amountspecifien on it." }](https://nanobrowserquest.com/img/3/item-iou.png) | IOU | (drop rate 1/1,00 from Deathknights and below, 1/3,000 from Zombies and below, 1/13,000 from Shadowveil Guardian and below) |
 
@@ -794,7 +795,7 @@ let hp = baseHP(80) + 6 * playerLevel;
 
 # Discord
 
-To engage with other players, report any problems, list your items for trade or check the release notes, you can join the Discord server.
+To engage with other players, report any problems, list your items for trade or check the release notes, you can join the Discord server. (Very good way to report people who are breaking game rules to mods and also a good way to get unbanned by pleading your case)
 
 [Join Discord](https://discord.gg/GerkX8BfYy)
 
