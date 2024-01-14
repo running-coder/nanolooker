@@ -14,11 +14,12 @@ interface StatisticsChangeProps {
 }
 
 const StatisticsChange: React.FC<StatisticsChangeProps> = ({
-  value,
+  value: rawValue,
   isPercent,
   isNumber,
   suffix,
 }) => {
+  let value = rawValue;
   const { theme } = React.useContext(PreferencesContext);
   const color = (
     value === 0

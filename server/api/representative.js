@@ -1,5 +1,5 @@
 const { nodeCache } = require("../client/cache");
-const { REPRESENTATIVE, EXPIRE_1W } = require("../constants");
+const { REPRESENTATIVE, EXPIRE_7D } = require("../constants");
 const { rpc } = require("../rpc");
 const { Sentry } = require("../sentry");
 
@@ -51,7 +51,7 @@ const setRepresentatives = async ({ metrics, peers }) => {
     Sentry.captureException(err);
   }
 
-  nodeCache.set(REPRESENTATIVE, representatives, EXPIRE_1W);
+  nodeCache.set(REPRESENTATIVE, representatives, EXPIRE_7D);
 };
 
 module.exports = {
