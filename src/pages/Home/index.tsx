@@ -16,11 +16,11 @@ import {
   BITCOIN_TOTAL_TRANSACTION_FEES_48H,
   MarketStatisticsContext,
   TOTAL_CONFIRMATIONS_7D,
-  TOTAL_CONFIRMATIONS_14D,
+  // TOTAL_CONFIRMATIONS_14D, 
   TOTAL_CONFIRMATIONS_24H,
   TOTAL_CONFIRMATIONS_48H,
   TOTAL_VOLUME_7D,
-  TOTAL_VOLUME_14D,
+  // TOTAL_VOLUME_14D,
   TOTAL_VOLUME_24H,
   TOTAL_VOLUME_48H,
 } from "api/contexts/MarketStatistics";
@@ -117,60 +117,32 @@ const HomePage = () => {
         .times(100)
         .toNumber()
     : 0;
-  let onChainVolume48hAgo = 0;
-  let onChainVolumeChange24h = 0;
-  if (marketStatistics[TOTAL_VOLUME_24H] && marketStatistics[TOTAL_VOLUME_48H]) {
-    onChainVolume48hAgo = new BigNumber(marketStatistics[TOTAL_VOLUME_48H])
-      .minus(marketStatistics[TOTAL_VOLUME_24H])
-      .toNumber();
-    onChainVolumeChange24h = new BigNumber(marketStatistics[TOTAL_VOLUME_24H])
-      .minus(onChainVolume48hAgo)
-      .dividedBy(onChainVolume48hAgo)
-      .times(100)
-      .toNumber();
 
-  }
-
-  let totalConfirmations48hAgo = 0;
-  let confirmationChange24h = 0;
-  if (marketStatistics[TOTAL_CONFIRMATIONS_24H] && marketStatistics[TOTAL_CONFIRMATIONS_48H]) {
-    totalConfirmations48hAgo = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_48H])
-      .minus(marketStatistics[TOTAL_CONFIRMATIONS_24H])
-      .toNumber();
-    confirmationChange24h = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_24H])
-      .minus(totalConfirmations48hAgo)
-      .dividedBy(totalConfirmations48hAgo)
-      .times(100)
-      .toNumber();
-  }
-
-  // Start here
-
-  let onChainVolume14dAgo = 0;
-  let onChainVolumeChange7d = 0;
-  if (marketStatistics[TOTAL_VOLUME_7D] && marketStatistics[TOTAL_VOLUME_14D]) {
-    onChainVolume14dAgo = new BigNumber(marketStatistics[TOTAL_VOLUME_14D])
-      .minus(marketStatistics[TOTAL_VOLUME_7D])
-      .toNumber();
-    onChainVolumeChange7d = new BigNumber(marketStatistics[TOTAL_VOLUME_7D])
-      .minus(onChainVolume14dAgo)
-      .dividedBy(onChainVolume14dAgo)
-      .times(100)
-      .toNumber();
-  }
-
-  let totalConfirmations14dAgo = 0;
-  let confirmationChange7d = 0;
-  if (marketStatistics[TOTAL_CONFIRMATIONS_7D] && marketStatistics[TOTAL_CONFIRMATIONS_14D]) {
-    totalConfirmations14dAgo = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_14D])
-      .minus(marketStatistics[TOTAL_CONFIRMATIONS_7D])
-      .toNumber();
-    confirmationChange7d = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_7D])
-      .minus(totalConfirmations14dAgo)
-      .dividedBy(totalConfirmations14dAgo)
-      .times(100)
-      .toNumber();
-  }
+    let onChainVolume48hAgo = 0;
+    let onChainVolumeChange24h = 0;
+    if (marketStatistics[TOTAL_VOLUME_24H] && marketStatistics[TOTAL_VOLUME_48H]) {
+      onChainVolume48hAgo = new BigNumber(marketStatistics[TOTAL_VOLUME_48H])
+        .minus(marketStatistics[TOTAL_VOLUME_24H])
+        .toNumber();
+      onChainVolumeChange24h = new BigNumber(marketStatistics[TOTAL_VOLUME_24H])
+        .minus(onChainVolume48hAgo)
+        .dividedBy(onChainVolume48hAgo)
+        .times(100)
+        .toNumber();
+    }
+  
+    let totalConfirmations48hAgo = 0;
+    let confirmationChange24h = 0;
+    if (marketStatistics[TOTAL_CONFIRMATIONS_24H] && marketStatistics[TOTAL_CONFIRMATIONS_48H]) {
+      totalConfirmations48hAgo = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_48H])
+        .minus(marketStatistics[TOTAL_CONFIRMATIONS_24H])
+        .toNumber();
+      confirmationChange24h = new BigNumber(marketStatistics[TOTAL_CONFIRMATIONS_24H])
+        .minus(totalConfirmations48hAgo)
+        .dividedBy(totalConfirmations48hAgo)
+        .times(100)
+        .toNumber();
+    }
 
   React.useEffect(() => {
     setFormattedLedgerSize(formatBytes(ledgerSize));
@@ -315,8 +287,7 @@ const HomePage = () => {
                   isLoading={
                     isMarketStatisticsInitialLoading ||
                     isMarketStatisticsError ||
-                    !confirmationChange24h ||
-                    !confirmationChange7d
+                    !confirmationChange24h
                   }
                   title={t("pages.home.confirmedTransactions")}
                   suffix={
@@ -327,8 +298,8 @@ const HomePage = () => {
                   }
                   value={
                     is24Hours
-                      ? marketStatistics[TOTAL_CONFIRMATIONS_48H]
-                      : marketStatistics[TOTAL_CONFIRMATIONS_14D]
+                      ? marketStatistics[TOTAL_CONFIRMATIONS_24H]
+                      : marketStatistics[TOTAL_CONFIRMATIONS_7D]
                   }
                 />
                 {isSmallAndLower ? (

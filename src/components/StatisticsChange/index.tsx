@@ -20,9 +20,6 @@ const StatisticsChange: React.FC<StatisticsChangeProps> = ({
   suffix,
 }) => {
   let value = rawValue;
-  if (rawValue === Infinity) {
-    value = 0;
-  }
   const { theme } = React.useContext(PreferencesContext);
   const color = (
     value === 0

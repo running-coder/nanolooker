@@ -7,18 +7,18 @@ const { Sentry } = require("../sentry");
 const {
   EXPIRE_1M,
   EXPIRE_24H,
+  EXPIRE_48H,
   EXPIRE_7D,
   EXPIRE_14D,
-  EXPIRE_48H,
   TOTAL_CONFIRMATIONS_COLLECTION,
   TOTAL_CONFIRMATIONS_24H,
-  TOTAL_CONFIRMATIONS_7D,
   TOTAL_CONFIRMATIONS_48H,
+  TOTAL_CONFIRMATIONS_7D,
   TOTAL_CONFIRMATIONS_14D,
   TOTAL_VOLUME_COLLECTION,
   TOTAL_VOLUME_24H,
-  TOTAL_VOLUME_7D,
   TOTAL_VOLUME_48H,
+  TOTAL_VOLUME_7D,
   TOTAL_VOLUME_14D,
   CONFIRMATIONS_PER_SECOND,
 } = require("../constants");
@@ -84,23 +84,6 @@ cron.schedule("*/10 * * * * *", async () => {
       .then(([{ totalConfirmations24h = 0 } = {}]) => {
         nodeCache.set(TOTAL_CONFIRMATIONS_24H, totalConfirmations24h);
       });
-    // conf 7d
-    database
-      .collection(TOTAL_CONFIRMATIONS_COLLECTION)
-      .aggregate([
-        {
-          $match: {
-            createdAt: {
-              $lt: new Date(Date.now() + EXPIRE_7D * 1000),
-            },
-          },
-        },
-        { $group: { _id: null, totalConfirmations7d: { $sum: "$value" } } },
-      ])
-      .toArray()
-      .then(([{ totalConfirmations7d = 0 } = {}]) => {
-        nodeCache.set(TOTAL_CONFIRMATIONS_7D, totalConfirmations7d);
-      });
 
     database
       .collection(TOTAL_CONFIRMATIONS_COLLECTION)
@@ -108,7 +91,7 @@ cron.schedule("*/10 * * * * *", async () => {
         {
           $match: {
             createdAt: {
-              $lt: new Date(Date.now() + EXPIRE_48H * 1000),
+              $gte: new Date(Date.now() - EXPIRE_48H * 1000),
             },
           },
         },
@@ -117,6 +100,23 @@ cron.schedule("*/10 * * * * *", async () => {
       .toArray()
       .then(([{ totalConfirmations48h = 0 } = {}]) => {
         nodeCache.set(TOTAL_CONFIRMATIONS_48H, totalConfirmations48h);
+      });
+
+    database
+      .collection(TOTAL_CONFIRMATIONS_COLLECTION)
+      .aggregate([
+        {
+          $match: {
+            createdAt: {
+              $gte: new Date(Date.now() - EXPIRE_14D * 1000),
+            },
+          },
+        },
+        { $group: { _id: null, totalConfirmations7d: { $sum: "$value" } } },
+      ])
+      .toArray()
+      .then(([{ totalConfirmations7d = 0 } = {}]) => {
+        nodeCache.set(TOTAL_CONFIRMATIONS_7D, totalConfirmations7d);
       });
 
     //conf 1w
@@ -143,7 +143,7 @@ cron.schedule("*/10 * * * * *", async () => {
         {
           $match: {
             createdAt: {
-              $lt: new Date(Date.now() + EXPIRE_24H * 1000),
+              $gte: new Date(Date.now() - EXPIRE_24H * 1000),
             },
           },
         },
@@ -194,7 +194,7 @@ cron.schedule("*/10 * * * * *", async () => {
         {
           $match: {
             createdAt: {
-              $lt: new Date(Date.now() + EXPIRE_48H * 1000),
+              $gte: new Date(Date.now() - EXPIRE_48H * 1000),
             },
           },
         },
