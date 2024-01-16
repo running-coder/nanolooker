@@ -108,7 +108,7 @@ cron.schedule("*/10 * * * * *", async () => {
         {
           $match: {
             createdAt: {
-              $gte: new Date(Date.now() - EXPIRE_14D * 1000),
+              $gte: new Date(Date.now() - EXPIRE_7D * 1000),
             },
           },
         },
@@ -126,7 +126,7 @@ cron.schedule("*/10 * * * * *", async () => {
         {
           $match: {
             createdAt: {
-              $lt: new Date(Date.now() + EXPIRE_14D * 1000),
+              $gte: new Date(Date.now() - EXPIRE_14D * 1000),
             },
           },
         },
@@ -160,7 +160,7 @@ cron.schedule("*/10 * * * * *", async () => {
         {
           $match: {
             createdAt: {
-              $lt: new Date(Date.now() + EXPIRE_7D * 1000),
+              $gte: new Date(Date.now() - EXPIRE_7D * 1000),
             },
           },
         },
@@ -177,7 +177,7 @@ cron.schedule("*/10 * * * * *", async () => {
         {
           $match: {
             createdAt: {
-              $lt: new Date(Date.now() + TOTAL_VOLUME_14D * 1000),
+              $gte: new Date(Date.now() - TOTAL_VOLUME_14D * 1000),
             },
           },
         },
@@ -211,7 +211,7 @@ cron.schedule("*/10 * * * * *", async () => {
         {
           $match: {
             createdAt: {
-              $lt: new Date(Date.now() + EXPIRE_7D * 1000),
+              $gte: new Date(Date.now() - EXPIRE_7D * 1000),
             },
           },
         },
@@ -227,7 +227,7 @@ cron.schedule("*/10 * * * * *", async () => {
         {
           $match: {
             createdAt: {
-              $lt: new Date(Date.now() + EXPIRE_14D * 1000),
+              $gte: new Date(Date.now() - EXPIRE_14D * 1000),
             },
           },
         },
