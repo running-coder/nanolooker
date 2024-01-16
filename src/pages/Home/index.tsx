@@ -43,13 +43,6 @@ const HomePage = () => {
   const { availableSupply } = useAvailableSupply();
   const { fiat } = React.useContext(PreferencesContext);
 
-  // Get the current URL
-  const currentUrl = window.location.href;
-
-  // Create URLSearchParams object
-  const urlParams = new URLSearchParams(new URL(currentUrl).search);
-
-  let isFeatureActive = urlParams.get("7d");
   const {
     marketStatistics,
     isInitialLoading: isMarketStatisticsInitialLoading,
@@ -262,28 +255,25 @@ const HomePage = () => {
           <Card
             size="small"
             title={
-              isFeatureActive ? (
-                <>
-                  <Select
-                    value={is24Hours}
-                    onChange={(value: boolean) => {
-                      console.log("~~~value", value);
-                      setIs24Hours(value);
-                    }}
+              <>
+                <Select
+                  value={is24Hours}
+                  onChange={(value: boolean) => {
+                    setIs24Hours(value);
+                  }}
+                >
+                  <Option value={true}>{t("pages.home.last24Hours")}</Option>
+                  <Option value={false}>{t("pages.home.last7Days")}</Option>
+                </Select>
+                <span>
+                  <Tooltip
+                    placement="right"
+                    title={is24Hours ? t("tooltips.last24Hours") : t("tooltips.last7days")}
                   >
-                    <Option value={true}>{t("pages.home.last24Hours")}</Option>
-                    <Option value={false}>{t("pages.home.last7Days")}</Option>
-                  </Select>
-                  <span>
-                    <Tooltip
-                      placement="right"
-                      title={is24Hours ? t("tooltips.last24Hours") : t("tooltips.last7days")}
-                    >
-                      <QuestionCircle />
-                    </Tooltip>
-                  </span>
-                </>
-              ) : null
+                    <QuestionCircle />
+                  </Tooltip>
+                </span>
+              </>
             }
           >
             <Row gutter={6}>
