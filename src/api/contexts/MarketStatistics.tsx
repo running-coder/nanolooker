@@ -130,8 +130,6 @@ const Provider: React.FC<Props> = ({ children }) => {
       const res = await fetch(`/api/market-statistics${query}`);
       const json = await res.json();
 
-      console.log("~~~~/api/market-statisticsjson", json);
-
       if (!json || json.error) {
         isError = true;
       } else {

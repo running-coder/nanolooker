@@ -280,33 +280,33 @@ app.get("/api/participants", async (req, res) => {
   res.send(data);
 });
 
-app.get("/api/nanoquakejs/scores", async (req, res) => {
-  let json = {};
-  try {
-    const res = await fetch("https://rainstorm.city/nanoquake/scores");
-    json = await res.json();
-  } catch (err) {
-    Sentry.captureException(err);
-  }
+// app.get("/api/nanoquakejs/scores", async (req, res) => {
+//   let json = {};
+//   try {
+//     const res = await fetch("https://rainstorm.city/nanoquake/scores");
+//     json = await res.json();
+//   } catch (err) {
+//     Sentry.captureException(err);
+//   }
 
-  res.send(json);
-});
+//   res.send(json);
+// });
 
-app.post("/api/nanoquakejs/register", async (req, res, next) => {
-  try {
-    const response = await fetch("https://rainstorm.city/nanoquake/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(req.body),
-    });
-    const json = await response.json();
-    res.send(json);
-  } catch (err) {
-    next(err);
-  }
-});
+// app.post("/api/nanoquakejs/register", async (req, res, next) => {
+//   try {
+//     const response = await fetch("https://rainstorm.city/nanoquake/register", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(req.body),
+//     });
+//     const json = await response.json();
+//     res.send(json);
+//   } catch (err) {
+//     next(err);
+//   }
+// });
 
 app.get("/api/nanobrowserquest/players", async (req, res, next) => {
   try {
