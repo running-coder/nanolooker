@@ -170,6 +170,15 @@ Offensive skills add an offensive attribute to the players weapon. It is activat
 **Increased attack speed**
 Increases the players attack speed a certain % and makes the player do damage faster.
 
+**Weapon weights**
+
+| Weapon weights | attack bonus | attack speed | Description                                                                                                  |
+| :------------- | :----------- | :----------- | :----------------------------------------------------------------------------------------------------------- |
+| light          | -15%         | +20%         | light weapons such as daggers and hatchets                                                                                                         |
+| normal         | 0%           | 0%           | regular weapons such as swords                                                                               |
+| heavy          | +25%         | -15%         | some mauls and other big looking weapons                                                                     |
+| Super heavy    | +35%         | -20%         | huge looking weapons slow but high dmg weapons(the dmg is massiveif you can add yourself attack speed items) |
+
 **% Lower elemental resistance**
 This attribute lowers resistance to elemental damage by a certain %. For example, an enemy that is 50% resistant to Flame damage would only be 40% resistant if the player has an item with 10% equipped. An enemy that is immune to Flame damage would in the same case only be 90% resistant. This only affects the attacks of the player with "Lower elemental resistance" equipped. The attribute exists for all individual elements as well as in "Lower all resistance" form.
 
