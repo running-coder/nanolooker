@@ -80,7 +80,7 @@ export const BLOCK_REGEX = /[0-9A-F]{64}/;
 export const isValidAccountAddress = (address: string): boolean =>
   new RegExp(`^${ACCOUNT_REGEX.toString().replace(/\//g, "")}$`, "i").test(address);
 
-export const getAccountAddressFromText = (text: string): string | null => {
+export const getAccountAddressFromText = (text: string): string => {
   const [, address] =
     text?.match(
       new RegExp(`[^sS]*?(${ACCOUNT_REGEX.toString().replace(/\//g, "")})[^sS]*?`, "i"),

@@ -20,6 +20,7 @@ import moment from "moment";
 import { AccountHistoryFilterContext } from "api/contexts/AccountHistoryFilter";
 import { PreferencesContext, Theme } from "api/contexts/Preferences";
 import QuestionCircle from "components/QuestionCircle";
+import { getAccountAddressFromText, isValidAccountAddress } from "components/utils";
 import { TwoToneColors } from "components/utils";
 
 import Export from "./Export";
@@ -181,7 +182,24 @@ const Filters: React.FC = () => {
               </Select>
               <Controller
                 render={({ field }) => (
-                  <Input {...field} style={{ flexGrow: 1 }} placeholder="nano_" />
+                  <Input
+                    {...field}
+                    style={{ flexGrow: 1 }}
+                    placeholder="nano_"
+                    onPaste={e => {
+                      e.preventDefault();
+
+                      // @ts-ignore
+                      const paste = (e.clipboardData || window.clipboardData).getData("text");
+
+                      const account = getAccountAddressFromText(paste);
+                      if (isValidAccountAddress(account)) {
+                        setValue("sender", account);
+                      }
+
+                      setValue("sender", account);
+                    }}
+                  />
                 )}
                 control={control}
                 name="sender"
@@ -227,7 +245,23 @@ const Filters: React.FC = () => {
               </Select>
               <Controller
                 render={({ field }) => (
-                  <Input {...field} style={{ flexGrow: 1 }} placeholder="nano_" />
+                  <Input
+                    {...field}
+                    name="receiver"
+                    style={{ flexGrow: 1 }}
+                    placeholder="nano_"
+                    onPaste={e => {
+                      e.preventDefault();
+
+                      // @ts-ignore
+                      const paste = (e.clipboardData || window.clipboardData).getData("text");
+
+                      const account = getAccountAddressFromText(paste);
+                      if (isValidAccountAddress(account)) {
+                        setValue("receiver", account);
+                      }
+                    }}
+                  />
                 )}
                 control={control}
                 name="receiver"

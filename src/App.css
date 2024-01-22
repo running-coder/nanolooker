@@ -105,7 +105,6 @@ a:hover {
 }
 
 .truncate {
-  display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
