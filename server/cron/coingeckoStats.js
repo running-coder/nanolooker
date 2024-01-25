@@ -46,6 +46,8 @@ const getPriceStats = async fiats => {
         bitcoin: json.bitcoin,
         nano: json.nano,
       });
+
+      await sleep(25_000);
     }
   } catch (err) {
     console.log("Error", err);
@@ -88,7 +90,7 @@ const getMarketStats = async fiats => {
 
       nodeCache.set(`${COINGECKO_MARKET_STATS}-${fiat}`, marketStats);
 
-      await sleep(20000);
+      await sleep(20_000);
     }
   } catch (err) {
     // rate limited
@@ -213,9 +215,9 @@ const getMarketCapStats = async () => {
 
         // CoinGecko rate limit is 10 calls per seconds
         if (i && !(i % 10)) {
-          await sleep(25000);
+          await sleep(25_000);
         } else {
-          await sleep(process.env.NODE_ENV === "production" ? 15000 : 150);
+          await sleep(process.env.NODE_ENV === "production" ? 15_000 : 150);
         }
       }
 
@@ -225,7 +227,7 @@ const getMarketCapStats = async () => {
       });
     } else {
       console.log(`Failed to get top ${top} cryptocurrencies`, cryptocurrencies);
-      await sleep(10000);
+      await sleep(10_000);
 
       getMarketCapStats();
       return;

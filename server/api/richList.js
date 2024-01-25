@@ -24,13 +24,15 @@ const getRichListPage = async (page = 1) =>
       "WITHSCORES",
       (err, list) => {
         const data = [];
-        list.forEach(value => {
-          if (value.startsWith("nano_")) {
-            data.push({ account: value });
-          } else {
-            data[data.length - 1].balance = parseFloat(value);
-          }
-        });
+        list &&
+          list.length &&
+          list.forEach(value => {
+            if (value.startsWith("nano_")) {
+              data.push({ account: value });
+            } else {
+              data[data.length - 1].balance = parseFloat(value);
+            }
+          });
 
         if (err) Sentry.captureException(err);
         resolve({ data, meta: { total, perPage: PER_PAGE, offset } });
