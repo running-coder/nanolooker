@@ -56,7 +56,7 @@ The expansion is for free now and it extends the game significantly. It features
 
 ![Secret Level](https://miro.medium.com/v2/format:webp/1*tZW26Kdu2og_9aFfZUk_3g.png?width=400px)
 
-Bonus Level Included in the Freezing Lands expansion, this secret level requires level 45 to enter and is opened by **three** ingredients mixed in the anvil to create the red portal.
+Bonus Level Included in the Freezing Lands expansion, this secret level requires to be level 45 or overto enter and it is opened by **three** ingredients mixed in the anvil to create the red portal.
 ![Cow Portal](https://cdn.discordapp.com/emojis/1170754976591646740.gif?size=100&quality=lossless)
 ![{"name": "Wirt's leg", "level": 1, "itemClass": "low", "damage": 2, "magicDamage": 1, "requirement": 1}](https://nanobrowserquest.com/img/3/item-wirtleg.png)
 ![{"name": "Skeleton King's Thoracic Cage", "description": "The thoracic cage of the Skeleton King. An unknown magic is still being emitted from the remains. Combined with other ingredients at the anvil, it will open a secret area, lv.45 required to enter" }](https://nanobrowserquest.com/img/3/item-skeletonkingcage.png)
@@ -66,10 +66,10 @@ Bonus Level Included in the Freezing Lands expansion, this secret level requires
 
 ![The Lost Temple](https://user-images.githubusercontent.com/19352322/231320692-412809fe-9e32-4466-bc27-bbb4473336da.png)
 
-This remarkable update brings new content and game mechanics, including minibosses, sockets, and runewords, adding excitement and depth to the gameplay.
+This remarkable update brings new content and game mechanics, including multiple minibosses, sockets, and runewords, adding excitement and depth to the gameplay.
 The new world features new Waypoints, many new bosses and various secrets.
 
-There are new offensive skills that can be activated by hovering over an enemy and pressing the '1' key. To utilize this skill, you must first equip a weapon imbued with the spell as an attribute.
+There are new offensive skills that can be activated by hovering over an enemy and pressing the '1' key. To utilize this skill, you must first equip a weapon imbued with the spell as an attribute. (for mobile press the buttons at the bottom bar of your screen)
 
 The addon can be purchased by the red wizard for XNO ![XNO](https://nanobrowserquest.com/img/3/xno.png)
 or BAN ![BAN](https://nanobrowserquest.com/img/3/ban.png)
@@ -79,7 +79,7 @@ depending on what version of the game you're in.
 
 ![Waypoints Panel](https://github.com/running-coder/nanolooker/assets/19352322/fe61b4c1-2908-42ee-8b03-acc0162650d1?width=450px&display=inline-block)![Waypoint](https://github.com/running-coder/nanolooker/assets/19352322/f798ac89-5b9f-4fda-8816-24397a143125?width=200px&display=inline-block)
 
-The waypoints are used for fast map traveling. Some are locked, but once you find and click them, they'll unlock. The first three waypoints are used to travel the 'Classic' map. The Skeleton King is located north in the Volcanic Mountain. Once the boss is killed, the next three waypoints for the 'Freezing Lands' expansion will unlock for free. After you beat the Necromancer, to unlock the 'Woodlands Lost Temple' expansion waypoint, you'll have to purchase the expansion from the red sorcerer in town for XNO/BAN.
+The waypoints are used for fast map traveling. Some are locked, but once you find and click them, they'll unlock. The first three waypoints are used to travel the 'Classic' map. The Skeleton King is located north in the Volcanic Mountain. Keep in mind you have to grind to level 16 at least to get to the boss arena. Once the boss is killed, the next three waypoints for the 'Freezing Lands' expansion will unlock for free but you have to find the 'frozen plateau' and the final boss arena for non-expansion'Necromancer lair' . After you beat the Necromancer, it is advised to focus on the secret level. After reaching the level cap, To unlock the 'Woodlands Lost Temple' expansion waypoint, you'll have to purchase the expansion from the red sorcerer in town for XNO/BAN.
 
 # Gold System
 
