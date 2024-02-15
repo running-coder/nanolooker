@@ -48,7 +48,7 @@ Since it's inception Nano BrowserQuest has been developed into a more complete e
 
 ![Freezing Lands](https://user-images.githubusercontent.com/19352322/231320633-2724023b-b0c9-45fa-8832-f43d344600a1.png)
 
-The expansion is for free now and it extends the game significantly. It features an all new map with a winter theme, including new enemies and two new bosses to defeat. There is also a bonus map with it's own boss, and recently a brand new "mega-boss". Beyond this a copious amount of new items and upgrades are available with cool animations and hidden attributes making the player ready to take on the more hardcore challenges present in new stages of the game.
+The frozen land expansion is now free and it extends the game significantly. It features an all new map with a winter theme, including new enemies and two new bosses to defeat. There is also a bonus map with it's own boss, and recently a brand new "mega-boss". Beyond this a copious amount of new items and upgrades are available with cool animations and hidden attributes making the player ready to take on the more hardcore challenges present in new stages of the game.
 
 ## Secret Level
 
