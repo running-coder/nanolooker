@@ -12,9 +12,9 @@ const doNanoTpsStats = async () => {
 
     const { send: sends, receive: receives, change: changes } = await res.json();
 
-    let send = sends[sends.length - 1];
-    let receive = receives[receives.length - 1];
-    let change = changes[changes.length - 1];
+    let send = sends[0];
+    let receive = receives[0];
+    let change = changes[0];
 
     const stats = { send, receive, change };
 
@@ -32,3 +32,5 @@ cron.schedule("0 * * * *", async () => {
 if (process.env.NODE_ENV === "production") {
   doNanoTpsStats();
 }
+
+doNanoTpsStats();
