@@ -3,7 +3,8 @@ const db = require("./client/mongo");
 
 db.connect();
 
-require("./client/redis");
+const { connectNBQRedisInstance } = require("./client/nbq-redis");
+connectNBQRedisInstance();
 require("./cron/marketCapRank");
 require("./cron/knownAccounts");
 require("./cron/delegatedEntity");

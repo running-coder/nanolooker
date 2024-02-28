@@ -1,4 +1,4 @@
-const { client: redisClient } = require("../client/redis");
+const { client: redisClient } = require("../client/nbq-redis");
 const { Sentry } = require("../sentry");
 const { DELEGATORS } = require("../constants");
 

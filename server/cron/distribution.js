@@ -7,7 +7,7 @@ const chunk = require("lodash/chunk");
 const BigNumber = require("bignumber.js");
 
 const { nodeCache } = require("../client/cache");
-const { client: redisClient } = require("../client/redis");
+const { client: redisClient } = require("../client/nbq-redis");
 const { Sentry } = require("../sentry");
 const {
   EXPIRE_24H,
