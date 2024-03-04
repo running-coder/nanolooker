@@ -5,7 +5,7 @@ const { rpc } = require("../rpc");
 const { nodeCache } = require("../client/cache");
 const db = require("../client/mongo");
 const { Sentry } = require("../sentry");
-const { NODE_LOCATIONS } = require("../constants");
+const { NODE_LOCATIONS, EXPIRE_48H } = require("../constants");
 
 const NODE_IP_REGEX = /\[::ffff:([\d.]+)\]:[\d]+/;
 
@@ -73,8 +73,11 @@ const getNodeLocation = async ip => {
 
 const doNodeLocations = async () => {
   console.log("Starting doNodeLocations");
-
+  const nodeLocations = nodeCache.get(NODE_LOCATIONS);
   try {
+    if (nodeLocations) {
+      return nodeLocations;
+    }
     let peers = await getNodePeers();
     let results = [];
 
@@ -106,7 +109,7 @@ const doNodeLocations = async () => {
     await database.collection(NODE_LOCATIONS).deleteMany({});
     await database.collection(NODE_LOCATIONS).insertMany(results);
 
-    nodeCache.set(NODE_LOCATIONS, results);
+    nodeCache.set(NODE_LOCATIONS, results, EXPIRE_48H);
 
     console.log("Done node location");
   } catch (err) {
