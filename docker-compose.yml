@@ -15,24 +15,6 @@ services:
     volumes:
       - /nano:/root
 
-  nano-node-monitor:
-    image: nanotools/nanonodemonitor
-    container_name: nano-node-monitor
-    hostname: nano-node-monitor
-    restart: unless-stopped
-    volumes:
-      - ./nano-node-monitor:/opt/nanoNodeMonitor
-    ports:
-      - "80:80"
-
-  watchtower:
-    image: v2tec/watchtower
-    container_name: watchtower
-    restart: unless-stopped
-    command: watchtower nano-node nano-node-monitor
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-
 networks:
   default:
     external:

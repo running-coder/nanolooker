@@ -1,0 +1,4 @@
+
+#user default on>password ~* &* +@all
+user default on nopass ~* &* +@all
+user default +@all ~jobs:* on >nopass

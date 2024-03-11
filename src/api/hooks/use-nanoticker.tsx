@@ -11,14 +11,14 @@ const useNanoTicker = (): UseUptimeReturn => {
 
   const getConfirmationsPerSecond = async () => {
     clearTimeout(confirmationsPerSecondTimeout);
-    try {
+    // try {
       const res = await fetch("/api/nanoticker");
       const { cps } = await res.json();
 
       setConfirmationsPerSecond(cps);
-    } catch (err) {
-      setConfirmationsPerSecond(undefined);
-    }
+    // } catch (err) {
+    //   setConfirmationsPerSecond(undefined);
+    // }
 
     confirmationsPerSecondTimeout = window.setTimeout(() => {
       getConfirmationsPerSecond();

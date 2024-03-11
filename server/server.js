@@ -24,7 +24,6 @@ const { getDistributionData } = require("./cron/distribution");
 const { getExchangeBalances } = require("./cron/exchangeTracker");
 const express = require("express");
 const cors = require("cors");
-const fetch = require("node-fetch");
 const { rpc, allowedRpcMethods } = require("./rpc");
 const bodyParser = require("body-parser");
 const path = require("path");
@@ -40,7 +39,7 @@ const {
   TOTAL_VOLUME_14D,
   CONFIRMATIONS_PER_SECOND,
   NANOTICKER_STATS,
-  NANOBROWSERQUEST_PLAYERS,
+  NANOBROWSERQUEST_ONLINE_PLAYERS,
   NANOBROWSERQUEST_LEADERBOARD,
   NANOTPS_STATS,
   NANOSPEED_STATS,
@@ -59,17 +58,17 @@ const { getDeveloperFundTransactions } = require("./api/developerFundTransaction
 const { getLargeTransactions } = require("./api/largeTransactions");
 const { getNodeStatus } = require("./api/nodeStatus");
 const { getKnownAccounts, getKnownAccountsBalance } = require("./api/knownAccounts");
-const { getDelegatorsPage, getAllDelegatorsCount } = require("./api/delegators");
+// const { getDelegatorsPage, getAllDelegatorsCount } = require("./api/delegators");
 const { getHistoryFilters } = require("./api/historyFilters");
 
-const { getRichListPage, getRichListAccount } = require("./api/richList");
+// const { getRichListPage, getRichListAccount } = require("./api/richList");
 const { getParticipant, getParticipantsPage } = require("./api/participants");
 const { getNodeLocations } = require("./api/nodeLocations");
 const { getNodeMonitors } = require("./api/nodeMonitors");
 const { getDelegatedEntity } = require("./api/delegatedEntity");
 const { getTelemetry } = require("./api/telemetry");
 const { getRepresentative, getAllRepresentatives } = require("./api/representative");
-const { Sentry } = require("./sentry");
+
 const { isValidAccountAddress } = require("./utils");
 const { terminate } = require("./terminate");
 
@@ -110,18 +109,17 @@ app.get("/api/distribution", (req, res) => {
 });
 
 // @TODO ADD getDelegators && getAllDelegators if req.account is specified
-app.get("/api/delegators", async (req, res) => {
-  let data;
-  const { account, page } = req.query;
+// app.get("/api/delegators", async (req, res) => {
+//   let data = [];
+//   const { account, page } = req.query;
+//   // if (isValidAccountAddress(account)) {
+//   //   data = await getDelegatorsPage({ account, page });
+//   // } else {
+//   //   data = await getAllDelegatorsCount();
+//   // }
 
-  if (isValidAccountAddress(account)) {
-    data = await getDelegatorsPage({ account, page });
-  } else {
-    data = await getAllDelegatorsCount();
-  }
-
-  res.send(data);
-});
+//   res.send(data);
+// });
 
 app.get("/api/transaction-filters", async (req, res) => {
   const { account, filters } = req.query;
@@ -257,13 +255,13 @@ app.get("/api/telemetry", async (req, res) => {
 });
 
 app.get("/api/rich-list", async (req, res) => {
-  const { page, account } = req.query;
-  let data;
-  if (page) {
-    data = await getRichListPage(page);
-  } else if (account) {
-    data = await getRichListAccount(account);
-  }
+  //   const { page, account } = req.query;
+  let data = [];
+  //   if (page) {
+  //     data = await getRichListPage(page);
+  //   } else if (account) {
+  //     data = await getRichListAccount(account);
+  //   }
 
   res.send(data);
 });
@@ -310,7 +308,7 @@ app.get("/api/participants", async (req, res) => {
 
 app.get("/api/nanobrowserquest/players", async (req, res, next) => {
   try {
-    res.send(nodeCache.get(NANOBROWSERQUEST_PLAYERS) || {});
+    res.send(nodeCache.get(NANOBROWSERQUEST_ONLINE_PLAYERS) || {});
   } catch (err) {
     next(err);
   }
@@ -318,14 +316,18 @@ app.get("/api/nanobrowserquest/players", async (req, res, next) => {
 
 app.get("/api/nanobrowserquest/leaderboard", async (req, res, next) => {
   try {
-    res.send(nodeCache.get(NANOBROWSERQUEST_LEADERBOARD) || []);
+    res.send(nodeCache.get(NANOBROWSERQUEST_LEADERBOARD));
   } catch (err) {
     next(err);
   }
 });
 
-app.get("/api/nanoticker", async (req, res) => {
-  res.send(nodeCache.get(NANOTICKER_STATS) || {});
+app.get("/api/nanoticker", async (req, res, next) => {
+  try {
+    res.send(nodeCache.get(NANOTICKER_STATS) || {});
+  } catch (err) {
+    next(err);
+  }
 });
 
 app.get("/api/youtube-playlist", async (req, res) => {
@@ -354,3 +356,5 @@ process.on("SIGTERM", exitHandler(0, "SIGTERM"));
 process.on("SIGINT", exitHandler(0, "SIGINT"));
 
 console.log(`Server started on http://localhost:${process.env.SERVER_PORT}`);
+
+// app.use('/api', createProxyMiddleware(options));
