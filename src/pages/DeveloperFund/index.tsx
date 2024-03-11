@@ -72,13 +72,12 @@ const DeveloperFund: React.FC = () => {
     ["desc"],
   );
 
-  const btcCurrentPrice = priceStats?.bitcoin?.[fiat] || 0;
-  const fiatBalance = new BigNumber(totalBalance)
-    .times(currentPrice)
-    .toFormat(CurrencyDecimal?.[fiat]);
+  const btcCurrentPrice = priceStats?.bitcoin?.[fiat];
+  const fiatBalance =
+    new BigNumber(totalBalance).times(currentPrice).toFormat(CurrencyDecimal?.[fiat]) || 0;
   const btcBalance = btcCurrentPrice
     ? new BigNumber(totalBalance).times(currentPrice).dividedBy(btcCurrentPrice).toFormat(12)
-    : null;
+    : 0;
 
   const skeletonProps = {
     active: true,
@@ -135,7 +134,7 @@ const DeveloperFund: React.FC = () => {
                 <LoadingStatistic
                   isLoading={skeletonProps.loading}
                   prefix="Ӿ"
-                  value={totalBalance}
+                  value={totalBalance || 0}
                 />
                 <Skeleton {...skeletonProps}>
                   {`${CurrencySymbol?.[fiat]} ${fiatBalance}${

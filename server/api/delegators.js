@@ -1,15 +1,14 @@
-const { client: redisClient } = require("../client/redis");
+const { redisClient } = require("../client/redis");
 const { Sentry } = require("../sentry");
 const { DELEGATORS } = require("../constants");
 
 const PER_PAGE = 50;
 
 const getTotal = account =>
-  new Promise(async resolve => {
-    redisClient.zcard(`DELEGATORS:${account}`, (err, total) => {
-      if (err) Sentry.captureException(err);
-      resolve(total);
-    });
+  new Promise(async () => {
+    const [total] = await redisClient.zCard(`DELEGATORS:${account}`);
+
+    console.log("~~~~~total", total);
   });
 
 const getDelegatorsPage = async ({ page = 1, account }) =>
@@ -44,33 +43,41 @@ const getDelegatorsPage = async ({ page = 1, account }) =>
   });
 
 const getAllDelegatorsCount = async () =>
-  new Promise(async resolve => {
-    redisClient.keys(`${DELEGATORS}:*`, (err, res) => {
-      if (err) {
-        Sentry.captureException(err);
-        return;
-      }
+  async function findKeys(pattern) {
+    let cursor = "0";
+    let keys = [];
 
-      Promise.all(
-        res.map(async key => {
-          const account = key.replace(`${DELEGATORS}:`, "");
-          const count = await getTotal(account);
+    do {
+      const reply = await redisClient.scan(cursor, "MATCH", pattern, "COUNT", "100");
+      keys.push(...reply.keys);
+    } while (cursor !== "0");
 
-          return {
-            [account]: count,
-          };
-        }),
-      ).then(result => {
-        resolve(
-          result.reduce((acc, value) => {
-            const key = Object.keys(value)[0];
-            acc[key] = value[key];
-            return acc;
-          }, {}),
-        );
-      });
-    });
+    return keys;
+  };
+new Promise(async resolve => {
+  const delegators = await redisClient
+    .findKeys(`${DELEGATORS}:*`)
+    .filter(key => key.startsWith(`${DELEGATORS}`));
+
+  Promise.all(
+    res.map(async key => {
+      const account = key.replace(`${DELEGATORS}:`, "");
+      const count = await getTotal(account);
+
+      return {
+        [account]: count,
+      };
+    }),
+  ).then(result => {
+    resolve(
+      result.reduce((acc, value) => {
+        const key = Object.keys(value)[0];
+        acc[key] = value[key];
+        return acc;
+      }, {}),
+    );
   });
+});
 
 module.exports = {
   getDelegatorsPage,

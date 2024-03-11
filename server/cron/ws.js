@@ -49,7 +49,7 @@ cron.schedule("*/3 * * * * *", async () => {
 
     nodeCache.set(
       CONFIRMATIONS_PER_SECOND,
-      new BigNumber(confirmationsPerSecond).dividedBy(EXPIRE_1M).toFormat(2),
+      new BigNumber(confirmationsPerSecond || 0).dividedBy(EXPIRE_1M).toFormat(2),
     );
   } catch (err) {
     Sentry.captureException(err, {

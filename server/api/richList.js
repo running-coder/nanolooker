@@ -1,23 +1,25 @@
-const { client: redisClient } = require("../client/redis");
+const { redisClient } = require("../client/redis");
 const { Sentry } = require("../sentry");
 const { REDIS_RICH_LIST } = require("../constants");
 
 const PER_PAGE = 25;
 
-const getTotal = () =>
-  new Promise(async resolve => {
-    redisClient.zcard(REDIS_RICH_LIST, (err, total) => {
-      if (err) Sentry.captureException(err);
-      resolve(total);
-    });
-  });
+const { NL_REDIS_DB_INDEX } = process.env;
+
+const getTotal = async () => {
+  const total = await redisClient.zCard(REDIS_RICH_LIST);
+
+  console.log("~~~~total", total);
+  return total;
+};
 
 const getRichListPage = async (page = 1) =>
   new Promise(async resolve => {
+    await redisClient.select(NL_REDIS_DB_INDEX);
     const offset = (page - 1) * PER_PAGE;
     const total = await getTotal();
 
-    redisClient.zrevrange(
+    const list = await redisClient.zrevrange(
       REDIS_RICH_LIST,
       offset,
       offset + PER_PAGE - 1,

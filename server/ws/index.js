@@ -1,6 +1,6 @@
 const WS = require("ws");
 const BigNumber = require("bignumber.js");
-const ReconnectingWebSocket = require("reconnecting-websocket");
+const { WsReconnect } = require("websocket-reconnect");
 const { Sentry } = require("../sentry");
 const db = require("../client/mongo");
 const {
@@ -18,15 +18,9 @@ let accumulatedVolume = 0;
 let accumulatedLargeTransactionHashes = [];
 
 // https://github.com/cryptocode/nano-websocket-sample-nodejs/blob/master/index.js
-const ws = new ReconnectingWebSocket("wss://www.nanolooker.com/ws", [], {
-  WebSocket: WS,
-  connectionTimeout: 10000,
-  maxRetries: 100000,
-  maxReconnectionDelay: 2000,
-  minReconnectionDelay: 10,
-});
-
-ws.onopen = () => {
+const ws = new WsReconnect({ reconnectDelay: 5000 });
+ws.open(`wss://www.nanolooker.com/ws:${process.env.WS_PORT}`);
+ws.on("open", () => {
   console.log("WS OPENED");
   const subscription = {
     action: "subscribe",
@@ -38,22 +32,33 @@ ws.onopen = () => {
   ws.send(JSON.stringify(subscription));
 
   updateDbInterval = setInterval(updateDb, UPDATE_CACHE_INTERVAL);
-};
+});
 
-ws.onclose = () => {
+ws.on("close", () => {
   console.log("WS close");
   clearInterval(updateDbInterval);
   updateDb();
-};
+});
 
-ws.onerror = err => {
+ws.on("error", err => {
   console.log("WS ERROR", err);
   clearInterval(updateDbInterval);
   updateDb();
-};
+});
 
 ws.onmessage = msg => {
+  if (Buffer.isBuffer(msg)) {
+    const buffer = Buffer.from(msg, "hex");
+    const jsonString = buffer.toString("utf-8");
+
+    msg = {
+      data: jsonString,
+    };
+
+  }
+
   const { topic, message } = JSON.parse(msg.data);
+
   const {
     amount,
     block: { subtype },
@@ -61,7 +66,6 @@ ws.onmessage = msg => {
 
   if (topic === "confirmation") {
     accumulatedConfirmations = accumulatedConfirmations + 1;
-    
 
     // 10,000 NANO
     if (subtype === "send" && amount.length >= 35) {

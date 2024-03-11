@@ -23,11 +23,13 @@ const getDeveloperFundTransactions = async () => {
             count: "-1",
           });
 
-          const history = res.history
-            .map(({ type, height, ...rest }) =>
-              type === "send" ? { origin: account, type, ...rest } : undefined,
-            )
-            .filter(Boolean);
+          const { history = [] } =
+            res ||
+            []
+              .map(({ type, height, ...rest }) =>
+                type === "send" ? { origin: account, type, ...rest } : undefined,
+              )
+              .filter(Boolean);
 
           accountsHistory = accountsHistory.concat(history);
 

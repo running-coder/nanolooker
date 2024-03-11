@@ -28,7 +28,7 @@ const NanoBrowserQuestGuidePage: React.FC = () => {
         text = text.replace(/:rune([a-z]+):/gi, (match, capturedLetters: string) => {
           //@ts-ignore
           const rune = runeKind[capturedLetters];
-          console.log("~~~~rune", rune);
+
           const replacement = `![{"name": "${capturedLetters.toUpperCase()} Rune #${
             rune.rank
           }", "itemClass": "${getItemClassFromBaseLevel(rune.requirement)}", "requirement": "${
@@ -89,10 +89,7 @@ const Image: React.FC<HTMLImageElement> = ({ src, alt: rawAttributes }) => {
   if (rawAttributes?.startsWith("{")) {
     try {
       title = getItemAttributes(JSON.parse(rawAttributes));
-      // console.log("`~~~rawAttributes", rawAttributes);
     } catch (err) {
-      // console.log("`~~~rawAttributes", JSON.parse(rawAttributes));
-      console.log("`~~~ERR", err);
     }
 
     return (
