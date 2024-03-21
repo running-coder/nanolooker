@@ -34,7 +34,7 @@ const getNanoBrowserQuestLeaderboard = async () => {
       );
       // rawCursor = reply.cursor;
 
-      console.log('~~~reply.cursor',reply.cursor)
+      console.log("~~~reply.cursor", reply.cursor);
       keys.push(...reply.keys);
     } while (reply.cursor);
     return keys;
@@ -99,6 +99,5 @@ cron.schedule("*/15 * * * *", async () => {
 });
 
 if (!nodeCache.get(NANOBROWSERQUEST_LEADERBOARD)) {
-
-getNanoBrowserQuestLeaderboard();
+  getNanoBrowserQuestLeaderboard();
 }

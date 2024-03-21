@@ -13,7 +13,6 @@ require("./cron/telemetry");
 require("./cron/ws");
 require("./cron/coingeckoStats");
 require("./cron/btcTransactionFees");
-require("./cron/nanotickerStats");
 require("./cron/nanotpsStats");
 require("./cron/nanospeed");
 require("./cron/nanobrowserquestStats");
@@ -38,7 +37,6 @@ const {
   TOTAL_VOLUME_7D,
   TOTAL_VOLUME_14D,
   CONFIRMATIONS_PER_SECOND,
-  NANOTICKER_STATS,
   NANOBROWSERQUEST_ONLINE_PLAYERS,
   NANOBROWSERQUEST_LEADERBOARD,
   NANOTPS_STATS,
@@ -318,14 +316,6 @@ app.get("/api/nanobrowserquest/leaderboard", async (req, res, next) => {
 
   try {
     res.send(nodeCache.get(NANOBROWSERQUEST_LEADERBOARD));
-  } catch (err) {
-    next(err);
-  }
-});
-
-app.get("/api/nanoticker", async (req, res, next) => {
-  try {
-    res.send(nodeCache.get(NANOTICKER_STATS) || {});
   } catch (err) {
     next(err);
   }
