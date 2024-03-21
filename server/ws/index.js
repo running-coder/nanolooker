@@ -49,7 +49,7 @@ ws.on("error", err => {
 ws.onmessage = msg => {
   if (Buffer.isBuffer(msg)) {
     const buffer = Buffer.from(msg, "hex");
-    const jsonString = buffer.toString("utf-8");
+    const jsonString = buffer?.toString("utf-8");
 
     msg = {
       data: jsonString,

@@ -18,35 +18,31 @@ const getNanoBrowserQuestPlayers = async () => {
 
 const getNanoBrowserQuestLeaderboard = async () => {
   await redisClient.select(NBQ_REDIS_DB_INDEX);
-  async function findKeys(pattern) {
-    let cursor = "0";
+
+  async function scanAllKeys(pattern = "*") {
+    let cursor = 0; // Initialize cursor as a number
     let keys = [];
-    let reply;
 
-    redisClient.select(NBQ_REDIS_DB_INDEX);
     do {
-      reply = await redisClient.scan(
-        reply ? reply.cursor : cursor,
-        "MATCH",
-        pattern,
-        "COUNT",
-        "100",
-      );
-      // rawCursor = reply.cursor;
+      // Await the SCAN operation with the current cursor
+      const result = await redisClient.scan(cursor, {
+        MATCH: pattern,
+        COUNT: 100,
+      });
 
-      console.log("~~~reply.cursor", reply.cursor);
-      keys.push(...reply.keys);
-    } while (reply.cursor);
+      cursor = result.cursor;
+      keys = keys.concat(result.keys.filter(key => key.startsWith("u:")));
+    } while (cursor !== 0);
     return keys;
   }
 
   let playersData = [];
-  const PER_PAGES = 2;
+  const PER_PAGES = 500;
   // Usage
-  const players = (await findKeys("u:*")).filter(key => key.startsWith("u:"));
-  const playersChunks = chunk(players, PER_PAGES);
+  // const players = (await findKeys("u:*")).filter(key => key.startsWith("u:"));
 
-  console.log("~~~~~~~playersChunks", playersChunks);
+  const players = await scanAllKeys(); //.filter(key => key.startsWith("u:"));
+  const playersChunks = chunk(players, PER_PAGES);
 
   for (let i = 0; i < playersChunks.length; i++) {
     const rawPlayerData = await Promise.all(

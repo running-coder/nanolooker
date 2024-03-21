@@ -313,7 +313,6 @@ app.get("/api/nanobrowserquest/players", async (req, res, next) => {
 });
 
 app.get("/api/nanobrowserquest/leaderboard", async (req, res, next) => {
-
   try {
     res.send(nodeCache.get(NANOBROWSERQUEST_LEADERBOARD));
   } catch (err) {
@@ -347,4 +346,3 @@ process.on("SIGTERM", exitHandler(0, "SIGTERM"));
 process.on("SIGINT", exitHandler(0, "SIGINT"));
 
 console.log(`Server started on http://localhost:${process.env.SERVER_PORT}`);
-
