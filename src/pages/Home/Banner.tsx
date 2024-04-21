@@ -8,7 +8,7 @@ import { PreferencesContext, Theme } from "api/contexts/Preferences";
 import Search from "components/Search";
 import { Tracker } from "components/utils/analytics";
 
-const { Text, Title } = Typography;
+const { Title } = Typography;
 
 const Banner: React.FC = () => {
   const { t } = useTranslation();
@@ -67,7 +67,7 @@ const Banner: React.FC = () => {
           <Button ghost>{t("menu.whatIsNano")}</Button>
         </Link> */}
 
-        <Button
+        {/* <Button
           ghost
           href="https://pasino.com/?user_id=18828"
           target="_blank"
@@ -108,7 +108,7 @@ const Banner: React.FC = () => {
               Pasino
             </Text>
           </div>
-        </Button>
+        </Button> */}
 
         <Link to={"/nanobrowserquest"}>
           <Button
